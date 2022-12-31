@@ -4,5 +4,6 @@
  */
 import type { PluginOption } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import svgr from 'vite-plugin-svgr';
 
-export const vitePlugins: PluginOption[] = [tsconfigPaths()];
+export const vitePlugins: PluginOption[] = [tsconfigPaths(), svgr({ svgrOptions: { ref: true } })];

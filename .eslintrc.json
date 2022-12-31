@@ -67,6 +67,11 @@
           {
             "name": "react-dom/test-utils",
             "message": "use testing library instead."
+          },
+          {
+            "name": "jest-axe",
+            "importNames": ["axe"],
+            "message": "use our axe wrapper."
           }
         ]
       }

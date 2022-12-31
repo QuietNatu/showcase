@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
-import { axe } from '../test/utils/axe';
-import { render } from '../test/utils/render';
+import { axe } from '@/test/utils/axe';
+import { render } from '@/test/utils/render';
 import App from './app';
 
 test('renders', () => {

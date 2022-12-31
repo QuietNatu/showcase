@@ -1,10 +1,11 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { vitePlugins } from './vite-plugins';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), ...vitePlugins],
 
   // https://github.com/vitest-dev/vitest
   test: {

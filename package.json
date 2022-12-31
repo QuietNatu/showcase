@@ -7,11 +7,12 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "npm run lint:lslint && npm run lint:eslint && npm run lint:stylelint && npm run lint:prettier",
+    "lint": "npm run lint:lslint && npm run lint:eslint && npm run lint:stylelint && npm run lint:prettier && npm run lint:dependencies",
     "lint:lslint": "ls-lint",
     "lint:eslint": "eslint --max-warnings=0 src/**/*.{ts,tsx}",
     "lint:stylelint": "stylelint src/**/*.{css,scss}",
     "lint:prettier": "prettier --check src/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
+    "lint:dependencies": "depcruise src --config .dependency-cruiser.cjs",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -27,6 +28,7 @@
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
     "@vitejs/plugin-react": "^3.0.0",
+    "dependency-cruiser": "^12.3.0",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.2",

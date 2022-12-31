@@ -13,7 +13,8 @@
     "lint:stylelint": "stylelint src/**/*.{css,scss}",
     "lint:prettier": "prettier --check src/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
     "lint:dependencies": "depcruise src --config .dependency-cruiser.cjs",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "graph:modules": "depcruise src --config graphs/.modules.cjs -T dot | dot -T svg | depcruise-wrap-stream-in-html > graphs/modules-graph.html"
   },
   "dependencies": {
     "react": "^18.2.0",

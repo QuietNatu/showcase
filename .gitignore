@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 .eslintcache
+graphs/*.html
 
 # Editor directories and files
 .vscode/*

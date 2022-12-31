@@ -142,10 +142,13 @@ module.exports = {
         'section of your package.json. If this module is development only - add it to the ' +
         'from.pathNot re of the not-to-dev-dep rule in the dependency-cruiser configuration',
       from: {
-        path: '^(src)',
-        pathNot: '\\.(spec|test|stories)\\.(js|mjs|cjs|ts|ls|coffee|litcoffee|coffee\\.md)$',
+        path: '^src/app',
+        pathNot: [
+          '\\.(spec|test|stories)\\.(js|jsx|mjs|cjs|ts|tsx|ls|coffee|litcoffee|coffee\\.md)$',
+        ],
       },
       to: {
+        pathNot: ['^node_modules/type-fest'],
         dependencyTypes: ['npm-dev'],
       },
     },

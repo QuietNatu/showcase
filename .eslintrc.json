@@ -19,6 +19,9 @@
     },
     "react": {
       "version": "detect"
+    },
+    "jest": {
+      "version": 29
     }
   },
   "parser": "@typescript-eslint/parser",
@@ -52,7 +55,44 @@
         "reset": false
       }
     ],
+    "@typescript-eslint/no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "@testing-library/react",
+            "importNames": ["render", "renderHook"],
+            "message": "use our test helpers."
+          },
+          {
+            "name": "react-dom/test-utils",
+            "message": "use testing library instead."
+          }
+        ]
+      }
+    ],
     "unused-imports/no-unused-imports": "warn"
   },
-  "overrides": []
+  "overrides": [
+    {
+      "files": ["src/**/*.test.[jt]s?(x)"],
+      "env": {
+        "jest/globals": true
+      },
+      "extends": [
+        "plugin:jest/recommended",
+        "plugin:jest/style",
+        "plugin:jest-dom/recommended",
+        "plugin:testing-library/react"
+      ],
+      "plugins": [],
+      "rules": {
+        "jest/consistent-test-it": ["error", { "fn": "test" }],
+        "jest/unbound-method": "error",
+        "testing-library/no-manual-cleanup": "error",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/unbound-method": "off"
+      }
+    }
+  ]
 }

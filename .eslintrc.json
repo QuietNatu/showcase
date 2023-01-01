@@ -55,6 +55,7 @@
         "reset": false
       }
     ],
+    "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/no-restricted-imports": [
       "error",
       {

@@ -47,6 +47,7 @@
   "plugins": ["react", "react-hooks", "jsx-a11y", "@typescript-eslint", "unused-imports"],
   "rules": {
     "no-console": "warn",
+    "import/no-default-export": "error",
     "react/button-has-type": [
       "error",
       {

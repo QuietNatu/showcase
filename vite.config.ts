@@ -8,7 +8,6 @@ import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
-  const baseUrl = env.VITE_BASE_URL;
   const isE2e = env.VITE_E2E === 'true';
 
   return {

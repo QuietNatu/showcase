@@ -98,6 +98,11 @@
         "@typescript-eslint/no-non-null-assertion": "off",
         "@typescript-eslint/unbound-method": "off"
       }
+    },
+    {
+      "files": ["e2e/**/*"],
+      "extends": ["plugin:playwright/playwright-test"],
+      "rules": {}
     }
   ]
 }

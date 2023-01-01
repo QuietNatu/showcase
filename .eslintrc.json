@@ -74,6 +74,16 @@
             "importNames": ["axe"],
             "message": "use our axe wrapper."
           }
+        ],
+        "patterns": [
+          {
+            "group": ["fp-ts/lib/*"],
+            "message": "remove 'lib' from the import"
+          },
+          {
+            "group": ["fp-ts/es6/*"],
+            "message": "remove 'es6' from the import"
+          }
         ]
       }
     ],

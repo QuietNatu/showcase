@@ -1,6 +1,13 @@
 import './extend-matchers';
 
+import { mockDatabase } from '@/mocks/server/database/database';
+import { mockServer } from '@/mocks/server/server';
 import { deleteAllCookies } from './utils/cookie';
+import { drop } from '@mswjs/data';
+
+beforeAll(() => {
+  mockServer.listen();
+});
 
 afterEach(() => {
   vi.clearAllMocks();
@@ -9,4 +16,11 @@ afterEach(() => {
   sessionStorage.clear();
 
   deleteAllCookies();
+
+  mockServer.resetHandlers();
+  drop(mockDatabase);
+});
+
+afterAll(() => {
+  mockServer.close();
 });

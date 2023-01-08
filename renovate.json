@@ -52,6 +52,7 @@
     },
     {
       "matchPackageNames": ["msw"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
       "addLabels": ["action needed"],
       "description": "also needs to update mockServiceWorker.js"
     }

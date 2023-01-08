@@ -1,0 +1,59 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:js-app"],
+  "schedule": ["after 1am and before 5am on Monday"],
+  "npm": {
+    "stabilityDays": 3
+  },
+  "internalChecksFilter": "strict",
+  "platformAutomerge": true,
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["pin", "digest"],
+      "automerge": true
+    },
+    {
+      "groupName": "Eslint",
+      "matchPackagePatterns": ["eslint"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "groupName": "Stylelint",
+      "matchPackagePatterns": ["stylelint"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "groupName": "TestingLibrary",
+      "matchPackagePrefixes": ["@testing-library/"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "groupName": "Workbox",
+      "matchPackagePatterns": ["workbox"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "groupName": "I18next",
+      "matchPackagePatterns": ["i18next"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "groupName": "Vite",
+      "matchPackageNames": ["vite", "@vitejs/plugin-react"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "groupName": "Core storybook",
+      "matchPackagePatterns": ["^@storybook"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "description": "it is better to update via storybook",
+      "enabled": false
+    },
+    {
+      "matchPackageNames": ["msw"],
+      "addLabels": ["action needed"],
+      "description": "also needs to update mockServiceWorker.js"
+    }
+  ]
+}

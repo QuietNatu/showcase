@@ -36,8 +36,8 @@
     "workbox-window": "6.5.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.4.3",
-    "@commitlint/config-conventional": "17.4.3",
+    "@commitlint/cli": "17.4.4",
+    "@commitlint/config-conventional": "17.4.4",
     "@ls-lint/ls-lint": "1.11.2",
     "@mswjs/data": "0.11.2",
     "@playwright/test": "1.29.1",

@@ -9,7 +9,7 @@ import { CacheFirst, NetworkFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 import urlJoin from 'url-join';
 
-declare let self: ServiceWorkerGlobalScope;
+declare const self: ServiceWorkerGlobalScope;
 
 clientsClaim();
 

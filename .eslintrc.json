@@ -42,9 +42,17 @@
     "plugin:jsx-a11y/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:functional/recommended",
     "prettier" // should be last to override the other configs
   ],
-  "plugins": ["react", "react-hooks", "jsx-a11y", "@typescript-eslint", "unused-imports"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "@typescript-eslint",
+    "unused-imports",
+    "functional"
+  ],
   "rules": {
     "no-console": "warn",
     "import/no-default-export": "error",
@@ -88,7 +96,13 @@
         ]
       }
     ],
-    "unused-imports/no-unused-imports": "warn"
+    "unused-imports/no-unused-imports": "warn",
+    "functional/functional-parameters": ["error", { "enforceParameterCount": false }],
+    "functional/no-expression-statements": "off",
+    "functional/no-conditional-statements": "off",
+    "functional/no-return-void": "off",
+    "functional/no-mixed-types": "off",
+    "functional/prefer-immutable-types": "off"
   },
   "overrides": [
     {
@@ -108,7 +122,9 @@
         "jest/unbound-method": "error",
         "testing-library/no-manual-cleanup": "error",
         "@typescript-eslint/no-non-null-assertion": "off",
-        "@typescript-eslint/unbound-method": "off"
+        "@typescript-eslint/unbound-method": "off",
+        "functional/no-expression-statements": "off",
+        "functional/no-return-void": "off"
       }
     },
     {

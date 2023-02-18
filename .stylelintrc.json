@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "stylelint-config-standard-scss",
-    "stylelint-config-css-modules",
-    "stylelint-config-prettier"
-  ],
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-css-modules"],
   "plugins": ["stylelint-scss", "stylelint-order"],
   "ignoreFiles": ["./node_modules/**", "**/*.js", "**/*.ts", "**/*.jsx", "**/*.tsx"],
   "rules": {

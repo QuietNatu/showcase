@@ -80,7 +80,6 @@
     "sass": "1.58.1",
     "stylelint": "15.1.0",
     "stylelint-config-css-modules": "4.2.0",
-    "stylelint-config-prettier": "9.0.4",
     "stylelint-config-standard-scss": "7.0.1",
     "stylelint-order": "6.0.2",
     "stylelint-scss": "4.4.0",

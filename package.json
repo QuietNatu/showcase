@@ -39,7 +39,7 @@
     "@commitlint/cli": "17.4.3",
     "@commitlint/config-conventional": "17.4.3",
     "@ls-lint/ls-lint": "1.11.2",
-    "@mswjs/data": "0.11.0",
+    "@mswjs/data": "0.11.2",
     "@playwright/test": "1.29.1",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",

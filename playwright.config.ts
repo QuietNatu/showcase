@@ -11,7 +11,7 @@ const config: PlaywrightTestConfig = {
   forbidOnly: !!process.env.CI,
   reporter: [['list']],
   use: {
-    baseURL: `http://127.0.0.1:${port}/`,
+    baseURL: `http://localhost:${port}/`,
     headless: true,
     locale: 'en-GB',
     screenshot: 'only-on-failure',

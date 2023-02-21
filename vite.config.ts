@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react';
 import { vitePlugins } from './vite-plugins';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
+import legacy from '@vitejs/plugin-legacy';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -21,6 +22,7 @@ export default defineConfig(({ mode }) => {
 
     plugins: [
       react(),
+      legacy(),
       VitePWA(isE2e ? { injectRegister: null } : pwaOptions),
       visualizer({ filename: 'dependency-stats.html' }),
       ...vitePlugins,

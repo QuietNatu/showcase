@@ -57,7 +57,7 @@
     "@vitejs/plugin-legacy": "4.0.1",
     "@vitejs/plugin-react": "3.1.0",
     "@vitest/coverage-istanbul": "0.28.5",
-    "autoprefixer": "10.4.13",
+    "autoprefixer": "10.4.14",
     "axe-core": "4.6.3",
     "chance": "1.1.10",
     "cross-env": "7.0.3",

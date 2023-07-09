@@ -8,11 +8,20 @@ importers:
 
   .:
     devDependencies:
+      prettier:
+        specifier: ^3.0.0
+        version: 3.0.0
       turbo:
         specifier: ^1.10.7
         version: 1.10.7
 
 packages:
+
+  /prettier@3.0.0:
+    resolution: {integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
 
   /turbo-darwin-64@1.10.7:
     resolution: {integrity: sha512-N2MNuhwrl6g7vGuz4y3fFG2aR1oCs0UZ5HKl8KSTn/VC2y2YIuLGedQ3OVbo0TfEvygAlF3QGAAKKtOCmGPNKA==}

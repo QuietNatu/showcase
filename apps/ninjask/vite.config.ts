@@ -1,14 +1,14 @@
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import solid from 'vite-plugin-solid';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   return {
-    plugins: [react()],
+    plugins: [solid()],
 
     server: {
       open: mode !== 'test',
-      port: 5173,
+      port: 5273,
     },
   };
 });

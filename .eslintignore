@@ -1,0 +1,6 @@
+node_modules/
+build/
+coverage/
+public/
+vite.config.ts
+.eslintrc.cjs

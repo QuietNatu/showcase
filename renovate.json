@@ -1,0 +1,93 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:js-app"],
+  "schedule": ["after 10pm every weekday", "before 5am every weekday"],
+  "timezone": "Europe/London",
+  "onboarding": false,
+  "prConcurrentLimit": 2,
+  "platformAutomerge": true,
+  "baseBranches": ["main"],
+  "internalChecksFilter": "strict",
+  "labels": ["dependencies"],
+  "npm": {
+    "minimumReleaseAge": "3 days"
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["pin", "digest"],
+      "automerge": true
+    },
+    {
+      "groupName": "Eslint",
+      "matchPackagePatterns": ["eslint"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "groupName": "Stylelint",
+      "matchPackagePatterns": ["stylelint"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "groupName": "TestingLibrary",
+      "matchPackagePrefixes": ["@testing-library/"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "groupName": "Workbox",
+      "matchPackagePatterns": ["workbox"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "groupName": "I18next",
+      "matchPackagePatterns": ["i18next"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "groupName": "Vite",
+      "matchPackageNames": [
+        "vite",
+        "@vitejs/plugin-react",
+        "@vitejs/plugin-react-swc",
+        "vite-plugin-solid"
+      ],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "matchPackageNames": ["msw"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "addLabels": ["action needed"],
+      "description": "also needs to update mockServiceWorker.js",
+      "dependencyDashboardApproval": true
+    },
+    {
+      "groupName": "Core storybook",
+      "matchPackagePatterns": ["^@storybook", "^storybook$"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "description": "it is better to update via storybook",
+      "dependencyDashboardApproval": true
+    },
+    {
+      "matchPackageNames": ["turbo"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "description": "it is better to update via 'pnpm dlx @turbo/codemod update'",
+      "dependencyDashboardApproval": true
+    },
+    {
+      "groupName": "Angular dependencies",
+      "matchFileNames": ["apps/rotom/package.json", "packages/*-angular/package.json"],
+      "matchPackagePatterns": [
+        "^@angular/",
+        "^ng-packagr$",
+        "^rxjs$",
+        "^tslib$",
+        "^zone\\.js$",
+        "^jasmine-core$",
+        "@types/jasmine$",
+        "^typescript$"
+      ],
+      "matchUpdateTypes": ["major", "minor"],
+      "description": "the possibility of an Angular update breaking dependencies is very high",
+      "dependencyDashboardApproval": true
+    }
+  ]
+}

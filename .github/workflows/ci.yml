@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+env:
+  HUSKY: 0
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+  TURBO_CACHE_DIR: .turbo
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Restore turbo cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ${{ env.TURBO_CACHE_DIR }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: Use pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: 'package.json'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        # change to pnpm ci once it is implemented
+        run: pnpm i --frozen-lockfile --loglevel warn
+
+      - name: Lint files
+        run: pnpm run lint --cache-dir=${{ env.TURBO_CACHE_DIR }}
+
+      # - name: Run tests
+      #   run: pnpm run test --cache-dir=${{ env.TURBO_CACHE_DIR }}
+
+      - name: Build
+        run: pnpm run build --cache-dir=${{ env.TURBO_CACHE_DIR }}
+
+      - name: Save turbo cache
+        uses: actions/cache/save@v3
+        if: success() || failure()
+        with:
+          path: ${{ env.TURBO_CACHE_DIR }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}

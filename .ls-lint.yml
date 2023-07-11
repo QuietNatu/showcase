@@ -1,0 +1,62 @@
+ls:
+  apps/*/{src,e2e}:
+    .dir: kebab-case
+    .js: kebab-case
+    .jsx: kebab-case
+    .ts: kebab-case
+    .d.ts: kebab-case
+    .test.ts: kebab-case
+    .tsx: kebab-case
+    .test.tsx: kebab-case
+    .stories.ts: kebab-case
+    .stories.tsx: kebab-case
+    .json: kebab-case
+    .css: kebab-case
+    .module.scss: kebab-case
+    # Angular stuff...
+    .component.ts: kebab-case
+    .component.html: kebab-case
+    .component.scss: kebab-case
+    .component.test.ts: kebab-case
+    .service.ts: kebab-case
+    .service.test.ts: kebab-case
+    .guard.ts: kebab-case
+    .guard.test.ts: kebab-case
+    .directive.ts: kebab-case
+    .directive.test.ts: kebab-case
+    .pipe.ts: kebab-case
+    .pipe.test.ts: kebab-case
+    .module.ts: kebab-case
+
+  packages/*/{src,e2e}:
+    .dir: kebab-case
+    .js: kebab-case
+    .jsx: kebab-case
+    .ts: kebab-case
+    .d.ts: kebab-case
+    .test.ts: kebab-case
+    .tsx: kebab-case
+    .test.tsx: kebab-case
+    .stories.ts: kebab-case
+    .stories.tsx: kebab-case
+    .json: kebab-case
+    .css: kebab-case
+    .module.scss: kebab-case
+    # Angular stuff...
+    .component.ts: kebab-case
+    .component.html: kebab-case
+    .component.scss: kebab-case
+    .component.test.ts: kebab-case
+    .service.ts: kebab-case
+    .service.test.ts: kebab-case
+    .guard.ts: kebab-case
+    .guard.test.ts: kebab-case
+    .directive.ts: kebab-case
+    .directive.test.ts: kebab-case
+    .pipe.ts: kebab-case
+    .pipe.test.ts: kebab-case
+    .module.ts: kebab-case
+
+ignore:
+# TODO: use globs once this is merged https://github.com/loeffel-io/ls-lint/pull/76
+#   - apps/*/src/locales

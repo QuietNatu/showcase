@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@ls-lint/ls-lint':
+        specifier: ^2.0.1
+        version: 2.0.1
       prettier:
         specifier: 3.0.0
         version: 3.0.0
@@ -2453,6 +2456,13 @@ packages:
 
   /@leichtgewicht/ip-codec@2.0.4:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
+    dev: true
+
+  /@ls-lint/ls-lint@2.0.1:
+    resolution: {integrity: sha512-z+sGTPWHQ2nWRj2UsDFSEQDOCw2iIjP2bPU/K1wgLNkWUv7J8WjzoBsZLgUqIgD1Sqi7zpksFTtTymgnUwramA==}
+    cpu: [x64, arm64, s390x]
+    os: [darwin, linux, win32]
+    hasBin: true
     dev: true
 
   /@ngtools/webpack@16.1.4(@angular/compiler-cli@16.1.4)(typescript@5.1.6)(webpack@5.86.0):

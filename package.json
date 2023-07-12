@@ -15,7 +15,7 @@
     "lint-lslint": "ls-lint"
   },
   "devDependencies": {
-    "@ls-lint/ls-lint": "^2.0.1",
+    "@ls-lint/ls-lint": "2.0.1",
     "prettier": "3.0.0",
     "stylelint": "15.10.1",
     "stylelint-config-css-modules": "4.2.0",

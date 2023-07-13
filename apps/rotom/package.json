@@ -1,7 +1,7 @@
 {
   "name": "@natu/rotom",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "version": "0.0.0",
   "scripts": {
     "dev": "ng serve",

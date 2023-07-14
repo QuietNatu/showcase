@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "ng serve",
     "build": "ng build",
+    "lint": "ng lint",
     "test": "ng test"
   },
   "dependencies": {
@@ -23,9 +24,13 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "16.1.4",
+    "@angular-eslint/builder": "16.1.0",
+    "@angular-eslint/schematics": "16.1.0",
     "@angular/cli": "16.1.4",
     "@angular/compiler-cli": "16.1.4",
+    "@natu/eslint-config-angular": "workspace:*",
     "@types/jasmine": "4.3.5",
+    "eslint": "^8.44.0",
     "jasmine-core": "4.6.0",
     "karma": "6.4.2",
     "karma-chrome-launcher": "3.2.0",

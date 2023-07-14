@@ -5,6 +5,7 @@ module.exports = {
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: './tsconfig.json',
+    createDefaultProgram: true,
   },
-  extends: ['@natu/eslint-config-react'],
+  extends: ['@natu/eslint-config-angular'],
 };

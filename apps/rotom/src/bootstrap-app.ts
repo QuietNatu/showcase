@@ -10,5 +10,6 @@ import { provideAppRouter } from './app/core/providers/router-provider';
 export function bootstrapApp() {
   bootstrapApplication(AppComponent, {
     providers: [importProvidersFrom(BrowserModule), provideAnimations(), provideAppRouter()],
-  }).catch((error) => console.error(error));
+    // eslint-disable-next-line no-console
+  }).catch(console.error);
 }

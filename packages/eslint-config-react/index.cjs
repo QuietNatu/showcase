@@ -53,6 +53,7 @@ module.exports = {
       },
     ],
     'react-refresh/only-export-components': ['error', { allowConstantExport: true }],
+    '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
     '@typescript-eslint/no-non-null-assertion': 'warn',
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-restricted-imports': [
@@ -62,6 +63,10 @@ module.exports = {
           {
             name: '@testing-library/react',
             importNames: ['render', 'renderHook'],
+            message: 'use our test helpers.',
+          },
+          {
+            name: '@testing-library/user-event',
             message: 'use our test helpers.',
           },
           {
@@ -77,7 +82,10 @@ module.exports = {
       },
     ],
     'unused-imports/no-unused-imports': 'error',
-    'functional/functional-parameters': ['error', { enforceParameterCount: false }],
+    'functional/functional-parameters': [
+      'error',
+      { allowRestParameter: true, enforceParameterCount: false },
+    ],
     'functional/no-expression-statements': 'off',
     'functional/no-conditional-statements': 'off',
     'functional/no-return-void': 'off',

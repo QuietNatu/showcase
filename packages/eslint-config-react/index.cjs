@@ -1,4 +1,3 @@
-// TODO: rename eslintrc https://www.npmjs.com/package/eslint-plugin-react new eslint major changes
 module.exports = {
   env: {
     browser: true,
@@ -9,8 +8,8 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 'latest', // TODO: this can be removed? https://eslint.org/blog/2022/08/new-config-system-part-2/
-    sourceType: 'module', // TODO: this can be removed? https://eslint.org/blog/2022/08/new-config-system-part-2/
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
   settings: {
     react: {
@@ -53,7 +52,8 @@ module.exports = {
         reset: false,
       },
     ],
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'react-refresh/only-export-components': ['error', { allowConstantExport: true }],
+    '@typescript-eslint/no-non-null-assertion': 'warn',
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-restricted-imports': [
       'error',
@@ -76,7 +76,7 @@ module.exports = {
         ],
       },
     ],
-    'unused-imports/no-unused-imports': 'warn',
+    'unused-imports/no-unused-imports': 'error',
     'functional/functional-parameters': ['error', { enforceParameterCount: false }],
     'functional/no-expression-statements': 'off',
     'functional/no-conditional-statements': 'off',

@@ -1,0 +1,33 @@
+{
+  "folders": [
+    {
+      "name": "🌱 root",
+      "path": ".."
+    },
+    {
+      "name": "🚀 ninjask",
+      "path": "../apps/ninjask"
+    },
+    {
+      "name": "🚀 rotom",
+      "path": "../apps/rotom"
+    },
+    {
+      "name": "🚀 smeargle",
+      "path": "../apps/smeargle"
+    },
+    {
+      "name": "📦 eslint-config-angular",
+      "path": "../packages/eslint-config-angular"
+    },
+    {
+      "name": "📦 eslint-config-react",
+      "path": "../packages/eslint-config-react"
+    },
+    {
+      "name": "📦 eslint-config-solid",
+      "path": "../packages/eslint-config-solid"
+    }
+  ],
+  "settings": {}
+}

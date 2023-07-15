@@ -11,19 +11,12 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
   extends: [
     'turbo',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
+    'plugin:solid/typescript',
     'plugin:jsx-a11y/recommended',
     'plugin:functional/external-typescript-recommended',
     'plugin:functional/recommended',
@@ -32,16 +25,7 @@ module.exports = {
     'plugin:sonarjs/recommended',
     'prettier', // should be last to override the other configs
   ],
-  plugins: [
-    '@typescript-eslint',
-    'react',
-    'react-hooks',
-    'react-refresh',
-    'jsx-a11y',
-    'unused-imports',
-    'functional',
-    'sonarjs',
-  ],
+  plugins: ['@typescript-eslint', 'solid', 'jsx-a11y', 'unused-imports', 'functional', 'sonarjs'],
   rules: {
     'no-console': 'warn',
     '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
@@ -52,17 +36,13 @@ module.exports = {
       {
         paths: [
           {
-            name: '@testing-library/react',
-            importNames: ['render', 'renderHook'],
+            name: '@solidjs/testing-library',
+            importNames: ['render'],
             message: 'use our test helpers.',
           },
           {
             name: '@testing-library/user-event',
             message: 'use our test helpers.',
-          },
-          {
-            name: 'react-dom/test-utils',
-            message: 'use testing library instead.',
           },
           {
             name: 'vitest-axe',
@@ -72,15 +52,6 @@ module.exports = {
         ],
       },
     ],
-    'react/button-has-type': [
-      'error',
-      {
-        button: true,
-        submit: true,
-        reset: false,
-      },
-    ],
-    'react-refresh/only-export-components': ['error', { allowConstantExport: true }],
     'unused-imports/no-unused-imports': 'error',
     'functional/functional-parameters': [
       'error',
@@ -95,23 +66,17 @@ module.exports = {
   overrides: [
     {
       files: ['src/**/*.test.[jt]s?(x)'],
-      extends: [
-        'plugin:vitest/recommended',
-        'plugin:vitest/all',
-        'plugin:jest-dom/recommended',
-        'plugin:testing-library/react',
-      ],
+      extends: ['plugin:vitest/recommended', 'plugin:vitest/all', 'plugin:jest-dom/recommended'],
       plugins: ['vitest', 'jest-dom'],
       rules: {
         'vitest/consistent-test-it': ['error', { fn: 'test' }],
-        'testing-library/no-manual-cleanup': 'error',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/unbound-method': 'off',
         'functional/no-expression-statements': 'off',
       },
     },
     {
-      files: ['*.stories.[jt]s?(x)'],
+      files: ['src/**/*.stories.[jt]s?(x)'],
       extends: [],
       rules: {},
     },

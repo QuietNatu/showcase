@@ -130,6 +130,11 @@ module.exports = {
       },
     },
     {
+      files: ['*.stories.[jt]s?(x)'],
+      extends: [],
+      rules: {},
+    },
+    {
       files: ['{e2e,vrt}/**/*'],
       extends: ['plugin:playwright/recommended'],
       rules: {},

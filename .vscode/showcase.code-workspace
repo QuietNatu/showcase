@@ -27,6 +27,14 @@
     {
       "name": "📦 eslint-config-solid",
       "path": "../packages/eslint-config-solid"
+    },
+    {
+      "name": "📁 apps",
+      "path": "../apps"
+    },
+    {
+      "name": "📁 packages",
+      "path": "../packages"
     }
   ],
   "settings": {}

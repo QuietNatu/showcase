@@ -4,3 +4,4 @@ coverage/
 public/
 vite.config.ts
 .eslintrc.cjs
+commitlint.config.js

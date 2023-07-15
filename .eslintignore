@@ -4,3 +4,7 @@ coverage/
 public/
 vite.config.ts
 .eslintrc.cjs
+commitlint.config.js
+lint-staged.config.js
+prettier.config.js
+stylelint.config.js

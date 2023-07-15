@@ -10,14 +10,22 @@
     "pnpm": "8.x"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install",
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "lint": "turbo run lint",
-    "lint-lslint": "ls-lint"
+    "lint": "pnpm lint-lslint && pnpm lint-prettier && pnpm lint-stylelint && turbo run lint",
+    "lint-prettier": "prettier --check {apps,packages}/*/{src,e2e,vrt}/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
+    "lint-lslint": "ls-lint",
+    "lint-stylelint": "stylelint {apps,packages}/*/src/**/*.{css,scss}"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
     "@ls-lint/ls-lint": "2.0.1",
     "eslint": "8.44.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "prettier": "3.0.0",
     "stylelint": "15.10.1",
     "stylelint-config-css-modules": "4.2.0",

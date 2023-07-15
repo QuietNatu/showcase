@@ -1,0 +1,6 @@
+{
+  "files.exclude": {
+    "apps/": true,
+    "packages/": true
+  }
+}

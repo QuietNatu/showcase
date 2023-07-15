@@ -1,18 +1,20 @@
 {
   "name": "@natu/ninjask",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "solid-js": "1.7.7"
   },
   "devDependencies": {
+    "@natu/eslint-config-solid": "workspace:*",
     "typescript": "5.1.6",
     "vite": "4.4.2",
     "vite-plugin-solid": "2.7.0"

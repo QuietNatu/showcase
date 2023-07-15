@@ -1,10 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './app.tsx';
+import { createRoot } from 'react-dom/client';
+import { App } from './app.tsx';
 import './index.css';
+import { StrictMode } from 'react';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
     <App />
-  </React.StrictMode>,
+  </StrictMode>,
 );

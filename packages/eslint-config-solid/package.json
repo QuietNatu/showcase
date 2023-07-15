@@ -1,0 +1,28 @@
+{
+  "name": "@natu/eslint-config-solid",
+  "private": true,
+  "license": "MIT",
+  "version": "0.0.0",
+  "sideEffects": false,
+  "main": "index.cjs",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "6.0.0",
+    "@typescript-eslint/parser": "6.0.0",
+    "eslint": "8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-turbo": "^1.10.7",
+    "eslint-plugin-functional": "^5.0.8",
+    "eslint-plugin-jest-dom": "^5.0.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-playwright": "^0.15.3",
+    "eslint-plugin-solid": "^0.12.1",
+    "eslint-plugin-sonarjs": "^0.19.0",
+    "eslint-plugin-storybook": "^0.6.12",
+    "eslint-plugin-testing-library": "^5.11.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "eslint-plugin-vitest": "^0.2.6"
+  },
+  "devDependencies": {
+    "typescript": "5.1.6"
+  }
+}

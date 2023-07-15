@@ -3,7 +3,7 @@ import solidLogo from './assets/solid.svg';
 import viteLogo from '/vite.svg';
 import './app.css';
 
-function App() {
+export function App() {
   const [count, setCount] = createSignal(0);
 
   return (
@@ -27,5 +27,3 @@ function App() {
     </>
   );
 }
-
-export default App;

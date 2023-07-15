@@ -6,5 +6,5 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: './tsconfig.json',
   },
-  extends: ['@natu/eslint-config-react'],
+  extends: ['@natu/eslint-config-solid'],
 };

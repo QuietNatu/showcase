@@ -1,9 +1,9 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
-
+import { App } from './app';
 import './index.css';
-import App from './app';
 
-const root = document.getElementById('root');
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const root = document.getElementById('root')!;
 
-render(() => <App />, root!);
+render(() => <App />, root);

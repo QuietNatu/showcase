@@ -17,10 +17,6 @@
       "path": "../apps/smeargle"
     },
     {
-      "name": "📦 ui-react",
-      "path": "../packages/ui-react"
-    },
-    {
       "name": "📦 eslint-config-angular",
       "path": "../packages/eslint-config-angular"
     },

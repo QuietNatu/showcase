@@ -29,6 +29,10 @@
       "path": "../packages/eslint-config-solid"
     },
     {
+      "name": "📦 tsconfig",
+      "path": "../packages/tsconfig"
+    },
+    {
       "name": "📁 apps",
       "path": "../apps"
     },

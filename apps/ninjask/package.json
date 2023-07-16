@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@natu/eslint-config-solid": "workspace:*",
+    "@natu/tsconfig": "workspace:*",
     "typescript": "5.1.6",
     "vite": "4.4.2",
     "vite-plugin-solid": "2.7.0"

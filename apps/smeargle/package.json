@@ -8,19 +8,31 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "test": "vitest run --coverage",
+    "test-watch": "vitest"
   },
   "dependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@mswjs/data": "^0.13.0",
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "@vitejs/plugin-react-swc": "3.3.2",
+    "@vitest/coverage-istanbul": "^0.33.0",
+    "jsdom": "^22.1.0",
+    "msw": "^1.2.2",
     "typescript": "5.1.6",
-    "vite": "4.4.2"
+    "vite": "4.4.2",
+    "vite-tsconfig-paths": "^4.2.0",
+    "vitest": "^0.33.0",
+    "vitest-axe": "^0.1.0",
+    "vitest-dom": "^0.1.0"
   }
 }

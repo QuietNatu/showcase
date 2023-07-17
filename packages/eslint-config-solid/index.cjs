@@ -37,7 +37,7 @@ module.exports = {
         paths: [
           {
             name: '@solidjs/testing-library',
-            importNames: ['render'],
+            importNames: ['render', 'renderHook', 'renderDirective'],
             message: 'use our test helpers.',
           },
           {

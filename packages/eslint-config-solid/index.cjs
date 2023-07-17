@@ -70,6 +70,7 @@ module.exports = {
       plugins: ['vitest', 'jest-dom'],
       rules: {
         'vitest/consistent-test-it': ['error', { fn: 'test' }],
+        'vitest/require-top-level-describe': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/unbound-method': 'off',
         'functional/no-expression-statements': 'off',

@@ -58,6 +58,5 @@ ls:
     .module.ts: kebab-case
 
 ignore:
-  - apps/*/public/mockServiceWorker.js
 # TODO: use globs once this is merged https://github.com/loeffel-io/ls-lint/pull/76
 #   - apps/*/src/locales

@@ -17,7 +17,9 @@
     "lint": "pnpm lint-lslint && pnpm lint-prettier && pnpm lint-stylelint && turbo run lint",
     "lint-prettier": "prettier --check {apps,packages}/*/{src,e2e,vrt}/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
     "lint-lslint": "ls-lint",
-    "lint-stylelint": "stylelint {apps,packages}/*/src/**/*.{css,scss}"
+    "lint-stylelint": "stylelint {apps,packages}/*/src/**/*.{css,scss}",
+    "test": "turbo run test",
+    "test-watch": "turbo run test-watch"
   },
   "devDependencies": {
     "@commitlint/cli": "17.6.6",

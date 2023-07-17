@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => {
         statements: 90,
 
         // config
-        provider: 'istanbul',
+        provider: 'v8',
         include: ['src/**/*.{ts,tsx}'],
         exclude: [
           '**/*.test.*',

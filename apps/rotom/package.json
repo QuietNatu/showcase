@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "ng serve",
     "build": "ng build",
-    "lint": "ng lint",
-    "test": "ng test"
+    "lint": "ng lint"
   },
   "dependencies": {
     "@angular/animations": "16.1.4",

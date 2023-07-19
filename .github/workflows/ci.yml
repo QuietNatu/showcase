@@ -39,7 +39,9 @@ jobs:
 
       - name: Install dependencies
         # change to pnpm ci once it is implemented
-        run: pnpm i --frozen-lockfile --loglevel warn
+        run: |
+          pnpm i --frozen-lockfile --loglevel warn
+          pnpm exec playwright install --with-deps chromium
 
       - name: Lint files
         run: pnpm run lint --cache-dir=${{ env.TURBO_CACHE_DIR }}

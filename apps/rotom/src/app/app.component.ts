@@ -1,5 +1,5 @@
 import { NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -10,5 +10,9 @@ import { RouterOutlet } from '@angular/router';
   imports: [NgSwitch, NgSwitchCase, NgSwitchDefault, RouterOutlet],
 })
 export class AppComponent {
-  title = '@natu/rotom';
+  readonly count$ = signal(0);
+
+  handleIncrementCount() {
+    this.count$.update((count) => count + 1);
+  }
 }

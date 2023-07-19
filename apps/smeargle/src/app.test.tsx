@@ -8,5 +8,5 @@ test('renders', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'count is 0' }));
 
   expect(screen.getByText('Vite + React')).toBeInTheDocument();
-  expect(screen.getByText('count is 1')).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: 'count is 1' })).toBeInTheDocument();
 });

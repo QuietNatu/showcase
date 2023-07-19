@@ -1,3 +1,4 @@
+/** @type {import("lint-staged").Config} */
 export default {
   '{apps,packages}/*/{src,e2e,vrt}/**/*': 'ls-lint',
   '{apps,packages}/*/{src,e2e,vrt}/**/*.{js,jsx,ts,tsx}':

@@ -28,6 +28,7 @@ export default defineConfig(({ mode }) => {
         statements: 90,
 
         // config
+        all: true,
         provider: 'v8',
         include: ['src/**/*.{ts,tsx}'],
         exclude: [
@@ -35,7 +36,6 @@ export default defineConfig(({ mode }) => {
           '**/*.stories.*',
           'src/test',
           'src/mocks',
-          'src/stories',
           'src/main.tsx',
           'src/vite-env.d.ts',
           'src/service-worker.ts',

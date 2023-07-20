@@ -1,10 +1,6 @@
 {
   "extends": "@natu/tsconfig/tsconfig.vite-react.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    // "paths": {
-    //   "@/*": ["src/*"]
-    // },
     "types": ["vitest/globals"]
   },
   "include": ["src"],

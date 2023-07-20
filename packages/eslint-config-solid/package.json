@@ -8,7 +8,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "6.1.0",
     "@typescript-eslint/parser": "6.1.0",
-    "eslint": "8.44.0",
+    "eslint": "8.45.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-config-turbo": "1.10.7",
     "eslint-plugin-functional": "5.0.8",

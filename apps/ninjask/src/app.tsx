@@ -1,11 +1,9 @@
-import { createSignal } from 'solid-js';
 import solidLogo from './assets/solid.svg';
 import viteLogo from '/vite.svg';
+import { Counter } from '@natu/ui-solid';
 import './app.css';
 
 export function App() {
-  const [count, setCount] = createSignal(0);
-
   return (
     <>
       <div>
@@ -18,7 +16,8 @@ export function App() {
       </div>
       <h1>Vite + Solid</h1>
       <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count()}</button>
+        <Counter />
+
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>

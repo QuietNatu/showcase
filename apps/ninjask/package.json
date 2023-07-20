@@ -13,6 +13,7 @@
     "test-watch": "vitest"
   },
   "dependencies": {
+    "@natu/ui-solid": "workspace:*",
     "solid-js": "1.7.8"
   },
   "devDependencies": {

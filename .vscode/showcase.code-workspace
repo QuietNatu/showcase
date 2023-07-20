@@ -37,6 +37,10 @@
       "path": "../packages/ui-react"
     },
     {
+      "name": "📦 ui-solid",
+      "path": "../packages/ui-solid"
+    },
+    {
       "name": "📁 apps",
       "path": "../apps"
     },

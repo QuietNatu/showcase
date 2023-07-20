@@ -1,5 +1,3 @@
-/* TODO: move to utils packages */
-
 export function deleteAllCookies() {
   document.cookie.split(';').forEach((cookie) => {
     const equalsIndex = cookie.indexOf('=');

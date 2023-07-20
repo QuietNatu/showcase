@@ -1,16 +1,13 @@
+/// <reference types="vitest" />
+
 import { defineConfig } from 'vite';
-import solid from 'vite-plugin-solid';
+import react from '@vitejs/plugin-react-swc';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(() => {
   return {
-    plugins: [solid(), tsconfigPaths()],
-
-    server: {
-      open: mode !== 'test',
-      port: 5273,
-    },
+    plugins: [react(), tsconfigPaths()],
 
     test: {
       globals: true,
@@ -18,7 +15,6 @@ export default defineConfig(({ mode }) => {
       include: ['src/**/*.test.*'],
       environment: 'jsdom',
       setupFiles: 'src/test/setup-tests.ts',
-      transformMode: { web: [/\.[jt]sx?$/] },
       coverage: {
         // threshold
         branches: 90,
@@ -30,15 +26,7 @@ export default defineConfig(({ mode }) => {
         all: true,
         provider: 'v8',
         include: ['src/**/*.{ts,tsx}'],
-        exclude: [
-          '**/*.test.*',
-          '**/*.stories.*',
-          'src/test',
-          'src/mocks',
-          'src/index.tsx',
-          'src/vite-env.d.ts',
-          'src/service-worker.ts',
-        ],
+        exclude: ['**/*.test.*', '**/*.stories.*', '**/index.*', 'src/test', 'src/mocks'],
         reporter: ['lcov', 'text-summary'],
       },
     },

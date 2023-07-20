@@ -33,6 +33,10 @@
       "path": "../packages/tsconfig"
     },
     {
+      "name": "📦 ui-react",
+      "path": "../packages/ui-react"
+    },
+    {
       "name": "📁 apps",
       "path": "../apps"
     },

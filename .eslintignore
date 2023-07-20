@@ -3,7 +3,6 @@ dist/
 coverage/
 public/
 vite.config.ts
-vitest.config.ts
 .eslintrc.cjs
 commitlint.config.js
 lint-staged.config.js

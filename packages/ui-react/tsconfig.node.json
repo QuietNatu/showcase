@@ -1,4 +1,4 @@
 {
   "extends": "@natu/tsconfig/tsconfig.vite-node.json",
-  "include": ["vitest.config.ts"]
+  "include": ["vite.config.ts"]
 }

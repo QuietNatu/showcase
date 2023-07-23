@@ -1,6 +1,6 @@
 import solidLogo from './assets/solid.svg';
 import viteLogo from '/vite.svg';
-import { Counter } from '@natu/ui-solid';
+import { NatuCounter } from '@natu/ui-solid';
 import './app.css';
 
 export function App() {
@@ -16,7 +16,7 @@ export function App() {
       </div>
       <h1>Vite + Solid</h1>
       <div class="card">
-        <Counter />
+        <NatuCounter />
 
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR

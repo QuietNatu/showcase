@@ -1,9 +1,9 @@
 import { screen } from '@testing-library/react';
-import { Counter } from './counter';
+import { NatuCounter } from './counter';
 import { render } from '../../test';
 
 test('renders', async () => {
-  const { userEvent } = render(<Counter />);
+  const { userEvent } = render(<NatuCounter />);
 
   await userEvent.click(screen.getByRole('button', { name: 'count is 0' }));
 

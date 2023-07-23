@@ -1,5 +1,5 @@
 import 'vitest-dom/extend-expect';
-import 'vitest-axe/extend-expect';
+import 'vitest-axe/extend-expect'; // TODO: typings not working
 
 import { mockDatabase } from '@/mocks/server/database/database';
 import { mockServer } from '@/mocks/server/server';

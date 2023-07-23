@@ -44,5 +44,3 @@ export async function render<ComponentType>(
     userEvent: userEvent.setup(options.userEventOptions),
   };
 }
-
-/* TODO: jasmine axe */

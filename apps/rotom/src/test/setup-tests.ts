@@ -7,10 +7,10 @@ import {
   platformBrowserDynamicTesting,
 } from '@angular/platform-browser-dynamic/testing';
 import { mockDatabase } from '@/mocks/server/database/database';
-import { deleteAllCookies } from './utils/cookie';
 import { drop } from '@mswjs/data';
 import { GlobaltTestingSetupModule } from './global-testing-setup.module';
 import { mockWorker } from '@/mocks/server/browser';
+import { deleteAllCookies } from '@natu/ui-angular/test';
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(

@@ -11,7 +11,7 @@ A downside of this is that everytime you make a change on a library you have to 
 
 As a workaround you can use tsconfig paths to redirect imports to the library, and import the components as if they were not part of a library.
 The downside of this is that the library won't be added to package.json, unlike the rest of the libraries that are not part of the monorepo.
-This makes it so that the apps that use the library need to know the directory of the library and makes it harder to adapt the app if the library is moved from the monorepo to a separate repository.
+This makes it so that the apps that use the library need to know the directory of the library and makes it harder to adapt the app if the library is moved from the monorepo to a separate repository. Another downside is that imports will not auto-complete correctly.
 
 ### Angular does not support moduleResolution: "bundler"
 

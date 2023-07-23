@@ -1,4 +1,4 @@
-import { render } from '@/test/utils/render';
+import { render } from '@natu/ui-angular/test';
 import { AppComponent } from './app.component';
 import { screen } from '@testing-library/angular';
 

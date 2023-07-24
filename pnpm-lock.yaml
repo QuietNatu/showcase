@@ -56,6 +56,9 @@ importers:
       '@natu/ui-solid':
         specifier: workspace:*
         version: link:../../packages/ui-solid
+      '@natu/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       solid-js:
         specifier: 1.7.8
         version: 1.7.8
@@ -126,6 +129,12 @@ importers:
       '@angular/router':
         specifier: 16.1.6
         version: 16.1.6(@angular/common@16.1.6)(@angular/core@16.1.6)(@angular/platform-browser@16.1.6)(rxjs@7.8.1)
+      '@natu/ui-angular':
+        specifier: workspace:*
+        version: link:../../packages/ui-angular
+      '@natu/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       rxjs:
         specifier: 7.8.1
         version: 7.8.1
@@ -217,6 +226,9 @@ importers:
       '@natu/ui-react':
         specifier: workspace:*
         version: link:../../packages/ui-react
+      '@natu/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -487,6 +499,9 @@ importers:
       '@natu/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
+      '@natu/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@playwright/test':
         specifier: 1.36.1
         version: 1.36.1
@@ -553,6 +568,9 @@ importers:
       '@natu/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
+      '@natu/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@testing-library/react':
         specifier: 14.0.0
         version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
@@ -604,6 +622,9 @@ importers:
       '@natu/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
+      '@natu/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@solidjs/testing-library':
         specifier: 0.8.4
         version: 0.8.4(@solidjs/router@0.8.2)(solid-js@1.7.8)
@@ -643,6 +664,33 @@ importers:
       vitest-dom:
         specifier: 0.1.0
         version: 0.1.0(vitest@0.33.0)
+
+  packages/utils:
+    devDependencies:
+      '@natu/eslint-config-react':
+        specifier: workspace:*
+        version: link:../eslint-config-react
+      '@natu/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      '@vitest/coverage-v8':
+        specifier: 0.33.0
+        version: 0.33.0(vitest@0.33.0)
+      jsdom:
+        specifier: 22.1.0
+        version: 22.1.0
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
+      vite:
+        specifier: 4.4.4
+        version: 4.4.4(@types/node@20.4.2)
+      vite-tsconfig-paths:
+        specifier: 4.2.0
+        version: 4.2.0(typescript@5.1.6)(vite@4.4.4)
+      vitest:
+        specifier: 0.33.0
+        version: 0.33.0(jsdom@22.1.0)
 
 packages:
 

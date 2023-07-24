@@ -8,8 +8,8 @@ import {
   platformBrowserDynamicTesting,
 } from '@angular/platform-browser-dynamic/testing';
 import { GlobaltTestingSetupModule } from './global-testing-setup.module';
-import { deleteAllCookies } from './utils/cookie';
 import { toHaveNoViolations } from 'jasmine-axe';
+import { deleteAllCookies } from '@natu/utils';
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(

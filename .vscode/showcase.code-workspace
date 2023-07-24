@@ -45,6 +45,10 @@
       "path": "../packages/ui-solid"
     },
     {
+      "name": "📦 utils",
+      "path": "../packages/utils"
+    },
+    {
       "name": "📁 apps",
       "path": "../apps"
     },

@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@natu/ui-solid": "workspace:*",
+    "@natu/utils": "workspace:*",
     "solid-js": "1.7.8"
   },
   "devDependencies": {

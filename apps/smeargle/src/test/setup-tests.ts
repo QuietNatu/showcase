@@ -3,7 +3,7 @@ import '@natu/ui-react/test/extend-expect';
 import { mockDatabase } from '@/mocks/server/database/database';
 import { mockServer } from '@/mocks/server/server';
 import { drop } from '@mswjs/data';
-import { deleteAllCookies } from '@natu/ui-react/test';
+import { deleteAllCookies } from '@natu/utils';
 
 beforeAll(() => {
   mockServer.listen();

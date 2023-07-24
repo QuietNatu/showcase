@@ -6,8 +6,11 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@natu/ui-angular": ["../../packages/ui-angular/src"], // bad workaround check README...
-      "@natu/ui-angular/*": ["../../packages/ui-angular/src/*"] // bad workaround check README...
+
+      // bad workarounds check README...
+      "@natu/ui-angular": ["../../packages/ui-angular/src"],
+      "@natu/ui-angular/*": ["../../packages/ui-angular/src/*"],
+      "@natu/utils": ["../../packages/utils/src"]
     }
   }
 }

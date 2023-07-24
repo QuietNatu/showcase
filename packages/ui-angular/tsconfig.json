@@ -2,6 +2,10 @@
 {
   "extends": "@natu/tsconfig/tsconfig.angular.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/dist"
+    "outDir": "./out-tsc/dist",
+    "paths": {
+      // bad workarounds check README...
+      "@natu/utils": ["../utils/src"]
+    }
   }
 }

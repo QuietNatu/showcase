@@ -26,6 +26,7 @@
   "devDependencies": {
     "@natu/eslint-config-solid": "workspace:*",
     "@natu/tsconfig": "workspace:*",
+    "@natu/utils": "workspace:*",
     "@solidjs/testing-library": "0.8.4",
     "@testing-library/user-event": "14.4.3",
     "@vitejs/plugin-react-swc": "3.3.2",

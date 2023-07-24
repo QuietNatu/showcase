@@ -1,6 +1,4 @@
-import './extend-expect';
-
-import { deleteAllCookies } from '@natu/utils';
+import { deleteAllCookies } from '../cookie';
 
 afterEach(() => {
   vi.clearAllMocks();

@@ -10,7 +10,7 @@ import { mockDatabase } from '@/mocks/server/database/database';
 import { drop } from '@mswjs/data';
 import { GlobaltTestingSetupModule } from './global-testing-setup.module';
 import { mockWorker } from '@/mocks/server/browser';
-import { deleteAllCookies } from '@natu/ui-angular/test';
+import { deleteAllCookies } from '@natu/utils';
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(

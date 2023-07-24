@@ -1,5 +1,4 @@
-import 'vitest-dom/extend-expect';
-import 'vitest-axe/extend-expect';
+import '@natu/ui-react/test/extend-expect';
 
 import { mockDatabase } from '@/mocks/server/database/database';
 import { mockServer } from '@/mocks/server/server';

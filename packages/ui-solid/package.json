@@ -13,6 +13,10 @@
     "./test": {
       "types": "./src/test/index.ts",
       "default": "./src/test/index.ts"
+    },
+    "./test/extend-expect": {
+      "types": "./src/test/extend-expect.ts",
+      "default": "./src/test/extend-expect.ts"
     }
   },
   "scripts": {

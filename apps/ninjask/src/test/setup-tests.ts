@@ -1,5 +1,4 @@
-import 'vitest-dom/extend-expect';
-import 'vitest-axe/extend-expect'; // TODO: typings not working
+import '@natu/ui-solid/test/extend-expect';
 
 import { mockDatabase } from '@/mocks/server/database/database';
 import { mockServer } from '@/mocks/server/server';

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function Counter() {
+export function NatuCounter() {
   const [count, setCount] = useState(0);
 
   return (

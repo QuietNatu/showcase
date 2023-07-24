@@ -1,6 +1,6 @@
 import { screen } from '@solidjs/testing-library';
 import { App } from './app';
-import { render } from './test/utils/render';
+import { render } from '@natu/ui-solid/test';
 
 test('renders', async () => {
   const { userEvent } = render(() => <App />);

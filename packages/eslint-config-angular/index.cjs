@@ -46,6 +46,11 @@ module.exports = {
                 name: '@testing-library/user-event',
                 message: 'use our test helpers.',
               },
+              {
+                name: 'jasmine-axe',
+                importNames: ['axe'],
+                message: 'use our axe wrapper.',
+              },
             ],
             patterns: [
               {

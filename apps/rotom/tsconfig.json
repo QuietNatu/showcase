@@ -5,7 +5,9 @@
     "outDir": "./out-tsc/dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@natu/ui-angular": ["../../packages/ui-angular/src"], // bad workaround check README...
+      "@natu/ui-angular/*": ["../../packages/ui-angular/src/*"] // bad workaround check README...
     }
   }
 }

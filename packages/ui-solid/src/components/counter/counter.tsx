@@ -1,6 +1,6 @@
 import { createSignal } from 'solid-js';
 
-export function Counter() {
+export function NatuCounter() {
   const [count, setCount] = createSignal(0);
 
   return (

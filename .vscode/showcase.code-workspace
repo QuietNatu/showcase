@@ -33,6 +33,10 @@
       "path": "../packages/tsconfig"
     },
     {
+      "name": "📦 ui-angular",
+      "path": "../packages/ui-angular"
+    },
+    {
       "name": "📦 ui-react",
       "path": "../packages/ui-react"
     },
@@ -50,6 +54,7 @@
     }
   ],
   "settings": {
+    "terminal.integrated.cwd": ".",
     "eslint.workingDirectories": ["../.."]
   }
 }

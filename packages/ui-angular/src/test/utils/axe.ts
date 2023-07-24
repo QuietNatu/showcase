@@ -1,4 +1,4 @@
-import { configureAxe as _configureAxe } from 'vitest-axe';
+import { configureAxe as _configureAxe } from 'jasmine-axe';
 
 export const axe = _configureAxe({
   rules: {

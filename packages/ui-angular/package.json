@@ -1,35 +1,30 @@
 {
-  "name": "@natu/rotom",
+  "name": "@natu/ui-angular",
   "private": true,
   "license": "MIT",
   "version": "0.0.0",
+  "sideEffects": false,
+  "module": "src/index.ts",
+  "types": "src/index.ts",
   "scripts": {
-    "dev": "ng serve",
-    "build": "ng build",
     "lint": "ng lint",
     "test": "ng test --code-coverage",
     "test-watch": "ng test --watch --browsers Chrome"
-  },
-  "dependencies": {
-    "@angular/animations": "16.1.5",
-    "@angular/common": "16.1.5",
-    "@angular/compiler": "16.1.5",
-    "@angular/core": "16.1.5",
-    "@angular/forms": "16.1.5",
-    "@angular/platform-browser": "16.1.5",
-    "@angular/platform-browser-dynamic": "16.1.5",
-    "@angular/router": "16.1.5",
-    "rxjs": "7.8.1",
-    "tslib": "2.3.0",
-    "zone.js": "0.13.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "16.1.4",
     "@angular-eslint/builder": "16.1.0",
     "@angular-eslint/schematics": "16.1.0",
+    "@angular/animations": "16.1.5",
     "@angular/cli": "16.1.4",
+    "@angular/common": "16.1.5",
+    "@angular/compiler": "16.1.5",
     "@angular/compiler-cli": "16.1.5",
-    "@mswjs/data": "0.13.0",
+    "@angular/core": "16.1.5",
+    "@angular/forms": "16.1.5",
+    "@angular/platform-browser": "16.1.5",
+    "@angular/platform-browser-dynamic": "16.1.5",
+    "@angular/router": "16.1.5",
     "@natu/eslint-config-angular": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@playwright/test": "1.36.1",
@@ -47,10 +42,9 @@
     "karma-coverage": "2.2.1",
     "karma-jasmine": "5.1.0",
     "karma-jasmine-html-reporter": "2.1.0",
-    "msw": "1.2.2",
-    "typescript": "5.1.6"
-  },
-  "msw": {
-    "workerDirectory": "src"
+    "rxjs": "7.8.1",
+    "tslib": "2.3.0",
+    "typescript": "5.1.6",
+    "zone.js": "0.13.1"
   }
 }

@@ -12,11 +12,11 @@
     "test-watch": "ng test --watch --browsers Chrome"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "16.1.5",
+    "@angular-devkit/build-angular": "16.1.6",
     "@angular-eslint/builder": "16.1.0",
     "@angular-eslint/schematics": "16.1.0",
     "@angular/animations": "16.1.7",
-    "@angular/cli": "16.1.5",
+    "@angular/cli": "16.1.6",
     "@angular/common": "16.1.7",
     "@angular/compiler": "16.1.7",
     "@angular/compiler-cli": "16.1.7",

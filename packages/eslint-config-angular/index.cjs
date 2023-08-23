@@ -132,6 +132,7 @@ module.exports = {
         'functional/no-throw-statements': 'off',
         'functional/immutable-data': 'off',
         'sonarjs/no-duplicate-string': 'off',
+        'testing-library/no-await-sync-events': 'off',
       },
     },
     {

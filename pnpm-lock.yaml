@@ -361,8 +361,8 @@ importers:
         specifier: 5.0.8
         version: 5.0.8(eslint@8.47.0)(typescript@5.1.6)
       eslint-plugin-jest-dom:
-        specifier: 5.0.1
-        version: 5.0.1(@testing-library/dom@9.3.1)(eslint@8.47.0)
+        specifier: 5.0.2
+        version: 5.0.2(@testing-library/dom@9.3.1)(eslint@8.47.0)
       eslint-plugin-jsx-a11y:
         specifier: 6.7.1
         version: 6.7.1(eslint@8.47.0)
@@ -419,8 +419,8 @@ importers:
         specifier: 5.0.8
         version: 5.0.8(eslint@8.47.0)(typescript@5.1.6)
       eslint-plugin-jest-dom:
-        specifier: 5.0.1
-        version: 5.0.1(@testing-library/dom@9.3.1)(eslint@8.47.0)
+        specifier: 5.0.2
+        version: 5.0.2(@testing-library/dom@9.3.1)(eslint@8.47.0)
       eslint-plugin-jsx-a11y:
         specifier: 6.7.1
         version: 6.7.1(eslint@8.47.0)
@@ -6402,8 +6402,8 @@ packages:
     engines: {node: '>=8', npm: '>=6'}
     dev: false
 
-  /eslint-plugin-jest-dom@5.0.1(@testing-library/dom@9.3.1)(eslint@8.47.0):
-    resolution: {integrity: sha512-zD/BjNk12R5R9cxIu8oa2HfNeDSknI3ewtN8nygIUMQuieWDnTY9Np//6a1Z3G7Y3dx3l45hCUR4EphsgRmUtA==}
+  /eslint-plugin-jest-dom@5.0.2(@testing-library/dom@9.3.1)(eslint@8.47.0):
+    resolution: {integrity: sha512-zfNOwQOrOOGcxb3tcOgB2fEiqmgEbXKcPrNC+NlNSWCi3wg/m+DWVqrrshp4gOjhpP1R/1X7kkHumnf8PLUFhw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0, npm: '>=6', yarn: '>=1'}
     peerDependencies:
       '@testing-library/dom': ^8.0.0 || ^9.0.0
@@ -10171,7 +10171,7 @@ packages:
   /regenerator-transform@0.15.1:
     resolution: {integrity: sha512-knzmNAcuyxV+gQCufkYcvOqX/qIIfHLv0u5x79kRxuGojfYVky1f15TzZEu2Avte8QGepvUNTnLskf8E6X6Vyg==}
     dependencies:
-      '@babel/runtime': 7.22.5
+      '@babel/runtime': 7.22.6
     dev: true
 
   /regex-parser@2.2.11:

@@ -105,6 +105,7 @@ module.exports = {
       rules: {
         'vitest/consistent-test-it': ['error', { fn: 'test' }],
         'vitest/require-top-level-describe': 'off',
+        'testing-library/no-await-sync-events': 'off',
         'testing-library/no-manual-cleanup': 'error',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/unbound-method': 'off',

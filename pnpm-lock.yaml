@@ -88,7 +88,7 @@ importers:
         specifier: 1.2.2
         version: 1.2.2(typescript@5.1.6)
       source-map-explorer:
-        specifier: ^2.5.3
+        specifier: 2.5.3
         version: 2.5.3
       typescript:
         specifier: 5.1.6
@@ -221,7 +221,7 @@ importers:
         specifier: 1.2.2
         version: 1.2.2(typescript@5.1.6)
       source-map-explorer:
-        specifier: ^2.5.3
+        specifier: 2.5.3
         version: 2.5.3
       typescript:
         specifier: 5.1.6
@@ -276,7 +276,7 @@ importers:
         specifier: 1.2.2
         version: 1.2.2(typescript@5.1.6)
       source-map-explorer:
-        specifier: ^2.5.3
+        specifier: 2.5.3
         version: 2.5.3
       typescript:
         specifier: 5.1.6

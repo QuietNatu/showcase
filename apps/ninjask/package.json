@@ -24,7 +24,7 @@
     "@natu/tsconfig": "workspace:*",
     "@solidjs/testing-library": "0.8.4",
     "@testing-library/user-event": "14.4.3",
-    "@vitest/coverage-v8": "0.33.0",
+    "@vitest/coverage-v8": "0.34.2",
     "jsdom": "22.1.0",
     "msw": "1.2.2",
     "source-map-explorer": "2.5.3",
@@ -32,7 +32,7 @@
     "vite": "4.4.9",
     "vite-plugin-solid": "2.7.0",
     "vite-tsconfig-paths": "4.2.0",
-    "vitest": "0.33.0"
+    "vitest": "0.34.2"
   },
   "msw": {
     "workerDirectory": "public"

@@ -64,8 +64,8 @@ importers:
         version: 1.7.11
     devDependencies:
       '@mswjs/data':
-        specifier: 0.13.0
-        version: 0.13.0(typescript@5.1.6)
+        specifier: 0.15.0
+        version: 0.15.0(typescript@5.1.6)
       '@natu/eslint-config-solid':
         specifier: workspace:*
         version: link:../../packages/eslint-config-solid
@@ -85,8 +85,8 @@ importers:
         specifier: 22.1.0
         version: 22.1.0
       msw:
-        specifier: 1.2.2
-        version: 1.2.2(typescript@5.1.6)
+        specifier: 2.0.1
+        version: 2.0.1(typescript@5.1.6)
       source-map-explorer:
         specifier: 2.5.3
         version: 2.5.3
@@ -164,8 +164,8 @@ importers:
         specifier: 16.2.11
         version: 16.2.11(@angular/compiler@16.2.11)(typescript@5.1.6)
       '@mswjs/data':
-        specifier: 0.13.0
-        version: 0.13.0(typescript@5.1.6)
+        specifier: 0.15.0
+        version: 0.15.0(typescript@5.1.6)
       '@natu/eslint-config-angular':
         specifier: workspace:*
         version: link:../../packages/eslint-config-angular
@@ -218,8 +218,8 @@ importers:
         specifier: 2.1.0
         version: 2.1.0(jasmine-core@4.6.0)(karma-jasmine@5.1.0)(karma@6.4.2)
       msw:
-        specifier: 1.2.2
-        version: 1.2.2(typescript@5.1.6)
+        specifier: 2.0.1
+        version: 2.0.1(typescript@5.1.6)
       source-map-explorer:
         specifier: 2.5.3
         version: 2.5.3
@@ -243,8 +243,8 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@mswjs/data':
-        specifier: 0.13.0
-        version: 0.13.0(typescript@5.1.6)
+        specifier: 0.15.0
+        version: 0.15.0(typescript@5.1.6)
       '@natu/eslint-config-react':
         specifier: workspace:*
         version: link:../../packages/eslint-config-react
@@ -273,8 +273,8 @@ importers:
         specifier: 22.1.0
         version: 22.1.0
       msw:
-        specifier: 1.2.2
-        version: 1.2.2(typescript@5.1.6)
+        specifier: 2.0.1
+        version: 2.0.1(typescript@5.1.6)
       source-map-explorer:
         specifier: 2.5.3
         version: 2.5.3
@@ -2700,21 +2700,18 @@ packages:
     dependencies:
       cookie: 0.5.0
     dev: true
-    optional: true
 
   /@bundled-es-modules/js-levenshtein@2.0.1:
     resolution: {integrity: sha512-DERMS3yfbAljKsQc0U2wcqGKUWpdFjwqWuoMugEJlqBnKO180/n+4SR/J8MRDt1AN48X1ovgoD9KrdVXcaa3Rg==}
     dependencies:
       js-levenshtein: 1.1.6
     dev: true
-    optional: true
 
   /@bundled-es-modules/statuses@1.0.1:
     resolution: {integrity: sha512-yn7BklA5acgcBr+7w064fGV+SGIFySjCKpqjcWgBAIfrAkY+4GQTJJHQMeT3V/sgz23VTEVV8TtOmkvJAhFVfg==}
     dependencies:
       statuses: 2.0.1
     dev: true
-    optional: true
 
   /@colors/colors@1.5.0:
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
@@ -3450,15 +3447,15 @@ packages:
       '@types/set-cookie-parser': 2.4.3
       set-cookie-parser: 2.6.0
     dev: true
+    optional: true
 
   /@mswjs/cookies@1.0.0:
     resolution: {integrity: sha512-TdXoBdI+h/EDTsVLCX/34s4+9U0sWi92qFnIGUEikpMCSKLhBeujovyYVSoORNbYgsBH5ga7/tfxyWcEZAxiYA==}
     engines: {node: '>=14'}
     dev: true
-    optional: true
 
-  /@mswjs/data@0.13.0(typescript@5.1.6):
-    resolution: {integrity: sha512-0EeDQ5TF4O3nBQ6Y8/XY58YeTrKH5is/EuA0xf3o6sF3ftvhtLkSLSpFhd1dXASKzQprWzQDVxzaSYsmKPiXtg==}
+  /@mswjs/data@0.15.0(typescript@5.1.6):
+    resolution: {integrity: sha512-inyWLLZ6qqeKkcI0pHXcVuqOSfajrFIG4nUNctHnieM/MF9vvtYr0HFSaKTl8r9X3f1cojco7Vq90gX/tMtnrg==}
     dependencies:
       '@types/lodash': 4.14.197
       '@types/md5': 2.3.2
@@ -3466,15 +3463,15 @@ packages:
       '@types/uuid': 8.3.4
       date-fns: 2.30.0
       debug: 4.3.4
-      graphql: 15.8.0
+      graphql: 16.8.1
       lodash: 4.17.21
       md5: 2.3.0
       outvariant: 1.4.0
       pluralize: 8.0.0
-      strict-event-emitter: 0.5.0
+      strict-event-emitter: 0.5.1
       uuid: 8.3.2
     optionalDependencies:
-      msw: 2.0.1(typescript@5.1.6)
+      msw: 1.2.2(typescript@5.1.6)
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -3496,6 +3493,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+    optional: true
 
   /@mswjs/interceptors@0.25.7:
     resolution: {integrity: sha512-U7iFYs/qU/5jfz1VDpoYz3xqX9nzhsBXw7q923dv6GiGTy+m2ZLhD33L80R/shHOW/YWjeH6k16GbIHGw+bAng==}
@@ -3508,7 +3506,6 @@ packages:
       outvariant: 1.4.0
       strict-event-emitter: 0.5.1
     dev: true
-    optional: true
 
   /@ngneat/eslint-plugin-reactive-forms@4.0.0(eslint@8.47.0):
     resolution: {integrity: sha512-NyVtSEzD6WGjh8ugcJl4ST49wUWX5UFdpc8VpQhsPp6N0clc1JQ0KAQjvmFbM5H7lpMEoxgSMiuUBA1lcsmM7g==}
@@ -3733,7 +3730,6 @@ packages:
   /@open-draft/deferred-promise@2.2.0:
     resolution: {integrity: sha512-CecwLWx3rhxVQF6V4bAgPS5t+So2sTbPgAzafKkVizyi7tlwpcFpdFqq+wqF2OwNBmqFuu6tOyouTuxgpMfzmA==}
     dev: true
-    optional: true
 
   /@open-draft/logger@0.3.0:
     resolution: {integrity: sha512-X2g45fzhxH238HKO4xbSr7+wBS8Fvw6ixhTDuvLd5mqh6bJJCFAPwU9mPDxbcrRtfxv4u5IHCEH77BmxvXmmxQ==}
@@ -3741,16 +3737,15 @@ packages:
       is-node-process: 1.2.0
       outvariant: 1.4.0
     dev: true
-    optional: true
 
   /@open-draft/until@1.0.3:
     resolution: {integrity: sha512-Aq58f5HiWdyDlFffbbSjAlv596h/cOnt2DO1w3DOC7OJ5EHs0hd/nycJfiu9RJbT6Yk6F1knnRRXNSpxoIVZ9Q==}
     dev: true
+    optional: true
 
   /@open-draft/until@2.1.0:
     resolution: {integrity: sha512-U69T3ItWHvLwGg5eJ0n3I62nWuE6ilHlmz7zM0npLBRvPRd7e6NYmg54vvRtP5mZG7kZqZCFVdsTWo7BPtBujg==}
     dev: true
-    optional: true
 
   /@parcel/watcher@2.0.4:
     resolution: {integrity: sha512-cTDi+FUDBIUOBKEtj+nhiJ71AZVlkAsQFuGQTun5tV9mwQBQgZvhCzG+URPQc8myeN32yRVZEfVAPCs1RW+Jvg==}
@@ -4156,6 +4151,7 @@ packages:
     dependencies:
       '@types/ms': 0.7.31
     dev: true
+    optional: true
 
   /@types/eslint-scope@3.7.4:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
@@ -4241,6 +4237,7 @@ packages:
   /@types/ms@0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: true
+    optional: true
 
   /@types/node@20.4.5:
     resolution: {integrity: sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==}
@@ -4320,6 +4317,7 @@ packages:
     dependencies:
       '@types/node': 20.4.5
     dev: true
+    optional: true
 
   /@types/sockjs@0.3.33:
     resolution: {integrity: sha512-f0KEEe05NvUnat+boPTZ0dgaLZ4SfSouXUgv5noUiefG2ajgKjmETo9ZJyuqsl7dfl2aHlLJUiki6B4ZYldiiw==}
@@ -4330,7 +4328,6 @@ packages:
   /@types/statuses@2.0.3:
     resolution: {integrity: sha512-NwCYScf83RIwCyi5/9cXocrJB//xrqMh5PMw3mYTSFGaI3DuVjBLfO/PCk7QVAC3Da8b9NjxNmTO9Aj9T3rl/Q==}
     dev: true
-    optional: true
 
   /@types/testing-library__jasmine-dom@1.3.0:
     resolution: {integrity: sha512-BSomcNjIh3ydRzF01ZuSwTgHqK72bMa9c1qWFBRI5FAmcWHKpioXxF25ogj46H83aehW/FDdl0gvBLH4ScWxDg==}
@@ -4781,6 +4778,7 @@ packages:
     resolution: {integrity: sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==}
     engines: {node: '>=10.0.0'}
     dev: true
+    optional: true
 
   /@xtuc/ieee754@1.2.0:
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
@@ -5558,6 +5556,7 @@ packages:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
     dev: true
+    optional: true
 
   /chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
@@ -7339,7 +7338,6 @@ packages:
       node-domexception: 1.0.0
       web-streams-polyfill: 4.0.0-beta.3
     dev: true
-    optional: true
 
   /forwarded@0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
@@ -7624,21 +7622,10 @@ packages:
   /graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
 
-  /graphql@15.8.0:
-    resolution: {integrity: sha512-5gghUc24tP9HRznNpV2+FIoq3xKkj5dTQqf4v0CpdPbFVwFkWoxOM+o+2OC9ZSvjEMTjfmG9QT+gcvggTwW1zw==}
-    engines: {node: '>= 10.x'}
-    dev: true
-
-  /graphql@16.8.0:
-    resolution: {integrity: sha512-0oKGaR+y3qcS5mCu1vb7KG+a89vjn06C7Ihq/dDl3jA+A8B3TKomvi3CiEcVLJQGalbu8F52LxkOym7U5sSfbg==}
-    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
-    dev: true
-
   /graphql@16.8.1:
     resolution: {integrity: sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
     dev: true
-    optional: true
 
   /guess-parser@0.4.22(typescript@5.1.6):
     resolution: {integrity: sha512-KcUWZ5ACGaBM69SbqwVIuWGoSAgD+9iJnchR9j/IarVI1jHVeXv+bUXBIMeqVMSKt3zrn0Dgf9UpcOEpPBLbSg==}
@@ -7725,11 +7712,11 @@ packages:
   /headers-polyfill@3.2.0:
     resolution: {integrity: sha512-NsYkbrWFQyoPBrbX5riycJ3D4aaB/3fpx1nYgDi3JTTnoeFET3BN0rq2nOB3VUmvpQrYpbKL8zRJo1Jsmmt7nA==}
     dev: true
+    optional: true
 
   /headers-polyfill@4.0.2:
     resolution: {integrity: sha512-EWGTfnTqAO2L/j5HZgoM/3z82L7necsJ0pO9Tp0X1wil3PDLrkypTBRgVO2ExehEEvUycejZD3FuRaXpZZc3kw==}
     dev: true
-    optional: true
 
   /hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
@@ -9419,7 +9406,7 @@ packages:
       chalk: 4.1.1
       chokidar: 3.5.3
       cookie: 0.4.2
-      graphql: 16.8.0
+      graphql: 16.8.1
       headers-polyfill: 3.2.0
       inquirer: 8.2.6
       is-node-process: 1.2.0
@@ -9435,6 +9422,7 @@ packages:
       - encoding
       - supports-color
     dev: true
+    optional: true
 
   /msw@2.0.1(typescript@5.1.6):
     resolution: {integrity: sha512-eGcoo5anJmorEkGMQ48dLFx53EJlDL00GjeJtl2dRGm6WwPpzt2fYDZ9ueJ53zMNTtrNtjH9RqbDa+nz7e9Dew==}
@@ -9474,7 +9462,6 @@ packages:
     transitivePeerDependencies:
       - encoding
     dev: true
-    optional: true
 
   /multicast-dns@7.2.5:
     resolution: {integrity: sha512-2eznPJP8z2BFLX50tf0LuODrpINqP1RVIm/CObbTcBRITQgmC/TjcREF1NeTBzIcR5XO/ukWo+YHOjBbFwIupg==}
@@ -9537,7 +9524,6 @@ packages:
     resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
     engines: {node: '>=10.5.0'}
     dev: true
-    optional: true
 
   /node-fetch@2.7.0:
     resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
@@ -11036,6 +11022,7 @@ packages:
   /set-cookie-parser@2.6.0:
     resolution: {integrity: sha512-RVnVQxTXuerk653XfuliOxBP81Sf0+qfQE73LIYKcyMYHG94AuH0kgrQpRDuTZnSmjpysHmzxJXKNfa6PjFhyQ==}
     dev: true
+    optional: true
 
   /setprototypeof@1.1.0:
     resolution: {integrity: sha512-BvE/TwpZX4FXExxOxZyRGQQv651MSwmWKZGqvmPcRIjDqWub67kTKuIMx43cZZrS/cBBzwBcNDWoFxt2XEFIpQ==}
@@ -11377,19 +11364,16 @@ packages:
     dependencies:
       events: 3.3.0
     dev: true
+    optional: true
 
   /strict-event-emitter@0.4.6:
     resolution: {integrity: sha512-12KWeb+wixJohmnwNFerbyiBrAlq5qJLwIt38etRtKtmmHyDSoGlIqFE9wx+4IwG0aDjI7GV8tc8ZccjWZZtTg==}
     dev: true
-
-  /strict-event-emitter@0.5.0:
-    resolution: {integrity: sha512-sqnMpVJLSB3daNO6FcvsEk4Mq5IJeAwDeH80DP1S8+pgxrF6yZnE1+VeapesGled7nEcIkz1Ax87HzaIy+02kA==}
-    dev: true
+    optional: true
 
   /strict-event-emitter@0.5.1:
     resolution: {integrity: sha512-vMgjE/GGEPEFnhFub6pa4FmJBRBVOLpIII2hvCZ8Kzb7K0hlHo7mQv6xYrBvCL2LtAIBwFUK8wvuJgTVSQ5MFQ==}
     dev: true
-    optional: true
 
   /string-argv@0.3.2:
     resolution: {integrity: sha512-aqD2Q0144Z+/RqG52NeHEkZauTAUWJO8c6yTftGJKO3Tja5tUgIfmIl6kExvhtxSDP7fXB6DvzkfMpCd/F3G+Q==}
@@ -12282,6 +12266,7 @@ packages:
       is-typed-array: 1.1.12
       which-typed-array: 1.1.11
     dev: true
+    optional: true
 
   /utils-merge@1.0.1:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
@@ -12656,12 +12641,12 @@ packages:
     optionalDependencies:
       '@zxing/text-encoding': 0.9.0
     dev: true
+    optional: true
 
   /web-streams-polyfill@4.0.0-beta.3:
     resolution: {integrity: sha512-QW95TCTaHmsYfHDybGMwO5IJIM93I/6vTRk+daHTWFPhwh+C8Cg7j7XyKrwrj8Ib6vYXe0ocYNrmzY4xAAN6ug==}
     engines: {node: '>= 14'}
     dev: true
-    optional: true
 
   /webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}

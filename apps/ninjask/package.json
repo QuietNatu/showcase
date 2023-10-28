@@ -19,14 +19,14 @@
     "solid-js": "1.7.11"
   },
   "devDependencies": {
-    "@mswjs/data": "0.13.0",
+    "@mswjs/data": "0.15.0",
     "@natu/eslint-config-solid": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@solidjs/testing-library": "0.8.4",
     "@testing-library/user-event": "14.4.3",
     "@vitest/coverage-v8": "0.34.3",
     "jsdom": "22.1.0",
-    "msw": "1.2.2",
+    "msw": "2.0.1",
     "source-map-explorer": "2.5.3",
     "typescript": "5.1.6",
     "vite": "4.4.9",

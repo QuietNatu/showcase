@@ -33,7 +33,7 @@
     "msw": "1.2.2",
     "source-map-explorer": "2.5.3",
     "typescript": "5.1.6",
-    "vite": "4.4.9",
+    "vite": "4.5.0",
     "vite-tsconfig-paths": "4.2.1",
     "vitest": "0.34.3"
   },

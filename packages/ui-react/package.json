@@ -28,7 +28,7 @@
     "@natu/tsconfig": "workspace:*",
     "@natu/utils": "workspace:*",
     "@testing-library/react": "14.0.0",
-    "@testing-library/user-event": "14.4.3",
+    "@testing-library/user-event": "14.5.1",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "@vitejs/plugin-react-swc": "3.4.0",

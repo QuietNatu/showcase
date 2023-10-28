@@ -84,6 +84,7 @@
       "matchFileNames": ["apps/rotom/package.json", "packages/*-angular/package.json"],
       "matchPackagePatterns": [
         "^@angular/",
+        "^@angular-",
         "^ng-packagr$",
         "^rxjs$",
         "^tslib$",

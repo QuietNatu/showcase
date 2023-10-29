@@ -16,7 +16,7 @@
   "dependencies": {
     "@natu/ui-solid": "workspace:*",
     "@natu/utils": "workspace:*",
-    "solid-js": "1.8.3"
+    "solid-js": "1.8.4"
   },
   "devDependencies": {
     "@mswjs/data": "0.13.0",

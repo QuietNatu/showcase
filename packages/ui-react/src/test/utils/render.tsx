@@ -8,7 +8,7 @@ import {
   RenderOptions as TlRenderOptions,
 } from '@testing-library/react';
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
-import userEvent from '@testing-library/user-event';
+import { userEvent } from '@testing-library/user-event';
 
 export type UserEventOptions = Parameters<typeof userEvent.setup>[0];
 

@@ -333,8 +333,8 @@ importers:
         specifier: 5.0.3
         version: 5.0.3(eslint@8.52.0)(typescript@5.1.6)
       eslint-plugin-sonarjs:
-        specifier: 0.20.0
-        version: 0.20.0(eslint@8.52.0)
+        specifier: 0.21.0
+        version: 0.21.0(eslint@8.52.0)
       eslint-plugin-storybook:
         specifier: 0.6.13
         version: 0.6.13(eslint@8.52.0)(typescript@5.1.6)
@@ -388,8 +388,8 @@ importers:
         specifier: 0.4.3
         version: 0.4.3(eslint@8.52.0)
       eslint-plugin-sonarjs:
-        specifier: 0.20.0
-        version: 0.20.0(eslint@8.52.0)
+        specifier: 0.21.0
+        version: 0.21.0(eslint@8.52.0)
       eslint-plugin-storybook:
         specifier: 0.6.13
         version: 0.6.13(eslint@8.52.0)(typescript@5.1.6)
@@ -440,8 +440,8 @@ importers:
         specifier: 0.13.0
         version: 0.13.0(eslint@8.52.0)(typescript@5.1.6)
       eslint-plugin-sonarjs:
-        specifier: 0.20.0
-        version: 0.20.0(eslint@8.52.0)
+        specifier: 0.21.0
+        version: 0.21.0(eslint@8.52.0)
       eslint-plugin-storybook:
         specifier: 0.6.13
         version: 0.6.13(eslint@8.52.0)(typescript@5.1.6)
@@ -6755,8 +6755,8 @@ packages:
       - typescript
     dev: false
 
-  /eslint-plugin-sonarjs@0.20.0(eslint@8.52.0):
-    resolution: {integrity: sha512-BRhZ7BY/oTr6DDaxvx58ReTg7R+J8T+Y2ZVGgShgpml25IHBTIG7EudUtHuJD1zhtMgUEt59x3VNvUQRo2LV6w==}
+  /eslint-plugin-sonarjs@0.21.0(eslint@8.52.0):
+    resolution: {integrity: sha512-oezUDfFT5S6j3rQheZ4DLPrbetPmMS7zHIKWGHr0CM3g5JgyZroz1FpIKa4jV83NsGpmgIeagpokWDKIJzRQmw==}
     engines: {node: '>=14'}
     peerDependencies:
       eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0

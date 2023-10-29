@@ -16,15 +16,15 @@
   "dependencies": {
     "@natu/ui-solid": "workspace:*",
     "@natu/utils": "workspace:*",
-    "solid-js": "1.8.3"
+    "solid-js": "1.8.4"
   },
   "devDependencies": {
     "@mswjs/data": "0.15.0",
     "@natu/eslint-config-solid": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@solidjs/testing-library": "0.8.4",
-    "@testing-library/user-event": "14.4.3",
-    "@vitest/coverage-v8": "0.34.3",
+    "@testing-library/user-event": "14.5.1",
+    "@vitest/coverage-v8": "0.34.6",
     "jsdom": "22.1.0",
     "msw": "2.0.1",
     "source-map-explorer": "2.5.3",
@@ -32,7 +32,7 @@
     "vite": "4.5.0",
     "vite-plugin-solid": "2.7.2",
     "vite-tsconfig-paths": "4.2.1",
-    "vitest": "0.34.3"
+    "vitest": "0.34.6"
   },
   "msw": {
     "workerDirectory": "public"

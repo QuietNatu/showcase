@@ -327,8 +327,8 @@ importers:
         specifier: 4.1.3
         version: 4.1.3
       eslint-plugin-playwright:
-        specifier: 0.15.3
-        version: 0.15.3(eslint@8.52.0)
+        specifier: 0.18.0
+        version: 0.18.0(eslint@8.52.0)
       eslint-plugin-rxjs:
         specifier: 5.0.3
         version: 5.0.3(eslint@8.52.0)(typescript@5.1.6)
@@ -376,8 +376,8 @@ importers:
         specifier: 6.7.1
         version: 6.7.1(eslint@8.52.0)
       eslint-plugin-playwright:
-        specifier: 0.15.3
-        version: 0.15.3(eslint@8.52.0)
+        specifier: 0.18.0
+        version: 0.18.0(eslint@8.52.0)
       eslint-plugin-react:
         specifier: 7.33.2
         version: 7.33.2(eslint@8.52.0)
@@ -434,8 +434,8 @@ importers:
         specifier: 6.7.1
         version: 6.7.1(eslint@8.52.0)
       eslint-plugin-playwright:
-        specifier: 0.15.3
-        version: 0.15.3(eslint@8.52.0)
+        specifier: 0.18.0
+        version: 0.18.0(eslint@8.52.0)
       eslint-plugin-solid:
         specifier: 0.13.0
         version: 0.13.0(eslint@8.52.0)(typescript@5.1.6)
@@ -6661,8 +6661,8 @@ packages:
       semver: 6.3.1
     dev: false
 
-  /eslint-plugin-playwright@0.15.3(eslint@8.52.0):
-    resolution: {integrity: sha512-LQMW5y0DLK5Fnpya7JR1oAYL2/7Y9wDiYw6VZqlKqcRGSgjbVKNqxraphk7ra1U3Bb5EK444xMgUlQPbMg2M1g==}
+  /eslint-plugin-playwright@0.18.0(eslint@8.52.0):
+    resolution: {integrity: sha512-VLvKOAaDvRTonUeI3J8plXIJQuReXjbjrgDGoNwsiydwdqk3lt+mbzgsBcxJscMJDHc9XgnLVo0nWTiaYHLGYQ==}
     peerDependencies:
       eslint: '>=7'
       eslint-plugin-jest: '>=25'
@@ -6671,6 +6671,7 @@ packages:
         optional: true
     dependencies:
       eslint: 8.52.0
+      globals: 13.23.0
     dev: false
 
   /eslint-plugin-react-hooks@4.6.0(eslint@8.52.0):
@@ -7488,6 +7489,13 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       type-fest: 0.20.2
+
+  /globals@13.23.0:
+    resolution: {integrity: sha512-XAmF0RjlrjY23MA51q3HltdlGxUpXPvg0GioKiD9X6HD28iMjo2dKC8Vqwm7lne4GNr78+RHTfliktR6ZH09wA==}
+    engines: {node: '>=8'}
+    dependencies:
+      type-fest: 0.20.2
+    dev: false
 
   /globalthis@1.0.3:
     resolution: {integrity: sha512-sFdI5LyBiNTHjRd7cGPWapiHWMOXKyuBNX/cWJ3NfzrZQVa8GI/8cofCl74AOVqq9W5kNmguTIzJ/1s2gyI9wA==}

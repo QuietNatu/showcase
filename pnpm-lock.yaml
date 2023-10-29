@@ -339,8 +339,8 @@ importers:
         specifier: 0.6.13
         version: 0.6.13(eslint@8.52.0)(typescript@5.1.6)
       eslint-plugin-testing-library:
-        specifier: 6.0.1
-        version: 6.0.1(eslint@8.52.0)(typescript@5.1.6)
+        specifier: 6.1.0
+        version: 6.1.0(eslint@8.52.0)(typescript@5.1.6)
       eslint-plugin-unused-imports:
         specifier: 3.0.0
         version: 3.0.0(@typescript-eslint/eslint-plugin@6.4.1)(eslint@8.52.0)
@@ -394,8 +394,8 @@ importers:
         specifier: 0.6.13
         version: 0.6.13(eslint@8.52.0)(typescript@5.1.6)
       eslint-plugin-testing-library:
-        specifier: 6.0.1
-        version: 6.0.1(eslint@8.52.0)(typescript@5.1.6)
+        specifier: 6.1.0
+        version: 6.1.0(eslint@8.52.0)(typescript@5.1.6)
       eslint-plugin-unused-imports:
         specifier: 3.0.0
         version: 3.0.0(@typescript-eslint/eslint-plugin@6.4.1)(eslint@8.52.0)
@@ -446,8 +446,8 @@ importers:
         specifier: 0.6.13
         version: 0.6.13(eslint@8.52.0)(typescript@5.1.6)
       eslint-plugin-testing-library:
-        specifier: 6.0.1
-        version: 6.0.1(eslint@8.52.0)(typescript@5.1.6)
+        specifier: 6.1.0
+        version: 6.1.0(eslint@8.52.0)(typescript@5.1.6)
       eslint-plugin-unused-imports:
         specifier: 3.0.0
         version: 3.0.0(@typescript-eslint/eslint-plugin@6.4.1)(eslint@8.52.0)
@@ -6841,8 +6841,8 @@ packages:
       - typescript
     dev: false
 
-  /eslint-plugin-testing-library@6.0.1(eslint@8.52.0)(typescript@5.1.6):
-    resolution: {integrity: sha512-CEYtjpcF3hAaQtYsTZqciR7s5z+T0LCMTwJeW+pz6kBnGtc866wAKmhaiK2Gsjc2jWNP7Gt6zhNr2DE1ZW4e+g==}
+  /eslint-plugin-testing-library@6.1.0(eslint@8.52.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-r7kE+az3tbp8vyRwfyAGZ6V/xw+XvdWFPicIo6jbOPZoossOFDeHizARqPGV6gEkyF8hyCFhhH3mlQOGS3N5Sg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0, npm: '>=6'}
     peerDependencies:
       eslint: ^7.5.0 || ^8.0.0

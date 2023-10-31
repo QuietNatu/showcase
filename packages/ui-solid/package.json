@@ -28,7 +28,7 @@
     "@natu/tsconfig": "workspace:*",
     "@natu/utils": "workspace:*",
     "@solidjs/testing-library": "0.8.4",
-    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/jest-dom": "6.1.4",
     "@testing-library/user-event": "14.5.1",
     "@vitejs/plugin-react-swc": "3.4.0",
     "@vitest/coverage-v8": "0.34.6",

@@ -4,8 +4,8 @@
   "license": "MIT",
   "version": "0.0.0",
   "sideEffects": false,
-  "module": "src/index.ts",
-  "types": "src/index.ts",
+  "module": "src/lib/index.ts",
+  "types": "src/lib/index.ts",
   "scripts": {
     "lint": "ng lint",
     "test": "ng test --code-coverage",

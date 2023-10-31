@@ -8,8 +8,8 @@
       "@/*": ["src/*"],
 
       // bad workarounds check README...
-      "@natu/ui-angular": ["../../packages/ui-angular/src"],
-      "@natu/ui-angular/*": ["../../packages/ui-angular/src/*"],
+      "@natu/ui-angular": ["../../packages/ui-angular/src/lib"],
+      "@natu/ui-angular/*": ["../../packages/ui-angular/src/lib/*"],
       "@natu/utils": ["../../packages/utils/src"]
     }
   }

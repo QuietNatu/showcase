@@ -25,14 +25,7 @@ export default defineConfig(() => {
         // config
         provider: 'v8',
         include: ['src/lib/**/*.{ts,tsx}'],
-        exclude: [
-          '**/*.test.*',
-          '**/*.stories.*',
-          '**/index.*',
-          'src/test',
-          'src/lib/test',
-          'src/mocks',
-        ],
+        exclude: ['**/*.test.*', '**/*.stories.*', '**/index.*', 'src/lib/test'],
         reporter: ['lcov', 'text-summary'],
       },
     },

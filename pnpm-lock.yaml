@@ -15,8 +15,8 @@ importers:
         specifier: 18.1.0
         version: 18.1.0
       '@ls-lint/ls-lint':
-        specifier: 2.0.1
-        version: 2.0.1
+        specifier: 2.2.2
+        version: 2.2.2
       '@playwright/test':
         specifier: 1.39.0
         version: 1.39.0
@@ -3282,8 +3282,8 @@ packages:
     resolution: {integrity: sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==}
     dev: true
 
-  /@ls-lint/ls-lint@2.0.1:
-    resolution: {integrity: sha512-z+sGTPWHQ2nWRj2UsDFSEQDOCw2iIjP2bPU/K1wgLNkWUv7J8WjzoBsZLgUqIgD1Sqi7zpksFTtTymgnUwramA==}
+  /@ls-lint/ls-lint@2.2.2:
+    resolution: {integrity: sha512-gdolCgwveSHZczfKtoVFkf+NZJjd7KRQs9QnLVEiMFEJLK4H7nBrZuC/ASl/AYMZvFmtCocRt3d5E0UF/34vCQ==}
     cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true

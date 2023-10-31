@@ -22,8 +22,8 @@
     "test-watch": "turbo run test-watch"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.8.1",
-    "@commitlint/config-conventional": "17.8.1",
+    "@commitlint/cli": "18.2.0",
+    "@commitlint/config-conventional": "18.1.0",
     "@ls-lint/ls-lint": "2.0.1",
     "@playwright/test": "1.37.1",
     "eslint": "8.52.0",

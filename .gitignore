@@ -36,4 +36,5 @@ coverage
 .env.production.local
 **/.angular/cache
 **/src/environments/environment-development.ts
+storybook-static
 

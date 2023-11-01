@@ -12,14 +12,16 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev --parallel",
     "build": "turbo run build",
     "lint": "pnpm lint-lslint && pnpm lint-prettier && pnpm lint-stylelint && turbo run lint",
     "lint-prettier": "prettier --check {apps,packages}/*/{src,e2e,vrt}/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
     "lint-lslint": "ls-lint",
     "lint-stylelint": "stylelint {apps,packages}/*/src/**/*.{css,scss}",
     "test": "turbo run test",
-    "test-watch": "turbo run test-watch"
+    "test-watch": "turbo run test-watch --parallel",
+    "storybook": "turbo run storybook --parallel",
+    "build-storybook": "turbo run build-storybook"
   },
   "devDependencies": {
     "@commitlint/cli": "18.2.0",

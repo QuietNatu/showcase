@@ -1,7 +1,7 @@
-import reactLogo from './assets/react.svg';
+import reactLogo from '../assets/react.svg';
 import viteLogo from '/vite.svg';
-import { NatuCounter } from '@natu/ui-react';
 import './app.css';
+import { Counter } from './components/counter/counter';
 
 export function App() {
   return (
@@ -16,7 +16,7 @@ export function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <NatuCounter />
+        <Counter />
 
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR

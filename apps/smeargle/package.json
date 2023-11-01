@@ -22,7 +22,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@mswjs/data": "0.13.0",
+    "@mswjs/data": "0.15.0",
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@storybook/addon-a11y": "^7.5.2",

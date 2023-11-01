@@ -21,7 +21,7 @@
     "solid-js": "1.8.4"
   },
   "devDependencies": {
-    "@mswjs/data": "0.13.0",
+    "@mswjs/data": "0.15.0",
     "@natu/eslint-config-solid": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@solidjs/testing-library": "0.8.4",

@@ -37,4 +37,4 @@ coverage
 **/.angular/cache
 **/src/environments/environment-development.ts
 storybook-static
-
+documentation.json

@@ -1,4 +1,4 @@
-import solidLogo from './assets/solid.svg';
+import solidLogo from '../assets/solid.svg';
 import viteLogo from '/vite.svg';
 import { NatuCounter } from '@natu/ui-solid';
 import './app.css';

@@ -16,6 +16,12 @@ export default defineConfig(() => {
       environment: 'jsdom',
       setupFiles: 'src/test/setup-tests.ts',
       transformMode: { web: [/\.[jt]sx?$/] },
+      server: {
+        deps: {
+          // fixes: You appear to have multiple instances of Solid. This can lead to unexpected behavior.
+          inline: [/solid-js/],
+        },
+      },
       coverage: {
         // threshold
         branches: 90,

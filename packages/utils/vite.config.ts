@@ -4,13 +4,14 @@ import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
-export default defineConfig(() => {
+export default defineConfig(({}) => {
   return {
     plugins: [tsconfigPaths()],
 
     test: {
       globals: true,
       css: false,
+      restoreMocks: true,
       include: ['src/**/*.test.*'],
       environment: 'jsdom',
       setupFiles: 'src/test/setup-tests.ts',

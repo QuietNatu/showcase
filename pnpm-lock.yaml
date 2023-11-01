@@ -336,8 +336,8 @@ importers:
         specifier: 0.21.0
         version: 0.21.0(eslint@8.52.0)
       eslint-plugin-storybook:
-        specifier: 0.6.13
-        version: 0.6.13(eslint@8.52.0)(typescript@5.1.6)
+        specifier: 0.6.15
+        version: 0.6.15(eslint@8.52.0)(typescript@5.1.6)
       eslint-plugin-testing-library:
         specifier: 6.1.0
         version: 6.1.0(eslint@8.52.0)(typescript@5.1.6)
@@ -391,8 +391,8 @@ importers:
         specifier: 0.21.0
         version: 0.21.0(eslint@8.52.0)
       eslint-plugin-storybook:
-        specifier: 0.6.13
-        version: 0.6.13(eslint@8.52.0)(typescript@5.1.6)
+        specifier: 0.6.15
+        version: 0.6.15(eslint@8.52.0)(typescript@5.1.6)
       eslint-plugin-testing-library:
         specifier: 6.1.0
         version: 6.1.0(eslint@8.52.0)(typescript@5.1.6)
@@ -443,8 +443,8 @@ importers:
         specifier: 0.21.0
         version: 0.21.0(eslint@8.52.0)
       eslint-plugin-storybook:
-        specifier: 0.6.13
-        version: 0.6.13(eslint@8.52.0)(typescript@5.1.6)
+        specifier: 0.6.15
+        version: 0.6.15(eslint@8.52.0)(typescript@5.1.6)
       eslint-plugin-testing-library:
         specifier: 6.1.0
         version: 6.1.0(eslint@8.52.0)(typescript@5.1.6)
@@ -6726,8 +6726,8 @@ packages:
       eslint: 8.52.0
     dev: false
 
-  /eslint-plugin-storybook@0.6.13(eslint@8.52.0)(typescript@5.1.6):
-    resolution: {integrity: sha512-smd+CS0WH1jBqUEJ3znGS7DU4ayBE9z6lkQAK2yrSUv1+rq8BT/tiI5C/rKE7rmiqiAfojtNYZRhzo5HrulccQ==}
+  /eslint-plugin-storybook@0.6.15(eslint@8.52.0)(typescript@5.1.6):
+    resolution: {integrity: sha512-lAGqVAJGob47Griu29KXYowI4G7KwMoJDOkEip8ujikuDLxU+oWJ1l0WL6F2oDO4QiyUFXvtDkEkISMOPzo+7w==}
     engines: {node: 12.x || 14.x || >= 16}
     peerDependencies:
       eslint: '>=6'

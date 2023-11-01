@@ -1,4 +1,4 @@
-import './extend-expect';
+import '../lib/test/extend-expect';
 
 import { deleteAllCookies } from '@natu/utils';
 

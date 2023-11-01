@@ -17,6 +17,7 @@ export default defineConfig(({ mode }) => {
     test: {
       globals: true,
       css: false,
+      restoreMocks: true,
       include: ['src/**/*.test.*'],
       environment: 'jsdom',
       setupFiles: 'src/test/setup-tests.ts',

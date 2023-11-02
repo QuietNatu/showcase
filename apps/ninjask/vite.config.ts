@@ -3,6 +3,8 @@
 import { defineConfig } from 'vite';
 import solid from 'vite-plugin-solid';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -12,6 +14,16 @@ export default defineConfig(({ mode }) => {
     server: {
       open: mode !== 'test',
       port: 5273,
+    },
+
+    // fixes: vite-plugin-solid not importing node exports
+    resolve: {
+      alias: {
+        'msw/node': `${dirname(fileURLToPath(import.meta.url))}/node_modules/msw/lib/node`,
+        '@mswjs/interceptors/ClientRequest': `${dirname(
+          fileURLToPath(import.meta.url),
+        )}/node_modules/@mswjs/interceptors/lib/node/interceptors/ClientRequest`,
+      },
     },
 
     test: {

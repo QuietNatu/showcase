@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@mswjs/data": "0.15.0",
-    "@mswjs/interceptors": "^0.25.7",
+    "@mswjs/interceptors": "0.25.7",
     "@natu/eslint-config-solid": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@solidjs/testing-library": "0.8.4",

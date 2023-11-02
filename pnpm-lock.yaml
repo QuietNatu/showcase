@@ -67,7 +67,7 @@ importers:
         specifier: 0.15.0
         version: 0.15.0(typescript@5.1.6)
       '@mswjs/interceptors':
-        specifier: ^0.25.7
+        specifier: 0.25.7
         version: 0.25.7
       '@natu/eslint-config-solid':
         specifier: workspace:*

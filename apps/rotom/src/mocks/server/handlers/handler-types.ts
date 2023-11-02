@@ -1,7 +1,8 @@
-import { DefaultBodyType, PathParams, ResponseResolver, RestContext, RestRequest } from 'msw';
+import { DefaultBodyType, PathParams, ResponseResolver } from 'msw';
+import { HttpRequestResolverExtras } from 'msw/lib/core/handlers/HttpHandler';
 
-export type RestResponseResolver<
-  RequestBody extends DefaultBodyType,
-  Params extends PathParams<keyof Params>,
-  ResponseBody extends DefaultBodyType,
-> = ResponseResolver<RestRequest<RequestBody, Params>, RestContext, ResponseBody>;
+export type HttpResponseResolver<
+  Params extends PathParams<keyof Params> = PathParams,
+  RequestBodyType extends DefaultBodyType = DefaultBodyType,
+  ResponseBodyType extends DefaultBodyType = undefined,
+> = ResponseResolver<HttpRequestResolverExtras<Params>, RequestBodyType, ResponseBodyType>;

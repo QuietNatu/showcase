@@ -61,6 +61,10 @@
       "dependencyDashboardApproval": true
     },
     {
+      "matchPackageNames": ["node"],
+      "dependencyDashboardApproval": true
+    },
+    {
       "matchPackageNames": ["msw"],
       "matchUpdateTypes": ["major", "minor", "patch"],
       "description": "also needs to update mockServiceWorker.js",

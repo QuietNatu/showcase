@@ -787,9 +787,6 @@ importers:
       vite:
         specifier: 4.5.0
         version: 4.5.0(@types/node@18.18.8)
-      vite-tsconfig-paths:
-        specifier: 4.2.1
-        version: 4.2.1(typescript@5.1.6)(vite@4.5.0)
       vitest:
         specifier: 0.34.6
         version: 0.34.6(jsdom@22.1.0)
@@ -871,9 +868,6 @@ importers:
       vite-plugin-solid:
         specifier: 2.7.2
         version: 2.7.2(solid-js@1.8.5)(vite@4.5.0)
-      vite-tsconfig-paths:
-        specifier: 4.2.1
-        version: 4.2.1(typescript@5.1.6)(vite@4.5.0)
       vitest:
         specifier: 0.34.6
         version: 0.34.6(jsdom@22.1.0)
@@ -901,12 +895,25 @@ importers:
       vite:
         specifier: 4.5.0
         version: 4.5.0(@types/node@18.18.8)
-      vite-tsconfig-paths:
-        specifier: 4.2.1
-        version: 4.2.1(typescript@5.1.6)(vite@4.5.0)
       vitest:
         specifier: 0.34.6
         version: 0.34.6(jsdom@22.1.0)
+
+  packages/vrt:
+    dependencies:
+      '@playwright/test':
+        specifier: 1.39.0
+        version: 1.39.0
+    devDependencies:
+      '@natu/eslint-config-react':
+        specifier: workspace:*
+        version: link:../eslint-config-react
+      '@natu/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.1.6
+        version: 5.1.6
 
 packages:
 
@@ -5311,7 +5318,6 @@ packages:
     hasBin: true
     dependencies:
       playwright: 1.39.0
-    dev: true
 
   /@radix-ui/number@1.0.1:
     resolution: {integrity: sha512-T5gIdVO2mmPW3NNhjNgEP3cqMXjXL9UbO0BzWcXfvdBs+BohbQxvd/K5hSVKmn9/lbTdsQVKbUcP5WLCwvUbBg==}
@@ -11951,7 +11957,6 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /fsevents@2.3.3:
@@ -15479,7 +15484,6 @@ packages:
     resolution: {integrity: sha512-+k4pdZgs1qiM+OUkSjx96YiKsXsmb59evFoqv8SKO067qBA+Z2s/dCzJij/ZhdQcs2zlTAgRKfeiiLm8PQ2qvw==}
     engines: {node: '>=16'}
     hasBin: true
-    dev: true
 
   /playwright@1.39.0:
     resolution: {integrity: sha512-naE5QT11uC/Oiq0BwZ50gDmy8c8WLPRTEWuSSFVG2egBka/1qMoSqYQcROMT9zLwJ86oPofcTH2jBY/5wWOgIw==}
@@ -15489,7 +15493,6 @@ packages:
       playwright-core: 1.39.0
     optionalDependencies:
       fsevents: 2.3.2
-    dev: true
 
   /pluralize@8.0.0:
     resolution: {integrity: sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==}

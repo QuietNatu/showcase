@@ -76,7 +76,7 @@ importers:
         specifier: 0.8.4
         version: 0.8.4(@solidjs/router@0.8.3)(solid-js@1.8.4)
       '@storybook/addon-a11y':
-        specifier: ^7.5.2
+        specifier: 7.5.2
         version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.33)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-essentials':
         specifier: 7.5.2
@@ -212,7 +212,7 @@ importers:
         specifier: 1.39.0
         version: 1.39.0
       '@storybook/addon-a11y':
-        specifier: ^7.5.2
+        specifier: 7.5.2
         version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.33)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-docs':
         specifier: 7.5.2
@@ -321,7 +321,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/tsconfig
       '@storybook/addon-a11y':
-        specifier: ^7.5.2
+        specifier: 7.5.2
         version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.33)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-essentials':
         specifier: 7.5.2
@@ -617,7 +617,7 @@ importers:
         specifier: 1.39.0
         version: 1.39.0
       '@storybook/addon-a11y':
-        specifier: ^7.5.2
+        specifier: 7.5.2
         version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.33)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-docs':
         specifier: 7.5.2
@@ -683,7 +683,7 @@ importers:
         specifier: 2.1.0
         version: 2.1.0(jasmine-core@4.6.0)(karma-jasmine@5.1.0)(karma@6.4.2)
       ng-packagr:
-        specifier: ^16.2.3
+        specifier: 16.2.3
         version: 16.2.3(@angular/compiler-cli@16.2.11)(tslib@2.3.0)(typescript@5.1.6)
       react:
         specifier: 18.2.0
@@ -719,7 +719,7 @@ importers:
         specifier: workspace:*
         version: link:../utils
       '@storybook/addon-a11y':
-        specifier: ^7.5.2
+        specifier: 7.5.2
         version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.33)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-essentials':
         specifier: 7.5.2
@@ -809,7 +809,7 @@ importers:
         specifier: 0.8.4
         version: 0.8.4(@solidjs/router@0.8.3)(solid-js@1.8.4)
       '@storybook/addon-a11y':
-        specifier: ^7.5.2
+        specifier: 7.5.2
         version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.33)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-essentials':
         specifier: 7.5.2

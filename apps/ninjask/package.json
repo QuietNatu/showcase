@@ -25,7 +25,7 @@
     "@natu/eslint-config-solid": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@solidjs/testing-library": "0.8.4",
-    "@storybook/addon-a11y": "^7.5.2",
+    "@storybook/addon-a11y": "7.5.2",
     "@storybook/addon-essentials": "7.5.2",
     "@storybook/addon-interactions": "7.5.2",
     "@storybook/addon-links": "7.5.2",

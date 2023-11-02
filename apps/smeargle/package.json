@@ -25,7 +25,7 @@
     "@mswjs/data": "0.15.0",
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
-    "@storybook/addon-a11y": "^7.5.2",
+    "@storybook/addon-a11y": "7.5.2",
     "@storybook/addon-essentials": "7.5.2",
     "@storybook/addon-interactions": "7.5.2",
     "@storybook/addon-links": "7.5.2",

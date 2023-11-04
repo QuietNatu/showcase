@@ -21,7 +21,10 @@
     "test": "turbo run test",
     "test-watch": "turbo run test-watch --parallel",
     "storybook": "turbo run storybook --parallel",
-    "build-storybook": "turbo run build-storybook"
+    "build-storybook": "turbo run build-storybook",
+    "vrt": "turbo run vrt --continue",
+    "vrt-update": "turbo run vrt-update",
+    "vrt-show-report": "turbo run vrt-show-report --parallel"
   },
   "devDependencies": {
     "@commitlint/cli": "18.2.0",

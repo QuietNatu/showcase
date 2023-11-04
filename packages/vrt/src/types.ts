@@ -10,7 +10,7 @@ export interface VrtScenarioOptions {
   /**
    * The precision threshold between the produced screenshot and the saved screenshot.
    */
-  threshold: number;
+  threshold?: number;
 
   /**
    * Perform interactions after the page is mounted.

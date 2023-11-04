@@ -54,7 +54,9 @@ function createTestRunner(scenario: TestScenario) {
     const screenshot = await page.screenshot({ animations: 'disabled' });
     expect(screenshot).toMatchSnapshot({ threshold: scenario.threshold });
 
-    await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
+    if (!testInfo.errors.length) {
+      await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
+    }
   };
 }
 
@@ -62,7 +64,7 @@ function createTestRunner(scenario: TestScenario) {
  * Storybook does not provide a way to wait for the story to be loaded so we have to guess.
  */
 async function makeSurePageIsReady(page: Page) {
-  await expect(page.locator('storybook-root')).toHaveCount(1);
+  await expect(page.locator('#storybook-root')).toHaveCount(1);
   await expect(page.locator('#preview-loader')).toHaveCount(0);
   await page.waitForTimeout(500);
 }

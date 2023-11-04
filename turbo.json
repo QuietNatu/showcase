@@ -25,6 +25,17 @@
     },
     "build-storybook": {
       "outputs": ["storybook-static/**"]
+    },
+    "vrt": {
+      "dependsOn": ["build-storybook"],
+      "outputs": ["vrt/report/**", "vrt/results/**", "vrt/screenshots/**"]
+    },
+    "vrt-update": {
+      "dependsOn": ["build-storybook"],
+      "outputs": ["vrt/report/**", "vrt/results/**", "vrt/screenshots/**"]
+    },
+    "vrt-show-report": {
+      "cache": false
     }
   }
 }

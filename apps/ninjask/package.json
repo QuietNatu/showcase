@@ -30,7 +30,7 @@
     "@mswjs/interceptors": "0.25.7",
     "@natu/eslint-config-solid": "workspace:*",
     "@natu/tsconfig": "workspace:*",
-    "@natu/vrt": "workspace:^",
+    "@natu/vrt": "workspace:*",
     "@playwright/test": "1.39.0",
     "@solidjs/testing-library": "0.8.4",
     "@storybook/addon-a11y": "7.5.2",

@@ -33,7 +33,7 @@ export default defineConfig(({}) => {
         all: true,
         provider: 'v8',
         include: ['src/lib/**/*.{ts,tsx}'],
-        exclude: ['**/*.test.*', '**/*.stories.*', '**/index.*', 'src/lib/test'],
+        exclude: ['**/*.test.*', '**/*.stories.*', '**/*.vrt.*', '**/index.*', 'src/lib/test'],
         reporter: ['lcov', 'text-summary'],
       },
     },

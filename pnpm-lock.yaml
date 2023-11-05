@@ -39,8 +39,8 @@ importers:
         specifier: 4.3.0
         version: 4.3.0(stylelint@15.11.0)
       stylelint-config-standard-scss:
-        specifier: 11.0.0
-        version: 11.0.0(postcss@8.4.31)(stylelint@15.11.0)
+        specifier: 11.1.0
+        version: 11.1.0(postcss@8.4.31)(stylelint@15.11.0)
       stylelint-order:
         specifier: 6.0.3
         version: 6.0.3(stylelint@15.11.0)
@@ -17566,8 +17566,8 @@ packages:
       stylelint: 15.11.0(typescript@5.1.6)
     dev: true
 
-  /stylelint-config-standard-scss@11.0.0(postcss@8.4.31)(stylelint@15.11.0):
-    resolution: {integrity: sha512-fGE79NBOLg09a9afqGH/guJulRULCaQWWv4cv1v2bMX92B+fGb0y56WqIguwvFcliPmmUXiAhKrrnXilIeXoHA==}
+  /stylelint-config-standard-scss@11.1.0(postcss@8.4.31)(stylelint@15.11.0):
+    resolution: {integrity: sha512-5gnBgeNTgRVdchMwiFQPuBOtj9QefYtfXiddrOMJA2pI22zxt6ddI2s+e5Oh7/6QYl7QLJujGnaUR5YyGq72ow==}
     peerDependencies:
       postcss: ^8.3.3
       stylelint: ^15.10.0

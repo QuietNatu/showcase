@@ -38,3 +38,5 @@ coverage
 **/src/environments/environment-development.ts
 storybook-static
 documentation.json
+**/vrt/report
+**/vrt/results

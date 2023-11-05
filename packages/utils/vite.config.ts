@@ -1,12 +1,11 @@
 /// <reference types="vitest" />
 
 import { defineConfig } from 'vite';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig(({}) => {
   return {
-    plugins: [tsconfigPaths()],
+    plugins: [],
 
     test: {
       globals: true,
@@ -26,7 +25,7 @@ export default defineConfig(({}) => {
         all: true,
         provider: 'v8',
         include: ['src/**/*.ts'],
-        exclude: ['**/*.test.*', '**/index.*', 'src/test', 'src/mocks'],
+        exclude: ['**/*.test.*', '**/index.*', '**/*.vrt.*', 'src/test', 'src/mocks'],
         reporter: ['lcov', 'text-summary'],
       },
     },

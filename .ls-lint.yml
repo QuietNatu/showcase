@@ -13,6 +13,7 @@ ls:
     .json: kebab-case
     .css: kebab-case
     .module.scss: kebab-case
+    .vrt.ts: kebab-case
     # Angular stuff...
     .component.ts: kebab-case
     .component.html: kebab-case
@@ -42,6 +43,7 @@ ls:
     .json: kebab-case
     .css: kebab-case
     .module.scss: kebab-case
+    .vrt.ts: kebab-case
     # Angular stuff...
     .component.ts: kebab-case
     .component.html: kebab-case

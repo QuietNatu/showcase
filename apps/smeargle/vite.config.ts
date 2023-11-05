@@ -35,6 +35,7 @@ export default defineConfig(({ mode }) => {
         exclude: [
           '**/*.test.*',
           '**/*.stories.*',
+          '**/*.vrt.*',
           'src/test',
           'src/mocks',
           'src/main.tsx',

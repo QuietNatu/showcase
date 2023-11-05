@@ -56,7 +56,7 @@
             "browserTarget": "lib:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "port": 6102
+            "port": 6111
           }
         },
         "build-storybook": {

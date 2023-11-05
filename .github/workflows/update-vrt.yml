@@ -1,10 +1,7 @@
-name: CI
+name: Update VRT screenshots
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 env:
   HUSKY: 0
@@ -20,55 +17,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Restore turbo cache
-        uses: actions/cache/restore@v3
-        with:
-          path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
-
-      - name: Use pnpm
-        uses: pnpm/action-setup@v2
-
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: 'package.json'
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        # change to pnpm ci once it is implemented
-        run: |
-          pnpm i --frozen-lockfile --loglevel warn
-          pnpm exec playwright install --with-deps chromium
-
-      - name: Lint files
-        run: pnpm run lint --cache-dir=${{ env.TURBO_CACHE_DIR }}
-
-      - name: Run tests
-        run: pnpm run test --cache-dir=${{ env.TURBO_CACHE_DIR }}
-
-      - name: Build
-        run: pnpm run build --cache-dir=${{ env.TURBO_CACHE_DIR }}
-
-      - name: Save turbo cache
-        uses: actions/cache/save@v3
-        if: success() || failure()
-        with:
-          path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-
-  vrt:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
         with:
           lfs: 'true'
+          token: ${{ secrets.BOT_TOKEN }}
 
       - name: Pull LFS files
         run: git lfs pull
@@ -97,7 +48,15 @@ jobs:
           pnpm exec playwright install --with-deps ${{ env.VRT_BROWSER }}
 
       - name: Run tests
-        run: pnpm run vrt --cache-dir="${{ env.TURBO_CACHE_DIR }}"
+        run: pnpm run vrt-update --cache-dir="${{ env.TURBO_CACHE_DIR }}"
+
+      - name: Commit updated screenshots
+        run: |
+          git add -- **/vrt/screenshots/**/*
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "Github Actions [Bot]"
+          git commit -m "[Bot]: update VRT screenshots"
+          git push
 
       - name: Upload report
         uses: actions/upload-artifact@v3

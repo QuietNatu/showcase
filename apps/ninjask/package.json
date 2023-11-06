@@ -18,7 +18,8 @@
     "vrt": "playwright test --config vrt/playwright.config.ts",
     "vrt-update": "pnpm vrt --update-snapshots",
     "vrt-show-report": "playwright show-report vrt/report --port 6203",
-    "vrt-debug": "cross-env PWDEBUG=1 pnpm vrt"
+    "vrt-debug": "cross-env PWDEBUG=1 pnpm vrt",
+    "e2e": "cross-env VITE_E2E=true playwright test --config e2e/playwright.config.ts"
   },
   "dependencies": {
     "@natu/ui-solid": "workspace:*",

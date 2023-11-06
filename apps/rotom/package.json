@@ -6,17 +6,18 @@
   "scripts": {
     "dev": "ng serve",
     "build": "ng build",
+    "preview": "http-server -c-1 dist --silent",
     "lint": "ng lint",
     "test": "ng test --code-coverage",
     "test-watch": "ng test --watch --browsers Chrome",
     "analyse": "pnpm build --source-map true --named-chunks true && source-map-explorer dist/**/*.js",
     "storybook": "ng run rotom:storybook",
     "build-storybook": "ng run rotom:build-storybook",
-    "preview-storybook": "http-server ./storybook-static --silent",
+    "preview-storybook": "http-server -c-1 ./storybook-static --silent",
     "vrt": "playwright test --config vrt/playwright.config.ts",
     "vrt-update": "pnpm vrt --update-snapshots",
     "vrt-show-report": "playwright show-report vrt/report --port 6103",
-    "vrt-debug": "cross-env PWDEBUG=1 pnpm vrt"
+    "e2e": "playwright test --config e2e/playwright.config.ts"
   },
   "dependencies": {
     "@angular/animations": "16.2.12",

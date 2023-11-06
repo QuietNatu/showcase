@@ -63,3 +63,4 @@ ignore:
   - apps/rotom/src/mockServiceWorker.js
   - apps/*/src/locales
   - packages/*/src/locales
+  - apps/*/e2e/playwright.config.ts

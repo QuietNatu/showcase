@@ -3,7 +3,7 @@ import { App } from './app/app.tsx';
 import './index.css';
 import { StrictMode } from 'react';
 
-if (import.meta.env.DEV) {
+if (import.meta.env.DEV && import.meta.env.VITE_E2E !== 'true') {
   const { mockWorker } = await import('@/mocks/server/browser');
 
   await mockWorker.start({ onUnhandledRequest: 'bypass' });

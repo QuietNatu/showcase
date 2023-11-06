@@ -64,4 +64,3 @@ ignore:
   - apps/*/src/locales
   - packages/*/src/locales
   - apps/*/e2e/playwright.config.ts
-  - packages/*/e2e/playwright.config.ts

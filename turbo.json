@@ -36,6 +36,9 @@
     },
     "vrt-show-report": {
       "cache": false
+    },
+    "e2e": {
+      "outputs": ["e2e/report/**", "e2e/results/**"]
     }
   }
 }

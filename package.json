@@ -24,7 +24,8 @@
     "build-storybook": "turbo run build-storybook",
     "vrt": "turbo run vrt --continue",
     "vrt-update": "turbo run vrt-update",
-    "vrt-show-report": "turbo run vrt-show-report --parallel"
+    "vrt-show-report": "turbo run vrt-show-report --parallel",
+    "e2e": "turbo run e2e --continue"
   },
   "devDependencies": {
     "@commitlint/cli": "18.2.0",

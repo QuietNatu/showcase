@@ -76,7 +76,7 @@
             }
           },
           "options": {
-            "port": 5373,
+            "port": 6101,
             "open": true
           },
           "defaultConfiguration": "development"

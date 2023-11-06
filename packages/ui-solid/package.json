@@ -24,11 +24,10 @@
     "test-watch": "vitest",
     "storybook": "storybook dev -p 6211",
     "build-storybook": "storybook build",
-    "preview-storybook": "http-server ./storybook-static --silent",
+    "preview-storybook": "http-server -c-1 ./storybook-static --silent",
     "vrt": "playwright test --config vrt/playwright.config.ts",
     "vrt-update": "pnpm vrt --update-snapshots",
-    "vrt-show-report": "playwright show-report vrt/report --port 6213",
-    "vrt-debug": "cross-env PWDEBUG=1 pnpm vrt"
+    "vrt-show-report": "playwright show-report vrt/report --port 6213"
   },
   "devDependencies": {
     "@natu/eslint-config-solid": "workspace:*",

@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "rotom:build:production"
+              "buildTarget": "rotom:build:production"
             },
             "development": {
-              "browserTarget": "rotom:build:development"
+              "buildTarget": "rotom:build:development"
             }
           },
           "options": {
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rotom:build"
+            "buildTarget": "rotom:build"
           }
         },
         "test": {

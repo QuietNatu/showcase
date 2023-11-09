@@ -9,7 +9,7 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["build/**"]
+      "outputs": ["dist/**"]
     },
     "lint": {},
     "test": {
@@ -18,6 +18,10 @@
     "test-watch": {
       "cache": false,
       "persistent": true
+    },
+    "analyse": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
     },
     "storybook": {
       "cache": false,

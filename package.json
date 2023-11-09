@@ -20,6 +20,7 @@
     "lint-stylelint": "stylelint {apps,packages}/*/src/**/*.{css,scss}",
     "test": "turbo run test",
     "test-watch": "turbo run test-watch --parallel",
+    "analyse": "turbo run analyse",
     "storybook": "turbo run storybook --parallel",
     "build-storybook": "turbo run build-storybook",
     "vrt": "turbo run vrt --continue",

@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "mrmlnc.vscode-scss",
+    "ZixuanChen.vitest-explorer",
+    "ms-playwright.playwright",
+    "Angular.ng-template",
+    "KnisterPeter.vscode-commitizen"
+  ]
+}

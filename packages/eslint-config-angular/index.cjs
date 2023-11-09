@@ -67,7 +67,7 @@ module.exports = {
         '@angular-eslint/component-selector': [
           'error',
           {
-            prefix: ['app'],
+            prefix: 'app',
             style: 'kebab-case',
             type: ['attribute', 'element'],
           },
@@ -75,7 +75,7 @@ module.exports = {
         '@angular-eslint/directive-selector': [
           'error',
           {
-            prefix: ['app'],
+            prefix: 'app',
             style: 'camelCase',
             type: ['attribute', 'element'],
           },

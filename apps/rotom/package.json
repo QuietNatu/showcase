@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ng serve",
     "build": "ng build",
-    "preview": "http-server -c-1 dist --silent",
+    "preview": "http-server -c-1 dist/browser --silent",
     "lint": "ng lint",
     "test": "ng test --code-coverage",
     "test-watch": "ng test --watch --browsers Chrome",

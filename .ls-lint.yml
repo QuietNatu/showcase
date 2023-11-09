@@ -28,6 +28,7 @@ ls:
     .pipe.ts: kebab-case
     .pipe.test.ts: kebab-case
     .module.ts: kebab-case
+    .config.ts: kebab-case
 
   packages/*/{src,e2e}:
     .dir: kebab-case
@@ -58,6 +59,7 @@ ls:
     .pipe.ts: kebab-case
     .pipe.test.ts: kebab-case
     .module.ts: kebab-case
+    .config.ts: kebab-case
 
 ignore:
   - apps/rotom/src/mockServiceWorker.js

@@ -27,9 +27,9 @@ Run `pnpm install` to install all dependencies and then...
 
 - To start the app in development mode run `pnpm dev`.
 - To start the app in production mode build it with `pnpm build` and then serve it with `pnpm preview`.
+- To analyse the production bundle use `pnpm analyse`.
 - To run Storybook use `pnpm storybook`.
 - To run all code linters use `pnpm lint`.
-- To run analyse the production bundle use `pnpm analyse`.
 - To run unit tests use `pnpm test`.
 - To run visual regression tests use `pnpm vrt`.
 - To run end-to-end tests use `pnpm e2e`.

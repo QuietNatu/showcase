@@ -15,11 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -44,9 +44,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true,
@@ -69,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "rotom:build:production"
+              "buildTarget": "rotom:build:production"
             },
             "development": {
-              "browserTarget": "rotom:build:development"
+              "buildTarget": "rotom:build:development"
             }
           },
           "options": {
@@ -84,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rotom:build"
+            "buildTarget": "rotom:build"
           }
         },
         "test": {
@@ -139,6 +137,7 @@
   },
   "cli": {
     "analytics": false,
+    "packageManager": "pnpm",
     "schematicCollections": ["@angular-eslint/schematics"]
   }
 }

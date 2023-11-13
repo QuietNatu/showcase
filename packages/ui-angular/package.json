@@ -19,8 +19,8 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "17.0.0",
-    "@angular-eslint/builder": "17.0.0",
-    "@angular-eslint/schematics": "17.0.0",
+    "@angular-eslint/builder": "17.0.1",
+    "@angular-eslint/schematics": "17.0.1",
     "@angular/animations": "17.0.2",
     "@angular/cli": "17.0.0",
     "@angular/common": "17.0.2",

@@ -192,7 +192,7 @@ module.exports = {
 
     {
       name: 'not-to-story',
-      comment: 'This module on a story file. Only tests are allowed to import stories.',
+      comment: 'This module depends on a story file. Only tests are allowed to import stories.',
       severity: 'error',
       from: {},
       to: {
@@ -202,7 +202,7 @@ module.exports = {
 
     {
       name: 'not-to-vrt',
-      comment: 'This module on a VRT file.',
+      comment: 'This module depends on a VRT file.',
       severity: 'error',
       from: {},
       to: {

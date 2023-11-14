@@ -6,12 +6,12 @@
   "sideEffects": false,
   "main": "index.cjs",
   "dependencies": {
-    "@angular-eslint/eslint-plugin": "16.1.1",
-    "@angular-eslint/eslint-plugin-template": "16.1.1",
-    "@angular-eslint/template-parser": "16.1.1",
+    "@angular-eslint/eslint-plugin": "17.0.1",
+    "@angular-eslint/eslint-plugin-template": "17.0.1",
+    "@angular-eslint/template-parser": "17.0.1",
     "@ngneat/eslint-plugin-reactive-forms": "4.0.0",
-    "@typescript-eslint/eslint-plugin": "6.9.1",
-    "@typescript-eslint/parser": "6.9.1",
+    "@typescript-eslint/eslint-plugin": "6.10.0",
+    "@typescript-eslint/parser": "6.10.0",
     "eslint": "8.53.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-config-turbo": "1.10.16",
@@ -25,6 +25,6 @@
     "eslint-plugin-unused-imports": "3.0.0"
   },
   "devDependencies": {
-    "typescript": "5.1.6"
+    "typescript": "5.2.2"
   }
 }

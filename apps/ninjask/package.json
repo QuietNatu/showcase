@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@mswjs/data": "0.15.0",
-    "@mswjs/interceptors": "0.25.7",
+    "@mswjs/interceptors": "0.25.11",
     "@natu/eslint-config-solid": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/vrt": "workspace:*",

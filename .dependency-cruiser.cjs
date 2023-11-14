@@ -216,7 +216,7 @@ module.exports = {
     },
 
     exclude: {
-      path: ['.scss$'],
+      path: ['.(css|scss)$'],
     },
 
     includeOnly: {

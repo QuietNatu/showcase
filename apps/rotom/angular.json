@@ -27,7 +27,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/mockServiceWorker.js",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/robots.txt"
             ],
             "styles": ["src/styles.scss"],
             "scripts": []
@@ -102,7 +103,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/mockServiceWorker.js",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/robots.txt"
             ],
             "styles": ["src/styles.scss"],
             "scripts": [],

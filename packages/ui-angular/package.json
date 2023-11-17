@@ -18,11 +18,11 @@
     "vrt-show-report": "playwright show-report vrt/report --port 6113"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "17.0.0",
+    "@angular-devkit/build-angular": "17.0.1",
     "@angular-eslint/builder": "17.0.1",
     "@angular-eslint/schematics": "17.0.1",
     "@angular/animations": "17.0.3",
-    "@angular/cli": "17.0.0",
+    "@angular/cli": "17.0.1",
     "@angular/common": "17.0.3",
     "@angular/compiler": "17.0.3",
     "@angular/compiler-cli": "17.0.3",

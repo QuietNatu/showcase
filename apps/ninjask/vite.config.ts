@@ -1,15 +1,19 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import solid from 'vite-plugin-solid';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd());
+  const isE2e = env.VITE_E2E === 'true';
+
   return {
-    plugins: [solid(), tsconfigPaths()],
+    plugins: [solid(), tsconfigPaths(), VitePWA(isE2e ? { injectRegister: null } : pwaOptions)],
 
     server: {
       open: mode !== 'test',
@@ -66,3 +70,26 @@ export default defineConfig(({ mode }) => {
     },
   };
 });
+
+const pwaOptions: Partial<VitePWAOptions> = {
+  includeAssets: ['favicon.ico', 'favicon.svg', 'apple-touch-icon.png'],
+  manifest: {
+    name: 'Ninjask',
+    short_name: 'Ninjask',
+    theme_color: '#1976d2',
+    background_color: '#fafafa',
+    display: 'standalone',
+    icons: [
+      {
+        src: 'icon-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        src: 'icon-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+    ],
+  },
+};

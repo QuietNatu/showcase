@@ -41,6 +41,7 @@
     "@storybook/testing-library": "0.2.2",
     "@testing-library/user-event": "14.5.1",
     "@vitest/coverage-v8": "0.34.6",
+    "autoprefixer": "^10.4.16",
     "browserslist-to-esbuild": "^1.2.0",
     "cross-env": "7.0.3",
     "http-server": "14.1.1",

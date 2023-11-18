@@ -111,6 +111,12 @@ importers:
       '@vitest/coverage-v8':
         specifier: 0.34.6
         version: 0.34.6(vitest@0.34.6)
+      autoprefixer:
+        specifier: ^10.4.16
+        version: 10.4.16(postcss@8.4.31)
+      browserslist-to-esbuild:
+        specifier: ^1.2.0
+        version: 1.2.0
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
@@ -404,6 +410,12 @@ importers:
       '@vitest/coverage-v8':
         specifier: 0.34.6
         version: 0.34.6(vitest@0.34.6)
+      autoprefixer:
+        specifier: ^10.4.16
+        version: 10.4.16(postcss@8.4.31)
+      browserslist-to-esbuild:
+        specifier: ^1.2.0
+        version: 1.2.0
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
@@ -10415,6 +10427,13 @@ packages:
     resolution: {integrity: sha512-19OEpq7vWgsH6WkvkBJQDFvJS1uPcbFOQ4v9CU839dO+ZZXUZO6XpE6hNCqvlIIj+4fZvRiJ6DsAQ382GwiyTQ==}
     dependencies:
       pako: 0.2.9
+    dev: true
+
+  /browserslist-to-esbuild@1.2.0:
+    resolution: {integrity: sha512-ftrrbI/VHBgEnmnSyhkqvQVMp6jAKybfs0qMIlm7SLBrQTGMsdCIP4q3BoKeLsZTBQllIQtY9kbxgRYV2WU47g==}
+    engines: {node: '>=12'}
+    dependencies:
+      browserslist: 4.22.1
     dev: true
 
   /browserslist@4.22.1:

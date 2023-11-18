@@ -4,6 +4,7 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
+import browserslistToEsbuild from 'browserslist-to-esbuild';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -12,6 +13,10 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react(), tsconfigPaths(), VitePWA(isE2e ? { injectRegister: null } : pwaOptions)],
+
+    build: {
+      target: browserslistToEsbuild(),
+    },
 
     server: {
       open: mode !== 'test',

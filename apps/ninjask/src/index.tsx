@@ -1,7 +1,7 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
 import { App } from './app/app';
-import './index.css';
+import './styles/styles.scss';
 
 if (import.meta.env.DEV && import.meta.env.VITE_E2E !== 'true') {
   const { mockWorker } = await import('@/mocks/server/browser');

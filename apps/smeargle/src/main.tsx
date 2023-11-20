@@ -1,6 +1,6 @@
+import '@/styles/styles.scss';
 import { createRoot } from 'react-dom/client';
 import { App } from './app/app.tsx';
-import './index.css';
 import { StrictMode } from 'react';
 
 if (import.meta.env.DEV && import.meta.env.VITE_E2E !== 'true') {

@@ -1,3 +1,4 @@
+import '../src/styles/styles.scss';
 import type { Preview } from 'storybook-solidjs';
 
 const preview: Preview = {

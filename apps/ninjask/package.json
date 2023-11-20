@@ -21,6 +21,7 @@
     "e2e": "cross-env VITE_E2E=true playwright test --config e2e/playwright.config.ts"
   },
   "dependencies": {
+    "@natu/styles": "workspace:*",
     "@natu/ui-solid": "workspace:*",
     "@natu/utils": "workspace:*",
     "solid-js": "1.8.5"

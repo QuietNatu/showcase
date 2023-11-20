@@ -33,6 +33,7 @@
     "@angular/router": "17.0.3",
     "@compodoc/compodoc": "1.1.22",
     "@natu/eslint-config-angular": "workspace:*",
+    "@natu/styles": "workspace:^",
     "@natu/tsconfig": "workspace:*",
     "@natu/utils": "workspace:*",
     "@natu/vrt": "workspace:*",

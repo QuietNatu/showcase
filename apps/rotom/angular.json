@@ -32,7 +32,7 @@
               "src/manifest.webmanifest",
               "src/robots.txt"
             ],
-            "styles": ["src/styles.scss"],
+            "styles": ["src/styles/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -110,7 +110,7 @@
               "src/manifest.webmanifest",
               "src/robots.txt"
             ],
-            "styles": ["src/styles.scss"],
+            "styles": ["src/styles/styles.scss"],
             "scripts": [],
             "karmaConfig": "karma.config.js",
             "include": ["**/*.test.ts"],
@@ -136,7 +136,8 @@
             "browserTarget": "rotom:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "port": 6101
+            "port": 6101,
+            "assets": ["src/assets", "src/mockServiceWorker.js"]
           }
         },
         "build-storybook": {
@@ -146,7 +147,8 @@
             "browserTarget": "rotom:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "outputDir": "storybook-static"
+            "outputDir": "storybook-static",
+            "assets": ["src/assets", "src/mockServiceWorker.js"]
           }
         }
       }

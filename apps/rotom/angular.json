@@ -136,7 +136,8 @@
             "browserTarget": "rotom:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "port": 6101
+            "port": 6101,
+            "assets": ["src/assets", "src/mockServiceWorker.js"]
           }
         },
         "build-storybook": {
@@ -146,7 +147,8 @@
             "browserTarget": "rotom:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "outputDir": "storybook-static"
+            "outputDir": "storybook-static",
+            "assets": ["src/assets", "src/mockServiceWorker.js"]
           }
         }
       }

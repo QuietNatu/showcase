@@ -56,7 +56,9 @@
             "browserTarget": "lib:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "port": 6111
+            "port": 6111,
+            "styles": ["src/styles/styles.scss"],
+            "assets": ["src/assets"]
           }
         },
         "build-storybook": {
@@ -66,7 +68,9 @@
             "browserTarget": "lib:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "outputDir": "storybook-static"
+            "outputDir": "storybook-static",
+            "styles": ["src/styles/styles.scss"],
+            "assets": ["src/assets"]
           }
         }
       }

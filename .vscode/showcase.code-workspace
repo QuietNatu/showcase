@@ -29,6 +29,10 @@
       "path": "../packages/eslint-config-solid"
     },
     {
+      "name": "📦 styles",
+      "path": "../packages/vrt"
+    },
+    {
       "name": "📦 tsconfig",
       "path": "../packages/tsconfig"
     },

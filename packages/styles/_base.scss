@@ -1,0 +1,21 @@
+@layer base {
+  html {
+    height: 100%;
+  }
+
+  body {
+    /* TODO: color and background color and typography */
+
+    height: auto;
+    min-height: 100%;
+  }
+
+  ul,
+  ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* TODO: headings */
+}

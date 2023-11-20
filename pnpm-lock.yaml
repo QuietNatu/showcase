@@ -70,8 +70,8 @@ importers:
         specifier: 0.15.0
         version: 0.15.0(typescript@5.2.2)
       '@mswjs/interceptors':
-        specifier: 0.25.11
-        version: 0.25.11
+        specifier: 0.25.12
+        version: 0.25.12
       '@natu/eslint-config-solid':
         specifier: workspace:*
         version: link:../../packages/eslint-config-solid
@@ -5030,8 +5030,8 @@ packages:
     dev: true
     optional: true
 
-  /@mswjs/interceptors@0.25.11:
-    resolution: {integrity: sha512-27aonWAjdeoZN4j4j6QvePOSOacQUucFRUESAU8FUXsmmagDjmyOi4/NHizxzY/NHSk/HAyqF/IMhl+9puhqNw==}
+  /@mswjs/interceptors@0.25.12:
+    resolution: {integrity: sha512-a+zyoR01cPQeukSmaDEkE6aMwSjjfcT5ILzsyxmctEeCePnc2DMOd0X8Fn9bytq1IsAfMxJf/lu2aTfdivDbRg==}
     engines: {node: '>=18'}
     dependencies:
       '@open-draft/deferred-promise': 2.2.0
@@ -15796,7 +15796,7 @@ packages:
       '@bundled-es-modules/js-levenshtein': 2.0.1
       '@bundled-es-modules/statuses': 1.0.1
       '@mswjs/cookies': 1.1.0
-      '@mswjs/interceptors': 0.25.11
+      '@mswjs/interceptors': 0.25.12
       '@open-draft/until': 2.1.0
       '@types/cookie': 0.4.1
       '@types/js-levenshtein': 1.1.3

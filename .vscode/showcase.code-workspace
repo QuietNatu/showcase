@@ -30,7 +30,7 @@
     },
     {
       "name": "📦 styles",
-      "path": "../packages/vrt"
+      "path": "../packages/styles"
     },
     {
       "name": "📦 tsconfig",

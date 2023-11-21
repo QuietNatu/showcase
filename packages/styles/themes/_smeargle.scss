@@ -1,0 +1,138 @@
+// stylelint-disable scss/double-slash-comment-empty-line-before
+// stylelint-disable custom-property-empty-line-before
+@use '../functions';
+
+@layer smeargle {
+  :root {
+    // ======== Base start ========
+    --natu-font-size-1: functions.px-to-rem(10px);
+    --natu-font-size-2: functions.px-to-rem(11px);
+    --natu-font-size-3: functions.px-to-rem(12px);
+    --natu-font-size-4: functions.px-to-rem(14px);
+    --natu-font-size-5: functions.px-to-rem(16px);
+    --natu-font-size-6: functions.px-to-rem(20px);
+    --natu-font-size-7: functions.px-to-rem(23px);
+    --natu-font-size-8: functions.px-to-rem(26px);
+    --natu-font-size-9: functions.px-to-rem(29px);
+    --natu-font-size-10: functions.px-to-rem(33px);
+    --natu-font-size-11: functions.px-to-rem(37px);
+    --natu-font-size-12: functions.px-to-rem(42px);
+    --natu-font-size-13: functions.px-to-rem(47px);
+    --natu-font-size-14: functions.px-to-rem(53px);
+    --natu-font-size-15: functions.px-to-rem(59px);
+
+    --natu-font-weight-base: 400;
+    --natu-font-weight-medium: 500;
+    --natu-font-weight-strong: 600;
+
+    /* stylelint-disable-next-line value-keyword-case */
+    --natu-font-family-base: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+      'Apple Color Emoji', 'Segoe UI Emoji';
+
+    --natu-spacing-1: functions.px-to-rem(2px);
+    --natu-spacing-2: functions.px-to-rem(4px);
+    --natu-spacing-3: functions.px-to-rem(8px);
+    --natu-spacing-4: functions.px-to-rem(12px);
+    --natu-spacing-5: functions.px-to-rem(16px);
+    --natu-spacing-6: functions.px-to-rem(20px);
+    --natu-spacing-7: functions.px-to-rem(24px);
+    --natu-spacing-8: functions.px-to-rem(28px);
+    --natu-spacing-9: functions.px-to-rem(32px);
+    --natu-spacing-10: functions.px-to-rem(36px);
+    --natu-spacing-11: functions.px-to-rem(40px);
+    --natu-spacing-12: functions.px-to-rem(44px);
+    --natu-spacing-13: functions.px-to-rem(48px);
+    --natu-spacing-14: functions.px-to-rem(52px);
+    --natu-spacing-15: functions.px-to-rem(56px);
+    --natu-spacing-16: functions.px-to-rem(60px);
+    --natu-spacing-17: functions.px-to-rem(64px);
+    --natu-spacing-18: functions.px-to-rem(68px);
+    --natu-spacing-19: functions.px-to-rem(72px);
+
+    --natu-elevation-shadow-1: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+    --natu-elevation-shadow-2: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 2px 2px rgba(0, 0, 0, 0.16));
+    --natu-elevation-shadow-3: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 2px 2px rgba(0, 0, 0, 0.12)) drop-shadow(0 4px 4px rgba(0, 0, 0, 0.12));
+    --natu-elevation-shadow-4: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 4px 4px rgba(0, 0, 0, 0.12)) drop-shadow(0 8px 8px rgba(0, 0, 0, 0.12));
+    --natu-elevation-shadow-5: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1)) drop-shadow(0 8px 8px rgba(0, 0, 0, 0.1))
+      drop-shadow(0 12px 16px rgba(0, 0, 0, 0.1));
+    --natu-elevation-shadow-6: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 8px 8px rgba(0, 0, 0, 0.1)) drop-shadow(0 12px 16px rgba(0, 0, 0, 0.1))
+      drop-shadow(0 16px 20px rgba(0, 0, 0, 0.1));
+    --natu-elevation-shadow-7: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 12px 16px rgba(0, 0, 0, 0.1)) drop-shadow(0 16px 20px rgba(0, 0, 0, 0.1))
+      drop-shadow(0 20px 24px rgba(0, 0, 0, 0.1));
+    --natu-elevation-shadow-8: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 16px 20px rgba(0, 0, 0, 0.1)) drop-shadow(0 20px 24px rgba(0, 0, 0, 0.1))
+      drop-shadow(0 24px 28px rgba(0, 0, 0, 0.1));
+
+    --natu-elevation-z-index-1: 100;
+    --natu-elevation-z-index-2: 200;
+    --natu-elevation-z-index-3: 300;
+    --natu-elevation-z-index-4: 400;
+    --natu-elevation-z-index-5: 500;
+
+    // TODO: better names?
+    --natu-time-animation-1: 88ms;
+    --natu-time-animation-2: 133ms;
+    --natu-time-animation-3: 200ms;
+    --natu-time-animation-4: 300ms;
+
+    // TODO: better names?
+    --natu-time-duration-1: cubic-bezier(0, 0, 0.2, 1);
+    --natu-time-duration-2: cubic-bezier(0.4, 0.15, 1, 1);
+    --natu-time-duration-3: cubic-bezier(0.4, 0.15, 0.2, 1);
+    // ======== Base end ========
+
+    // ======== Text start ========
+    --natu-title-lg-font-weight: var(--natu-font-weight-strong);
+    --natu-title-md-font-weight: var(--natu-font-weight-strong);
+    --natu-title-sm-font-weight: var(--natu-font-weight-strong);
+    --natu-title-xs-font-weight: var(--natu-font-weight-strong);
+    --natu-text-regular-font-weight: var(--natu-font-weight-base);
+    --natu-text-paragraph-font-weight: var(--natu-font-weight-base);
+    --natu-text-label-font-weight: var(--natu-font-weight-base);
+    --natu-text-smallprint-font-weight: var(--natu-font-weight-base);
+
+    --natu-title-lg-font-family: var(--natu-font-family-base);
+    --natu-title-md-font-family: var(--natu-font-family-base);
+    --natu-title-sm-font-family: var(--natu-font-family-base);
+    --natu-title-xs-font-family: var(--natu-font-family-base);
+    --natu-text-regular-font-family: var(--natu-font-family-base);
+    --natu-text-paragraph-font-family: var(--natu-font-family-base);
+    --natu-text-label-font-family: var(--natu-font-family-base);
+    --natu-text-smallprint-font-family: var(--natu-font-family-base);
+
+    --natu-title-lg-font-size: var(--natu-font-size-7);
+    --natu-title-md-font-size: var(--natu-font-size-6);
+    --natu-title-sm-font-size: var(--natu-font-size-3);
+    --natu-title-xs-font-size: var(--natu-font-size-1);
+    --natu-text-regular-font-size: var(--natu-font-size-4);
+    --natu-text-paragraph-font-size: var(--natu-font-size-5);
+    --natu-text-label-font-size: var(--natu-font-size-3);
+    --natu-text-smallprint-font-size: var(--natu-font-size-1);
+
+    --natu-title-lg-line-height: var(--natu-spacing-8);
+    --natu-title-md-line-height: var(--natu-spacing-7);
+    --natu-title-sm-line-height: var(--natu-spacing-5);
+    --natu-title-xs-line-height: var(--natu-spacing-4);
+    --natu-text-regular-line-height: var(--natu-spacing-6);
+    --natu-text-paragraph-line-height: var(--natu-spacing-7);
+    --natu-text-label-line-height: var(--natu-spacing-5);
+    --natu-text-smallprint-line-height: var(--natu-spacing-4);
+
+    --natu-title-lg-text-transform: uppercase;
+    --natu-title-md-text-transform: uppercase;
+    --natu-title-sm-text-transform: uppercase;
+    --natu-title-xs-text-transform: uppercase;
+    --natu-text-regular-text-transform: none;
+    --natu-text-paragraph-text-transform: none;
+    --natu-text-label-text-transform: none;
+    --natu-text-smallprint-text-transform: none;
+    // ======== Text end ========
+  }
+}

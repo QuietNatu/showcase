@@ -6,6 +6,6 @@
   "type": "module",
   "sideEffects": false,
   "dependencies": {
-    "modern-normalize": "^2.0.0"
+    "modern-normalize": "2.0.0"
   }
 }

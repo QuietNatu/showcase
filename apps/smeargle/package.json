@@ -28,7 +28,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@mswjs/data": "0.15.0",
+    "@mswjs/data": "0.16.0",
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/vrt": "workspace:*",

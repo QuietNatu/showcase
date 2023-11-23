@@ -33,7 +33,7 @@
     "@commitlint/cli": "18.4.2",
     "@commitlint/config-conventional": "18.4.2",
     "@ls-lint/ls-lint": "2.2.2",
-    "@playwright/test": "1.39.0",
+    "@playwright/test": "1.40.0",
     "dependency-cruiser": "15.3.0",
     "eslint": "8.53.0",
     "husky": "8.0.3",

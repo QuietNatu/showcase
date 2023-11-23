@@ -32,7 +32,7 @@
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/vrt": "workspace:*",
-    "@playwright/test": "1.39.0",
+    "@playwright/test": "1.40.0",
     "@storybook/addon-a11y": "7.5.3",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addon-interactions": "7.5.3",

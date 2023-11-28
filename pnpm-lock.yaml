@@ -70,8 +70,8 @@ importers:
         version: 1.8.5
     devDependencies:
       '@mswjs/data':
-        specifier: 0.16.0
-        version: 0.16.0(typescript@5.2.2)
+        specifier: 0.16.1
+        version: 0.16.1(typescript@5.2.2)
       '@mswjs/interceptors':
         specifier: 0.25.12
         version: 0.25.12
@@ -236,8 +236,8 @@ importers:
         specifier: 1.1.23
         version: 1.1.23(typescript@5.2.2)
       '@mswjs/data':
-        specifier: 0.16.0
-        version: 0.16.0(typescript@5.2.2)
+        specifier: 0.16.1
+        version: 0.16.1(typescript@5.2.2)
       '@natu/eslint-config-angular':
         specifier: workspace:*
         version: link:../../packages/eslint-config-angular
@@ -360,8 +360,8 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@mswjs/data':
-        specifier: 0.16.0
-        version: 0.16.0(typescript@5.2.2)
+        specifier: 0.16.1
+        version: 0.16.1(typescript@5.2.2)
       '@natu/eslint-config-react':
         specifier: workspace:*
         version: link:../../packages/eslint-config-react
@@ -5009,8 +5009,8 @@ packages:
     engines: {node: '>=18'}
     dev: true
 
-  /@mswjs/data@0.16.0(typescript@5.2.2):
-    resolution: {integrity: sha512-hXwJeL/73z9YvmSgKAC3kue0NvnE97F5FTj0WZ5TyjWBBih8z1u2c01/+WcWizG2oEnuZ7+5wBYYz9m0yGaCFQ==}
+  /@mswjs/data@0.16.1(typescript@5.2.2):
+    resolution: {integrity: sha512-VhJvL/VmgAuU9/tDOcKcxHfNd+8nxYntZnrkaQEQPvZZnFwQQR9bzI1FTRROGxCHVoyfv9v84AEkl/7CIw4FAg==}
     dependencies:
       '@types/lodash': 4.14.201
       '@types/md5': 2.3.5
@@ -6928,7 +6928,7 @@ packages:
       '@radix-ui/react-select': 1.2.2(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-toolbar': 1.0.4(@types/react-dom@18.2.15)(@types/react@18.2.37)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/client-logger': 7.5.3
-      '@storybook/csf': 0.1.1
+      '@storybook/csf': 0.1.2
       '@storybook/global': 5.0.0
       '@storybook/theming': 7.5.3(react-dom@18.2.0)(react@18.2.0)
       '@storybook/types': 7.5.3
@@ -7196,7 +7196,7 @@ packages:
       '@storybook/channels': 7.5.3
       '@storybook/client-logger': 7.5.3
       '@storybook/core-events': 7.5.3
-      '@storybook/csf': 0.1.1
+      '@storybook/csf': 0.1.2
       '@storybook/global': 5.0.0
       '@storybook/router': 7.5.3(react-dom@18.2.0)(react@18.2.0)
       '@storybook/theming': 7.5.3(react-dom@18.2.0)(react@18.2.0)
@@ -7238,7 +7238,7 @@ packages:
       '@storybook/channels': 7.5.3
       '@storybook/client-logger': 7.5.3
       '@storybook/core-events': 7.5.3
-      '@storybook/csf': 0.1.1
+      '@storybook/csf': 0.1.2
       '@storybook/global': 5.0.0
       '@storybook/types': 7.5.3
       '@types/qs': 6.9.10

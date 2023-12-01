@@ -2,10 +2,8 @@
 // stylelint-disable custom-property-empty-line-before
 @use '../functions';
 
-/* TODO: prefers color scheme */
-
 @layer smeargle {
-  :root {
+  [data-theme='smeargle'] {
     // ======== Base start ========
     --natu-font-size-1: functions.px-to-rem(10px);
     --natu-font-size-2: functions.px-to-rem(11px);
@@ -93,9 +91,10 @@
     --natu-color-paradise-palms-200: oklch(78.1% 0.137 145.95deg);
     --natu-color-paradise-palms-300: oklch(68.55% 0.136 146.18deg);
     --natu-color-paradise-palms-400: oklch(59.23% 0.138 146deg);
+    --natu-color-paradise-palms-400-alpha-70: oklch(59.23% 0.138 146deg / 0.7);
     --natu-color-paradise-palms-500: oklch(49.6% 0.141 146.02deg);
     --natu-color-paradise-palms-600: oklch(44.1% 0.134 146.08deg);
-    --natu-color-paradise-palms-600-alpha-30: oklch(44.1% 0.134 146.08deg / 0.7);
+    --natu-color-paradise-palms-600-alpha-70: oklch(44.1% 0.134 146.08deg / 0.7);
     --natu-color-paradise-palms-700: oklch(36.25% 0.11 146.18deg);
     --natu-color-paradise-palms-800: oklch(28.29% 0.0859 146.2deg);
     --natu-color-paradise-palms-900: oklch(20.82% 0.0638 145.85deg);
@@ -136,7 +135,7 @@
     // ======== Border color end ========
 
     // ======== Outline color start ========
-    --natu-color-outline-action: var(--natu-color-paradise-palms-600-alpha-30);
+    --natu-color-outline-action: var(--natu-color-paradise-palms-600-alpha-70);
     // ======== Outline color end ========
 
     // ======== Text start ========
@@ -188,5 +187,31 @@
     --natu-text-smallprint-line-height: var(--natu-spacing-4);
     --natu-text-smallprint-text-transform: none;
     // ======== Text end ========
+
+    &[data-color-scheme='dark'] {
+      // ======== Font color start ========
+      --natu-color-font-base: var(--natu-color-grey-100);
+      --natu-color-font-invert: var(--natu-color-grey-900);
+      --natu-color-font-action: var(--natu-color-paradise-palms-600);
+      // ======== Font color end ========
+
+      // ======== Surface color start ========
+      --natu-color-surface-base: var(--natu-color-grey-900);
+      --natu-color-surface-invert: var(--natu-color-grey-100);
+      --natu-color-surface-action: var(--natu-color-paradise-palms-800);
+      --natu-color-surface-action-strong: var(--natu-color-paradise-palms-300);
+      // ======== Surface color end ========
+
+      // ======== Border color start ========
+      --natu-color-border-base: var(--natu-color-grey-800);
+      --natu-color-border-invert: var(--natu-color-white);
+      --natu-color-border-action: var(--natu-color-paradise-palms-700);
+      --natu-color-border-action-strong: var(--natu-color-paradise-palms-200);
+      // ======== Border color end ========
+
+      // ======== Outline color start ========
+      --natu-color-outline-action: var(--natu-color-paradise-palms-400-alpha-70);
+      // ======== Outline color end ========
+    }
   }
 }

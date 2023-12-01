@@ -78,92 +78,115 @@
     --natu-elevation-z-index-4: 400;
     --natu-elevation-z-index-5: 500;
 
-    // TODO: better names?
     --natu-time-animation-1: 88ms;
     --natu-time-animation-2: 133ms;
     --natu-time-animation-3: 200ms;
     --natu-time-animation-4: 300ms;
 
-    // TODO: better names?
     --natu-time-duration-1: cubic-bezier(0, 0, 0.2, 1);
     --natu-time-duration-2: cubic-bezier(0.4, 0.15, 1, 1);
     --natu-time-duration-3: cubic-bezier(0.4, 0.15, 0.2, 1);
-    // ======== Base end ========
 
-    // ======== Text start ========
-    --natu-title-lg-font-weight: var(--natu-font-weight-strong);
-    --natu-title-md-font-weight: var(--natu-font-weight-strong);
-    --natu-title-sm-font-weight: var(--natu-font-weight-strong);
-    --natu-title-xs-font-weight: var(--natu-font-weight-strong);
-    --natu-text-regular-font-weight: var(--natu-font-weight-base);
-    --natu-text-paragraph-font-weight: var(--natu-font-weight-base);
-    --natu-text-label-font-weight: var(--natu-font-weight-base);
-    --natu-text-smallprint-font-weight: var(--natu-font-weight-base);
-
-    --natu-title-lg-font-family: var(--natu-font-family-base);
-    --natu-title-md-font-family: var(--natu-font-family-base);
-    --natu-title-sm-font-family: var(--natu-font-family-base);
-    --natu-title-xs-font-family: var(--natu-font-family-base);
-    --natu-text-regular-font-family: var(--natu-font-family-base);
-    --natu-text-paragraph-font-family: var(--natu-font-family-base);
-    --natu-text-label-font-family: var(--natu-font-family-base);
-    --natu-text-smallprint-font-family: var(--natu-font-family-base);
-
-    --natu-title-lg-font-size: var(--natu-font-size-7);
-    --natu-title-md-font-size: var(--natu-font-size-6);
-    --natu-title-sm-font-size: var(--natu-font-size-3);
-    --natu-title-xs-font-size: var(--natu-font-size-1);
-    --natu-text-regular-font-size: var(--natu-font-size-4);
-    --natu-text-paragraph-font-size: var(--natu-font-size-5);
-    --natu-text-label-font-size: var(--natu-font-size-3);
-    --natu-text-smallprint-font-size: var(--natu-font-size-1);
-
-    --natu-title-lg-line-height: var(--natu-spacing-8);
-    --natu-title-md-line-height: var(--natu-spacing-7);
-    --natu-title-sm-line-height: var(--natu-spacing-5);
-    --natu-title-xs-line-height: var(--natu-spacing-4);
-    --natu-text-regular-line-height: var(--natu-spacing-6);
-    --natu-text-paragraph-line-height: var(--natu-spacing-7);
-    --natu-text-label-line-height: var(--natu-spacing-5);
-    --natu-text-smallprint-line-height: var(--natu-spacing-4);
-
-    --natu-title-lg-text-transform: uppercase;
-    --natu-title-md-text-transform: uppercase;
-    --natu-title-sm-text-transform: uppercase;
-    --natu-title-xs-text-transform: uppercase;
-    --natu-text-regular-text-transform: none;
-    --natu-text-paragraph-text-transform: none;
-    --natu-text-label-text-transform: none;
-    --natu-text-smallprint-text-transform: none;
-    // ======== Text end ========
-
-    // ======== Color start ========
-    /// This can be improved once Color Module Level 5 gains better browser support
-    --natu-color-brand-50: oklch(96.98% 0.051 146.04deg);
-    --natu-color-brand-100: oklch(87.47% 0.137 146.19deg);
-    --natu-color-brand-200: oklch(78.1% 0.137 145.95deg);
-    --natu-color-brand-300: oklch(68.55% 0.136 146.18deg);
-    --natu-color-brand-400: oklch(59.23% 0.138 146deg);
-    --natu-color-brand-500: oklch(49.6% 0.141 146.02deg);
-    --natu-color-brand-600: oklch(44.1% 0.134 146.08deg);
-    --natu-color-brand-700: oklch(36.25% 0.11 146.18deg);
-    --natu-color-brand-800: oklch(28.29% 0.0859 146.2deg);
-    --natu-color-brand-900: oklch(20.82% 0.0638 145.85deg);
+    /// This can be improved once Color Module Level 5 gains better browser support https://caniuse.com/css-relative-colors
+    --natu-color-paradise-palms-50: oklch(96.98% 0.051 146.04deg);
+    --natu-color-paradise-palms-100: oklch(87.47% 0.137 146.19deg);
+    --natu-color-paradise-palms-200: oklch(78.1% 0.137 145.95deg);
+    --natu-color-paradise-palms-300: oklch(68.55% 0.136 146.18deg);
+    --natu-color-paradise-palms-400: oklch(59.23% 0.138 146deg);
+    --natu-color-paradise-palms-500: oklch(49.6% 0.141 146.02deg);
+    --natu-color-paradise-palms-600: oklch(44.1% 0.134 146.08deg);
+    --natu-color-paradise-palms-600-alpha-30: oklch(44.1% 0.134 146.08deg / 0.7);
+    --natu-color-paradise-palms-700: oklch(36.25% 0.11 146.18deg);
+    --natu-color-paradise-palms-800: oklch(28.29% 0.0859 146.2deg);
+    --natu-color-paradise-palms-900: oklch(20.82% 0.0638 145.85deg);
 
     --natu-color-white: oklch(100% 0 0deg);
     --natu-color-black: oklch(0% 0 0deg);
 
-    --natu-color-gray-50: oklch(96.98% 0 0deg);
-    --natu-color-gray-100: oklch(87.47% 0 0deg);
-    --natu-color-gray-200: oklch(78.1% 0 0deg);
-    --natu-color-gray-300: oklch(68.55% 0 0deg);
-    --natu-color-gray-400: oklch(59.23% 0 0deg);
-    --natu-color-gray-500: oklch(49.6% 0 0deg);
-    --natu-color-gray-600: oklch(44.1% 0 0deg);
-    --natu-color-gray-700: oklch(36.25% 0 0deg);
-    --natu-color-gray-800: oklch(28.29% 0 0deg);
-    --natu-color-gray-900: oklch(20.82% 0 0deg);
+    --natu-color-grey-50: oklch(96.98% 0.01 257.23deg);
+    --natu-color-grey-100: oklch(87.47% 0.01 257.23deg);
+    --natu-color-grey-200: oklch(78.1% 0.01 257.23deg);
+    --natu-color-grey-300: oklch(68.55% 0.01 257.23deg);
+    --natu-color-grey-400: oklch(59.23% 0.01 257.23deg);
+    --natu-color-grey-500: oklch(49.6% 0.01 257.23deg);
+    --natu-color-grey-600: oklch(44.1% 0.01 257.23deg);
+    --natu-color-grey-700: oklch(36.25% 0.01 257.23deg);
+    --natu-color-grey-800: oklch(28.29% 0.01 257.23deg);
+    --natu-color-grey-900: oklch(20.82% 0.01 257.23deg);
+    // ======== Base end ========
 
-    // ======== Color end ========
+    // ======== Font color start ========
+    --natu-color-font-base: var(--natu-color-grey-800);
+    --natu-color-font-invert: var(--natu-color-white);
+    --natu-color-font-action: var(--natu-color-paradise-palms-600);
+    // ======== Font color end ========
+
+    // ======== Surface color start ========
+    --natu-color-surface-base: var(--natu-color-white);
+    --natu-color-surface-invert: var(--natu-color-grey-900);
+    --natu-color-surface-action: var(--natu-color-paradise-palms-100);
+    --natu-color-surface-action-strong: var(--natu-color-paradise-palms-600);
+    // ======== Surface color end ========
+
+    // ======== Border color start ========
+    --natu-color-border-base: var(--natu-color-grey-200);
+    --natu-color-border-invert: var(--natu-color-grey-900);
+    --natu-color-border-action: var(--natu-color-paradise-palms-200);
+    --natu-color-border-action-strong: var(--natu-color-paradise-palms-700);
+    // ======== Border color end ========
+
+    // ======== Outline color start ========
+    --natu-color-outline-action: var(--natu-color-paradise-palms-600-alpha-30);
+    // ======== Outline color end ========
+
+    // ======== Text start ========
+    --natu-title-lg-font-weight: var(--natu-font-weight-strong);
+    --natu-title-lg-font-family: var(--natu-font-family-base);
+    --natu-title-lg-font-size: var(--natu-font-size-7);
+    --natu-title-lg-line-height: var(--natu-spacing-8);
+    --natu-title-lg-text-transform: uppercase;
+
+    --natu-title-md-font-weight: var(--natu-font-weight-strong);
+    --natu-title-md-font-family: var(--natu-font-family-base);
+    --natu-title-md-font-size: var(--natu-font-size-6);
+    --natu-title-md-line-height: var(--natu-spacing-7);
+    --natu-title-md-text-transform: uppercase;
+
+    --natu-title-sm-font-weight: var(--natu-font-weight-strong);
+    --natu-title-sm-font-family: var(--natu-font-family-base);
+    --natu-title-sm-font-size: var(--natu-font-size-3);
+    --natu-title-sm-line-height: var(--natu-spacing-5);
+    --natu-title-sm-text-transform: uppercase;
+
+    --natu-title-xs-font-weight: var(--natu-font-weight-strong);
+    --natu-title-xs-font-family: var(--natu-font-family-base);
+    --natu-title-xs-font-size: var(--natu-font-size-1);
+    --natu-title-xs-line-height: var(--natu-spacing-4);
+    --natu-title-xs-text-transform: uppercase;
+
+    --natu-text-regular-font-weight: var(--natu-font-weight-base);
+    --natu-text-regular-font-family: var(--natu-font-family-base);
+    --natu-text-regular-font-size: var(--natu-font-size-4);
+    --natu-text-regular-line-height: var(--natu-spacing-6);
+    --natu-text-regular-text-transform: none;
+
+    --natu-text-paragraph-font-weight: var(--natu-font-weight-base);
+    --natu-text-paragraph-font-family: var(--natu-font-family-base);
+    --natu-text-paragraph-font-size: var(--natu-font-size-5);
+    --natu-text-paragraph-line-height: var(--natu-spacing-7);
+    --natu-text-paragraph-text-transform: none;
+
+    --natu-text-label-font-weight: var(--natu-font-weight-base);
+    --natu-text-label-font-family: var(--natu-font-family-base);
+    --natu-text-label-font-size: var(--natu-font-size-3);
+    --natu-text-label-line-height: var(--natu-spacing-5);
+    --natu-text-label-text-transform: none;
+
+    --natu-text-smallprint-font-weight: var(--natu-font-weight-base);
+    --natu-text-smallprint-font-family: var(--natu-font-family-base);
+    --natu-text-smallprint-font-size: var(--natu-font-size-1);
+    --natu-text-smallprint-line-height: var(--natu-spacing-4);
+    --natu-text-smallprint-text-transform: none;
+    // ======== Text end ========
   }
 }

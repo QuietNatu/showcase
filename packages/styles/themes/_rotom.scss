@@ -1,0 +1,219 @@
+// stylelint-disable scss/double-slash-comment-empty-line-before
+// stylelint-disable custom-property-empty-line-before
+@use '../utils';
+
+@layer rotom {
+  [data-theme='rotom'] {
+    // ======== Base start ========
+    --natu-font-size-1: utils.px-to-rem(10px);
+    --natu-font-size-2: utils.px-to-rem(11px);
+    --natu-font-size-3: utils.px-to-rem(12px);
+    --natu-font-size-4: utils.px-to-rem(14px);
+    --natu-font-size-5: utils.px-to-rem(16px);
+    --natu-font-size-6: utils.px-to-rem(20px);
+    --natu-font-size-7: utils.px-to-rem(23px);
+    --natu-font-size-8: utils.px-to-rem(26px);
+    --natu-font-size-9: utils.px-to-rem(29px);
+    --natu-font-size-10: utils.px-to-rem(33px);
+    --natu-font-size-11: utils.px-to-rem(37px);
+    --natu-font-size-12: utils.px-to-rem(42px);
+    --natu-font-size-13: utils.px-to-rem(47px);
+    --natu-font-size-14: utils.px-to-rem(53px);
+    --natu-font-size-15: utils.px-to-rem(59px);
+
+    --natu-font-weight-base: 400;
+    --natu-font-weight-medium: 500;
+    --natu-font-weight-strong: 600;
+
+    /* stylelint-disable-next-line value-keyword-case */
+    --natu-font-family-base: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+      'Apple Color Emoji', 'Segoe UI Emoji';
+
+    --natu-spacing-1: utils.px-to-rem(2px);
+    --natu-spacing-2: utils.px-to-rem(4px);
+    --natu-spacing-3: utils.px-to-rem(8px);
+    --natu-spacing-4: utils.px-to-rem(12px);
+    --natu-spacing-5: utils.px-to-rem(16px);
+    --natu-spacing-6: utils.px-to-rem(20px);
+    --natu-spacing-7: utils.px-to-rem(24px);
+    --natu-spacing-8: utils.px-to-rem(28px);
+    --natu-spacing-9: utils.px-to-rem(32px);
+    --natu-spacing-10: utils.px-to-rem(36px);
+    --natu-spacing-11: utils.px-to-rem(40px);
+    --natu-spacing-12: utils.px-to-rem(44px);
+    --natu-spacing-13: utils.px-to-rem(48px);
+    --natu-spacing-14: utils.px-to-rem(52px);
+    --natu-spacing-15: utils.px-to-rem(56px);
+    --natu-spacing-16: utils.px-to-rem(60px);
+    --natu-spacing-17: utils.px-to-rem(64px);
+    --natu-spacing-18: utils.px-to-rem(68px);
+    --natu-spacing-19: utils.px-to-rem(72px);
+
+    --natu-elevation-shadow-1: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+    --natu-elevation-shadow-2: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 2px 2px rgba(0, 0, 0, 0.16));
+    --natu-elevation-shadow-3: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 2px 2px rgba(0, 0, 0, 0.12)) drop-shadow(0 4px 4px rgba(0, 0, 0, 0.12));
+    --natu-elevation-shadow-4: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 4px 4px rgba(0, 0, 0, 0.12)) drop-shadow(0 8px 8px rgba(0, 0, 0, 0.12));
+    --natu-elevation-shadow-5: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 4px 4px rgba(0, 0, 0, 0.1)) drop-shadow(0 8px 8px rgba(0, 0, 0, 0.1))
+      drop-shadow(0 12px 16px rgba(0, 0, 0, 0.1));
+    --natu-elevation-shadow-6: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 8px 8px rgba(0, 0, 0, 0.1)) drop-shadow(0 12px 16px rgba(0, 0, 0, 0.1))
+      drop-shadow(0 16px 20px rgba(0, 0, 0, 0.1));
+    --natu-elevation-shadow-7: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 12px 16px rgba(0, 0, 0, 0.1)) drop-shadow(0 16px 20px rgba(0, 0, 0, 0.1))
+      drop-shadow(0 20px 24px rgba(0, 0, 0, 0.1));
+    --natu-elevation-shadow-8: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
+      drop-shadow(0 16px 20px rgba(0, 0, 0, 0.1)) drop-shadow(0 20px 24px rgba(0, 0, 0, 0.1))
+      drop-shadow(0 24px 28px rgba(0, 0, 0, 0.1));
+
+    --natu-elevation-z-index-1: 100;
+    --natu-elevation-z-index-2: 200;
+    --natu-elevation-z-index-3: 300;
+    --natu-elevation-z-index-4: 400;
+    --natu-elevation-z-index-5: 500;
+
+    --natu-time-animation-1: 88ms;
+    --natu-time-animation-2: 133ms;
+    --natu-time-animation-3: 200ms;
+    --natu-time-animation-4: 300ms;
+
+    --natu-time-duration-1: cubic-bezier(0, 0, 0.2, 1);
+    --natu-time-duration-2: cubic-bezier(0.4, 0.15, 1, 1);
+    --natu-time-duration-3: cubic-bezier(0.4, 0.15, 0.2, 1);
+
+    /// This can be improved once Color Module Level 5 gains better browser support https://caniuse.com/css-relative-colors
+    --natu-color-iridescent-peacock-50: oklch(97% 0.01 208deg);
+    --natu-color-iridescent-peacock-100: oklch(88% 0.04 208deg);
+    --natu-color-iridescent-peacock-200: oklch(79% 0.1 208deg);
+    --natu-color-iridescent-peacock-300: oklch(69% 0.16 208deg);
+    --natu-color-iridescent-peacock-400: oklch(60% 0.21 208deg);
+    --natu-color-iridescent-peacock-400-alpha-70: oklch(60% 0.21 208deg / 0.7);
+    --natu-color-iridescent-peacock-500: oklch(50% 0.19 208deg);
+    --natu-color-iridescent-peacock-600: oklch(44% 0.15 208deg);
+    --natu-color-iridescent-peacock-600-alpha-70: oklch(44% 0.15 208deg / 0.7);
+    --natu-color-iridescent-peacock-700: oklch(36% 0.12 208deg);
+    --natu-color-iridescent-peacock-800: oklch(28% 0.09 208deg);
+    --natu-color-iridescent-peacock-900: oklch(20% 0.06 208deg);
+    --natu-color-iridescent-peacock-950: oklch(16% 0.04 208deg);
+
+    --natu-color-white: oklch(100% 0 0deg);
+    --natu-color-black: oklch(0% 0 0deg);
+
+    --natu-color-grey-50: oklch(97% 0.01 250deg);
+    --natu-color-grey-100: oklch(88% 0.01 250deg);
+    --natu-color-grey-200: oklch(79% 0.01 250deg);
+    --natu-color-grey-300: oklch(69% 0.01 250deg);
+    --natu-color-grey-400: oklch(60% 0.01 250deg);
+    --natu-color-grey-500: oklch(50% 0.01 250deg);
+    --natu-color-grey-600: oklch(44% 0.01 250deg);
+    --natu-color-grey-700: oklch(36% 0.01 250deg);
+    --natu-color-grey-800: oklch(28% 0.01 250deg);
+    --natu-color-grey-900: oklch(20% 0.01 250deg);
+    --natu-color-grey-950: oklch(16% 0.01 250deg);
+    // ======== Base end ========
+
+    // ======== Font color start ========
+    --natu-color-font-base: var(--natu-color-grey-800);
+    --natu-color-font-invert: var(--natu-color-white);
+    --natu-color-font-accent: var(--natu-color-iridescent-peacock-600);
+    // ======== Font color end ========
+
+    // ======== Surface color start ========
+    --natu-color-surface-base: var(--natu-color-white);
+    --natu-color-surface-invert: var(--natu-color-grey-900);
+    --natu-color-surface-accent: var(--natu-color-iridescent-peacock-100);
+    --natu-color-surface-accent-strong: var(--natu-color-iridescent-peacock-600);
+    // ======== Surface color end ========
+
+    // ======== Border color start ========
+    --natu-color-border-base: var(--natu-color-grey-200);
+    --natu-color-border-invert: var(--natu-color-grey-950);
+    --natu-color-border-accent: var(--natu-color-iridescent-peacock-200);
+    --natu-color-border-accent-strong: var(--natu-color-iridescent-peacock-700);
+    // ======== Border color end ========
+
+    // ======== Outline color start ========
+    --natu-color-outline-accent: var(--natu-color-iridescent-peacock-600-alpha-70);
+    // ======== Outline color end ========
+
+    // ======== Text start ========
+    --natu-title-lg-font-weight: var(--natu-font-weight-strong);
+    --natu-title-lg-font-family: var(--natu-font-family-base);
+    --natu-title-lg-font-size: var(--natu-font-size-7);
+    --natu-title-lg-line-height: var(--natu-spacing-8);
+    --natu-title-lg-text-transform: uppercase;
+
+    --natu-title-md-font-weight: var(--natu-font-weight-strong);
+    --natu-title-md-font-family: var(--natu-font-family-base);
+    --natu-title-md-font-size: var(--natu-font-size-6);
+    --natu-title-md-line-height: var(--natu-spacing-7);
+    --natu-title-md-text-transform: uppercase;
+
+    --natu-title-sm-font-weight: var(--natu-font-weight-strong);
+    --natu-title-sm-font-family: var(--natu-font-family-base);
+    --natu-title-sm-font-size: var(--natu-font-size-3);
+    --natu-title-sm-line-height: var(--natu-spacing-5);
+    --natu-title-sm-text-transform: uppercase;
+
+    --natu-title-xs-font-weight: var(--natu-font-weight-strong);
+    --natu-title-xs-font-family: var(--natu-font-family-base);
+    --natu-title-xs-font-size: var(--natu-font-size-1);
+    --natu-title-xs-line-height: var(--natu-spacing-4);
+    --natu-title-xs-text-transform: uppercase;
+
+    --natu-text-regular-font-weight: var(--natu-font-weight-base);
+    --natu-text-regular-font-family: var(--natu-font-family-base);
+    --natu-text-regular-font-size: var(--natu-font-size-4);
+    --natu-text-regular-line-height: var(--natu-spacing-6);
+    --natu-text-regular-text-transform: none;
+
+    --natu-text-paragraph-font-weight: var(--natu-font-weight-base);
+    --natu-text-paragraph-font-family: var(--natu-font-family-base);
+    --natu-text-paragraph-font-size: var(--natu-font-size-5);
+    --natu-text-paragraph-line-height: var(--natu-spacing-7);
+    --natu-text-paragraph-text-transform: none;
+
+    --natu-text-label-font-weight: var(--natu-font-weight-base);
+    --natu-text-label-font-family: var(--natu-font-family-base);
+    --natu-text-label-font-size: var(--natu-font-size-3);
+    --natu-text-label-line-height: var(--natu-spacing-5);
+    --natu-text-label-text-transform: none;
+
+    --natu-text-smallprint-font-weight: var(--natu-font-weight-base);
+    --natu-text-smallprint-font-family: var(--natu-font-family-base);
+    --natu-text-smallprint-font-size: var(--natu-font-size-1);
+    --natu-text-smallprint-line-height: var(--natu-spacing-4);
+    --natu-text-smallprint-text-transform: none;
+    // ======== Text end ========
+
+    &[data-color-scheme='dark'] {
+      // ======== Font color start ========
+      --natu-color-font-base: var(--natu-color-grey-100);
+      --natu-color-font-invert: var(--natu-color-grey-900);
+      --natu-color-font-accent: var(--natu-color-iridescent-peacock-600);
+      // ======== Font color end ========
+
+      // ======== Surface color start ========
+      --natu-color-surface-base: var(--natu-color-grey-900);
+      --natu-color-surface-invert: var(--natu-color-grey-100);
+      --natu-color-surface-accent: var(--natu-color-iridescent-peacock-800);
+      --natu-color-surface-accent-strong: var(--natu-color-iridescent-peacock-300);
+      // ======== Surface color end ========
+
+      // ======== Border color start ========
+      --natu-color-border-base: var(--natu-color-grey-800);
+      --natu-color-border-invert: var(--natu-color-white);
+      --natu-color-border-accent: var(--natu-color-iridescent-peacock-700);
+      --natu-color-border-accent-strong: var(--natu-color-iridescent-peacock-200);
+      // ======== Border color end ========
+
+      // ======== Outline color start ========
+      --natu-color-outline-accent: var(--natu-color-iridescent-peacock-400-alpha-70);
+      // ======== Outline color end ========
+    }
+  }
+}

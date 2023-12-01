@@ -2,6 +2,8 @@
 // stylelint-disable custom-property-empty-line-before
 @use '../functions';
 
+/* TODO: prefers color scheme */
+
 @layer smeargle {
   :root {
     // ======== Base start ========
@@ -134,5 +136,34 @@
     --natu-text-label-text-transform: none;
     --natu-text-smallprint-text-transform: none;
     // ======== Text end ========
+
+    // ======== Color start ========
+    /// This can be improved once Color Module Level 5 gains better browser support
+    --natu-color-brand-50: oklch(96.98% 0.051 146.04deg);
+    --natu-color-brand-100: oklch(87.47% 0.137 146.19deg);
+    --natu-color-brand-200: oklch(78.1% 0.137 145.95deg);
+    --natu-color-brand-300: oklch(68.55% 0.136 146.18deg);
+    --natu-color-brand-400: oklch(59.23% 0.138 146deg);
+    --natu-color-brand-500: oklch(49.6% 0.141 146.02deg);
+    --natu-color-brand-600: oklch(44.1% 0.134 146.08deg);
+    --natu-color-brand-700: oklch(36.25% 0.11 146.18deg);
+    --natu-color-brand-800: oklch(28.29% 0.0859 146.2deg);
+    --natu-color-brand-900: oklch(20.82% 0.0638 145.85deg);
+
+    --natu-color-white: oklch(100% 0 0deg);
+    --natu-color-black: oklch(0% 0 0deg);
+
+    --natu-color-gray-50: oklch(96.98% 0 0deg);
+    --natu-color-gray-100: oklch(87.47% 0 0deg);
+    --natu-color-gray-200: oklch(78.1% 0 0deg);
+    --natu-color-gray-300: oklch(68.55% 0 0deg);
+    --natu-color-gray-400: oklch(59.23% 0 0deg);
+    --natu-color-gray-500: oklch(49.6% 0 0deg);
+    --natu-color-gray-600: oklch(44.1% 0 0deg);
+    --natu-color-gray-700: oklch(36.25% 0 0deg);
+    --natu-color-gray-800: oklch(28.29% 0 0deg);
+    --natu-color-gray-900: oklch(20.82% 0 0deg);
+
+    // ======== Color end ========
   }
 }

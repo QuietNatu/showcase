@@ -7,6 +7,7 @@ A project to practice and showcase what I have learned.
 - [Showcase](#showcase)
   - [⚡️ Quick start](#️-quick-start)
   - [💻 Supported browsers](#-supported-browsers)
+  - [📝 Standards](#-standards)
   - [🖋️ VS Code](#️-vs-code)
   - [🧱 Project structure](#-project-structure)
   - [💭 Thoughts](#-thoughts)
@@ -37,6 +38,10 @@ Run `pnpm install` to install all dependencies and then...
 ## 💻 Supported browsers
 
 Run `pnpm dlx browserslist` inside each app folder to see the list of supported browsers.
+
+## 📝 Standards
+
+For accessibility, this project tries to conform with **WCAG Level AAA**.
 
 ## 🖋️ VS Code
 

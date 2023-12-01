@@ -2,8 +2,8 @@
 // stylelint-disable custom-property-empty-line-before
 @use '../utils';
 
-@layer smeargle {
-  [data-theme='smeargle'] {
+@layer ninjask {
+  [data-theme='ninjask'] {
     // ======== Base start ========
     --natu-font-size-1: utils.px-to-rem(10px);
     --natu-font-size-2: utils.px-to-rem(11px);
@@ -86,19 +86,19 @@
     --natu-time-duration-3: cubic-bezier(0.4, 0.15, 0.2, 1);
 
     /// This can be improved once Color Module Level 5 gains better browser support https://caniuse.com/css-relative-colors
-    --natu-color-green-glutton-50: oklch(97% 0.01 146deg);
-    --natu-color-green-glutton-100: oklch(88% 0.04 146deg);
-    --natu-color-green-glutton-200: oklch(79% 0.1 146deg);
-    --natu-color-green-glutton-300: oklch(69% 0.16 146deg);
-    --natu-color-green-glutton-400: oklch(60% 0.21 146deg);
-    --natu-color-green-glutton-400-alpha-70: oklch(60% 0.21 146deg / 0.7);
-    --natu-color-green-glutton-500: oklch(50% 0.19 146deg);
-    --natu-color-green-glutton-600: oklch(44% 0.15 146deg);
-    --natu-color-green-glutton-600-alpha-70: oklch(44% 0.15 146deg / 0.7);
-    --natu-color-green-glutton-700: oklch(36% 0.12 146deg);
-    --natu-color-green-glutton-800: oklch(28% 0.09 146deg);
-    --natu-color-green-glutton-900: oklch(20% 0.06 146deg);
-    --natu-color-green-glutton-950: oklch(16% 0.04 146deg);
+    --natu-color-rural-red-50: oklch(97% 0.01 14deg);
+    --natu-color-rural-red-100: oklch(88% 0.04 14deg);
+    --natu-color-rural-red-200: oklch(79% 0.1 14deg);
+    --natu-color-rural-red-300: oklch(69% 0.16 14deg);
+    --natu-color-rural-red-400: oklch(60% 0.21 14deg);
+    --natu-color-rural-red-400-alpha-70: oklch(60% 0.21 14deg / 0.7);
+    --natu-color-rural-red-500: oklch(50% 0.19 14deg);
+    --natu-color-rural-red-600: oklch(44% 0.15 14deg);
+    --natu-color-rural-red-600-alpha-70: oklch(44% 0.15 14deg / 0.7);
+    --natu-color-rural-red-700: oklch(36% 0.12 14deg);
+    --natu-color-rural-red-800: oklch(28% 0.09 14deg);
+    --natu-color-rural-red-900: oklch(20% 0.06 14deg);
+    --natu-color-rural-red-950: oklch(16% 0.04 14deg);
 
     --natu-color-white: oklch(100% 0 0deg);
     --natu-color-black: oklch(0% 0 0deg);
@@ -119,25 +119,25 @@
     // ======== Font color start ========
     --natu-color-font-base: var(--natu-color-grey-800);
     --natu-color-font-invert: var(--natu-color-white);
-    --natu-color-font-accent: var(--natu-color-green-glutton-600);
+    --natu-color-font-accent: var(--natu-color-rural-red-600);
     // ======== Font color end ========
 
     // ======== Surface color start ========
     --natu-color-surface-base: var(--natu-color-white);
     --natu-color-surface-invert: var(--natu-color-grey-900);
-    --natu-color-surface-accent: var(--natu-color-green-glutton-100);
-    --natu-color-surface-accent-strong: var(--natu-color-green-glutton-600);
+    --natu-color-surface-accent: var(--natu-color-rural-red-100);
+    --natu-color-surface-accent-strong: var(--natu-color-rural-red-600);
     // ======== Surface color end ========
 
     // ======== Border color start ========
     --natu-color-border-base: var(--natu-color-grey-200);
     --natu-color-border-invert: var(--natu-color-grey-950);
-    --natu-color-border-accent: var(--natu-color-green-glutton-200);
-    --natu-color-border-accent-strong: var(--natu-color-green-glutton-700);
+    --natu-color-border-accent: var(--natu-color-rural-red-200);
+    --natu-color-border-accent-strong: var(--natu-color-rural-red-700);
     // ======== Border color end ========
 
     // ======== Outline color start ========
-    --natu-color-outline-accent: var(--natu-color-green-glutton-600-alpha-70);
+    --natu-color-outline-accent: var(--natu-color-rural-red-600-alpha-70);
     // ======== Outline color end ========
 
     // ======== Text start ========
@@ -194,25 +194,25 @@
       // ======== Font color start ========
       --natu-color-font-base: var(--natu-color-grey-100);
       --natu-color-font-invert: var(--natu-color-grey-900);
-      --natu-color-font-accent: var(--natu-color-green-glutton-600);
+      --natu-color-font-accent: var(--natu-color-rural-red-600);
       // ======== Font color end ========
 
       // ======== Surface color start ========
       --natu-color-surface-base: var(--natu-color-grey-900);
       --natu-color-surface-invert: var(--natu-color-grey-100);
-      --natu-color-surface-accent: var(--natu-color-green-glutton-800);
-      --natu-color-surface-accent-strong: var(--natu-color-green-glutton-300);
+      --natu-color-surface-accent: var(--natu-color-rural-red-800);
+      --natu-color-surface-accent-strong: var(--natu-color-rural-red-300);
       // ======== Surface color end ========
 
       // ======== Border color start ========
       --natu-color-border-base: var(--natu-color-grey-800);
       --natu-color-border-invert: var(--natu-color-white);
-      --natu-color-border-accent: var(--natu-color-green-glutton-700);
-      --natu-color-border-accent-strong: var(--natu-color-green-glutton-200);
+      --natu-color-border-accent: var(--natu-color-rural-red-700);
+      --natu-color-border-accent-strong: var(--natu-color-rural-red-200);
       // ======== Border color end ========
 
       // ======== Outline color start ========
-      --natu-color-outline-accent: var(--natu-color-green-glutton-400-alpha-70);
+      --natu-color-outline-accent: var(--natu-color-rural-red-400-alpha-70);
       // ======== Outline color end ========
     }
   }

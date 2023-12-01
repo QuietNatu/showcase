@@ -24,15 +24,15 @@
     "@natu/styles": "workspace:*",
     "@natu/ui-solid": "workspace:*",
     "@natu/utils": "workspace:*",
-    "solid-js": "1.8.5"
+    "solid-js": "1.8.6"
   },
   "devDependencies": {
-    "@mswjs/data": "0.15.0",
+    "@mswjs/data": "0.16.1",
     "@mswjs/interceptors": "0.25.12",
     "@natu/eslint-config-solid": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/vrt": "workspace:*",
-    "@playwright/test": "1.39.0",
+    "@playwright/test": "1.40.0",
     "@solidjs/testing-library": "0.8.4",
     "@storybook/addon-a11y": "7.5.3",
     "@storybook/addon-essentials": "7.5.3",

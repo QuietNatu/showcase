@@ -30,12 +30,12 @@
     "e2e": "turbo run e2e --continue"
   },
   "devDependencies": {
-    "@commitlint/cli": "18.4.2",
-    "@commitlint/config-conventional": "18.4.2",
+    "@commitlint/cli": "18.4.3",
+    "@commitlint/config-conventional": "18.4.3",
     "@ls-lint/ls-lint": "2.2.2",
-    "@playwright/test": "1.39.0",
-    "dependency-cruiser": "15.3.0",
-    "eslint": "8.53.0",
+    "@playwright/test": "1.40.0",
+    "dependency-cruiser": "15.5.0",
+    "eslint": "8.54.0",
     "husky": "8.0.3",
     "lint-staged": "15.1.0",
     "prettier": "3.1.0",

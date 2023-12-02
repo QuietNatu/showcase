@@ -1,0 +1,19 @@
+@use '../utils';
+
+.natu-button {
+  @include utils.control;
+
+  cursor: pointer;
+  font-weight: var(--natu-button-font-weight);
+  user-select: none;
+
+  &--small {
+    @include utils.control--small;
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+  }
+
+  /* TODO: variants */
+}

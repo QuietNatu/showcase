@@ -1,0 +1,29 @@
+@use 'text';
+
+@mixin control {
+  @include text.text-label;
+
+  align-items: center;
+  border: var(--natu-control-border-width) solid transparent;
+  border-radius: var(--natu-control-border-radius);
+  box-shadow: none;
+  display: inline-flex;
+  height: var(--natu-control-height);
+  justify-content: center;
+  outline: none;
+  padding: 0 var(--natu-control-padding);
+  position: relative;
+}
+
+@mixin control--small {
+  height: var(--natu-control-height-small);
+}
+
+@mixin control--large {
+  height: var(--natu-control-height-large);
+}
+
+@mixin control--fluid {
+  height: auto;
+  padding: var(--natu-control-padding);
+}

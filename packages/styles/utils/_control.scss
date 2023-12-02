@@ -1,4 +1,4 @@
-@import 'text';
+@use 'text';
 
 @mixin control {
   @include text.text-label;

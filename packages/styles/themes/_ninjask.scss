@@ -49,6 +49,8 @@
     --natu-spacing-18: utils.px-to-rem(68px);
     --natu-spacing-19: utils.px-to-rem(72px);
 
+    --natu-border-radius-base: 2px;
+
     --natu-elevation-shadow-1: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
       drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
     --natu-elevation-shadow-2: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2))
@@ -189,6 +191,15 @@
     --natu-text-smallprint-line-height: var(--natu-spacing-4);
     --natu-text-smallprint-text-transform: none;
     // ======== Text end ========
+
+    // ======== Control start ========
+    --natu-control-border-radius: var(--natu-border-radius-base);
+    --natu-control-border-width: 1px;
+    --natu-control-height: var(--natu-spacing-9);
+    --natu-control-height-small: var(--natu-spacing-7);
+    --natu-control-height-large: var(--natu-spacing-11);
+    --natu-control-padding: calc(var(--natu-spacing-3) - var(--natu-control-border-width));
+    // ======== Control end ========
 
     &[data-color-scheme='dark'] {
       // ======== Font color start ========

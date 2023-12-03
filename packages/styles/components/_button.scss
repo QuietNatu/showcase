@@ -1,4 +1,42 @@
+@use 'sass:map';
 @use '../utils';
+
+$-variants: (
+  'primary': (
+    'default': (
+      'background-color': var(--natu-button-color-surface-primary),
+      'border-color': var(--natu-button-color-border-primary),
+      'color': var(--natu-button-color-font-primary),
+    ),
+    'hover': (
+      'background-color': var(--natu-button-color-surface-primary-hover),
+      'border-color': var(--natu-button-color-border-primary-hover),
+      'color': var(--natu-button-color-font-primary),
+    ),
+    'focus': (
+      'background-color': var(--natu-button-color-surface-primary),
+      'border-color': var(--natu-button-color-border-primary),
+      'color': var(--natu-button-color-font-primary),
+      'box-shadow': 0 0 0 2px var(--natu-button-color-outline-primary),
+    ),
+    'active': (
+      'background-color': var(--natu-button-color-surface-primary-active),
+      'border-color': var(--natu-button-color-border-primary-active),
+      'color': var(--natu-button-color-font-primary),
+    ),
+    'disabled': (
+      'background-color': var(--natu-button-color-surface-primary-disabled),
+      'border-color': var(--natu-button-color-border-primary-disabled),
+      'color': var(--natu-button-color-font-primary-disabled),
+    ),
+  ),
+);
+
+@mixin set-state-props($states, $state) {
+  @each $prop, $value in map.get($states, $state) {
+    #{$prop}: #{$value};
+  }
+}
 
 .natu-button {
   @include utils.control;
@@ -15,5 +53,28 @@
     cursor: not-allowed;
   }
 
-  /* TODO: variants */
+  @each $variant, $states in $-variants {
+    &--#{$variant} {
+      @include set-state-props($states, 'default');
+
+      &:hover {
+        @include set-state-props($states, 'hover');
+      }
+
+      &:focus-visible,
+      &:target {
+        @include set-state-props($states, 'focus');
+      }
+
+      &:active,
+      .natu-button--active {
+        @include set-state-props($states, 'active');
+      }
+
+      &:disabled,
+      .natu-button--disabled {
+        @include set-state-props($states, 'disabled');
+      }
+    }
+  }
 }

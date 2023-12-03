@@ -4,6 +4,12 @@
 
 ## 🤡 Gotchas
 
+### Important issues unresolved for more than 5 years.
+
+- https://github.com/angular/angular/issues/4059
+- https://github.com/angular/angular/issues/7626
+- https://github.com/angular/angular/issues/10887
+
 ### Angular does not support importing components from uncompiled libraries
 
 Unlike React and SolidJS that allow you to simply import components without doing a build step first, Angular is quite inflexible regarding doing that.

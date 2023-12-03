@@ -5,21 +5,21 @@
 @layer ninjask {
   [data-theme='ninjask'] {
     // ======== Base start ========
-    --natu-font-size-1: utils.px-to-rem(10px);
-    --natu-font-size-2: utils.px-to-rem(11px);
-    --natu-font-size-3: utils.px-to-rem(12px);
-    --natu-font-size-4: utils.px-to-rem(14px);
-    --natu-font-size-5: utils.px-to-rem(16px);
-    --natu-font-size-6: utils.px-to-rem(20px);
-    --natu-font-size-7: utils.px-to-rem(23px);
-    --natu-font-size-8: utils.px-to-rem(26px);
-    --natu-font-size-9: utils.px-to-rem(29px);
-    --natu-font-size-10: utils.px-to-rem(33px);
-    --natu-font-size-11: utils.px-to-rem(37px);
-    --natu-font-size-12: utils.px-to-rem(42px);
-    --natu-font-size-13: utils.px-to-rem(47px);
-    --natu-font-size-14: utils.px-to-rem(53px);
-    --natu-font-size-15: utils.px-to-rem(59px);
+    --natu-font-size-1: #{utils.px-to-rem(10px)};
+    --natu-font-size-2: #{utils.px-to-rem(11px)};
+    --natu-font-size-3: #{utils.px-to-rem(12px)};
+    --natu-font-size-4: #{utils.px-to-rem(14px)};
+    --natu-font-size-5: #{utils.px-to-rem(16px)};
+    --natu-font-size-6: #{utils.px-to-rem(20px)};
+    --natu-font-size-7: #{utils.px-to-rem(23px)};
+    --natu-font-size-8: #{utils.px-to-rem(26px)};
+    --natu-font-size-9: #{utils.px-to-rem(29px)};
+    --natu-font-size-10: #{utils.px-to-rem(33px)};
+    --natu-font-size-11: #{utils.px-to-rem(37px)};
+    --natu-font-size-12: #{utils.px-to-rem(42px)};
+    --natu-font-size-13: #{utils.px-to-rem(47px)};
+    --natu-font-size-14: #{utils.px-to-rem(53px)};
+    --natu-font-size-15: #{utils.px-to-rem(59px)};
 
     --natu-font-weight-base: 400;
     --natu-font-weight-medium: 500;
@@ -29,25 +29,25 @@
     --natu-font-family-base: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
       'Apple Color Emoji', 'Segoe UI Emoji';
 
-    --natu-spacing-1: utils.px-to-rem(2px);
-    --natu-spacing-2: utils.px-to-rem(4px);
-    --natu-spacing-3: utils.px-to-rem(8px);
-    --natu-spacing-4: utils.px-to-rem(12px);
-    --natu-spacing-5: utils.px-to-rem(16px);
-    --natu-spacing-6: utils.px-to-rem(20px);
-    --natu-spacing-7: utils.px-to-rem(24px);
-    --natu-spacing-8: utils.px-to-rem(28px);
-    --natu-spacing-9: utils.px-to-rem(32px);
-    --natu-spacing-10: utils.px-to-rem(36px);
-    --natu-spacing-11: utils.px-to-rem(40px);
-    --natu-spacing-12: utils.px-to-rem(44px);
-    --natu-spacing-13: utils.px-to-rem(48px);
-    --natu-spacing-14: utils.px-to-rem(52px);
-    --natu-spacing-15: utils.px-to-rem(56px);
-    --natu-spacing-16: utils.px-to-rem(60px);
-    --natu-spacing-17: utils.px-to-rem(64px);
-    --natu-spacing-18: utils.px-to-rem(68px);
-    --natu-spacing-19: utils.px-to-rem(72px);
+    --natu-spacing-1: #{utils.px-to-rem(2px)};
+    --natu-spacing-2: #{utils.px-to-rem(4px)};
+    --natu-spacing-3: #{utils.px-to-rem(8px)};
+    --natu-spacing-4: #{utils.px-to-rem(12px)};
+    --natu-spacing-5: #{utils.px-to-rem(16px)};
+    --natu-spacing-6: #{utils.px-to-rem(20px)};
+    --natu-spacing-7: #{utils.px-to-rem(24px)};
+    --natu-spacing-8: #{utils.px-to-rem(28px)};
+    --natu-spacing-9: #{utils.px-to-rem(32px)};
+    --natu-spacing-10: #{utils.px-to-rem(36px)};
+    --natu-spacing-11: #{utils.px-to-rem(40px)};
+    --natu-spacing-12: #{utils.px-to-rem(44px)};
+    --natu-spacing-13: #{utils.px-to-rem(48px)};
+    --natu-spacing-14: #{utils.px-to-rem(52px)};
+    --natu-spacing-15: #{utils.px-to-rem(56px)};
+    --natu-spacing-16: #{utils.px-to-rem(60px)};
+    --natu-spacing-17: #{utils.px-to-rem(64px)};
+    --natu-spacing-18: #{utils.px-to-rem(68px)};
+    --natu-spacing-19: #{utils.px-to-rem(72px)};
 
     --natu-border-radius-base: 2px;
 
@@ -93,20 +93,22 @@
     --natu-color-rural-red-200: oklch(79% 0.1 14deg);
     --natu-color-rural-red-300: oklch(69% 0.16 14deg);
     --natu-color-rural-red-400: oklch(60% 0.21 14deg);
-    --natu-color-rural-red-400-alpha-70: oklch(60% 0.21 14deg / 0.7);
+    --natu-color-rural-red-400-alpha-30: oklch(60% 0.21 14deg / 0.3);
     --natu-color-rural-red-500: oklch(50% 0.19 14deg);
     --natu-color-rural-red-600: oklch(44% 0.15 14deg);
-    --natu-color-rural-red-600-alpha-70: oklch(44% 0.15 14deg / 0.7);
+    --natu-color-rural-red-600-alpha-30: oklch(44% 0.15 14deg / 0.3);
     --natu-color-rural-red-700: oklch(36% 0.12 14deg);
     --natu-color-rural-red-800: oklch(28% 0.09 14deg);
     --natu-color-rural-red-900: oklch(20% 0.06 14deg);
     --natu-color-rural-red-950: oklch(16% 0.04 14deg);
 
+    --natu-color-transparent: transparent;
     --natu-color-white: oklch(100% 0 0deg);
     --natu-color-black: oklch(0% 0 0deg);
 
     --natu-color-grey-50: oklch(97% 0.01 250deg);
     --natu-color-grey-100: oklch(88% 0.01 250deg);
+    --natu-color-grey-100-alpha-30: oklch(88% 0.01 250deg / 0.3);
     --natu-color-grey-200: oklch(79% 0.01 250deg);
     --natu-color-grey-300: oklch(69% 0.01 250deg);
     --natu-color-grey-400: oklch(60% 0.01 250deg);
@@ -115,20 +117,28 @@
     --natu-color-grey-700: oklch(36% 0.01 250deg);
     --natu-color-grey-800: oklch(28% 0.01 250deg);
     --natu-color-grey-900: oklch(20% 0.01 250deg);
+    --natu-color-grey-900-alpha-10: oklch(20% 0.01 250deg / 0.1);
+    --natu-color-grey-900-alpha-30: oklch(20% 0.01 250deg / 0.3);
     --natu-color-grey-950: oklch(16% 0.01 250deg);
     // ======== Base end ========
 
     // ======== Font color start ========
     --natu-color-font-base: var(--natu-color-grey-800);
     --natu-color-font-invert: var(--natu-color-white);
+    --natu-color-font-disabled: var(--natu-color-grey-900-alpha-30);
     --natu-color-font-accent: var(--natu-color-rural-red-600);
     // ======== Font color end ========
 
     // ======== Surface color start ========
     --natu-color-surface-base: var(--natu-color-white);
     --natu-color-surface-invert: var(--natu-color-grey-900);
+    --natu-color-surface-disabled: var(--natu-color-grey-900-alpha-10);
     --natu-color-surface-accent: var(--natu-color-rural-red-100);
+    --natu-color-surface-accent-active: var(--natu-color-rural-red-200);
+    --natu-color-surface-accent-hover: var(--natu-color-rural-red-200);
     --natu-color-surface-accent-strong: var(--natu-color-rural-red-600);
+    --natu-color-surface-accent-strong-active: var(--natu-color-rural-red-700);
+    --natu-color-surface-accent-strong-hover: var(--natu-color-rural-red-700);
     // ======== Surface color end ========
 
     // ======== Border color start ========
@@ -136,10 +146,12 @@
     --natu-color-border-invert: var(--natu-color-grey-950);
     --natu-color-border-accent: var(--natu-color-rural-red-200);
     --natu-color-border-accent-strong: var(--natu-color-rural-red-700);
+    --natu-color-border-accent-strong-active: var(--natu-color-rural-red-800);
+    --natu-color-border-accent-strong-hover: var(--natu-color-rural-red-800);
     // ======== Border color end ========
 
     // ======== Outline color start ========
-    --natu-color-outline-accent: var(--natu-color-rural-red-600-alpha-70);
+    --natu-color-outline-accent: var(--natu-color-rural-red-600-alpha-30);
     // ======== Outline color end ========
 
     // ======== Text start ========
@@ -201,10 +213,30 @@
     --natu-control-padding: calc(var(--natu-spacing-3) - var(--natu-control-border-width));
     // ======== Control end ========
 
+    // ======== Button start ========
+    --natu-button-font-weight: var(--natu-font-weight-strong);
+
+    --natu-button-color-border-primary: var(--natu-color-transparent);
+    --natu-button-color-border-primary-active: var(--natu-color-border-accent-strong-active);
+    --natu-button-color-border-primary-disabled: var(--natu-color-transparent);
+    --natu-button-color-border-primary-hover: var(--natu-color-border-accent-strong-hover);
+
+    --natu-button-color-outline-primary: var(--natu-color-outline-accent);
+
+    --natu-button-color-font-primary: var(--natu-color-font-invert);
+    --natu-button-color-font-primary-disabled: var(--natu-color-font-disabled);
+
+    --natu-button-color-surface-primary: var(--natu-color-surface-accent-strong);
+    --natu-button-color-surface-primary-active: var(--natu-color-surface-accent-strong-active);
+    --natu-button-color-surface-primary-disabled: var(--natu-color-surface-disabled);
+    --natu-button-color-surface-primary-hover: var(--natu-color-surface-accent-strong-hover);
+    // ======== Button end ========
+
     &[data-color-scheme='dark'] {
       // ======== Font color start ========
       --natu-color-font-base: var(--natu-color-grey-100);
       --natu-color-font-invert: var(--natu-color-grey-900);
+      --natu-color-font-disabled: var(--natu-color-grey-100-alpha-30);
       --natu-color-font-accent: var(--natu-color-rural-red-600);
       // ======== Font color end ========
 
@@ -212,7 +244,11 @@
       --natu-color-surface-base: var(--natu-color-grey-900);
       --natu-color-surface-invert: var(--natu-color-grey-100);
       --natu-color-surface-accent: var(--natu-color-rural-red-800);
+      --natu-color-surface-accent-active: var(--natu-color-rural-red-700);
+      --natu-color-surface-accent-hover: var(--natu-color-rural-red-700);
       --natu-color-surface-accent-strong: var(--natu-color-rural-red-300);
+      --natu-color-surface-accent-strong-active: var(--natu-color-rural-red-200);
+      --natu-color-surface-accent-strong-hover: var(--natu-color-rural-red-200);
       // ======== Surface color end ========
 
       // ======== Border color start ========
@@ -220,10 +256,12 @@
       --natu-color-border-invert: var(--natu-color-white);
       --natu-color-border-accent: var(--natu-color-rural-red-700);
       --natu-color-border-accent-strong: var(--natu-color-rural-red-200);
+      --natu-color-border-accent-strong-active: var(--natu-color-rural-red-100);
+      --natu-color-border-accent-strong-hover: var(--natu-color-rural-red-100);
       // ======== Border color end ========
 
       // ======== Outline color start ========
-      --natu-color-outline-accent: var(--natu-color-rural-red-400-alpha-70);
+      --natu-color-outline-accent: var(--natu-color-rural-red-400-alpha-30);
       // ======== Outline color end ========
     }
   }

@@ -4,11 +4,15 @@
 
 ## 🤡 Gotchas
 
-### Important issues unresolved for more than 5 years.
+### Important issues unresolved for more than 5 years
 
 - https://github.com/angular/angular/issues/4059
 - https://github.com/angular/angular/issues/7626
 - https://github.com/angular/angular/issues/10887
+
+### Karma test runner window information interferes with tests
+
+Testing library utils like screen.getByText or userEvent.tab will also interect with elements created by Karma that are not part of the test (like the test results information). This lowers the quality and confidence that the tests provide.
 
 ### Angular does not support importing components from uncompiled libraries
 

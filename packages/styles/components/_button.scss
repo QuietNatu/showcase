@@ -17,7 +17,7 @@ $-variants: (
       'background-color': var(--natu-button-color-surface-primary),
       'border-color': var(--natu-button-color-border-primary),
       'color': var(--natu-button-color-font-primary),
-      'box-shadow': 0 0 0 2px var(--natu-button-color-outline-primary),
+      'box-shadow': 0 0 0 2px var(--natu-button-color-outline),
     ),
     'active': (
       'background-color': var(--natu-button-color-surface-primary-active),
@@ -27,7 +27,178 @@ $-variants: (
     'disabled': (
       'background-color': var(--natu-button-color-surface-primary-disabled),
       'border-color': var(--natu-button-color-border-primary-disabled),
-      'color': var(--natu-button-color-font-primary-disabled),
+      'color': var(--natu-button-color-font-disabled),
+    ),
+  ),
+  'destructive': (
+    'default': (
+      'background-color': var(--natu-button-color-surface-primary-destructive),
+      'border-color': var(--natu-button-color-border-primary-destructive),
+      'color': var(--natu-button-color-font-primary-destructive),
+    ),
+    'hover': (
+      'background-color': var(--natu-button-color-surface-primary-destructive-hover),
+      'border-color': var(--natu-button-color-border-primary-destructive-hover),
+      'color': var(--natu-button-color-font-primary-destructive),
+    ),
+    'focus': (
+      'background-color': var(--natu-button-color-surface-primary-destructive),
+      'border-color': var(--natu-button-color-border-primary-destructive),
+      'color': var(--natu-button-color-font-primary-destructive),
+      'box-shadow': 0 0 0 2px var(--natu-button-color-outline),
+    ),
+    'active': (
+      'background-color': var(--natu-button-color-surface-primary-destructive-active),
+      'border-color': var(--natu-button-color-border-primary-destructive-active),
+      'color': var(--natu-button-color-font-primary-destructive),
+    ),
+    'disabled': (
+      'background-color': var(--natu-button-color-surface-primary-disabled),
+      'border-color': var(--natu-button-color-border-primary-disabled),
+      'color': var(--natu-button-color-font-disabled),
+    ),
+  ),
+  'outline': (
+    'default': (
+      'background-color': var(--natu-button-color-surface-outline),
+      'border-color': var(--natu-button-color-border-outline),
+      'color': var(--natu-button-color-font-outline),
+    ),
+    'hover': (
+      'background-color': var(--natu-button-color-surface-outline-hover),
+      'border-color': var(--natu-button-color-border-outline-hover),
+      'color': var(--natu-button-color-font-outline),
+    ),
+    'focus': (
+      'background-color': var(--natu-button-color-surface-outline),
+      'border-color': var(--natu-button-color-border-outline),
+      'color': var(--natu-button-color-font-outline),
+      'box-shadow': 0 0 0 2px var(--natu-button-color-outline),
+    ),
+    'active': (
+      'background-color': var(--natu-button-color-surface-outline-active),
+      'border-color': var(--natu-button-color-border-outline-active),
+      'color': var(--natu-button-color-font-outline),
+    ),
+    'disabled': (
+      'background-color': var(--natu-button-color-surface-outline-disabled),
+      'border-color': var(--natu-button-color-border-outline-disabled),
+      'color': var(--natu-button-color-font-disabled),
+    ),
+  ),
+  'outline-destructive': (
+    'default': (
+      'background-color': var(--natu-button-color-surface-outline-destructive),
+      'border-color': var(--natu-button-color-border-outline-destructive),
+      'color': var(--natu-button-color-font-outline-destructive),
+    ),
+    'hover': (
+      'background-color': var(--natu-button-color-surface-outline-destructive-hover),
+      'border-color': var(--natu-button-color-border-outline-destructive-hover),
+      'color': var(--natu-button-color-font-outline-destructive),
+    ),
+    'focus': (
+      'background-color': var(--natu-button-color-surface-outline-destructive),
+      'border-color': var(--natu-button-color-border-outline-destructive),
+      'color': var(--natu-button-color-font-outline-destructive),
+      'box-shadow': 0 0 0 2px var(--natu-button-color-outline),
+    ),
+    'active': (
+      'background-color': var(--natu-button-color-surface-outline-destructive-active),
+      'border-color': var(--natu-button-color-border-outline-destructive-active),
+      'color': var(--natu-button-color-font-outline-destructive),
+    ),
+    'disabled': (
+      'background-color': var(--natu-button-color-surface-outline-disabled),
+      'border-color': var(--natu-button-color-border-outline-disabled),
+      'color': var(--natu-button-color-font-disabled),
+    ),
+  ),
+  'ghost': (
+    'default': (
+      'background-color': var(--natu-button-color-surface-ghost),
+      'border-color': var(--natu-button-color-border-ghost),
+      'color': var(--natu-button-color-font-ghost),
+      // TODO: padding needed?
+    ),
+    'hover': (
+      'background-color': var(--natu-button-color-surface-ghost-hover),
+      'border-color': var(--natu-button-color-border-ghost-hover),
+      'color': var(--natu-button-color-font-ghost),
+    ),
+    'focus': (
+      'background-color': var(--natu-button-color-surface-ghost),
+      'border-color': var(--natu-button-color-border-ghost),
+      'color': var(--natu-button-color-font-ghost),
+      'box-shadow': 0 0 0 2px var(--natu-button-color-outline),
+    ),
+    'active': (
+      'background-color': var(--natu-button-color-surface-ghost-active),
+      'border-color': var(--natu-button-color-border-ghost-active),
+      'color': var(--natu-button-color-font-ghost),
+    ),
+    'disabled': (
+      'background-color': var(--natu-button-color-surface-ghost-disabled),
+      'border-color': var(--natu-button-color-border-ghost-disabled),
+      'color': var(--natu-button-color-font-disabled),
+    ),
+  ),
+  'ghost-destructive': (
+    'default': (
+      'background-color': var(--natu-button-color-surface-ghost-destructive),
+      'border-color': var(--natu-button-color-border-ghost-destructive),
+      'color': var(--natu-button-color-font-ghost-destructive),
+      // TODO: padding needed?
+    ),
+    'hover': (
+      'background-color': var(--natu-button-color-surface-ghost-destructive-hover),
+      'border-color': var(--natu-button-color-border-ghost-destructive-hover),
+      'color': var(--natu-button-color-font-ghost-destructive),
+    ),
+    'focus': (
+      'background-color': var(--natu-button-color-surface-ghost-destructive),
+      'border-color': var(--natu-button-color-border-ghost-destructive),
+      'color': var(--natu-button-color-font-ghost),
+      'box-shadow': 0 0 0 2px var(--natu-button-color-outline),
+    ),
+    'active': (
+      'background-color': var(--natu-button-color-surface-ghost-destructive-active),
+      'border-color': var(--natu-button-color-border-ghost-destructive-active),
+      'color': var(--natu-button-color-font-ghost-destructive),
+    ),
+    'disabled': (
+      'background-color': var(--natu-button-color-surface-ghost-disabled),
+      'border-color': var(--natu-button-color-border-ghost-disabled),
+      'color': var(--natu-button-color-font-disabled),
+    ),
+  ),
+  'ghost-muted': (
+    'default': (
+      'background-color': var(--natu-button-color-surface-ghost-muted),
+      'border-color': var(--natu-button-color-border-ghost-muted),
+      'color': var(--natu-button-color-font-ghost-muted),
+      // TODO: padding needed?
+    ),
+    'hover': (
+      'background-color': var(--natu-button-color-surface-ghost-muted-hover),
+      'border-color': var(--natu-button-color-border-ghost-muted-hover),
+      'color': var(--natu-button-color-font-ghost-muted-hover),
+    ),
+    'focus': (
+      'background-color': var(--natu-button-color-surface-ghost-muted),
+      'border-color': var(--natu-button-color-border-ghost-muted),
+      'color': var(--natu-button-color-font-ghost),
+      'box-shadow': 0 0 0 2px var(--natu-button-color-outline),
+    ),
+    'active': (
+      'background-color': var(--natu-button-color-surface-ghost-muted-active),
+      'border-color': var(--natu-button-color-border-ghost-muted-active),
+      'color': var(--natu-button-color-font-ghost-muted-active),
+    ),
+    'disabled': (
+      'background-color': var(--natu-button-color-surface-ghost-disabled),
+      'border-color': var(--natu-button-color-border-ghost-disabled),
+      'color': var(--natu-button-color-font-disabled),
     ),
   ),
 );

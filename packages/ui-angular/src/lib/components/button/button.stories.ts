@@ -12,7 +12,15 @@ const meta = {
   tags: ['autodocs'],
   decorators: [moduleMetadata({ imports: [natuButtonImports] })],
   args: {
-    variants: ['primary', 'secondary'],
+    variants: [
+      'primary',
+      'destructive',
+      'outline',
+      'outline-destructive',
+      'ghost',
+      'ghost-destructive',
+      'ghost-muted',
+    ],
   },
   render: (args) => {
     const templateVariants = args.variants.map((variant) => {

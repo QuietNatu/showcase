@@ -14,7 +14,12 @@ export const buttonVariants = cva('natu-button', {
   variants: {
     variant: {
       primary: 'natu-button--primary',
-      secondary: 'natu-button--secondary',
+      destructive: 'natu-button--destructive',
+      outline: 'natu-button--outline',
+      'outline-destructive': 'natu-button--outline-destructive',
+      ghost: 'natu-button--ghost',
+      'ghost-destructive': 'natu-button--ghost-destructive',
+      'ghost-muted': 'natu-button--ghost-muted',
     },
     size: {
       small: 'natu-button--small',

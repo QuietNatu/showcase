@@ -120,6 +120,20 @@
     --natu-color-grey-900-alpha-10: oklch(20% 0.01 250deg / 0.1);
     --natu-color-grey-900-alpha-30: oklch(20% 0.01 250deg / 0.3);
     --natu-color-grey-950: oklch(16% 0.01 250deg);
+
+    --natu-color-red-50: oklch(97% 0.01 146deg);
+    --natu-color-red-100: oklch(88% 0.04 27deg);
+    --natu-color-red-200: oklch(79% 0.1 27deg);
+    --natu-color-red-300: oklch(69% 0.16 27deg);
+    --natu-color-red-400: oklch(60% 0.21 27deg);
+    --natu-color-red-400-alpha-30: oklch(60% 0.21 27deg / 0.3);
+    --natu-color-red-500: oklch(50% 0.19 27deg);
+    --natu-color-red-600: oklch(44% 0.15 27deg);
+    --natu-color-red-600-alpha-30: oklch(44% 0.15 27deg / 0.3);
+    --natu-color-red-700: oklch(36% 0.12 27deg);
+    --natu-color-red-800: oklch(28% 0.09 27deg);
+    --natu-color-red-900: oklch(20% 0.06 27deg);
+    --natu-color-red-950: oklch(16% 0.04 27deg);
     // ======== Base end ========
 
     // ======== Font color start ========
@@ -127,6 +141,11 @@
     --natu-color-font-invert: var(--natu-color-white);
     --natu-color-font-disabled: var(--natu-color-grey-900-alpha-30);
     --natu-color-font-accent: var(--natu-color-green-glutton-600);
+    --natu-color-font-accent-active: var(--natu-color-green-glutton-700);
+    --natu-color-font-accent-hover: var(--natu-color-green-glutton-700);
+    --natu-color-font-critical: var(--natu-color-red-600);
+    --natu-color-font-critical-active: var(--natu-color-red-700);
+    --natu-color-font-critical-hover: var(--natu-color-red-700);
     // ======== Font color end ========
 
     // ======== Surface color start ========
@@ -136,9 +155,17 @@
     --natu-color-surface-accent: var(--natu-color-green-glutton-100);
     --natu-color-surface-accent-active: var(--natu-color-green-glutton-200);
     --natu-color-surface-accent-hover: var(--natu-color-green-glutton-200);
+    --natu-color-surface-accent-mild: var(--natu-color-green-glutton-200);
     --natu-color-surface-accent-strong: var(--natu-color-green-glutton-600);
     --natu-color-surface-accent-strong-active: var(--natu-color-green-glutton-700);
     --natu-color-surface-accent-strong-hover: var(--natu-color-green-glutton-700);
+    --natu-color-surface-critical: var(--natu-color-red-100);
+    --natu-color-surface-critical-active: var(--natu-color-red-200);
+    --natu-color-surface-critical-hover: var(--natu-color-red-200);
+    --natu-color-surface-critical-mild: var(--natu-color-red-200);
+    --natu-color-surface-critical-strong: var(--natu-color-red-600);
+    --natu-color-surface-critical-strong-active: var(--natu-color-red-700);
+    --natu-color-surface-critical-strong-hover: var(--natu-color-red-700);
     // ======== Surface color end ========
 
     // ======== Border color start ========
@@ -148,10 +175,15 @@
     --natu-color-border-accent-strong: var(--natu-color-green-glutton-700);
     --natu-color-border-accent-strong-active: var(--natu-color-green-glutton-800);
     --natu-color-border-accent-strong-hover: var(--natu-color-green-glutton-800);
+    --natu-color-border-critical: var(--natu-color-red-200);
+    --natu-color-border-critical-strong: var(--natu-color-red-700);
+    --natu-color-border-critical-strong-active: var(--natu-color-red-800);
+    --natu-color-border-critical-strong-hover: var(--natu-color-red-800);
     // ======== Border color end ========
 
     // ======== Outline color start ========
     --natu-color-outline-accent: var(--natu-color-green-glutton-600-alpha-30);
+    --natu-color-outline-critical: var(--natu-color-red-600-alpha-30);
     // ======== Outline color end ========
 
     // ======== Text start ========
@@ -216,20 +248,79 @@
     // ======== Button start ========
     --natu-button-font-weight: var(--natu-font-weight-strong);
 
+    --natu-button-color-border-ghost: var(--natu-color-transparent);
+    --natu-button-color-border-ghost-active: var(--natu-color-transparent);
+    --natu-button-color-border-ghost-disabled: var(--natu-color-transparent);
+    --natu-button-color-border-ghost-hover: var(--natu-color-transparent);
+    --natu-button-color-border-ghost-destructive: var(--natu-color-transparent);
+    --natu-button-color-border-ghost-destructive-active: var(--natu-color-transparent);
+    --natu-button-color-border-ghost-destructive-hover: var(--natu-color-transparent);
+    --natu-button-color-border-ghost-muted: var(--natu-color-transparent) f;
+    --natu-button-color-border-ghost-muted-active: var(--natu-color-transparent);
+    --natu-button-color-border-ghost-muted-hover: var(--natu-color-transparent);
+    --natu-button-color-border-outline: var(--natu-color-transparent);
+    --natu-button-color-border-outline-active: var(--natu-color-border-accent-strong-active);
+    --natu-button-color-border-outline-disabled: var(--natu-color-transparent);
+    --natu-button-color-border-outline-hover: var(--natu-color-border-accent-strong-hover);
+    --natu-button-color-border-outline-destructive: var(--natu-color-transparent);
+    --natu-button-color-border-outline-destructive-active: var(
+      --natu-color-border-critical-strong-active
+    );
+    --natu-button-color-border-outline-destructive-hover: var(
+      --natu-color-border-critical-strong-hover
+    );
     --natu-button-color-border-primary: var(--natu-color-transparent);
     --natu-button-color-border-primary-active: var(--natu-color-border-accent-strong-active);
     --natu-button-color-border-primary-disabled: var(--natu-color-transparent);
     --natu-button-color-border-primary-hover: var(--natu-color-border-accent-strong-hover);
+    --natu-button-color-border-primary-destructive: var(--natu-color-transparent);
+    --natu-button-color-border-primary-destructive-active: var(
+      --natu-color-border-critical-strong-active
+    );
+    --natu-button-color-border-primary-destructive-hover: var(
+      --natu-color-border-critical-strong-hover
+    );
 
-    --natu-button-color-outline-primary: var(--natu-color-outline-accent);
+    --natu-button-color-outline: var(--natu-color-outline-accent);
 
+    --natu-button-color-font-disabled: var(--natu-color-font-disabled);
+    --natu-button-color-font-ghost: var(--natu-color-font-accent);
+    --natu-button-color-font-ghost-destructive: var(--natu-color-font-destructive);
+    --natu-button-color-font-ghost-muted-active: var(--natu-color-font-accent-active);
+    --natu-button-color-font-ghost-muted-hover: var(--natu-color-font-accent-hover);
+    --natu-button-color-font-outline: var(--natu-color-font-accent);
+    --natu-button-color-font-outline-destructive: var(--natu-color-font-destructive);
     --natu-button-color-font-primary: var(--natu-color-font-invert);
-    --natu-button-color-font-primary-disabled: var(--natu-color-font-disabled);
+    --natu-button-color-font-primary-destructive: var(--natu-color-font-invert);
 
+    --natu-button-color-surface-ghost: var(--natu-color-transparent);
+    --natu-button-color-surface-ghost-active: var(--natu-color-surface-accent-mild);
+    --natu-button-color-surface-ghost-disabled: var(--natu-color-transparent);
+    --natu-button-color-surface-ghost-hover: var(--natu-color-surface-accent-mild);
+    --natu-button-color-surface-ghost-destructive: var(--natu-color-transparent);
+    --natu-button-color-surface-ghost-destructive-active: var(--natu-color-surface-critical-mild);
+    --natu-button-color-surface-ghost-destructive-hover: var(--natu-color-surface-critical-mild);
+    --natu-button-color-surface-ghost-muted: var(--natu-color-transparent);
+    --natu-button-color-surface-ghost-muted-active: var(--natu-color-transparent);
+    --natu-button-color-surface-ghost-muted-hover: var(--natu-color-transparent);
+    --natu-button-color-surface-outline: var(--natu-color-transparent);
+    --natu-button-color-surface-outline-active: var(--natu-color-surface-accent-mild);
+    --natu-button-color-surface-outline-disabled: var(--natu-color-transparent);
+    --natu-button-color-surface-outline-hover: var(--natu-color-surface-accent-mild);
+    --natu-button-color-surface-outline-destructive: var(--natu-color-transparent);
+    --natu-button-color-surface-outline-destructive-active: var(--natu-color-surface-critical-mild);
+    --natu-button-color-surface-outline-destructive-hover: var(--natu-color-surface-critical-mild);
     --natu-button-color-surface-primary: var(--natu-color-surface-accent-strong);
     --natu-button-color-surface-primary-active: var(--natu-color-surface-accent-strong-active);
     --natu-button-color-surface-primary-disabled: var(--natu-color-surface-disabled);
     --natu-button-color-surface-primary-hover: var(--natu-color-surface-accent-strong-hover);
+    --natu-button-color-surface-primary-destructive: var(--natu-color-surface-critical-strong);
+    --natu-button-color-surface-primary-destructive-active: var(
+      --natu-color-surface-accent-critical-active
+    );
+    --natu-button-color-surface-primary-destructive-hover: var(
+      --natu-color-surface-accent-critical-hover
+    );
     // ======== Button end ========
 
     &[data-color-scheme='dark'] {

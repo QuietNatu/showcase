@@ -1,7 +1,7 @@
-import { componentWrapperDecorator, moduleMetadata, type Preview } from '@storybook/angular';
+import { moduleMetadata, type Preview } from '@storybook/angular';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../documentation.json';
-import { StoryThemeComponent } from '../src/lib/stories/components';
+import { StoryConfigDirective, storyConfigDecorator } from './decorators';
 
 setCompodocJson(docJson);
 
@@ -42,13 +42,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [
-    moduleMetadata({ imports: [StoryThemeComponent] }),
-    componentWrapperDecorator(StoryThemeComponent, ({ globals }) => ({
-      theme: globals['theme'],
-      colorScheme: globals['colorScheme'],
-    })),
-  ],
+  decorators: [moduleMetadata({ imports: [StoryConfigDirective] }), storyConfigDecorator()],
 };
 
 export default preview;

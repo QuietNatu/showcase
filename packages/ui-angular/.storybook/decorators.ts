@@ -24,15 +24,13 @@ export function storyConfigDecorator(): Decorator {
   standalone: true,
 })
 export class StoryConfigDirective {
-  /* TODO: enum */
   @Input({ required: true }) set theme(theme: string) {
     this.themeProvider.setTheme(theme);
   }
 
-  /* TODO: enum */
   @Input({ required: true }) set colorScheme(colorScheme: string) {
     this.themeProvider.setColorScheme(colorScheme);
   }
 
-  private readonly themeProvider = useStoryThemeProvider({ theme: 'rotom', colorScheme: 'light' });
+  private readonly themeProvider = useStoryThemeProvider();
 }

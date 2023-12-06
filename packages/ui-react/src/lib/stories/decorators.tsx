@@ -1,10 +1,11 @@
 import { Decorator } from '@storybook/react';
 import { useEffect } from 'react';
 
-export function themeDecorator(): Decorator {
+export function storyThemeDecorator(): Decorator {
+  // eslint-disable-next-line react/display-name
   return (Story, { globals }) => {
-    const theme = globals['theme'];
-    const colorScheme = globals['colorScheme'];
+    const theme = globals['theme'] as string;
+    const colorScheme = globals['colorScheme'] as string;
 
     useEffect(() => {
       document.documentElement.setAttribute('data-theme', theme);

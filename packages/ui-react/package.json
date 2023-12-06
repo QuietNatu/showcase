@@ -16,6 +16,10 @@
     "./test/extend-expect": {
       "types": "./src/lib/test/extend-expect.ts",
       "default": "./src/lib/test/extend-expect.ts"
+    },
+    "./stories": {
+      "types": "./src/lib/stories/index.ts",
+      "default": "./src/lib/stories/index.ts"
     }
   },
   "scripts": {

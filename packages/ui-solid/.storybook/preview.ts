@@ -1,6 +1,6 @@
 import type { Preview } from 'storybook-solidjs';
 import '../src/styles/styles.scss';
-import { themeDecorator } from './decorators';
+import { storyThemeDecorator } from '../src/lib/stories';
 
 const preview: Preview = {
   parameters: {
@@ -39,7 +39,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [themeDecorator()],
+  decorators: [storyThemeDecorator()],
 };
 
 export default preview;

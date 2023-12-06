@@ -4,9 +4,9 @@ import { Renderer2, effect, inject, signal } from '@angular/core';
 /**
  * Sets up the theme of the story.
  */
-export function useStoryThemeProvider(defaultOptions: { theme: string; colorScheme: string }) {
-  const theme$ = signal<string>(defaultOptions.theme);
-  const colorScheme$ = signal<string>(defaultOptions.colorScheme);
+export function useStoryThemeProvider() {
+  const theme$ = signal<string>('');
+  const colorScheme$ = signal<string>('');
 
   const renderer = inject(Renderer2);
   const document = inject(DOCUMENT);

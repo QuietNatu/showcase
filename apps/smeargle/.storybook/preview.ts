@@ -1,5 +1,6 @@
 import '../src/styles/styles.scss';
 import type { Preview } from '@storybook/react';
+import { themeDecorator } from './decorators';
 
 const preview: Preview = {
   parameters: {
@@ -38,6 +39,7 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [themeDecorator()],
 };
 
 export default preview;

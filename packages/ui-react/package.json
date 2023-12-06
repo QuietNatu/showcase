@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@natu/eslint-config-react": "workspace:*",
-    "@natu/styles": "workspace:^",
+    "@natu/styles": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/utils": "workspace:*",
     "@natu/vrt": "workspace:*",

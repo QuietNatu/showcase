@@ -14,7 +14,7 @@
     "eslint-plugin-functional": "6.0.0",
     "eslint-plugin-jest-dom": "5.1.0",
     "eslint-plugin-jsx-a11y": "6.8.0",
-    "eslint-plugin-playwright": "0.18.0",
+    "eslint-plugin-playwright": "0.19.0",
     "eslint-plugin-solid": "0.13.0",
     "eslint-plugin-sonarjs": "0.23.0",
     "eslint-plugin-storybook": "0.6.15",

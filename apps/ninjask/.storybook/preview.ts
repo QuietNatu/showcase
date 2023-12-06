@@ -33,7 +33,7 @@ const preview: Preview = {
         icon: 'starhollow',
         items: [
           { value: 'light', title: 'Light' },
-          { value: 'Dark', title: 'Dark' },
+          { value: 'dark', title: 'Dark' },
         ],
       },
     },

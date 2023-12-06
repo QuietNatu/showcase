@@ -1,6 +1,7 @@
-import type { Preview } from '@storybook/angular';
+import { componentWrapperDecorator, moduleMetadata, type Preview } from '@storybook/angular';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../documentation.json';
+import { StoryThemeComponent } from '@natu/ui-angular/stories';
 
 setCompodocJson(docJson);
 
@@ -36,11 +37,18 @@ const preview: Preview = {
         icon: 'starhollow',
         items: [
           { value: 'light', title: 'Light' },
-          { value: 'Dark', title: 'Dark' },
+          { value: 'dark', title: 'Dark' },
         ],
       },
     },
   },
+  decorators: [
+    moduleMetadata({ imports: [StoryThemeComponent] }),
+    componentWrapperDecorator(StoryThemeComponent, ({ globals }) => ({
+      theme: globals['theme'],
+      colorScheme: globals['colorScheme'],
+    })),
+  ],
 };
 
 export default preview;

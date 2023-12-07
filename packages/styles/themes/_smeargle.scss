@@ -285,11 +285,11 @@
 
     --natu-button-color-font-disabled: var(--natu-color-font-disabled);
     --natu-button-color-font-ghost: var(--natu-color-font-accent);
-    --natu-button-color-font-ghost-destructive: var(--natu-color-font-destructive);
+    --natu-button-color-font-ghost-destructive: var(--natu-color-font-critical);
     --natu-button-color-font-ghost-muted-active: var(--natu-color-font-accent-active);
     --natu-button-color-font-ghost-muted-hover: var(--natu-color-font-accent-hover);
     --natu-button-color-font-outline: var(--natu-color-font-accent);
-    --natu-button-color-font-outline-destructive: var(--natu-color-font-destructive);
+    --natu-button-color-font-outline-destructive: var(--natu-color-font-critical);
     --natu-button-color-font-primary: var(--natu-color-font-invert);
     --natu-button-color-font-primary-destructive: var(--natu-color-font-invert);
 
@@ -316,11 +316,9 @@
     --natu-button-color-surface-primary-hover: var(--natu-color-surface-accent-strong-hover);
     --natu-button-color-surface-primary-destructive: var(--natu-color-surface-critical-strong);
     --natu-button-color-surface-primary-destructive-active: var(
-      --natu-color-surface-accent-critical-active
+      --natu-color-surface-critical-active
     );
-    --natu-button-color-surface-primary-destructive-hover: var(
-      --natu-color-surface-accent-critical-hover
-    );
+    --natu-button-color-surface-primary-destructive-hover: var(--natu-color-surface-critical-hover);
     // ======== Button end ========
 
     &[data-color-scheme='dark'] {
@@ -329,6 +327,8 @@
       --natu-color-font-invert: var(--natu-color-grey-900);
       --natu-color-font-disabled: var(--natu-color-grey-100-alpha-30);
       --natu-color-font-accent: var(--natu-color-green-glutton-600);
+
+      /* TODO */
       // ======== Font color end ========
 
       // ======== Surface color start ========
@@ -337,9 +337,17 @@
       --natu-color-surface-accent: var(--natu-color-green-glutton-800);
       --natu-color-surface-accent-active: var(--natu-color-green-glutton-700);
       --natu-color-surface-accent-hover: var(--natu-color-green-glutton-700);
+      --natu-color-surface-accent-mild: var(--natu-color-green-glutton-700);
       --natu-color-surface-accent-strong: var(--natu-color-green-glutton-300);
       --natu-color-surface-accent-strong-active: var(--natu-color-green-glutton-200);
       --natu-color-surface-accent-strong-hover: var(--natu-color-green-glutton-200);
+      --natu-color-surface-critical: var(--natu-color-red-800);
+      --natu-color-surface-critical-active: var(--natu-color-red-700);
+      --natu-color-surface-critical-hover: var(--natu-color-red-700);
+      --natu-color-surface-critical-mild: var(--natu-color-red-700);
+      --natu-color-surface-critical-strong: var(--natu-color-red-300);
+      --natu-color-surface-critical-strong-active: var(--natu-color-red-200);
+      --natu-color-surface-critical-strong-hover: var(--natu-color-red-200);
       // ======== Surface color end ========
 
       // ======== Border color start ========
@@ -349,6 +357,10 @@
       --natu-color-border-accent-strong: var(--natu-color-green-glutton-200);
       --natu-color-border-accent-strong-active: var(--natu-color-green-glutton-100);
       --natu-color-border-accent-strong-hover: var(--natu-color-green-glutton-100);
+      --natu-color-border-critical: var(--natu-color-red-700);
+      --natu-color-border-critical-strong: var(--natu-red-glutton-200);
+      --natu-color-border-critical-strong-active: var(--natu-color-red-100);
+      --natu-color-border-critical-strong-hover: var(--natu-color-red-100);
       // ======== Border color end ========
 
       // ======== Outline color start ========

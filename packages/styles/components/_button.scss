@@ -209,42 +209,44 @@ $-variants: (
   }
 }
 
-.natu-button {
-  @include utils.control;
+@layer button {
+  .natu-button {
+    @include utils.control;
 
-  cursor: pointer;
-  font-weight: var(--natu-button-font-weight);
-  user-select: none;
+    cursor: pointer;
+    font-weight: var(--natu-button-font-weight);
+    user-select: none;
 
-  &--small {
-    @include utils.control--small;
-  }
+    &--small {
+      @include utils.control--small;
+    }
 
-  &--disabled {
-    cursor: not-allowed;
-  }
+    &--disabled {
+      cursor: not-allowed;
+    }
 
-  @each $variant, $states in $-variants {
-    &--#{$variant} {
-      @include set-state-props($states, 'default');
+    @each $variant, $states in $-variants {
+      &--#{$variant} {
+        @include set-state-props($states, 'default');
 
-      &:hover {
-        @include set-state-props($states, 'hover');
-      }
+        &:hover {
+          @include set-state-props($states, 'hover');
+        }
 
-      &:focus-visible,
-      &:target {
-        @include set-state-props($states, 'focus');
-      }
+        &:focus-visible,
+        &:target {
+          @include set-state-props($states, 'focus');
+        }
 
-      &:active,
-      .natu-button--active {
-        @include set-state-props($states, 'active');
-      }
+        &:active,
+        .natu-button--active {
+          @include set-state-props($states, 'active');
+        }
 
-      &:disabled,
-      .natu-button--disabled {
-        @include set-state-props($states, 'disabled');
+        &:disabled,
+        .natu-button--disabled {
+          @include set-state-props($states, 'disabled');
+        }
       }
     }
   }

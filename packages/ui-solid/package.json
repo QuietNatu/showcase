@@ -16,6 +16,10 @@
     "./test/extend-expect": {
       "types": "./src/lib/test/extend-expect.ts",
       "default": "./src/lib/test/extend-expect.ts"
+    },
+    "./stories": {
+      "types": "./src/lib/stories/index.ts",
+      "default": "./src/lib/stories/index.ts"
     }
   },
   "scripts": {
@@ -31,18 +35,18 @@
   },
   "devDependencies": {
     "@natu/eslint-config-solid": "workspace:*",
-    "@natu/styles": "workspace:^",
+    "@natu/styles": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/utils": "workspace:*",
     "@natu/vrt": "workspace:*",
     "@playwright/test": "1.40.1",
     "@solidjs/testing-library": "0.8.4",
-    "@storybook/addon-a11y": "7.5.3",
-    "@storybook/addon-essentials": "7.5.3",
-    "@storybook/addon-interactions": "7.5.3",
-    "@storybook/addon-links": "7.5.3",
-    "@storybook/blocks": "7.5.3",
-    "@storybook/testing-library": "0.2.2",
+    "@storybook/addon-a11y": "7.6.3",
+    "@storybook/addon-essentials": "7.6.3",
+    "@storybook/addon-interactions": "7.6.3",
+    "@storybook/addon-links": "7.6.3",
+    "@storybook/blocks": "7.6.3",
+    "@storybook/test": "^7.6.3",
     "@testing-library/jest-dom": "6.1.4",
     "@testing-library/user-event": "14.5.1",
     "@vitejs/plugin-react-swc": "3.5.0",
@@ -53,7 +57,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "solid-js": "1.8.6",
-    "storybook": "7.5.3",
+    "storybook": "7.6.3",
     "storybook-solidjs": "1.0.0-beta.2",
     "storybook-solidjs-vite": "1.0.0-beta.2",
     "typescript": "5.3.2",

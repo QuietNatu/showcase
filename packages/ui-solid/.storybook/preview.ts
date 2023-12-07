@@ -1,5 +1,6 @@
 import type { Preview } from 'storybook-solidjs';
 import '../src/styles/styles.scss';
+import { storyThemeDecorator } from '../src/lib/stories';
 
 const preview: Preview = {
   parameters: {
@@ -11,6 +12,34 @@ const preview: Preview = {
       },
     },
   },
+  globalTypes: {
+    theme: {
+      description: 'The visual theme of the story',
+      defaultValue: 'ninjask',
+      toolbar: {
+        dynamicTitle: true,
+        icon: 'paintbrush',
+        items: [
+          { value: 'ninjask', title: 'Ninjask' },
+          { value: 'rotom', title: 'Rotom' },
+          { value: 'smeargle', title: 'Smeargle' },
+        ],
+      },
+    },
+    colorScheme: {
+      description: 'The color scheme of the story',
+      defaultValue: 'light',
+      toolbar: {
+        dynamicTitle: true,
+        icon: 'starhollow',
+        items: [
+          { value: 'light', title: 'Light' },
+          { value: 'dark', title: 'Dark' },
+        ],
+      },
+    },
+  },
+  decorators: [storyThemeDecorator()],
 };
 
 export default preview;

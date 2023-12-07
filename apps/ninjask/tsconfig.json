@@ -7,6 +7,6 @@
     },
     "types": ["vitest/globals"]
   },
-  "include": ["src", "e2e"],
+  "include": ["src", "e2e", ".storybook/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react';
 import '../src/styles/styles.scss';
 import { storyThemeDecorator } from '../src/lib/stories/decorators';
+import { storyA11yConfig } from '../src/lib/stories';
 
 const preview: Preview = {
   parameters: {
@@ -11,6 +12,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    a11y: storyA11yConfig,
   },
   globalTypes: {
     theme: {

@@ -1,6 +1,6 @@
 import '../src/styles/styles.scss';
 import type { Preview } from 'storybook-solidjs';
-import { storyThemeDecorator } from '@natu/ui-solid/stories';
+import { storyA11yConfig, storyThemeDecorator } from '@natu/ui-solid/stories';
 
 const preview: Preview = {
   parameters: {
@@ -11,6 +11,7 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    a11y: storyA11yConfig,
   },
   globalTypes: {
     theme: {

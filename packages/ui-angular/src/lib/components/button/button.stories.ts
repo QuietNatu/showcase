@@ -1,5 +1,6 @@
 import { moduleMetadata, type Meta, type StoryObj, argsToTemplate } from '@storybook/angular';
 import { NatuButtonDirective, NatuButtonVariants, natuButtonImports } from './button.directive';
+import { storyVariantsDecorator } from '../../stories';
 
 interface StoryArgs extends NatuButtonDirective {
   disabled: boolean;
@@ -10,7 +11,7 @@ const meta = {
   title: 'Components/Button',
   component: NatuButtonDirective,
   tags: ['autodocs'],
-  decorators: [moduleMetadata({ imports: [natuButtonImports] })],
+  decorators: [moduleMetadata({ imports: [natuButtonImports] }), storyVariantsDecorator()],
   args: {
     variants: [
       'primary',

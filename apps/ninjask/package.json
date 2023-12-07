@@ -28,11 +28,11 @@
   },
   "devDependencies": {
     "@mswjs/data": "0.16.1",
-    "@mswjs/interceptors": "0.25.12",
+    "@mswjs/interceptors": "0.25.13",
     "@natu/eslint-config-solid": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/vrt": "workspace:*",
-    "@playwright/test": "1.40.0",
+    "@playwright/test": "1.40.1",
     "@solidjs/testing-library": "0.8.4",
     "@storybook/addon-a11y": "7.6.3",
     "@storybook/addon-essentials": "7.6.3",

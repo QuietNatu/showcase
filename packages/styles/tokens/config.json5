@@ -1,0 +1,19 @@
+{
+  source: ['tokens/**/*.json5'],
+  platforms: {
+    scss: {
+      transforms: ['attribute/cti', 'name/cti/kebab', 'size/pxToRem'],
+      prefix: 'natu',
+      buildPath: 'scss/tokens/',
+      files: [
+        {
+          destination: '_variables.scss',
+          format: 'css/variables',
+          options: {
+            outputReferences: true, // new setting, if true will use variable references
+          },
+        },
+      ],
+    },
+  },
+}

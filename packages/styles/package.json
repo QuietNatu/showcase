@@ -5,7 +5,16 @@
   "version": "0.0.0",
   "type": "module",
   "sideEffects": false,
+  "scripts": {
+    "build": "style-dictionary build --config ./tokens/config.json5"
+  },
   "dependencies": {
     "modern-normalize": "2.0.0"
+  },
+  "devDependencies": {
+    "@natu/tsconfig": "workspace:*",
+    "style-dictionary": "^3.9.0",
+    "typescript": "^5.3.3",
+    "vite": "4.5.1"
   }
 }

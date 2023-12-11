@@ -6,14 +6,17 @@
   "type": "module",
   "sideEffects": false,
   "scripts": {
-    "build": "style-dictionary build --config ./tokens/config.json5"
+    "build": "pnpm clean && node ./tokens/config.js",
+    "clean": "rimraf ./scss/tokens"
   },
   "dependencies": {
     "modern-normalize": "2.0.0"
   },
   "devDependencies": {
     "@natu/tsconfig": "workspace:*",
-    "style-dictionary": "^3.9.0",
+    "@types/node": "20.10.3",
+    "rimraf": "^5.0.5",
+    "style-dictionary": "4.0.0-prerelease.4",
     "typescript": "^5.3.3",
     "vite": "4.5.1"
   }

@@ -1,0 +1,27 @@
+{
+  color: {
+    font: {
+      base: { value: '{color.grey.100}', attributes: { theme: 'dark' } },
+      invert: { value: '{color.grey.900}', attributes: { theme: 'dark' } },
+      accent: { value: '{color.theme.primary.600}', attributes: { theme: 'dark' } },
+    },
+
+    surface: {
+      base: { value: '{color.grey.900}', attributes: { theme: 'dark' } },
+      invert: { value: '{color.grey.100}', attributes: { theme: 'dark' } },
+      accent: { value: '{color.theme.primary.800}', attributes: { theme: 'dark' } },
+      'accent-strong': { value: '{color.theme.primary.300}', attributes: { theme: 'dark' } },
+    },
+
+    border: {
+      base: { value: '{color.grey.280}', attributes: { theme: 'dark' } },
+      invert: { value: '{color.white}', attributes: { theme: 'dark' } },
+      accent: { value: '{color.theme.primary.700}', attributes: { theme: 'dark' } },
+      'accent-strong': { value: '{color.theme.primary.200}', attributes: { theme: 'dark' } },
+    },
+
+    outline: {
+      accent: { value: '{color.theme.primary.400-alpha-70}', attributes: { theme: 'dark' } },
+    },
+  },
+}

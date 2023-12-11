@@ -1,0 +1,25 @@
+{
+  size: {
+    spacing: {
+      '1': { value: '2px' },
+      '2': { value: '4px' },
+      '3': { value: '8px' },
+      '4': { value: '12px' },
+      '5': { value: '16px' },
+      '6': { value: '20px' },
+      '7': { value: '24px' },
+      '8': { value: '28px' },
+      '9': { value: '32px' },
+      '10': { value: '36px' },
+      '11': { value: '40px' },
+      '12': { value: '44px' },
+      '13': { value: '48px' },
+      '14': { value: '52px' },
+      '15': { value: '56px' },
+      '16': { value: '60px' },
+      '17': { value: '64px' },
+      '18': { value: '68px' },
+      '19': { value: '72px' },
+    },
+  },
+}

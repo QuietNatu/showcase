@@ -10,7 +10,7 @@
           destination: '_variables.scss',
           format: 'css/variables',
           options: {
-            outputReferences: true, // new setting, if true will use variable references
+            outputReferences: true,
           },
         },
       ],

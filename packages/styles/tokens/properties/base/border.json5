@@ -1,0 +1,7 @@
+{
+  border: {
+    radius: {
+      base: { value: '2px' },
+    },
+  },
+}

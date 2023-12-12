@@ -58,7 +58,7 @@
     "vite": "4.5.1",
     "vite-plugin-pwa": "0.17.4",
     "vite-plugin-solid": "2.7.2",
-    "vite-tsconfig-paths": "4.2.1",
+    "vite-tsconfig-paths": "4.2.2",
     "vitest": "0.34.6"
   },
   "msw": {

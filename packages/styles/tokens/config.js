@@ -39,7 +39,7 @@ function getStyleDictionaryConfig(theme) {
           {
             destination: '_light.scss',
             format: 'css/variables-themed',
-            filter: (token) => token.attributes.theme !== 'dark',
+            filter: (token) => token.attributes.colorScheme !== 'dark',
             options: {
               outputReferences: true,
               selector: themeSelector,
@@ -48,7 +48,7 @@ function getStyleDictionaryConfig(theme) {
           {
             destination: '_dark.scss',
             format: 'css/variables-themed',
-            filter: (token) => token.attributes.theme === 'dark',
+            filter: (token) => token.attributes.colorScheme === 'dark',
             options: {
               outputReferences: true,
               selector: `${themeSelector}[data-color-scheme='dark']`,

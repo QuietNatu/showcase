@@ -39,6 +39,7 @@ function getStyleDictionaryConfig(theme) {
           {
             destination: '_light.scss',
             format: 'css/variables-themed',
+            filter: (token) => token.attributes.theme !== 'dark',
             options: {
               outputReferences: true,
               selector: themeSelector,

@@ -163,8 +163,8 @@ importers:
         specifier: 2.7.2
         version: 2.7.2(solid-js@1.8.7)(vite@4.5.1)
       vite-tsconfig-paths:
-        specifier: 4.2.1
-        version: 4.2.1(typescript@5.3.2)(vite@4.5.1)
+        specifier: 4.2.2
+        version: 4.2.2(typescript@5.3.2)(vite@4.5.1)
       vitest:
         specifier: 0.34.6
         version: 0.34.6(jsdom@22.1.0)
@@ -453,8 +453,8 @@ importers:
         specifier: 0.17.4
         version: 0.17.4(vite@4.5.1)(workbox-build@7.0.0)(workbox-window@7.0.0)
       vite-tsconfig-paths:
-        specifier: 4.2.1
-        version: 4.2.1(typescript@5.3.2)(vite@4.5.1)
+        specifier: 4.2.2
+        version: 4.2.2(typescript@5.3.2)(vite@4.5.1)
       vitest:
         specifier: 0.34.6
         version: 0.34.6(jsdom@22.1.0)
@@ -19570,8 +19570,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite-tsconfig-paths@4.2.1(typescript@5.3.2)(vite@4.5.1):
-    resolution: {integrity: sha512-GNUI6ZgPqT3oervkvzU+qtys83+75N/OuDaQl7HmOqFTb0pjZsuARrRipsyJhJ3enqV8beI1xhGbToR4o78nSQ==}
+  /vite-tsconfig-paths@4.2.2(typescript@5.3.2)(vite@4.5.1):
+    resolution: {integrity: sha512-dq0FjyxHHDnp0uS3P12WEOX2W7NeuLzX9AWP38D7Zw2CTbFErapwQVlCiT5DMJcVWKQ1MMdTe92PZl/rBQ7qcw==}
     peerDependencies:
       vite: '*'
     peerDependenciesMeta:

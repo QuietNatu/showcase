@@ -4,6 +4,7 @@
   "globalEnv": ["CI", "PORT", "VITE_E2E"],
   "pipeline": {
     "dev": {
+      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true
     },
@@ -28,10 +29,12 @@
       "outputs": ["dist/**"]
     },
     "storybook": {
+      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true
     },
     "build-storybook": {
+      "dependsOn": ["^build"],
       "outputs": ["storybook-static/**"]
     },
     "vrt": {

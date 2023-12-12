@@ -1,0 +1,5 @@
+{
+  "extends": "@natu/tsconfig/tsconfig.vite.json",
+  "include": ["tokens/config.js"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

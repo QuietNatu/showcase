@@ -29,7 +29,6 @@ function getStyleDictionaryConfig(theme) {
   const themeSelector = `:root[data-theme='${theme}']`;
 
   return {
-    /* TODO: dark mode and include defaults for dark mode */
     source: [`tokens/themes/${theme}/*.json5`, 'tokens/default/**/*.json5'],
     platforms: {
       scss: {
@@ -42,7 +41,6 @@ function getStyleDictionaryConfig(theme) {
             format: 'css/variables-themed',
             options: {
               outputReferences: true,
-              theme,
               selector: themeSelector,
             },
           },
@@ -52,7 +50,6 @@ function getStyleDictionaryConfig(theme) {
             filter: (token) => token.attributes.theme === 'dark',
             options: {
               outputReferences: true,
-              theme,
               selector: `${themeSelector}[data-color-scheme='dark']`,
             },
           },

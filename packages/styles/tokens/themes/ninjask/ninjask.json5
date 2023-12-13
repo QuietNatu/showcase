@@ -1,0 +1,21 @@
+{
+  color: {
+    theme: {
+      primary: {
+        '50': { value: 'oklch(97% 0.01 14deg)' },
+        '100': { value: 'oklch(88% 0.04 14deg)' },
+        '200': { value: 'oklch(79% 0.1 14deg)' },
+        '300': { value: 'oklch(69% 0.16 14deg)' },
+        '400': { value: 'oklch(60% 0.21 14deg)' },
+        '400-alpha-30': { value: 'oklch(60% 0.21 14deg / 0.3)' },
+        '500': { value: 'oklch(50% 0.19 14deg)' },
+        '600': { value: 'oklch(44% 0.15 14deg)' },
+        '600-alpha-30': { value: 'oklch(44% 0.15 14deg / 0.3)' },
+        '700': { value: 'oklch(36% 0.12 14deg)' },
+        '800': { value: 'oklch(28% 0.09 14deg)' },
+        '900': { value: 'oklch(20% 0.06 14deg)' },
+        '950': { value: 'oklch(16% 0.04 14deg)' },
+      },
+    },
+  },
+}

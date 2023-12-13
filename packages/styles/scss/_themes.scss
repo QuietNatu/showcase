@@ -1,0 +1,16 @@
+@use 'sass:meta';
+
+@layer ninjask {
+  @include meta.load-css('tokens/ninjask/light');
+  @include meta.load-css('tokens/ninjask/dark');
+}
+
+@layer rotom {
+  @include meta.load-css('tokens/rotom/light');
+  @include meta.load-css('tokens/rotom/dark');
+}
+
+@layer smeargle {
+  @include meta.load-css('tokens/smeargle/light');
+  @include meta.load-css('tokens/smeargle/dark');
+}

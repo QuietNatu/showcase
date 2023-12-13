@@ -130,8 +130,8 @@ importers:
         specifier: 23.0.1
         version: 23.0.1
       msw:
-        specifier: 2.0.2
-        version: 2.0.2(typescript@5.3.2)
+        specifier: 2.0.11
+        version: 2.0.11(typescript@5.3.2)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -160,8 +160,8 @@ importers:
         specifier: 0.17.4
         version: 0.17.4(vite@5.0.7)(workbox-build@7.0.0)(workbox-window@7.0.0)
       vite-plugin-solid:
-        specifier: 2.7.2
-        version: 2.7.2(solid-js@1.8.7)(vite@5.0.7)
+        specifier: 2.8.0
+        version: 2.8.0(solid-js@1.8.7)(vite@5.0.7)
       vite-tsconfig-paths:
         specifier: 4.2.2
         version: 4.2.2(typescript@5.3.2)(vite@5.0.7)
@@ -323,8 +323,8 @@ importers:
         specifier: 2.1.0
         version: 2.1.0(jasmine-core@5.1.1)(karma-jasmine@5.1.0)(karma@6.4.2)
       msw:
-        specifier: 2.0.2
-        version: 2.0.2(typescript@5.2.2)
+        specifier: 2.0.11
+        version: 2.0.11(typescript@5.2.2)
       react:
         specifier: 18.2.0
         version: 18.2.0
@@ -435,8 +435,8 @@ importers:
         specifier: 23.0.1
         version: 23.0.1
       msw:
-        specifier: 2.0.2
-        version: 2.0.2(typescript@5.3.2)
+        specifier: 2.0.11
+        version: 2.0.11(typescript@5.3.2)
       source-map-explorer:
         specifier: 2.5.3
         version: 2.5.3
@@ -1008,8 +1008,8 @@ importers:
         specifier: 5.0.7
         version: 5.0.7(@types/node@18.19.2)
       vite-plugin-solid:
-        specifier: 2.7.2
-        version: 2.7.2(solid-js@1.8.7)(vite@5.0.7)
+        specifier: 2.8.0
+        version: 2.8.0(solid-js@1.8.7)(vite@5.0.7)
       vitest:
         specifier: 1.0.4
         version: 1.0.4(@types/node@18.19.2)(jsdom@23.0.1)
@@ -5266,7 +5266,7 @@ packages:
       strict-event-emitter: 0.5.1
       uuid: 8.3.2
     optionalDependencies:
-      msw: 2.0.10(typescript@5.2.2)
+      msw: 2.0.11(typescript@5.2.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -5289,7 +5289,7 @@ packages:
       strict-event-emitter: 0.5.1
       uuid: 8.3.2
     optionalDependencies:
-      msw: 2.0.10(typescript@5.3.2)
+      msw: 2.0.11(typescript@5.3.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -12759,14 +12759,6 @@ packages:
       mime-types: 2.1.35
     dev: true
 
-  /formdata-node@4.4.1:
-    resolution: {integrity: sha512-0iirZp3uVDjVGt9p49aTaqjk84TrglENEDuqfdlZQ1roC9CWlPk6Avf8EEnZNcAqPonwkG35x4n3ww/1THYAeQ==}
-    engines: {node: '>= 12.20'}
-    dependencies:
-      node-domexception: 1.0.0
-      web-streams-polyfill: 4.0.0-beta.3
-    dev: true
-
   /forwarded@0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
     engines: {node: '>= 0.6'}
@@ -15539,8 +15531,8 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
 
-  /msw@2.0.10(typescript@5.2.2):
-    resolution: {integrity: sha512-JhKdzIEuMDSU7qak4CJjiSFW2J0R4Wm5AuLhFzimKs68Wx7PTyqjgnw7+7FpQ3kGi0yY49g/qEFmUmMyLmjb4w==}
+  /msw@2.0.11(typescript@5.2.2):
+    resolution: {integrity: sha512-dAXFS2DxZX0uFqMPhS3oUAu8S/5IQ5qKKSwtXl3/dMTeML0C8JfSvbeWtowYg6pu4Iehgp5L/pHLrlIcG++y/A==}
     engines: {node: '>=18'}
     hasBin: true
     requiresBuild: true
@@ -15573,10 +15565,9 @@ packages:
       typescript: 5.2.2
       yargs: 17.7.2
     dev: true
-    optional: true
 
-  /msw@2.0.10(typescript@5.3.2):
-    resolution: {integrity: sha512-JhKdzIEuMDSU7qak4CJjiSFW2J0R4Wm5AuLhFzimKs68Wx7PTyqjgnw7+7FpQ3kGi0yY49g/qEFmUmMyLmjb4w==}
+  /msw@2.0.11(typescript@5.3.2):
+    resolution: {integrity: sha512-dAXFS2DxZX0uFqMPhS3oUAu8S/5IQ5qKKSwtXl3/dMTeML0C8JfSvbeWtowYg6pu4Iehgp5L/pHLrlIcG++y/A==}
     engines: {node: '>=18'}
     hasBin: true
     requiresBuild: true
@@ -15608,85 +15599,6 @@ packages:
       type-fest: 2.19.0
       typescript: 5.3.2
       yargs: 17.7.2
-    dev: true
-    optional: true
-
-  /msw@2.0.2(typescript@5.2.2):
-    resolution: {integrity: sha512-loyQnNUDY1x05R/t2naVdtNhP+tfyf+ckEwtvRUuoK9JnDeoh3/ZN3Fu2ZtvO/iJ3IwwuLizWwWaxBxS3sDQUw==}
-    engines: {node: '>=18'}
-    hasBin: true
-    requiresBuild: true
-    peerDependencies:
-      typescript: '>= 4.7.x <= 5.2.x'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@bundled-es-modules/cookie': 2.0.0
-      '@bundled-es-modules/js-levenshtein': 2.0.1
-      '@bundled-es-modules/statuses': 1.0.1
-      '@mswjs/cookies': 1.1.0
-      '@mswjs/interceptors': 0.25.13
-      '@open-draft/until': 2.1.0
-      '@types/cookie': 0.4.1
-      '@types/js-levenshtein': 1.1.3
-      '@types/statuses': 2.0.4
-      chalk: 4.1.2
-      chokidar: 3.5.3
-      formdata-node: 4.4.1
-      graphql: 16.8.1
-      headers-polyfill: 4.0.2
-      inquirer: 8.2.6
-      is-node-process: 1.2.0
-      js-levenshtein: 1.1.6
-      node-fetch: 2.7.0
-      outvariant: 1.4.0
-      path-to-regexp: 6.2.1
-      strict-event-emitter: 0.5.1
-      type-fest: 2.19.0
-      typescript: 5.2.2
-      yargs: 17.7.2
-    transitivePeerDependencies:
-      - encoding
-    dev: true
-
-  /msw@2.0.2(typescript@5.3.2):
-    resolution: {integrity: sha512-loyQnNUDY1x05R/t2naVdtNhP+tfyf+ckEwtvRUuoK9JnDeoh3/ZN3Fu2ZtvO/iJ3IwwuLizWwWaxBxS3sDQUw==}
-    engines: {node: '>=18'}
-    hasBin: true
-    requiresBuild: true
-    peerDependencies:
-      typescript: '>= 4.7.x <= 5.2.x'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@bundled-es-modules/cookie': 2.0.0
-      '@bundled-es-modules/js-levenshtein': 2.0.1
-      '@bundled-es-modules/statuses': 1.0.1
-      '@mswjs/cookies': 1.1.0
-      '@mswjs/interceptors': 0.25.13
-      '@open-draft/until': 2.1.0
-      '@types/cookie': 0.4.1
-      '@types/js-levenshtein': 1.1.3
-      '@types/statuses': 2.0.4
-      chalk: 4.1.2
-      chokidar: 3.5.3
-      formdata-node: 4.4.1
-      graphql: 16.8.1
-      headers-polyfill: 4.0.2
-      inquirer: 8.2.6
-      is-node-process: 1.2.0
-      js-levenshtein: 1.1.6
-      node-fetch: 2.7.0
-      outvariant: 1.4.0
-      path-to-regexp: 6.2.1
-      strict-event-emitter: 0.5.1
-      type-fest: 2.19.0
-      typescript: 5.3.2
-      yargs: 17.7.2
-    transitivePeerDependencies:
-      - encoding
     dev: true
 
   /multicast-dns@7.2.5:
@@ -15821,11 +15733,6 @@ packages:
     engines: {node: '>= 0.10.5'}
     dependencies:
       minimatch: 3.1.2
-    dev: true
-
-  /node-domexception@1.0.0:
-    resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
-    engines: {node: '>=10.5.0'}
     dev: true
 
   /node-fetch-native@1.4.1:
@@ -19989,11 +19896,11 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-solid@2.7.2(solid-js@1.8.7)(vite@5.0.7):
-    resolution: {integrity: sha512-GV2SMLAibOoXe76i02AsjAg7sbm/0lngBlERvJKVN67HOrJsHcWgkt0R6sfGLDJuFkv2aBe14Zm4vJcNME+7zw==}
+  /vite-plugin-solid@2.8.0(solid-js@1.8.7)(vite@5.0.7):
+    resolution: {integrity: sha512-n5FAm7ZmTl94VWUoiJCgG7bouF2NlC9CA1wY/qbVnkFbYDWk++bFWyNoU48aLJ+lMtzNeYzJypJXOHzFKxL9xA==}
     peerDependencies:
       solid-js: ^1.7.2
-      vite: ^3.0.0 || ^4.0.0
+      vite: ^3.0.0 || ^4.0.0 || ^5.0.0
     dependencies:
       '@babel/core': 7.23.5
       '@babel/preset-typescript': 7.23.3(@babel/core@7.23.5)
@@ -20261,11 +20168,6 @@ packages:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}
     dependencies:
       defaults: 1.0.4
-    dev: true
-
-  /web-streams-polyfill@4.0.0-beta.3:
-    resolution: {integrity: sha512-QW95TCTaHmsYfHDybGMwO5IJIM93I/6vTRk+daHTWFPhwh+C8Cg7j7XyKrwrj8Ib6vYXe0ocYNrmzY4xAAN6ug==}
-    engines: {node: '>= 14'}
     dev: true
 
   /webidl-conversions@3.0.1:

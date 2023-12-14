@@ -1,12 +1,13 @@
 import '@natu/ui-solid/test/extend-expect';
 
 import { mockDatabase } from '@/mocks/server/database/database';
-import { mockServer } from '@/mocks/server/server';
+// TODO: commented while https://github.com/solidjs/vite-plugin-solid/issues/125 is not solved
+// import { mockServer } from '@/mocks/server/server';
 import { drop } from '@mswjs/data';
 import { deleteAllCookies } from '@natu/utils';
 
 beforeAll(() => {
-  mockServer.listen();
+  // mockServer.listen();
 });
 
 afterEach(() => {
@@ -15,10 +16,10 @@ afterEach(() => {
 
   deleteAllCookies();
 
-  mockServer.resetHandlers();
+  // mockServer.resetHandlers();
   drop(mockDatabase);
 });
 
 afterAll(() => {
-  mockServer.close();
+  // mockServer.close();
 });

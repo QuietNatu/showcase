@@ -42,11 +42,11 @@
       disabled: { value: '{color.grey.900-alpha-30}' },
       invert: { value: '{color.white}' },
       accent: { value: '{color.theme.primary.600}' },
-      'accent-active': { value: 'color.theme.primary.700' },
-      'accent-hover': { value: 'color.theme.primary.700' },
-      critical: { value: 'color.red.600' },
-      'critical-active': { value: 'color.red.700' },
-      'critical-hover': { value: 'color.red.700' },
+      'accent-active': { value: '{color.theme.primary.700}' },
+      'accent-hover': { value: '{color.theme.primary.700}' },
+      critical: { value: '{color.red.600}' },
+      'critical-active': { value: '{color.red.700}' },
+      'critical-hover': { value: '{color.red.700}' },
     },
 
     surface: {

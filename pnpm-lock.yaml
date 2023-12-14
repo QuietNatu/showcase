@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -48,8 +48,8 @@ importers:
         specifier: 6.0.4
         version: 6.0.4(stylelint@15.11.0)
       stylelint-scss:
-        specifier: 5.3.1
-        version: 5.3.1(stylelint@15.11.0)
+        specifier: 5.3.2
+        version: 5.3.2(stylelint@15.11.0)
       turbo:
         specifier: 1.10.16
         version: 1.10.16
@@ -859,7 +859,7 @@ importers:
         version: 7.6.3(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.2)
       '@storybook/react-vite':
         specifier: 7.6.3
-        version: 7.6.3(react-dom@18.2.0)(react@18.2.0)(rollup@2.79.1)(typescript@5.3.2)(vite@5.0.7)
+        version: 7.6.3(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.2)(vite@5.0.7)
       '@storybook/test':
         specifier: 7.6.3
         version: 7.6.3(vitest@1.0.4)
@@ -7355,6 +7355,33 @@ packages:
     dependencies:
       '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.0(typescript@5.3.2)(vite@5.0.7)
       '@rollup/pluginutils': 5.1.0(rollup@2.79.1)
+      '@storybook/builder-vite': 7.6.3(typescript@5.3.2)(vite@5.0.7)
+      '@storybook/react': 7.6.3(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.2)
+      '@vitejs/plugin-react': 3.1.0(vite@5.0.7)
+      magic-string: 0.30.5
+      react: 18.2.0
+      react-docgen: 7.0.1
+      react-dom: 18.2.0(react@18.2.0)
+      vite: 5.0.7(@types/node@18.19.2)
+    transitivePeerDependencies:
+      - '@preact/preset-vite'
+      - encoding
+      - rollup
+      - supports-color
+      - typescript
+      - vite-plugin-glimmerx
+    dev: true
+
+  /@storybook/react-vite@7.6.3(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.2)(vite@5.0.7):
+    resolution: {integrity: sha512-sPrNJbnThmxsSeNj6vyG9pCCnnYzyiS+f7DVy2qeQrXvEuCYiQc503bavE3BKLxqjZQ3SkbhPsiEHcaw3I9x7A==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+      vite: ^3.0.0 || ^4.0.0 || ^5.0.0
+    dependencies:
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.0(typescript@5.3.2)(vite@5.0.7)
+      '@rollup/pluginutils': 5.1.0(rollup@4.6.1)
       '@storybook/builder-vite': 7.6.3(typescript@5.3.2)(vite@5.0.7)
       '@storybook/react': 7.6.3(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.2)
       '@vitejs/plugin-react': 3.1.0(vite@5.0.7)
@@ -18698,7 +18725,7 @@ packages:
     dependencies:
       stylelint: 15.11.0(typescript@5.3.3)
     optionalDependencies:
-      stylelint-scss: 5.3.1(stylelint@15.11.0)
+      stylelint-scss: 5.3.2(stylelint@15.11.0)
     dev: true
 
   /stylelint-config-recommended-scss@13.1.0(postcss@8.4.32)(stylelint@15.11.0):
@@ -18714,7 +18741,7 @@ packages:
       postcss-scss: 4.0.9(postcss@8.4.32)
       stylelint: 15.11.0(typescript@5.3.3)
       stylelint-config-recommended: 13.0.0(stylelint@15.11.0)
-      stylelint-scss: 5.3.1(stylelint@15.11.0)
+      stylelint-scss: 5.3.2(stylelint@15.11.0)
     dev: true
 
   /stylelint-config-recommended@13.0.0(stylelint@15.11.0):
@@ -18761,8 +18788,8 @@ packages:
       stylelint: 15.11.0(typescript@5.3.3)
     dev: true
 
-  /stylelint-scss@5.3.1(stylelint@15.11.0):
-    resolution: {integrity: sha512-5I9ZDIm77BZrjOccma5WyW2nJEKjXDd4Ca8Kk+oBapSO4pewSlno3n+OyimcyVJJujQZkBN2D+xuMkIamSc6hA==}
+  /stylelint-scss@5.3.2(stylelint@15.11.0):
+    resolution: {integrity: sha512-4LzLaayFhFyneJwLo0IUa8knuIvj+zF0vBFueQs4e3tEaAMIQX8q5th8ziKkgOavr6y/y9yoBe+RXN/edwLzsQ==}
     peerDependencies:
       stylelint: ^14.5.1 || ^15.0.0
     dependencies:

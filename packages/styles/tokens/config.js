@@ -2,6 +2,7 @@ import StyleDictionary from 'style-dictionary';
 
 const { fileHeader, formattedVariables } = StyleDictionary.formatHelpers;
 const themes = ['ninjask', 'rotom', 'smeargle'];
+const colorSchemes = ['light', 'dark'];
 
 StyleDictionary.registerFormat({
   name: 'css/variables-themed',
@@ -20,42 +21,56 @@ StyleDictionary.registerFormat({
 });
 
 for (const theme of themes) {
-  const config = getStyleDictionaryConfig(theme);
-  const sd = new StyleDictionary(config);
-  await sd.buildAllPlatforms();
-}
+  const selector = `:root[data-theme='${theme}']`;
 
-function getStyleDictionaryConfig(theme) {
-  const themeSelector = `:root[data-theme='${theme}']`;
-
-  return {
-    source: [`tokens/themes/${theme}/*.json5`, 'tokens/default/**/*.json5'],
+  const lightConfig = {
+    source: [
+      `tokens/default/**/!(*.${colorSchemes.join(`|*.`)}).json5`,
+      `tokens/themes/${theme}/**/!(*.${colorSchemes.join(`|*.`)}).json5`,
+    ],
     platforms: {
       scss: {
         transforms: ['attribute/cti', 'name/cti/kebab'],
         buildPath: `scss/tokens/${theme}/`,
-        prefix: 'natu',
         files: [
           {
-            destination: '_light.scss',
-            format: 'css/variables-themed',
-            filter: (token) => token.attributes.colorScheme !== 'dark',
+            destination: `_light.scss`,
+            format: `css/variables-themed`,
             options: {
               outputReferences: true,
-              selector: themeSelector,
-            },
-          },
-          {
-            destination: '_dark.scss',
-            format: 'css/variables-themed',
-            filter: (token) => token.attributes.colorScheme === 'dark',
-            options: {
-              outputReferences: true,
-              selector: `${themeSelector}[data-color-scheme='dark']`,
+              selector,
             },
           },
         ],
       },
     },
   };
+
+  const darkConfig = {
+    include: [
+      `tokens/default/**/!(*.${colorSchemes.join(`|*.`)}).json5`,
+      `tokens/themes/${theme}/**/!(*.${colorSchemes.join(`|*.`)}).json5`,
+    ],
+    source: [`tokens/default/**/*.dark.json5`, `tokens/themes/${theme}/**/*.dark.json5`],
+    platforms: {
+      scss: {
+        transforms: ['attribute/cti', 'name/cti/kebab'],
+        buildPath: `scss/tokens/${theme}/`,
+        files: [
+          {
+            destination: `_dark.scss`,
+            format: `css/variables-themed`,
+            filter: (token) => token.filePath.indexOf(`.dark`) !== -1,
+            options: {
+              outputReferences: true,
+              selector: `${selector}[data-color-scheme='dark']`,
+            },
+          },
+        ],
+      },
+    },
+  };
+
+  await new StyleDictionary(lightConfig).buildAllPlatforms();
+  await new StyleDictionary(darkConfig).buildAllPlatforms();
 }

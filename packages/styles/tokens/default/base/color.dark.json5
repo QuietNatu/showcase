@@ -14,7 +14,7 @@
     },
 
     border: {
-      base: { value: '{color.grey.280}', attributes: { colorScheme: 'dark' } },
+      base: { value: '{color.grey.800}', attributes: { colorScheme: 'dark' } },
       invert: { value: '{color.white}', attributes: { colorScheme: 'dark' } },
       accent: { value: '{color.theme.primary.700}', attributes: { colorScheme: 'dark' } },
       'accent-strong': { value: '{color.theme.primary.200}', attributes: { colorScheme: 'dark' } },

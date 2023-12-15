@@ -239,12 +239,12 @@ $-variants: (
         }
 
         &:active,
-        .natu-button--active {
+        &.natu-button--active {
           @include set-state-props($states, 'active');
         }
 
         &:disabled,
-        .natu-button--disabled {
+        &.natu-button--disabled {
           @include set-state-props($states, 'disabled');
         }
       }

@@ -38,6 +38,7 @@
     "@natu/utils": "workspace:*",
     "@natu/vrt": "workspace:*",
     "@playwright/test": "1.40.1",
+    "@rx-angular/state": "^17.0.0",
     "@storybook/addon-a11y": "7.6.3",
     "@storybook/addon-docs": "7.6.3",
     "@storybook/addon-essentials": "7.6.3",

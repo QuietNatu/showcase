@@ -6,6 +6,7 @@ const scenarios: VrtScenario[] = [
   { story: 'small' },
   { story: 'disabled' },
   { story: 'custom-element' },
+  { story: 'custom-element-disabled' },
 ];
 
 const testScenarios = createVrtStorybookScenarios({

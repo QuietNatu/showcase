@@ -1,14 +1,19 @@
 import {
   Directive,
+  ElementRef,
   EventEmitter,
   Input,
+  NgZone,
   Output,
   Signal,
   booleanAttribute,
   computed,
+  inject,
   signal,
 } from '@angular/core';
 import { VariantProps, cva } from 'class-variance-authority';
+import { fromEvent } from 'rxjs';
+import { rxEffects } from '@rx-angular/state/effects';
 
 export const buttonVariants = cva('natu-button', {
   variants: {
@@ -39,9 +44,13 @@ export type NatuButtonVariants = VariantProps<typeof buttonVariants>;
   standalone: true,
   host: {
     '[class]': 'class$()',
+    '[class.natu-button--disabled]': 'isDisabled',
+    '[attr.aria-disabled]': 'isDisabled',
   },
 })
 export class NatuButtonDirective {
+  @Input({ transform: booleanAttribute }) isDisabled = false;
+
   @Input() set variant(variant: NatuButtonVariants['variant']) {
     this.variant$.set(variant);
   }
@@ -51,12 +60,36 @@ export class NatuButtonDirective {
   }
 
   readonly class$: Signal<string>;
+  readonly isActive$ = signal(false);
 
   private readonly variant$ = signal<NatuButtonVariants['variant']>('primary');
   private readonly size$ = signal<NatuButtonVariants['size']>('medium');
 
+  private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly ngZone = inject(NgZone);
+  private readonly effects = rxEffects();
+
   constructor() {
     this.class$ = computed(() => buttonVariants({ variant: this.variant$(), size: this.size$() }));
+
+    this.registerStopDisabledClicks();
+  }
+
+  /**
+   * Disabling controls is bad for a11y. So events should be ignored instead.
+   */
+  private registerStopDisabledClicks() {
+    this.ngZone.runOutsideAngular(() => {
+      // Cannot be done via host bind otherwise this handler will not be the first one to be ran.
+      const click$ = fromEvent(this.elementRef.nativeElement, 'click', { capture: true });
+
+      this.effects.register(click$, (event) => {
+        if (this.isDisabled) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+        }
+      });
+    });
   }
 }
 
@@ -66,19 +99,19 @@ export class NatuButtonDirective {
   host: {
     role: 'button',
     '[class.natu-button--active]': 'isActive$()',
-    '[class.natu-button--disabled]': 'disabled',
     '[attr.tabindex]': '!disabled ? 0 : null',
     // eslint-disable-next-line sonarjs/no-duplicate-string
-    '(click)': '!disabled && natuButtonClick.emit($event)',
-    '(keydown.enter)': '!disabled && natuButtonClick.emit($event)',
-    '(keydown.space)': '!disabled && natuButtonClick.emit($event)',
-    '(mousedown)': '!disabled && isActive$.set(true)',
-    '(mouseup)': '!disabled && isActive$.set(false)',
+    '(click)': '!isDisabled && natuButtonClick.emit($event)',
+    '(keydown.enter)': '!isDisabled && natuButtonClick.emit($event)',
+    '(keydown.space)': '!isDisabled && natuButtonClick.emit($event)',
+    '(mousedown)': '!isDisabled && isActive$.set(true)',
+    '(mouseup)': '!isDisabled && isActive$.set(false)',
   },
 })
 export class NatuA11yButtonDirective {
-  @Input({ transform: booleanAttribute }) disabled = false;
+  @Input({ transform: booleanAttribute }) isDisabled = false;
 
+  // Workaround because of this https://github.com/angular/angular/issues/4059
   @Output() natuButtonClick = new EventEmitter<Event>();
 
   readonly isActive$ = signal(false);

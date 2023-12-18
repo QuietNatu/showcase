@@ -13,7 +13,6 @@
       accent: { value: '{color.theme.primary.800}' },
       'accent-active': { value: '{color.theme.primary.700}' },
       'accent-hover': { value: '{color.theme.primary.700}' },
-      'accent-mild': { value: '{color.theme.primary.700}' },
       'accent-strong': { value: '{color.theme.primary.300}' },
       'accent-strong-active': {
         value: '{color.theme.primary.200}',
@@ -26,7 +25,6 @@
       critical: { value: '{color.red.200}' },
       'critical-active': { value: '{color.red.700}' },
       'critical-hover': { value: '{color.red.700}' },
-      'critical-mild': { value: '{color.red.700}' },
       'critical-strong': { value: '{color.red.300}' },
       'critical-strong-active': { value: '{color.red.200}' },
       'critical-strong-hover': { value: '{color.red.200}' },

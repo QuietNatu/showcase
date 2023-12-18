@@ -37,7 +37,7 @@ $-variants: (
       'color': var(--natu-color-font-invert),
     ),
     'hover': (
-      'background-color': var(--natu-color-surface-critical-hover),
+      'background-color': var(--natu-color-surface-critical-strong-hover),
       'border-color': var(--natu-color-border-critical-strong-hover),
       'color': var(--natu-color-font-invert),
     ),
@@ -65,7 +65,7 @@ $-variants: (
       'color': var(--natu-color-font-accent),
     ),
     'hover': (
-      'background-color': var(--natu-color-surface-accent-mild),
+      'background-color': var(--natu-color-surface-accent-hover),
       'border-color': var(--natu-color-border-accent-strong-hover),
       'color': var(--natu-color-font-accent),
     ),
@@ -76,7 +76,7 @@ $-variants: (
       'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
-      'background-color': var(--natu-color-surface-accent-mild),
+      'background-color': var(--natu-color-surface-accent-active),
       'border-color': var(--natu-color-border-accent-strong-active),
       'color': var(--natu-color-font-accent),
     ),
@@ -93,7 +93,7 @@ $-variants: (
       'color': var(--natu-color-font-critical),
     ),
     'hover': (
-      'background-color': var(-natu-color-surface-critical-mild),
+      'background-color': var(--natu-color-surface-critical-hover),
       'border-color': var(--natu-color-border-critical-strong-hover),
       'color': var(--natu-color-font-critical),
     ),
@@ -104,7 +104,7 @@ $-variants: (
       'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
-      'background-color': var(--natu-color-surface-critical-mild),
+      'background-color': var(--natu-color-surface-critical-active),
       'border-color': var(--natu-color-border-critical-strong-active),
       'color': var(--natu-color-font-critical),
     ),
@@ -119,10 +119,9 @@ $-variants: (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-accent),
-      // TODO: padding needed?
     ),
     'hover': (
-      'background-color': var(--natu-color-surface-accent-mild),
+      'background-color': var(--natu-color-surface-accent-hover),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-accent),
     ),
@@ -133,7 +132,7 @@ $-variants: (
       'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
-      'background-color': var(--natu-color-surface-accent-mild),
+      'background-color': var(--natu-color-surface-accent-active),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-accent),
     ),
@@ -148,21 +147,20 @@ $-variants: (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-critical),
-      // TODO: padding needed?
     ),
     'hover': (
-      'background-color': var(--natu-color-surface-critical-mild),
+      'background-color': var(--natu-color-surface-critical-hover),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-critical),
     ),
     'focus': (
-      'background-color': var(--natu-color-surface-critical-mild),
+      'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-critical),
       'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
-      'background-color': var(--natu-color-surface-critical-mild),
+      'background-color': var(--natu-color-surface-critical-active),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-critical),
     ),
@@ -174,18 +172,17 @@ $-variants: (
   ),
   'ghost-muted': (
     'default': (
-      'background-color': var(--natu-color-transparent-muted),
+      'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
-      'color': var(--natu-color-font-accent-active),
-      // TODO: padding needed?
+      'color': var(--natu-color-font-base),
     ),
     'hover': (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
-      'color': var(--natu-color-font-accent-hover),
+      'color': var(--natu-color-font-accent),
     ),
     'focus': (
-      'background-color': var(--natu-color-transparent-muted),
+      'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-accent),
       'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
@@ -193,7 +190,7 @@ $-variants: (
     'active': (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
-      'color': var(--natu-color-font-accent-active-active),
+      'color': var(--natu-color-font-accent),
     ),
     'disabled': (
       'background-color': var(--natu-color-transparent),

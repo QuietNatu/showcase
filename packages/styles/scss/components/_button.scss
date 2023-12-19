@@ -1,0 +1,250 @@
+@use 'sass:map';
+@use '../utils';
+
+$-variants: (
+  'primary': (
+    'default': (
+      'background-color': var(--natu-color-surface-accent-strong),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-invert),
+    ),
+    'hover': (
+      'background-color': var(--natu-color-surface-accent-strong-hover),
+      'border-color': var(--natu-color-border-accent-strong-hover),
+      'color': var(--natu-color-font-invert),
+    ),
+    'focus': (
+      'background-color': var(--natu-color-surface-accent-strong),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-invert),
+      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
+    ),
+    'active': (
+      'background-color': var(--natu-color-surface-accent-strong-active),
+      'border-color': var(--natu-color-border-accent-strong-active),
+      'color': var(--natu-color-font-invert),
+    ),
+    'disabled': (
+      'background-color': var(--natu-color-surface-disabled),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-disabled),
+    ),
+  ),
+  'destructive': (
+    'default': (
+      'background-color': var(--natu-color-surface-critical-strong),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-invert),
+    ),
+    'hover': (
+      'background-color': var(--natu-color-surface-critical-strong-hover),
+      'border-color': var(--natu-color-border-critical-strong-hover),
+      'color': var(--natu-color-font-invert),
+    ),
+    'focus': (
+      'background-color': var(--natu-color-surface-critical-strong),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-invert),
+      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
+    ),
+    'active': (
+      'background-color': var(--natu-color-surface-critical-active),
+      'border-color': var(--natu-color-border-critical-strong-active),
+      'color': var(--natu-color-font-invert),
+    ),
+    'disabled': (
+      'background-color': var(--natu-color-surface-disabled),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-disabled),
+    ),
+  ),
+  'outline': (
+    'default': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-accent),
+    ),
+    'hover': (
+      'background-color': var(--natu-color-surface-accent-hover),
+      'border-color': var(--natu-color-border-accent-strong-hover),
+      'color': var(--natu-color-font-accent),
+    ),
+    'focus': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-accent),
+      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
+    ),
+    'active': (
+      'background-color': var(--natu-color-surface-accent-active),
+      'border-color': var(--natu-color-border-accent-strong-active),
+      'color': var(--natu-color-font-accent),
+    ),
+    'disabled': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-disabled),
+    ),
+  ),
+  'outline-destructive': (
+    'default': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-critical),
+    ),
+    'hover': (
+      'background-color': var(--natu-color-surface-critical-hover),
+      'border-color': var(--natu-color-border-critical-strong-hover),
+      'color': var(--natu-color-font-critical),
+    ),
+    'focus': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-critical),
+      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
+    ),
+    'active': (
+      'background-color': var(--natu-color-surface-critical-active),
+      'border-color': var(--natu-color-border-critical-strong-active),
+      'color': var(--natu-color-font-critical),
+    ),
+    'disabled': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-disabled),
+    ),
+  ),
+  'ghost': (
+    'default': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-accent),
+    ),
+    'hover': (
+      'background-color': var(--natu-color-surface-accent-hover),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-accent),
+    ),
+    'focus': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-accent),
+      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
+    ),
+    'active': (
+      'background-color': var(--natu-color-surface-accent-active),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-accent),
+    ),
+    'disabled': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-disabled),
+    ),
+  ),
+  'ghost-destructive': (
+    'default': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-critical),
+    ),
+    'hover': (
+      'background-color': var(--natu-color-surface-critical-hover),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-critical),
+    ),
+    'focus': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-critical),
+      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
+    ),
+    'active': (
+      'background-color': var(--natu-color-surface-critical-active),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-critical),
+    ),
+    'disabled': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-disabled),
+    ),
+  ),
+  'ghost-muted': (
+    'default': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-base),
+    ),
+    'hover': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-accent),
+    ),
+    'focus': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-accent),
+      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
+    ),
+    'active': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-accent),
+    ),
+    'disabled': (
+      'background-color': var(--natu-color-transparent),
+      'border-color': var(--natu-color-transparent),
+      'color': var(--natu-color-font-disabled),
+    ),
+  ),
+);
+
+@mixin set-state-props($states, $state) {
+  @each $prop, $value in map.get($states, $state) {
+    #{$prop}: #{$value};
+  }
+}
+
+@layer button {
+  .natu-button {
+    @include utils.control;
+
+    cursor: pointer;
+    font-weight: var(--natu-font-weight-strong);
+    user-select: none;
+
+    &--small {
+      @include utils.control--small;
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+    }
+
+    @each $variant, $states in $-variants {
+      &--#{$variant} {
+        @include set-state-props($states, 'default');
+
+        &:hover {
+          @include set-state-props($states, 'hover');
+        }
+
+        &:focus-visible,
+        &:target {
+          @include set-state-props($states, 'focus');
+        }
+
+        &:active,
+        &.natu-button--active {
+          @include set-state-props($states, 'active');
+        }
+
+        &:disabled,
+        &.natu-button--disabled {
+          @include set-state-props($states, 'disabled');
+        }
+      }
+    }
+  }
+}

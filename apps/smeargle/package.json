@@ -12,12 +12,12 @@
     "test": "vitest run --coverage",
     "test-watch": "vitest",
     "analyse": "pnpm build --sourcemap && source-map-explorer dist/assets/**/*.js",
-    "storybook": "storybook dev -p 6001",
+    "storybook": "storybook dev -p 6002",
     "build-storybook": "storybook build",
     "preview-storybook": "http-server -c-1 ./storybook-static --silent",
     "vrt": "playwright test --config vrt/playwright.config.ts",
     "vrt-update": "pnpm vrt --update-snapshots",
-    "vrt-show-report": "playwright show-report vrt/report --port 6003",
+    "vrt-show-report": "playwright show-report vrt/report --port 6004",
     "e2e": "cross-env VITE_E2E=true playwright test --config e2e/playwright.config.ts"
   },
   "dependencies": {

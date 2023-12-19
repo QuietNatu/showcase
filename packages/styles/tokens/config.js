@@ -32,6 +32,7 @@ for (const theme of themes) {
       scss: {
         transforms: ['attribute/cti', 'name/cti/kebab'],
         buildPath: `scss/tokens/${theme}/`,
+        prefix: 'natu',
         files: [
           {
             destination: `_light.scss`,
@@ -56,6 +57,7 @@ for (const theme of themes) {
       scss: {
         transforms: ['attribute/cti', 'name/cti/kebab'],
         buildPath: `scss/tokens/${theme}/`,
+        prefix: 'natu',
         files: [
           {
             destination: `_dark.scss`,

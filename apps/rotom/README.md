@@ -4,6 +4,23 @@
 
 ## 🤡 Gotchas
 
+### Important issues unresolved for more than 5 years
+
+- https://github.com/angular/angular/issues/4059
+- https://github.com/angular/angular/issues/7626
+- https://github.com/angular/angular/issues/10887
+- https://github.com/angular/angular/issues/14842
+
+### Karma test runner window information interferes with tests
+
+Testing library utils like screen.getByText or userEvent.tab will also interect with elements created by Karma that are not part of the test (like the test results information). This lowers the quality and confidence that the tests provide.
+
+### Not possible to fully wrap components
+
+There are several reasons that make component wrappers hard to create in Angular. First is the fact that there is no input spreading, so each input has to be created manually. Next, to fully encapsulate a component, a component with an element selector must be created. The problem is that this creates a custom HTML element wrapping the wrapped component, which can be problematic in multiple ways. To avoid this, a component with an attribute selector, or a directive, must be created. The downside is that the wrapped component will be exposed and it will not be possible to hide the inputs and outputs that it provides. Lastly, when using the previous approach, Angular does not provide a way to override events provided by the host component. This means that if the host component and the directive both output events with the same name, they will trigger more times than expected and will produce unexpected results.
+
+Component wrapping is essential to create quality solutions and these problems can lead to software with lower quality, thus, with more issues.
+
 ### Angular does not support importing components from uncompiled libraries
 
 Unlike React and SolidJS that allow you to simply import components without doing a build step first, Angular is quite inflexible regarding doing that.

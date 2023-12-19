@@ -12,7 +12,7 @@ const scenarios: VrtScenario[] = [
 const testScenarios = createVrtStorybookScenarios({
   scenarios,
   page: 'components-button',
-  viewports: [{ name: 'custom', width: 300, height: 100 }], // TODO: adjust this
+  viewports: [{ name: 'custom', width: 500, height: 100 }],
 });
 
 testScenarios.forEach((scenario) => {

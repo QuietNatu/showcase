@@ -15,7 +15,7 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { fromEvent } from 'rxjs';
 import { rxEffects } from '@rx-angular/state/effects';
 
-export const buttonVariants = cva('natu-button', {
+const buttonVariants = cva('natu-button', {
   variants: {
     variant: {
       primary: 'natu-button--primary',

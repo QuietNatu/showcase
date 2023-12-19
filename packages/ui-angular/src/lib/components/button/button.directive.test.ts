@@ -1,7 +1,34 @@
 import { screen } from '@testing-library/angular';
-import { render } from '../../test';
-import { NatuA11yButtonDirective, natuButtonImports } from './button.directive';
+import { axe, render } from '../../test';
+import {
+  NatuA11yButtonDirective,
+  NatuButtonDirective,
+  natuButtonImports,
+} from './button.directive';
 import { argsToTemplate } from '@storybook/angular';
+
+describe(`${NatuButtonDirective.name} accessibility`, () => {
+  const scenarios = [
+    {
+      name: 'Button',
+      template: `<button [natuButton]>Button</button>`,
+    },
+    {
+      name: 'A11y button',
+      template: `<span [natuButton]>Button</span>`,
+    },
+  ];
+
+  scenarios.forEach(({ name, template }) => {
+    it(`${name} has no accessibility violations`, async () => {
+      const view = await render(template, {
+        renderOptions: { imports: [natuButtonImports] },
+      });
+
+      expect(await axe(view.container)).toHaveNoViolations();
+    });
+  });
+});
 
 describe(NatuA11yButtonDirective.name, () => {
   it('triggers click on click', async () => {
@@ -39,7 +66,7 @@ describe(NatuA11yButtonDirective.name, () => {
   });
 
   it('disables interactions', async () => {
-    const { userEvent, clickSpy } = await setup({ disabled: true });
+    const { userEvent, clickSpy } = await setup({ isDisabled: true });
 
     const button = screen.getByRole('button', { name: 'Button' });
 

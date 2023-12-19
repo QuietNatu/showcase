@@ -26,12 +26,12 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test": "vitest run --coverage",
     "test-watch": "vitest",
-    "storybook": "storybook dev -p 6011",
+    "storybook": "storybook dev -p 6012",
     "build-storybook": "storybook build",
     "preview-storybook": "http-server -c-1 ./storybook-static --silent",
     "vrt": "playwright test --config vrt/playwright.config.ts",
     "vrt-update": "pnpm vrt --update-snapshots",
-    "vrt-show-report": "playwright show-report vrt/report --port 6013"
+    "vrt-show-report": "playwright show-report vrt/report --port 6014"
   },
   "devDependencies": {
     "@natu/eslint-config-react": "workspace:*",

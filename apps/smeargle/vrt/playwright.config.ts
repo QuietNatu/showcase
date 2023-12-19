@@ -1,6 +1,6 @@
 import { devices, type PlaywrightTestConfig } from '@playwright/test';
 
-const port = process.env['PORT'] ? Number(process.env['PORT']) : 6002;
+const port = process.env['PORT'] ? Number(process.env['PORT']) : 6003;
 const isCi = process.env['CI'] && process.env['CI'] !== '0';
 
 export default {

@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => {
 
     server: {
       open: mode !== 'test',
-      port: 5273,
+      port: 6201,
     },
 
     // fixes: vite-plugin-solid not importing node exports

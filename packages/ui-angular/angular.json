@@ -56,7 +56,7 @@
             "browserTarget": "lib:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "port": 6111,
+            "port": 6112,
             "styles": ["src/styles/styles.scss"],
             "assets": ["src/assets"]
           }

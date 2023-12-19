@@ -136,7 +136,7 @@
             "browserTarget": "rotom:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "port": 6101,
+            "port": 6102,
             "assets": ["src/assets", "src/mockServiceWorker.js"]
           }
         },

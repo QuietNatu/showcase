@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
 
     server: {
       open: mode !== 'test',
-      port: 5173,
+      port: 6001,
     },
 
     test: {

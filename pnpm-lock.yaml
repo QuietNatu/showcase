@@ -568,8 +568,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0(@typescript-eslint/eslint-plugin@6.13.2)(eslint@8.55.0)
       eslint-plugin-vitest:
-        specifier: 0.3.15
-        version: 0.3.15(@typescript-eslint/eslint-plugin@6.13.2)(eslint@8.55.0)(typescript@5.3.2)
+        specifier: 0.3.17
+        version: 0.3.17(@typescript-eslint/eslint-plugin@6.13.2)(eslint@8.55.0)(typescript@5.3.2)
     devDependencies:
       typescript:
         specifier: 5.3.2
@@ -620,8 +620,8 @@ importers:
         specifier: 3.0.0
         version: 3.0.0(@typescript-eslint/eslint-plugin@6.13.2)(eslint@8.55.0)
       eslint-plugin-vitest:
-        specifier: 0.3.15
-        version: 0.3.15(@typescript-eslint/eslint-plugin@6.13.2)(eslint@8.55.0)(typescript@5.3.2)
+        specifier: 0.3.17
+        version: 0.3.17(@typescript-eslint/eslint-plugin@6.13.2)(eslint@8.55.0)(typescript@5.3.2)
     devDependencies:
       typescript:
         specifier: 5.3.2
@@ -718,7 +718,7 @@ importers:
         version: 1.40.1
       '@rx-angular/state':
         specifier: 17.0.0
-        version: 17.0.0(@angular-devkit/core@17.0.7)(@angular-devkit/schematics@17.0.6)(@angular/core@17.0.7)(rxjs@7.8.1)
+        version: 17.0.0(@angular-devkit/core@17.0.7)(@angular-devkit/schematics@17.0.7)(@angular/core@17.0.7)(rxjs@7.8.1)
       '@storybook/addon-a11y':
         specifier: 7.6.3
         version: 7.6.3
@@ -1376,23 +1376,6 @@ packages:
       source-map: 0.7.4
     dev: true
 
-  /@angular-devkit/core@17.0.6:
-    resolution: {integrity: sha512-+h9VnFHof7rKzBJ5FWrbPXWzbag31QKbUGJ/mV5BYgj39vjzPNUXBW8AaScZAlATi8+tElYXjRMvM49GnuyRLg==}
-    engines: {node: ^18.13.0 || >=20.9.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
-    peerDependencies:
-      chokidar: ^3.5.2
-    peerDependenciesMeta:
-      chokidar:
-        optional: true
-    dependencies:
-      ajv: 8.12.0
-      ajv-formats: 2.1.1(ajv@8.12.0)
-      jsonc-parser: 3.2.0
-      picomatch: 3.0.1
-      rxjs: 7.8.1
-      source-map: 0.7.4
-    dev: true
-
   /@angular-devkit/core@17.0.7(chokidar@3.5.3):
     resolution: {integrity: sha512-vATobHo5O5tJba424hJfQWLb40GzvZPNsI74dcgSUTgrDph8ksmk5xB9OvEvf0INorQZ2IMphj/VIWj4/+JqSA==}
     engines: {node: ^18.13.0 || >=20.9.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
@@ -1420,19 +1403,6 @@ packages:
       magic-string: 0.26.2
       ora: 5.4.1
       rxjs: 6.6.7
-    transitivePeerDependencies:
-      - chokidar
-    dev: true
-
-  /@angular-devkit/schematics@17.0.6:
-    resolution: {integrity: sha512-2g769MpazA1aOzJOm2MNGosra3kxw8CbdIQQOKkvycIzroRNgN06yHcRTDC03GADgP/CkDJ6kxwJQNG+wNFL2A==}
-    engines: {node: ^18.13.0 || >=20.9.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
-    dependencies:
-      '@angular-devkit/core': 17.0.6
-      jsonc-parser: 3.2.0
-      magic-string: 0.30.5
-      ora: 5.4.1
-      rxjs: 7.8.1
     transitivePeerDependencies:
       - chokidar
     dev: true
@@ -6404,14 +6374,14 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /@rx-angular/state@17.0.0(@angular-devkit/core@17.0.7)(@angular-devkit/schematics@17.0.6)(@angular/core@17.0.7)(rxjs@7.8.1):
+  /@rx-angular/state@17.0.0(@angular-devkit/core@17.0.7)(@angular-devkit/schematics@17.0.7)(@angular/core@17.0.7)(rxjs@7.8.1):
     resolution: {integrity: sha512-mvKQs1bRzFNFOC3pmYWS+6vPziVqvlcqUog+rpqx3wbQSMV2MwC55a3HboQs4cF4EV+RbB+W/vU1/++4l0LG8Q==}
     peerDependencies:
       '@angular/core': ^17.0.0
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
       '@angular/core': 17.0.7(rxjs@7.8.1)(zone.js@0.14.2)
-      ng-morph: 4.0.5(@angular-devkit/core@17.0.7)(@angular-devkit/schematics@17.0.6)
+      ng-morph: 4.0.5(@angular-devkit/core@17.0.7)(@angular-devkit/schematics@17.0.7)
       rxjs: 7.8.1
       tslib: 2.6.2
     transitivePeerDependencies:
@@ -12368,8 +12338,8 @@ packages:
       eslint-rule-composer: 0.3.0
     dev: false
 
-  /eslint-plugin-vitest@0.3.15(@typescript-eslint/eslint-plugin@6.13.2)(eslint@8.55.0)(typescript@5.3.2):
-    resolution: {integrity: sha512-ZUUd9ARKR3p0W7zoWg0irmQW9aM+SlJYZOoFOBemmgwQIHLxtdRLodQGP48nYf8jLdCGFDQqPyaltQQKsa9UMw==}
+  /eslint-plugin-vitest@0.3.17(@typescript-eslint/eslint-plugin@6.13.2)(eslint@8.55.0)(typescript@5.3.2):
+    resolution: {integrity: sha512-JzljEhaJ3YDNJc4n2VTlOdMhElwLsQQprVtgY+eoKQkearKiFP53Vw3515J3jb4ZM8TVnpk7UsIFXM0gbhz+vQ==}
     engines: {node: ^18.0.0 || >= 20.0.0}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': '*'
@@ -15904,14 +15874,14 @@ packages:
     resolution: {integrity: sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==}
     dev: true
 
-  /ng-morph@4.0.5(@angular-devkit/core@17.0.7)(@angular-devkit/schematics@17.0.6):
+  /ng-morph@4.0.5(@angular-devkit/core@17.0.7)(@angular-devkit/schematics@17.0.7):
     resolution: {integrity: sha512-5tnlb5WrGKeo2E7VRcV7ZHhScyNgliYqpbXqt103kynmfj6Ic8kzhJAhHu9iLkF1yRnKv2kyCE+O7UGZx5RraQ==}
     peerDependencies:
       '@angular-devkit/core': '>=11.0.0'
       '@angular-devkit/schematics': '>=11.0.0'
     dependencies:
       '@angular-devkit/core': 17.0.7(chokidar@3.5.3)
-      '@angular-devkit/schematics': 17.0.6
+      '@angular-devkit/schematics': 17.0.7
       jsonc-parser: 3.2.0
       minimatch: 9.0.3
       multimatch: 5.0.0

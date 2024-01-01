@@ -65,7 +65,12 @@ export const NatuButton = forwardRef<HTMLButtonElement, NatuButtonProps>(
     const Component = asChild ? Slot : 'button';
 
     const { focusableProps } = useFocusable(props, ref);
-    const { pressProps, isPressed } = usePress({ isDisabled, onPress, ref });
+    const { pressProps, isPressed } = usePress({
+      preventFocusOnPress: true,
+      isDisabled,
+      onPress,
+      ref,
+    });
 
     const mergedButtonProps = mergeProps(focusableProps, pressProps, buttonProps);
 
@@ -81,6 +86,7 @@ export const NatuButton = forwardRef<HTMLButtonElement, NatuButtonProps>(
         )}
         aria-disabled={isDisabled}
         tabIndex={asChild ? 0 : undefined}
+        role={asChild ? 'button' : undefined}
       >
         {children}
       </Component>

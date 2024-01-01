@@ -45,16 +45,16 @@ interface CommonProps extends NativeProps {
   onBlur?: (e: FocusEvent<Element, Element>) => void;
 }
 
-interface UnslottedProps extends CommonProps {
+export interface NatuButtonUnslottedProps extends CommonProps {
   asChild?: false;
   type: 'button' | 'submit';
 }
 
-interface SlottedProps extends CommonProps {
+export interface NatuButtonSlottedProps extends CommonProps {
   asChild: true;
 }
 
-type NatuButtonProps = UnslottedProps | SlottedProps;
+type NatuButtonProps = NatuButtonUnslottedProps | NatuButtonSlottedProps;
 
 export const NatuButton = forwardRef<HTMLButtonElement, NatuButtonProps>(
   function NatuButton(props, forwardedRef) {

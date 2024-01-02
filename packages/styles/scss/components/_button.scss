@@ -48,7 +48,7 @@ $-variants: (
       'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
-      'background-color': var(--natu-color-surface-critical-active),
+      'background-color': var(--natu-color-surface-critical-strong-active),
       'border-color': var(--natu-color-border-critical-strong-active),
       'color': var(--natu-color-font-invert),
     ),
@@ -230,8 +230,8 @@ $-variants: (
           @include set-state-props($states, 'hover');
         }
 
-        &:focus-visible,
-        &:target {
+        &:target,
+        &.natu-button--focus-visible {
           @include set-state-props($states, 'focus');
         }
 

@@ -2,7 +2,6 @@ import { Decorator } from '@storybook/react';
 import { useEffect } from 'react';
 
 export function storyThemeDecorator(): Decorator {
-  // eslint-disable-next-line react/display-name
   return (Story, { globals }) => {
     const theme = globals['theme'] as string;
     const colorScheme = globals['colorScheme'] as string;
@@ -14,4 +13,12 @@ export function storyThemeDecorator(): Decorator {
 
     return <Story />;
   };
+}
+
+export function storyVariantsDecorator(): Decorator {
+  return (Story) => (
+    <div style={{ display: 'flex', gap: '10px' }}>
+      <Story />
+    </div>
+  );
 }

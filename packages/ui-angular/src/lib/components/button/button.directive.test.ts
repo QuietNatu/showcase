@@ -49,7 +49,7 @@ describe(NatuA11yButtonDirective.name, () => {
     expect(clickSpy).not.toHaveBeenCalled();
 
     await userEvent.click(screen.getByRole('button', { name: 'Button' }));
-    await userEvent.keyboard('{Space}');
+    await userEvent.keyboard('[Space]');
 
     expect(clickSpy).toHaveBeenCalledTimes(2);
   });
@@ -60,7 +60,7 @@ describe(NatuA11yButtonDirective.name, () => {
     expect(clickSpy).not.toHaveBeenCalled();
 
     await userEvent.click(screen.getByRole('button', { name: 'Button' }));
-    await userEvent.keyboard('{Enter}');
+    await userEvent.keyboard('[Enter]');
 
     expect(clickSpy).toHaveBeenCalledTimes(2);
   });

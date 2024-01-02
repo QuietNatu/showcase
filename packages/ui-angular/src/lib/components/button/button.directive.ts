@@ -14,6 +14,7 @@ import {
 import { VariantProps, cva } from 'class-variance-authority';
 import { fromEvent } from 'rxjs';
 import { rxEffects } from '@rx-angular/state/effects';
+import { FocusMonitor } from '@angular/cdk/a11y';
 
 const buttonVariants = cva('natu-button', {
   variants: {
@@ -44,6 +45,7 @@ export type NatuButtonVariants = VariantProps<typeof buttonVariants>;
   standalone: true,
   host: {
     '[class]': 'class$()',
+    '[class.natu-button--focus-visible]': 'isFocusVisible$()',
     '[class.natu-button--disabled]': 'isDisabled',
     '[attr.aria-disabled]': 'isDisabled',
   },
@@ -61,6 +63,7 @@ export class NatuButtonDirective {
 
   readonly class$: Signal<string>;
   readonly isActive$ = signal(false);
+  readonly isFocusVisible$ = signal(false);
 
   private readonly variant$ = signal<NatuButtonVariants['variant']>('primary');
   private readonly size$ = signal<NatuButtonVariants['size']>('medium');
@@ -68,11 +71,13 @@ export class NatuButtonDirective {
   private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly ngZone = inject(NgZone);
   private readonly effects = rxEffects();
+  private readonly focusMonitor = inject(FocusMonitor); // Change this once CDK directives are standalone...
 
   constructor() {
     this.class$ = computed(() => buttonVariants({ variant: this.variant$(), size: this.size$() }));
 
     this.registerStopDisabledClicks();
+    this.registerManageFocusVisible();
   }
 
   /**
@@ -89,6 +94,12 @@ export class NatuButtonDirective {
           event.stopImmediatePropagation();
         }
       });
+    });
+  }
+
+  private registerManageFocusVisible() {
+    this.effects.register(this.focusMonitor.monitor(this.elementRef.nativeElement), (origin) => {
+      this.isFocusVisible$.set(origin === 'keyboard');
     });
   }
 }

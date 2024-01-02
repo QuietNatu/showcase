@@ -5,9 +5,8 @@ import type { AxeMatchers } from 'vitest-axe';
 
 declare module 'vitest' {
   export interface JestAssertion<T>
-    extends TestingLibraryMatchers<ReturnType<typeof expect.stringContaining>, T> {}
-  export interface Assertion extends AxeMatchers {}
-  export interface AsymmetricMatchersContaining extends AxeMatchers {}
+    extends TestingLibraryMatchers<ReturnType<typeof expect.stringContaining>, T>,
+      AxeMatchers {}
 }
 
 expect.extend(axeMatchers);

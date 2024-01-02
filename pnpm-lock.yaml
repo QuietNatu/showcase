@@ -669,7 +669,7 @@ importers:
         specifier: 17.0.8
         version: 17.0.8(@angular/core@17.0.8)
       '@angular/cdk':
-        specifier: ^17.0.4
+        specifier: 17.0.4
         version: 17.0.4(@angular/common@17.0.8)(@angular/core@17.0.8)(rxjs@7.8.1)
       '@angular/cli':
         specifier: 17.0.7
@@ -846,10 +846,10 @@ importers:
         specifier: 1.40.1
         version: 1.40.1
       '@radix-ui/react-slot':
-        specifier: ^1.0.2
+        specifier: 1.0.2
         version: 1.0.2(@types/react@18.2.45)(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.0
+        specifier: 3.23.0
         version: 3.23.0(react@18.2.0)
       '@storybook/addon-a11y':
         specifier: 7.6.3
@@ -906,7 +906,7 @@ importers:
         specifier: 0.7.0
         version: 0.7.0
       clsx:
-        specifier: ^2.0.0
+        specifier: 2.0.0
         version: 2.0.0
       cross-env:
         specifier: 7.0.3
@@ -921,7 +921,7 @@ importers:
         specifier: 18.2.0
         version: 18.2.0
       react-aria:
-        specifier: ^3.30.0
+        specifier: 3.30.0
         version: 3.30.0(react-dom@18.2.0)(react@18.2.0)
       react-dom:
         specifier: 18.2.0
@@ -6473,7 +6473,7 @@ packages:
       '@internationalized/message': 3.1.1
       '@internationalized/number': 3.4.0
       '@internationalized/string': 3.1.1
-      '@react-aria/ssr': 3.9.0(react@18.2.0)
+      '@react-aria/ssr': 3.9.1(react@18.2.0)
       '@react-aria/utils': 3.23.0(react@18.2.0)
       '@react-types/shared': 3.22.0(react@18.2.0)
       '@swc/helpers': 0.5.3
@@ -6485,7 +6485,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-aria/ssr': 3.9.0(react@18.2.0)
+      '@react-aria/ssr': 3.9.1(react@18.2.0)
       '@react-aria/utils': 3.23.0(react@18.2.0)
       '@react-types/shared': 3.22.0(react@18.2.0)
       '@swc/helpers': 0.5.3
@@ -6607,7 +6607,7 @@ packages:
       '@react-aria/focus': 3.15.0(react@18.2.0)
       '@react-aria/i18n': 3.9.0(react@18.2.0)
       '@react-aria/interactions': 3.20.0(react@18.2.0)
-      '@react-aria/ssr': 3.9.0(react@18.2.0)
+      '@react-aria/ssr': 3.9.1(react@18.2.0)
       '@react-aria/utils': 3.23.0(react@18.2.0)
       '@react-aria/visually-hidden': 3.8.7(react@18.2.0)
       '@react-stately/overlays': 3.6.4(react@18.2.0)
@@ -6750,16 +6750,6 @@ packages:
       '@swc/helpers': 0.5.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-    dev: true
-
-  /@react-aria/ssr@3.9.0(react@18.2.0):
-    resolution: {integrity: sha512-Bz6BqP6ZorCme9tSWHZVmmY+s7AU8l6Vl2NUYmBzezD//fVHHfFo4lFBn5tBuAaJEm3AuCLaJQ6H2qhxNSb7zg==}
-    engines: {node: '>= 12'}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
-    dependencies:
-      '@swc/helpers': 0.5.3
-      react: 18.2.0
     dev: true
 
   /@react-aria/ssr@3.9.1(react@18.2.0):
@@ -18512,7 +18502,7 @@ packages:
       '@react-aria/selection': 3.17.2(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/separator': 3.3.8(react@18.2.0)
       '@react-aria/slider': 3.7.3(react@18.2.0)
-      '@react-aria/ssr': 3.9.0(react@18.2.0)
+      '@react-aria/ssr': 3.9.1(react@18.2.0)
       '@react-aria/switch': 3.5.7(react@18.2.0)
       '@react-aria/table': 3.13.2(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/tabs': 3.8.2(react-dom@18.2.0)(react@18.2.0)

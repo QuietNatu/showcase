@@ -109,8 +109,8 @@ importers:
         specifier: 7.6.3
         version: 7.6.3(vitest@1.0.4)
       '@testing-library/user-event':
-        specifier: 14.5.1
-        version: 14.5.1(@testing-library/dom@9.3.3)
+        specifier: 14.5.2
+        version: 14.5.2(@testing-library/dom@9.3.3)
       '@vitest/coverage-v8':
         specifier: 1.0.4
         version: 1.0.4(vitest@1.0.4)
@@ -273,7 +273,7 @@ importers:
         version: 7.6.3(@types/react-dom@18.2.18)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/test':
         specifier: 7.6.3
-        version: 7.6.3
+        version: 7.6.3(vitest@1.0.4)
       '@testing-library/angular':
         specifier: 15.1.0
         version: 15.1.0(@angular/common@17.0.8)(@angular/core@17.0.8)(@angular/platform-browser@17.0.8)(@angular/router@17.0.8)
@@ -281,8 +281,8 @@ importers:
         specifier: 1.3.3
         version: 1.3.3
       '@testing-library/user-event':
-        specifier: 14.5.1
-        version: 14.5.1(@testing-library/dom@9.3.3)
+        specifier: 14.5.2
+        version: 14.5.2(@testing-library/dom@9.3.3)
       '@types/jasmine':
         specifier: 5.1.4
         version: 5.1.4
@@ -405,8 +405,8 @@ importers:
         specifier: 14.1.2
         version: 14.1.2(react-dom@18.2.0)(react@18.2.0)
       '@testing-library/user-event':
-        specifier: 14.5.1
-        version: 14.5.1(@testing-library/dom@9.3.3)
+        specifier: 14.5.2
+        version: 14.5.2(@testing-library/dom@9.3.3)
       '@types/react':
         specifier: 18.2.45
         version: 18.2.45
@@ -745,7 +745,7 @@ importers:
         version: 7.6.3(@types/react-dom@18.2.18)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/test':
         specifier: 7.6.3
-        version: 7.6.3
+        version: 7.6.3(vitest@1.0.4)
       '@testing-library/angular':
         specifier: 15.1.0
         version: 15.1.0(@angular/common@17.0.8)(@angular/core@17.0.8)(@angular/platform-browser@17.0.8)(@angular/router@17.0.8)
@@ -753,8 +753,8 @@ importers:
         specifier: 1.3.3
         version: 1.3.3
       '@testing-library/user-event':
-        specifier: 14.5.1
-        version: 14.5.1(@testing-library/dom@9.3.3)
+        specifier: 14.5.2
+        version: 14.5.2(@testing-library/dom@9.3.3)
       '@types/jasmine':
         specifier: 5.1.4
         version: 5.1.4
@@ -885,8 +885,8 @@ importers:
         specifier: 14.1.2
         version: 14.1.2(react-dom@18.2.0)(react@18.2.0)
       '@testing-library/user-event':
-        specifier: 14.5.1
-        version: 14.5.1(@testing-library/dom@9.3.3)
+        specifier: 14.5.2
+        version: 14.5.2(@testing-library/dom@9.3.3)
       '@types/react':
         specifier: 18.2.45
         version: 18.2.45
@@ -987,8 +987,8 @@ importers:
         specifier: 6.1.6
         version: 6.1.6(vitest@1.0.4)
       '@testing-library/user-event':
-        specifier: 14.5.1
-        version: 14.5.1(@testing-library/dom@9.3.3)
+        specifier: 14.5.2
+        version: 14.5.2(@testing-library/dom@9.3.3)
       '@vitejs/plugin-react-swc':
         specifier: 3.5.0
         version: 3.5.0(vite@5.0.10)
@@ -8882,28 +8882,6 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/test@7.6.3:
-    resolution: {integrity: sha512-W7rwSign2kM4Oq5RaifSmd9WSKv//QWLQpCpbdn/71hqNmE/SWQdyMLykEZY9RUTfpP6vFHOnWziXhID6Xu3Vg==}
-    dependencies:
-      '@storybook/client-logger': 7.6.3
-      '@storybook/core-events': 7.6.3
-      '@storybook/instrumenter': 7.6.3
-      '@storybook/preview-api': 7.6.3
-      '@testing-library/dom': 9.3.3
-      '@testing-library/jest-dom': 6.1.6(vitest@1.0.4)
-      '@testing-library/user-event': 14.3.0(@testing-library/dom@9.3.3)
-      '@types/chai': 4.3.11
-      '@vitest/expect': 0.34.7
-      '@vitest/spy': 0.34.7
-      chai: 4.3.10
-      util: 0.12.5
-    transitivePeerDependencies:
-      - '@jest/globals'
-      - '@types/jest'
-      - jest
-      - vitest
-    dev: true
-
   /@storybook/test@7.6.3(vitest@1.0.4):
     resolution: {integrity: sha512-W7rwSign2kM4Oq5RaifSmd9WSKv//QWLQpCpbdn/71hqNmE/SWQdyMLykEZY9RUTfpP6vFHOnWziXhID6Xu3Vg==}
     dependencies:
@@ -9230,8 +9208,8 @@ packages:
       '@testing-library/dom': 9.3.3
     dev: true
 
-  /@testing-library/user-event@14.5.1(@testing-library/dom@9.3.3):
-    resolution: {integrity: sha512-UCcUKrUYGj7ClomOo2SpNVvx4/fkd/2BbIHDCle8A0ax+P3bU7yJwDBDrS6ZwdTMARWTGODX1hEsCcO+7beJjg==}
+  /@testing-library/user-event@14.5.2(@testing-library/dom@9.3.3):
+    resolution: {integrity: sha512-YAh82Wh4TIrxYLmfGcixwD18oIjyC1pFQC2Y01F2lzV2HTMiYrI0nze0FD0ocB//CKS/7jIUgae+adPqxK5yCQ==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'

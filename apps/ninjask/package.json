@@ -33,7 +33,7 @@
     "@natu/tsconfig": "workspace:*",
     "@natu/vrt": "workspace:*",
     "@playwright/test": "1.40.1",
-    "@solidjs/testing-library": "0.8.4",
+    "@solidjs/testing-library": "0.8.5",
     "@storybook/addon-a11y": "7.6.3",
     "@storybook/addon-essentials": "7.6.3",
     "@storybook/addon-interactions": "7.6.3",

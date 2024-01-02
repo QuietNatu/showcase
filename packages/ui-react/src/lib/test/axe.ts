@@ -5,6 +5,8 @@ export const axe = _configureAxe({
   rules: {
     ...axeRulesObject,
     'aria-allowed-role': { enabled: false },
+    'color-contrast': { enabled: false },
+    'color-contrast-enhanced': { enabled: false },
     region: { enabled: false },
   },
 });

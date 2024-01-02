@@ -230,8 +230,8 @@ $-variants: (
           @include set-state-props($states, 'hover');
         }
 
-        &:focus-visible,
-        &:target {
+        &:target,
+        &.natu-button--focus-visible {
           @include set-state-props($states, 'focus');
         }
 

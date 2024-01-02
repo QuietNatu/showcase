@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, FocusEvent, forwardRef } from 'react';
 import { Slot } from '@radix-ui/react-slot';
-import { PressEvent, useFocusable, usePress } from 'react-aria';
+import { PressEvent, useFocusRing, useFocusable, usePress } from 'react-aria';
 import { mergeProps, useObjectRef } from '@react-aria/utils';
 import { VariantProps, cva } from 'class-variance-authority';
 import clsx from 'clsx';
@@ -54,7 +54,7 @@ export interface NatuButtonSlottedProps extends CommonProps {
   asChild: true;
 }
 
-type NatuButtonProps = NatuButtonUnslottedProps | NatuButtonSlottedProps;
+export type NatuButtonProps = NatuButtonUnslottedProps | NatuButtonSlottedProps;
 
 export const NatuButton = forwardRef<HTMLButtonElement, NatuButtonProps>(
   function NatuButton(props, forwardedRef) {
@@ -64,24 +64,25 @@ export const NatuButton = forwardRef<HTMLButtonElement, NatuButtonProps>(
     const ref = useObjectRef(forwardedRef);
     const Component = asChild ? Slot : 'button';
 
+    const { focusProps, isFocusVisible } = useFocusRing();
     const { focusableProps } = useFocusable(props, ref);
     const { pressProps, isPressed } = usePress({
-      preventFocusOnPress: true,
       isDisabled,
       onPress,
       ref,
     });
 
-    const mergedButtonProps = mergeProps(focusableProps, pressProps, buttonProps);
-
     return (
       <Component
-        {...mergedButtonProps}
+        {...mergeProps(focusProps, focusableProps, pressProps, buttonProps)}
         ref={ref}
         className={clsx(
           buttonVariants({ variant, size }),
-          isDisabled && 'natu-button--disabled',
-          asChild && isPressed && 'natu-button--active',
+          {
+            'natu-button--disabled': isDisabled,
+            'natu-button--focus-visible': isFocusVisible && !isDisabled,
+            'natu-button--active': asChild && isPressed,
+          },
           className,
         )}
         aria-disabled={isDisabled}

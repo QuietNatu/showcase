@@ -60,7 +60,7 @@
     "@vitest/coverage-v8": "1.0.4",
     "axe-core": "4.8.3",
     "class-variance-authority": "0.7.0",
-    "clsx": "2.0.0",
+    "clsx": "2.1.0",
     "cross-env": "7.0.3",
     "http-server": "14.1.1",
     "jsdom": "23.0.1",

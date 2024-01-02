@@ -105,6 +105,7 @@ module.exports = {
       rules: {
         'react/display-name': 'off',
         'vitest/consistent-test-it': ['error', { fn: 'test' }],
+        'vitest/prefer-expect-resolves': 'off',
         'vitest/require-top-level-describe': 'off',
         'testing-library/no-await-sync-events': 'off',
         'testing-library/no-manual-cleanup': 'error',

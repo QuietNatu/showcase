@@ -194,7 +194,9 @@ module.exports = {
       name: 'not-to-story',
       comment: 'This module depends on a story file. Only tests are allowed to import stories.',
       severity: 'error',
-      from: {},
+      from: {
+        pathNot: '.test.(js|jsx|mjs|cjs|ts|tsx|ls|coffee|litcoffee|coffee.md)$',
+      },
       to: {
         path: '.stories.(js|jsx|mjs|cjs|ts|tsx|ls|coffee|litcoffee|coffee.md)$',
       },

@@ -71,6 +71,7 @@ module.exports = {
       rules: {
         'vitest/consistent-test-it': ['error', { fn: 'test' }],
         'vitest/prefer-expect-resolves': 'off',
+        'vitest/prefer-expect-assertions': 'off',
         'vitest/require-top-level-describe': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/unbound-method': 'off',

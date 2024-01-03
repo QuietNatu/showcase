@@ -34,7 +34,7 @@
     "@commitlint/config-conventional": "18.4.3",
     "@ls-lint/ls-lint": "2.2.2",
     "@playwright/test": "1.40.1",
-    "dependency-cruiser": "15.5.0",
+    "dependency-cruiser": "16.0.0",
     "eslint": "8.56.0",
     "husky": "8.0.3",
     "lint-staged": "15.2.0",

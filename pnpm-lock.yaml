@@ -51,8 +51,8 @@ importers:
         specifier: 6.0.0
         version: 6.0.0(stylelint@16.1.0)
       turbo:
-        specifier: 1.10.16
-        version: 1.10.16
+        specifier: 1.11.2
+        version: 1.11.2
 
   apps/ninjask:
     dependencies:
@@ -486,8 +486,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0(eslint@8.56.0)
       eslint-config-turbo:
-        specifier: 1.10.16
-        version: 1.10.16(eslint@8.56.0)
+        specifier: 1.11.2
+        version: 1.11.2(eslint@8.56.0)
       eslint-plugin-functional:
         specifier: 6.0.0
         version: 6.0.0(eslint@8.56.0)(typescript@5.2.2)
@@ -532,8 +532,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0(eslint@8.56.0)
       eslint-config-turbo:
-        specifier: 1.10.16
-        version: 1.10.16(eslint@8.56.0)
+        specifier: 1.11.2
+        version: 1.11.2(eslint@8.56.0)
       eslint-plugin-functional:
         specifier: 6.0.0
         version: 6.0.0(eslint@8.56.0)(typescript@5.3.3)
@@ -590,8 +590,8 @@ importers:
         specifier: 9.1.0
         version: 9.1.0(eslint@8.56.0)
       eslint-config-turbo:
-        specifier: 1.10.16
-        version: 1.10.16(eslint@8.56.0)
+        specifier: 1.11.2
+        version: 1.11.2(eslint@8.56.0)
       eslint-plugin-functional:
         specifier: 6.0.0
         version: 6.0.0(eslint@8.56.0)(typescript@5.3.3)
@@ -8104,12 +8104,12 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/builder-vite@8.0.0-alpha.6(typescript@5.3.3)(vite@5.0.10):
-    resolution: {integrity: sha512-KQhobJgzB23FVwn7ams2rV0YywDeo/D6XFFavlu4YRnYGQnHU7wElDVUkkblNxdk7qX9zOQtNWj526dqzTRJyA==}
+  /@storybook/builder-vite@8.0.0-alpha.7(typescript@5.3.3)(vite@5.0.10):
+    resolution: {integrity: sha512-a7+MGWR/421UJuEbKyZ6ycjer+7tF0S3BkrQb+i9vnRRn5BsrgrA5Nlqcz7qjC8lMy5nRXGeASo21lkuhKuBWg==}
     peerDependencies:
       '@preact/preset-vite': '*'
       typescript: '>= 4.3.x'
-      vite: ^3.0.0 || ^4.0.0 || ^5.0.0
+      vite: ^4.0.0 || ^5.0.0
       vite-plugin-glimmerx: '*'
     peerDependenciesMeta:
       '@preact/preset-vite':
@@ -8119,14 +8119,14 @@ packages:
       vite-plugin-glimmerx:
         optional: true
     dependencies:
-      '@storybook/channels': 8.0.0-alpha.6
-      '@storybook/client-logger': 8.0.0-alpha.6
-      '@storybook/core-common': 8.0.0-alpha.6
-      '@storybook/csf-plugin': 8.0.0-alpha.6
-      '@storybook/node-logger': 8.0.0-alpha.6
-      '@storybook/preview': 8.0.0-alpha.6
-      '@storybook/preview-api': 8.0.0-alpha.6
-      '@storybook/types': 8.0.0-alpha.6
+      '@storybook/channels': 8.0.0-alpha.7
+      '@storybook/client-logger': 8.0.0-alpha.7
+      '@storybook/core-common': 8.0.0-alpha.7
+      '@storybook/csf-plugin': 8.0.0-alpha.7
+      '@storybook/node-logger': 8.0.0-alpha.7
+      '@storybook/preview': 8.0.0-alpha.7
+      '@storybook/preview-api': 8.0.0-alpha.7
+      '@storybook/types': 8.0.0-alpha.7
       '@types/find-cache-dir': 3.2.1
       browser-assert: 1.2.1
       es-module-lexer: 0.9.3
@@ -8134,7 +8134,6 @@ packages:
       find-cache-dir: 3.3.2
       fs-extra: 11.2.0
       magic-string: 0.30.5
-      rollup: 3.29.4
       typescript: 5.3.3
       vite: 5.0.10(@types/node@18.19.3)
     transitivePeerDependencies:
@@ -8219,11 +8218,11 @@ packages:
       tiny-invariant: 1.3.1
     dev: true
 
-  /@storybook/channels@8.0.0-alpha.6:
-    resolution: {integrity: sha512-WcVV7WufS/7vON7Ia1ND7ofcR4lcv0aqNVMCXX2KoImBxhCvh53sZG3SP1VPFL3gMI9LJoUePR/auLNj+1SLpA==}
+  /@storybook/channels@8.0.0-alpha.7:
+    resolution: {integrity: sha512-DElLSUYcd/PDtimjpyAgMk2xCvDX4+W9YcXXyK6OARBGfGrdUed9qGdmtrNXZ2IxypcWmeZSDMe69itnXtiKZQ==}
     dependencies:
-      '@storybook/client-logger': 8.0.0-alpha.6
-      '@storybook/core-events': 8.0.0-alpha.6
+      '@storybook/client-logger': 8.0.0-alpha.7
+      '@storybook/core-events': 8.0.0-alpha.7
       '@storybook/global': 5.0.0
       qs: 6.11.2
       telejson: 7.2.0
@@ -8294,8 +8293,8 @@ packages:
       '@storybook/global': 5.0.0
     dev: true
 
-  /@storybook/client-logger@8.0.0-alpha.6:
-    resolution: {integrity: sha512-+Aad/hfvlGm3dS6ttFvpO0Mi1ozOoUMZrvH3VRXoq+eERPY68nDPfG5u/S72Atm4uMS3O+lbx2d1q5G7cgJqCw==}
+  /@storybook/client-logger@8.0.0-alpha.7:
+    resolution: {integrity: sha512-VpASNwayha106r4TFUBBp1yofCammqc/cf39KmjPWHkn1B8yxQwpnTJOoC3mLHchj9GIpFtQhxzr0PAf5aycPw==}
     dependencies:
       '@storybook/global': 5.0.0
     dev: true
@@ -8413,12 +8412,12 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/core-common@8.0.0-alpha.6:
-    resolution: {integrity: sha512-ITt/NKsQ1ALUr85EjbsrqlKCjTbtNUCJ5jEDtAzEG/2JXBpxiUVfLxcW8Nv+NUecIHLGpsPzlNlK81bOXdYOKQ==}
+  /@storybook/core-common@8.0.0-alpha.7:
+    resolution: {integrity: sha512-zbhC6D7WuL6NcZVQp0Y8NLy+Z4E6zoEm2XD2WhmzCY0rRR2ziMZbXL22zkbsQYgyDQlM+CwD/OMFjDUzWV40zw==}
     dependencies:
-      '@storybook/core-events': 8.0.0-alpha.6
-      '@storybook/node-logger': 8.0.0-alpha.6
-      '@storybook/types': 8.0.0-alpha.6
+      '@storybook/core-events': 8.0.0-alpha.7
+      '@storybook/node-logger': 8.0.0-alpha.7
+      '@storybook/types': 8.0.0-alpha.7
       '@types/find-cache-dir': 3.2.1
       '@types/node': 18.19.3
       '@types/node-fetch': 2.6.9
@@ -8456,8 +8455,8 @@ packages:
       ts-dedent: 2.2.0
     dev: true
 
-  /@storybook/core-events@8.0.0-alpha.6:
-    resolution: {integrity: sha512-1vucS/JQXWdMZg06Uaexi8gDmBrWxyqNpedFckfmHcNTUgbUgVVKh1JolHiliro8qs2oDVGhBYJO6acQYP5ryg==}
+  /@storybook/core-events@8.0.0-alpha.7:
+    resolution: {integrity: sha512-f8usslY8I+21HHofp7uvcaLp9jSvsC3m8xf3K4SygPdoizr/uy3FYL6si+y/9bpSHAzbTIpyqHimw9slSzP11g==}
     dependencies:
       ts-dedent: 2.2.0
     dev: true
@@ -8535,10 +8534,10 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/csf-plugin@8.0.0-alpha.6:
-    resolution: {integrity: sha512-aKdk9+75MeGvVBU9P8slAiCE+bvGXsNz1etC7zjtbioYNWHeUDKaiA035pvXp9Qd3SkknPOokR/fENTYp8BVCQ==}
+  /@storybook/csf-plugin@8.0.0-alpha.7:
+    resolution: {integrity: sha512-M9BILm/nnFFe2nxWFf42Nk/3iWSl2niK40ZW5rgRxNFVeASLPP6QzE/vcjx0HhHzfRus8USbk3ZG3/Q6uuQndA==}
     dependencies:
-      '@storybook/csf-tools': 8.0.0-alpha.6
+      '@storybook/csf-tools': 8.0.0-alpha.7
       unplugin: 1.5.1
     transitivePeerDependencies:
       - supports-color
@@ -8576,15 +8575,15 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/csf-tools@8.0.0-alpha.6:
-    resolution: {integrity: sha512-1iElOaNpqQs4n8ZoeRKlYNI1Sy7FjpElImacIRkzQFHmfqSTPPDipZnzPGXWmpL0z4oIo6jR3PdHNFpDLDccDg==}
+  /@storybook/csf-tools@8.0.0-alpha.7:
+    resolution: {integrity: sha512-Rhf3sPU3GsEDXgxh6n0WQMJ63oNJp+8nImjXuBviNWIlhwERA4x+q3lhCt2YAYDjMtMShIv+fLmrXrxC1LbblQ==}
     dependencies:
       '@babel/generator': 7.23.6
       '@babel/parser': 7.23.6
       '@babel/traverse': 7.23.6
       '@babel/types': 7.23.6
       '@storybook/csf': 0.1.2
-      '@storybook/types': 8.0.0-alpha.6
+      '@storybook/types': 8.0.0-alpha.7
       fs-extra: 11.2.0
       recast: 0.23.4
       ts-dedent: 2.2.0
@@ -8678,8 +8677,8 @@ packages:
     resolution: {integrity: sha512-xKw6IH1wLkIssekdBv3bd13xYKUF1t8EwqDR8BYcN8AVjZlqJMTifssqG4bYV+G/B7J3tz4ugJ5nmtWg6RQ0Qw==}
     dev: true
 
-  /@storybook/node-logger@8.0.0-alpha.6:
-    resolution: {integrity: sha512-VlQU1fRZxp0IH5gGDeslRR1qBVlU9+PdjrxU0vhXdhbSAeWH65WBoLs2RrAjlELD+wpICHIJz9uUo/wFiDNKUw==}
+  /@storybook/node-logger@8.0.0-alpha.7:
+    resolution: {integrity: sha512-kGoPAGbaP8UMX/72ya4pd8TK0kqNxcYuVa6hdLH0z4VmIPUqIYc9uWTqd1gCrAIWrLBB+WJKz1Lnt8jHuilxcA==}
     dev: true
 
   /@storybook/postinstall@7.6.3:
@@ -8705,15 +8704,15 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /@storybook/preview-api@8.0.0-alpha.6:
-    resolution: {integrity: sha512-DJqpJWkAGIHzT2UKBgiubVhEEvEQOFYaQWP0YgJW/81KetmkR0giqUDT9kISvWdiFEWyYiY5Tl0nfuVoVtFMMQ==}
+  /@storybook/preview-api@8.0.0-alpha.7:
+    resolution: {integrity: sha512-Hp2mL9hiRglTqhZfIHeE9bkiTc7rKWynh/e7+Yu9ReZltwi2V+n5n27X19R93pWmvNQhZP4OqTzfBNw4EoDZCg==}
     dependencies:
-      '@storybook/channels': 8.0.0-alpha.6
-      '@storybook/client-logger': 8.0.0-alpha.6
-      '@storybook/core-events': 8.0.0-alpha.6
+      '@storybook/channels': 8.0.0-alpha.7
+      '@storybook/client-logger': 8.0.0-alpha.7
+      '@storybook/core-events': 8.0.0-alpha.7
       '@storybook/csf': 0.1.2
       '@storybook/global': 5.0.0
-      '@storybook/types': 8.0.0-alpha.6
+      '@storybook/types': 8.0.0-alpha.7
       '@types/qs': 6.9.10
       dequal: 2.0.3
       lodash: 4.17.21
@@ -8728,8 +8727,8 @@ packages:
     resolution: {integrity: sha512-obSmKN8arWSHuLbCDM1H0lTVRMvAP/l7vOi6TQtFi6TxBz9MRCJA3Ugc0PZrbDADVZP+cp0ZJA0JQtAm+SqNAA==}
     dev: true
 
-  /@storybook/preview@8.0.0-alpha.6:
-    resolution: {integrity: sha512-YaVIhqh1vh2OsZs4Npz+Fd9TPKe2ItPZE2A6Rox4P5AmpTEHydymykcwdtH8M+vw+Q6Oi/A4PQnQhACl4L2dQQ==}
+  /@storybook/preview@8.0.0-alpha.7:
+    resolution: {integrity: sha512-8QGl89cImWGwMoS496t6BbmQ9dB3vlfvrZdwvU+OKDRAzkDvHIwMeQy6OLApNtHoW1NYoumwbk2EvaU9aVK/xw==}
     dev: true
 
   /@storybook/react-dom-shim@7.6.3(react-dom@18.2.0)(react@18.2.0):
@@ -8930,10 +8929,10 @@ packages:
       file-system-cache: 2.3.0
     dev: true
 
-  /@storybook/types@8.0.0-alpha.6:
-    resolution: {integrity: sha512-PqEIaLZJrhJKW5TUXp3E2lTNYcwLD/PzF3j+HyaANtHAMAL8mu8r+9lBC1wjV5DxiMPqBWhxXVdWaYp7KaJ4lg==}
+  /@storybook/types@8.0.0-alpha.7:
+    resolution: {integrity: sha512-oXmCj+n418NJ2PonhXeArtvqEF619JcyT2O8t8GKUZQrLXGXuWVatZqcAaNrccfmj+vtavngpv+AQiUFAKExMA==}
     dependencies:
-      '@storybook/channels': 8.0.0-alpha.6
+      '@storybook/channels': 8.0.0-alpha.7
       '@types/babel__core': 7.20.5
       '@types/express': 4.17.21
       file-system-cache: 2.3.0
@@ -13361,13 +13360,13 @@ packages:
       eslint: 8.56.0
     dev: false
 
-  /eslint-config-turbo@1.10.16(eslint@8.56.0):
-    resolution: {integrity: sha512-O3NQI72bQHV7FvSC6lWj66EGx8drJJjuT1kuInn6nbMLOHdMBhSUX/8uhTAlHRQdlxZk2j9HtgFCIzSc93w42g==}
+  /eslint-config-turbo@1.11.2(eslint@8.56.0):
+    resolution: {integrity: sha512-vqbyCH6kCHFoIAWUmGL61c0BfUQNz0XAl2RzAnEkSQ+PLXvEvuV2HsvL51UOzyyElfJlzZuh9T4BvUqb5KR9Eg==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
       eslint: 8.56.0
-      eslint-plugin-turbo: 1.10.16(eslint@8.56.0)
+      eslint-plugin-turbo: 1.11.2(eslint@8.56.0)
     dev: false
 
   /eslint-etc@5.2.1(eslint@8.56.0)(typescript@5.2.2):
@@ -13634,8 +13633,8 @@ packages:
       - typescript
     dev: false
 
-  /eslint-plugin-turbo@1.10.16(eslint@8.56.0):
-    resolution: {integrity: sha512-ZjrR88MTN64PNGufSEcM0tf+V1xFYVbeiMeuIqr0aiABGomxFLo4DBkQ7WI4WzkZtWQSIA2sP+yxqSboEfL9MQ==}
+  /eslint-plugin-turbo@1.11.2(eslint@8.56.0):
+    resolution: {integrity: sha512-U6DX+WvgGFiwEAqtOjm4Ejd9O4jsw8jlFNkQi0ywxbMnbiTie+exF4Z0F/B1ajtjjeZkBkgRnlU+UkoraBN+bw==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
@@ -19964,7 +19963,7 @@ packages:
     resolution: {integrity: sha512-dD+VMYC5fBBQNesVb+mjB0LOkZIf100SQFbjAt9/sDstNUvc5ce3yZwLYXzgcOc7jcSMkrBu/cZNRzEM4YIAyw==}
     engines: {node: ^14.18 || >=16}
     dependencies:
-      '@storybook/builder-vite': 8.0.0-alpha.6(typescript@5.3.3)(vite@5.0.10)
+      '@storybook/builder-vite': 8.0.0-alpha.7(typescript@5.3.3)(vite@5.0.10)
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - encoding
@@ -20870,64 +20869,64 @@ packages:
       - supports-color
     dev: true
 
-  /turbo-darwin-64@1.10.16:
-    resolution: {integrity: sha512-+Jk91FNcp9e9NCLYlvDDlp2HwEDp14F9N42IoW3dmHI5ZkGSXzalbhVcrx3DOox3QfiNUHxzWg4d7CnVNCuuMg==}
+  /turbo-darwin-64@1.11.2:
+    resolution: {integrity: sha512-toFmRG/adriZY3hOps7nYCfqHAS+Ci6xqgX3fbo82kkLpC6OBzcXnleSwuPqjHVAaRNhVoB83L5njcE9Qwi2og==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64@1.10.16:
-    resolution: {integrity: sha512-jqGpFZipIivkRp/i+jnL8npX0VssE6IAVNKtu573LXtssZdV/S+fRGYA16tI46xJGxSAivrZ/IcgZrV6Jk80bw==}
+  /turbo-darwin-arm64@1.11.2:
+    resolution: {integrity: sha512-FCsEDZ8BUSFYEOSC3rrARQrj7x2VOrmVcfrMUIhexTxproRh4QyMxLfr6LALk4ymx6jbDCxWa6Szal8ckldFbA==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64@1.10.16:
-    resolution: {integrity: sha512-PpqEZHwLoizQ6sTUvmImcRmACyRk9EWLXGlqceogPZsJ1jTRK3sfcF9fC2W56zkSIzuLEP07k5kl+ZxJd8JMcg==}
+  /turbo-linux-64@1.11.2:
+    resolution: {integrity: sha512-Vzda/o/QyEske5CxLf0wcu7UUS+7zB90GgHZV4tyN+WZtoouTvbwuvZ3V6b5Wgd3OJ/JwWR0CXDK7Sf4VEMr7A==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64@1.10.16:
-    resolution: {integrity: sha512-TMjFYz8to1QE0fKVXCIvG/4giyfnmqcQIwjdNfJvKjBxn22PpbjeuFuQ5kNXshUTRaTJihFbuuCcb5OYFNx4uw==}
+  /turbo-linux-arm64@1.11.2:
+    resolution: {integrity: sha512-bRLwovQRz0yxDZrM4tQEAYV0fBHEaTzUF0JZ8RG1UmZt/CqtpnUrJpYb1VK8hj1z46z9YehARpYCwQ2K0qU4yw==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64@1.10.16:
-    resolution: {integrity: sha512-+jsf68krs0N66FfC4/zZvioUap/Tq3sPFumnMV+EBo8jFdqs4yehd6+MxIwYTjSQLIcpH8KoNMB0gQYhJRLZzw==}
+  /turbo-windows-64@1.11.2:
+    resolution: {integrity: sha512-LgTWqkHAKgyVuLYcEPxZVGPInTjjeCnN5KQMdJ4uQZ+xMDROvMFS2rM93iQl4ieDJgidwHCxxCxaU9u8c3d/Kg==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64@1.10.16:
-    resolution: {integrity: sha512-sKm3hcMM1bl0B3PLG4ifidicOGfoJmOEacM5JtgBkYM48ncMHjkHfFY7HrJHZHUnXM4l05RQTpLFoOl/uIo2HQ==}
+  /turbo-windows-arm64@1.11.2:
+    resolution: {integrity: sha512-829aVBU7IX0c/B4G7g1VI8KniAGutHhIupkYMgF6xPkYVev2G3MYe6DMS/vsLt9GGM9ulDtdWxWrH5P2ngK8IQ==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo@1.10.16:
-    resolution: {integrity: sha512-2CEaK4FIuSZiP83iFa9GqMTQhroW2QryckVqUydmg4tx78baftTOS0O+oDAhvo9r9Nit4xUEtC1RAHoqs6ZEtg==}
+  /turbo@1.11.2:
+    resolution: {integrity: sha512-jPC7LVQJzebs5gWf8FmEvsvXGNyKbN+O9qpvv98xpNaM59aS0/Irhd0H0KbcqnXfsz7ETlzOC3R+xFWthC4Z8A==}
     hasBin: true
     optionalDependencies:
-      turbo-darwin-64: 1.10.16
-      turbo-darwin-arm64: 1.10.16
-      turbo-linux-64: 1.10.16
-      turbo-linux-arm64: 1.10.16
-      turbo-windows-64: 1.10.16
-      turbo-windows-arm64: 1.10.16
+      turbo-darwin-64: 1.11.2
+      turbo-darwin-arm64: 1.11.2
+      turbo-linux-64: 1.11.2
+      turbo-linux-arm64: 1.11.2
+      turbo-windows-64: 1.11.2
+      turbo-windows-arm64: 1.11.2
     dev: true
 
   /tween-functions@1.2.0:

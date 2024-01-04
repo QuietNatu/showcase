@@ -6,7 +6,6 @@ import {
   autoUpdate,
   flip,
   offset,
-  safePolygon,
   shift,
   useDismiss,
   useFloating,
@@ -51,7 +50,7 @@ const triggerOffset = 12;
 const pageMargin = 8;
 const arrowSize = 6;
 const arrowPadding = 8;
-const destroyCountdown = 200;
+const hoverDelay = 500;
 
 // TODO: rename?
 function useOverlay() {
@@ -70,7 +69,7 @@ function useOverlay() {
     whileElementsMounted: autoUpdate,
   });
 
-  const hover = useHover(context, { move: false, handleClose: safePolygon() });
+  const hover = useHover(context, { move: false, delay: hoverDelay });
   const focus = useFocus(context);
   const dismiss = useDismiss(context); // TODO: click outside
 

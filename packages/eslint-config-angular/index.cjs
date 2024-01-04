@@ -33,6 +33,7 @@ module.exports = {
         '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
         '@typescript-eslint/no-non-null-assertion': 'warn',
         '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/no-restricted-imports': [
           'error',
           {

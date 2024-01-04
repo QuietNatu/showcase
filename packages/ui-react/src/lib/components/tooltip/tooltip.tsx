@@ -6,6 +6,7 @@ import {
   autoUpdate,
   flip,
   offset,
+  safePolygon,
   shift,
   useDismiss,
   useFloating,
@@ -69,7 +70,7 @@ function useOverlay() {
     whileElementsMounted: autoUpdate,
   });
 
-  const hover = useHover(context, { move: false });
+  const hover = useHover(context, { move: false, handleClose: safePolygon() });
   const focus = useFocus(context);
   const dismiss = useDismiss(context); // TODO: click outside
 

@@ -23,4 +23,20 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
+export const Nested: Story = {
+  render: (args) => {
+    const content = (
+      <NatuTooltip {...args} content="Nested tooltip Text">
+        <NatuButton type="button">Show nested tooltip</NatuButton>
+      </NatuTooltip>
+    );
+
+    return (
+      <NatuTooltip {...args} content={content}>
+        <NatuButton type="button">Show tooltip</NatuButton>
+      </NatuTooltip>
+    );
+  },
+};
+
 // TODO: nested tooltip test

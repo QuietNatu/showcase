@@ -1,7 +1,9 @@
-import { ReactNode, useRef, useState } from 'react';
+import { HTMLAttributes, ReactNode, Ref, forwardRef, useRef, useState } from 'react';
 import {
   FloatingArrow,
+  FloatingContext,
   FloatingPortal,
+  ReferenceType,
   arrow,
   autoUpdate,
   flip,
@@ -16,34 +18,59 @@ import {
 import { Slot } from '@radix-ui/react-slot';
 
 export interface NatuTooltipProps {
+  /** The reference element that will trigger the tooltip. */
   children: ReactNode;
+  /** The content that will be shown by the tooltip. */
   content: ReactNode;
   // TODO: is open, open change
 }
 
+interface TooltipOverlayProps<T extends ReferenceType = ReferenceType>
+  extends HTMLAttributes<HTMLDivElement> {
+  floatingContext: FloatingContext<T>;
+  arrowRef: Ref<SVGSVGElement>;
+  children: ReactNode;
+}
+
 export function NatuTooltip(props: NatuTooltipProps) {
-  const { isOpen, refs, arrowRef, context, floatingStyles, getFloatingProps, getReferenceProps } =
-    useOverlay();
+  const tooltip = useTooltip();
 
   return (
     <>
-      <Slot ref={refs.setReference} {...getReferenceProps()}>
+      <Slot ref={tooltip.referenceRef} {...tooltip.getReferenceProps()}>
         {props.children}
       </Slot>
 
-      {isOpen && (
-        /* TODO: extract to component */
-        <FloatingPortal>
-          <div ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()}>
-            {props.content}
-
-            <FloatingArrow ref={arrowRef} context={context} />
-          </div>
-        </FloatingPortal>
+      {tooltip.isOpen && (
+        <TooltipOverlay
+          ref={tooltip.floatingRef}
+          arrowRef={tooltip.arrowRef}
+          floatingContext={tooltip.floatingContext}
+          style={tooltip.floatingStyles}
+          {...tooltip.getFloatingProps()}
+        >
+          {props.content}
+        </TooltipOverlay>
       )}
     </>
   );
 }
+
+const TooltipOverlay = forwardRef<HTMLDivElement, TooltipOverlayProps>(
+  function TooltipOverlay(props, ref) {
+    const { children, floatingContext, arrowRef, ...overlayProps } = props;
+
+    return (
+      <FloatingPortal>
+        <div ref={ref} {...overlayProps} className="natu-tooltip">
+          {children}
+
+          <FloatingArrow ref={arrowRef} context={floatingContext} className="natu-tooltip__arrow" />
+        </div>
+      </FloatingPortal>
+    );
+  },
+);
 
 // TODO: move consts to a config
 const triggerOffset = 12;
@@ -52,8 +79,9 @@ const arrowSize = 6;
 const arrowPadding = 8;
 const hoverDelay = 500;
 
-// TODO: rename?
-function useOverlay() {
+/* TODO: placement */
+
+function useTooltip() {
   const [isOpen, setIsOpen] = useState(false); // TODO: controlled
 
   const arrowRef = useRef(null);
@@ -77,10 +105,11 @@ function useOverlay() {
 
   return {
     isOpen,
-    refs,
+    referenceRef: refs.setReference,
+    floatingRef: refs.setFloating,
     arrowRef,
     floatingStyles,
-    context,
+    floatingContext: context,
     getReferenceProps,
     getFloatingProps,
   };

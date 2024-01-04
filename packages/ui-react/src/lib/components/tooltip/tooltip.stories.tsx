@@ -38,5 +38,3 @@ export const Nested: Story = {
     );
   },
 };
-
-// TODO: nested tooltip test

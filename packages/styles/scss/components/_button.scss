@@ -212,13 +212,13 @@ $-variants: (
 
     cursor: pointer;
     font-weight: var(--natu-font-weight-strong);
-    padding: 0 var(--natu-size-spacing-4);
+    padding: 0 calc(var(--natu-size-spacing-4) - var(--natu-control-border-width));
     user-select: none;
 
     &--small {
       @include utils.control--small;
 
-      padding: 0 var(--natu-size-spacing-3);
+      padding: 0 calc(var(--natu-size-spacing-3) - var(--natu-control-border-width));
     }
 
     &--disabled {

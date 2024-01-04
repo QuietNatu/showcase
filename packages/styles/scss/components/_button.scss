@@ -212,10 +212,13 @@ $-variants: (
 
     cursor: pointer;
     font-weight: var(--natu-font-weight-strong);
+    padding: 0 var(--natu-size-spacing-4);
     user-select: none;
 
     &--small {
       @include utils.control--small;
+
+      padding: 0 var(--natu-size-spacing-3);
     }
 
     &--disabled {

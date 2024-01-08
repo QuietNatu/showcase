@@ -25,14 +25,24 @@
       '8': {
         value: 'drop-shadow(0 0 1px rgba(0, 0, 0, 0.2)) drop-shadow(0 16px 20px rgba(0, 0, 0, 0.1)) drop-shadow(0 20px 24px rgba(0, 0, 0, 0.1)) drop-shadow(0 24px 28px rgba(0, 0, 0, 0.1))',
       },
+
+      base: { value: '{elevation.shadow.1}' },
+      overlay: { value: '{elevation.shadow.2}' },
+      toast: { value: '{elevation.shadow.4}' },
+      tooltip: { value: '{elevation.shadow.6}' },
+      modal: { value: '{elevation.shadow.8}' },
     },
     'z-index': {
-      // TODO: Better name for z-index
       '1': { value: '100' },
       '2': { value: '200' },
       '3': { value: '300' },
       '4': { value: '400' },
       '5': { value: '500' },
+
+      component: { value: '{elevation.z-index.2}' },
+      overlay: { value: '{elevation.z-index.3}' },
+      modal: { value: '{elevation.z-index.4}' },
+      toast: { value: '{elevation.z-index.5}' },
     },
   },
 }

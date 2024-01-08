@@ -39,7 +39,7 @@
       '4': { value: '400' },
       '5': { value: '500' },
 
-      component: { value: '{elevation.z-index.2}' },
+      component: { value: '{elevation.z-index.2}' }, // For sticky/fixed components like headers
       overlay: { value: '{elevation.z-index.3}' },
       modal: { value: '{elevation.z-index.4}' },
       toast: { value: '{elevation.z-index.5}' },

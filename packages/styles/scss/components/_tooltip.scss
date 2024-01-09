@@ -1,0 +1,23 @@
+@use '../utils';
+
+/* TODO: animations */
+
+@layer tooltip {
+  $-tooltip-background-color: var(--natu-color-surface-invert);
+
+  .natu-tooltip {
+    @include utils.control;
+    @include utils.control--fluid;
+    @include utils.text-label;
+
+    background-color: $-tooltip-background-color;
+    color: var(--natu-color-font-invert);
+    display: block;
+    filter: var(--natu-elevation-shadow-tooltip);
+    z-index: var(--natu-elevation-z-index-overlay);
+  }
+
+  .natu-tooltip__arrow {
+    fill: $-tooltip-background-color;
+  }
+}

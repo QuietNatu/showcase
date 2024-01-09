@@ -29,6 +29,8 @@ interface TooltipOverlayProps<T extends ReferenceType = ReferenceType>
   extends HTMLAttributes<HTMLDivElement> {
   floatingContext: FloatingContext<T>;
   arrowRef: Ref<SVGSVGElement>;
+  arrowWidth: number;
+  arrowHeight: number;
   children: ReactNode;
 }
 
@@ -45,6 +47,8 @@ export function NatuTooltip(props: NatuTooltipProps) {
         <TooltipOverlay
           ref={tooltip.floatingRef}
           arrowRef={tooltip.arrowRef}
+          arrowWidth={tooltip.arrowWidth}
+          arrowHeight={tooltip.arrowHeight}
           floatingContext={tooltip.floatingContext}
           style={tooltip.floatingStyles}
           {...tooltip.getFloatingProps()}
@@ -58,28 +62,35 @@ export function NatuTooltip(props: NatuTooltipProps) {
 
 const TooltipOverlay = forwardRef<HTMLDivElement, TooltipOverlayProps>(
   function TooltipOverlay(props, ref) {
-    const { children, floatingContext, arrowRef, ...overlayProps } = props;
+    const { children, floatingContext, arrowRef, arrowWidth, arrowHeight, ...overlayProps } = props;
 
     return (
       <FloatingPortal>
         <div ref={ref} {...overlayProps} className="natu-tooltip">
           {children}
 
-          <FloatingArrow ref={arrowRef} context={floatingContext} className="natu-tooltip__arrow" />
+          <FloatingArrow
+            ref={arrowRef}
+            context={floatingContext}
+            className="natu-tooltip__arrow"
+            width={arrowWidth}
+            height={arrowHeight}
+          />
         </div>
       </FloatingPortal>
     );
   },
 );
 
+/* TODO: placement */
+
 // TODO: move consts to a config
-const triggerOffset = 12;
 const pageMargin = 8;
-const arrowSize = 6;
+const arrowWidth = 16;
+const arrowHeight = 8;
 const arrowPadding = 8;
 const hoverDelay = 500;
-
-/* TODO: placement */
+const triggerOffset = arrowHeight + 4;
 
 function useTooltip() {
   const [isOpen, setIsOpen] = useState(false); // TODO: controlled
@@ -112,5 +123,7 @@ function useTooltip() {
     floatingContext: context,
     getReferenceProps,
     getFloatingProps,
+    arrowWidth,
+    arrowHeight,
   };
 }

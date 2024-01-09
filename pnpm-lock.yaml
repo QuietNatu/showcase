@@ -9,11 +9,11 @@ importers:
   .:
     devDependencies:
       '@commitlint/cli':
-        specifier: 18.4.3
-        version: 18.4.3(@types/node@20.10.6)(typescript@5.3.3)
+        specifier: 18.4.4
+        version: 18.4.4(@types/node@20.10.6)(typescript@5.3.3)
       '@commitlint/config-conventional':
-        specifier: 18.4.3
-        version: 18.4.3
+        specifier: 18.4.4
+        version: 18.4.4
       '@ls-lint/ls-lint':
         specifier: 2.2.2
         version: 2.2.2
@@ -1757,7 +1757,7 @@ packages:
     dependencies:
       '@ampproject/remapping': 2.2.1
       '@babel/code-frame': 7.23.5
-      '@babel/generator': 7.23.0
+      '@babel/generator': 7.23.6
       '@babel/helper-compilation-targets': 7.23.6
       '@babel/helper-module-transforms': 7.23.3(@babel/core@7.23.2)
       '@babel/helpers': 7.23.7
@@ -4067,8 +4067,8 @@ packages:
     engines: {node: '>=0.1.90'}
     dev: true
 
-  /@commitlint/cli@18.4.3(@types/node@20.10.6)(typescript@5.3.3):
-    resolution: {integrity: sha512-zop98yfB3A6NveYAZ3P1Mb6bIXuCeWgnUfVNkH4yhIMQpQfzFwseadazOuSn0OOfTt0lWuFauehpm9GcqM5lww==}
+  /@commitlint/cli@18.4.4(@types/node@20.10.6)(typescript@5.3.3):
+    resolution: {integrity: sha512-Ro3wIo//fV3XiV1EkdpHog6huaEyNcUAVrSmtgKqYM5g982wOWmP4FXvEDFwRMVgz878CNBvvCc33dMZ5AQJ/g==}
     engines: {node: '>=v18'}
     hasBin: true
     dependencies:
@@ -4087,8 +4087,8 @@ packages:
       - typescript
     dev: true
 
-  /@commitlint/config-conventional@18.4.3:
-    resolution: {integrity: sha512-729eRRaNta7JZF07qf6SAGSghoDEp9mH7yHU0m7ff0q89W97wDrWCyZ3yoV3mcQJwbhlmVmZPTkPcm7qiAu8WA==}
+  /@commitlint/config-conventional@18.4.4:
+    resolution: {integrity: sha512-Bz3sPQSboBN+Et/KyZrR+OJ3z9PrHDw7Bls0/hv94PmuHBtMq1dCGxS9XzTGzxeMNlytCC4kxF083tbhPljl3Q==}
     engines: {node: '>=v18'}
     dependencies:
       conventional-changelog-conventionalcommits: 7.0.2
@@ -10567,7 +10567,7 @@ packages:
     resolution: {integrity: sha512-M0EUka6rb+QC4l9Z3T0nJEzNOO7JcoJlYMrBlyBCiFSXRyxjLKayd4TbQs2FDRWQU1h9FR7QVNHt+PEaoNL5rQ==}
     engines: {node: '>=0.4.0'}
     dependencies:
-      acorn: 8.11.2
+      acorn: 8.11.3
     dev: true
 
   /acorn-node@1.8.2:
@@ -14557,7 +14557,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 3.0.5
+      minimatch: 3.1.2
       once: 1.4.0
       path-is-absolute: 1.0.1
     dev: true
@@ -14912,7 +14912,7 @@ packages:
       depd: 1.1.2
       inherits: 2.0.3
       setprototypeof: 1.1.0
-      statuses: 1.4.0
+      statuses: 1.5.0
     dev: true
 
   /http-errors@2.0.0:

@@ -24,7 +24,7 @@
     "@natu/styles": "workspace:*",
     "@natu/ui-solid": "workspace:*",
     "@natu/utils": "workspace:*",
-    "solid-js": "1.8.7"
+    "solid-js": "1.8.8"
   },
   "devDependencies": {
     "@mswjs/data": "0.16.1",
@@ -55,7 +55,7 @@
     "storybook-solidjs": "1.0.0-beta.2",
     "storybook-solidjs-vite": "1.0.0-beta.2",
     "typescript": "5.3.3",
-    "vite": "5.0.10",
+    "vite": "5.0.11",
     "vite-plugin-pwa": "0.17.4",
     "vite-plugin-solid": "2.8.0",
     "vite-tsconfig-paths": "4.2.3",

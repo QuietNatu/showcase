@@ -73,6 +73,7 @@ module.exports = {
         'vitest/consistent-test-it': ['error', { fn: 'test' }],
         'vitest/prefer-expect-resolves': 'off',
         'vitest/prefer-expect-assertions': 'off',
+        'vitest/prefer-to-be-falsy': 'off',
         'vitest/require-top-level-describe': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/unbound-method': 'off',

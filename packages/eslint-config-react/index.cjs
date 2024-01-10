@@ -104,9 +104,12 @@ module.exports = {
       plugins: ['vitest', 'jest-dom'],
       rules: {
         'react/display-name': 'off',
+        'sonarjs/no-duplicate-string': 'off',
         'vitest/consistent-test-it': ['error', { fn: 'test' }],
         'vitest/prefer-expect-resolves': 'off',
         'vitest/prefer-expect-assertions': 'off',
+        'vitest/prefer-to-be-falsy': 'off',
+        'vitest/prefer-to-be-truthy': 'off',
         'vitest/require-top-level-describe': 'off',
         'testing-library/no-await-sync-events': 'off',
         'testing-library/no-manual-cleanup': 'error',

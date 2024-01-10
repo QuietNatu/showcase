@@ -69,6 +69,7 @@ module.exports = {
       extends: ['plugin:vitest/recommended', 'plugin:vitest/all', 'plugin:jest-dom/recommended'],
       plugins: ['vitest', 'jest-dom'],
       rules: {
+        'sonarjs/no-duplicate-string': 'off',
         'vitest/consistent-test-it': ['error', { fn: 'test' }],
         'vitest/prefer-expect-resolves': 'off',
         'vitest/prefer-expect-assertions': 'off',

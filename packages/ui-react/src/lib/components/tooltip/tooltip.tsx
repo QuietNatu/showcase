@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode, Ref, forwardRef, useRef, useState } from 'react';
+import { HTMLAttributes, ReactNode, Ref, forwardRef, useRef } from 'react';
 import {
   FloatingArrow,
   FloatingContext,
@@ -16,13 +16,23 @@ import {
   useInteractions,
 } from '@floating-ui/react';
 import { Slot } from '@radix-ui/react-slot';
+import { useControllableState } from '../../hooks/use-controllable-state';
 
 export interface NatuTooltipProps {
-  /** The reference element that will trigger the tooltip. */
+  /** Reference element that will trigger the tooltip. */
   children: ReactNode;
-  /** The content that will be shown by the tooltip. */
+
+  /** Content that will be shown by the tooltip. */
   content: ReactNode;
-  // TODO: is open, open change
+
+  /** Controlled open state. */
+  isOpen?: boolean;
+
+  /** Default value for uncontrolled open state. */
+  defaultIsOpen?: boolean;
+
+  /** Controlled open state handler */
+  onOpenChange?: (isOpen: boolean) => void;
 }
 
 interface TooltipOverlayProps<T extends ReferenceType = ReferenceType>
@@ -34,8 +44,18 @@ interface TooltipOverlayProps<T extends ReferenceType = ReferenceType>
   children: ReactNode;
 }
 
+interface UseTooltipOptions {
+  isOpen?: boolean;
+  defaultIsOpen?: boolean;
+  onOpenChange?: (isOpen: boolean) => void;
+}
+
 export function NatuTooltip(props: NatuTooltipProps) {
-  const tooltip = useTooltip();
+  const tooltip = useTooltip({
+    isOpen: props.isOpen,
+    defaultIsOpen: props.defaultIsOpen,
+    onOpenChange: props.onOpenChange,
+  });
 
   return (
     <>
@@ -92,8 +112,13 @@ const arrowPadding = 8;
 const hoverDelay = 500;
 const triggerOffset = arrowHeight + 4;
 
-function useTooltip() {
-  const [isOpen, setIsOpen] = useState(false); // TODO: controlled
+function useTooltip(options: UseTooltipOptions) {
+  const [isOpen, setIsOpen] = useControllableState({
+    value: options.isOpen,
+    defaultValue: options.defaultIsOpen,
+    finalValue: false,
+    onChange: options.onOpenChange,
+  });
 
   const arrowRef = useRef(null);
   const { refs, floatingStyles, context } = useFloating({

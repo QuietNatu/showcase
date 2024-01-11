@@ -6,6 +6,9 @@ const meta = {
   title: 'Components/Tooltip',
   component: NatuTooltip,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'centered',
+  },
   args: {
     // TODO: remove?
     content: undefined,
@@ -59,9 +62,6 @@ export const Playground: Story = {
       <PlaygroundButton {...args} row={5} column={4} placement="bottom-end" />
     </div>
   ),
-  parameters: {
-    layout: 'centered',
-  },
 };
 
 interface PlaygroundButtonProps extends NatuTooltipProps {
@@ -72,8 +72,18 @@ interface PlaygroundButtonProps extends NatuTooltipProps {
 function PlaygroundButton(props: PlaygroundButtonProps) {
   const { row, column, ...tooltipProps } = props;
 
+  const tooltipContent = (
+    <div>
+      <div>{props.placement} tooltip example</div>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id iaculis.
+        In hac habitasse platea dictumst.
+      </div>
+    </div>
+  );
+
   return (
-    <NatuTooltip {...tooltipProps} content={props.placement + ' tooltip example'}>
+    <NatuTooltip {...tooltipProps} content={tooltipContent}>
       <NatuButton type="button" style={{ gridRow: row, gridColumn: column, width: '100px' }}>
         {props.placement}
       </NatuButton>

@@ -15,11 +15,14 @@ import {
   useFocus,
   useHover,
   useInteractions,
+  useMergeRefs,
 } from '@floating-ui/react';
 import { Slot } from '@radix-ui/react-slot';
 import { useControllableState } from '../../hooks/use-controllable-state';
 
-export interface NatuTooltipProps {
+type TooltipOverlayHTMLAttributes = Omit<HTMLAttributes<HTMLDivElement>, 'content'>;
+
+export interface NatuTooltipProps extends TooltipOverlayHTMLAttributes {
   /** Reference element that will trigger the tooltip. */
   children: ReactNode;
 
@@ -42,7 +45,7 @@ export interface NatuTooltipProps {
 export type NatuTooltipPlacement = Placement;
 
 interface TooltipOverlayProps<T extends ReferenceType = ReferenceType>
-  extends HTMLAttributes<HTMLDivElement> {
+  extends TooltipOverlayHTMLAttributes {
   floatingContext: FloatingContext<T>;
   arrowRef: Ref<SVGSVGElement>;
   arrowWidth: number;
@@ -57,36 +60,51 @@ interface UseTooltipOptions {
   placement?: NatuTooltipPlacement;
 }
 
-export function NatuTooltip(props: NatuTooltipProps) {
-  const tooltip = useTooltip({
-    isOpen: props.isOpen,
-    defaultIsOpen: props.defaultIsOpen,
-    onOpenChange: props.onOpenChange,
-    placement: props.placement,
-  });
+export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
+  function NatuTooltip(props, ref) {
+    const {
+      children,
+      content,
+      isOpen,
+      defaultIsOpen,
+      onOpenChange,
+      placement,
+      style,
+      ...tooltipProps
+    } = props;
 
-  return (
-    <>
-      <Slot ref={tooltip.referenceRef} {...tooltip.getReferenceProps()}>
-        {props.children}
-      </Slot>
+    const tooltip = useTooltip({
+      isOpen: props.isOpen,
+      defaultIsOpen: props.defaultIsOpen,
+      onOpenChange: props.onOpenChange,
+      placement: props.placement,
+    });
 
-      {tooltip.isOpen && (
-        <TooltipOverlay
-          ref={tooltip.floatingRef}
-          arrowRef={tooltip.arrowRef}
-          arrowWidth={tooltip.arrowWidth}
-          arrowHeight={tooltip.arrowHeight}
-          floatingContext={tooltip.floatingContext}
-          style={tooltip.floatingStyles}
-          {...tooltip.getFloatingProps()}
-        >
-          {props.content}
-        </TooltipOverlay>
-      )}
-    </>
-  );
-}
+    const overlayRef = useMergeRefs([ref, tooltip.floatingRef]);
+
+    return (
+      <>
+        <Slot ref={tooltip.referenceRef} {...tooltip.getReferenceProps()}>
+          {props.children}
+        </Slot>
+
+        {tooltip.isOpen && (
+          <TooltipOverlay
+            ref={overlayRef}
+            arrowRef={tooltip.arrowRef}
+            arrowWidth={tooltip.arrowWidth}
+            arrowHeight={tooltip.arrowHeight}
+            floatingContext={tooltip.floatingContext}
+            style={{ ...tooltip.floatingStyles, ...style }}
+            {...tooltip.getFloatingProps(tooltipProps)}
+          >
+            {props.content}
+          </TooltipOverlay>
+        )}
+      </>
+    );
+  },
+);
 
 const TooltipOverlay = forwardRef<HTMLDivElement, TooltipOverlayProps>(
   function TooltipOverlay(props, ref) {

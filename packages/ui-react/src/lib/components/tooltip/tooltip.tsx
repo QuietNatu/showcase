@@ -3,6 +3,7 @@ import {
   FloatingArrow,
   FloatingContext,
   FloatingPortal,
+  Placement,
   ReferenceType,
   arrow,
   autoUpdate,
@@ -31,9 +32,14 @@ export interface NatuTooltipProps {
   /** Default value for uncontrolled open state. */
   defaultIsOpen?: boolean;
 
-  /** Controlled open state handler */
+  /** Controlled open state handler. */
   onOpenChange?: (isOpen: boolean) => void;
+
+  /** Where to place the tooltip relative to the reference element. */
+  placement?: NatuTooltipPlacement;
 }
+
+export type NatuTooltipPlacement = Placement;
 
 interface TooltipOverlayProps<T extends ReferenceType = ReferenceType>
   extends HTMLAttributes<HTMLDivElement> {
@@ -48,6 +54,7 @@ interface UseTooltipOptions {
   isOpen?: boolean;
   defaultIsOpen?: boolean;
   onOpenChange?: (isOpen: boolean) => void;
+  placement?: NatuTooltipPlacement;
 }
 
 export function NatuTooltip(props: NatuTooltipProps) {
@@ -55,6 +62,7 @@ export function NatuTooltip(props: NatuTooltipProps) {
     isOpen: props.isOpen,
     defaultIsOpen: props.defaultIsOpen,
     onOpenChange: props.onOpenChange,
+    placement: props.placement,
   });
 
   return (
@@ -102,8 +110,6 @@ const TooltipOverlay = forwardRef<HTMLDivElement, TooltipOverlayProps>(
   },
 );
 
-/* TODO: placement */
-
 // TODO: move consts to a config
 const pageMargin = 8;
 const arrowWidth = 16;
@@ -111,6 +117,7 @@ const arrowHeight = 8;
 const arrowPadding = 8;
 const hoverDelay = 500;
 const triggerOffset = arrowHeight + 4;
+const defaultPlacement: NatuTooltipPlacement = 'top';
 
 function useTooltip(options: UseTooltipOptions) {
   const [isOpen, setIsOpen] = useControllableState({
@@ -124,6 +131,7 @@ function useTooltip(options: UseTooltipOptions) {
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
+    placement: options.placement ?? defaultPlacement,
     middleware: [
       offset(triggerOffset),
       flip(),
@@ -135,7 +143,7 @@ function useTooltip(options: UseTooltipOptions) {
 
   const hover = useHover(context, { move: false, delay: hoverDelay });
   const focus = useFocus(context);
-  const dismiss = useDismiss(context); // TODO: click outside
+  const dismiss = useDismiss(context); // TODO: global click outside
 
   const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss]);
 

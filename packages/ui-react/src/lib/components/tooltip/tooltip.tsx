@@ -3,6 +3,7 @@ import {
   FloatingArrow,
   FloatingPortal,
   Placement,
+  Side,
   arrow,
   autoUpdate,
   flip,
@@ -120,6 +121,13 @@ const animationDuration = 200; // TODO: use design token?
 const triggerOffset = arrowHeight + 4;
 const defaultPlacement: NatuTooltipPlacement = 'top';
 
+const sideTransforms: Record<Side, string> = {
+  top: 'translateY(4px)',
+  bottom: 'translateY(-4px)',
+  left: 'translateX(4px)',
+  right: 'translateX(-4px)',
+};
+
 function useTooltip(options: UseTooltipOptions) {
   const [isOpen, setIsOpen] = useControllableState({
     value: options.isOpen,
@@ -144,10 +152,10 @@ function useTooltip(options: UseTooltipOptions) {
 
   const { isMounted, styles } = useTransitionStyles(context, {
     duration: animationDuration,
-    initial: {
+    initial: ({ side }) => ({
       opacity: 0,
-      transform: 'scale(0.8)', // TODO: translate based on side
-    },
+      transform: sideTransforms[side],
+    }),
   });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([

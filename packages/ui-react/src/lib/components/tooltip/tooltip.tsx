@@ -1,10 +1,8 @@
-import { HTMLAttributes, ReactNode, Ref, forwardRef, useRef } from 'react';
+import { HTMLAttributes, ReactNode, forwardRef, useRef } from 'react';
 import {
   FloatingArrow,
-  FloatingContext,
   FloatingPortal,
   Placement,
-  ReferenceType,
   arrow,
   autoUpdate,
   flip,
@@ -15,10 +13,11 @@ import {
   useFocus,
   useHover,
   useInteractions,
-  useMergeRefs,
+  useTransitionStyles,
 } from '@floating-ui/react';
 import { Slot } from '@radix-ui/react-slot';
 import { useControllableState } from '../../hooks/use-controllable-state';
+import clsx from 'clsx';
 
 type TooltipOverlayHTMLAttributes = Omit<HTMLAttributes<HTMLDivElement>, 'content'>;
 
@@ -44,15 +43,6 @@ export interface NatuTooltipProps extends TooltipOverlayHTMLAttributes {
 
 export type NatuTooltipPlacement = Placement;
 
-interface TooltipOverlayProps<T extends ReferenceType = ReferenceType>
-  extends TooltipOverlayHTMLAttributes {
-  floatingContext: FloatingContext<T>;
-  arrowRef: Ref<SVGSVGElement>;
-  arrowWidth: number;
-  arrowHeight: number;
-  children: ReactNode;
-}
-
 interface UseTooltipOptions {
   isOpen?: boolean;
   defaultIsOpen?: boolean;
@@ -60,8 +50,10 @@ interface UseTooltipOptions {
   placement?: NatuTooltipPlacement;
 }
 
+/* TODO: a11y */
+
 export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
-  function NatuTooltip(props, ref) {
+  function NatuTooltip(props, forwardedRef) {
     const {
       children,
       content,
@@ -70,6 +62,7 @@ export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
       onOpenChange,
       placement,
       style,
+      className,
       ...tooltipProps
     } = props;
 
@@ -80,50 +73,39 @@ export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
       placement: props.placement,
     });
 
-    const overlayRef = useMergeRefs([ref, tooltip.floatingRef]);
-
     return (
       <>
         <Slot ref={tooltip.referenceRef} {...tooltip.getReferenceProps()}>
           {props.children}
         </Slot>
 
-        {tooltip.isOpen && (
-          <TooltipOverlay
-            ref={overlayRef}
-            arrowRef={tooltip.arrowRef}
-            arrowWidth={tooltip.arrowWidth}
-            arrowHeight={tooltip.arrowHeight}
-            floatingContext={tooltip.floatingContext}
-            style={{ ...tooltip.floatingStyles, ...style }}
-            {...tooltip.getFloatingProps(tooltipProps)}
-          >
-            {props.content}
-          </TooltipOverlay>
+        {tooltip.isMounted && (
+          <FloatingPortal>
+            <div
+              ref={tooltip.floatingRef}
+              style={tooltip.floatingStyles}
+              {...tooltip.getFloatingProps()}
+            >
+              <div
+                ref={forwardedRef}
+                className={clsx('natu-tooltip', className)}
+                style={{ ...tooltip.transitionStyles, ...style }}
+                {...tooltipProps}
+              >
+                {props.content}
+
+                <FloatingArrow
+                  ref={tooltip.arrowRef}
+                  context={tooltip.floatingContext}
+                  width={tooltip.arrowWidth}
+                  className="natu-tooltip__arrow"
+                  height={tooltip.arrowHeight}
+                />
+              </div>
+            </div>
+          </FloatingPortal>
         )}
       </>
-    );
-  },
-);
-
-const TooltipOverlay = forwardRef<HTMLDivElement, TooltipOverlayProps>(
-  function TooltipOverlay(props, ref) {
-    const { children, floatingContext, arrowRef, arrowWidth, arrowHeight, ...overlayProps } = props;
-
-    return (
-      <FloatingPortal>
-        <div ref={ref} {...overlayProps} className="natu-tooltip">
-          {children}
-
-          <FloatingArrow
-            ref={arrowRef}
-            context={floatingContext}
-            className="natu-tooltip__arrow"
-            width={arrowWidth}
-            height={arrowHeight}
-          />
-        </div>
-      </FloatingPortal>
     );
   },
 );
@@ -134,6 +116,7 @@ const arrowWidth = 16;
 const arrowHeight = 8;
 const arrowPadding = 8;
 const hoverDelay = 500;
+const animationDuration = 200; // TODO: use design token?
 const triggerOffset = arrowHeight + 4;
 const defaultPlacement: NatuTooltipPlacement = 'top';
 
@@ -159,21 +142,30 @@ function useTooltip(options: UseTooltipOptions) {
     whileElementsMounted: autoUpdate,
   });
 
-  const hover = useHover(context, { move: false, delay: hoverDelay });
-  const focus = useFocus(context);
-  const dismiss = useDismiss(context); // TODO: global click outside
+  const { isMounted, styles } = useTransitionStyles(context, {
+    duration: animationDuration,
+    initial: {
+      opacity: 0,
+      transform: 'scale(0.8)', // TODO: translate based on side
+    },
+  });
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss]);
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    useHover(context, { move: false, delay: hoverDelay }),
+    useFocus(context),
+    useDismiss(context), // TODO: global click outside
+  ]);
 
   return {
-    isOpen,
+    isMounted,
     referenceRef: refs.setReference,
     floatingRef: refs.setFloating,
     arrowRef,
-    floatingStyles,
+    floatingStyles: floatingStyles,
     floatingContext: context,
     getReferenceProps,
     getFloatingProps,
+    transitionStyles: styles,
     arrowWidth,
     arrowHeight,
   };

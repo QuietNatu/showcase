@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode, forwardRef, useRef } from 'react';
+import { ComponentPropsWithoutRef, ReactNode, forwardRef, useRef } from 'react';
 import {
   FloatingArrow,
   FloatingPortal,
@@ -14,15 +14,16 @@ import {
   useFocus,
   useHover,
   useInteractions,
+  useRole,
   useTransitionStyles,
 } from '@floating-ui/react';
 import { Slot } from '@radix-ui/react-slot';
 import { useControllableState } from '../../hooks/use-controllable-state';
 import clsx from 'clsx';
 
-type TooltipOverlayHTMLAttributes = Omit<HTMLAttributes<HTMLDivElement>, 'content'>;
+type TooltipOverlayElementProps = Omit<ComponentPropsWithoutRef<'div'>, 'content'>;
 
-export interface NatuTooltipProps extends TooltipOverlayHTMLAttributes {
+export interface NatuTooltipProps extends TooltipOverlayElementProps {
   /** Reference element that will trigger the tooltip. */
   children: ReactNode;
 
@@ -163,6 +164,7 @@ function useTooltip(options: UseTooltipOptions) {
   });
 
   const { getReferenceProps, getFloatingProps } = useInteractions([
+    useRole(context, { role: 'tooltip' }),
     useHover(context, { move: false, delay: hoverDelay }),
     useFocus(context),
     useDismiss(context), // TODO: global click outside

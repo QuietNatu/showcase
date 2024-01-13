@@ -137,10 +137,14 @@ function useTooltip(options: UseTooltipOptions) {
   });
 
   const arrowRef = useRef(null);
+  const referenceRef = useRef(null);
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
     placement: options.placement ?? defaultPlacement,
+    elements: {
+      reference: referenceRef.current, // Needed because refs.setReference causes conflict with Slot ref merge
+    },
     middleware: [
       offset(triggerOffset),
       flip(),
@@ -166,7 +170,7 @@ function useTooltip(options: UseTooltipOptions) {
 
   return {
     isMounted,
-    referenceRef: refs.setReference,
+    referenceRef: referenceRef,
     floatingRef: refs.setFloating,
     arrowRef,
     floatingStyles: floatingStyles,

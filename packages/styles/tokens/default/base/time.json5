@@ -1,11 +1,10 @@
 {
   time: {
-    // TODO: better names
     animation: {
-      '1': { value: 88 },
-      '2': { value: 133 },
-      '3': { value: 200 },
-      '4': { value: 300 },
+      quick: { value: 88 },
+      fast: { value: 133 },
+      standard: { value: 200 },
+      slow: { value: 300 },
     },
   },
 }

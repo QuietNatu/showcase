@@ -86,7 +86,6 @@ for (const theme of themes) {
 
 const relevantTsCategories = new Set(['time']);
 const tsConfig = {
-  include: [`tokens/themes/smeargle/**/!(*.${colorSchemes.join(`|*.`)}).json5`], // TODO have default have all tokens so we can remove this
   source: [`tokens/default/**/!(*.${colorSchemes.join(`|*.`)}).json5`],
   platforms: {
     ts: {

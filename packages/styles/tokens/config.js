@@ -95,12 +95,12 @@ const tsConfig = {
       prefix: 'natu',
       files: [
         {
-          destination: 'tokens.js',
+          destination: 'index.js',
           format: 'javascript/es6',
           filter: (token) => relevantTsCategories.has(token.attributes.category),
         },
         {
-          destination: 'tokens.d.ts',
+          destination: 'index.d.ts',
           format: 'typescript/es6-declarations',
           filter: (token) => relevantTsCategories.has(token.attributes.category),
         },

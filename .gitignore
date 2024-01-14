@@ -43,3 +43,4 @@ documentation.json
 **/e2e/report
 **/e2e/results
 packages/styles/scss/tokens
+packages/styles/ts/tokens

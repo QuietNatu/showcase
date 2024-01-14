@@ -7,7 +7,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "pnpm clean && node ./tokens/config.js",
-    "clean": "rimraf ./scss/tokens"
+    "clean": "rimraf ./scss/tokens ./ts/tokens"
   },
   "dependencies": {
     "modern-normalize": "2.0.0"

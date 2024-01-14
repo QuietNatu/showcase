@@ -20,6 +20,7 @@ import {
 import { Slot } from '@radix-ui/react-slot';
 import { useControllableState } from '../../hooks/use-controllable-state';
 import clsx from 'clsx';
+import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 
 type TooltipOverlayElementProps = Omit<ComponentPropsWithoutRef<'div'>, 'content'>;
 
@@ -116,7 +117,7 @@ const arrowWidth = 16;
 const arrowHeight = 8;
 const arrowPadding = 8;
 const hoverDelay = 500;
-const animationDuration = 200; // TODO: use design token?
+const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 const triggerOffset = arrowHeight + 4;
 const defaultPlacement: NatuTooltipPlacement = 'top';
 

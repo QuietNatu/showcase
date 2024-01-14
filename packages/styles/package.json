@@ -5,6 +5,20 @@
   "version": "0.0.0",
   "type": "module",
   "sideEffects": false,
+  "types": "./ts/index.d.ts",
+  "module": "./ts/index.js",
+  "exports": {
+    ".": {
+      "types": "./ts/index.d.ts",
+      "default": "./ts/index.js"
+    },
+    "./scss": {
+      "default": "./scss/_index.scss"
+    },
+    "./scss/utils": {
+      "default": "./scss/utils/_index.scss"
+    }
+  },
   "scripts": {
     "build": "pnpm clean && node ./tokens/config.js",
     "clean": "rimraf ./scss/tokens ./ts/tokens"

@@ -20,6 +20,13 @@ StyleDictionary.registerFormat({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'time/miliseconds',
+  type: 'value',
+  matcher: (token) => token.attributes.category === 'time',
+  transformer: (token) => token.original.value.toString() + 'ms',
+});
+
 for (const theme of themes) {
   const selector = `:root[data-theme='${theme}']`;
 
@@ -30,7 +37,7 @@ for (const theme of themes) {
     ],
     platforms: {
       scss: {
-        transforms: ['attribute/cti', 'name/cti/kebab'],
+        transforms: ['attribute/cti', 'name/cti/kebab', 'time/miliseconds'],
         buildPath: `scss/tokens/${theme}/`,
         prefix: 'natu',
         files: [
@@ -55,7 +62,7 @@ for (const theme of themes) {
     source: [`tokens/default/**/*.dark.json5`, `tokens/themes/${theme}/**/*.dark.json5`],
     platforms: {
       scss: {
-        transforms: ['attribute/cti', 'name/cti/kebab'],
+        transforms: ['attribute/cti', 'name/cti/kebab', 'time/miliseconds'],
         buildPath: `scss/tokens/${theme}/`,
         prefix: 'natu',
         files: [
@@ -76,3 +83,29 @@ for (const theme of themes) {
   await new StyleDictionary(lightConfig).buildAllPlatforms();
   await new StyleDictionary(darkConfig).buildAllPlatforms();
 }
+
+const relevantTsCategories = new Set(['time']);
+const tsConfig = {
+  source: [`tokens/default/**/!(*.${colorSchemes.join(`|*.`)}).json5`],
+  platforms: {
+    ts: {
+      transforms: ['attribute/cti', 'name/cti/constant'],
+      buildPath: `ts/tokens/`,
+      prefix: 'natu',
+      files: [
+        {
+          destination: 'index.js',
+          format: 'javascript/es6',
+          filter: (token) => relevantTsCategories.has(token.attributes.category),
+        },
+        {
+          destination: 'index.d.ts',
+          format: 'typescript/es6-declarations',
+          filter: (token) => relevantTsCategories.has(token.attributes.category),
+        },
+      ],
+    },
+  },
+};
+
+await new StyleDictionary(tsConfig).buildAllPlatforms();

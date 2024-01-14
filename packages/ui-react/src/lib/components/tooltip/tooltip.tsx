@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ReactNode, forwardRef, useRef } from 'react';
+import { ComponentPropsWithoutRef, ReactNode, forwardRef, useEffect, useRef } from 'react';
 import {
   FloatingArrow,
   FloatingPortal,
@@ -51,8 +51,6 @@ interface UseTooltipOptions {
   onOpenChange?: (isOpen: boolean) => void;
   placement?: NatuTooltipPlacement;
 }
-
-/* TODO: a11y */
 
 export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
   function NatuTooltip(props, forwardedRef) {
@@ -143,9 +141,6 @@ function useTooltip(options: UseTooltipOptions) {
     open: isOpen,
     onOpenChange: setIsOpen,
     placement: options.placement ?? defaultPlacement,
-    elements: {
-      reference: referenceRef.current, // Needed because refs.setReference causes conflict with Slot ref merge
-    },
     middleware: [
       offset(triggerOffset),
       flip(),
@@ -153,6 +148,11 @@ function useTooltip(options: UseTooltipOptions) {
       arrow({ element: arrowRef, padding: arrowPadding }), // TODO: optional
     ],
     whileElementsMounted: autoUpdate,
+  });
+
+  useEffect(() => {
+    // Needed because refs.setReference causes conflict with Slot ref merge
+    refs.setReference(referenceRef.current);
   });
 
   const { isMounted, styles } = useTransitionStyles(context, {
@@ -167,7 +167,7 @@ function useTooltip(options: UseTooltipOptions) {
     useRole(context, { role: 'tooltip' }),
     useHover(context, { move: false, delay: hoverDelay }),
     useFocus(context),
-    useDismiss(context), // TODO: global click outside
+    useDismiss(context),
   ]);
 
   return {

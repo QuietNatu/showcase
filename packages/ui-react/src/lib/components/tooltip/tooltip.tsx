@@ -1,16 +1,10 @@
-import { ComponentPropsWithoutRef, ReactNode, forwardRef, useEffect, useRef } from 'react';
+import { ComponentPropsWithoutRef, ReactNode, forwardRef } from 'react';
 import {
   FloatingArrow,
   FloatingPortal,
   Placement,
   Side,
-  arrow,
-  autoUpdate,
-  flip,
-  offset,
-  shift,
   useDismiss,
-  useFloating,
   useFocus,
   useHover,
   useInteractions,
@@ -18,9 +12,9 @@ import {
   useTransitionStyles,
 } from '@floating-ui/react';
 import { Slot } from '@radix-ui/react-slot';
-import { useControllableState } from '../../hooks/use-controllable-state';
 import clsx from 'clsx';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
+import { NatuUseOverlayOptions, useOverlay } from '../../hooks/use-overlay';
 
 type TooltipOverlayElementProps = Omit<ComponentPropsWithoutRef<'div'>, 'content'>;
 
@@ -45,13 +39,6 @@ export interface NatuTooltipProps extends TooltipOverlayElementProps {
 }
 
 export type NatuTooltipPlacement = Placement;
-
-interface UseTooltipOptions {
-  isOpen?: boolean;
-  defaultIsOpen?: boolean;
-  onOpenChange?: (isOpen: boolean) => void;
-  placement?: NatuTooltipPlacement;
-}
 
 export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
   function NatuTooltip(props, forwardedRef) {
@@ -112,14 +99,8 @@ export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
 );
 
 // TODO: move consts to a config
-const pageMargin = 8;
-const arrowWidth = 16;
-const arrowHeight = 8;
-const arrowPadding = 8;
 const hoverDelay = 500;
 const animationDuration = NATU_TIME_ANIMATION_STANDARD;
-const triggerOffset = arrowHeight + 4;
-const defaultPlacement: NatuTooltipPlacement = 'top';
 
 const sideTransforms: Record<Side, string> = {
   top: 'translateY(4px)',
@@ -128,33 +109,9 @@ const sideTransforms: Record<Side, string> = {
   right: 'translateX(-4px)',
 };
 
-function useTooltip(options: UseTooltipOptions) {
-  const [isOpen, setIsOpen] = useControllableState({
-    value: options.isOpen,
-    defaultValue: options.defaultIsOpen,
-    finalValue: false,
-    onChange: options.onOpenChange,
-  });
-
-  const arrowRef = useRef(null);
-  const referenceRef = useRef(null);
-  const { refs, floatingStyles, context } = useFloating({
-    open: isOpen,
-    onOpenChange: setIsOpen,
-    placement: options.placement ?? defaultPlacement,
-    middleware: [
-      offset(triggerOffset),
-      flip(),
-      shift({ padding: pageMargin }),
-      arrow({ element: arrowRef, padding: arrowPadding }), // TODO: optional
-    ],
-    whileElementsMounted: autoUpdate,
-  });
-
-  useEffect(() => {
-    // Needed because refs.setReference causes conflict with Slot ref merge
-    refs.setReference(referenceRef.current);
-  });
+function useTooltip(options: NatuUseOverlayOptions) {
+  const { context, refs, referenceRef, arrowRef, arrowHeight, arrowWidth, floatingStyles } =
+    useOverlay(options);
 
   const { isMounted, styles } = useTransitionStyles(context, {
     duration: animationDuration,

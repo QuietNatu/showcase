@@ -118,8 +118,8 @@ importers:
         specifier: 10.4.16
         version: 10.4.16(postcss@8.4.33)
       browserslist-to-esbuild:
-        specifier: 1.2.0
-        version: 1.2.0
+        specifier: 2.1.1
+        version: 2.1.1(browserslist@4.22.2)
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
@@ -423,8 +423,8 @@ importers:
         specifier: 10.4.16
         version: 10.4.16(postcss@8.4.33)
       browserslist-to-esbuild:
-        specifier: 1.2.0
-        version: 1.2.0
+        specifier: 2.1.1
+        version: 2.1.1(browserslist@4.22.2)
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
@@ -11504,11 +11504,15 @@ packages:
       pako: 0.2.9
     dev: true
 
-  /browserslist-to-esbuild@1.2.0:
-    resolution: {integrity: sha512-ftrrbI/VHBgEnmnSyhkqvQVMp6jAKybfs0qMIlm7SLBrQTGMsdCIP4q3BoKeLsZTBQllIQtY9kbxgRYV2WU47g==}
-    engines: {node: '>=12'}
+  /browserslist-to-esbuild@2.1.1(browserslist@4.22.2):
+    resolution: {integrity: sha512-KN+mty6C3e9AN8Z5dI1xeN15ExcRNeISoC3g7V0Kax/MMF9MSoYA2G7lkTTcVUFntiEjkpI0HNgqJC1NjdyNUw==}
+    engines: {node: '>=18'}
+    hasBin: true
+    peerDependencies:
+      browserslist: '*'
     dependencies:
       browserslist: 4.22.2
+      meow: 13.1.0
     dev: true
 
   /browserslist@4.22.2:

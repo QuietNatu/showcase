@@ -15,6 +15,7 @@ import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuUseOverlayOptions, useOverlay } from '../../hooks/use-overlay';
+import { useNatuUiConfig } from '../../providers/ui-config';
 
 type TooltipOverlayElementProps = Omit<ComponentPropsWithoutRef<'div'>, 'content'>;
 
@@ -98,8 +99,7 @@ export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
   },
 );
 
-// TODO: move consts to a config
-const hoverDelay = 500;
+const defaultHoverDelay = 500;
 const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 
 const sideTransforms: Record<Side, string> = {
@@ -110,6 +110,9 @@ const sideTransforms: Record<Side, string> = {
 };
 
 function useTooltip(options: NatuUseOverlayOptions) {
+  const { tooltip: tooltipConfig } = useNatuUiConfig();
+  const hoverDelay = tooltipConfig?.hoverDelay ?? defaultHoverDelay;
+
   const { context, refs, referenceRef, arrowRef, arrowHeight, arrowWidth, floatingStyles } =
     useOverlay(options);
 

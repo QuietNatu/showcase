@@ -62,6 +62,11 @@ module.exports = {
             message: 'use our test helpers.',
           },
           {
+            name: 'react',
+            importNames: ['createContext'],
+            message: 'use our createContext function.',
+          },
+          {
             name: 'react-dom/test-utils',
             message: 'use testing library instead.',
           },

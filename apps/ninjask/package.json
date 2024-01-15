@@ -24,7 +24,7 @@
     "@natu/styles": "workspace:*",
     "@natu/ui-solid": "workspace:*",
     "@natu/utils": "workspace:*",
-    "solid-js": "1.8.8"
+    "solid-js": "1.8.10"
   },
   "devDependencies": {
     "@mswjs/data": "0.16.1",
@@ -43,7 +43,7 @@
     "@testing-library/user-event": "14.5.2",
     "@vitest/coverage-v8": "1.1.3",
     "autoprefixer": "10.4.16",
-    "browserslist-to-esbuild": "1.2.0",
+    "browserslist-to-esbuild": "2.1.1",
     "cross-env": "7.0.3",
     "http-server": "14.1.1",
     "jsdom": "23.2.0",

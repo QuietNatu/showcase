@@ -17,6 +17,9 @@ export interface NatuUseOverlayOptions {
   /** Where to place the tooltip relative to the reference element. */
   placement?: NatuOverlayPlacement;
 
+  /** Whether the tooltip should be disabled. */
+  isDisabled?: boolean;
+
   /** Whether to show or not an overlay arrow */
   hasArrow?: boolean;
 }
@@ -42,7 +45,7 @@ export function useOverlay(options: NatuUseOverlayOptions) {
   const arrowRef = useRef(null);
   const referenceRef = useRef(null);
   const { refs, floatingStyles, context } = useFloating({
-    open: isOpen,
+    open: isOpen && !options.isDisabled,
     onOpenChange: setIsOpen,
     placement: options.placement ?? defaultPlacement,
     middleware: [

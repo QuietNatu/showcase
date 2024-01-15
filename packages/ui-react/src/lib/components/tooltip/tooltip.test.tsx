@@ -142,6 +142,14 @@ test('controls tooltip visibility', async () => {
   expect(onOpenChangeSpy).not.toHaveBeenCalled();
 });
 
+test('does not show tooltip if disabled', async () => {
+  const { userEvent } = await setup({ isOpen: true, isDisabled: true });
+
+  await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
+
+  expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+});
+
 async function setup(props: Partial<NatuTooltipProps> = {}) {
   const onOpenChangeSpy = vi.fn();
 

@@ -19,8 +19,6 @@ import { useNatuUiConfig } from '../../providers/ui-config';
 
 type TooltipOverlayElementProps = Omit<ComponentPropsWithoutRef<'div'>, 'content'>;
 
-/* TODO: disable */
-
 export interface NatuTooltipProps extends TooltipOverlayElementProps {
   /** Reference element that will trigger the tooltip. */
   children: ReactNode;
@@ -39,9 +37,14 @@ export interface NatuTooltipProps extends TooltipOverlayElementProps {
 
   /** Where to place the tooltip relative to the reference element. */
   placement?: NatuTooltipPlacement;
+
+  /** Whether the tooltip should be disabled. */
+  isDisabled?: boolean;
 }
 
 export type NatuTooltipPlacement = Placement;
+
+/* TODO: tooltip arrow broken */
 
 export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
   function NatuTooltip(props, forwardedRef) {
@@ -52,16 +55,18 @@ export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
       defaultIsOpen,
       onOpenChange,
       placement,
+      isDisabled,
       style,
       className,
       ...tooltipProps
     } = props;
 
     const tooltip = useTooltip({
-      isOpen: props.isOpen,
-      defaultIsOpen: props.defaultIsOpen,
-      onOpenChange: props.onOpenChange,
-      placement: props.placement,
+      isOpen: isOpen,
+      defaultIsOpen: defaultIsOpen,
+      onOpenChange: onOpenChange,
+      placement: placement,
+      isDisabled: isDisabled,
     });
 
     return (
@@ -126,11 +131,12 @@ function useTooltip(options: NatuUseOverlayOptions) {
     }),
   });
 
+  const enabled = !options.isDisabled;
   const { getReferenceProps, getFloatingProps } = useInteractions([
-    useRole(context, { role: 'tooltip' }),
-    useHover(context, { move: false, delay: hoverDelay }),
-    useFocus(context),
-    useDismiss(context),
+    useRole(context, { role: 'tooltip', enabled }),
+    useHover(context, { move: false, delay: hoverDelay, enabled }),
+    useFocus(context, { enabled }),
+    useDismiss(context, { enabled }),
   ]);
 
   return {

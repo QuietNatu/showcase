@@ -6,8 +6,8 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./src/lib/index.ts",
-      "default": "./src/lib/index.ts"
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
     },
     "./test": {
       "types": "./src/lib/test/index.ts",

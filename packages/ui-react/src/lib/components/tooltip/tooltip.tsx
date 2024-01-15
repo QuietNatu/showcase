@@ -19,6 +19,8 @@ import { useNatuUiConfig } from '../../providers/ui-config';
 
 type TooltipOverlayElementProps = Omit<ComponentPropsWithoutRef<'div'>, 'content'>;
 
+/* TODO: disable */
+
 export interface NatuTooltipProps extends TooltipOverlayElementProps {
   /** Reference element that will trigger the tooltip. */
   children: ReactNode;

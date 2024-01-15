@@ -1,12 +1,12 @@
 import { createContext } from '../hooks';
 
-interface NatuUiConfig {
-  tooltip: {
-    hoverDelay: number;
+export interface NatuUiConfig {
+  tooltip?: {
+    hoverDelay?: number;
   };
 }
 
-export const [NatuUiConfigProvider, useNatuUiConfig] = createContext<Partial<NatuUiConfig>>({
+export const [NatuUiConfigProvider, useNatuUiConfig] = createContext<NatuUiConfig>({
   defaultValue: {},
   name: 'NatuUiConfigContext',
 });

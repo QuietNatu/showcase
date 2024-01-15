@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 import {
+  act,
   // eslint-disable-next-line @typescript-eslint/no-restricted-imports
   render as tlRender,
   // eslint-disable-next-line @typescript-eslint/no-restricted-imports
@@ -52,4 +53,13 @@ export function renderHook<Props, Result>(
  */
 export function renderStory(ui: ReactElement, options: RenderStoryOptions = {}) {
   return render(ui, options);
+}
+
+/**
+ * Waits for any kind of async calculations to complete.
+ *
+ * Useful for example when testing components that automatically re-render (like: overlays)
+ */
+export function waitForAsyncActions() {
+  return act(async () => {});
 }

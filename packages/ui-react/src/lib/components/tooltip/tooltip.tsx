@@ -44,8 +44,6 @@ export interface NatuTooltipProps extends TooltipOverlayElementProps {
 
 export type NatuTooltipPlacement = Placement;
 
-/* TODO: tooltip arrow broken */
-
 export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
   function NatuTooltip(props, forwardedRef) {
     const {
@@ -67,6 +65,7 @@ export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
       onOpenChange: onOpenChange,
       placement: placement,
       isDisabled: isDisabled,
+      hasArrow: true,
     });
 
     return (
@@ -94,8 +93,8 @@ export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
                   ref={tooltip.arrowRef}
                   context={tooltip.floatingContext}
                   width={tooltip.arrowWidth}
-                  className="natu-tooltip__arrow"
                   height={tooltip.arrowHeight}
+                  className="natu-tooltip__arrow"
                 />
               </div>
             </div>

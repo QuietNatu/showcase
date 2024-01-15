@@ -100,7 +100,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['src/**/*.test.[jt]s?(x)'],
+      files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
       extends: [
         'plugin:vitest/recommended',
         'plugin:vitest/all',
@@ -122,6 +122,7 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/unbound-method': 'off',
         'functional/no-expression-statements': 'off',
+        'react-refresh/only-export-components': 'off',
       },
     },
     {

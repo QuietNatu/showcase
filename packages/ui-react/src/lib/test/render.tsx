@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react';
+import { JSXElementConstructor, ReactElement, ReactNode } from 'react';
 import {
   act,
   // eslint-disable-next-line @typescript-eslint/no-restricted-imports
@@ -17,30 +17,27 @@ export type UserEventOptions = Parameters<typeof userEvent.setup>[0];
 interface RenderOptions {
   renderOptions?: TlRenderOptions;
   userEventOptions?: UserEventOptions;
+  providerOptions?: ProviderOptions;
 }
 
 interface RenderHookOptions<Props> {
   renderOptions?: TlRenderHookOptions<Props>;
   userEventOptions?: UserEventOptions;
+  providerOptions?: ProviderOptions;
 }
 
 type RenderStoryOptions = RenderOptions;
 
-interface TestProvidersProps {
-  children: ReactNode;
+interface ProviderOptions {
+  excludeUiConfig?: boolean;
 }
 
 /**
- * Renders elements and sets up userEvent
+ * Renders elements and sets up userEvent.
  */
 export function render(ui: ReactElement, options: RenderOptions = {}) {
-  const Wrapper = options.renderOptions?.wrapper;
-
-  const AllWrappers = ({ children }: { children: ReactElement }) => (
-    <TestProviders>{Wrapper ? <Wrapper>{children}</Wrapper> : children}</TestProviders>
-  );
-
-  const renderOptions = { ...options.renderOptions, wrapper: AllWrappers };
+  const wrapper = wrapTestProviders(options.providerOptions, options.renderOptions?.wrapper);
+  const renderOptions = { ...options.renderOptions, wrapper };
 
   return {
     ...tlRender(ui, renderOptions),
@@ -49,19 +46,14 @@ export function render(ui: ReactElement, options: RenderOptions = {}) {
 }
 
 /**
- * Renders a hook
+ * Renders a hook.
  */
 export function renderHook<Props, Result>(
   callback: (props: Props) => Result,
   options: RenderHookOptions<Props> = {},
 ) {
-  const Wrapper = options.renderOptions?.wrapper;
-
-  const AllWrappers = ({ children }: { children: ReactElement }) => (
-    <TestProviders>{Wrapper ? <Wrapper>{children}</Wrapper> : children}</TestProviders>
-  );
-
-  const renderOptions = { ...options.renderOptions, wrapper: AllWrappers };
+  const wrapper = wrapTestProviders(options.providerOptions, options.renderOptions?.wrapper);
+  const renderOptions = { ...options.renderOptions, wrapper };
 
   return {
     ...tlRenderHook(callback, renderOptions),
@@ -70,7 +62,7 @@ export function renderHook<Props, Result>(
 }
 
 /**
- * Renders a story
+ * Renders a story.
  */
 export function renderStory(ui: ReactElement, options: RenderStoryOptions = {}) {
   return render(ui, options);
@@ -86,10 +78,27 @@ export function waitForAsyncActions() {
   return act(async () => {});
 }
 
-function TestProviders(props: TestProvidersProps) {
-  return (
-    <NatuUiConfigProvider value={{ tooltip: { hoverDelay: 0 } }}>
-      {props.children}
-    </NatuUiConfigProvider>
+function wrapTestProviders(
+  props: ProviderOptions = {},
+  Wrapper?: JSXElementConstructor<{ children: React.ReactElement }>,
+) {
+  const UiConfigWrapper = ({ children }: { children: ReactElement }) => (
+    <NatuUiConfigProvider value={{ tooltip: { hoverDelay: 0 } }}>{children}</NatuUiConfigProvider>
   );
+
+  return ({ children }: { children: ReactElement }) =>
+    applyWrappers(Wrapper ? <Wrapper>{children}</Wrapper> : children, [
+      !props.excludeUiConfig && UiConfigWrapper,
+    ]);
+}
+
+function applyWrappers(
+  children: ReactNode,
+  wrappers: Array<false | ((props: { children: ReactElement }) => JSX.Element)>,
+) {
+  return wrappers
+    .filter((wrapper): wrapper is (props: { children: ReactElement }) => JSX.Element =>
+      Boolean(wrapper),
+    )
+    .reduceRight((children, wrapper) => wrapper({ children }), children);
 }

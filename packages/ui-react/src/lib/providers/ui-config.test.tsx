@@ -6,13 +6,16 @@ test('renders when provider exists', () => {
     renderOptions: {
       wrapper: ({ children }) => <NatuUiConfigProvider value={{}}>{children}</NatuUiConfigProvider>,
     },
+    providerOptions: { excludeUiConfig: true },
   });
 
   expect(result.current).toStrictEqual({});
 });
 
 test('renders when provider does not exist', () => {
-  const { result } = renderHook(() => useNatuUiConfig());
+  const { result } = renderHook(() => useNatuUiConfig(), {
+    providerOptions: { excludeUiConfig: true },
+  });
 
   expect(result.current).toStrictEqual({});
 });

@@ -30,7 +30,7 @@
     "@natu/tsconfig": "workspace:*",
     "@types/node": "20.11.0",
     "rimraf": "5.0.5",
-    "style-dictionary": "4.0.0-prerelease.6",
+    "style-dictionary": "4.0.0-prerelease.7",
     "typescript": "5.3.3",
     "vite": "5.0.11"
   }

@@ -1,6 +1,9 @@
 import { Decorator } from '@storybook/react';
 import { useEffect } from 'react';
 
+/**
+ * Configures theme in storybook.
+ */
 export function storyThemeDecorator(): Decorator {
   return (Story, { globals }) => {
     const theme = globals['theme'] as string;
@@ -15,6 +18,9 @@ export function storyThemeDecorator(): Decorator {
   };
 }
 
+/**
+ * Displays variants with space between them.
+ */
 export function storyVariantsDecorator(): Decorator {
   return (Story) => (
     <div style={{ display: 'flex', gap: '10px' }}>

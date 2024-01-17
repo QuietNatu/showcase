@@ -1,4 +1,4 @@
-import { JSXElementConstructor, ReactElement, ReactNode } from 'react';
+import { JSXElementConstructor, ReactElement } from 'react';
 import {
   act,
   // eslint-disable-next-line @typescript-eslint/no-restricted-imports
@@ -93,12 +93,12 @@ function wrapTestProviders(
 }
 
 function applyWrappers(
-  children: ReactNode,
+  children: ReactElement,
   wrappers: Array<false | ((props: { children: ReactElement }) => JSX.Element)>,
 ) {
   return wrappers
     .filter((wrapper): wrapper is (props: { children: ReactElement }) => JSX.Element =>
       Boolean(wrapper),
     )
-    .reduceRight((children, wrapper) => wrapper({ children }), children);
+    .reduceRight((children, wrapper) => wrapper({ children }), children); // TODO
 }

@@ -1,3 +1,4 @@
+/* eslint-disable vitest/no-hooks */
 import '@natu/ui-react/test/extend-expect';
 
 import { mockDatabase } from '@/mocks/server/database/database';

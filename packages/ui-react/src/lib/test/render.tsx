@@ -100,5 +100,5 @@ function applyWrappers(
     .filter((wrapper): wrapper is (props: { children: ReactElement }) => JSX.Element =>
       Boolean(wrapper),
     )
-    .reduceRight((children, wrapper) => wrapper({ children }), children); // TODO
+    .reduceRight((children, wrapper) => wrapper({ children }), children);
 }

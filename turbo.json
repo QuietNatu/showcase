@@ -13,7 +13,7 @@
       "outputs": ["dist/**"]
     },
     "@natu/styles#build": {
-      "outputs": ["scss/tokens/**"]
+      "outputs": ["scss/tokens/**", "ts/tokens/**"]
     },
     "lint": {},
     "test": {

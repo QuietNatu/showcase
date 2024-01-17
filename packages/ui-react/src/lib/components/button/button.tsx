@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FocusEvent, forwardRef } from 'react';
+import { ComponentPropsWithoutRef, FocusEvent, forwardRef } from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { PressEvent, useFocusRing, useFocusable, usePress } from 'react-aria';
 import { mergeProps, useObjectRef } from '@react-aria/utils';
@@ -29,12 +29,12 @@ const buttonVariants = cva('natu-button', {
 
 export type NatuButtonVariants = VariantProps<typeof buttonVariants>;
 
-type NativeProps = Omit<
-  ButtonHTMLAttributes<HTMLButtonElement>,
+type ElementProps = Omit<
+  ComponentPropsWithoutRef<'button'>,
   'disabled' | 'type' | 'onFocus' | 'onBlur'
 >;
 
-interface CommonProps extends NativeProps {
+interface CommonProps extends ElementProps {
   isDisabled?: boolean;
   variant?: NatuButtonVariants['variant'];
   size?: NatuButtonVariants['size'];

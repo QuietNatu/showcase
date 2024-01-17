@@ -1,3 +1,4 @@
+/* eslint-disable vitest/no-hooks */
 import { deleteAllCookies } from '../cookie';
 
 afterEach(() => {

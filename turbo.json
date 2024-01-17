@@ -15,7 +15,9 @@
     "@natu/styles#build": {
       "outputs": ["scss/tokens/**", "ts/tokens/**"]
     },
-    "lint": {},
+    "lint": {
+      "dependsOn": ["^build"]
+    },
     "test": {
       "dependsOn": ["^build"],
       "outputs": ["coverage/**"]

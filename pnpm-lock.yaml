@@ -643,8 +643,8 @@ importers:
         specifier: 5.0.5
         version: 5.0.5
       style-dictionary:
-        specifier: 4.0.0-prerelease.6
-        version: 4.0.0-prerelease.6(quill-delta@5.1.0)(rxjs@7.8.1)(tslib@2.6.2)
+        specifier: 4.0.0-prerelease.7
+        version: 4.0.0-prerelease.7(quill-delta@5.1.0)(rxjs@7.8.1)(tslib@2.6.2)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -20194,8 +20194,8 @@ packages:
       through: 2.3.8
     dev: true
 
-  /style-dictionary@4.0.0-prerelease.6(quill-delta@5.1.0)(rxjs@7.8.1)(tslib@2.6.2):
-    resolution: {integrity: sha512-hQxbx76IEMcKj29san51UvO0JsXFifhli3miK2LlsnjDW5iw2BMvG7/yeokTdHxzYN1GUioMJ6RFgvzAYoHRkA==}
+  /style-dictionary@4.0.0-prerelease.7(quill-delta@5.1.0)(rxjs@7.8.1)(tslib@2.6.2):
+    resolution: {integrity: sha512-K5qpS1l/NUH1eV8+XCKVtXe5yrllHz0kbQZKnjcz0+5B8i+d4fhS+niuMJfKHjaE3v6WW1zfSKsXwU0Kr8AgZg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     requiresBuild: true

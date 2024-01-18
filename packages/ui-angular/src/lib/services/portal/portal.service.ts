@@ -1,6 +1,7 @@
 import {
   ApplicationRef,
   ComponentFactoryResolver,
+  ElementRef,
   Injectable,
   Injector,
   effect,
@@ -12,7 +13,8 @@ import { DOCUMENT } from '@angular/common';
 import { NatuPortalComponent } from './portal.component';
 
 /* TODO: add stories */
-/* TODO: directive? */
+/* TODO: add directive and move to directives folder? */
+/* TODO: documentation */
 
 @Injectable()
 export class NatuPortalService {
@@ -20,13 +22,16 @@ export class NatuPortalService {
   private readonly componentFactoryResolver = inject(ComponentFactoryResolver);
   private readonly applicationRef = inject(ApplicationRef);
   private readonly injector = inject(Injector);
+  private readonly parentPortal = inject(NatuPortalService, { optional: true, skipSelf: true });
 
   private readonly portalOutlet = new DomPortalOutlet(
-    this.document.body,
+    this.parentPortal?.getPortalElement() ?? this.document.body,
     this.componentFactoryResolver,
     this.applicationRef,
     this.injector,
   );
+
+  private portalElementRef: ElementRef<HTMLElement> | null = null;
 
   constructor() {
     this.registerManagePortal();
@@ -42,6 +47,10 @@ export class NatuPortalService {
     this.content$.set(null);
   }
 
+  getPortalElement() {
+    return this.portalElementRef?.nativeElement;
+  }
+
   private registerManagePortal() {
     effect((onCleanup) => {
       const content = this.content$();
@@ -52,11 +61,13 @@ export class NatuPortalService {
 
       const portal = new ComponentPortal(NatuPortalComponent);
       const componentRef = this.portalOutlet.attach(portal);
+      this.portalElementRef = componentRef.injector.get(ElementRef);
 
       componentRef.setInput('content', content);
 
       onCleanup(() => {
         this.portalOutlet.detach();
+        this.portalElementRef = null;
       });
     });
   }

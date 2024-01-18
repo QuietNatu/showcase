@@ -10,6 +10,7 @@
 - https://github.com/angular/angular/issues/7626
 - https://github.com/angular/angular/issues/10887
 - https://github.com/angular/angular/issues/14842
+- https://github.com/angular/components/issues/1432
 
 ### Karma test runner window information interferes with tests
 

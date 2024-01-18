@@ -4,16 +4,15 @@ import {
   ElementRef,
   Injectable,
   Injector,
+  TemplateRef,
   effect,
   inject,
   signal,
 } from '@angular/core';
-import { ComponentPortal, ComponentType, DomPortalOutlet } from '@angular/cdk/portal';
+import { ComponentPortal, DomPortalOutlet } from '@angular/cdk/portal';
 import { DOCUMENT } from '@angular/common';
 import { NatuPortalComponent } from './portal.component';
 
-/* TODO: add stories */
-/* TODO: add directive and move to directives folder? */
 /* TODO: documentation */
 
 @Injectable()
@@ -31,15 +30,15 @@ export class NatuPortalService {
     this.injector,
   );
 
+  private readonly content$ = signal<TemplateRef<unknown> | null>(null);
+
   private portalElementRef: ElementRef<HTMLElement> | null = null;
 
   constructor() {
     this.registerManagePortal();
   }
 
-  private readonly content$ = signal<ComponentType<unknown> | null>(null);
-
-  attach(content: ComponentType<unknown>) {
+  attach(content: TemplateRef<unknown>) {
     this.content$.set(content);
   }
 

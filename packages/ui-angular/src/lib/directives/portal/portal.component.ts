@@ -1,16 +1,22 @@
-import { ComponentType } from '@angular/cdk/portal';
-import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Injector, Input, inject } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Injector,
+  Input,
+  TemplateRef,
+  inject,
+} from '@angular/core';
 
 @Component({
   selector: 'natu-portal',
-  template: `<ng-template [ngComponentOutlet]="content" [ngComponentOutletInjector]="injector" />`,
+  template: ` <ng-template [ngTemplateOutlet]="content" [ngTemplateOutletInjector]="injector" /> `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgTemplateOutlet, NgComponentOutlet],
+  imports: [NgTemplateOutlet],
 })
 export class NatuPortalComponent {
-  @Input({ required: true }) content!: ComponentType<unknown>;
+  @Input({ required: true }) content!: TemplateRef<unknown>;
 
   readonly injector = inject(Injector);
 }

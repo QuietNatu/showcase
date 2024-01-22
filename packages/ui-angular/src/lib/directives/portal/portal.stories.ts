@@ -1,6 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { NatuPortalService } from '../../directives/portal/portal.service';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { NatuPortalDirective } from './portal.directive';
 import { natuButtonImports } from '../../components/button/button.directive';
 
@@ -16,50 +15,40 @@ export class NatuPortalContentComponent {}
   selector: 'natu-default',
   template: `
     <div style="display: flex; gap: 10px;">
-      <button type="button" natuButton (click)="attach()">Attach</button>
-      <button type="button" natuButton (click)="detach()">Detach</button>
+      <button type="button" natuButton (click)="isVisible$.set(true)">Attach</button>
+      <button type="button" natuButton (click)="isVisible$.set(false)">Detach</button>
     </div>
+
+    @if (isVisible$()) {
+      <div *natuPortal>Example content</div>
+    }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [natuButtonImports],
-  providers: [NatuPortalService],
+  imports: [natuButtonImports, NatuPortalDirective],
 })
 class NatuDefaultComponent {
-  private readonly portalService = inject(NatuPortalService);
-
-  attach() {
-    this.portalService.attach(NatuPortalContentComponent);
-  }
-
-  detach() {
-    this.portalService.detach();
-  }
+  readonly isVisible$ = signal(false);
 }
 
 @Component({
   selector: 'natu-nested',
   template: `
     <div style="display: flex; gap: 10px;">
-      <button type="button" natuButton (click)="attach()">Attach</button>
-      <button type="button" natuButton (click)="detach()">Detach</button>
+      <button type="button" natuButton (click)="isVisible$.set(true)">Attach</button>
+      <button type="button" natuButton (click)="isVisible$.set(false)">Detach</button>
     </div>
+
+    @if (isVisible$()) {
+      <natu-nested *natuPortal />
+    }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [natuButtonImports],
-  providers: [NatuPortalService],
+  imports: [natuButtonImports, NatuPortalDirective],
 })
-export class NatuNestedComponent {
-  private readonly portalService = inject(NatuPortalService);
-
-  attach() {
-    this.portalService.attach(NatuNestedComponent);
-  }
-
-  detach() {
-    this.portalService.detach();
-  }
+class NatuNestedComponent {
+  readonly isVisible$ = signal(false);
 }
 
 const meta = {

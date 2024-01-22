@@ -4,18 +4,22 @@ import {
   ElementRef,
   Injectable,
   Injector,
+  TemplateRef,
   effect,
   inject,
   signal,
 } from '@angular/core';
-import { ComponentPortal, ComponentType, DomPortalOutlet } from '@angular/cdk/portal';
+import { ComponentPortal, DomPortalOutlet } from '@angular/cdk/portal';
 import { DOCUMENT } from '@angular/common';
 import { NatuPortalComponent } from './portal.component';
 
-/* TODO: add stories */
-/* TODO: add directive and move to directives folder? */
-/* TODO: documentation */
-
+/**
+ * Creates a portal that attaches content directly into the documents body.
+ *
+ * Useful for overlays like tooltips.
+ *
+ * Nested portals will also be nested in the DOM, for easiear overlay dismissal handling.
+ */
 @Injectable()
 export class NatuPortalService {
   private readonly document = inject(DOCUMENT);
@@ -31,22 +35,31 @@ export class NatuPortalService {
     this.injector,
   );
 
+  private readonly content$ = signal<TemplateRef<unknown> | null>(null);
+
   private portalElementRef: ElementRef<HTMLElement> | null = null;
 
   constructor() {
     this.registerManagePortal();
   }
 
-  private readonly content$ = signal<ComponentType<unknown> | null>(null);
-
-  attach(content: ComponentType<unknown>) {
+  /**
+   * Attaches content to a portal.
+   */
+  attach(content: TemplateRef<unknown>) {
     this.content$.set(content);
   }
 
+  /**
+   * Detaches content from the portal.
+   */
   detach() {
     this.content$.set(null);
   }
 
+  /**
+   * *Internal* Gets the current instance of the created portal element.
+   */
   getPortalElement() {
     return this.portalElementRef?.nativeElement;
   }

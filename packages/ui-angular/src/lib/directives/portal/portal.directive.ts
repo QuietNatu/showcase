@@ -1,8 +1,11 @@
 import { Directive, OnDestroy, OnInit, TemplateRef, inject } from '@angular/core';
 import { NatuPortalService } from './portal.service';
 
-/* TODO: docs */
-
+/**
+ * Manages a portal that attaches content directly into the documents body.
+ *
+ * Useful for overlays like tooltips.
+ */
 @Directive({
   selector: '[natuPortal]',
   standalone: true,

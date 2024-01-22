@@ -13,8 +13,11 @@ import { ComponentPortal, DomPortalOutlet } from '@angular/cdk/portal';
 import { DOCUMENT } from '@angular/common';
 import { NatuPortalComponent } from './portal.component';
 
-/* TODO: documentation */
-
+/**
+ * Creates a portal that attaches content directly into the documents body.
+ *
+ * Useful for overlays like tooltips.
+ */
 @Injectable()
 export class NatuPortalService {
   private readonly document = inject(DOCUMENT);
@@ -38,14 +41,23 @@ export class NatuPortalService {
     this.registerManagePortal();
   }
 
+  /**
+   * Attaches content to a portal.
+   */
   attach(content: TemplateRef<unknown>) {
     this.content$.set(content);
   }
 
+  /**
+   * Detaches content from the portal.
+   */
   detach() {
     this.content$.set(null);
   }
 
+  /**
+   * *Internal* Gets the current instance of the created portal element.
+   */
   getPortalElement() {
     return this.portalElementRef?.nativeElement;
   }

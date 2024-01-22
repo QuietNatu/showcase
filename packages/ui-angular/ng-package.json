@@ -3,6 +3,6 @@
   "dest": "dist",
   "lib": {
     "flatModuleFile": "lib",
-    "entryFile": "./src/lib/index.ts"
+    "entryFile": "./src/index.ts"
   }
 }

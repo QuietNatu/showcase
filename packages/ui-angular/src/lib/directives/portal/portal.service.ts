@@ -17,6 +17,8 @@ import { NatuPortalComponent } from './portal.component';
  * Creates a portal that attaches content directly into the documents body.
  *
  * Useful for overlays like tooltips.
+ *
+ * Nested portals will also be nested in the DOM, for easiear overlay dismissal handling.
  */
 @Injectable()
 export class NatuPortalService {

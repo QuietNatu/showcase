@@ -38,8 +38,8 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "17.1.0",
-    "@angular-eslint/builder": "17.2.0",
-    "@angular-eslint/schematics": "17.2.0",
+    "@angular-eslint/builder": "17.2.1",
+    "@angular-eslint/schematics": "17.2.1",
     "@angular/cli": "17.1.0",
     "@angular/compiler-cli": "17.1.0",
     "@compodoc/compodoc": "1.1.23",

@@ -16,7 +16,7 @@ export class NatuPortalDirective implements OnInit, OnDestroy {
   private readonly portalTemplate = inject<TemplateRef<unknown>>(TemplateRef);
 
   ngOnInit(): void {
-    this.portalService.attach(this.portalTemplate);
+    this.portalService.attachTemplate(this.portalTemplate);
   }
 
   ngOnDestroy(): void {

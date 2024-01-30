@@ -9,7 +9,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { ComponentPortal, DomPortalOutlet } from '@angular/cdk/portal';
+import { ComponentPortal, ComponentType, DomPortalOutlet } from '@angular/cdk/portal';
 import { DOCUMENT } from '@angular/common';
 import { NatuPortalComponent } from './portal.component';
 
@@ -35,7 +35,7 @@ export class NatuPortalService {
     this.injector,
   );
 
-  private readonly content$ = signal<TemplateRef<unknown> | null>(null);
+  private readonly content$ = signal<TemplateRef<unknown> | ComponentType<unknown> | null>(null);
 
   private portalElementRef: ElementRef<HTMLElement> | null = null;
 
@@ -44,9 +44,16 @@ export class NatuPortalService {
   }
 
   /**
-   * Attaches content to a portal.
+   * Attaches template to a portal.
    */
-  attach(content: TemplateRef<unknown>) {
+  attachTemplate(content: TemplateRef<unknown>) {
+    this.content$.set(content);
+  }
+
+  /**
+   * Attaches component to a portal.
+   */
+  attachComponent(content: ComponentType<unknown>) {
     this.content$.set(content);
   }
 

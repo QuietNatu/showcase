@@ -1,7 +1,7 @@
 import { type Meta, type StoryObj } from '@storybook/angular';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { NatuPortalDirective } from './portal.directive';
-import { natuButtonImports } from '../components/button/button.directive';
+import { natuButtonImports } from '../directives/button/button.directive';
 
 @Component({
   selector: 'natu-portal-content',
@@ -52,7 +52,7 @@ class NatuNestedComponent {
 }
 
 const meta = {
-  title: 'Directives/Portal',
+  title: 'Utils/Portal',
   component: NatuPortalDirective,
   tags: ['autodocs'],
   parameters: {

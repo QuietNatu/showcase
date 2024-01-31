@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuOverlayService } from '../../overlay';
+import { NatuOverlayArrowComponent } from '../../overlay/overlay-arrow.component';
 
 @Component({
   selector: 'natu-tooltip',
@@ -27,17 +28,17 @@ import { NatuOverlayService } from '../../overlay';
       }
     </div>
 
-    <span #arrow class="natu-tooltip__arrow">Arrow</span>
+    <natu-overlay-arrow #arrow class="natu-tooltip__arrow" />
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgTemplateOutlet],
+  imports: [NgTemplateOutlet, NatuOverlayArrowComponent],
   host: {
     '[style]': 'overlayData$()?.style',
   },
 })
 export class NatuTooltipComponent implements OnInit, OnDestroy {
-  @ViewChild('arrow', { static: true }) arrowRef!: ElementRef<HTMLElement>;
+  @ViewChild('arrow', { static: true, read: ElementRef }) arrowRef!: ElementRef<HTMLElement>;
 
   readonly textContent$;
   readonly templateContent$;

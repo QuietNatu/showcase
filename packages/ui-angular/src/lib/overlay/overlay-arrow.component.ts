@@ -11,8 +11,6 @@ import {
 import { Side } from '@floating-ui/dom';
 import { NatuOverlayService } from './overlay.service';
 
-/* TODO: change detection is making arrow slightly off untin you click on it (trigger change detection) */
-
 const rotation: Record<Side, string> = {
   top: '',
   left: 'rotate(-90deg)',
@@ -21,6 +19,8 @@ const rotation: Record<Side, string> = {
 };
 
 /**
+ * Creates an overlay arrow, that gets automatically positioned.
+ *
  * Based on https://github.com/floating-ui/floating-ui/blob/master/packages/react/src/components/FloatingArrow.tsx
  * to avoid reinventing the wheel.
  */
@@ -99,8 +99,8 @@ export class NatuOverlayArrowComponent implements OnInit, OnDestroy {
 
       const [side] = context.placement.split('-') as [Side];
       const { arrow } = context.middlewareData;
-      const arrowX = typeof arrow?.x === 'number' ? `${arrow.x}px` : undefined;
-      const arrowY = typeof arrow?.y === 'number' ? `${arrow.y}px` : undefined;
+      const arrowX = typeof arrow?.x === 'number' ? `${Math.round(arrow.x)}px` : undefined;
+      const arrowY = typeof arrow?.y === 'number' ? `${Math.round(arrow.y)}px` : undefined;
 
       return {
         position: 'absolute',

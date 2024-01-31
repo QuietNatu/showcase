@@ -141,15 +141,14 @@ function getComputedPosition(options: GetComputedPositionOptions) {
 }
 
 function formatFloatingData(context: ComputePositionReturn): FloatingData {
-  /* TODO: round units? https://github.com/floating-ui/floating-ui/blob/f74524d9a980f919eeddb88cc221492040180cc6/packages/react-dom/src/useFloating.ts#L157 */
-
-  // TODO: arrow
+  const x = Math.round(context.x);
+  const y = Math.round(context.y);
 
   const floatingStyle: Partial<CSSStyleDeclaration> = {
     position: context.strategy,
     left: '0',
     top: '0',
-    transform: `translate(${context.x}px, ${context.y}px)`,
+    transform: `translate(${x}px, ${y}px)`,
   };
 
   return {

@@ -9,7 +9,7 @@ export type NatuOverlayPlacement = Placement;
 /* TODO: add styles https://floating-ui.com/docs/computePosition */
 
 const pageMargin = 8;
-// const arrowWidth = 16; // TODO
+const arrowWidth = 16;
 const arrowHeight = 8;
 const arrowPadding = 8;
 const referenceOffset = arrowHeight + 4;
@@ -31,9 +31,13 @@ const initialState: State = {
 
 @Injectable()
 export class NatuOverlayService {
+  readonly arrowWidth = arrowWidth;
+  readonly arrowHeight = arrowHeight;
+
+  readonly overlayData$;
+  /* TODO: support multiple templates */
   readonly content$;
   readonly isOpen$;
-  readonly overlayData$;
 
   private readonly state = signalSlice({
     initialState,
@@ -51,9 +55,9 @@ export class NatuOverlayService {
   });
 
   constructor() {
+    this.overlayData$ = this.floatingManager.data$;
     this.content$ = this.state.content;
     this.isOpen$ = this.state.isOpen;
-    this.overlayData$ = this.floatingManager.data$;
 
     // TODO: animations should not be here
     // this.isMounted$ = toObservable(this.state.isOpen).pipe(
@@ -76,22 +80,19 @@ export class NatuOverlayService {
     void this.state.set({ isDisabled });
   }
 
-  setReferenceElement(element: ElementRef<HTMLElement> | HTMLElement) {
-    this.floatingManager.setReferenceElement(element);
-  }
-
   setPlacement(placement: NatuOverlayPlacement) {
     this.floatingManager.setPlacement(placement);
   }
 
-  initializeOverlay(
-    floatingElement: ElementRef<HTMLElement> | HTMLElement,
-    arrowElement?: ElementRef<HTMLElement> | HTMLElement,
-  ) {
-    this.floatingManager.initialize(floatingElement, arrowElement);
+  setReferenceElement(element: ElementRef<HTMLElement> | HTMLElement | null) {
+    this.floatingManager.setReferenceElement(element);
   }
 
-  destroyOverlay() {
-    this.floatingManager.destroy();
+  setFloatingElement(element: ElementRef<HTMLElement> | HTMLElement | null) {
+    this.floatingManager.setFloatingElement(element);
+  }
+
+  setArrowElement(element: ElementRef<HTMLElement> | HTMLElement | null) {
+    this.floatingManager.setArrowElement(element);
   }
 }

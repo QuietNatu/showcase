@@ -6,13 +6,14 @@ import {
   OnDestroy,
   OnInit,
   TemplateRef,
-  ViewChild,
   computed,
   inject,
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuOverlayService } from '../../overlay';
 import { NatuOverlayArrowComponent } from '../../overlay/overlay-arrow.component';
+
+/* TODO: tooltip flickers when opening */
 
 @Component({
   selector: 'natu-tooltip',
@@ -28,17 +29,18 @@ import { NatuOverlayArrowComponent } from '../../overlay/overlay-arrow.component
       }
     </div>
 
-    <natu-overlay-arrow #arrow class="natu-tooltip__arrow" />
+    <natu-overlay-arrow class="natu-tooltip__arrow" />
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NgTemplateOutlet, NatuOverlayArrowComponent],
   host: {
-    '[style]': 'overlayData$()?.style',
+    '[style]': 'overlayData$()?.floatingStyle',
   },
 })
 export class NatuTooltipComponent implements OnInit, OnDestroy {
-  @ViewChild('arrow', { static: true, read: ElementRef }) arrowRef!: ElementRef<HTMLElement>;
+  readonly arrowWidth;
+  readonly arrowHeight;
 
   readonly textContent$;
   readonly templateContent$;
@@ -50,6 +52,9 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
   private readonly overlayService = inject(NatuOverlayService);
 
   constructor() {
+    this.arrowWidth = this.overlayService.arrowWidth;
+    this.arrowHeight = this.overlayService.arrowHeight;
+
     this.textContent$ = computed(() => {
       const content = this.overlayService.content$();
       return typeof content === 'string' ? content : null;
@@ -64,10 +69,10 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.overlayService.initializeOverlay(this.elementRef, this.arrowRef);
+    this.overlayService.setFloatingElement(this.elementRef);
   }
 
   ngOnDestroy(): void {
-    this.overlayService.destroyOverlay();
+    this.overlayService.setFloatingElement(null);
   }
 }

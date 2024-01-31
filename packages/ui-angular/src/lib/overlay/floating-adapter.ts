@@ -21,9 +21,11 @@ export interface ManageFloatingOptions {
   arrowPadding: number;
 }
 
+export type FloatingContext = ComputePositionReturn;
+
 export interface FloatingData {
-  style: Partial<CSSStyleDeclaration>;
-  placement: Placement;
+  context: FloatingContext;
+  floatingStyle: Partial<CSSStyleDeclaration>;
 }
 
 interface GetComputedPositionOptions {
@@ -49,6 +51,8 @@ const initialState: State = {
   arrowElement: null,
   placement: null,
 };
+
+/* TODO: ngzone run outside angular? */
 
 export function manageFloating(options: ManageFloatingOptions) {
   const state = signalSlice({
@@ -93,26 +97,20 @@ export function manageFloating(options: ManageFloatingOptions) {
   return {
     data$: toSignal(data$, { initialValue: null }),
 
-    setReferenceElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
-      void state.set({ referenceElement: coerceElement(element) });
-    },
-
     setPlacement: (placement: Placement) => {
       void state.set({ placement });
     },
 
-    initialize: (
-      floatingElement: ElementRef<HTMLElement> | HTMLElement,
-      arrowElement?: ElementRef<HTMLElement> | HTMLElement,
-    ) => {
-      void state.set({
-        floatingElement: coerceElement(floatingElement),
-        arrowElement: coerceElement(arrowElement ?? null),
-      });
+    setReferenceElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
+      void state.set({ referenceElement: coerceElement(element) });
     },
 
-    destroy: () => {
-      void state.set({ floatingElement: null, arrowElement: null });
+    setFloatingElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
+      void state.set({ floatingElement: coerceElement(element) });
+    },
+
+    setArrowElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
+      void state.set({ arrowElement: coerceElement(element) });
     },
   };
 }
@@ -142,20 +140,20 @@ function getComputedPosition(options: GetComputedPositionOptions) {
   return from(computedPosition);
 }
 
-function formatFloatingData(data: ComputePositionReturn): FloatingData {
+function formatFloatingData(context: ComputePositionReturn): FloatingData {
   /* TODO: round units? https://github.com/floating-ui/floating-ui/blob/f74524d9a980f919eeddb88cc221492040180cc6/packages/react-dom/src/useFloating.ts#L157 */
 
   // TODO: arrow
 
-  const style: Partial<CSSStyleDeclaration> = {
-    position: data.strategy,
+  const floatingStyle: Partial<CSSStyleDeclaration> = {
+    position: context.strategy,
     left: '0',
     top: '0',
-    transform: `translate(${data.x}px, ${data.y}px)`,
+    transform: `translate(${context.x}px, ${context.y}px)`,
   };
 
   return {
-    style,
-    placement: data.placement,
+    context,
+    floatingStyle,
   };
 }

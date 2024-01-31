@@ -1,5 +1,5 @@
 import { coerceElement } from '@angular/cdk/coercion';
-import { ElementRef } from '@angular/core';
+import { ElementRef, NgZone, assertInInjectionContext, inject } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import {
   ComputePositionReturn,
@@ -13,6 +13,7 @@ import {
 } from '@floating-ui/dom';
 import { signalSlice } from 'ngxtension/signal-slice';
 import { EMPTY, Observable, combineLatest, from, map, switchMap } from 'rxjs';
+import { runInZone } from '../utils';
 
 export interface ManageFloatingOptions {
   defaultPlacement?: Placement;
@@ -52,67 +53,72 @@ const initialState: State = {
   placement: null,
 };
 
-/* TODO: ngzone run outside angular? */
-
 export function manageFloating(options: ManageFloatingOptions) {
-  const state = signalSlice({
-    initialState,
-    actionSources: {
-      set: (_, action$: Observable<Partial<State>>) =>
-        action$.pipe(map((newState) => ({ ...newState }))),
-    },
+  assertInInjectionContext(manageFloating);
+
+  const ngZone = inject(NgZone);
+
+  return ngZone.runOutsideAngular(() => {
+    const state = signalSlice({
+      initialState,
+      actionSources: {
+        set: (_, action$: Observable<Partial<State>>) =>
+          action$.pipe(map((newState) => ({ ...newState }))),
+      },
+    });
+
+    const referenceElement$ = toObservable(state.referenceElement);
+    const floatingElement$ = toObservable(state.floatingElement);
+    const arrowElement$ = toObservable(state.arrowElement);
+    const placement$ = toObservable(state.placement);
+
+    const data$ = combineLatest([referenceElement$, floatingElement$]).pipe(
+      switchMap(([referenceElement, floatingElement]) => {
+        if (!referenceElement || !floatingElement) {
+          return EMPTY;
+        }
+
+        const autoUpdate$ = startAutoUpdate(referenceElement, floatingElement);
+
+        return combineLatest([arrowElement$, placement$, autoUpdate$]).pipe(
+          map(
+            ([arrowElement, placement]): GetComputedPositionOptions => ({
+              referenceElement,
+              floatingElement,
+              arrowElement: arrowElement ?? undefined,
+              placement: placement ?? options.defaultPlacement,
+              referenceOffset: options.referenceOffset,
+              pageMargin: options.pageMargin,
+              arrowPadding: options.arrowPadding,
+            }),
+          ),
+        );
+      }),
+      switchMap(getComputedPosition),
+      map(formatFloatingData),
+      runInZone(ngZone),
+    );
+
+    return {
+      data$: toSignal(data$, { initialValue: null }),
+
+      setPlacement: (placement: Placement) => {
+        void state.set({ placement });
+      },
+
+      setReferenceElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
+        void state.set({ referenceElement: coerceElement(element) });
+      },
+
+      setFloatingElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
+        void state.set({ floatingElement: coerceElement(element) });
+      },
+
+      setArrowElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
+        void state.set({ arrowElement: coerceElement(element) });
+      },
+    };
   });
-
-  const referenceElement$ = toObservable(state.referenceElement);
-  const floatingElement$ = toObservable(state.floatingElement);
-  const arrowElement$ = toObservable(state.arrowElement);
-  const placement$ = toObservable(state.placement);
-
-  const data$ = combineLatest([referenceElement$, floatingElement$]).pipe(
-    switchMap(([referenceElement, floatingElement]) => {
-      if (!referenceElement || !floatingElement) {
-        return EMPTY;
-      }
-
-      const autoUpdate$ = startAutoUpdate(referenceElement, floatingElement);
-
-      return combineLatest([arrowElement$, placement$, autoUpdate$]).pipe(
-        map(
-          ([arrowElement, placement]): GetComputedPositionOptions => ({
-            referenceElement,
-            floatingElement,
-            arrowElement: arrowElement ?? undefined,
-            placement: placement ?? options.defaultPlacement,
-            referenceOffset: options.referenceOffset,
-            pageMargin: options.pageMargin,
-            arrowPadding: options.arrowPadding,
-          }),
-        ),
-      );
-    }),
-    switchMap(getComputedPosition),
-    map(formatFloatingData),
-  );
-
-  return {
-    data$: toSignal(data$, { initialValue: null }),
-
-    setPlacement: (placement: Placement) => {
-      void state.set({ placement });
-    },
-
-    setReferenceElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
-      void state.set({ referenceElement: coerceElement(element) });
-    },
-
-    setFloatingElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
-      void state.set({ floatingElement: coerceElement(element) });
-    },
-
-    setArrowElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
-      void state.set({ arrowElement: coerceElement(element) });
-    },
-  };
 }
 
 function startAutoUpdate(referenceElement: HTMLElement, floatingElement: HTMLElement) {

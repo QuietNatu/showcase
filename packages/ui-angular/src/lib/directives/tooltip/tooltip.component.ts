@@ -13,8 +13,6 @@ import { NgTemplateOutlet } from '@angular/common';
 import { NatuOverlayService } from '../../overlay';
 import { NatuOverlayArrowComponent } from '../../overlay/overlay-arrow.component';
 
-/* TODO: tooltip flickers when opening */
-
 @Component({
   selector: 'natu-tooltip',
   template: `

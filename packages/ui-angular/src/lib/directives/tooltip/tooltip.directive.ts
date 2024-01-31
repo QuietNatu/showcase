@@ -13,8 +13,6 @@ import { NatuTooltipComponent } from './tooltip.component';
 import { NatuOverlayService } from '../../overlay';
 import { NatuPortalService } from '../../portal';
 
-/* TODO: move to directives */
-
 @Directive({
   selector: '[natuTooltip]',
   standalone: true,

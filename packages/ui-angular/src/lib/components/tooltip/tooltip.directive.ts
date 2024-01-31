@@ -10,8 +10,8 @@ import {
   untracked,
 } from '@angular/core';
 import { NatuTooltipComponent } from './tooltip.component';
-import { NatuOverlayService } from '../../services';
-import { NatuPortalService } from '../../directives';
+import { NatuOverlayService } from '../../overlay';
+import { NatuPortalService } from '../../portal';
 
 @Directive({
   selector: '[natuTooltip]',
@@ -32,6 +32,7 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
   constructor() {
     this.registerManageVisibility();
 
+    // TODO: remove
     setTimeout(() => {
       this.overlayService.setIsOpen(true);
     }, 5000);

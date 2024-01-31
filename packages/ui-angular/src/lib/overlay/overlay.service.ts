@@ -55,9 +55,6 @@ export class NatuOverlayService {
     this.isOpen$ = this.state.isOpen;
     this.overlayData$ = this.floatingManager.data$;
 
-    // TODO:
-    this.floatingManager.data$;
-
     // TODO: animations should not be here
     // this.isMounted$ = toObservable(this.state.isOpen).pipe(
     //   // TODO: animation time

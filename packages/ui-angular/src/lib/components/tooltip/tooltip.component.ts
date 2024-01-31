@@ -11,7 +11,7 @@ import {
   inject,
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
-import { NatuOverlayService } from '../../services';
+import { NatuOverlayService } from '../../overlay';
 
 @Component({
   selector: 'natu-tooltip',

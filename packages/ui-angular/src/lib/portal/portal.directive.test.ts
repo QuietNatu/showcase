@@ -1,5 +1,5 @@
 import { screen, within } from '@testing-library/angular';
-import { render } from '../../test';
+import { render } from '../test';
 import { NatuPortalDirective } from './portal.directive';
 
 describe(NatuPortalDirective.name, () => {

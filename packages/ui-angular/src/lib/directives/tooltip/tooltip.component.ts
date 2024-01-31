@@ -1,3 +1,4 @@
+import { trigger, style, animate, transition } from '@angular/animations';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -12,22 +13,38 @@ import {
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuOverlayService } from '../../overlay';
 import { NatuOverlayArrowComponent } from '../../overlay/overlay-arrow.component';
+import { Side } from '@floating-ui/dom';
+import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
+
+const sideTransforms: Record<Side, string> = {
+  top: 'translateY(4px)',
+  bottom: 'translateY(-4px)',
+  left: 'translateX(4px)',
+  right: 'translateX(-4px)',
+};
+
+const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 
 @Component({
   selector: 'natu-tooltip',
   template: `
-    <div class="natu-tooltip">
-      @if (textContent$()) {
-        {{ textContent$() }}
-      } @else {
-        <ng-template
-          [ngTemplateOutlet]="templateContent$()"
-          [ngTemplateOutletInjector]="injector"
-        />
-      }
-    </div>
+    @if (overlayData$()) {
+      <div
+        class="natu-tooltip"
+        [@openClose]="{ value: true, params: { transformation: transformation$() } }"
+      >
+        @if (textContent$()) {
+          {{ textContent$() }}
+        } @else {
+          <ng-template
+            [ngTemplateOutlet]="templateContent$()"
+            [ngTemplateOutletInjector]="injector"
+          />
+        }
 
-    <natu-overlay-arrow class="natu-tooltip__arrow" />
+        <natu-overlay-arrow class="natu-tooltip__arrow" />
+      </div>
+    }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
@@ -35,6 +52,17 @@ import { NatuOverlayArrowComponent } from '../../overlay/overlay-arrow.component
   host: {
     '[style]': 'overlayData$()?.floatingStyle',
   },
+  animations: [
+    trigger('openClose', [
+      transition(':enter', [
+        style({ opacity: 0, transform: '{{ transformation }}' }),
+        animate(animationDuration, style({ opacity: 1, transform: 'translate(0, 0)' })),
+      ]),
+      transition(':leave', [
+        animate(animationDuration, style({ opacity: 0, transform: '{{ transformation }}' })),
+      ]),
+    ]),
+  ],
 })
 export class NatuTooltipComponent implements OnInit, OnDestroy {
   readonly arrowWidth;
@@ -43,6 +71,7 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
   readonly textContent$;
   readonly templateContent$;
   readonly overlayData$;
+  readonly transformation$;
 
   readonly injector = inject(Injector);
 
@@ -64,6 +93,18 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
     });
 
     this.overlayData$ = this.overlayService.overlayData$;
+
+    this.transformation$ = computed(() => {
+      const placement = this.overlayData$()?.context.placement;
+
+      if (!placement) {
+        return null;
+      }
+
+      const [side] = placement.split('-') as [Side];
+
+      return sideTransforms[side];
+    });
   }
 
   ngOnInit(): void {

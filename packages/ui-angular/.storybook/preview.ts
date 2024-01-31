@@ -3,6 +3,7 @@ import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../documentation.json';
 import { StoryConfigDirective, storyConfigDecorator } from './decorators';
 import { storyA11yConfig } from '../src/lib/stories';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 setCompodocJson(docJson);
 
@@ -49,7 +50,10 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [moduleMetadata({ imports: [StoryConfigDirective] }), storyConfigDecorator()],
+  decorators: [
+    moduleMetadata({ imports: [StoryConfigDirective], providers: [provideAnimations()] }),
+    storyConfigDecorator(),
+  ],
 };
 
 export default preview;

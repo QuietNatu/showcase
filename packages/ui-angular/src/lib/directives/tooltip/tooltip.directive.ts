@@ -14,6 +14,8 @@ import { NatuOverlayService } from '../../overlay';
 import { NatuPortalService } from '../../portal';
 import { useOverlayHover } from '../../overlay/overlay-interactions';
 
+const defaultHoverDelay = 500;
+
 @Directive({
   selector: '[natuTooltip]',
   standalone: true,
@@ -31,7 +33,8 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
   private readonly overlayService = inject(NatuOverlayService);
 
   constructor() {
-    useOverlayHover();
+    /* TODO: config service */
+    useOverlayHover({ delay: defaultHoverDelay });
 
     this.registerManageVisibility();
   }

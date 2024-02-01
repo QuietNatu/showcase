@@ -1,38 +1,47 @@
-import { Renderer2, assertInInjectionContext, effect, inject, untracked } from '@angular/core';
+import { assertInInjectionContext, inject } from '@angular/core';
 import { NatuOverlayService } from './overlay.service';
+import { filter, fromEvent, map, merge, switchMap, timer } from 'rxjs';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 
-/* TODO: docs */
+interface UseOverlayOptions {
+  delay?: number;
+}
 
-export function useOverlayHover() {
+/**
+ * Opens / Closes an overlay when it's reference element is hovered.
+ *
+ * Must be used in conjunction with {@link NatuOverlayService}.
+ */
+export function useOverlayHover(options: UseOverlayOptions = {}) {
   assertInInjectionContext(useOverlayHover);
 
-  const renderer = inject(Renderer2);
   const overlayService = inject(NatuOverlayService);
+  const delay = options.delay ?? 0;
 
-  effect((onCleanup) => {
-    const referenceElement = overlayService.referenceElement$();
+  toObservable(overlayService.referenceElement$)
+    .pipe(
+      filter(Boolean),
+      switchMap((element) => {
+        const mouseEnter$ = fromEvent(element, 'mouseenter').pipe(map(() => true));
+        const mouseLeave$ = fromEvent(element, 'mouseleave').pipe(map(() => false));
 
-    if (!referenceElement) {
-      return;
-    }
-
-    const unlistenMouseEnter = renderer.listen(referenceElement, 'mouseenter', () => {
-      untracked(() => overlayService.open());
+        return merge(mouseEnter$, mouseLeave$).pipe(
+          switchMap((shouldOpen) =>
+            timer(delay).pipe(
+              filter(() => shouldOpen !== overlayService.isOpen$()),
+              map(() => shouldOpen),
+            ),
+          ),
+        );
+      }),
+      takeUntilDestroyed(),
+    )
+    .subscribe((shouldOpen) => {
+      /* TODO: rethink this? */
+      if (shouldOpen) {
+        overlayService.open();
+      } else {
+        overlayService.close();
+      }
     });
-
-    const unlistenMouseLeave = renderer.listen(referenceElement, 'mouseleave', () => {
-      untracked(() => overlayService.close());
-    });
-
-    onCleanup(() => {
-      unlistenMouseEnter();
-      unlistenMouseLeave();
-    });
-  });
-
-  return {
-    setDelay() {
-      // TODO
-    },
-  };
 }

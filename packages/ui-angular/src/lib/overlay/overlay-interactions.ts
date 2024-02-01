@@ -67,10 +67,8 @@ export function useOverlayHover(options: HoverOptions = {}) {
     });
 }
 
-/* TODO: click on reference element counts? */
-
 /**
- * Closes an overlay when the `Escape` key is pressed or when a click happens outside the overlay.
+ * Closes an overlay when the `Escape` key is pressed or when a click happens outside the overlay and it's reference.
  *
  * Must be used in conjunction with {@link NatuOverlayService} and {@link NatuPortalService}.
  */
@@ -94,17 +92,11 @@ export function useOverlayDismiss() {
         );
 
         const clickOutside$ = fromEvent<MouseEvent>(document, 'mousedown').pipe(
-          filter((event) => {
-            const target = event.target;
-            const portalElement = portalService.portalElement$();
-
-            return Boolean(
-              target &&
-                target instanceof Element &&
-                portalElement &&
-                !portalElement.contains(target),
-            );
-          }),
+          filter(
+            (event) =>
+              isTargetOutsideElement(event.target, portalService.portalElement$()) &&
+              isTargetOutsideElement(event.target, overlayService.referenceElement$()),
+          ),
         );
 
         return merge(escapePress$, clickOutside$);
@@ -114,4 +106,8 @@ export function useOverlayDismiss() {
     .subscribe(() => {
       overlayService.close();
     });
+}
+
+function isTargetOutsideElement(target: EventTarget | null, element: HTMLElement | null) {
+  return Boolean(target && target instanceof Element && element && !element.contains(target));
 }

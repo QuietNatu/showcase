@@ -22,10 +22,7 @@ export interface ManageFloatingOptions {
   arrowPadding: number;
 }
 
-export interface FloatingContext extends ComputePositionReturn {
-  referenceElement: HTMLElement;
-  floatingElement: HTMLElement;
-}
+export type FloatingContext = ComputePositionReturn;
 
 interface GetComputedPositionOptions {
   referenceElement: HTMLElement;
@@ -103,6 +100,8 @@ export function manageFloating(options: ManageFloatingOptions) {
     );
 
     return {
+      referenceElement$: state.referenceElement,
+      floatingElement$: state.floatingElement,
       context$: toSignal(context$, { initialValue: null }),
       floatingStyle$: toSignal(floatingStyle$, { initialValue: null }),
 
@@ -147,15 +146,7 @@ function getComputedPosition(options: GetComputedPositionOptions) {
     ],
   });
 
-  return from(computedPosition).pipe(
-    map(
-      (result): FloatingContext => ({
-        ...result,
-        referenceElement: options.referenceElement,
-        floatingElement: options.floatingElement,
-      }),
-    ),
-  );
+  return from(computedPosition);
 }
 
 function formatFloatingStyle(context: FloatingContext): Partial<CSSStyleDeclaration> {

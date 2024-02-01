@@ -34,6 +34,8 @@ export class NatuOverlayService {
   readonly arrowWidth = arrowWidth;
   readonly arrowHeight = arrowHeight;
 
+  readonly referenceElement$;
+  readonly floatingElement$;
   readonly context$;
   readonly floatingStyle$;
   /* TODO: support multiple templates */
@@ -56,6 +58,8 @@ export class NatuOverlayService {
   });
 
   constructor() {
+    this.referenceElement$ = this.floatingManager.referenceElement$;
+    this.floatingElement$ = this.floatingManager.floatingElement$;
     this.context$ = this.floatingManager.context$;
     this.floatingStyle$ = this.floatingManager.floatingStyle$;
     this.content$ = this.state.content;
@@ -96,5 +100,15 @@ export class NatuOverlayService {
 
   setArrowElement(element: ElementRef<HTMLElement> | HTMLElement | null) {
     this.floatingManager.setArrowElement(element);
+  }
+
+  open() {
+    /* TODO: change this to handle controlled inputs */
+    void this.state.set({ isOpen: true });
+  }
+
+  close() {
+    /* TODO: change this to handle controlled inputs */
+    void this.state.set({ isOpen: false });
   }
 }

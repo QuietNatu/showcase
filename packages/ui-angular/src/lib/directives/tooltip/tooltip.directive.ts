@@ -12,6 +12,7 @@ import {
 import { NatuTooltipComponent } from './tooltip.component';
 import { NatuOverlayService } from '../../overlay';
 import { NatuPortalService } from '../../portal';
+import { useOverlayHover } from '../../overlay/overlay-interactions';
 
 @Directive({
   selector: '[natuTooltip]',
@@ -30,12 +31,9 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
   private readonly overlayService = inject(NatuOverlayService);
 
   constructor() {
-    this.registerManageVisibility();
+    useOverlayHover();
 
-    // TODO: remove
-    setTimeout(() => {
-      this.overlayService.setIsOpen(true);
-    }, 5000);
+    this.registerManageVisibility();
   }
 
   ngOnInit(): void {

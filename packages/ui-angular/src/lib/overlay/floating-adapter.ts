@@ -12,7 +12,7 @@ import {
   shift,
 } from '@floating-ui/dom';
 import { signalSlice } from 'ngxtension/signal-slice';
-import { EMPTY, Observable, combineLatest, from, map, switchMap } from 'rxjs';
+import { EMPTY, Observable, combineLatest, from, map, shareReplay, switchMap } from 'rxjs';
 import { runInZone } from '../utils';
 
 export interface ManageFloatingOptions {
@@ -22,11 +22,9 @@ export interface ManageFloatingOptions {
   arrowPadding: number;
 }
 
-export type FloatingContext = ComputePositionReturn;
-
-export interface FloatingData {
-  context: FloatingContext;
-  floatingStyle: Partial<CSSStyleDeclaration>;
+export interface FloatingContext extends ComputePositionReturn {
+  referenceElement: HTMLElement;
+  floatingElement: HTMLElement;
 }
 
 interface GetComputedPositionOptions {
@@ -72,7 +70,7 @@ export function manageFloating(options: ManageFloatingOptions) {
     const arrowElement$ = toObservable(state.arrowElement);
     const placement$ = toObservable(state.placement);
 
-    const data$ = combineLatest([referenceElement$, floatingElement$]).pipe(
+    const context$ = combineLatest([referenceElement$, floatingElement$]).pipe(
       switchMap(([referenceElement, floatingElement]) => {
         if (!referenceElement || !floatingElement) {
           return EMPTY;
@@ -95,12 +93,18 @@ export function manageFloating(options: ManageFloatingOptions) {
         );
       }),
       switchMap(getComputedPosition),
-      map(formatFloatingData),
       runInZone(ngZone),
+      shareReplay({ bufferSize: 1, refCount: true }),
+    );
+
+    const floatingStyle$ = context$.pipe(
+      map(formatFloatingStyle),
+      shareReplay({ bufferSize: 1, refCount: true }),
     );
 
     return {
-      data$: toSignal(data$, { initialValue: null }),
+      context$: toSignal(context$, { initialValue: null }),
+      floatingStyle$: toSignal(floatingStyle$, { initialValue: null }),
 
       setPlacement: (placement: Placement) => {
         void state.set({ placement });
@@ -143,10 +147,18 @@ function getComputedPosition(options: GetComputedPositionOptions) {
     ],
   });
 
-  return from(computedPosition);
+  return from(computedPosition).pipe(
+    map(
+      (result): FloatingContext => ({
+        ...result,
+        referenceElement: options.referenceElement,
+        floatingElement: options.floatingElement,
+      }),
+    ),
+  );
 }
 
-function formatFloatingData(context: ComputePositionReturn): FloatingData {
+function formatFloatingStyle(context: FloatingContext): Partial<CSSStyleDeclaration> {
   const x = Math.round(context.x);
   const y = Math.round(context.y);
 
@@ -157,8 +169,5 @@ function formatFloatingData(context: ComputePositionReturn): FloatingData {
     transform: `translate(${x}px, ${y}px)`,
   };
 
-  return {
-    context,
-    floatingStyle,
-  };
+  return floatingStyle;
 }

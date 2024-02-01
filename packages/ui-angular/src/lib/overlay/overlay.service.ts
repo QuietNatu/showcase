@@ -34,7 +34,8 @@ export class NatuOverlayService {
   readonly arrowWidth = arrowWidth;
   readonly arrowHeight = arrowHeight;
 
-  readonly overlayData$;
+  readonly context$;
+  readonly floatingStyle$;
   /* TODO: support multiple templates */
   readonly content$;
   readonly isOpen$;
@@ -55,7 +56,8 @@ export class NatuOverlayService {
   });
 
   constructor() {
-    this.overlayData$ = this.floatingManager.data$;
+    this.context$ = this.floatingManager.context$;
+    this.floatingStyle$ = this.floatingManager.floatingStyle$;
     this.content$ = this.state.content;
     this.isOpen$ = this.state.isOpen;
 

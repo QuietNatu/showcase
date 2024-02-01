@@ -16,8 +16,6 @@ import { fromEvent } from 'rxjs';
 import { rxEffects } from '@rx-angular/state/effects';
 import { FocusMonitor } from '@angular/cdk/a11y';
 
-/* TODO: move to directives */
-
 const buttonVariants = cva('natu-button', {
   variants: {
     variant: {

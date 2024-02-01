@@ -91,7 +91,7 @@ export class NatuOverlayArrowComponent implements OnInit, OnDestroy {
 
   private getStyle() {
     return computed<Partial<CSSStyleDeclaration>>(() => {
-      const context = this.overlayService.overlayData$()?.context;
+      const context = this.overlayService.context$();
 
       if (!context) {
         return {};

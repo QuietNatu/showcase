@@ -16,6 +16,7 @@ import { NatuOverlayArrowComponent } from '../../overlay/overlay-arrow.component
 import { Side } from '@floating-ui/dom';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 
+const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 const sideTransforms: Record<Side, string> = {
   top: 'translateY(4px)',
   bottom: 'translateY(-4px)',
@@ -23,12 +24,10 @@ const sideTransforms: Record<Side, string> = {
   right: 'translateX(-4px)',
 };
 
-const animationDuration = NATU_TIME_ANIMATION_STANDARD;
-
 @Component({
   selector: 'natu-tooltip',
   template: `
-    @if (overlayData$()) {
+    @if (context$()) {
       <div
         class="natu-tooltip"
         [@openClose]="{ value: true, params: { transformation: transformation$() } }"
@@ -50,7 +49,7 @@ const animationDuration = NATU_TIME_ANIMATION_STANDARD;
   standalone: true,
   imports: [NgTemplateOutlet, NatuOverlayArrowComponent],
   host: {
-    '[style]': 'overlayData$()?.floatingStyle',
+    '[style]': 'floatingStyle$()',
   },
   animations: [
     trigger('openClose', [
@@ -70,7 +69,8 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
 
   readonly textContent$;
   readonly templateContent$;
-  readonly overlayData$;
+  readonly context$;
+  readonly floatingStyle$;
   readonly transformation$;
 
   readonly injector = inject(Injector);
@@ -92,10 +92,11 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
       return content instanceof TemplateRef ? content : null;
     });
 
-    this.overlayData$ = this.overlayService.overlayData$;
+    this.context$ = this.overlayService.context$;
+    this.floatingStyle$ = this.overlayService.floatingStyle$;
 
     this.transformation$ = computed(() => {
-      const placement = this.overlayData$()?.context.placement;
+      const placement = this.overlayService.context$()?.placement;
 
       if (!placement) {
         return null;

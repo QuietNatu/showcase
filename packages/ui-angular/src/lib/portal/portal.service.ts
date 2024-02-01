@@ -5,6 +5,7 @@ import {
   Injectable,
   Injector,
   TemplateRef,
+  computed,
   effect,
   inject,
   signal,
@@ -23,6 +24,9 @@ import { NatuPortalComponent } from './portal.component';
  */
 @Injectable()
 export class NatuPortalService {
+  /** *Internal* - Gets the current instance of the created portal element. */
+  readonly portalElement$;
+
   private readonly document = inject(DOCUMENT);
   private readonly componentFactoryResolver = inject(ComponentFactoryResolver);
   private readonly applicationRef = inject(ApplicationRef);
@@ -30,17 +34,18 @@ export class NatuPortalService {
   private readonly parentPortal = inject(NatuPortalService, { optional: true, skipSelf: true });
 
   private readonly portalOutlet = new DomPortalOutlet(
-    this.parentPortal?.getPortalElement() ?? this.document.body,
+    this.parentPortal?.portalElement$() ?? this.document.body,
     this.componentFactoryResolver,
     this.applicationRef,
     this.injector,
   );
 
   private readonly content$ = signal<TemplateRef<unknown> | ComponentType<unknown> | null>(null);
-
-  private portalElementRef: ElementRef<HTMLElement> | null = null;
+  private readonly portalElementRef$ = signal<ElementRef<HTMLElement> | null>(null);
 
   constructor() {
+    this.portalElement$ = computed(() => this.portalElementRef$()?.nativeElement ?? null);
+
     this.registerManagePortal();
   }
 
@@ -65,13 +70,6 @@ export class NatuPortalService {
     this.content$.set(null);
   }
 
-  /**
-   * *Internal* Gets the current instance of the created portal element.
-   */
-  getPortalElement() {
-    return this.portalElementRef?.nativeElement;
-  }
-
   private registerManagePortal() {
     effect((onCleanup) => {
       const content = this.content$();
@@ -82,14 +80,16 @@ export class NatuPortalService {
 
       const portal = new ComponentPortal(NatuPortalComponent);
       const componentRef = this.portalOutlet.attach(portal);
-      this.portalElementRef = componentRef.injector.get(ElementRef);
+      untracked(() => this.portalElementRef$.set(componentRef.injector.get(ElementRef)));
 
       componentRef.setInput('content', content);
 
       onCleanup(() => {
         // Detach is triggering effects in the background
-        untracked(() => this.portalOutlet.detach());
-        this.portalElementRef = null;
+        untracked(() => {
+          this.portalOutlet.detach();
+          this.portalElementRef$.set(null);
+        });
       });
     });
   }

@@ -42,6 +42,7 @@ export class NatuOverlayService {
   readonly content$;
   readonly isOpen$;
 
+  /* TODO: check if this will actually be needed */
   private readonly state = signalSlice({
     initialState,
     actionSources: {

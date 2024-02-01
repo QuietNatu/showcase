@@ -1,5 +1,5 @@
 import { coerceElement } from '@angular/cdk/coercion';
-import { ElementRef, NgZone, assertInInjectionContext, inject } from '@angular/core';
+import { ElementRef, NgZone, assertInInjectionContext, inject, signal } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import {
   ComputePositionReturn,
@@ -11,7 +11,6 @@ import {
   offset,
   shift,
 } from '@floating-ui/dom';
-import { signalSlice } from 'ngxtension/signal-slice';
 import { EMPTY, Observable, combineLatest, from, map, shareReplay, switchMap } from 'rxjs';
 import { runInZone } from '../utils';
 
@@ -34,38 +33,21 @@ interface GetComputedPositionOptions {
   arrowPadding: number;
 }
 
-interface State {
-  referenceElement: HTMLElement | null;
-  floatingElement: HTMLElement | null;
-  arrowElement: HTMLElement | null;
-  placement: Placement | null;
-}
-
-const initialState: State = {
-  referenceElement: null,
-  floatingElement: null,
-  arrowElement: null,
-  placement: null,
-};
-
 export function manageFloating(options: ManageFloatingOptions) {
   assertInInjectionContext(manageFloating);
 
   const ngZone = inject(NgZone);
 
   return ngZone.runOutsideAngular(() => {
-    const state = signalSlice({
-      initialState,
-      actionSources: {
-        set: (_, action$: Observable<Partial<State>>) =>
-          action$.pipe(map((newState) => ({ ...newState }))),
-      },
-    });
+    const referenceElement = signal<HTMLElement | null>(null);
+    const floatingElement = signal<HTMLElement | null>(null);
+    const arrowElement = signal<HTMLElement | null>(null);
+    const placement = signal<Placement | null>(null);
 
-    const referenceElement$ = toObservable(state.referenceElement);
-    const floatingElement$ = toObservable(state.floatingElement);
-    const arrowElement$ = toObservable(state.arrowElement);
-    const placement$ = toObservable(state.placement);
+    const referenceElement$ = toObservable(referenceElement);
+    const floatingElement$ = toObservable(floatingElement);
+    const arrowElement$ = toObservable(arrowElement);
+    const placement$ = toObservable(placement);
 
     const context$ = combineLatest([referenceElement$, floatingElement$]).pipe(
       switchMap(([referenceElement, floatingElement]) => {
@@ -100,25 +82,25 @@ export function manageFloating(options: ManageFloatingOptions) {
     );
 
     return {
-      referenceElement$: state.referenceElement,
-      floatingElement$: state.floatingElement,
+      referenceElement$: referenceElement,
+      floatingElement$: floatingElement,
       context$: toSignal(context$, { initialValue: null }),
       floatingStyle$: toSignal(floatingStyle$, { initialValue: null }),
 
-      setPlacement: (placement: Placement) => {
-        void state.set({ placement });
+      setPlacement: (newPlacement: Placement | null) => {
+        placement.set(newPlacement);
       },
 
       setReferenceElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
-        void state.set({ referenceElement: coerceElement(element) });
+        referenceElement.set(coerceElement(element));
       },
 
       setFloatingElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
-        void state.set({ floatingElement: coerceElement(element) });
+        floatingElement.set(coerceElement(element));
       },
 
       setArrowElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
-        void state.set({ arrowElement: coerceElement(element) });
+        arrowElement.set(coerceElement(element));
       },
     };
   });

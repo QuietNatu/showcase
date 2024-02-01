@@ -28,7 +28,6 @@ const initialState: State = {
 };
 
 /* TODO: docs */
-/* TODO: something changed that broke portal service detach */
 
 @Injectable()
 export class NatuOverlayService {

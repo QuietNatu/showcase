@@ -1,4 +1,4 @@
-import { moduleMetadata, type Preview } from '@storybook/angular';
+import { applicationConfig, moduleMetadata, type Preview } from '@storybook/angular';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../documentation.json';
 import { StoryConfigDirective, storyConfigDecorator } from './decorators';
@@ -51,7 +51,8 @@ const preview: Preview = {
     },
   },
   decorators: [
-    moduleMetadata({ imports: [StoryConfigDirective], providers: [provideAnimations()] }),
+    applicationConfig({ providers: [provideAnimations()] }),
+    moduleMetadata({ imports: [StoryConfigDirective] }),
     storyConfigDecorator(),
   ],
 };

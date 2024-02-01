@@ -8,6 +8,7 @@ import {
   effect,
   inject,
   signal,
+  untracked,
 } from '@angular/core';
 import { ComponentPortal, ComponentType, DomPortalOutlet } from '@angular/cdk/portal';
 import { DOCUMENT } from '@angular/common';
@@ -86,7 +87,8 @@ export class NatuPortalService {
       componentRef.setInput('content', content);
 
       onCleanup(() => {
-        this.portalOutlet.detach();
+        // Detach is triggering effects in the background
+        untracked(() => this.portalOutlet.detach());
         this.portalElementRef = null;
       });
     });

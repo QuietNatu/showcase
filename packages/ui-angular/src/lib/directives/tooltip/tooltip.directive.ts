@@ -12,7 +12,7 @@ import {
 import { NatuTooltipComponent } from './tooltip.component';
 import { NatuOverlayService } from '../../overlay';
 import { NatuPortalService } from '../../portal';
-import { useOverlayHover } from '../../overlay/overlay-interactions';
+import { useOverlayDismiss, useOverlayHover } from '../../overlay/overlay-interactions';
 
 const defaultHoverDelay = 500;
 
@@ -35,6 +35,7 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
   constructor() {
     /* TODO: config service */
     useOverlayHover({ delay: defaultHoverDelay });
+    useOverlayDismiss();
 
     this.registerManageVisibility();
   }

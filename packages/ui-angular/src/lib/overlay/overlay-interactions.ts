@@ -9,38 +9,50 @@ interface HoverOptions {
   delay?: number;
 }
 
-/* TODO: do not close if hover is on floating element */
 /* TODO: test */
 
 /**
- * Opens / Closes an overlay when it's reference element is hovered.
+ * Opens / Closes an overlay when it's reference element is hovered. Keeps overlay open if overlay is hovered.
  *
- * Must be used in conjunction with {@link NatuOverlayService}.
+ * Must be used in conjunction with {@link NatuOverlayService} and {@link NatuPortalService}.
  */
 export function useOverlayHover(options: HoverOptions = {}) {
   assertInInjectionContext(useOverlayHover);
 
+  const portalService = inject(NatuPortalService);
   const overlayService = inject(NatuOverlayService);
   const delay = options.delay ?? 0;
 
-  toObservable(overlayService.referenceElement$)
+  const referenceElement$ = toObservable(overlayService.referenceElement$).pipe(filter(Boolean));
+  const portalElement$ = toObservable(portalService.portalElement$).pipe(filter(Boolean));
+
+  const referenceEnter$ = referenceElement$.pipe(
+    switchMap((element) => fromEvent(element, 'mouseenter')),
+    map(() => true),
+  );
+
+  const referenceLeave$ = referenceElement$.pipe(
+    switchMap((element) => fromEvent(element, 'mouseleave')),
+    map(() => false),
+  );
+
+  const portalEnter$ = portalElement$.pipe(
+    switchMap((element) => fromEvent(element, 'mouseenter')),
+    map(() => true),
+  );
+
+  const portalLeave$ = portalElement$.pipe(
+    switchMap((element) => fromEvent(element, 'mouseleave')),
+    map(() => false),
+  );
+
+  merge(referenceEnter$, referenceLeave$, portalEnter$, portalLeave$)
     .pipe(
-      switchMap((element) => {
-        if (!element) {
-          return EMPTY;
-        }
-
-        const mouseEnter$ = fromEvent(element, 'mouseenter').pipe(map(() => true));
-        const mouseLeave$ = fromEvent(element, 'mouseleave').pipe(map(() => false));
-
-        return merge(mouseEnter$, mouseLeave$).pipe(
-          switchMap((shouldOpen) =>
-            timer(delay).pipe(
-              // TODO: check if this verification is needed
-              filter(() => shouldOpen !== overlayService.isOpen$()),
-              map(() => shouldOpen),
-            ),
-          ),
+      switchMap((shouldOpen) => {
+        return timer(delay).pipe(
+          // TODO: check if this verification is needed
+          filter(() => shouldOpen !== overlayService.isOpen$()),
+          map(() => shouldOpen),
         );
       }),
       takeUntilDestroyed(),
@@ -54,6 +66,8 @@ export function useOverlayHover(options: HoverOptions = {}) {
       }
     });
 }
+
+/* TODO: click on reference element counts? */
 
 /**
  * Closes an overlay when the `Escape` key is pressed or when a click happens outside the overlay.

@@ -1,8 +1,9 @@
 import { ElementRef, Injectable, TemplateRef } from '@angular/core';
 import { signalSlice } from 'ngxtension/signal-slice';
-import { Observable, map } from 'rxjs';
+import { Observable, Subject, filter, map, merge, switchMap } from 'rxjs';
 import { Placement } from '@floating-ui/dom';
 import { manageFloating } from './floating-adapter';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 
 export type NatuOverlayPlacement = Placement;
 
@@ -19,12 +20,14 @@ interface State {
   content: string | TemplateRef<unknown> | null;
   isOpen: boolean;
   isDisabled: boolean;
+  hasTransitions: boolean;
 }
 
 const initialState: State = {
   content: null,
   isOpen: false,
   isDisabled: false,
+  hasTransitions: false,
 };
 
 /* TODO: docs */
@@ -41,6 +44,9 @@ export class NatuOverlayService {
   /* TODO: support multiple templates */
   readonly content$;
   readonly isOpen$;
+  readonly isMounted$;
+
+  private readonly unmount$ = new Subject<void>();
 
   /* TODO: check if this will actually be needed */
   private readonly state = signalSlice({
@@ -65,12 +71,10 @@ export class NatuOverlayService {
     this.floatingStyle$ = this.floatingManager.floatingStyle$;
     this.content$ = this.state.content;
     this.isOpen$ = this.state.isOpen;
-
-    // TODO: animations should not be here
-    // this.isMounted$ = toObservable(this.state.isOpen).pipe(
-    //   // TODO: animation time
-    //   switchMap((isOpen) => (isOpen ? of(true) : timer(200).pipe(map(() => false)))),
-    // );
+    /**
+     * Whether the overlay should be rendered or not.
+     */
+    this.isMounted$ = this.getIsMounted();
   }
 
   setContent(content: string | TemplateRef<unknown>) {
@@ -111,5 +115,36 @@ export class NatuOverlayService {
   close() {
     /* TODO: change this to handle controlled inputs */
     void this.state.set({ isOpen: false });
+  }
+
+  /**
+   * Whether overlay should wait for a transition to end before closing.
+   *
+   * `unmount` event must be triggered for overlay to close.
+   */
+  setHasTransitions(hasTransitions: boolean) {
+    void this.state.set({ hasTransitions });
+  }
+
+  /**
+   * Signals that overlay can be unmounted. Only works if transitions are enable with `setHasTransitions(true)`.
+   *
+   * Use this, for example, to trigger the end of a close animation.
+   */
+  unmount() {
+    this.unmount$.next();
+  }
+
+  private getIsMounted() {
+    const isOpen$ = toObservable(this.state.isOpen);
+    const mount$ = isOpen$.pipe(filter(Boolean));
+    const unmount$ = this.unmount$.pipe(map(() => false));
+    const isMounted$ = merge(mount$, unmount$);
+
+    const value$ = toObservable(this.state.hasTransitions).pipe(
+      switchMap((hasTransitions) => (hasTransitions ? isMounted$ : isOpen$)),
+    );
+
+    return toSignal(value$, { initialValue: false });
   }
 }

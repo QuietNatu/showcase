@@ -33,6 +33,8 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
   private readonly overlayService = inject(NatuOverlayService);
 
   constructor() {
+    this.overlayService.setHasTransitions(true);
+
     /* TODO: config service */
     useOverlayHover({ delay: defaultHoverDelay });
     useOverlayDismiss();
@@ -49,11 +51,10 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
   }
 
   private registerManageVisibility() {
-    /* TODO: change to isMounted */
     effect(() => {
-      const isOpen = this.overlayService.isOpen$();
+      const isMounted = this.overlayService.isMounted$();
 
-      if (isOpen) {
+      if (isMounted) {
         untracked(() => this.portalService.attachComponent(NatuTooltipComponent));
       } else {
         untracked(() => this.portalService.detach());

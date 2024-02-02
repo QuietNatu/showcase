@@ -27,10 +27,11 @@ const sideTransforms: Record<Side, string> = {
 @Component({
   selector: 'natu-tooltip',
   template: `
-    @if (context$()) {
+    @if (isOpen$() && context$()) {
       <div
         class="natu-tooltip"
         [@openClose]="{ value: true, params: { transformation: transformation$() } }"
+        (@openClose.done)="$event.toState === 'void' && handleFinishClose()"
       >
         @if (textContent$()) {
           {{ textContent$() }}
@@ -69,6 +70,7 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
 
   readonly textContent$;
   readonly templateContent$;
+  readonly isOpen$;
   readonly context$;
   readonly floatingStyle$;
   readonly transformation$;
@@ -92,6 +94,7 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
       return content instanceof TemplateRef ? content : null;
     });
 
+    this.isOpen$ = this.overlayService.isOpen$;
     this.context$ = this.overlayService.context$;
     this.floatingStyle$ = this.overlayService.floatingStyle$;
 
@@ -114,5 +117,9 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.overlayService.setFloatingElement(null);
+  }
+
+  handleFinishClose() {
+    this.overlayService.unmount();
   }
 }

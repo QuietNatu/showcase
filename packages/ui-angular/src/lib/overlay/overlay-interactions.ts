@@ -48,13 +48,7 @@ export function useOverlayHover(options: HoverOptions = {}) {
 
   merge(referenceEnter$, referenceLeave$, portalEnter$, portalLeave$)
     .pipe(
-      switchMap((shouldOpen) => {
-        return timer(delay).pipe(
-          // TODO: check if this verification is needed
-          filter(() => shouldOpen !== overlayService.isOpen$()),
-          map(() => shouldOpen),
-        );
-      }),
+      switchMap((shouldOpen) => timer(delay).pipe(map(() => shouldOpen))),
       takeUntilDestroyed(),
     )
     .subscribe((shouldOpen) => {

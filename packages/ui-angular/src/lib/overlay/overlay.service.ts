@@ -127,7 +127,7 @@ export class NatuOverlayService {
   }
 
   /**
-   * Signals that overlay can be unmounted. Only works if transitions are enable with `setHasTransitions(true)`.
+   * Signals that overlay can be unmounted. Only works if transitions are enabled with `setHasTransitions(true)`.
    *
    * Use this, for example, to trigger the end of a close animation.
    */

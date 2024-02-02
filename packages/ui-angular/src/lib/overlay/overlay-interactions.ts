@@ -4,6 +4,7 @@ import { EMPTY, filter, fromEvent, map, merge, switchMap, timer } from 'rxjs';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
 import { NatuPortalService } from '../portal';
+import { FocusMonitor } from '@angular/cdk/a11y';
 
 interface HoverOptions {
   delay?: number;
@@ -49,6 +50,35 @@ export function useOverlayHover(options: HoverOptions = {}) {
   merge(referenceEnter$, referenceLeave$, portalEnter$, portalLeave$)
     .pipe(
       switchMap((shouldOpen) => timer(delay).pipe(map(() => shouldOpen))),
+      takeUntilDestroyed(),
+    )
+    .subscribe((shouldOpen) => {
+      /* TODO: rethink this? */
+      if (shouldOpen) {
+        overlayService.open();
+      } else {
+        overlayService.close();
+      }
+    });
+}
+
+/**
+ * Opens / Closes an overlay when it's reference element is focused / blurred.
+ *
+ * Must be used in conjunction with {@link NatuOverlayService}.
+ */
+export function useOverlayFocus() {
+  assertInInjectionContext(useOverlayFocus);
+
+  const focusMonitor = inject(FocusMonitor);
+  const overlayService = inject(NatuOverlayService);
+
+  toObservable(overlayService.referenceElement$)
+    .pipe(
+      filter(Boolean),
+      switchMap((element) => focusMonitor.monitor(element)),
+      filter((origin) => origin === 'keyboard' || origin === null),
+      map((origin) => origin !== null),
       takeUntilDestroyed(),
     )
     .subscribe((shouldOpen) => {

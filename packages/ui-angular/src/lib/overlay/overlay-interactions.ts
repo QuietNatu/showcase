@@ -50,7 +50,7 @@ export function useOverlayHover(options: HoverOptions = {}) {
   merge(referenceEnter$, referenceLeave$, portalEnter$, portalLeave$)
     .pipe(
       switchMap((shouldOpen) => timer(delay).pipe(map(() => shouldOpen))),
-      takeUntilDestroyed(),
+      takeUntilDestroyed(), // TODO: effects service instead of this? and explain how it is an improvement because it reduces the number of things that can fail
     )
     .subscribe((shouldOpen) => {
       /* TODO: rethink this? */
@@ -70,6 +70,7 @@ export function useOverlayHover(options: HoverOptions = {}) {
 export function useOverlayFocus() {
   assertInInjectionContext(useOverlayFocus);
 
+  const document = inject(DOCUMENT);
   const focusMonitor = inject(FocusMonitor);
   const overlayService = inject(NatuOverlayService);
 
@@ -77,7 +78,7 @@ export function useOverlayFocus() {
     .pipe(
       filter(Boolean),
       switchMap((element) => focusMonitor.monitor(element)),
-      filter((origin) => origin === 'keyboard' || origin === null),
+      filter((origin) => origin === 'keyboard' || (origin === null && document.hasFocus())),
       map((origin) => origin !== null),
       takeUntilDestroyed(),
     )

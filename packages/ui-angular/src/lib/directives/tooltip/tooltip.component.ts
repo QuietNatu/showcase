@@ -50,6 +50,9 @@ const sideTransforms: Record<Side, string> = {
   standalone: true,
   imports: [NgTemplateOutlet, NatuOverlayArrowComponent],
   host: {
+    role: 'tooltip',
+    tabindex: '-1',
+    '[id]': '"tooltip-" + floatingId',
     '[style]': 'floatingStyle$()',
   },
   animations: [
@@ -65,6 +68,7 @@ const sideTransforms: Record<Side, string> = {
   ],
 })
 export class NatuTooltipComponent implements OnInit, OnDestroy {
+  readonly floatingId;
   readonly arrowWidth;
   readonly arrowHeight;
 
@@ -81,6 +85,7 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
   private readonly overlayService = inject(NatuOverlayService);
 
   constructor() {
+    this.floatingId = this.overlayService.floatingId;
     this.arrowWidth = this.overlayService.arrowWidth;
     this.arrowHeight = this.overlayService.arrowHeight;
 

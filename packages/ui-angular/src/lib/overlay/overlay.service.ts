@@ -36,6 +36,7 @@ const initialState: State = {
 export class NatuOverlayService {
   readonly arrowWidth = arrowWidth;
   readonly arrowHeight = arrowHeight;
+  readonly floatingId = crypto.randomUUID();
 
   readonly referenceElement$;
   readonly floatingElement$;

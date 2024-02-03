@@ -5,6 +5,7 @@ import {
   OnDestroy,
   OnInit,
   TemplateRef,
+  computed,
   effect,
   inject,
   untracked,
@@ -24,6 +25,9 @@ const defaultHoverDelay = 500;
   selector: '[natuTooltip]',
   standalone: true,
   providers: [NatuOverlayService, NatuPortalService],
+  host: {
+    '[attr.aria-describedby]': 'floatingId$()',
+  },
 })
 export class NatuTooltipDirective implements OnInit, OnDestroy {
   @Input({ required: true, alias: 'natuTooltip' }) set content(
@@ -32,12 +36,16 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
     this.overlayService.setContent(content);
   }
 
+  readonly floatingId$;
+
   private readonly elementRef = inject(ElementRef);
   private readonly portalService = inject(NatuPortalService);
   private readonly overlayService = inject(NatuOverlayService);
 
   constructor() {
-    this.overlayService.setHasTransitions(true);
+    this.floatingId$ = computed(() =>
+      this.overlayService.isMounted$() ? `tooltip-${this.overlayService.floatingId}` : null,
+    );
 
     /* TODO: config service */
     useOverlayHover({ delay: defaultHoverDelay });
@@ -48,6 +56,7 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.overlayService.setHasTransitions(true);
     this.overlayService.setReferenceElement(this.elementRef);
   }
 

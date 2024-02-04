@@ -1,4 +1,4 @@
-import { ElementRef, Injectable, TemplateRef } from '@angular/core';
+import { ElementRef, Injectable, TemplateRef, computed } from '@angular/core';
 import { signalSlice } from 'ngxtension/signal-slice';
 import { Observable, Subject, filter, map, merge, switchMap } from 'rxjs';
 import { Placement } from '@floating-ui/dom';
@@ -45,7 +45,9 @@ export class NatuOverlayService {
   /* TODO: support multiple templates */
   readonly content$;
   readonly isOpen$;
+  /** Whether the overlay should be rendered or not. */
   readonly isMounted$;
+  readonly isDisabled$;
 
   private readonly unmount$ = new Subject<void>();
 
@@ -71,11 +73,9 @@ export class NatuOverlayService {
     this.context$ = this.floatingManager.context$;
     this.floatingStyle$ = this.floatingManager.floatingStyle$;
     this.content$ = this.state.content;
-    this.isOpen$ = this.state.isOpen;
-    /**
-     * Whether the overlay should be rendered or not.
-     */
+    this.isOpen$ = computed(() => (this.state.isDisabled() ? false : this.state.isOpen()));
     this.isMounted$ = this.getIsMounted();
+    this.isDisabled$ = this.state.isDisabled;
   }
 
   setContent(content: string | TemplateRef<unknown>) {
@@ -109,13 +109,19 @@ export class NatuOverlayService {
   }
 
   open() {
-    /* TODO: change this to handle controlled inputs */
-    void this.state.set({ isOpen: true });
+    // TODO: check isDisabled should be like this
+    // TODO: probably move this to state as an action source? Or state selector
+    if (!this.state.isDisabled()) {
+      /* TODO: change this to handle controlled inputs */
+      void this.state.set({ isOpen: true });
+    }
   }
 
   close() {
-    /* TODO: change this to handle controlled inputs */
-    void this.state.set({ isOpen: false });
+    if (!this.state.isDisabled()) {
+      /* TODO: change this to handle controlled inputs */
+      void this.state.set({ isOpen: false });
+    }
   }
 
   /**
@@ -142,10 +148,12 @@ export class NatuOverlayService {
     const unmount$ = this.unmount$.pipe(map(() => false));
     const isMounted$ = merge(mount$, unmount$);
 
-    const value$ = toObservable(this.state.hasTransitions).pipe(
+    const valueObservable$ = toObservable(this.state.hasTransitions).pipe(
       switchMap((hasTransitions) => (hasTransitions ? isMounted$ : isOpen$)),
     );
 
-    return toSignal(value$, { initialValue: false });
+    const value$ = toSignal(valueObservable$, { initialValue: false });
+
+    return computed(() => (this.state.isDisabled() ? false : value$()));
   }
 }

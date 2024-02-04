@@ -36,6 +36,12 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
     this.overlayService.setContent(content);
   }
 
+  @Input({ alias: 'natuTooltipIsDisabled' }) set isDisabled(
+    isDisabled: boolean | null | undefined,
+  ) {
+    this.overlayService.setIsDisabled(isDisabled ?? false);
+  }
+
   readonly floatingId$;
 
   private readonly elementRef = inject(ElementRef);

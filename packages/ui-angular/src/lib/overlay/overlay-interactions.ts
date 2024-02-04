@@ -1,6 +1,6 @@
 import { assertInInjectionContext, inject } from '@angular/core';
 import { NatuOverlayService } from './overlay.service';
-import { EMPTY, filter, fromEvent, map, merge, switchMap, timer } from 'rxjs';
+import { EMPTY, filter, fromEvent, map, merge, skipWhile, switchMap, timer } from 'rxjs';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
 import { NatuPortalService } from '../portal';
@@ -49,6 +49,7 @@ export function useOverlayHover(options: HoverOptions = {}) {
 
   merge(referenceEnter$, referenceLeave$, portalEnter$, portalLeave$)
     .pipe(
+      skipWhile(() => overlayService.isDisabled$()),
       switchMap((shouldOpen) => timer(delay).pipe(map(() => shouldOpen))),
       takeUntilDestroyed(), // TODO: effects service instead of this? and explain how it is an improvement because it reduces the number of things that can fail
     )
@@ -78,6 +79,7 @@ export function useOverlayFocus() {
     .pipe(
       filter(Boolean),
       switchMap((element) => focusMonitor.monitor(element)),
+      skipWhile(() => overlayService.isDisabled$()),
       filter((origin) => origin === 'keyboard' || (origin === null && document.hasFocus())),
       map((origin) => origin !== null),
       takeUntilDestroyed(),

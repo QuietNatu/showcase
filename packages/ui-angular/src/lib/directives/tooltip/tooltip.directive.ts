@@ -37,6 +37,10 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
     this.overlayService.setContent(content);
   }
 
+  @Input({ alias: 'natuTooltipContext' }) set context(context: object | null | undefined) {
+    this.overlayService.setContentContext(context ?? null);
+  }
+
   @Input({ alias: 'natuTooltipIsDisabled' }) set isDisabled(
     isDisabled: boolean | null | undefined,
   ) {

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/angular';
+import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { NatuPortalDirective } from './portal.directive';
 import { natuButtonImports } from '../directives/button/button.directive';
@@ -55,6 +55,7 @@ const meta = {
   title: 'Utils/Portal',
   component: NatuPortalDirective,
   tags: ['autodocs'],
+  decorators: [moduleMetadata({ imports: [NatuDefaultComponent, NatuNestedComponent] })],
   parameters: {
     layout: 'centered',
   },
@@ -67,7 +68,6 @@ export const Default: Story = {
   render: (args) => {
     return {
       props: args,
-      moduleMetadata: { imports: [NatuDefaultComponent] },
       template: `<natu-default />`,
     };
   },
@@ -77,7 +77,6 @@ export const Nested: Story = {
   render: (args) => {
     return {
       props: args,
-      moduleMetadata: { imports: [NatuNestedComponent] },
       template: `<natu-nested />`,
     };
   },

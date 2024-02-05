@@ -38,6 +38,7 @@ const sideTransforms: Record<Side, string> = {
         } @else {
           <ng-template
             [ngTemplateOutlet]="templateContent$()"
+            [ngTemplateOutletContext]="templateContext$()"
             [ngTemplateOutletInjector]="injector"
           />
         }
@@ -74,6 +75,7 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
 
   readonly textContent$;
   readonly templateContent$;
+  readonly templateContext$;
   readonly isOpen$;
   readonly context$;
   readonly floatingStyle$;
@@ -98,6 +100,8 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
       const content = this.overlayService.content$();
       return content instanceof TemplateRef ? content : null;
     });
+
+    this.templateContext$ = this.overlayService.contentContext$;
 
     this.isOpen$ = this.overlayService.isOpen$;
     this.context$ = this.overlayService.context$;

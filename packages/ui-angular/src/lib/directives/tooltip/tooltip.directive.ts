@@ -18,6 +18,7 @@ import {
   useOverlayFocus,
   useOverlayHover,
 } from '../../overlay/overlay-interactions';
+import { NATU_UI_CONFIG } from '../../core';
 
 const defaultHoverDelay = 500;
 
@@ -57,14 +58,14 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
   private readonly elementRef = inject(ElementRef);
   private readonly portalService = inject(NatuPortalService);
   private readonly overlayService = inject(NatuOverlayService);
+  private readonly uiConfig = inject(NATU_UI_CONFIG, { optional: true });
 
   constructor() {
     this.floatingId$ = computed(() =>
       this.overlayService.isMounted$() ? `tooltip-${this.overlayService.floatingId}` : null,
     );
 
-    /* TODO: config service */
-    useOverlayHover({ delay: defaultHoverDelay });
+    useOverlayHover({ delay: this.uiConfig?.tooltip?.hoverDelay ?? defaultHoverDelay });
     useOverlayFocus();
     useOverlayDismiss();
 

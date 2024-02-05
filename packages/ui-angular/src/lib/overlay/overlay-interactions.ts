@@ -1,10 +1,11 @@
 import { assertInInjectionContext, inject } from '@angular/core';
 import { NatuOverlayService } from './overlay.service';
 import { EMPTY, filter, fromEvent, map, merge, skipWhile, switchMap, timer } from 'rxjs';
-import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
+import { toObservable } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
 import { NatuPortalService } from '../portal';
 import { FocusMonitor } from '@angular/cdk/a11y';
+import { registerEffect } from '../utils/rxjs';
 
 interface HoverOptions {
   delay?: number;
@@ -47,13 +48,12 @@ export function useOverlayHover(options: HoverOptions = {}) {
     map(() => false),
   );
 
-  merge(referenceEnter$, referenceLeave$, portalEnter$, portalLeave$)
-    .pipe(
-      skipWhile(() => overlayService.isDisabled$()),
-      switchMap((shouldOpen) => timer(delay).pipe(map(() => shouldOpen))),
-      takeUntilDestroyed(), // TODO: effects service instead of this? and explain how it is an improvement because it reduces the number of things that can fail
-    )
-    .subscribe((shouldOpen) => overlayService.changeOpen(shouldOpen));
+  const effect$ = merge(referenceEnter$, referenceLeave$, portalEnter$, portalLeave$).pipe(
+    skipWhile(() => overlayService.isDisabled$()),
+    switchMap((shouldOpen) => timer(delay).pipe(map(() => shouldOpen))),
+  );
+
+  registerEffect(effect$, (shouldOpen) => overlayService.changeOpen(shouldOpen));
 }
 
 /**
@@ -68,16 +68,15 @@ export function useOverlayFocus() {
   const focusMonitor = inject(FocusMonitor);
   const overlayService = inject(NatuOverlayService);
 
-  toObservable(overlayService.referenceElement$)
-    .pipe(
-      filter(Boolean),
-      switchMap((element) => focusMonitor.monitor(element)),
-      skipWhile(() => overlayService.isDisabled$()),
-      filter((origin) => origin === 'keyboard' || (origin === null && document.hasFocus())),
-      map((origin) => origin !== null),
-      takeUntilDestroyed(),
-    )
-    .subscribe((shouldOpen) => overlayService.changeOpen(shouldOpen));
+  const effect$ = toObservable(overlayService.referenceElement$).pipe(
+    filter(Boolean),
+    switchMap((element) => focusMonitor.monitor(element)),
+    skipWhile(() => overlayService.isDisabled$()),
+    filter((origin) => origin === 'keyboard' || (origin === null && document.hasFocus())),
+    map((origin) => origin !== null),
+  );
+
+  registerEffect(effect$, (shouldOpen) => overlayService.changeOpen(shouldOpen));
 }
 
 /**
@@ -92,30 +91,29 @@ export function useOverlayDismiss() {
   const portalService = inject(NatuPortalService);
   const overlayService = inject(NatuOverlayService);
 
-  toObservable(overlayService.isOpen$)
-    .pipe(
-      switchMap((isOpen) => {
-        if (!isOpen) {
-          return EMPTY;
-        }
+  const effect$ = toObservable(overlayService.isOpen$).pipe(
+    switchMap((isOpen) => {
+      if (!isOpen) {
+        return EMPTY;
+      }
 
-        const escapePress$ = fromEvent<KeyboardEvent>(document, 'keydown').pipe(
-          filter((event) => event.key === 'Escape'),
-        );
+      const escapePress$ = fromEvent<KeyboardEvent>(document, 'keydown').pipe(
+        filter((event) => event.key === 'Escape'),
+      );
 
-        const clickOutside$ = fromEvent<MouseEvent>(document, 'mousedown').pipe(
-          filter(
-            (event) =>
-              isTargetOutsideElement(event.target, portalService.portalElement$()) &&
-              isTargetOutsideElement(event.target, overlayService.referenceElement$()),
-          ),
-        );
+      const clickOutside$ = fromEvent<MouseEvent>(document, 'mousedown').pipe(
+        filter(
+          (event) =>
+            isTargetOutsideElement(event.target, portalService.portalElement$()) &&
+            isTargetOutsideElement(event.target, overlayService.referenceElement$()),
+        ),
+      );
 
-        return merge(escapePress$, clickOutside$);
-      }),
-      takeUntilDestroyed(), // TODO: effect util
-    )
-    .subscribe(() => overlayService.changeOpen(false));
+      return merge(escapePress$, clickOutside$);
+    }),
+  );
+
+  registerEffect(effect$, () => overlayService.changeOpen(false));
 }
 
 function isTargetOutsideElement(target: EventTarget | null, element: HTMLElement | null) {

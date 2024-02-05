@@ -1,6 +1,7 @@
-import { type Meta, type StoryObj, moduleMetadata, argsToTemplate } from '@storybook/angular';
+import { type Meta, type StoryObj, moduleMetadata } from '@storybook/angular';
 import { NatuTooltipDirective } from './tooltip.directive';
 import { natuButtonImports } from '../button/button.directive';
+import { aliasedArgsToTemplate } from '../../stories';
 
 const meta = {
   title: 'Components/Tooltip',
@@ -14,12 +15,7 @@ const meta = {
     isOpen: { control: 'boolean' },
   },
   render: (args) => {
-    /* TODO: util for this */
-    const aliasedArgs = Object.entries(args).map(([key, value]) => [
-      `natuTooltip${key[0]?.toUpperCase() + key.slice(1)}`,
-      value as unknown,
-    ]);
-    const templateArgs = argsToTemplate(Object.fromEntries(aliasedArgs));
+    const templateArgs = aliasedArgsToTemplate(args, 'natuTooltip');
 
     return {
       props: args,

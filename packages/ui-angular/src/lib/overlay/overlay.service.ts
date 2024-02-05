@@ -1,9 +1,9 @@
-import { ElementRef, Injectable, TemplateRef, computed } from '@angular/core';
-import { signalSlice } from 'ngxtension/signal-slice';
-import { Observable, Subject, filter, map, merge, switchMap } from 'rxjs';
+import { ElementRef, Injectable, TemplateRef, computed, signal } from '@angular/core';
+import { Subject, filter, map, merge, switchMap } from 'rxjs';
 import { Placement } from '@floating-ui/dom';
 import { manageFloating } from './floating-adapter';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { controllableSignal } from '../utils';
 
 export type NatuOverlayPlacement = Placement;
 
@@ -15,20 +15,6 @@ const arrowHeight = 8;
 const arrowPadding = 8;
 const referenceOffset = arrowHeight + 4;
 const defaultPlacement: NatuOverlayPlacement = 'top';
-
-interface State {
-  content: string | TemplateRef<unknown> | null;
-  isOpen: boolean;
-  isDisabled: boolean;
-  hasTransitions: boolean;
-}
-
-const initialState: State = {
-  content: null,
-  isOpen: false,
-  isDisabled: false,
-  hasTransitions: false,
-};
 
 /* TODO: docs */
 
@@ -51,13 +37,15 @@ export class NatuOverlayService {
 
   private readonly unmount$ = new Subject<void>();
 
-  /* TODO: check if this will actually be needed */
-  private readonly state = signalSlice({
-    initialState,
-    actionSources: {
-      set: (_, action$: Observable<Partial<State>>) =>
-        action$.pipe(map((newState) => ({ ...newState }))),
-    },
+  private readonly contentSignal$ = signal<string | TemplateRef<unknown> | null>(null);
+  private readonly isDisabledSignal$ = signal(false);
+  private readonly hasTransitions$ = signal(false);
+  private readonly controlledIsOpen$ = signal<boolean | undefined>(undefined);
+  private readonly defaultIsOpen$ = signal<boolean | undefined>(undefined);
+  private readonly isOpenManager = controllableSignal<boolean>({
+    value$: this.controlledIsOpen$,
+    defaultValue$: this.defaultIsOpen$,
+    finalValue: false,
   });
 
   private readonly floatingManager = manageFloating({
@@ -72,24 +60,26 @@ export class NatuOverlayService {
     this.floatingElement$ = this.floatingManager.floatingElement$;
     this.context$ = this.floatingManager.context$;
     this.floatingStyle$ = this.floatingManager.floatingStyle$;
-    this.content$ = this.state.content;
-    this.isOpen$ = computed(() => (this.state.isDisabled() ? false : this.state.isOpen()));
+    this.content$ = this.contentSignal$.asReadonly();
+    this.isDisabled$ = this.isDisabledSignal$.asReadonly();
+    this.isOpen$ = computed(() => (this.isDisabledSignal$() ? false : this.isOpenManager.value$()));
     this.isMounted$ = this.getIsMounted();
-    this.isDisabled$ = this.state.isDisabled;
   }
 
   setContent(content: string | TemplateRef<unknown>) {
-    void this.state.set({ content });
+    this.contentSignal$.set(content);
   }
 
-  /* TODO: remove? */
-  /* TODO: controlled and uncontrolled isOpen */
-  setIsOpen(isOpen: boolean) {
-    void this.state.set({ isOpen });
+  setIsOpen(isOpen: boolean | undefined) {
+    this.controlledIsOpen$.set(isOpen);
+  }
+
+  setDefaultIsOpen(defaultIsOpen: boolean | undefined) {
+    this.defaultIsOpen$.set(defaultIsOpen);
   }
 
   setIsDisabled(isDisabled: boolean) {
-    void this.state.set({ isDisabled });
+    this.isDisabledSignal$.set(isDisabled);
   }
 
   setPlacement(placement: NatuOverlayPlacement) {
@@ -108,19 +98,9 @@ export class NatuOverlayService {
     this.floatingManager.setArrowElement(element);
   }
 
-  open() {
-    // TODO: check isDisabled should be like this
-    // TODO: probably move this to state as an action source? Or state selector
-    if (!this.state.isDisabled()) {
-      /* TODO: change this to handle controlled inputs */
-      void this.state.set({ isOpen: true });
-    }
-  }
-
-  close() {
-    if (!this.state.isDisabled()) {
-      /* TODO: change this to handle controlled inputs */
-      void this.state.set({ isOpen: false });
+  changeOpen(isOpen: boolean) {
+    if (!this.isDisabledSignal$()) {
+      this.isOpenManager.change(isOpen);
     }
   }
 
@@ -130,7 +110,7 @@ export class NatuOverlayService {
    * `unmount` event must be triggered for overlay to close.
    */
   setHasTransitions(hasTransitions: boolean) {
-    void this.state.set({ hasTransitions });
+    this.hasTransitions$.set(hasTransitions);
   }
 
   /**
@@ -143,17 +123,17 @@ export class NatuOverlayService {
   }
 
   private getIsMounted() {
-    const isOpen$ = toObservable(this.state.isOpen);
+    const isOpen$ = toObservable(this.isOpen$);
     const mount$ = isOpen$.pipe(filter(Boolean));
     const unmount$ = this.unmount$.pipe(map(() => false));
     const isMounted$ = merge(mount$, unmount$);
 
-    const valueObservable$ = toObservable(this.state.hasTransitions).pipe(
+    const valueObservable$ = toObservable(this.hasTransitions$).pipe(
       switchMap((hasTransitions) => (hasTransitions ? isMounted$ : isOpen$)),
     );
 
     const value$ = toSignal(valueObservable$, { initialValue: false });
 
-    return computed(() => (this.state.isDisabled() ? false : value$()));
+    return computed(() => (this.isDisabledSignal$() ? false : value$()));
   }
 }

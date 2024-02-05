@@ -17,9 +17,11 @@ interface CreateControllableSignalOptions<T> {
 /**
  * Manage state of both controlled and uncontrolled components.
  */
-export function controllableSignal<T>(
-  options: CreateControllableSignalOptions<T>,
-): [value$: Signal<T>, onChange: (value: T) => void, isControlled: Signal<boolean>] {
+export function controllableSignal<T>(options: CreateControllableSignalOptions<T>): {
+  value$: Signal<T>;
+  change: (value: T) => void;
+  isControlled$: Signal<boolean>;
+} {
   const { value$: controlledValue$, defaultValue$, finalValue, onChange = () => {} } = options;
 
   const uncontrolledValue$ = signal(finalValue);
@@ -48,7 +50,7 @@ export function controllableSignal<T>(
     return controlledValue === undefined ? (uncontrolledValue as T) : controlledValue;
   });
 
-  const handleChange = (value: T) => {
+  const change = (value: T) => {
     const isControlled = isControlled$();
 
     if (!isControlled) {
@@ -58,5 +60,5 @@ export function controllableSignal<T>(
     onChange(value);
   };
 
-  return [value$, handleChange, isControlled$];
+  return { value$, change, isControlled$ };
 }

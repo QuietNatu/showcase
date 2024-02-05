@@ -4,7 +4,7 @@ import { signal } from '@angular/core';
 
 describe(controllableSignal.name, () => {
   it('returns default value for initial uncontrolled state', () => {
-    const [value$] = TestBed.runInInjectionContext(() =>
+    const { value$ } = TestBed.runInInjectionContext(() =>
       controllableSignal<string>({
         value$: signal(undefined),
         defaultValue$: signal('test-default'),
@@ -18,7 +18,7 @@ describe(controllableSignal.name, () => {
   });
 
   it('returns final value for initial uncontrolled state if default value was not provided', () => {
-    const [value$] = TestBed.runInInjectionContext(() =>
+    const { value$ } = TestBed.runInInjectionContext(() =>
       controllableSignal<string>({
         value$: signal(undefined),
         finalValue: 'test-final',
@@ -31,7 +31,7 @@ describe(controllableSignal.name, () => {
   });
 
   it('returns value for initial controlled state', () => {
-    const [value$] = TestBed.runInInjectionContext(() =>
+    const { value$ } = TestBed.runInInjectionContext(() =>
       controllableSignal<string>({
         value$: signal('test-value'),
         finalValue: 'test-final',
@@ -46,7 +46,7 @@ describe(controllableSignal.name, () => {
   it('supports uncontrolled state', () => {
     const onChangeSpy = jasmine.createSpy();
 
-    const [value$, onChange, isControlled$] = TestBed.runInInjectionContext(() =>
+    const { value$, change, isControlled$ } = TestBed.runInInjectionContext(() =>
       controllableSignal<string>({
         value$: signal(undefined),
         defaultValue$: signal('default-value'),
@@ -56,7 +56,7 @@ describe(controllableSignal.name, () => {
 
     TestBed.flushEffects();
 
-    onChange('changed-value');
+    change('changed-value');
 
     TestBed.flushEffects();
 
@@ -68,7 +68,7 @@ describe(controllableSignal.name, () => {
   it('supports controlled state', () => {
     const onChangeSpy = jasmine.createSpy();
 
-    const [value$, onChange, isControlled$] = TestBed.runInInjectionContext(() =>
+    const { value$, change, isControlled$ } = TestBed.runInInjectionContext(() =>
       controllableSignal<string>({
         value$: signal('controlled-value'),
         onChange: onChangeSpy,
@@ -77,7 +77,7 @@ describe(controllableSignal.name, () => {
 
     TestBed.flushEffects();
 
-    onChange('changed-value');
+    change('changed-value');
 
     TestBed.flushEffects();
 

@@ -53,14 +53,7 @@ export function useOverlayHover(options: HoverOptions = {}) {
       switchMap((shouldOpen) => timer(delay).pipe(map(() => shouldOpen))),
       takeUntilDestroyed(), // TODO: effects service instead of this? and explain how it is an improvement because it reduces the number of things that can fail
     )
-    .subscribe((shouldOpen) => {
-      /* TODO: rethink this? */
-      if (shouldOpen) {
-        overlayService.open();
-      } else {
-        overlayService.close();
-      }
-    });
+    .subscribe((shouldOpen) => overlayService.changeOpen(shouldOpen));
 }
 
 /**
@@ -84,14 +77,7 @@ export function useOverlayFocus() {
       map((origin) => origin !== null),
       takeUntilDestroyed(),
     )
-    .subscribe((shouldOpen) => {
-      /* TODO: rethink this? */
-      if (shouldOpen) {
-        overlayService.open();
-      } else {
-        overlayService.close();
-      }
-    });
+    .subscribe((shouldOpen) => overlayService.changeOpen(shouldOpen));
 }
 
 /**
@@ -109,7 +95,6 @@ export function useOverlayDismiss() {
   toObservable(overlayService.isOpen$)
     .pipe(
       switchMap((isOpen) => {
-        // TODO: isOpen or isMounted?
         if (!isOpen) {
           return EMPTY;
         }
@@ -128,11 +113,9 @@ export function useOverlayDismiss() {
 
         return merge(escapePress$, clickOutside$);
       }),
-      takeUntilDestroyed(),
+      takeUntilDestroyed(), // TODO: effect util
     )
-    .subscribe(() => {
-      overlayService.close();
-    });
+    .subscribe(() => overlayService.changeOpen(false));
 }
 
 function isTargetOutsideElement(target: EventTarget | null, element: HTMLElement | null) {

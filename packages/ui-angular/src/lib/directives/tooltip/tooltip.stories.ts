@@ -10,8 +10,16 @@ const meta = {
     layout: 'centered',
   },
   decorators: [moduleMetadata({ imports: [natuButtonImports] })],
+  argTypes: {
+    isOpen: { control: 'boolean' },
+  },
   render: (args) => {
-    const templateArgs = argsToTemplate(args);
+    /* TODO: util for this */
+    const aliasedArgs = Object.entries(args).map(([key, value]) => [
+      `natuTooltip${key[0]?.toUpperCase() + key.slice(1)}`,
+      value as unknown,
+    ]);
+    const templateArgs = argsToTemplate(Object.fromEntries(aliasedArgs));
 
     return {
       props: args,

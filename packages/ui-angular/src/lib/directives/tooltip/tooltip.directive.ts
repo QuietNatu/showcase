@@ -42,6 +42,16 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
     this.overlayService.setIsDisabled(isDisabled ?? false);
   }
 
+  @Input({ alias: 'natuTooltipIsOpen' }) set isOpen(isOpen: boolean | null | undefined) {
+    this.overlayService.setIsOpen(isOpen ?? undefined);
+  }
+
+  @Input({ alias: 'natuTooltipDefaultIsOpen' }) set defaultIsOpen(
+    defaultIsOpen: boolean | null | undefined,
+  ) {
+    this.overlayService.setDefaultIsOpen(defaultIsOpen ?? undefined);
+  }
+
   readonly floatingId$;
 
   private readonly elementRef = inject(ElementRef);

@@ -11,7 +11,7 @@ import {
   untracked,
 } from '@angular/core';
 import { NatuTooltipComponent } from './tooltip.component';
-import { NatuOverlayService } from '../../overlay';
+import { NatuOverlayPlacement, NatuOverlayService } from '../../overlay';
 import { NatuPortalService } from '../../portal';
 import {
   useOverlayDismiss,
@@ -39,6 +39,12 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
 
   @Input({ alias: 'natuTooltipContext' }) set context(context: object | null | undefined) {
     this.overlayService.setContentContext(context ?? null);
+  }
+
+  @Input({ alias: 'natuTooltipPlacement' }) set placement(
+    placement: NatuOverlayPlacement | null | undefined,
+  ) {
+    this.overlayService.setPlacement(placement ?? null);
   }
 
   @Input({ alias: 'natuTooltipIsDisabled' }) set isDisabled(

@@ -87,7 +87,7 @@ export class NatuOverlayService {
     this.isDisabledSignal$.set(isDisabled);
   }
 
-  setPlacement(placement: NatuOverlayPlacement) {
+  setPlacement(placement: NatuOverlayPlacement | null) {
     this.floatingManager.setPlacement(placement);
   }
 

@@ -22,6 +22,7 @@ import {
 } from '../../overlay/overlay-interactions';
 import { NATU_UI_CONFIG } from '../../core';
 import { registerEffect } from '../../utils/rxjs';
+import { NatuTooltipService } from './tooltip.service';
 
 const defaultHoverDelay = 500;
 
@@ -30,7 +31,7 @@ const defaultHoverDelay = 500;
 @Directive({
   selector: '[natuTooltip]',
   standalone: true,
-  providers: [NatuOverlayService, NatuPortalService],
+  providers: [NatuOverlayService, NatuPortalService, NatuTooltipService],
   host: {
     '[attr.aria-describedby]': 'floatingId$()',
   },
@@ -39,11 +40,11 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
   @Input({ required: true, alias: 'natuTooltip' }) set content(
     content: string | TemplateRef<unknown>,
   ) {
-    this.overlayService.setContent(content);
+    this.tooltipService.setContent(content);
   }
 
   @Input({ alias: 'natuTooltipContext' }) set context(context: object | null | undefined) {
-    this.overlayService.setContentContext(context ?? null);
+    this.tooltipService.setTemplateContext(context ?? null);
   }
 
   @Input({ alias: 'natuTooltipPlacement' }) set placement(
@@ -75,6 +76,7 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
   private readonly elementRef = inject(ElementRef);
   private readonly portalService = inject(NatuPortalService);
   private readonly overlayService = inject(NatuOverlayService);
+  private readonly tooltipService = inject(NatuTooltipService);
   private readonly uiConfig = inject(NATU_UI_CONFIG, { optional: true });
 
   constructor() {

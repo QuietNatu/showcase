@@ -6,7 +6,6 @@ import {
   Injector,
   OnDestroy,
   OnInit,
-  TemplateRef,
   computed,
   inject,
 } from '@angular/core';
@@ -15,6 +14,7 @@ import { NatuOverlayService } from '../../overlay';
 import { NatuOverlayArrowComponent } from '../../overlay/overlay-arrow.component';
 import { Side } from '@floating-ui/dom';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
+import { NatuTooltipService } from './tooltip.service';
 
 const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 const sideTransforms: Record<Side, string> = {
@@ -85,23 +85,16 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
 
   private readonly elementRef = inject(ElementRef);
   private readonly overlayService = inject(NatuOverlayService);
+  private readonly tooltipService = inject(NatuTooltipService);
 
   constructor() {
     this.floatingId = this.overlayService.floatingId;
     this.arrowWidth = this.overlayService.arrowWidth;
     this.arrowHeight = this.overlayService.arrowHeight;
 
-    this.textContent$ = computed(() => {
-      const content = this.overlayService.content$();
-      return typeof content === 'string' ? content : null;
-    });
-
-    this.templateContent$ = computed(() => {
-      const content = this.overlayService.content$();
-      return content instanceof TemplateRef ? content : null;
-    });
-
-    this.templateContext$ = this.overlayService.contentContext$;
+    this.textContent$ = this.tooltipService.textContent$;
+    this.templateContent$ = this.tooltipService.templateContent$;
+    this.templateContext$ = this.tooltipService.templateContext$;
 
     this.isOpen$ = this.overlayService.isOpen$;
     this.context$ = this.overlayService.context$;

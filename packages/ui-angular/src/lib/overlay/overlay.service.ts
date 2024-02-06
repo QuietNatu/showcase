@@ -1,4 +1,4 @@
-import { ElementRef, Injectable, TemplateRef, computed, signal } from '@angular/core';
+import { ElementRef, Injectable, computed, signal } from '@angular/core';
 import { Subject, filter, map, merge, switchMap } from 'rxjs';
 import { Placement } from '@floating-ui/dom';
 import { manageFloating } from './floating-adapter';
@@ -26,9 +26,7 @@ export class NatuOverlayService {
   readonly floatingElement$;
   readonly context$;
   readonly floatingStyle$;
-  /* TODO: support multiple templates */
-  readonly content$;
-  readonly contentContext$;
+  
   readonly isOpen$;
   readonly isOpenChange$ = new Subject<boolean>();
   /** Whether the overlay should be rendered or not. */
@@ -37,8 +35,6 @@ export class NatuOverlayService {
 
   private readonly unmount$ = new Subject<void>();
 
-  private readonly contentSignal$ = signal<string | TemplateRef<unknown> | null>(null);
-  private readonly contentContextSignal$ = signal<object | null>(null);
   private readonly isDisabledSignal$ = signal(false);
   private readonly hasTransitions$ = signal(false);
   private readonly controlledIsOpen$ = signal<boolean | undefined>(undefined);
@@ -63,20 +59,11 @@ export class NatuOverlayService {
     this.floatingElement$ = this.floatingManager.floatingElement$;
     this.context$ = this.floatingManager.context$;
     this.floatingStyle$ = this.floatingManager.floatingStyle$;
-    this.content$ = this.contentSignal$.asReadonly();
-    this.contentContext$ = this.contentContextSignal$.asReadonly();
     this.isDisabled$ = this.isDisabledSignal$.asReadonly();
     this.isOpen$ = computed(() => (this.isDisabledSignal$() ? false : this.isOpenManager.value$()));
     this.isMounted$ = this.getIsMounted();
   }
 
-  setContent(content: string | TemplateRef<unknown>) {
-    this.contentSignal$.set(content);
-  }
-
-  setContentContext(context: object | null) {
-    this.contentContextSignal$.set(context);
-  }
 
   setIsOpen(isOpen: boolean | undefined) {
     this.controlledIsOpen$.set(isOpen);

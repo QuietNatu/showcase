@@ -110,25 +110,3 @@ export const Playground: Story = {
     };
   },
 };
-
-// export const Playground: Story = {
-//   render: (args) => (
-//     <div style={{ display: 'grid', gap: '10px' }}>
-//       <PlaygroundButton {...args} row={1} column={2} placement="top-start" />
-//       <PlaygroundButton {...args} row={1} column={3} placement="top" />
-//       <PlaygroundButton {...args} row={1} column={4} placement="top-end" />
-
-//       <PlaygroundButton {...args} row={2} column={1} placement="left-start" />
-//       <PlaygroundButton {...args} row={3} column={1} placement="left" />
-//       <PlaygroundButton {...args} row={4} column={1} placement="left-end" />
-
-//       <PlaygroundButton {...args} row={2} column={5} placement="right-start" />
-//       <PlaygroundButton {...args} row={3} column={5} placement="right" />
-//       <PlaygroundButton {...args} row={4} column={5} placement="right-end" />
-
-//       <PlaygroundButton {...args} row={5} column={2} placement="bottom-start" />
-//       <PlaygroundButton {...args} row={5} column={3} placement="bottom" />
-//       <PlaygroundButton {...args} row={5} column={4} placement="bottom-end" />
-//     </div>
-//   ),
-// };

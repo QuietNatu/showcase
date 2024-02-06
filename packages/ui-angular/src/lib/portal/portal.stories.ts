@@ -1,23 +1,37 @@
 import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+  TemplateRef,
+  ViewChild,
+  inject,
+  signal,
+} from '@angular/core';
 import { NatuPortalDirective } from './portal.directive';
 import { natuButtonImports } from '../directives/button/button.directive';
+import { NatuPortalService } from './portal.service';
 
 @Component({
-  selector: 'natu-portal-content',
-  template: `<div>Example content</div>`,
+  selector: 'natu-buttons',
+  template: `<div style="display: flex; gap: 10px;">
+    <button type="button" natuButton (click)="attach.emit()">Attach</button>
+    <button type="button" natuButton (click)="detach.emit()">Detach</button>
+  </div>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  imports: [natuButtonImports],
 })
-export class NatuPortalContentComponent {}
+class ButtonsComponent {
+  @Output() attach = new EventEmitter<void>();
+  @Output() detach = new EventEmitter<void>();
+}
 
 @Component({
   selector: 'natu-default',
   template: `
-    <div style="display: flex; gap: 10px;">
-      <button type="button" natuButton (click)="isVisible$.set(true)">Attach</button>
-      <button type="button" natuButton (click)="isVisible$.set(false)">Detach</button>
-    </div>
+    <natu-buttons (attach)="isVisible$.set(true)" (detach)="isVisible$.set(false)" />
 
     @if (isVisible$()) {
       <div *natuPortal>Example content</div>
@@ -25,19 +39,16 @@ export class NatuPortalContentComponent {}
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [natuButtonImports, NatuPortalDirective],
+  imports: [ButtonsComponent, NatuPortalDirective],
 })
-class NatuDefaultComponent {
+class DefaultComponent {
   readonly isVisible$ = signal(false);
 }
 
 @Component({
   selector: 'natu-nested',
   template: `
-    <div style="display: flex; gap: 10px;">
-      <button type="button" natuButton (click)="isVisible$.set(true)">Attach</button>
-      <button type="button" natuButton (click)="isVisible$.set(false)">Detach</button>
-    </div>
+    <natu-buttons (attach)="isVisible$.set(true)" (detach)="isVisible$.set(false)" />
 
     @if (isVisible$()) {
       <natu-nested *natuPortal />
@@ -45,17 +56,80 @@ class NatuDefaultComponent {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [natuButtonImports, NatuPortalDirective],
+  imports: [ButtonsComponent, NatuPortalDirective],
 })
-class NatuNestedComponent {
+class NestedComponent {
   readonly isVisible$ = signal(false);
+}
+
+@Component({
+  selector: 'natu-service-template',
+  template: `
+    <natu-buttons (attach)="attach()" (detach)="detach()" />
+
+    <ng-template #portalTemplate><div>Example content</div></ng-template>
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ButtonsComponent],
+  providers: [NatuPortalService],
+})
+class ServiceTemplateComponent {
+  @ViewChild('portalTemplate', { static: true }) portalTemplateRef!: TemplateRef<unknown>;
+
+  private readonly portaService = inject(NatuPortalService);
+
+  attach() {
+    this.portaService.attachTemplate(this.portalTemplateRef);
+  }
+
+  detach() {
+    this.portaService.detach();
+  }
+}
+
+@Component({
+  selector: 'natu-service-component-example',
+  template: `<div>Example content</div>`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+})
+class ServiceComponentExampleComponent {}
+
+@Component({
+  selector: 'natu-service-component',
+  template: `<natu-buttons (attach)="attach()" (detach)="detach()" />`,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [ButtonsComponent],
+  providers: [NatuPortalService],
+})
+class ServiceComponentComponent {
+  private readonly portaService = inject(NatuPortalService);
+
+  attach() {
+    this.portaService.attachComponent(ServiceComponentExampleComponent);
+  }
+
+  detach() {
+    this.portaService.detach();
+  }
 }
 
 const meta = {
   title: 'Utils/Portal',
   component: NatuPortalDirective,
   tags: ['autodocs'],
-  decorators: [moduleMetadata({ imports: [NatuDefaultComponent, NatuNestedComponent] })],
+  decorators: [
+    moduleMetadata({
+      imports: [
+        DefaultComponent,
+        NestedComponent,
+        ServiceTemplateComponent,
+        ServiceComponentComponent,
+      ],
+    }),
+  ],
   parameters: {
     layout: 'centered',
   },
@@ -78,6 +152,24 @@ export const Nested: Story = {
     return {
       props: args,
       template: `<natu-nested />`,
+    };
+  },
+};
+
+export const ServiceWithTemplate: Story = {
+  render: (args) => {
+    return {
+      props: args,
+      template: `<natu-service-template />`,
+    };
+  },
+};
+
+export const ServiceWithComponent: Story = {
+  render: (args) => {
+    return {
+      props: args,
+      template: `<natu-service-component />`,
     };
   },
 };

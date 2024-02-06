@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { NatuPortalService } from './portal.service';
 
-/* TODO: test and stories for component outlet */
+/* TODO: test for component outlet */
 
 @Component({
   selector: 'natu-portal',

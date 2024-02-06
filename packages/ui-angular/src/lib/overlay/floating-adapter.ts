@@ -33,6 +33,11 @@ interface GetComputedPositionOptions {
   arrowPadding: number;
 }
 
+/**
+ * Angular adapter for {@link https://floating-ui.com/}
+ *
+ * Provides an API to perform all the calculations required to position an overlay element on the page.
+ */
 export function manageFloating(options: ManageFloatingOptions) {
   assertInInjectionContext(manageFloating);
 

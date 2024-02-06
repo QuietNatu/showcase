@@ -14,23 +14,35 @@ const arrowPadding = 8;
 const referenceOffset = arrowHeight + 4;
 const defaultPlacement: NatuOverlayPlacement = 'top';
 
-/* TODO: docs */
+/* TODO: test */
 
+/**
+ * Manages data and performs calculations required to position an overlay element on the page.
+ *
+ * This is the basis for all overlay elements and is required by other overlay utilities like interactions or components.
+ */
 @Injectable()
 export class NatuOverlayService {
   readonly arrowWidth = arrowWidth;
   readonly arrowHeight = arrowHeight;
+  /** Id to use for the floating element */
   readonly floatingId = crypto.randomUUID();
 
+  /** Element that serves as the anchor for the position of the overlay. */
   readonly referenceElement$;
+  /** Element that floats nexts to the reference element and remains anchored to. Represents the overlay itself. */
   readonly floatingElement$;
+  /** Result of the overlay calculations. */
   readonly context$;
+  /** Styles that should be applied to the floating element */
   readonly floatingStyle$;
-  
+  /** Controlled open state. */
   readonly isOpen$;
+  /** Controlled open state notifier. */
   readonly isOpenChange$ = new Subject<boolean>();
   /** Whether the overlay should be rendered or not. */
   readonly isMounted$;
+  /** Whether the tooltip should be disabled. */
   readonly isDisabled$;
 
   private readonly unmount$ = new Subject<void>();
@@ -64,35 +76,42 @@ export class NatuOverlayService {
     this.isMounted$ = this.getIsMounted();
   }
 
-
+  /** Controlled open state. */
   setIsOpen(isOpen: boolean | undefined) {
     this.controlledIsOpen$.set(isOpen);
   }
 
+  /** Default value for uncontrolled open state. */
   setDefaultIsOpen(defaultIsOpen: boolean | undefined) {
     this.defaultIsOpen$.set(defaultIsOpen);
   }
 
+  /** Whether the tooltip should be disabled. */
   setIsDisabled(isDisabled: boolean) {
     this.isDisabledSignal$.set(isDisabled);
   }
 
+  /** Where to place the tooltip relative to the reference element. */
   setPlacement(placement: NatuOverlayPlacement | null) {
     this.floatingManager.setPlacement(placement);
   }
 
+  /** Element that serves as the anchor for the position of the overlay. */
   setReferenceElement(element: ElementRef<HTMLElement> | HTMLElement | null) {
     this.floatingManager.setReferenceElement(element);
   }
 
+  /** Element that floats nexts to the reference element and remains anchored to. Represents the overlay itself. */
   setFloatingElement(element: ElementRef<HTMLElement> | HTMLElement | null) {
     this.floatingManager.setFloatingElement(element);
   }
 
+  /** Element that represents the overlay's arrow. */
   setArrowElement(element: ElementRef<HTMLElement> | HTMLElement | null) {
     this.floatingManager.setArrowElement(element);
   }
 
+  /** Uncontrolled open state. */
   changeOpen(isOpen: boolean) {
     if (!this.isDisabledSignal$()) {
       this.isOpenManager.change(isOpen);

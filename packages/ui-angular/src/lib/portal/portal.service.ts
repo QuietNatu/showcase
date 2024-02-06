@@ -15,6 +15,8 @@ import { ComponentPortal, ComponentType, DomPortalOutlet } from '@angular/cdk/po
 import { DOCUMENT } from '@angular/common';
 import { NatuPortalComponent } from './portal.component';
 
+type Content = TemplateRef<unknown> | ComponentType<unknown>;
+
 /**
  * Creates a portal that attaches content directly into the documents body.
  *
@@ -24,7 +26,9 @@ import { NatuPortalComponent } from './portal.component';
  */
 @Injectable()
 export class NatuPortalService {
-  /** *Internal* - Gets the current instance of the created portal element. */
+  /** *Internal* - The content to be renderer by the portal. */
+  readonly content$;
+  /** *Internal* - The instance of the created portal element. */
   readonly portalElement$;
 
   private readonly document = inject(DOCUMENT);
@@ -40,39 +44,34 @@ export class NatuPortalService {
     this.injector,
   );
 
-  private readonly content$ = signal<TemplateRef<unknown> | ComponentType<unknown> | null>(null);
+  private readonly contentSignal$ = signal<Content | null>(null);
   private readonly portalElementRef$ = signal<ElementRef<HTMLElement> | null>(null);
 
   constructor() {
+    this.content$ = this.contentSignal$.asReadonly();
     this.portalElement$ = computed(() => this.portalElementRef$()?.nativeElement ?? null);
 
     this.registerManagePortal();
   }
 
-  /**
-   * Attaches template to a portal.
-   */
+  /** Attaches template to a portal. */
   attachTemplate(content: TemplateRef<unknown>) {
-    this.content$.set(content);
+    this.contentSignal$.set(content);
   }
 
-  /**
-   * Attaches component to a portal.
-   */
+  /** Attaches component to a portal.*/
   attachComponent(content: ComponentType<unknown>) {
-    this.content$.set(content);
+    this.contentSignal$.set(content);
   }
 
-  /**
-   * Detaches content from the portal.
-   */
+  /** Detaches content from the portal. */
   detach() {
-    this.content$.set(null);
+    this.contentSignal$.set(null);
   }
 
   private registerManagePortal() {
     effect((onCleanup) => {
-      const content = this.content$();
+      const content = this.contentSignal$();
 
       if (!content) {
         return;
@@ -81,8 +80,6 @@ export class NatuPortalService {
       const portal = new ComponentPortal(NatuPortalComponent);
       const componentRef = this.portalOutlet.attach(portal);
       untracked(() => this.portalElementRef$.set(componentRef.injector.get(ElementRef)));
-
-      componentRef.setInput('content', content);
 
       onCleanup(() => {
         // Detach is triggering effects in the background

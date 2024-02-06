@@ -1,6 +1,6 @@
 import { assertInInjectionContext, inject } from '@angular/core';
 import { NatuOverlayService } from './overlay.service';
-import { EMPTY, filter, fromEvent, map, merge, skipWhile, switchMap, timer } from 'rxjs';
+import { EMPTY, filter, fromEvent, map, merge, switchMap, timer } from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
 import { NatuPortalService } from '../portal';
@@ -49,7 +49,7 @@ export function useOverlayHover(options: HoverOptions = {}) {
   );
 
   const effect$ = merge(referenceEnter$, referenceLeave$, portalEnter$, portalLeave$).pipe(
-    skipWhile(() => overlayService.isDisabled$()),
+    filter(() => !overlayService.isDisabled$()),
     switchMap((shouldOpen) => timer(delay).pipe(map(() => shouldOpen))),
   );
 
@@ -71,8 +71,10 @@ export function useOverlayFocus() {
   const effect$ = toObservable(overlayService.referenceElement$).pipe(
     filter(Boolean),
     switchMap((element) => focusMonitor.monitor(element)),
-    skipWhile(() => overlayService.isDisabled$()),
-    filter((origin) => origin === 'keyboard' || (origin === null && document.hasFocus())),
+    filter((origin) => {
+      const isValidEvent = origin === 'keyboard' || (origin === null && document.hasFocus());
+      return !overlayService.isDisabled$() && isValidEvent;
+    }),
     map((origin) => origin !== null),
   );
 

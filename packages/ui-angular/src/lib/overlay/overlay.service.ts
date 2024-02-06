@@ -30,6 +30,7 @@ export class NatuOverlayService {
   readonly content$;
   readonly contentContext$;
   readonly isOpen$;
+  readonly isOpenChange$ = new Subject<boolean>();
   /** Whether the overlay should be rendered or not. */
   readonly isMounted$;
   readonly isDisabled$;
@@ -42,10 +43,12 @@ export class NatuOverlayService {
   private readonly hasTransitions$ = signal(false);
   private readonly controlledIsOpen$ = signal<boolean | undefined>(undefined);
   private readonly defaultIsOpen$ = signal<boolean | undefined>(undefined);
+
   private readonly isOpenManager = controllableSignal<boolean>({
     value$: this.controlledIsOpen$,
     defaultValue$: this.defaultIsOpen$,
     finalValue: false,
+    onChange: (isOpen) => this.isOpenChange$.next(isOpen),
   });
 
   private readonly floatingManager = manageFloating({

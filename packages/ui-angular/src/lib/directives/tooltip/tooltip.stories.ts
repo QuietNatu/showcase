@@ -38,7 +38,6 @@ type Story = StoryObj<NatuTooltipDirective>;
 
 export const Default: Story = {};
 
-/* TODO: nested not working properly */
 export const Nested: Story = {
   render: (args) => {
     const templateArgs = aliasedArgsToTemplate(args, 'natuTooltip');

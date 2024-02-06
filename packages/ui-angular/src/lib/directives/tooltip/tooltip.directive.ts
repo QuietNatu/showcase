@@ -1,9 +1,11 @@
 import {
   Directive,
   ElementRef,
+  EventEmitter,
   Input,
   OnDestroy,
   OnInit,
+  Output,
   TemplateRef,
   computed,
   effect,
@@ -19,8 +21,11 @@ import {
   useOverlayHover,
 } from '../../overlay/overlay-interactions';
 import { NATU_UI_CONFIG } from '../../core';
+import { registerEffect } from '../../utils/rxjs';
 
 const defaultHoverDelay = 500;
+
+/* TODO: docs */
 
 @Directive({
   selector: '[natuTooltip]',
@@ -63,6 +68,8 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
     this.overlayService.setDefaultIsOpen(defaultIsOpen ?? undefined);
   }
 
+  @Output('natuTooltipIsOpenChange') isOpenChange = new EventEmitter<boolean>();
+
   readonly floatingId$;
 
   private readonly elementRef = inject(ElementRef);
@@ -80,6 +87,7 @@ export class NatuTooltipDirective implements OnInit, OnDestroy {
     useOverlayDismiss();
 
     this.registerManageVisibility();
+    registerEffect(this.overlayService.isOpenChange$, (isOpen) => this.isOpenChange.emit(isOpen));
   }
 
   ngOnInit(): void {

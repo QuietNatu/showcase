@@ -11,6 +11,7 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-coverage'),
+      require('karma-spec-reporter'),
       require('@angular-devkit/build-angular/plugins/karma'),
     ],
     client: {
@@ -41,7 +42,10 @@ module.exports = function (config) {
         },
       },
     },
-    reporters: ['progress'],
+    specReporter: {
+      showSpecTiming: true,
+    },
+    reporters: ['spec'],
     port: 5384,
     browsers: ['ChromeHeadless'],
     restartOnFileChange: true,

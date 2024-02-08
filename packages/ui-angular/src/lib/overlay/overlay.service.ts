@@ -113,7 +113,7 @@ export class NatuOverlayService {
 
   /** Uncontrolled open state. */
   changeOpen(isOpen: boolean) {
-    if (!this.isDisabledSignal$()) {
+    if (!this.isDisabledSignal$() && isOpen !== this.isOpenManager.value$()) {
       this.isOpenManager.change(isOpen);
     }
   }

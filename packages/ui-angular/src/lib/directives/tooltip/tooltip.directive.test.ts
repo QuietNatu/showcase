@@ -1,8 +1,7 @@
-import { screen } from '@testing-library/angular';
+import { screen, waitForElementToBeRemoved } from '@testing-library/angular';
 import { NatuTooltipDirective } from './tooltip.directive';
 import { aliasArgs, aliasedArgsToTemplate, render } from '../../test';
 
-/* TODO */
 /* TODO: a11y */
 
 describe(NatuTooltipDirective.name, () => {
@@ -31,35 +30,147 @@ describe(NatuTooltipDirective.name, () => {
     expect(isOpenChangeSpy).toHaveBeenCalledOnceWith(true);
   });
 
-  // it('hides tooltip when trigger is unhovered', async () => {
-  //   const { userEvent, isOpenChangeSpy } = await setup();
+  it('hides tooltip when trigger is unhovered', async () => {
+    const { userEvent, isOpenChangeSpy } = await setup();
 
-  //   await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
-  //   await userEvent.unhover(screen.getByRole('button', { name: 'Trigger' }));
+    await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
 
-  //   /* TODO is this not working because of animation delay for some reason? TODO: disable animations module */
-  //   // await waitFor(() => expect(screen.queryByRole('tooltip')).not.toBeInTheDocument());
+    const tooltip = await screen.findByRole('tooltip');
 
-  //   // expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
-  //   expect(isOpenChangeSpy).toHaveBeenCalledTimes(2);
-  //   expect(isOpenChangeSpy.calls.argsFor(2)).toEqual([false]);
-  // });
+    await userEvent.unhover(screen.getByRole('button', { name: 'Trigger' }));
 
-  // it('hides tooltip when trigger loses focus', async () => {
-  //   const { container, userEvent, isOpenChangeSpy } = await setup();
+    await waitForElementToBeRemoved(tooltip);
 
-  //   // Should not be a click but jsdom does not have the required API for focus-visible
-  //   await userEvent.click(screen.getByRole('button', { name: 'Trigger' }));
-  //   await userEvent.click(container);
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+    expect(isOpenChangeSpy).toHaveBeenCalledTimes(2);
+    expect(isOpenChangeSpy.calls.argsFor(1)).toEqual([false]);
+  });
 
-  //   await waitForElementToBeRemoved(screen.queryByRole('tooltip'));
+  it('hides tooltip when tooltip is unhovered', async () => {
+    const { userEvent, isOpenChangeSpy } = await setup();
 
-  //   expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
-  //   expect(isOpenChangeSpy).toHaveBeenCalledTimes(4); // Click also triggers hover
-  //   expect(isOpenChangeSpy.calls.argsFor(2)).toEqual([false]);
-  // });
+    await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
 
-  /* TODO: variation with template */
+    const tooltip = await screen.findByRole('tooltip');
+
+    await userEvent.hover(tooltip);
+    await userEvent.unhover(tooltip);
+
+    await waitForElementToBeRemoved(tooltip);
+
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+    expect(isOpenChangeSpy).toHaveBeenCalledTimes(2);
+    expect(isOpenChangeSpy.calls.argsFor(1)).toEqual([false]);
+  });
+
+  it('hides tooltip when trigger loses focus', async () => {
+    const { userEvent, isOpenChangeSpy } = await setup();
+
+    await userEvent.tab();
+
+    const tooltip = await screen.findByRole('tooltip');
+
+    await userEvent.tab();
+
+    await waitForElementToBeRemoved(tooltip);
+
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+    expect(isOpenChangeSpy).toHaveBeenCalledTimes(2);
+    expect(isOpenChangeSpy.calls.argsFor(1)).toEqual([false]);
+  });
+
+  it('hides tooltip when pressing Escape', async () => {
+    const { userEvent, isOpenChangeSpy } = await setup();
+
+    await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
+
+    const tooltip = await screen.findByRole('tooltip');
+
+    await userEvent.keyboard('[Escape]');
+
+    await waitForElementToBeRemoved(tooltip);
+
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+    expect(isOpenChangeSpy).toHaveBeenCalledTimes(2);
+    expect(isOpenChangeSpy.calls.argsFor(1)).toEqual([false]);
+  });
+
+  it('hides tooltip when clicked outside', async () => {
+    const { container, userEvent, isOpenChangeSpy } = await setup();
+
+    await userEvent.tab();
+
+    const tooltip = await screen.findByRole('tooltip');
+
+    await userEvent.click(container);
+
+    await waitForElementToBeRemoved(tooltip);
+
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+
+    expect(isOpenChangeSpy).toHaveBeenCalledTimes(2);
+    expect(isOpenChangeSpy.calls.argsFor(1)).toEqual([false]);
+  });
+
+  it('controls tooltip default visibility', async () => {
+    const { userEvent, isOpenChangeSpy } = await setup({ defaultIsOpen: true });
+
+    const tooltip = await screen.findByRole('tooltip', { name: 'Example tooltip' });
+
+    expect(tooltip).toBeInTheDocument();
+
+    await userEvent.keyboard('[Escape]');
+
+    await waitForElementToBeRemoved(tooltip);
+
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+    expect(isOpenChangeSpy).toHaveBeenCalledOnceWith(false);
+  });
+
+  it('controls tooltip visibility', async () => {
+    const { rerender, isOpenChangeSpy } = await setup({ isOpen: true });
+
+    expect(await screen.findByRole('tooltip', { name: 'Example tooltip' })).toBeInTheDocument();
+
+    const componentProperties = aliasArgs({ isOpen: false }, 'natuTooltip');
+    await rerender({ componentProperties: componentProperties });
+
+    await waitForElementToBeRemoved(screen.queryByRole('tooltip'));
+
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+    expect(isOpenChangeSpy).not.toHaveBeenCalled();
+  });
+
+  it('does not show tooltip if disabled', async () => {
+    const { userEvent } = await setup({ isOpen: true, isDisabled: true });
+
+    await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
+
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+  });
+
+  it('supports templates with context', async () => {
+    const props: Partial<NatuTooltipDirective> = { context: { count: 10 }, isOpen: true };
+    const componentProperties = aliasArgs(props, 'natuTooltip');
+    const templateArgs = aliasedArgsToTemplate(props, 'natuTooltip');
+
+    await render(
+      `
+        <button type="button" [natuTooltip]="tooltipTemplate" ${templateArgs}>Trigger</button>
+        <ng-template #tooltipTemplate let-count="count">Current value: {{count}}</ng-template>
+      `,
+      {
+        renderOptions: {
+          imports: [NatuTooltipDirective],
+          componentProperties: componentProperties,
+        },
+      },
+    );
+
+    expect(await screen.findByRole('tooltip', { name: 'Current value: 10' })).toBeInTheDocument();
+  });
+
+  /* TODO: test hover unhover of portal */
   async function setup(props: Partial<NatuTooltipDirective> = {}) {
     // eslint-disable-next-line jasmine/no-unsafe-spy
     const isOpenChangeSpy = jasmine.createSpy();

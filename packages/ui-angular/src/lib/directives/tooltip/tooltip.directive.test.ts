@@ -1,8 +1,25 @@
 import { screen, waitForElementToBeRemoved } from '@testing-library/angular';
 import { NatuTooltipDirective } from './tooltip.directive';
-import { aliasArgs, aliasedArgsToTemplate, render } from '../../test';
+import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
 
-/* TODO: a11y */
+describe(`${NatuTooltipDirective.name} accessibility`, () => {
+  const scenarios = [
+    {
+      name: 'Tooltip',
+      template: `<button type="button" natuTooltip="Example tooltip" [natuTooltipIsOpen]="true">Trigger</button>`,
+    },
+  ];
+
+  scenarios.forEach(({ name, template }) => {
+    it(`${name} has no accessibility violations`, async () => {
+      const view = await render(template, {
+        renderOptions: { imports: [NatuTooltipDirective] },
+      });
+
+      expect(await axe(view.container)).toHaveNoViolations();
+    });
+  });
+});
 
 describe(NatuTooltipDirective.name, () => {
   it('does not show tooltip by default', async () => {

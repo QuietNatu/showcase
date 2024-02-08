@@ -45,7 +45,7 @@ For accessibility, this project tries to conform with **WCAG Level AAA**.
 
 ## 🖋️ VS Code
 
-For better monorepo organization, custom workspace is provided at `.vscode/showcase.code-workspace`.
+For better monorepo organization, a custom workspace is provided at `.vscode/showcase.code-workspace`.
 
 A list of recommended extensions is provided. When this project is opened, **VS Code** will prompt to install the recommended extensions.
 

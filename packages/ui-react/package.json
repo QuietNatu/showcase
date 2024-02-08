@@ -34,7 +34,7 @@
     "vrt-show-report": "playwright show-report vrt/report --port 6014"
   },
   "devDependencies": {
-    "@floating-ui/react": "0.26.7",
+    "@floating-ui/react": "0.26.9",
     "@natu/eslint-config-react": "workspace:*",
     "@natu/styles": "workspace:*",
     "@natu/tsconfig": "workspace:*",
@@ -52,10 +52,10 @@
     "@storybook/react": "7.6.10",
     "@storybook/react-vite": "7.6.10",
     "@storybook/test": "7.6.10",
-    "@testing-library/jest-dom": "6.2.0",
+    "@testing-library/jest-dom": "6.4.1",
     "@testing-library/react": "14.1.2",
     "@testing-library/user-event": "14.5.2",
-    "@types/react": "18.2.48",
+    "@types/react": "18.2.52",
     "@types/react-dom": "18.2.18",
     "@vitejs/plugin-react-swc": "3.5.0",
     "@vitest/coverage-v8": "1.2.0",

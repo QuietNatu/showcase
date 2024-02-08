@@ -12,9 +12,11 @@
 - https://github.com/angular/angular/issues/14842
 - https://github.com/angular/components/issues/1432
 
-### Karma test runner window information interferes with tests
+### Karma Jasmine HTML Reporter interferes with tests
 
-Testing library utils like screen.getByText or userEvent.tab will also interect with elements created by Karma that are not part of the test (like the test results information). This lowers the quality and confidence that the tests provide.
+The HTML produced by Karma Jasmine HTML Reporter is rendered on the same iframe where the tests are run. This makes it so that when searching for elements during a test, the HTML elements created by the reporter might also wrongly be selected. Testing library utils like screen.getByText or userEvent.tab will lead to wrong results because of this. This lowers the quality and confidence that the tests provide.
+
+This behaviour in configured by default by Angular. To solve this, Karma Jasmine HTML Reporter must be removed from the config.
 
 ### Not possible to fully wrap components
 

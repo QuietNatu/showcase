@@ -6,8 +6,8 @@ import {
 } from '@storybook/angular';
 import { NatuTooltipDirective } from './tooltip.directive';
 import { natuButtonImports } from '../button/button.directive';
-import { aliasedArgsToTemplate } from '../../stories';
 import { NgTemplateOutlet } from '@angular/common';
+import { aliasedArgsToTemplate } from '../../test';
 
 const meta = {
   title: 'Components/Tooltip',

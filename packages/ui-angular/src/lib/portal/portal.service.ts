@@ -17,6 +17,8 @@ import { NatuPortalComponent } from './portal.component';
 
 type Content = TemplateRef<unknown> | ComponentType<unknown>;
 
+/* TODO: create portal service tests */
+
 /**
  * Creates a portal that attaches content directly into the documents body.
  *

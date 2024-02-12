@@ -9,8 +9,6 @@ import {
 } from '@angular/core';
 import { NatuPortalService } from './portal.service';
 
-/* TODO: test for component outlet */
-
 @Component({
   selector: 'natu-portal',
   template: `

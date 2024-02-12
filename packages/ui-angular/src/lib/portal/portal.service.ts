@@ -17,8 +17,6 @@ import { NatuPortalComponent } from './portal.component';
 
 type Content = TemplateRef<unknown> | ComponentType<unknown>;
 
-/* TODO: create portal service tests */
-
 /**
  * Creates a portal that attaches content directly into the documents body.
  *
@@ -28,7 +26,7 @@ type Content = TemplateRef<unknown> | ComponentType<unknown>;
  */
 @Injectable()
 export class NatuPortalService {
-  /** *Internal* - The content to be renderer by the portal. */
+  /** *Internal* - The content to be renderef by the portal. */
   readonly content$;
   /** *Internal* - The instance of the created portal element. */
   readonly portalElement$;

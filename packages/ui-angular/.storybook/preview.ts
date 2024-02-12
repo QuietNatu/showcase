@@ -1,8 +1,9 @@
-import { moduleMetadata, type Preview } from '@storybook/angular';
+import { applicationConfig, moduleMetadata, type Preview } from '@storybook/angular';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../documentation.json';
 import { StoryConfigDirective, storyConfigDecorator } from './decorators';
 import { storyA11yConfig } from '../src/lib/stories';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 setCompodocJson(docJson);
 
@@ -16,6 +17,11 @@ const preview: Preview = {
       },
     },
     a11y: storyA11yConfig,
+    options: {
+      storySort: {
+        method: 'alphabetical',
+      },
+    },
   },
   globalTypes: {
     theme: {
@@ -44,7 +50,11 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [moduleMetadata({ imports: [StoryConfigDirective] }), storyConfigDecorator()],
+  decorators: [
+    applicationConfig({ providers: [provideAnimations()] }),
+    moduleMetadata({ imports: [StoryConfigDirective] }),
+    storyConfigDecorator(),
+  ],
 };
 
 export default preview;

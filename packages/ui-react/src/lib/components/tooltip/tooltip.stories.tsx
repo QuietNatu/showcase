@@ -2,8 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { NatuTooltip, NatuTooltipProps } from './tooltip';
 import { NatuButton } from '../button/button';
 
-/* TODO: vrt */
-
 const meta = {
   title: 'Components/Tooltip',
   component: NatuTooltip,

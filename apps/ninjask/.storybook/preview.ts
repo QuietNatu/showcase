@@ -12,6 +12,11 @@ const preview: Preview = {
       },
     },
     a11y: storyA11yConfig,
+    options: {
+      storySort: {
+        method: 'alphabetical',
+      },
+    },
   },
   globalTypes: {
     theme: {

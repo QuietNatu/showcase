@@ -28,7 +28,7 @@ const pageMargin = 8;
 const arrowWidth = 16;
 const arrowHeight = 8;
 const arrowPadding = 8;
-const triggerOffset = arrowHeight + 4;
+const referenceOffset = arrowHeight + 4;
 const defaultPlacement: NatuOverlayPlacement = 'top';
 
 /**
@@ -49,7 +49,7 @@ export function useOverlay(options: NatuUseOverlayOptions) {
     onOpenChange: setIsOpen,
     placement: options.placement ?? defaultPlacement,
     middleware: [
-      offset(triggerOffset),
+      offset(referenceOffset),
       flip(),
       shift({ padding: pageMargin }),
       options.hasArrow && arrow({ element: arrowRef, padding: arrowPadding }),

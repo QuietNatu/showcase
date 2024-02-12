@@ -1,3 +1,2 @@
-export * from './portal/portal.component';
-export * from './portal/portal.directive';
-export * from './portal/portal.service';
+export * from './button/button.directive';
+export * from './tooltip/tooltip.directive';

@@ -2,7 +2,6 @@ import { ComponentPropsWithoutRef, ReactNode, forwardRef } from 'react';
 import {
   FloatingArrow,
   FloatingPortal,
-  Placement,
   Side,
   useDismiss,
   useFocus,
@@ -14,7 +13,7 @@ import {
 import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
-import { NatuUseOverlayOptions, useOverlay } from '../../hooks/use-overlay';
+import { NatuOverlayPlacement, NatuUseOverlayOptions, useOverlay } from '../../hooks/use-overlay';
 import { useNatuUiConfig } from '../../providers/ui-config';
 
 type TooltipOverlayElementProps = Omit<ComponentPropsWithoutRef<'div'>, 'content'>;
@@ -42,7 +41,7 @@ export interface NatuTooltipProps extends TooltipOverlayElementProps {
   isDisabled?: boolean;
 }
 
-export type NatuTooltipPlacement = Placement;
+export type NatuTooltipPlacement = NatuOverlayPlacement;
 
 export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
   function NatuTooltip(props, forwardedRef) {

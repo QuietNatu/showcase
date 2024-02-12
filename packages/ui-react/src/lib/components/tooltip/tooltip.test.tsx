@@ -76,9 +76,12 @@ test('hides tooltip when trigger is unhovered', async () => {
   const { userEvent, onOpenChangeSpy } = await setup();
 
   await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
+
+  const tooltip = await screen.findByRole('tooltip');
+
   await userEvent.unhover(screen.getByRole('button', { name: 'Trigger' }));
 
-  await waitForElementToBeRemoved(screen.queryByRole('tooltip'));
+  await waitForElementToBeRemoved(tooltip);
 
   expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
   expect(onOpenChangeSpy).toHaveBeenCalledTimes(2);
@@ -103,9 +106,12 @@ test('hides tooltip when pressing Escape', async () => {
   const { userEvent, onOpenChangeSpy } = await setup();
 
   await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
+
+  const tooltip = await screen.findByRole('tooltip');
+
   await userEvent.keyboard('[Escape]');
 
-  await waitForElementToBeRemoved(screen.queryByRole('tooltip'));
+  await waitForElementToBeRemoved(tooltip);
 
   expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
   expect(onOpenChangeSpy).toHaveBeenCalledTimes(2);
@@ -116,12 +122,31 @@ test('hides tooltip when clicked outside', async () => {
   const { container, userEvent, onOpenChangeSpy } = await setup();
 
   await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
+
+  const tooltip = await screen.findByRole('tooltip');
+
   await userEvent.click(container);
 
-  await waitForElementToBeRemoved(screen.queryByRole('tooltip'));
+  await waitForElementToBeRemoved(tooltip);
 
   expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
   expect(onOpenChangeSpy).toHaveBeenCalledTimes(2);
+  expect(onOpenChangeSpy).toHaveBeenLastCalledWith(false);
+});
+
+test('controls tooltip default visibility', async () => {
+  const { userEvent, onOpenChangeSpy } = await setup({ defaultIsOpen: true });
+
+  const tooltip = await screen.findByRole('tooltip', { name: 'Example tooltip' });
+
+  expect(tooltip).toBeInTheDocument();
+
+  await userEvent.keyboard('[Escape]');
+
+  await waitForElementToBeRemoved(tooltip);
+
+  expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+  expect(onOpenChangeSpy).toHaveBeenCalledOnce();
   expect(onOpenChangeSpy).toHaveBeenLastCalledWith(false);
 });
 
@@ -143,11 +168,12 @@ test('controls tooltip visibility', async () => {
 });
 
 test('does not show tooltip if disabled', async () => {
-  const { userEvent } = await setup({ isOpen: true, isDisabled: true });
+  const { userEvent, onOpenChangeSpy } = await setup({ isOpen: true, isDisabled: true });
 
   await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
 
   expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+  expect(onOpenChangeSpy).not.toHaveBeenCalled();
 });
 
 async function setup(props: Partial<NatuTooltipProps> = {}) {

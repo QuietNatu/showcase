@@ -11,8 +11,6 @@ interface HoverOptions {
   delay?: number;
 }
 
-/* TODO: test */
-
 /**
  * Opens / Closes an overlay when it's reference element is hovered. Keeps overlay open if overlay is hovered.
  *

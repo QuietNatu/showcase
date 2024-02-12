@@ -187,7 +187,6 @@ describe(NatuTooltipDirective.name, () => {
     expect(await screen.findByRole('tooltip', { name: 'Current value: 10' })).toBeInTheDocument();
   });
 
-  /* TODO: test hover unhover of portal */
   async function setup(props: Partial<NatuTooltipDirective> = {}) {
     // eslint-disable-next-line jasmine/no-unsafe-spy
     const isOpenChangeSpy = jasmine.createSpy();

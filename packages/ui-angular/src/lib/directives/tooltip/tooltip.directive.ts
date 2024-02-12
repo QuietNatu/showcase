@@ -26,8 +26,6 @@ import { NatuTooltipService } from './tooltip.service';
 
 const defaultHoverDelay = 500;
 
-/* TODO: test */
-
 @Directive({
   selector: '[natuTooltip]',
   standalone: true,

@@ -14,8 +14,6 @@ const arrowPadding = 8;
 const referenceOffset = arrowHeight + 4;
 const defaultPlacement: NatuOverlayPlacement = 'top';
 
-/* TODO: test */
-
 /**
  * Manages data and performs calculations required to position an overlay element on the page.
  *

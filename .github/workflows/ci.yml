@@ -1,5 +1,7 @@
 name: CI
 
+# TODO: wait for this to be fixed: https://github.com/actions/cache/pull/1325
+
 on:
   workflow_dispatch:
   push:
@@ -27,7 +29,7 @@ jobs:
         with:
           save-always: true
           path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}-${{ github.job }}
           restore-keys: |
             ${{ runner.os }}-turbo-
 
@@ -73,7 +75,7 @@ jobs:
         with:
           save-always: true
           path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}-${{ github.job }}
           restore-keys: |
             ${{ runner.os }}-turbo-
 
@@ -122,7 +124,7 @@ jobs:
         with:
           save-always: true
           path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}-${{ github.job }}
           restore-keys: |
             ${{ runner.os }}-turbo-
 

@@ -30,7 +30,7 @@ jobs:
             ${{ runner.os }}-turbo-
 
       - name: Use pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -82,7 +82,7 @@ jobs:
             ${{ runner.os }}-turbo-
 
       - name: Use pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -137,7 +137,7 @@ jobs:
             ${{ runner.os }}-turbo-
 
       - name: Use pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
 
       - name: Use Node.js
         uses: actions/setup-node@v4

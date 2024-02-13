@@ -1,5 +1,6 @@
 import { VrtScenario, createVrtStorybookScenarios } from '@natu/vrt';
 import { test } from '@playwright/test';
+import { defaultVrtVariants } from '../../vrt/variants';
 
 const scenarios: VrtScenario[] = [
   { story: 'default' },
@@ -13,6 +14,7 @@ const testScenarios = createVrtStorybookScenarios({
   scenarios,
   page: 'components-button',
   viewports: [{ name: 'custom', width: 600, height: 100 }],
+  variants: defaultVrtVariants,
 });
 
 testScenarios.forEach((scenario) => {

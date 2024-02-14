@@ -70,6 +70,7 @@
 
     surface: {
       base: { value: '{color.white}' },
+      primary: { value: '{color.grey.50}' },
       disabled: { value: '{color.grey.900-alpha-10}' },
       invert: { value: '{color.grey.900}' },
       accent: { value: '{color.theme.primary.50}' },

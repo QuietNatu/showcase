@@ -9,6 +9,7 @@
 
     surface: {
       base: { value: '{color.grey.900}' },
+      primary: { value: '{color.grey.950}' },
       invert: { value: '{color.grey.100}' },
       accent: { value: '{color.theme.primary.800}' },
       'accent-active': { value: '{color.theme.primary.700}' },

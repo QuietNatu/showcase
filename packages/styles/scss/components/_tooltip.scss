@@ -1,5 +1,7 @@
 @use '../utils';
 
+/* TODO: dark mode shadow */
+
 @layer tooltip {
   $-tooltip-background-color: var(--natu-color-surface-invert);
 

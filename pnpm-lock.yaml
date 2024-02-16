@@ -702,8 +702,8 @@ importers:
         specifier: 1.1.23
         version: 1.1.23(typescript@5.3.3)
       '@floating-ui/dom':
-        specifier: 1.6.2
-        version: 1.6.2
+        specifier: 1.6.3
+        version: 1.6.3
       '@natu/eslint-config-angular':
         specifier: workspace:*
         version: link:../eslint-config-angular
@@ -4028,8 +4028,8 @@ packages:
       '@floating-ui/utils': 0.2.1
     dev: true
 
-  /@floating-ui/dom@1.6.2:
-    resolution: {integrity: sha512-xymkSSowKdGqo0SRr2Mp4czH5A8o2Pum35PAD0ftb3gCcPacWzwhvtUeUqmVXm9EVtm2hThD/lRrFNcahMOaSQ==}
+  /@floating-ui/dom@1.6.3:
+    resolution: {integrity: sha512-RnDthu3mzPlQ31Ss/BTwQ1zjzIhr3lk1gZB1OC56h/1vEtaXkESrOqL5fQVMfXpwGtRwX+YsZBdyHtJMQnkArw==}
     dependencies:
       '@floating-ui/core': 1.6.0
       '@floating-ui/utils': 0.2.1
@@ -4041,7 +4041,7 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@floating-ui/dom': 1.6.2
+      '@floating-ui/dom': 1.6.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true

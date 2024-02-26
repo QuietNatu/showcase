@@ -5,7 +5,6 @@ import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 @Component({
   selector: 'natu-sidebar-item-list',
   template: `<ul>
-    <!-- TODO: track by -->
     @for (item of items; track $index) {
       <li>
         <ng-template [ngTemplateOutlet]="item.templateRef" />

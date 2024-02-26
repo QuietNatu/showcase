@@ -42,7 +42,7 @@ const meta = {
               <span [natuSidebarItemLabel]>Link 1</span>
             </a>
 
-            <natu-sidebar-item *natuSidebarItem href="">
+            <natu-sidebar-item *natuSidebarItem>
               <span [natuSidebarItemIcon]>😀</span>
               <span [natuSidebarItemLabel]>Item 1</span>
             </natu-sidebar-item>
@@ -75,7 +75,7 @@ const meta = {
               <span [natuSidebarItemLabel]>Link 1</span>
             </a>
 
-            <natu-sidebar-item *natuSidebarItem href="">
+            <natu-sidebar-item *natuSidebarItem>
               <span [natuSidebarItemIcon]>😀</span>
               <span [natuSidebarItemLabel]>Item 1</span>
             </natu-sidebar-item>

@@ -1,7 +1,9 @@
 export * from './components/sidebar-body.component';
 export * from './components/sidebar-footer.component';
-export * from './components/sidebar-item.component';
+export * from './components/sidebar-group-label.component';
+export * from './components/sidebar-group-list.component';
+export * from './components/sidebar-group.component';
+export * from './components/sidebar-group.component';
+export * from './components/sidebar-header.component';
 export * from './directives/sidebar-item.directive';
 export * from './sidebar.component';
-
-/* TODO: finish this */

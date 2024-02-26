@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  booleanAttribute,
+  inject,
+} from '@angular/core';
 import { NatuSidebarHeaderComponent } from './components/sidebar-header.component';
 import { NatuSidebarItemComponent } from './components/sidebar-item.component';
 import { NatuSidebarBodyComponent } from './components/sidebar-body.component';
@@ -9,14 +17,42 @@ import { NatuSidebarItemIconDirective } from './directives/sidebar-item-icon.dir
 import { NatuSidebarGroupListComponent } from './components/sidebar-group-list.component';
 import { NatuSidebarGroupComponent } from './components/sidebar-group.component';
 import { NatuSidebarGroupLabelComponent } from './components/sidebar-group-label.component';
+import { NatuSidebarService } from './sidebar.service';
+import { registerEffect } from '../../utils/rxjs';
 
 @Component({
   selector: 'natu-sidebar',
   template: `<ng-content />`,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  providers: [NatuSidebarService],
+  host: {
+    class: 'sidebar',
+    '[class.sidebar--expanded]': 'isExpanded$()',
+  },
 })
-export class NatuSidebarComponent {}
+export class NatuSidebarComponent {
+  @Input({ transform: booleanAttribute }) set isExpanded(isExpanded: boolean) {
+    this.sidebarService.setIsExpanded(isExpanded);
+  }
+  @Input({ transform: booleanAttribute }) set defaultIsExpanded(defaultIsExpanded: boolean) {
+    this.sidebarService.setDefaultIsExpanded(defaultIsExpanded);
+  }
+
+  @Output() isExpandedChange = new EventEmitter<boolean>();
+
+  readonly isExpanded$;
+
+  private readonly sidebarService = inject(NatuSidebarService);
+
+  constructor() {
+    this.isExpanded$ = this.sidebarService.isExpanded$;
+
+    registerEffect(this.sidebarService.isExpandedChange$, (isOpen) => {
+      this.isExpandedChange.emit(isOpen);
+    });
+  }
+}
 
 export const natuSidebarImports = [
   NatuSidebarComponent,

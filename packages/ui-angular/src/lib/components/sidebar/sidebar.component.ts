@@ -22,7 +22,11 @@ import { NatuSidebarGroupLabelDirective } from './directives/sidebar-group-label
 
 @Component({
   selector: 'natu-sidebar',
-  template: `<ng-content />`,
+  template: `
+    <ng-content />
+
+    <button type="button" (click)="sidebarService.toggleExpansion()">Toggle expansion</button>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   providers: [NatuSidebarService],
@@ -41,13 +45,10 @@ export class NatuSidebarComponent {
 
   @Output() isExpandedChange = new EventEmitter<boolean>();
 
-  readonly isExpanded$;
-
-  private readonly sidebarService = inject(NatuSidebarService);
+  readonly sidebarService = inject(NatuSidebarService);
+  readonly isExpanded$ = this.sidebarService.isExpanded$;
 
   constructor() {
-    this.isExpanded$ = this.sidebarService.isExpanded$;
-
     registerEffect(this.sidebarService.isExpandedChange$, (isOpen) => {
       this.isExpandedChange.emit(isOpen);
     });

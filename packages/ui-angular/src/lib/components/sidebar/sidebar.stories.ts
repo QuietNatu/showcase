@@ -45,7 +45,7 @@ const meta = {
           <natu-sidebar-footer>
             <natu-sidebar-group *natuSidebarItem>
               <span [natuSidebarGroupIcon]>😀</span>
-              <span [natuSidebarGroupLabel]>Link 1</span>
+              <span [natuSidebarGroupLabel]>Group 1</span>
 
               <a [natu-sidebar-item] *natuSidebarItem href="">
                 <span [natuSidebarItemIcon]>😀</span>

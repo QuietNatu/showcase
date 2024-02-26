@@ -12,6 +12,9 @@ import { NatuSidebarItemListComponent } from './sidebar-item-list.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NatuSidebarItemListComponent],
+  host: {
+    class: 'sidebar__body',
+  },
 })
 export class NatuSidebarBodyComponent {
   readonly items = contentChildren(NatuSidebarItemDirective);

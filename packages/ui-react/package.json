@@ -42,7 +42,7 @@
     "@natu/vrt": "workspace:*",
     "@playwright/test": "1.40.1",
     "@radix-ui/react-slot": "1.0.2",
-    "@react-aria/utils": "3.23.0",
+    "@react-aria/utils": "3.23.2",
     "@storybook/addon-a11y": "7.6.10",
     "@storybook/addon-essentials": "7.6.10",
     "@storybook/addon-interactions": "7.6.10",

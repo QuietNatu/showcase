@@ -11,33 +11,77 @@ const meta = {
 
     return {
       props: args,
-      template: `<natu-sidebar ${templateArgs}>
-        <natu-sidebar-header>Example header</natu-sidebar-header>
+      template: `
+        <natu-sidebar ${templateArgs}>
+          <natu-sidebar-header>Example header</natu-sidebar-header>
 
-        <natu-sidebar-body>
-          <a [natu-sidebar-item] *natuSidebarItem href="">
-            <span [natuSidebarItemIcon]>😀</span>
-            <span [natuSidebarItemLabel]>Link 1</span>
-          </a>
+          <natu-sidebar-body>
+            <natu-sidebar-group *natuSidebarItem>
+              <natu-sidebar-group-label>
+                <a [natu-sidebar-item] href="">
+                  <span [natuSidebarItemIcon]>😀</span>
+                  <span [natuSidebarItemLabel]>Link 1</span>
+                </a>
+              </natu-sidebar-group-label>
 
-          <natu-sidebar-item *natuSidebarItem href="">
-            <span [natuSidebarItemIcon]>😀</span>
-            <span [natuSidebarItemLabel]>Item 1</span>
-          </natu-sidebar-item>
-        </natu-sidebar-body>
+              <natu-sidebar-group-list>
+                <a [natu-sidebar-item] *natuSidebarItem href="">
+                  <span [natuSidebarItemIcon]>😀</span>
+                  <span [natuSidebarItemLabel]>Link 2</span>
+                </a>
 
-        <natu-sidebar-footer>
-          <a [natu-sidebar-item] *natuSidebarItem href="">
-            <span [natuSidebarItemIcon]>😀</span>
-            <span [natuSidebarItemLabel]>Link 1</span>
-          </a>
+                <a [natu-sidebar-item] *natuSidebarItem href="">
+                  <span [natuSidebarItemIcon]>😀</span>
+                  <span [natuSidebarItemLabel]>Link 3</span>
+                </a>
+              </natu-sidebar-group-list>
+            </natu-sidebar-group>
 
-          <natu-sidebar-item *natuSidebarItem href="">
-            <span [natuSidebarItemIcon]>😀</span>
-            <span [natuSidebarItemLabel]>Item 1</span>
-          </natu-sidebar-item>
-        </natu-sidebar-footer>
-      </natu-sidebar>`,
+            <a [natu-sidebar-item] *natuSidebarItem href="">
+              <span [natuSidebarItemIcon]>😀</span>
+              <span [natuSidebarItemLabel]>Link 1</span>
+            </a>
+
+            <natu-sidebar-item *natuSidebarItem href="">
+              <span [natuSidebarItemIcon]>😀</span>
+              <span [natuSidebarItemLabel]>Item 1</span>
+            </natu-sidebar-item>
+          </natu-sidebar-body>
+
+          <natu-sidebar-footer>
+            <natu-sidebar-group *natuSidebarItem>
+              <natu-sidebar-group-label>
+                <a [natu-sidebar-item] href="">
+                  <span [natuSidebarItemIcon]>😀</span>
+                  <span [natuSidebarItemLabel]>Link 1</span>
+                </a>
+              </natu-sidebar-group-label>
+
+              <natu-sidebar-group-list>
+                <a [natu-sidebar-item] *natuSidebarItem href="">
+                  <span [natuSidebarItemIcon]>😀</span>
+                  <span [natuSidebarItemLabel]>Link 2</span>
+                </a>
+
+                <a [natu-sidebar-item] *natuSidebarItem href="">
+                  <span [natuSidebarItemIcon]>😀</span>
+                  <span [natuSidebarItemLabel]>Link 3</span>
+                </a>
+              </natu-sidebar-group-list>
+            </natu-sidebar-group>
+
+            <a [natu-sidebar-item] *natuSidebarItem href="">
+              <span [natuSidebarItemIcon]>😀</span>
+              <span [natuSidebarItemLabel]>Link 1</span>
+            </a>
+
+            <natu-sidebar-item *natuSidebarItem href="">
+              <span [natuSidebarItemIcon]>😀</span>
+              <span [natuSidebarItemLabel]>Item 1</span>
+            </natu-sidebar-item>
+          </natu-sidebar-footer>
+        </natu-sidebar>
+      `,
     };
   },
 } satisfies Meta<NatuSidebarComponent>;

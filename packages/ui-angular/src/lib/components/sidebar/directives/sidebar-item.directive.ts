@@ -1,7 +1,10 @@
-import { Directive } from '@angular/core';
+import { Directive, TemplateRef, contentChildren, inject } from '@angular/core';
 
 @Directive({
   selector: '[natuSidebarItem]',
   standalone: true,
 })
-export class NatuSidebarItemDirective {}
+export class NatuSidebarItemDirective {
+  readonly templateRef = inject(TemplateRef);
+  readonly items = contentChildren(NatuSidebarItemDirective);
+}

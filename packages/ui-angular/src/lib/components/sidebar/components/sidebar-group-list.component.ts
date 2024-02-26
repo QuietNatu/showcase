@@ -3,16 +3,12 @@ import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 import { NatuSidebarItemListComponent } from './sidebar-item-list.component';
 
 @Component({
-  selector: 'natu-sidebar-footer',
-  template: `
-    <nav>
-      <natu-sidebar-item-list [items]="items()" />
-    </nav>
-  `,
+  selector: 'natu-sidebar-group-list',
+  template: `<natu-sidebar-item-list [items]="items()" />`,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NatuSidebarItemListComponent],
 })
-export class NatuSidebarFooterComponent {
+export class NatuSidebarGroupListComponent {
   readonly items = contentChildren(NatuSidebarItemDirective);
 }

@@ -6,6 +6,9 @@ import { NatuSidebarFooterComponent } from './components/sidebar-footer.componen
 import { NatuSidebarItemDirective } from './directives/sidebar-item.directive';
 import { NatuSidebarItemLabelDirective } from './directives/sidebar-item-label.directive';
 import { NatuSidebarItemIconDirective } from './directives/sidebar-item-icon.directive';
+import { NatuSidebarGroupListComponent } from './components/sidebar-group-list.component';
+import { NatuSidebarGroupComponent } from './components/sidebar-group.component';
+import { NatuSidebarGroupLabelComponent } from './components/sidebar-group-label.component';
 
 @Component({
   selector: 'natu-sidebar',
@@ -21,6 +24,9 @@ export const natuSidebarImports = [
   NatuSidebarBodyComponent,
   NatuSidebarFooterComponent,
   NatuSidebarItemComponent,
+  NatuSidebarGroupComponent,
+  NatuSidebarGroupLabelComponent,
+  NatuSidebarGroupListComponent,
   NatuSidebarItemDirective,
   NatuSidebarItemIconDirective,
   NatuSidebarItemLabelDirective,

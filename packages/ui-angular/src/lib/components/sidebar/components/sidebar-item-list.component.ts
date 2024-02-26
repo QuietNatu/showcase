@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
+import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 
 @Component({
   selector: 'natu-sidebar-item-list',
@@ -7,7 +8,11 @@ import { NgTemplateOutlet } from '@angular/common';
     <!-- TODO: track by -->
     @for (item of items; track $index) {
       <li>
-        <ng-template [ngTemplateOutlet]="item" />
+        <ng-template [ngTemplateOutlet]="item.templateRef" />
+
+        @if (item.items().length > 0) {
+          <natu-sidebar-item-list [items]="item.items()" />
+        }
       </li>
     }
   </ul>`,
@@ -16,5 +21,5 @@ import { NgTemplateOutlet } from '@angular/common';
   imports: [NgTemplateOutlet],
 })
 export class NatuSidebarItemListComponent {
-  @Input({ required: true }) items!: ReadonlyArray<TemplateRef<unknown>>;
+  @Input({ required: true }) items!: readonly NatuSidebarItemDirective[];
 }

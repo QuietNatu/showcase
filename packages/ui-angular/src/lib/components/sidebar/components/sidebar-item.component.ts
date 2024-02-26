@@ -1,11 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { NatuSidebarService } from '../sidebar.service';
 
 @Component({
   selector: 'natu-sidebar-item,[natu-sidebar-item]',
   template: `
     <ng-content select="[natuSidebarItemIcon]" />
 
-    @if (isExpanded) {
+    @if (isExpanded$()) {
       <ng-content select="[natuSidebarItemLabel]" />
     }
   `,
@@ -13,5 +14,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   standalone: true,
 })
 export class NatuSidebarItemComponent {
-  readonly isExpanded = true;
+  readonly isExpanded$;
+
+  private readonly sidebarService = inject(NatuSidebarService);
+
+  constructor() {
+    this.isExpanded$ = this.sidebarService.isExpanded$;
+  }
 }

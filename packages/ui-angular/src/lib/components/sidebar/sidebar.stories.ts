@@ -17,24 +17,18 @@ const meta = {
 
           <natu-sidebar-body>
             <natu-sidebar-group *natuSidebarItem>
-              <natu-sidebar-group-label>
-                <a [natu-sidebar-item] href="">
-                  <span [natuSidebarItemIcon]>😀</span>
-                  <span [natuSidebarItemLabel]>Link 1</span>
-                </a>
-              </natu-sidebar-group-label>
+              <span [natuSidebarGroupIcon]>😀</span>
+              <span [natuSidebarGroupLabel]>Group 1</span>
 
-              <natu-sidebar-group-list>
-                <a [natu-sidebar-item] *natuSidebarItem href="">
-                  <span [natuSidebarItemIcon]>😀</span>
-                  <span [natuSidebarItemLabel]>Link 2</span>
-                </a>
+              <a [natu-sidebar-item] *natuSidebarItem href="">
+                <span [natuSidebarItemIcon]>😀</span>
+                <span [natuSidebarItemLabel]>Link 2</span>
+              </a>
 
-                <a [natu-sidebar-item] *natuSidebarItem href="">
-                  <span [natuSidebarItemIcon]>😀</span>
-                  <span [natuSidebarItemLabel]>Link 3</span>
-                </a>
-              </natu-sidebar-group-list>
+              <a [natu-sidebar-item] *natuSidebarItem href="">
+                <span [natuSidebarItemIcon]>😀</span>
+                <span [natuSidebarItemLabel]>Link 3</span>
+              </a>
             </natu-sidebar-group>
 
             <a [natu-sidebar-item] *natuSidebarItem href="">
@@ -50,24 +44,18 @@ const meta = {
 
           <natu-sidebar-footer>
             <natu-sidebar-group *natuSidebarItem>
-              <natu-sidebar-group-label>
-                <a [natu-sidebar-item] href="">
-                  <span [natuSidebarItemIcon]>😀</span>
-                  <span [natuSidebarItemLabel]>Link 1</span>
-                </a>
-              </natu-sidebar-group-label>
+              <span [natuSidebarGroupIcon]>😀</span>
+              <span [natuSidebarGroupLabel]>Link 1</span>
 
-              <natu-sidebar-group-list>
-                <a [natu-sidebar-item] *natuSidebarItem href="">
-                  <span [natuSidebarItemIcon]>😀</span>
-                  <span [natuSidebarItemLabel]>Link 2</span>
-                </a>
+              <a [natu-sidebar-item] *natuSidebarItem href="">
+                <span [natuSidebarItemIcon]>😀</span>
+                <span [natuSidebarItemLabel]>Link 2</span>
+              </a>
 
-                <a [natu-sidebar-item] *natuSidebarItem href="">
-                  <span [natuSidebarItemIcon]>😀</span>
-                  <span [natuSidebarItemLabel]>Link 3</span>
-                </a>
-              </natu-sidebar-group-list>
+              <a [natu-sidebar-item] *natuSidebarItem href="">
+                <span [natuSidebarItemIcon]>😀</span>
+                <span [natuSidebarItemLabel]>Link 3</span>
+              </a>
             </natu-sidebar-group>
 
             <a [natu-sidebar-item] *natuSidebarItem href="">
@@ -90,3 +78,8 @@ export default meta;
 type Story = StoryObj<NatuSidebarComponent>;
 
 export const Default: Story = {};
+export const Expanded: Story = {
+  args: {
+    defaultIsExpanded: true,
+  },
+};

@@ -1,0 +1,28 @@
+@use '@natu/styles/scss/utils';
+
+$-sidebar-width: var(--natu-size-spacing-11);
+$-sidebar-width-expanded: utils.px-to-rem(240px);
+
+:host {
+  background-color: var(--natu-color-surface-base);
+  display: block;
+  height: 100%;
+  padding: var(--natu-size-spacing-3) 0;
+  position: relative;
+  width: $-sidebar-width;
+
+  &::before {
+    background-color: var(--natu-color-border-neutral);
+    bottom: 0;
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 1px;
+  }
+
+  &.sidebar--expanded {
+    padding: var(--natu-size-spacing-3);
+    width: $-sidebar-width-expanded;
+  }
+}

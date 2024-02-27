@@ -1,7 +1,6 @@
 export * from './components/sidebar-body.component';
 export * from './components/sidebar-footer.component';
 export * from './components/sidebar-group.component';
-export * from './components/sidebar-group.component';
 export * from './components/sidebar-header.component';
 export * from './directives/sidebar-group-icon.directive';
 export * from './directives/sidebar-group-label.directive';

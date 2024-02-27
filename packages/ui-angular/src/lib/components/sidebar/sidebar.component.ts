@@ -27,6 +27,7 @@ import { NatuSidebarGroupLabelDirective } from './directives/sidebar-group-label
 
     <button type="button" (click)="sidebarService.toggleExpansion()">Toggle expansion</button>
   `,
+  styleUrl: './sidebar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   providers: [NatuSidebarService],

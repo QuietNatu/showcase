@@ -1,0 +1,123 @@
+@use '../utils';
+
+$-sidebar-width: var(--natu-size-spacing-11);
+$-sidebar-width-expanded: utils.px-to-rem(240px);
+
+@mixin -item {
+  @include utils.control;
+  @include utils.control--large;
+  @include utils.text-label;
+
+  background-color: transparent;
+  color: var(--natu-color-font-base);
+  cursor: pointer;
+  display: flex;
+  text-decoration: none;
+  user-select: none;
+
+  &:hover {
+    background-color: var(--natu-color-surface-neutral);
+  }
+
+  /* TODO: outline */
+}
+
+@layer sidebar {
+  .sidebar {
+    background-color: var(--natu-color-surface-base);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: var(--natu-size-spacing-3) 0;
+    position: relative;
+    transition: width var(--natu-time-animation-slow) var(--natu-duration-standard);
+    width: $-sidebar-width;
+
+    &::before {
+      background-color: var(--natu-color-border-neutral);
+      bottom: 0;
+      content: '';
+      position: absolute;
+      right: -1px;
+      top: 0;
+      width: 1px;
+    }
+
+    &--expanded {
+      padding: var(--natu-size-spacing-3);
+      width: $-sidebar-width-expanded;
+    }
+  }
+
+  .sidebar__header {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--natu-size-spacing-3);
+  }
+
+  .sidebar__footer {
+    margin-top: auto;
+    padding-top: var(--natu-size-spacing-3);
+    position: relative;
+  }
+
+  .sidebar__list {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar__list-item {
+    width: 100%;
+  }
+
+  .sidebar__toggle-button {
+    @include -item;
+
+    font-size: var(--natu-size-font-6);
+    transition: transform var(--natu-time-animation-slow) var(--natu-duration-standard);
+    width: $-sidebar-width;
+
+    .sidebar--expanded & {
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      transform: rotate(-180deg); // TODO: rotate only content?
+    }
+  }
+
+  .sidebar__item {
+    @include -item;
+
+    /* TODO: justify content change looks strange when transitioning */
+
+    justify-content: center;
+
+    /* TODO: active routerlink */
+
+    .sidebar--expanded & {
+      justify-content: start;
+    }
+
+    .sidebar--expanded .sidebar__footer &:last-child {
+      // Make space for toggle button
+      padding-right: $-sidebar-width;
+    }
+  }
+
+  .sidebar__item-icon {
+    display: inline-flex;
+    font-size: var(--natu-size-font-6);
+  }
+
+  .sidebar__item-label {
+    @include utils.ellipsis;
+
+    margin-left: var(--natu-size-spacing-3);
+
+    .sidebar--collapsed & {
+      @include utils.visually-hidden;
+    }
+  }
+}

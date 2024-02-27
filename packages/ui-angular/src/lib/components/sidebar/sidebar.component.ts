@@ -25,15 +25,25 @@ import { NatuSidebarGroupLabelDirective } from './directives/sidebar-group-label
   template: `
     <ng-content />
 
-    <button type="button" (click)="sidebarService.toggleExpansion()">Toggle expansion</button>
+    <div class="sidebar__footer">
+      <ng-content select="natu-sidebar-footer" />
+
+      <button
+        type="button"
+        class="sidebar__toggle-button"
+        (click)="sidebarService.toggleExpansion()"
+      >
+        >
+      </button>
+    </div>
   `,
-  styleUrl: './sidebar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   providers: [NatuSidebarService],
   host: {
     class: 'sidebar',
     '[class.sidebar--expanded]': 'isExpanded$()',
+    '[class.sidebar--collapsed]': '!isExpanded$()',
   },
 })
 export class NatuSidebarComponent {

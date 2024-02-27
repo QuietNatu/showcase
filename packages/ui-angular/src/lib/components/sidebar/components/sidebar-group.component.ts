@@ -1,18 +1,14 @@
-import { ChangeDetectionStrategy, Component, contentChildren, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, contentChildren } from '@angular/core';
 import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 import { NatuSidebarItemListComponent } from './sidebar-item-list.component';
 import { NatuSidebarItemComponent } from './sidebar-item.component';
-import { NatuSidebarService } from '../sidebar.service';
 
 @Component({
   selector: 'natu-sidebar-group',
   template: `
-    <div>
+    <div class="sidebar__item">
       <ng-content select="[natuSidebarGroupIcon]" />
-
-      @if (isExpanded$()) {
-        <ng-content select="[natuSidebarGroupLabel]" />
-      }
+      <ng-content select="[natuSidebarGroupLabel]" />
     </div>
 
     <div>
@@ -24,12 +20,5 @@ import { NatuSidebarService } from '../sidebar.service';
   imports: [NatuSidebarItemListComponent, NatuSidebarItemComponent],
 })
 export class NatuSidebarGroupComponent {
-  readonly isExpanded$;
   readonly items = contentChildren(NatuSidebarItemDirective);
-
-  private readonly sidebarService = inject(NatuSidebarService);
-
-  constructor() {
-    this.isExpanded$ = this.sidebarService.isExpanded$;
-  }
 }

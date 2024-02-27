@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, contentChildren } from '@angular/co
 import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 import { NatuSidebarItemListComponent } from './sidebar-item-list.component';
 
+/* TODO: rename */
 @Component({
   selector: 'natu-sidebar-body',
   template: `

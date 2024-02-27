@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, contentChildren } from '@angular/co
 import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 import { NatuSidebarItemListComponent } from './sidebar-item-list.component';
 
+/* TODO: rename */
 @Component({
   selector: 'natu-sidebar-footer',
   template: `
@@ -12,9 +13,6 @@ import { NatuSidebarItemListComponent } from './sidebar-item-list.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NatuSidebarItemListComponent],
-  host: {
-    class: 'sidebar__footer',
-  },
 })
 export class NatuSidebarFooterComponent {
   readonly items = contentChildren(NatuSidebarItemDirective);

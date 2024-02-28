@@ -4,6 +4,7 @@ import docJson from '../documentation.json';
 import { StoryConfigDirective, storyConfigDecorator } from './decorators';
 import { storyA11yConfig } from '../src/lib/stories';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideUiConfig } from '../src';
 
 setCompodocJson(docJson);
 
@@ -51,7 +52,9 @@ const preview: Preview = {
     },
   },
   decorators: [
-    applicationConfig({ providers: [provideAnimations()] }),
+    applicationConfig({
+      providers: [provideAnimations(), provideUiConfig()],
+    }),
     moduleMetadata({ imports: [StoryConfigDirective] }),
     storyConfigDecorator(),
   ],

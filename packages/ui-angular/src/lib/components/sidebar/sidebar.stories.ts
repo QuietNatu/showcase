@@ -38,18 +38,18 @@ const meta = {
 
               <a [natu-sidebar-item] *natuSidebarItem [routerLink]="[]" [routerLinkActive]>
                 <span [natuSidebarItemIcon]>😀</span>
-                <span [natuSidebarItemLabel]>Link 2</span>
+                <span [natuSidebarItemLabel]>Link 1</span>
               </a>
 
               <a [natu-sidebar-item] *natuSidebarItem href="">
                 <span [natuSidebarItemIcon]>😀</span>
-                <span [natuSidebarItemLabel]>Link 3</span>
+                <span [natuSidebarItemLabel]>Link 2</span>
               </a>
             </natu-sidebar-group>
 
             <a [natu-sidebar-item] *natuSidebarItem href="">
               <span [natuSidebarItemIcon]>😀</span>
-              <span [natuSidebarItemLabel]>Link 1</span>
+              <span [natuSidebarItemLabel]>Link 3</span>
             </a>
 
             <natu-sidebar-item *natuSidebarItem>
@@ -65,18 +65,18 @@ const meta = {
 
               <a [natu-sidebar-item] *natuSidebarItem href="">
                 <span [natuSidebarItemIcon]>😀</span>
-                <span [natuSidebarItemLabel]>Link 2</span>
+                <span [natuSidebarItemLabel]>Link 1</span>
               </a>
 
               <a [natu-sidebar-item] *natuSidebarItem href="">
                 <span [natuSidebarItemIcon]>😀</span>
-                <span [natuSidebarItemLabel]>Link 3</span>
+                <span [natuSidebarItemLabel]>Link 2</span>
               </a>
             </natu-sidebar-group>
 
             <a [natu-sidebar-item] *natuSidebarItem href="">
               <span [natuSidebarItemIcon]>😀</span>
-              <span [natuSidebarItemLabel]>Link 1</span>
+              <span [natuSidebarItemLabel]>Link 3</span>
             </a>
 
             <natu-sidebar-item *natuSidebarItem>

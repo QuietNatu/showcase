@@ -19,26 +19,15 @@ import { NatuSidebarService } from './sidebar.service';
 import { registerEffect } from '../../utils/rxjs';
 import { NatuSidebarGroupIconDirective } from './directives/sidebar-group-icon.directive';
 import { NatuSidebarGroupLabelDirective } from './directives/sidebar-group-label.directive';
+import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
+import { caretRightIcon } from '@natu/assets/svg/caret-right';
 
 @Component({
   selector: 'natu-sidebar',
-  template: `
-    <ng-content />
-
-    <div class="sidebar__footer">
-      <ng-content select="natu-sidebar-footer" />
-
-      <button
-        type="button"
-        class="sidebar__toggle-button"
-        (click)="sidebarService.toggleExpansion()"
-      >
-        >
-      </button>
-    </div>
-  `,
+  templateUrl: './sidebar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  imports: [SvgIconComponent],
   providers: [NatuSidebarService],
   host: {
     class: 'sidebar',
@@ -60,6 +49,8 @@ export class NatuSidebarComponent {
   readonly isExpanded$ = this.sidebarService.isExpanded$;
 
   constructor() {
+    injectRegisterIcons([caretRightIcon]);
+
     registerEffect(this.sidebarService.isExpandedChange$, (isOpen) => {
       this.isExpandedChange.emit(isOpen);
     });

@@ -1,0 +1,20 @@
+<div
+  class="sidebar__item"
+  role="button"
+  tabindex="0"
+  (click)="handleToggleGroup()"
+  (keyup.enter)="handleToggleGroup()"
+>
+  <ng-content select="[natuSidebarGroupIcon]" />
+  <ng-content select="[natuSidebarGroupLabel]" />
+
+  @if (isExpanded()) {
+    <span class="sidebar__item-group-icon">
+      <svg-icon [key]="isGroupExpanded() ? 'caret-down' : 'caret-up'" />
+    </span>
+  }
+</div>
+
+@if (isExpanded() && isGroupExpanded()) {
+  <natu-sidebar-item-list [items]="items()" />
+}

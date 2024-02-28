@@ -9,10 +9,6 @@ import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
       @for (item of items; track $index) {
         <li class="sidebar__list-item">
           <ng-template [ngTemplateOutlet]="item.templateRef" />
-
-          @if (item.items().length > 0) {
-            <natu-sidebar-item-list [items]="item.items()" />
-          }
         </li>
       }
     </ul>

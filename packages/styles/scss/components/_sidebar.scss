@@ -70,20 +70,36 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
 
   .sidebar__list-item {
     width: 100%;
+
+    .sidebar--expanded .sidebar__footer &:last-child {
+      // Make space for toggle button
+      padding-right: $-sidebar-width;
+    }
+
+    .sidebar--expanded .sidebar__footer .sidebar__list-item & {
+      // Group items don't need to make space for toggle button
+      padding-right: 0;
+    }
   }
 
   .sidebar__toggle-button {
     @include -item;
 
     font-size: var(--natu-size-font-6);
-    transition: transform var(--natu-time-animation-slow) var(--natu-duration-standard);
     width: $-sidebar-width;
 
     .sidebar--expanded & {
       bottom: 0;
       position: absolute;
       right: 0;
-      transform: rotate(-180deg); // TODO: rotate only content?
+    }
+  }
+
+  .sidebar__toggle-button-icon {
+    transition: transform var(--natu-time-animation-slow) var(--natu-duration-standard);
+
+    .sidebar--expanded & {
+      transform: rotate(-180deg);
     }
   }
 
@@ -98,11 +114,6 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
 
     .sidebar--expanded & {
       justify-content: start;
-    }
-
-    .sidebar--expanded .sidebar__footer &:last-child {
-      // Make space for toggle button
-      padding-right: $-sidebar-width;
     }
   }
 
@@ -119,5 +130,11 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
     .sidebar--collapsed & {
       @include utils.visually-hidden;
     }
+  }
+
+  .sidebar__item-group-icon {
+    font-size: var(--natu-size-font-5);
+    margin-left: auto;
+    padding-left: var(--natu-size-spacing-3);
   }
 }

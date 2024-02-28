@@ -37,7 +37,7 @@ for (const theme of themes) {
     ],
     platforms: {
       scss: {
-        transforms: ['attribute/cti', 'name/cti/kebab', 'time/miliseconds'],
+        transforms: ['attribute/cti', 'name/cti/kebab', 'time/miliseconds', 'size/pxToRem'],
         buildPath: `scss/tokens/${theme}/`,
         prefix: 'natu',
         files: [

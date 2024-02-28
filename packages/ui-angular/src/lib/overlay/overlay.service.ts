@@ -35,9 +35,9 @@ export class NatuOverlayService {
   readonly context$;
   /** Styles that should be applied to the floating element */
   readonly floatingStyle$;
-  /** Controlled open state. */
+  /** Open state. */
   readonly isOpen$;
-  /** Controlled open state notifier. */
+  /** Open state notifier. */
   readonly isOpenChange$ = new Subject<boolean>();
   /** Whether the overlay should be rendered or not. */
   readonly isMounted$;

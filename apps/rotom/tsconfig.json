@@ -8,9 +8,11 @@
       "@/*": ["src/*"],
 
       // bad workarounds check README...
+      "@natu/assets": ["../../packages/assets/angular"],
+      "@natu/assets/*": ["../../packages/assets/angular/*"],
       "@natu/ui-angular": ["../../packages/ui-angular/src"],
       "@natu/ui-angular/*": ["../../packages/ui-angular/src/lib/*"],
-      "@natu/utils": ["../../packages/utils/src"]
-    }
-  }
+      "@natu/utils": ["../../packages/utils/src"],
+    },
+  },
 }

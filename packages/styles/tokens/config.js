@@ -6,10 +6,10 @@ const colorSchemes = ['light', 'dark'];
 
 StyleDictionary.registerFormat({
   name: 'css/variables-themed',
-  formatter: ({ dictionary, file, options }) => {
+  formatter: async ({ dictionary, file, options }) => {
     const { outputReferences, selector } = options;
 
-    const header = fileHeader({ file });
+    const header = await fileHeader({ file });
     const variables = formattedVariables({
       format: 'css',
       dictionary,

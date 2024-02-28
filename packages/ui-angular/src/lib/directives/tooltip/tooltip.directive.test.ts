@@ -6,7 +6,7 @@ describe(`${NatuTooltipDirective.name} accessibility`, () => {
   const scenarios = [
     {
       name: 'Tooltip',
-      template: `<button type="button" natuTooltip="Example tooltip" [natuTooltipIsOpen]="true">Trigger</button>`,
+      template: `<button type="button" natuTooltip="Example tooltip" [natuTooltipIsOpen]="true" [natuTooltipPlacement]="'top'">Trigger</button>`,
     },
   ];
 

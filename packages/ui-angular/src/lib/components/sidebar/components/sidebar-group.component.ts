@@ -6,8 +6,7 @@ import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
 import { NatuSidebarService } from '../sidebar.service';
 import { caretDownIcon } from '@natu/assets/svg/caret-down';
 import { caretUpIcon } from '@natu/assets/svg/caret-up';
-
-/* TODO: accordion a11y */
+import { createRandomUUID } from '@natu/utils';
 
 @Component({
   selector: 'natu-sidebar-group',
@@ -18,6 +17,7 @@ import { caretUpIcon } from '@natu/assets/svg/caret-up';
 })
 export class NatuSidebarGroupComponent {
   readonly items = contentChildren(NatuSidebarItemDirective);
+  readonly id = `sidebar-group-${createRandomUUID()}`;
   readonly isExpanded;
   readonly isGroupExpanded = signal(false);
 

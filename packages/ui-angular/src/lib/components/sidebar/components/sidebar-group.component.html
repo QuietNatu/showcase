@@ -1,9 +1,15 @@
+<!-- TODO: accordion directives -->
+
 <div
   class="sidebar__item"
   role="button"
   tabindex="0"
+  [id]="id + '-trigger'"
+  [attr.aria-expanded]="isGroupExpanded()"
+  [attr.aria-controls]="id + '-region'"
   (click)="handleToggleGroup()"
   (keyup.enter)="handleToggleGroup()"
+  (keyup.space)="handleToggleGroup()"
 >
   <ng-content select="[natuSidebarGroupIcon]" />
   <ng-content select="[natuSidebarGroupLabel]" />
@@ -15,6 +21,12 @@
   }
 </div>
 
-@if (isExpanded() && isGroupExpanded()) {
-  <natu-sidebar-item-list [items]="items()" />
+@if (isExpanded()) {
+  <natu-sidebar-item-list
+    role="region"
+    [id]="id + '-region'"
+    [attr.aria-labelledby]="id + '-trigger'"
+    [hidden]="!isGroupExpanded()"
+    [items]="items()"
+  />
 }

@@ -4,6 +4,7 @@ import { Placement } from '@floating-ui/dom';
 import { manageFloating } from './floating-adapter';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { controllableSignal } from '../utils';
+import { createRandomUUID } from '@natu/utils';
 
 export type NatuOverlayPlacement = Placement;
 
@@ -24,7 +25,7 @@ export class NatuOverlayService {
   readonly arrowWidth = arrowWidth;
   readonly arrowHeight = arrowHeight;
   /** Id to use for the floating element */
-  readonly floatingId = crypto.randomUUID();
+  readonly floatingId = createRandomUUID();
 
   /** Element that serves as the anchor for the position of the overlay. */
   readonly referenceElement$;

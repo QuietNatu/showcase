@@ -4,7 +4,6 @@ import {
   EventEmitter,
   Input,
   Output,
-  booleanAttribute,
   inject,
 } from '@angular/core';
 import { NatuSidebarHeaderComponent } from './components/sidebar-header.component';
@@ -36,11 +35,11 @@ import { caretRightIcon } from '@natu/assets/svg/caret-right';
   },
 })
 export class NatuSidebarComponent {
-  @Input({ transform: booleanAttribute }) set isExpanded(isExpanded: boolean) {
-    this.sidebarService.setIsExpanded(isExpanded);
+  @Input() set isExpanded(isExpanded: boolean | null | undefined) {
+    this.sidebarService.setIsExpanded(isExpanded ?? undefined);
   }
-  @Input({ transform: booleanAttribute }) set defaultIsExpanded(defaultIsExpanded: boolean) {
-    this.sidebarService.setDefaultIsExpanded(defaultIsExpanded);
+  @Input() set defaultIsExpanded(defaultIsExpanded: boolean | null | undefined) {
+    this.sidebarService.setDefaultIsExpanded(defaultIsExpanded ?? undefined);
   }
 
   @Output() isExpandedChange = new EventEmitter<boolean>();

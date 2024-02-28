@@ -1,32 +1,27 @@
-<!-- TODO: accordion directives -->
+@if (isExpanded()) {
+  <ng-container
+    natuAccordion
+    [natuAccordionIsExpanded]="isGroupExpanded()"
+    (natuAccordionIsExpandedChange)="isGroupExpanded.set($event)"
+  >
+    <button type="button" class="sidebar__item" natuAccordionTrigger>
+      <ng-template [ngTemplateOutlet]="itemContentTemplate" />
 
-<div
-  class="sidebar__item"
-  role="button"
-  tabindex="0"
-  [id]="id + '-trigger'"
-  [attr.aria-expanded]="isGroupExpanded()"
-  [attr.aria-controls]="id + '-region'"
-  (click)="handleToggleGroup()"
-  (keyup.enter)="handleToggleGroup()"
-  (keyup.space)="handleToggleGroup()"
->
+      <span class="sidebar__item-group-icon">
+        <svg-icon [key]="isGroupExpanded() ? 'caret-up' : 'caret-down'" />
+      </span>
+    </button>
+
+    <natu-sidebar-item-list natuAccordionContent [items]="items()" />
+  </ng-container>
+} @else {
+  <div class="sidebar__item">
+    <ng-template [ngTemplateOutlet]="itemContentTemplate" />
+  </div>
+}
+
+<!-- Workaround because ng-content doesn't work inside if/else... -->
+<ng-template #itemContentTemplate>
   <ng-content select="[natuSidebarGroupIcon]" />
   <ng-content select="[natuSidebarGroupLabel]" />
-
-  @if (isExpanded()) {
-    <span class="sidebar__item-group-icon">
-      <svg-icon [key]="isGroupExpanded() ? 'caret-up' : 'caret-down'" />
-    </span>
-  }
-</div>
-
-@if (isExpanded()) {
-  <natu-sidebar-item-list
-    role="region"
-    [id]="id + '-region'"
-    [attr.aria-labelledby]="id + '-trigger'"
-    [hidden]="!isGroupExpanded()"
-    [items]="items()"
-  />
-}
+</ng-template>

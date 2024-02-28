@@ -103,6 +103,13 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
     }
   }
 
+  .sidebar__group {
+    display: flex;
+    flex-direction: column;
+
+    /* TODO: add collapse animation? and icon rotate? */
+  }
+
   .sidebar__item {
     @include -item;
 

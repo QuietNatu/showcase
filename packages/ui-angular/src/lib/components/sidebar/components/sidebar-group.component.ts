@@ -7,13 +7,24 @@ import { NatuSidebarService } from '../sidebar.service';
 import { caretDownIcon } from '@natu/assets/svg/caret-down';
 import { caretUpIcon } from '@natu/assets/svg/caret-up';
 import { createRandomUUID } from '@natu/utils';
+import { natuAccordionImports } from '../../../directives';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'natu-sidebar-group',
   templateUrl: './sidebar-group.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NatuSidebarItemListComponent, NatuSidebarItemComponent, SvgIconComponent],
+  imports: [
+    NatuSidebarItemListComponent,
+    NatuSidebarItemComponent,
+    SvgIconComponent,
+    natuAccordionImports,
+    NgTemplateOutlet,
+  ],
+  host: {
+    class: 'sidebar__group',
+  },
 })
 export class NatuSidebarGroupComponent {
   readonly items = contentChildren(NatuSidebarItemDirective);
@@ -27,9 +38,5 @@ export class NatuSidebarGroupComponent {
     this.isExpanded = this.sidebarService.isExpanded$;
 
     injectRegisterIcons([caretDownIcon, caretUpIcon]);
-  }
-
-  handleToggleGroup() {
-    this.isGroupExpanded.update((isExpanded) => !isExpanded);
   }
 }

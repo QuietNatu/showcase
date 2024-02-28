@@ -4,6 +4,7 @@ import { Placement } from '@floating-ui/dom';
 import { manageFloating } from './floating-adapter';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { controllableSignal } from '../utils';
+import { createRandomUUID } from '@natu/utils';
 
 export type NatuOverlayPlacement = Placement;
 
@@ -24,7 +25,7 @@ export class NatuOverlayService {
   readonly arrowWidth = arrowWidth;
   readonly arrowHeight = arrowHeight;
   /** Id to use for the floating element */
-  readonly floatingId = crypto.randomUUID();
+  readonly floatingId = createRandomUUID();
 
   /** Element that serves as the anchor for the position of the overlay. */
   readonly referenceElement$;
@@ -34,9 +35,9 @@ export class NatuOverlayService {
   readonly context$;
   /** Styles that should be applied to the floating element */
   readonly floatingStyle$;
-  /** Controlled open state. */
+  /** Open state. */
   readonly isOpen$;
-  /** Controlled open state notifier. */
+  /** Open state notifier. */
   readonly isOpenChange$ = new Subject<boolean>();
   /** Whether the overlay should be rendered or not. */
   readonly isMounted$;

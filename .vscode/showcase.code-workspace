@@ -2,71 +2,75 @@
   "folders": [
     {
       "name": "🌱 root",
-      "path": ".."
+      "path": "..",
     },
     {
       "name": "🚀 ninjask",
-      "path": "../apps/ninjask"
+      "path": "../apps/ninjask",
     },
     {
       "name": "🚀 rotom",
-      "path": "../apps/rotom"
+      "path": "../apps/rotom",
     },
     {
       "name": "🚀 smeargle",
-      "path": "../apps/smeargle"
+      "path": "../apps/smeargle",
+    },
+    {
+      "name": "📦 assets",
+      "path": "../packages/assets",
     },
     {
       "name": "📦 eslint-config-angular",
-      "path": "../packages/eslint-config-angular"
+      "path": "../packages/eslint-config-angular",
     },
     {
       "name": "📦 eslint-config-react",
-      "path": "../packages/eslint-config-react"
+      "path": "../packages/eslint-config-react",
     },
     {
       "name": "📦 eslint-config-solid",
-      "path": "../packages/eslint-config-solid"
+      "path": "../packages/eslint-config-solid",
     },
     {
       "name": "📦 styles",
-      "path": "../packages/styles"
+      "path": "../packages/styles",
     },
     {
       "name": "📦 tsconfig",
-      "path": "../packages/tsconfig"
+      "path": "../packages/tsconfig",
     },
     {
       "name": "📦 ui-angular",
-      "path": "../packages/ui-angular"
+      "path": "../packages/ui-angular",
     },
     {
       "name": "📦 ui-react",
-      "path": "../packages/ui-react"
+      "path": "../packages/ui-react",
     },
     {
       "name": "📦 ui-solid",
-      "path": "../packages/ui-solid"
+      "path": "../packages/ui-solid",
     },
     {
       "name": "📦 utils",
-      "path": "../packages/utils"
+      "path": "../packages/utils",
     },
     {
       "name": "📦 vrt",
-      "path": "../packages/vrt"
+      "path": "../packages/vrt",
     },
     {
       "name": "📁 apps",
-      "path": "../apps"
+      "path": "../apps",
     },
     {
       "name": "📁 packages",
-      "path": "../packages"
-    }
+      "path": "../packages",
+    },
   ],
   "settings": {
     "terminal.integrated.cwd": ".",
-    "eslint.workingDirectories": ["../.."]
-  }
+    "eslint.workingDirectories": ["../.."],
+  },
 }

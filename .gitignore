@@ -42,5 +42,6 @@ documentation.json
 **/vrt/results
 **/e2e/report
 **/e2e/results
+packages/assets/angular
 packages/styles/scss/tokens
 packages/styles/ts/tokens

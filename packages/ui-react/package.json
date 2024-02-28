@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@floating-ui/react": "0.26.9",
+    "@natu/assets": "workspace:*",
     "@natu/eslint-config-react": "workspace:*",
     "@natu/styles": "workspace:*",
     "@natu/tsconfig": "workspace:*",

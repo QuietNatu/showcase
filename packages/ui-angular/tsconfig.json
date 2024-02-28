@@ -5,7 +5,9 @@
     "outDir": "./out-tsc/dist",
     "paths": {
       // bad workarounds check README...
-      "@natu/utils": ["../utils/src"]
-    }
-  }
+      "@natu/assets": ["../assets/angular"],
+      "@natu/assets/*": ["../assets/angular/*"],
+      "@natu/utils": ["../utils/src"],
+    },
+  },
 }

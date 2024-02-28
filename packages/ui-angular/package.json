@@ -34,6 +34,7 @@
     "@angular/router": "17.2.2",
     "@compodoc/compodoc": "1.1.23",
     "@floating-ui/dom": "1.6.3",
+    "@natu/assets": "workspace:*",
     "@natu/eslint-config-angular": "workspace:*",
     "@natu/styles": "workspace:*",
     "@natu/tsconfig": "workspace:*",

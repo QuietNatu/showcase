@@ -14,6 +14,8 @@ import { dnaIcon } from '@natu/assets/svg/dna';
 import { maskHappyIcon } from '@natu/assets/svg/mask-happy';
 import { rocketIcon } from '@natu/assets/svg/rocket';
 
+/* TODO: active item */
+
 const meta = {
   title: 'Components/Sidebar',
   component: NatuSidebarComponent,
@@ -30,7 +32,7 @@ const meta = {
       imports: [natuSidebarImports, RouterLink, RouterLinkActive, SvgIconComponent],
     }),
     /* TODO: reduce height */
-    componentWrapperDecorator((story) => `<div style="height: 600px">${story}</div>`),
+    componentWrapperDecorator((story) => `<div style="height: 400px">${story}</div>`),
   ],
   render: (args) => {
     const templateArgs = argsToTemplate(args);
@@ -39,9 +41,11 @@ const meta = {
       props: args,
       template: `
         <natu-sidebar ${templateArgs}>
-          <natu-sidebar-header>😀</natu-sidebar-header>
+          <natu-sidebar-header>
+            <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Example header</div>
+          </natu-sidebar-header>
 
-          <natu-sidebar-body>
+          <natu-sidebar-actions>
             <natu-sidebar-group *natuSidebarItem>
               <svg-icon [natuSidebarGroupIcon] [key]="'dna'" />
               <span [natuSidebarGroupLabel]>Group 1</span>
@@ -64,9 +68,9 @@ const meta = {
               <svg-icon [natuSidebarItemIcon] [key]="'rocket'" />
               <span [natuSidebarItemLabel]>Item 1</span>
             </natu-sidebar-item>
-          </natu-sidebar-body>
+          </natu-sidebar-actions>
 
-          <natu-sidebar-footer>
+          <natu-sidebar-footer-actions>
             <natu-sidebar-group *natuSidebarItem>
               <svg-icon [natuSidebarGroupIcon] [key]="'dna'" />
               <span [natuSidebarGroupLabel]>Group 1</span>
@@ -89,7 +93,7 @@ const meta = {
               <svg-icon [natuSidebarItemIcon] [key]="'rocket'" />
               <span [natuSidebarItemLabel]>Item 1</span>
             </natu-sidebar-item>
-          </natu-sidebar-footer>
+          </natu-sidebar-footer-actions>
         </natu-sidebar>
       `,
     };

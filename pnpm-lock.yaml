@@ -182,7 +182,7 @@ importers:
         version: 17.2.2(@angular/core@17.2.2)
       '@angular/core':
         specifier: 17.2.2
-        version: 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+        version: 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       '@angular/forms':
         specifier: 17.2.2
         version: 17.2.2(@angular/common@17.2.2)(@angular/core@17.2.2)(@angular/platform-browser@17.2.2)(rxjs@7.8.1)
@@ -217,8 +217,8 @@ importers:
         specifier: 2.6.2
         version: 2.6.2
       zone.js:
-        specifier: 0.14.3
-        version: 0.14.3
+        specifier: 0.14.4
+        version: 0.14.4
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 17.2.1
@@ -270,7 +270,7 @@ importers:
         version: 7.6.10(react@18.2.0)
       '@storybook/angular':
         specifier: 7.6.10
-        version: 7.6.10(@angular-devkit/architect@0.1702.1)(@angular-devkit/build-angular@17.2.1)(@angular-devkit/core@17.2.1)(@angular/cli@17.2.1)(@angular/common@17.2.2)(@angular/compiler-cli@17.2.2)(@angular/compiler@17.2.2)(@angular/core@17.2.2)(@angular/forms@17.2.2)(@angular/platform-browser-dynamic@17.2.2)(@angular/platform-browser@17.2.2)(@babel/core@7.23.9)(@swc/core@1.3.102)(esbuild@0.18.20)(rxjs@7.8.1)(typescript@5.3.3)(zone.js@0.14.3)
+        version: 7.6.10(@angular-devkit/architect@0.1702.1)(@angular-devkit/build-angular@17.2.1)(@angular-devkit/core@17.2.1)(@angular/cli@17.2.1)(@angular/common@17.2.2)(@angular/compiler-cli@17.2.2)(@angular/compiler@17.2.2)(@angular/core@17.2.2)(@angular/forms@17.2.2)(@angular/platform-browser-dynamic@17.2.2)(@angular/platform-browser@17.2.2)(@babel/core@7.23.9)(@swc/core@1.3.102)(esbuild@0.18.20)(rxjs@7.8.1)(typescript@5.3.3)(zone.js@0.14.4)
       '@storybook/blocks':
         specifier: 7.6.10
         version: 7.6.10(@types/react-dom@18.2.19)(@types/react@18.2.58)(react-dom@18.2.0)(react@18.2.0)
@@ -704,7 +704,7 @@ importers:
         version: 17.2.2(@angular/compiler@17.2.2)(typescript@5.3.3)
       '@angular/core':
         specifier: 17.2.2
-        version: 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+        version: 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       '@angular/forms':
         specifier: 17.2.2
         version: 17.2.2(@angular/common@17.2.2)(@angular/core@17.2.2)(@angular/platform-browser@17.2.2)(rxjs@7.8.1)
@@ -764,7 +764,7 @@ importers:
         version: 7.6.10(react@18.2.0)
       '@storybook/angular':
         specifier: 7.6.10
-        version: 7.6.10(@angular-devkit/architect@0.1702.1)(@angular-devkit/build-angular@17.2.1)(@angular-devkit/core@17.2.1)(@angular/cli@17.2.1)(@angular/common@17.2.2)(@angular/compiler-cli@17.2.2)(@angular/compiler@17.2.2)(@angular/core@17.2.2)(@angular/forms@17.2.2)(@angular/platform-browser-dynamic@17.2.2)(@angular/platform-browser@17.2.2)(@babel/core@7.23.9)(@swc/core@1.3.102)(esbuild@0.18.20)(rxjs@7.8.1)(typescript@5.3.3)(zone.js@0.14.3)
+        version: 7.6.10(@angular-devkit/architect@0.1702.1)(@angular-devkit/build-angular@17.2.1)(@angular-devkit/core@17.2.1)(@angular/cli@17.2.1)(@angular/common@17.2.2)(@angular/compiler-cli@17.2.2)(@angular/compiler@17.2.2)(@angular/core@17.2.2)(@angular/forms@17.2.2)(@angular/platform-browser-dynamic@17.2.2)(@angular/platform-browser@17.2.2)(@babel/core@7.23.9)(@swc/core@1.3.102)(esbuild@0.18.20)(rxjs@7.8.1)(typescript@5.3.3)(zone.js@0.14.4)
       '@storybook/blocks':
         specifier: 7.6.10
         version: 7.6.10(@types/react-dom@18.2.19)(@types/react@18.2.58)(react-dom@18.2.0)(react@18.2.0)
@@ -847,8 +847,8 @@ importers:
         specifier: 5.3.3
         version: 5.3.3
       zone.js:
-        specifier: 0.14.3
-        version: 0.14.3
+        specifier: 0.14.4
+        version: 0.14.4
 
   packages/ui-react:
     devDependencies:
@@ -1580,7 +1580,7 @@ packages:
     peerDependencies:
       '@angular/core': 17.2.2
     dependencies:
-      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       tslib: 2.6.2
 
   /@angular/cdk@17.2.1(@angular/common@17.2.2)(@angular/core@17.2.2)(rxjs@7.8.1):
@@ -1591,7 +1591,7 @@ packages:
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
       '@angular/common': 17.2.2(@angular/core@17.2.2)(rxjs@7.8.1)
-      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       rxjs: 7.8.1
       tslib: 2.6.2
     optionalDependencies:
@@ -1634,7 +1634,7 @@ packages:
       '@angular/core': 17.2.2
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
-      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       rxjs: 7.8.1
       tslib: 2.6.2
 
@@ -1669,10 +1669,10 @@ packages:
       '@angular/core':
         optional: true
     dependencies:
-      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       tslib: 2.6.2
 
-  /@angular/core@17.2.2(rxjs@7.8.1)(zone.js@0.14.3):
+  /@angular/core@17.2.2(rxjs@7.8.1)(zone.js@0.14.4):
     resolution: {integrity: sha512-jXnrOVsA9b34PJN383EOss3ejd5+xUTeijuUy5njPRXpxMxrGjV5gkk0lSxsALRxw2ICax2tMoGmHXfXO1x9gw==}
     engines: {node: ^18.13.0 || >=20.9.0}
     peerDependencies:
@@ -1681,7 +1681,7 @@ packages:
     dependencies:
       rxjs: 7.8.1
       tslib: 2.6.2
-      zone.js: 0.14.3
+      zone.js: 0.14.4
 
   /@angular/forms@17.2.2(@angular/common@17.2.2)(@angular/core@17.2.2)(@angular/platform-browser@17.2.2)(rxjs@7.8.1):
     resolution: {integrity: sha512-xxy1Khpun2TpSDQch6BK4uHkqIxZvxsBU2LZgo/3W604lKoVjBGKPZqoYFRew2OPeCQ3VjK9P8a8ZhitsLLlKQ==}
@@ -1693,7 +1693,7 @@ packages:
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
       '@angular/common': 17.2.2(@angular/core@17.2.2)(rxjs@7.8.1)
-      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       '@angular/platform-browser': 17.2.2(@angular/animations@17.2.2)(@angular/common@17.2.2)(@angular/core@17.2.2)
       rxjs: 7.8.1
       tslib: 2.6.2
@@ -1709,7 +1709,7 @@ packages:
     dependencies:
       '@angular/common': 17.2.2(@angular/core@17.2.2)(rxjs@7.8.1)
       '@angular/compiler': 17.2.2(@angular/core@17.2.2)
-      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       '@angular/platform-browser': 17.2.2(@angular/animations@17.2.2)(@angular/common@17.2.2)(@angular/core@17.2.2)
       tslib: 2.6.2
 
@@ -1726,7 +1726,7 @@ packages:
     dependencies:
       '@angular/animations': 17.2.2(@angular/core@17.2.2)
       '@angular/common': 17.2.2(@angular/core@17.2.2)(rxjs@7.8.1)
-      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       tslib: 2.6.2
 
   /@angular/router@17.2.2(@angular/common@17.2.2)(@angular/core@17.2.2)(@angular/platform-browser@17.2.2)(rxjs@7.8.1):
@@ -1739,7 +1739,7 @@ packages:
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
       '@angular/common': 17.2.2(@angular/core@17.2.2)(rxjs@7.8.1)
-      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       '@angular/platform-browser': 17.2.2(@angular/animations@17.2.2)(@angular/common@17.2.2)(@angular/core@17.2.2)
       rxjs: 7.8.1
       tslib: 2.6.2
@@ -1753,7 +1753,7 @@ packages:
       '@angular/core': 17.2.2
     dependencies:
       '@angular/common': 17.2.2(@angular/core@17.2.2)(rxjs@7.8.1)
-      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       tslib: 2.6.2
 
   /@apideck/better-ajv-errors@0.3.6(ajv@8.12.0):
@@ -7987,7 +7987,7 @@ packages:
       '@angular/core': ^17.0.0
       rxjs: ^6.5.3 || ^7.4.0
     dependencies:
-      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       ng-morph: 4.0.6(@angular-devkit/core@17.2.1)(@angular-devkit/schematics@17.2.1)
       rxjs: 7.8.1
       tslib: 2.6.2
@@ -8256,7 +8256,7 @@ packages:
       memoizerific: 1.11.3
     dev: true
 
-  /@storybook/angular@7.6.10(@angular-devkit/architect@0.1702.1)(@angular-devkit/build-angular@17.2.1)(@angular-devkit/core@17.2.1)(@angular/cli@17.2.1)(@angular/common@17.2.2)(@angular/compiler-cli@17.2.2)(@angular/compiler@17.2.2)(@angular/core@17.2.2)(@angular/forms@17.2.2)(@angular/platform-browser-dynamic@17.2.2)(@angular/platform-browser@17.2.2)(@babel/core@7.23.9)(@swc/core@1.3.102)(esbuild@0.18.20)(rxjs@7.8.1)(typescript@5.3.3)(zone.js@0.14.3):
+  /@storybook/angular@7.6.10(@angular-devkit/architect@0.1702.1)(@angular-devkit/build-angular@17.2.1)(@angular-devkit/core@17.2.1)(@angular/cli@17.2.1)(@angular/common@17.2.2)(@angular/compiler-cli@17.2.2)(@angular/compiler@17.2.2)(@angular/core@17.2.2)(@angular/forms@17.2.2)(@angular/platform-browser-dynamic@17.2.2)(@angular/platform-browser@17.2.2)(@babel/core@7.23.9)(@swc/core@1.3.102)(esbuild@0.18.20)(rxjs@7.8.1)(typescript@5.3.3)(zone.js@0.14.4):
     resolution: {integrity: sha512-oaSYV3j5hutC0YwSI4M/iIQ7BikfMGjyXW10DAm+Acs9uo99op5GQ4LKSP7CVQAaCBg/DkcUst0Z6uPTfwLfoQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -8286,7 +8286,7 @@ packages:
       '@angular/common': 17.2.2(@angular/core@17.2.2)(rxjs@7.8.1)
       '@angular/compiler': 17.2.2(@angular/core@17.2.2)
       '@angular/compiler-cli': 17.2.2(@angular/compiler@17.2.2)(typescript@5.3.3)
-      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       '@angular/forms': 17.2.2(@angular/common@17.2.2)(@angular/core@17.2.2)(@angular/platform-browser@17.2.2)(rxjs@7.8.1)
       '@angular/platform-browser': 17.2.2(@angular/animations@17.2.2)(@angular/common@17.2.2)(@angular/core@17.2.2)
       '@angular/platform-browser-dynamic': 17.2.2(@angular/common@17.2.2)(@angular/compiler@17.2.2)(@angular/core@17.2.2)(@angular/platform-browser@17.2.2)
@@ -8319,7 +8319,7 @@ packages:
       typescript: 5.3.3
       util-deprecate: 1.0.2
       webpack: 5.89.0(@swc/core@1.3.102)(esbuild@0.18.20)
-      zone.js: 0.14.3
+      zone.js: 0.14.4
     transitivePeerDependencies:
       - '@rspack/core'
       - '@swc/core'
@@ -8433,8 +8433,8 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/builder-vite@8.0.0-beta.6(typescript@5.3.3)(vite@5.0.11):
-    resolution: {integrity: sha512-3P5uTZqwwcUW64Hep/VtJXpQYi5vTkmqAjwZvr8gmzr37NYq3YT/PiSGn4CaZswSx5Z/lSYq3In8oIwmj/a1/g==}
+  /@storybook/builder-vite@8.0.0-rc.0(typescript@5.3.3)(vite@5.0.11):
+    resolution: {integrity: sha512-YnzAC3+uyE79ynk6I9uCUjPqnLHEbK9ni9RSwAuRPVM+k9zkTO7C5fbjVa08Q5LSioqdg9NSwFOzDHT7zj8DUg==}
     peerDependencies:
       '@preact/preset-vite': '*'
       typescript: '>= 4.3.x'
@@ -8448,15 +8448,15 @@ packages:
       vite-plugin-glimmerx:
         optional: true
     dependencies:
-      '@storybook/channels': 8.0.0-beta.6
-      '@storybook/client-logger': 8.0.0-beta.6
-      '@storybook/core-common': 8.0.0-beta.6
-      '@storybook/core-events': 8.0.0-beta.6
-      '@storybook/csf-plugin': 8.0.0-beta.6
-      '@storybook/node-logger': 8.0.0-beta.6
-      '@storybook/preview': 8.0.0-beta.6
-      '@storybook/preview-api': 8.0.0-beta.6
-      '@storybook/types': 8.0.0-beta.6
+      '@storybook/channels': 8.0.0-rc.0
+      '@storybook/client-logger': 8.0.0-rc.0
+      '@storybook/core-common': 8.0.0-rc.0
+      '@storybook/core-events': 8.0.0-rc.0
+      '@storybook/csf-plugin': 8.0.0-rc.0
+      '@storybook/node-logger': 8.0.0-rc.0
+      '@storybook/preview': 8.0.0-rc.0
+      '@storybook/preview-api': 8.0.0-rc.0
+      '@storybook/types': 8.0.0-rc.0
       '@types/find-cache-dir': 3.2.1
       browser-assert: 1.2.1
       es-module-lexer: 0.9.3
@@ -8551,11 +8551,11 @@ packages:
       tiny-invariant: 1.3.1
     dev: true
 
-  /@storybook/channels@8.0.0-beta.6:
-    resolution: {integrity: sha512-DjwJhty45gQifo+TvGqddLX+NX1iGTmZyGLxlqPMpdp+x/yq8WwVZ316Q7tLt6z6fyAmsroc3ma5p1iLhqpV7g==}
+  /@storybook/channels@8.0.0-rc.0:
+    resolution: {integrity: sha512-Ey6en/5lGvK1yvXjLeJCKs0cIRklqHUuQdvGRJpL4daSHHuBrp4ULKysno8xaSEQAFKo36BiJLEGUh+iUSt4Zg==}
     dependencies:
-      '@storybook/client-logger': 8.0.0-beta.6
-      '@storybook/core-events': 8.0.0-beta.6
+      '@storybook/client-logger': 8.0.0-rc.0
+      '@storybook/core-events': 8.0.0-rc.0
       '@storybook/global': 5.0.0
       qs: 6.11.2
       telejson: 7.2.0
@@ -8625,8 +8625,8 @@ packages:
       '@storybook/global': 5.0.0
     dev: true
 
-  /@storybook/client-logger@8.0.0-beta.6:
-    resolution: {integrity: sha512-XX9CSWt9NDO/1K8tTYV+yuj0ur4HznM1Vc5mY5AwT5xh0RP5HtWZ+VoJfrWYXlBoRXaj0gf8si+FO+lSW82DcQ==}
+  /@storybook/client-logger@8.0.0-rc.0:
+    resolution: {integrity: sha512-XL5U1Y25PhuNkZOUQxCdXluhcOK3S7MbTaB7Ut/qJGU51smfoLfwB5NHWrAq3T557VnIRO3iMAEUves2+omVYw==}
     dependencies:
       '@storybook/global': 5.0.0
     dev: true
@@ -8744,13 +8744,13 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/core-common@8.0.0-beta.6:
-    resolution: {integrity: sha512-Mah4Kx/VBNhHaX6neYHTiVwfD93yf3LVVfLTS9WcJFOpek74EAAqbARV3vzOn/utOI75N7yu2PCVoKi5KkDoVw==}
+  /@storybook/core-common@8.0.0-rc.0:
+    resolution: {integrity: sha512-+m6vzA8NjngEvqPAGmFws0Hkx7DbOWMSk0Q5OWPhSCP1Rcf1I2zXFovjymogk8Uj+96YQwUd1rhiiBuPnz7M9Q==}
     dependencies:
-      '@storybook/core-events': 8.0.0-beta.6
-      '@storybook/csf-tools': 8.0.0-beta.6
-      '@storybook/node-logger': 8.0.0-beta.6
-      '@storybook/types': 8.0.0-beta.6
+      '@storybook/core-events': 8.0.0-rc.0
+      '@storybook/csf-tools': 8.0.0-rc.0
+      '@storybook/node-logger': 8.0.0-rc.0
+      '@storybook/types': 8.0.0-rc.0
       '@yarnpkg/fslib': 2.10.3
       '@yarnpkg/libzip': 2.3.0
       chalk: 4.1.2
@@ -8792,8 +8792,8 @@ packages:
       ts-dedent: 2.2.0
     dev: true
 
-  /@storybook/core-events@8.0.0-beta.6:
-    resolution: {integrity: sha512-ZyEVkOJ5gGGTfHjyasyeZgNGoeVJwVkLFRpV6cUl8hzOT29R5iDsf5PbJdrpF1x2pm1oLumeRckYQ7sYhr+R/w==}
+  /@storybook/core-events@8.0.0-rc.0:
+    resolution: {integrity: sha512-Ih514I83jZt8FKoiQsYmlMw1HSPh5g1WnRHy3/Ajs5Li/BaVgEqxWU9MtXG2af0bHDsBsOpnCua2Oycewdk2Tw==}
     dependencies:
       ts-dedent: 2.2.0
     dev: true
@@ -8871,10 +8871,10 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/csf-plugin@8.0.0-beta.6:
-    resolution: {integrity: sha512-cYI/4OndODf0utV0DxJs8AOKbmjCG+pEgxQGcmPtGnkSmEuieUwpQpN7v+fEIN7IPUQLYvs0wspR0njZQAIzyA==}
+  /@storybook/csf-plugin@8.0.0-rc.0:
+    resolution: {integrity: sha512-XCb/BsqDl99q3Vv4dBsqlsJfVTcJzMwc2iEdczb6RnR64jE0f8iYFqLgKLLM21PMdzIdn2TVO0tgSs3lbu9VOA==}
     dependencies:
-      '@storybook/csf-tools': 8.0.0-beta.6
+      '@storybook/csf-tools': 8.0.0-rc.0
       unplugin: 1.6.0
     transitivePeerDependencies:
       - supports-color
@@ -8912,15 +8912,15 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/csf-tools@8.0.0-beta.6:
-    resolution: {integrity: sha512-wwzbE6f8ykrvIeZlXYTba0IA8D5GPSyZ4L0+PqRAYHm3ozu0DXqtm4USDHKrjYAzuD+W+fG/6qIOQmsWYbNmpA==}
+  /@storybook/csf-tools@8.0.0-rc.0:
+    resolution: {integrity: sha512-572k/phN/z50tD2hfUNJZBAhBMt8Gf8Mg6AhHD9fSGOma9Ne8/Dor2kekDrkDIWLua3QsFGVCyl7kSJlWim/MA==}
     dependencies:
       '@babel/generator': 7.23.6
       '@babel/parser': 7.23.9
       '@babel/traverse': 7.23.9
       '@babel/types': 7.23.9
       '@storybook/csf': 0.1.2
-      '@storybook/types': 8.0.0-beta.6
+      '@storybook/types': 8.0.0-rc.0
       fs-extra: 11.2.0
       recast: 0.23.4
       ts-dedent: 2.2.0
@@ -9013,8 +9013,8 @@ packages:
     resolution: {integrity: sha512-SVvwZAcOLdkstqnAbE5hVYsriXh6OXjLcwFEBpAYi1meQ0R70iNALVSPEfIDK1r7M163Jngsq2hRnHvbLoQNkg==}
     dev: true
 
-  /@storybook/node-logger@8.0.0-beta.6:
-    resolution: {integrity: sha512-nmBlmZ8wzJiU1/ubhUmFeWQaJPBv6l6s0Cndk04omPSjROa+O1whoPhDTVGvWC28zm17tmAYVcQRujkdoi+YBA==}
+  /@storybook/node-logger@8.0.0-rc.0:
+    resolution: {integrity: sha512-KQ308nd9JG2AdIY0Zt+ZY2k1z2JDe7wSWv4gKf23FFAMq2ADvxBqrAsR0h/ebYa2CnXOvYGzsDAnVlbk8cM2bA==}
     dev: true
 
   /@storybook/postinstall@7.6.10:
@@ -9040,15 +9040,15 @@ packages:
       util-deprecate: 1.0.2
     dev: true
 
-  /@storybook/preview-api@8.0.0-beta.6:
-    resolution: {integrity: sha512-V07MF1ArjBGi2EPSjrEW8pjCoW/TIwxNDilcO9cD12LHrDQGXuo/iKyR47TGUYmcJ/u1I2Eu9cjyVj9DVyppag==}
+  /@storybook/preview-api@8.0.0-rc.0:
+    resolution: {integrity: sha512-w80nL/FMA7Y18T0Diw5zkMXkMiGsXPs2Q/SPmjW9GHli5XHIPHD0AYWzw+LOf8vY/pjfPyKHxBkbX5PhEutE8g==}
     dependencies:
-      '@storybook/channels': 8.0.0-beta.6
-      '@storybook/client-logger': 8.0.0-beta.6
-      '@storybook/core-events': 8.0.0-beta.6
+      '@storybook/channels': 8.0.0-rc.0
+      '@storybook/client-logger': 8.0.0-rc.0
+      '@storybook/core-events': 8.0.0-rc.0
       '@storybook/csf': 0.1.2
       '@storybook/global': 5.0.0
-      '@storybook/types': 8.0.0-beta.6
+      '@storybook/types': 8.0.0-rc.0
       '@types/qs': 6.9.11
       dequal: 2.0.3
       lodash: 4.17.21
@@ -9063,8 +9063,8 @@ packages:
     resolution: {integrity: sha512-F07BzVXTD3byq+KTWtvsw3pUu3fQbyiBNLFr2CnfU4XSdLKja5lDt8VqDQq70TayVQOf5qfUTzRd4M6pQkjw1w==}
     dev: true
 
-  /@storybook/preview@8.0.0-beta.6:
-    resolution: {integrity: sha512-tp3Wyvjsbf5r5RhbCQSafArQWJAir1bmIJWGG2S4o2E3YT6TlHFpR078tNJtgXqsPyG0yhF9vhRRkDczrPX/Gw==}
+  /@storybook/preview@8.0.0-rc.0:
+    resolution: {integrity: sha512-B95HlvAFpeMVtOlNZLgFLYxL26zEq+BVOysmknNiaAN6y1pb9tHh89ZbradOryW1C3rx+Df5nOyS5RvF5SJoPw==}
     dev: true
 
   /@storybook/react-dom-shim@7.6.10(react-dom@18.2.0)(react@18.2.0):
@@ -9265,10 +9265,10 @@ packages:
       file-system-cache: 2.3.0
     dev: true
 
-  /@storybook/types@8.0.0-beta.6:
-    resolution: {integrity: sha512-w3jq8mBcxir4P0RK3gQePeUJ0rXbnUbCKg91YBOKeitmU0+4jSr4e1EwTWOYgsyz7KtikzSNr8JXtMQn2TJD5A==}
+  /@storybook/types@8.0.0-rc.0:
+    resolution: {integrity: sha512-UCPBqk23zH4zgmgJ7e+BZMr+jt+PSeDiO5jI7prgLiWKTKKqeYvhqJFBmA0t4pt0Gv87k0A+90GXBNEnvP3FwA==}
     dependencies:
-      '@storybook/channels': 8.0.0-beta.6
+      '@storybook/channels': 8.0.0-rc.0
       '@types/express': 4.17.21
       file-system-cache: 2.3.0
     dev: true
@@ -9433,7 +9433,7 @@ packages:
       '@angular/router': '>= 17.0.0'
     dependencies:
       '@angular/common': 17.2.2(@angular/core@17.2.2)(rxjs@7.8.1)
-      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/core': 17.2.2(rxjs@7.8.1)(zone.js@0.14.4)
       '@angular/platform-browser': 17.2.2(@angular/animations@17.2.2)(@angular/common@17.2.2)(@angular/core@17.2.2)
       '@angular/router': 17.2.2(@angular/common@17.2.2)(@angular/core@17.2.2)(@angular/platform-browser@17.2.2)(rxjs@7.8.1)
       '@testing-library/dom': 9.3.4
@@ -19837,7 +19837,7 @@ packages:
     resolution: {integrity: sha512-dD+VMYC5fBBQNesVb+mjB0LOkZIf100SQFbjAt9/sDstNUvc5ce3yZwLYXzgcOc7jcSMkrBu/cZNRzEM4YIAyw==}
     engines: {node: ^14.18 || >=16}
     dependencies:
-      '@storybook/builder-vite': 8.0.0-beta.6(typescript@5.3.3)(vite@5.0.11)
+      '@storybook/builder-vite': 8.0.0-rc.0(typescript@5.3.3)(vite@5.0.11)
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - encoding
@@ -22254,7 +22254,7 @@ packages:
     resolution: {integrity: sha512-C1x6lfvBICFTQIMgbt3JqMOno3VOtkWat/xEakLTOurskYIHPmzJrzd1e8BnmtdDVJlGuk5D+FxyCA8MPmkIyA==}
     dev: true
 
-  /zone.js@0.14.3:
-    resolution: {integrity: sha512-jYoNqF046Q+JfcZSItRSt+oXFcpXL88yq7XAZjb/NKTS7w2hHpKjRJ3VlFD1k75wMaRRXNUt5vrZVlygiMyHbA==}
+  /zone.js@0.14.4:
+    resolution: {integrity: sha512-NtTUvIlNELez7Q1DzKVIFZBzNb646boQMgpATo9z3Ftuu/gWvzxCW7jdjcUDoRGxRikrhVHB/zLXh1hxeJawvw==}
     dependencies:
       tslib: 2.6.2

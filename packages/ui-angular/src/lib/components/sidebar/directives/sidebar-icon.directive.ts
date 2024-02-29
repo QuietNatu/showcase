@@ -1,7 +1,7 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[natuSidebarItem]',
+  selector: '[natuSidebarIcon]',
   standalone: true,
 })
-export class NatuSidebarItemDirective {}
+export class NatuSidebarIconDirective {}

@@ -11,15 +11,15 @@ import { NatuSidebarItemComponent } from './components/sidebar-item.component';
 import { NatuSidebarActionsComponent } from './components/sidebar-actions.component';
 import { NatuSidebarFooterActionsComponent } from './components/sidebar-footer-actions.component';
 import { NatuSidebarItemDirective } from './directives/sidebar-item.directive';
-import { NatuSidebarItemLabelDirective } from './directives/sidebar-item-label.directive';
-import { NatuSidebarItemIconDirective } from './directives/sidebar-item-icon.directive';
+import { NatuSidebarLabelDirective } from './directives/sidebar-label.directive';
+import { NatuSidebarIconDirective } from './directives/sidebar-icon.directive';
 import { NatuSidebarGroupComponent } from './components/sidebar-group.component';
 import { NatuSidebarService } from './sidebar.service';
 import { registerEffect } from '../../utils/rxjs';
-import { NatuSidebarGroupIconDirective } from './directives/sidebar-group-icon.directive';
-import { NatuSidebarGroupLabelDirective } from './directives/sidebar-group-label.directive';
 import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
 import { caretRightIcon } from '@natu/assets/svg/caret-right';
+
+/* TODO: check i18n */
 
 @Component({
   selector: 'natu-sidebar',
@@ -30,6 +30,7 @@ import { caretRightIcon } from '@natu/assets/svg/caret-right';
   providers: [NatuSidebarService],
   host: {
     class: 'sidebar',
+    /* TODO: use data state for stateful css? this and group expand? */
     '[class.sidebar--expanded]': 'isExpanded$()',
     '[class.sidebar--collapsed]': '!isExpanded$()',
   },
@@ -64,8 +65,6 @@ export const natuSidebarImports = [
   NatuSidebarItemComponent,
   NatuSidebarGroupComponent,
   NatuSidebarItemDirective,
-  NatuSidebarItemIconDirective,
-  NatuSidebarItemLabelDirective,
-  NatuSidebarGroupIconDirective,
-  NatuSidebarGroupLabelDirective,
+  NatuSidebarIconDirective,
+  NatuSidebarLabelDirective,
 ] as const;

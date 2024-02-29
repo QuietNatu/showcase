@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, contentChildren, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  TemplateRef,
+  contentChild,
+  contentChildren,
+  inject,
+  signal,
+} from '@angular/core';
 import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 import { NatuSidebarItemListComponent } from './sidebar-item-list.component';
 import { NatuSidebarItemComponent } from './sidebar-item.component';
@@ -8,6 +16,8 @@ import { caretDownIcon } from '@natu/assets/svg/caret-down';
 import { createRandomUUID } from '@natu/utils';
 import { natuAccordionImports } from '../../../directives';
 import { NgTemplateOutlet } from '@angular/common';
+import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
+import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive';
 
 @Component({
   selector: 'natu-sidebar-group',
@@ -27,10 +37,13 @@ import { NgTemplateOutlet } from '@angular/common';
   },
 })
 export class NatuSidebarGroupComponent {
-  readonly items = contentChildren(NatuSidebarItemDirective);
+  readonly items = contentChildren(NatuSidebarItemDirective, { read: TemplateRef });
   readonly id = `sidebar-group-${createRandomUUID()}`;
   readonly isExpanded;
   readonly isGroupExpanded = signal(false);
+
+  readonly iconTemplate = contentChild(NatuSidebarIconDirective, { read: TemplateRef });
+  readonly labelTemplate = contentChild(NatuSidebarLabelDirective, { read: TemplateRef });
 
   private readonly sidebarService = inject(NatuSidebarService);
 

@@ -31,8 +31,7 @@ const meta = {
     moduleMetadata({
       imports: [natuSidebarImports, RouterLink, RouterLinkActive, SvgIconComponent],
     }),
-    /* TODO: reduce height */
-    componentWrapperDecorator((story) => `<div style="height: 400px">${story}</div>`),
+    componentWrapperDecorator((story) => `<div style="height: 500px">${story}</div>`),
   ],
   render: (args) => {
     const templateArgs = argsToTemplate(args);
@@ -47,51 +46,51 @@ const meta = {
 
           <natu-sidebar-actions>
             <natu-sidebar-group *natuSidebarItem>
-              <svg-icon [natuSidebarGroupIcon] [key]="'dna'" />
-              <span [natuSidebarGroupLabel]>Group 1</span>
+              <svg-icon *natuSidebarIcon [key]="'dna'" />
+              <ng-template natuSidebarLabel>Group 1</ng-template>
 
               <a [natu-sidebar-item] *natuSidebarItem [routerLink]="[]" [routerLinkActive]>
-                <span [natuSidebarItemLabel]>Link 1</span>
+                <ng-template natuSidebarLabel>Link 1</ng-template>
               </a>
 
               <a [natu-sidebar-item] *natuSidebarItem href="">
-                <span [natuSidebarItemLabel]>Link 2</span>
+                <ng-template natuSidebarLabel>Link 2</ng-template>
               </a>
             </natu-sidebar-group>
 
             <a [natu-sidebar-item] *natuSidebarItem href="">
-              <svg-icon [natuSidebarItemIcon] [key]="'mask-happy'" />
-              <span [natuSidebarItemLabel]>Link 3</span>
+              <svg-icon *natuSidebarIcon [key]="'mask-happy'" />
+              <ng-template natuSidebarLabel>Link 3</ng-template>
             </a>
 
             <natu-sidebar-item *natuSidebarItem>
-              <svg-icon [natuSidebarItemIcon] [key]="'rocket'" />
-              <span [natuSidebarItemLabel]>Item 1</span>
+              <svg-icon *natuSidebarIcon [key]="'rocket'" />
+              <ng-template natuSidebarLabel>Item 1</ng-template>
             </natu-sidebar-item>
           </natu-sidebar-actions>
 
           <natu-sidebar-footer-actions>
             <natu-sidebar-group *natuSidebarItem>
-              <svg-icon [natuSidebarGroupIcon] [key]="'dna'" />
-              <span [natuSidebarGroupLabel]>Group 1</span>
+              <svg-icon *natuSidebarIcon [key]="'dna'" />
+              <ng-template natuSidebarLabel>Group 1</ng-template>
 
               <a [natu-sidebar-item] *natuSidebarItem href="">
-                <span [natuSidebarItemLabel]>Link 1</span>
+                <ng-template natuSidebarLabel>Link 1</ng-template>
               </a>
 
               <a [natu-sidebar-item] *natuSidebarItem href="">
-                <span [natuSidebarItemLabel]>Link 2</span>
+                <ng-template natuSidebarLabel>Link 2</ng-template>
               </a>
             </natu-sidebar-group>
 
             <a [natu-sidebar-item] *natuSidebarItem href="">
-              <svg-icon [natuSidebarItemIcon] [key]="'mask-happy'" />
-              <span [natuSidebarItemLabel]>Link 3</span>
+              <svg-icon *natuSidebarIcon [key]="'mask-happy'" />
+              <ng-template natuSidebarLabel>Link 3</ng-template>
             </a>
 
             <natu-sidebar-item *natuSidebarItem>
-              <svg-icon [natuSidebarItemIcon] [key]="'rocket'" />
-              <span [natuSidebarItemLabel]>Item 1</span>
+              <svg-icon *natuSidebarIcon [key]="'rocket'" />
+              <ng-template natuSidebarLabel>Item 1</ng-template>
             </natu-sidebar-item>
           </natu-sidebar-footer-actions>
         </natu-sidebar>

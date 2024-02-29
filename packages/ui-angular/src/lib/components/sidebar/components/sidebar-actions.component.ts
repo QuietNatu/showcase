@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, contentChildren } from '@angular/core';
+import { ChangeDetectionStrategy, Component, TemplateRef, contentChildren } from '@angular/core';
 import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 import { NatuSidebarItemListComponent } from './sidebar-item-list.component';
 
@@ -17,5 +17,5 @@ import { NatuSidebarItemListComponent } from './sidebar-item-list.component';
   },
 })
 export class NatuSidebarActionsComponent {
-  readonly items = contentChildren(NatuSidebarItemDirective);
+  readonly items = contentChildren(NatuSidebarItemDirective, { read: TemplateRef });
 }

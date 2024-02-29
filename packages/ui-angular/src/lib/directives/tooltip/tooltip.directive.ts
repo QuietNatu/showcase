@@ -35,11 +35,12 @@ const defaultHoverDelay = 500;
   },
 })
 export class NatuTooltipDirective implements OnInit, OnDestroy {
+  // Should be required but cannot because of https://github.com/angular/angular/issues/50510
   /** Content that will be shown by the tooltip. */
-  @Input({ required: true, alias: 'natuTooltip' }) set content(
-    content: string | TemplateRef<unknown>,
+  @Input({ alias: 'natuTooltip' }) set content(
+    content: string | TemplateRef<unknown> | null | undefined,
   ) {
-    this.tooltipService.setContent(content);
+    this.tooltipService.setContent(content ?? '');
   }
 
   /** Context that will be used by the provided template content. */

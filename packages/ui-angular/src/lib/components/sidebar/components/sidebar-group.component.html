@@ -7,12 +7,12 @@
     <button type="button" class="sidebar__item" natuAccordionTrigger>
       <ng-template [ngTemplateOutlet]="itemContentTemplate" />
 
-      <span class="sidebar__item-group-icon">
-        <svg-icon [key]="isGroupExpanded() ? 'caret-up' : 'caret-down'" />
+      <span class="sidebar__item-group-icon-area">
+        <svg-icon class="sidebar__item-group-icon" [key]="'caret-down'" />
       </span>
     </button>
 
-    <natu-sidebar-item-list natuAccordionContent [items]="items()" />
+    <natu-sidebar-item-list natuAccordionContent class="sidebar__group-list" [items]="items()" />
   </ng-container>
 } @else {
   <div class="sidebar__item">

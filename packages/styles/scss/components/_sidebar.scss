@@ -62,26 +62,6 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
     position: relative;
   }
 
-  .sidebar__list {
-    align-items: start;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .sidebar__list-item {
-    width: 100%;
-
-    .sidebar--expanded .sidebar__footer &:last-child {
-      // Make space for toggle button
-      padding-right: $-sidebar-width;
-    }
-
-    .sidebar--expanded .sidebar__footer .sidebar__list-item & {
-      // Group items don't need to make space for toggle button
-      padding-right: 0;
-    }
-  }
-
   .sidebar__toggle-button {
     @include -item;
 
@@ -106,8 +86,43 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
   .sidebar__group {
     display: flex;
     flex-direction: column;
+  }
 
-    /* TODO: add collapse animation? and icon rotate? */
+  .sidebar__group-list {
+    /// https://dev.to/francescovetere/css-trick-transition-from-height-0-to-auto-21de
+
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--natu-time-animation-slow) var(--natu-duration-standard);
+
+    .sidebar__group--expanded & {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  .sidebar__list {
+    align-items: start;
+    flex-direction: column;
+    overflow: hidden;
+
+    .sidebar__group & {
+      border-left: 1px solid var(--natu-color-border-neutral);
+      margin-left: var(--natu-size-spacing-5);
+    }
+  }
+
+  .sidebar__list-item {
+    width: 100%;
+
+    .sidebar--expanded .sidebar__footer &:last-child {
+      // Make space for toggle button
+      padding-right: $-sidebar-width;
+    }
+
+    .sidebar--expanded .sidebar__footer .sidebar__list-item & {
+      // Group items don't need to make space for toggle button
+      padding-right: 0;
+    }
   }
 
   .sidebar__item {
@@ -139,9 +154,19 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
     }
   }
 
-  .sidebar__item-group-icon {
-    font-size: var(--natu-size-font-5);
+  .sidebar__item-group-icon-area {
     margin-left: auto;
     padding-left: var(--natu-size-spacing-3);
   }
+
+  .sidebar__item-group-icon {
+    font-size: var(--natu-size-font-5);
+    transition: transform var(--natu-time-animation-slow) var(--natu-duration-standard);
+
+    .sidebar__group--expanded & {
+      transform: rotate(180deg);
+    }
+  }
 }
+
+/* TODO: check animation times if too slow */

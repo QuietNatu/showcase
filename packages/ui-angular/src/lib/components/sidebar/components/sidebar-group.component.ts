@@ -5,7 +5,6 @@ import { NatuSidebarItemComponent } from './sidebar-item.component';
 import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
 import { NatuSidebarService } from '../sidebar.service';
 import { caretDownIcon } from '@natu/assets/svg/caret-down';
-import { caretUpIcon } from '@natu/assets/svg/caret-up';
 import { createRandomUUID } from '@natu/utils';
 import { natuAccordionImports } from '../../../directives';
 import { NgTemplateOutlet } from '@angular/common';
@@ -24,6 +23,7 @@ import { NgTemplateOutlet } from '@angular/common';
   ],
   host: {
     class: 'sidebar__group',
+    '[class.sidebar__group--expanded]': 'isGroupExpanded()',
   },
 })
 export class NatuSidebarGroupComponent {
@@ -37,6 +37,6 @@ export class NatuSidebarGroupComponent {
   constructor() {
     this.isExpanded = this.sidebarService.isExpanded$;
 
-    injectRegisterIcons([caretDownIcon, caretUpIcon]);
+    injectRegisterIcons([caretDownIcon]);
   }
 }

@@ -10,7 +10,7 @@ import { NatuAccordionService } from './accordion.service';
   host: {
     role: 'region',
     '[id]': "id + '-region'",
-    '[hidden]': '!isExpanded()',
+    '[hidden]': '!isExpanded()', // TODO: does this work well with animations?
     '[attr.aria-labelledby]': "id + '-trigger'",
   },
 })

@@ -1,6 +1,8 @@
 import { Directive, inject } from '@angular/core';
 import { NatuAccordionService } from './accordion.service';
 
+/* TODO: remove isdisabled? */
+
 /**
  * Toggles the expanded state of the accordion.
  */

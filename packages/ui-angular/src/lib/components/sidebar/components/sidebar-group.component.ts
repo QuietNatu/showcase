@@ -27,6 +27,8 @@ import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive
   imports: [
     NatuSidebarItemListComponent,
     NatuSidebarItemComponent,
+    NatuSidebarIconDirective,
+    NatuSidebarLabelDirective,
     SvgIconComponent,
     natuAccordionImports,
     NgTemplateOutlet,
@@ -34,6 +36,7 @@ import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive
   host: {
     class: 'sidebar__group',
     '[class.sidebar__group--expanded]': 'isGroupExpanded()',
+    '[class.sidebar__group--collapsed]': '!isGroupExpanded()',
   },
 })
 export class NatuSidebarGroupComponent {

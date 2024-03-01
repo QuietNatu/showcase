@@ -18,11 +18,11 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
   &:hover {
     background-color: var(--natu-color-surface-neutral);
   }
-
-  /* TODO: outline */
 }
 
 @layer sidebar {
+  /* TODO: missing prefix in classes */
+
   .sidebar {
     background-color: var(--natu-color-surface-base);
     display: flex;
@@ -68,6 +68,10 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
     font-size: var(--natu-size-font-6);
     width: $-sidebar-width;
 
+    &:focus-visible {
+      @include utils.outline(var(--natu-color-outline-accent));
+    }
+
     .sidebar--expanded & {
       bottom: 0;
       position: absolute;
@@ -103,11 +107,11 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
   .sidebar__list {
     align-items: start;
     flex-direction: column;
-    overflow: hidden;
 
     .sidebar__group & {
       border-left: 1px solid var(--natu-color-border-neutral);
       margin-left: var(--natu-size-spacing-5);
+      overflow: hidden; // TODO: should only be set while animating
     }
   }
 
@@ -131,6 +135,10 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
     /* TODO: justify content change looks strange when transitioning */
 
     justify-content: center;
+
+    &--focus {
+      @include utils.outline(var(--natu-color-outline-accent));
+    }
 
     /* TODO: active routerlink */
 

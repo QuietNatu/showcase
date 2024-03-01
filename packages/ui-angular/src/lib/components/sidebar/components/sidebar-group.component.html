@@ -4,6 +4,8 @@
     [natuAccordionIsExpanded]="isGroupExpanded()"
     (natuAccordionIsExpandedChange)="isGroupExpanded.set($event)"
   >
+    <!-- TODO: try to marge this with item component (maybe add inputs for templates) -->
+    <!-- TODO: focus visible -->
     <button type="button" class="sidebar__item" natuAccordionTrigger>
       <ng-template [ngTemplateOutlet]="iconContainerTemplate" />
       <ng-template [ngTemplateOutlet]="labelContainerTemplate" />
@@ -12,10 +14,11 @@
         <svg-icon class="sidebar__item-group-icon" [key]="'caret-down'" />
       </span>
     </button>
-
+    <!-- TODO: solve hidden in item list not working because of keeping focus should be in ul, hidden should only be set once animation finishes -->
     <natu-sidebar-item-list natuAccordionContent class="sidebar__group-list" [items]="items()" />
   </ng-container>
 } @else {
+  <!-- TODO: focus visible -->
   <div class="sidebar__item">
     <ng-template [ngTemplateOutlet]="iconContainerTemplate" />
     <ng-template [ngTemplateOutlet]="labelContainerTemplate" />

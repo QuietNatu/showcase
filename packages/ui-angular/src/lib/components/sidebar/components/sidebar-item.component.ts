@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   Input,
   Signal,
   TemplateRef,
@@ -18,6 +19,8 @@ import { NatuSidebarService } from '../sidebar.service';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive';
 import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
+import { FocusMonitor } from '@angular/cdk/a11y';
+import { map } from 'rxjs';
 
 /* TODO: document that sidebar already supports router links */
 @Component({
@@ -39,8 +42,10 @@ import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
   standalone: true,
   imports: [NgTemplateOutlet],
   host: {
+    tabindex: '0',
     class: 'sidebar__item',
     '[class.sidebar__item--active]': 'isActive$()',
+    '[class.sidebar__item--focus]': 'isFocusVisible$()',
   },
   hostDirectives: [{ directive: NatuTooltipDirective }],
 })
@@ -50,6 +55,7 @@ export class NatuSidebarItemComponent {
   }
 
   readonly isActive$;
+  readonly isFocusVisible$;
   readonly iconTemplate = contentChild(NatuSidebarIconDirective, { read: TemplateRef });
   readonly labelTemplate = contentChild(NatuSidebarLabelDirective, { read: TemplateRef });
 
@@ -57,9 +63,12 @@ export class NatuSidebarItemComponent {
   private readonly sidebarService = inject(NatuSidebarService);
   private readonly tooltipDirective = inject(NatuTooltipDirective, { self: true });
   private readonly routerLinkActive = inject(RouterLinkActive, { optional: true, self: true });
+  private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly focusMonitor = inject(FocusMonitor); // Change this once CDK directives are standalone...
 
   constructor() {
     this.isActive$ = this.getIsActive();
+    this.isFocusVisible$ = this.getIsFocusVisible();
 
     this.registerSyncTooltip();
   }
@@ -72,6 +81,14 @@ export class NatuSidebarItemComponent {
       : null;
 
     return computed(() => this.controlledIsActive$() ?? routerIsActive$?.() ?? false);
+  }
+
+  private getIsFocusVisible() {
+    const isFocusVisible$ = this.focusMonitor
+      .monitor(this.elementRef.nativeElement)
+      .pipe(map((origin) => origin === 'keyboard'));
+
+    return toSignal(isFocusVisible$, { initialValue: false });
   }
 
   private registerSyncTooltip() {

@@ -1,0 +1,22 @@
+/// Adds ellipsis when element overflows
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/// Makes element only visible for screen readers */
+@mixin visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/// Styles outline
+@mixin outline($color) {
+  outline: 2px solid $color;
+}

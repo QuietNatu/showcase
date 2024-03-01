@@ -231,7 +231,7 @@ $-variants: (
         }
 
         &:target,
-        &.natu-button--focus-visible {
+        &.natu-button--focus {
           @include set-state-props($states, 'focus');
           @include utils.outline(var(--natu-color-outline-accent));
         }

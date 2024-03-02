@@ -179,7 +179,7 @@ describe(NatuTooltipDirective.name, () => {
       {
         renderOptions: {
           imports: [NatuTooltipDirective],
-          componentProperties: componentProperties,
+          componentProperties,
         },
       },
     );

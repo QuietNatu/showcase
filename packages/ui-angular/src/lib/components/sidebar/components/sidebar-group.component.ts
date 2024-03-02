@@ -14,7 +14,7 @@ import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
 import { NatuSidebarService } from '../sidebar.service';
 import { caretDownIcon } from '@natu/assets/svg/caret-down';
 import { createRandomUUID } from '@natu/utils';
-import { natuAccordionImports } from '../../../directives';
+import { NatuFocusRingDirective, natuAccordionImports } from '../../../directives';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
 import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive';
@@ -29,6 +29,7 @@ import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive
     NatuSidebarItemComponent,
     NatuSidebarIconDirective,
     NatuSidebarLabelDirective,
+    NatuFocusRingDirective,
     SvgIconComponent,
     natuAccordionImports,
     NgTemplateOutlet,

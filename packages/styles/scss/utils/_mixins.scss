@@ -16,6 +16,7 @@
   width: 1px;
 }
 
+/* TODO: outline color is too weak */
 /// Styles outline
 @mixin outline($color) {
   outline: 2px solid $color;

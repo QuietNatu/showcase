@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 
+/* TODO: remove this? */
 @Component({
   selector: 'natu-sidebar-item-list',
   template: `

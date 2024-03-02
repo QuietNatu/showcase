@@ -80,7 +80,7 @@ export const NatuButton = forwardRef<HTMLButtonElement, NatuButtonProps>(
           buttonVariants({ variant, size }),
           {
             'natu-button--disabled': isDisabled,
-            'natu-button--focus-visible': isFocusVisible && !isDisabled,
+            'natu-button--focus': isFocusVisible && !isDisabled,
             'natu-button--active': asChild && isPressed,
           },
           className,

@@ -9,6 +9,7 @@
     "ms-playwright.playwright",
     "Angular.ng-template",
     "KnisterPeter.vscode-commitizen",
-    "christian-kohler.path-intellisense"
+    "christian-kohler.path-intellisense",
+    "mrmlnc.vscode-json5"
   ]
 }

@@ -23,7 +23,6 @@ $-variants: (
       'background-color': var(--natu-color-surface-accent-strong),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-invert),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-surface-accent-strong-active),
@@ -51,7 +50,6 @@ $-variants: (
       'background-color': var(--natu-color-surface-critical-strong),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-invert),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-surface-critical-strong-active),
@@ -79,7 +77,6 @@ $-variants: (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-accent),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-surface-accent-active),
@@ -107,7 +104,6 @@ $-variants: (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-critical),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-surface-critical-active),
@@ -135,7 +131,6 @@ $-variants: (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-accent),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-surface-accent-active),
@@ -163,7 +158,6 @@ $-variants: (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-critical),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-surface-critical-active),
@@ -191,7 +185,6 @@ $-variants: (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-accent),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-transparent),
@@ -240,8 +233,9 @@ $-variants: (
         }
 
         &:target,
-        &.natu-button--focus-visible {
+        &.natu-button--focus {
           @include set-state-props($states, 'focus');
+          @include utils.outline(var(--natu-color-outline-accent));
         }
 
         &:active,

@@ -20,6 +20,7 @@ import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
 import { caretRightIcon } from '@natu/assets/svg/caret-right';
 
 /* TODO: check i18n */
+/* TODO: group dropdown */
 
 @Component({
   selector: 'natu-sidebar',
@@ -30,7 +31,6 @@ import { caretRightIcon } from '@natu/assets/svg/caret-right';
   providers: [NatuSidebarService],
   host: {
     class: 'sidebar',
-    /* TODO: use data state for stateful css? this and group expand? */
     '[class.sidebar--expanded]': 'isExpanded$()',
     '[class.sidebar--collapsed]': '!isExpanded$()',
   },

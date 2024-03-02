@@ -70,7 +70,7 @@
     },
   ],
   "settings": {
-    "terminal.integrated.cwd": ".",
+    "terminal.integrated.cwd": "${workspaceFolder:🌱 root}",
     "eslint.workingDirectories": ["../.."],
   },
 }

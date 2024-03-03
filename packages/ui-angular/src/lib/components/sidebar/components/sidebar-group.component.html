@@ -30,14 +30,17 @@
     </div>
   </ng-container>
 } @else {
-  <div
+  <!-- TODO: popover only open with click -->
+
+  <button
+    type="button"
     class="sidebar__item"
     natuFocusRing
     [natuFocusRingFocusVisibleClass]="'sidebar__item--focus'"
   >
     <ng-template [ngTemplateOutlet]="iconContainerTemplate" />
     <ng-template [ngTemplateOutlet]="labelContainerTemplate" />
-  </div>
+  </button>
 }
 
 <ng-template #iconContainerTemplate>

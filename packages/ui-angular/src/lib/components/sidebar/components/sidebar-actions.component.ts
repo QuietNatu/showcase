@@ -1,17 +1,23 @@
 import { ChangeDetectionStrategy, Component, TemplateRef, contentChildren } from '@angular/core';
 import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
-import { NatuSidebarItemListComponent } from './sidebar-item-list.component';
+import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'natu-sidebar-actions',
   template: `
     <nav>
-      <natu-sidebar-item-list [items]="items()" />
+      <ul class="sidebar__list">
+        @for (item of items(); track $index) {
+          <li class="sidebar__list-item">
+            <ng-template [ngTemplateOutlet]="item" />
+          </li>
+        }
+      </ul>
     </nav>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NatuSidebarItemListComponent],
+  imports: [NgTemplateOutlet],
   host: {
     class: 'sidebar__body',
   },

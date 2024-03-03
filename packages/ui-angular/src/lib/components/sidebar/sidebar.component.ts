@@ -17,6 +17,7 @@ import { NatuSidebarGroupComponent } from './components/sidebar-group.component'
 import { NatuSidebarService } from './sidebar.service';
 import { registerEffect } from '../../utils/rxjs';
 import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
+import { caretDownIcon } from '@natu/assets/svg/caret-down';
 import { caretRightIcon } from '@natu/assets/svg/caret-right';
 
 /* TODO: check i18n */
@@ -49,7 +50,7 @@ export class NatuSidebarComponent {
   readonly isExpanded$ = this.sidebarService.isExpanded$;
 
   constructor() {
-    injectRegisterIcons([caretRightIcon]);
+    injectRegisterIcons([caretDownIcon, caretRightIcon]);
 
     registerEffect(this.sidebarService.isExpandedChange$, (isOpen) => {
       this.isExpandedChange.emit(isOpen);

@@ -111,7 +111,10 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
     .sidebar__group & {
       border-left: 1px solid var(--natu-color-border-neutral);
       margin-left: var(--natu-size-spacing-5);
-      overflow: hidden; // TODO: should only be set while animating
+    }
+
+    .sidebar__group--hidden & {
+      overflow: hidden;
     }
   }
 

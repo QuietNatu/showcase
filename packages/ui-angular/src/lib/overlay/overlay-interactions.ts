@@ -89,12 +89,23 @@ export function useOverlayClick() {
 
   const overlayService = inject(NatuOverlayService);
 
-  /* TODO: non button elements */
-  const effect$ = toObservable(overlayService.referenceElement$).pipe(
-    filter(Boolean),
+  const referenceElement$ = toObservable(overlayService.referenceElement$).pipe(filter(Boolean));
+  const customButtonElement$ = referenceElement$.pipe(
+    filter((element) => element.tagName !== 'BUTTON'),
+  );
+
+  const click$ = referenceElement$.pipe(
     switchMap((element) => fromEvent(element, 'click')),
     map(() => true),
   );
+
+  const customPress$ = customButtonElement$.pipe(
+    switchMap((element) => fromEvent<KeyboardEvent>(element, 'keydown')),
+    filter((event) => event.key === 'Enter' || event.key === ' '),
+    map(() => true),
+  );
+
+  const effect$ = merge(click$, customPress$);
 
   registerEffect(effect$, (shouldOpen) => overlayService.changeOpen(shouldOpen));
 }

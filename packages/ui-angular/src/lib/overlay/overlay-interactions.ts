@@ -80,6 +80,26 @@ export function useOverlayFocus() {
 }
 
 /**
+ * Opens an overlay when it's reference element is clicked.
+ *
+ * Must be used in conjunction with {@link NatuOverlayService}.
+ */
+export function useOverlayClick() {
+  assertInInjectionContext(useOverlayClick);
+
+  const overlayService = inject(NatuOverlayService);
+
+  /* TODO: non button elements */
+  const effect$ = toObservable(overlayService.referenceElement$).pipe(
+    filter(Boolean),
+    switchMap((element) => fromEvent(element, 'click')),
+    map(() => true),
+  );
+
+  registerEffect(effect$, (shouldOpen) => overlayService.changeOpen(shouldOpen));
+}
+
+/**
  * Closes an overlay when the `Escape` key is pressed or when a click happens outside the overlay and it's reference.
  *
  * Must be used in conjunction with {@link NatuOverlayService} and {@link NatuPortalService}.

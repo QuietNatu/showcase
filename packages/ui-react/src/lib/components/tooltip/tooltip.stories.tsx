@@ -14,7 +14,7 @@ const meta = {
     children: undefined,
   },
   render: (args) => (
-    <NatuTooltip {...args} content="Tooltip Text">
+    <NatuTooltip {...args} content="Tooltip text">
       <NatuButton type="button">Show tooltip</NatuButton>
     </NatuTooltip>
   ),
@@ -28,7 +28,7 @@ export const Default: Story = {};
 export const Nested: Story = {
   render: (args) => {
     const content = (
-      <NatuTooltip {...args} content="Nested tooltip Text">
+      <NatuTooltip {...args} content="Nested tooltip text">
         <NatuButton type="button">Show nested tooltip</NatuButton>
       </NatuTooltip>
     );

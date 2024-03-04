@@ -1,0 +1,28 @@
+@use '../utils';
+
+/* TODO: dark mode shadow */
+
+/* TODO: header */
+
+/* TODO: box? */
+
+@layer popover {
+  $-popover-background-color: var(--natu-color-surface-base);
+
+  .natu-popover {
+    @include utils.control;
+    @include utils.control--fluid;
+    @include utils.text-regular;
+
+    background-color: $-popover-background-color;
+    color: var(--natu-color-font-base);
+    display: block;
+    filter: var(--natu-elevation-shadow-overlay);
+    max-width: utils.px-to-rem(360px);
+    z-index: var(--natu-elevation-z-index-overlay);
+  }
+
+  .natu-popover__arrow {
+    fill: $-popover-background-color;
+  }
+}

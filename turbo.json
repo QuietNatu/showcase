@@ -12,6 +12,9 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
+    "@natu/assets#build": {
+      "outputs": ["angular/svg/**"]
+    },
     "@natu/styles#build": {
       "outputs": ["scss/tokens/**", "ts/tokens/**"]
     },

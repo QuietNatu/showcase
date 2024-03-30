@@ -8,7 +8,7 @@ import {
 import { NatuButtonDirective, NatuButtonVariants, natuButtonImports } from './button.directive';
 import { storyVariantsDecorator } from '../../stories';
 import { SvgIconComponent, provideSvgIcons } from '@natu/assets';
-import { dnaIcon } from '@natu/assets/svg/dna';
+import { rocketIcon } from '@natu/assets/svg/rocket';
 
 const variants: Array<NatuButtonVariants['variant']> = [
   'primary',
@@ -25,7 +25,7 @@ const meta = {
   component: NatuButtonDirective,
   tags: ['autodocs'],
   decorators: [
-    applicationConfig({ providers: [provideSvgIcons([dnaIcon])] }),
+    applicationConfig({ providers: [provideSvgIcons([rocketIcon])] }),
     moduleMetadata({ imports: [natuButtonImports, SvgIconComponent] }),
     storyVariantsDecorator(),
   ],
@@ -86,7 +86,7 @@ export const IconButton: Story = {
       const buttonArgs = argsToTemplate(args, { exclude: ['variant'] });
       return `
         <button type="button" [natuButton] [variant]="'${variant}'" ${buttonArgs}>
-          <svg-icon [key]="'dna'" />
+          <svg-icon [key]="'rocket'" />
         </button>
       `;
     });

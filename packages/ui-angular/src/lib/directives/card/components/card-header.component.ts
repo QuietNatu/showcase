@@ -23,7 +23,9 @@ import { SvgIconComponent } from '@natu/assets';
       <button
         type="button"
         natuButton
+        [isIconButton]="true"
         [variant]="'ghost'"
+        [size]="size"
         class="natu-card__dismiss"
         (click)="cardService.dismiss()"
       >

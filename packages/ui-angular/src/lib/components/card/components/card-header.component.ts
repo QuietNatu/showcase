@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { NatuCardService } from '../card.service';
-import { natuButtonImports } from '../../button/button.directive';
+import { natuButtonImports } from '../../../directives/button/button.directive';
 import { SvgIconComponent } from '@natu/assets';
 
 /* TODO: add tooltip overflow later */

@@ -16,8 +16,6 @@ import { injectRegisterIcons } from '@natu/assets';
 import { xIcon } from '@natu/assets/svg/x';
 import { registerEffect } from '../../utils/rxjs';
 
-/* TODO: test */
-
 @Component({
   selector: 'natu-card,[natu-card]',
   changeDetection: ChangeDetectionStrategy.OnPush,

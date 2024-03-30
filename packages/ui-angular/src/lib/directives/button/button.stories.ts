@@ -1,6 +1,14 @@
-import { moduleMetadata, type Meta, type StoryObj, argsToTemplate } from '@storybook/angular';
+import {
+  moduleMetadata,
+  type Meta,
+  type StoryObj,
+  argsToTemplate,
+  applicationConfig,
+} from '@storybook/angular';
 import { NatuButtonDirective, NatuButtonVariants, natuButtonImports } from './button.directive';
 import { storyVariantsDecorator } from '../../stories';
+import { SvgIconComponent, provideSvgIcons } from '@natu/assets';
+import { dnaIcon } from '@natu/assets/svg/dna';
 
 const variants: Array<NatuButtonVariants['variant']> = [
   'primary',
@@ -16,7 +24,11 @@ const meta = {
   title: 'Components/Button',
   component: NatuButtonDirective,
   tags: ['autodocs'],
-  decorators: [moduleMetadata({ imports: [natuButtonImports] }), storyVariantsDecorator()],
+  decorators: [
+    applicationConfig({ providers: [provideSvgIcons([dnaIcon])] }),
+    moduleMetadata({ imports: [natuButtonImports, SvgIconComponent] }),
+    storyVariantsDecorator(),
+  ],
   render: (args) => {
     const templateVariants = variants.map((variant) => {
       const buttonArgs = argsToTemplate(args, { exclude: ['variant'] });
@@ -65,5 +77,34 @@ export const CustomElementDisabled: Story = {
   render: CustomElement.render,
   args: {
     isDisabled: true,
+  },
+};
+
+export const IconButton: Story = {
+  render: (args) => {
+    const templateVariants = variants.map((variant) => {
+      const buttonArgs = argsToTemplate(args, { exclude: ['variant'] });
+      return `
+        <button type="button" [natuButton] [variant]="'${variant}'" ${buttonArgs}>
+          <svg-icon [key]="'dna'" />
+        </button>
+      `;
+    });
+
+    return {
+      props: args,
+      template: templateVariants.join(''),
+    };
+  },
+  args: {
+    isIconButton: true,
+  },
+};
+
+export const IconButtonSmall: Story = {
+  render: IconButton.render,
+  args: {
+    isIconButton: true,
+    size: 'small',
   },
 };

@@ -46,12 +46,14 @@ export type NatuButtonVariants = VariantProps<typeof buttonVariants>;
   host: {
     '[class]': 'class$()',
     '[class.natu-button--disabled]': 'isDisabled',
+    '[class.natu-button--icon]': 'isIconButton',
     '[attr.aria-disabled]': 'isDisabled',
   },
   hostDirectives: [NatuFocusRingDirective],
 })
 export class NatuButtonDirective {
   @Input({ transform: booleanAttribute }) isDisabled = false;
+  @Input({ transform: booleanAttribute }) isIconButton = false;
 
   @Input() set variant(variant: NatuButtonVariants['variant']) {
     this.variant$.set(variant);

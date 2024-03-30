@@ -11,11 +11,15 @@ describe(`${NatuButtonDirective.name} accessibility`, () => {
   const scenarios = [
     {
       name: 'Button',
-      template: `<button [natuButton]>Button</button>`,
+      template: `<button type="button" [natuButton]>Button</button>`,
     },
     {
       name: 'A11y button',
       template: `<span [natuButton]>Button</span>`,
+    },
+    {
+      name: 'Icon button',
+      template: `<button type="button" [natuButton] [isIconButton]="true">🧪</button>`,
     },
   ];
 

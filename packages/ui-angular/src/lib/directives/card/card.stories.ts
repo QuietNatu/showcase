@@ -7,7 +7,7 @@ import {
 } from '@storybook/angular';
 import { NatuCardComponent, natuCardImports } from './card.component';
 import { SvgIconComponent, provideSvgIcons } from '@natu/assets';
-import { dnaIcon } from '@natu/assets/svg/dna';
+import { rocketIcon } from '@natu/assets/svg/rocket';
 import { NatuCardHeaderComponent } from './components/card-header.component';
 import { NatuCardFooterComponent } from './components/card-footer.component';
 
@@ -22,7 +22,7 @@ const meta = {
   tags: ['autodocs'],
   decorators: [
     applicationConfig({
-      providers: [provideSvgIcons([dnaIcon])],
+      providers: [provideSvgIcons([rocketIcon])],
     }),
     moduleMetadata({ imports: [natuCardImports, SvgIconComponent] }),
   ],
@@ -40,8 +40,7 @@ const meta = {
       template: `
         <natu-card ${templateArgs} style="height: 400px">
           <natu-card-header ${headerTemplateArgs}>
-            <svg-icon natuCardHeaderIcon [key]="'dna'" />
-
+            <svg-icon natuCardHeaderIcon [key]="'rocket'" />
             <span>Example header</span>
           </natu-card-header>
 

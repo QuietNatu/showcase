@@ -5,7 +5,6 @@ import { SvgIconComponent } from '@natu/assets';
 
 /* TODO: add tooltip overflow later */
 /* TODO: add i18n once implemented */
-/* TODO: icon button */
 
 @Component({
   selector: 'natu-card-header,[natu-card-header]',
@@ -29,8 +28,7 @@ import { SvgIconComponent } from '@natu/assets';
         class="natu-card__dismiss"
         (click)="cardService.dismiss()"
       >
-        <!-- TODO: visually hidden i18n -->
-
+        <span class="natu-visually-hidden">Dismiss</span>
         <svg-icon [key]="'x'" aria-hidden="true" />
       </button>
     }

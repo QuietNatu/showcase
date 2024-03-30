@@ -1,0 +1,7 @@
+@use '../utils';
+
+@layer utils {
+  .natu-visually-hidden {
+    @include utils.visually-hidden;
+  }
+}

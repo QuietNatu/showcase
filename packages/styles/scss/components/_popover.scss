@@ -2,13 +2,9 @@
 
 /* TODO: dark mode shadow */
 
-/* TODO: header */
-
-/* TODO: close button */
-
-/* TODO: box? */
-
 /* TODO: focus trap */
+
+/* TODO: check what is redundant with box */
 
 @layer popover {
   $-popover-background-color: var(--natu-color-surface-base);
@@ -23,6 +19,7 @@
     display: block;
     filter: var(--natu-elevation-shadow-overlay);
     max-width: utils.px-to-rem(360px);
+    padding: 0;
     z-index: var(--natu-elevation-z-index-overlay);
   }
 

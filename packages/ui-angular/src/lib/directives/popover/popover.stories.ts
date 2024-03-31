@@ -9,6 +9,8 @@ import { natuButtonImports } from '../button/button.directive';
 import { NgTemplateOutlet } from '@angular/common';
 import { aliasedArgsToTemplate } from '../../test';
 
+/* TODO: is there a space so big between header and body of popover? */
+
 const meta = {
   title: 'Components/Popover',
   component: NatuPopoverDirective,
@@ -26,7 +28,15 @@ const meta = {
     return {
       props: args,
       template: `
-        <button type="button" [natuButton] [natuPopover]="popover" ${templateArgs}>Show popover</button>
+        <button type="button"
+          [natuButton]
+          [natuPopover]
+          [natuPopoverTitle]="'Title'"
+          [natuPopoverContent]="popover"
+          ${templateArgs}
+        >
+          Show popover
+        </button>
         <ng-template #popover>Popover text</ng-template>
       `,
     };
@@ -45,7 +55,15 @@ export const Nested: Story = {
     return {
       props: args,
       template: `
-        <button type="button" [natuButton] [natuPopover]="popover" ${templateArgs}>Show popover</button>
+        <button type="button"
+          [natuButton]
+          [natuPopover]
+          [natuPopoverTitle]="'Title'"
+          [natuPopoverContent]="popover"
+          ${templateArgs}
+        >
+          Show popover
+        </button>
 
         <ng-template #popover>
           <button type="button" [natuButton] [natuPopover]="nestedPopover" ${templateArgs}>Show nested popover</button>
@@ -86,7 +104,9 @@ export const Playground: Story = {
         <ng-template #button let-row="row" let-column="column" let-placement="placement">
           <button type="button"
             [natuButton]
-            [natuPopover]="popover"
+            [natuPopover]
+            [natuPopoverTitle]="placement"
+            [natuPopoverContent]="popover"
             [natuPopoverPlacement]="placement"
             ${templateArgs}
             [style.width.px]="100"
@@ -97,13 +117,10 @@ export const Playground: Story = {
           </button>
         </ng-template>
 
-        <ng-template #popover let-placement="placement">
+        <ng-template #popover>
           <div>
-            <div>{{placement}} popover example</div>
-            <div>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id iaculis.
               In hac habitasse platea dictumst.
-            </div>
           </div>
         </ng-template>
       `,

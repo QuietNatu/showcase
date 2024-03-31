@@ -1,35 +1,58 @@
 import { Injectable, TemplateRef, computed, signal } from '@angular/core';
 
-/* TODO: decide if it should only have content or should have title + other sections */
-
 @Injectable()
 export class NatuPopoverService {
+  readonly textTitle$;
+  readonly templateTitle$;
+  readonly templateTitleContext$;
   readonly textContent$;
   readonly templateContent$;
-  readonly templateContext$;
+  readonly templateContentContext$;
 
-  private readonly contentSignal$ = signal<string | TemplateRef<unknown> | null>(null);
-  private readonly templateContextSignal$ = signal<object | null>(null);
+  private readonly title$ = signal<string | TemplateRef<unknown> | null>(null);
+  private readonly templateTitleContextSignal$ = signal<object | null>(null);
+  private readonly content$ = signal<string | TemplateRef<unknown> | null>(null);
+  private readonly templateContentContextSignal$ = signal<object | null>(null);
 
   constructor() {
+    this.textTitle$ = computed(() => {
+      const title = this.title$();
+      return typeof title === 'string' ? title : null;
+    });
+
+    this.templateTitle$ = computed(() => {
+      const title = this.title$();
+      return title instanceof TemplateRef ? title : null;
+    });
+
+    this.templateTitleContext$ = this.templateTitleContextSignal$.asReadonly();
+
     this.textContent$ = computed(() => {
-      const content = this.contentSignal$();
+      const content = this.content$();
       return typeof content === 'string' ? content : null;
     });
 
     this.templateContent$ = computed(() => {
-      const content = this.contentSignal$();
+      const content = this.content$();
       return content instanceof TemplateRef ? content : null;
     });
 
-    this.templateContext$ = this.templateContextSignal$.asReadonly();
+    this.templateContentContext$ = this.templateContentContextSignal$.asReadonly();
+  }
+
+  setTitle(title: string | TemplateRef<unknown>) {
+    this.title$.set(title);
+  }
+
+  setTitleContext(context: object | null) {
+    this.templateTitleContextSignal$.set(context);
   }
 
   setContent(content: string | TemplateRef<unknown>) {
-    this.contentSignal$.set(content);
+    this.content$.set(content);
   }
 
-  setTemplateContext(context: object | null) {
-    this.templateContextSignal$.set(context);
+  setContentContext(context: object | null) {
+    this.templateContentContextSignal$.set(context);
   }
 }

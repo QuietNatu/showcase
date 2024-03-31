@@ -122,4 +122,4 @@ export class NatuA11yButtonDirective {
   readonly isActive$ = signal(false);
 }
 
-export const natuButtonImports = [NatuButtonDirective, NatuA11yButtonDirective];
+export const natuButtonImports = [NatuButtonDirective, NatuA11yButtonDirective] as const;

@@ -15,6 +15,7 @@ import { NatuOverlayArrowComponent } from '../../overlay/overlay-arrow.component
 import { Side } from '@floating-ui/dom';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuPopoverService } from './popover.service';
+import { natuCardImports } from '../../components';
 
 const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 const sideTransforms: Record<Side, string> = {
@@ -26,30 +27,10 @@ const sideTransforms: Record<Side, string> = {
 
 @Component({
   selector: 'natu-popover',
-  template: `
-    @if (isOpen$() && context$()) {
-      <div
-        class="natu-popover"
-        [@openClose]="{ value: true, params: { transformation: transformation$() } }"
-        (@openClose.done)="$event.toState === 'void' && handleFinishClose()"
-      >
-        @if (textContent$()) {
-          {{ textContent$() }}
-        } @else {
-          <ng-template
-            [ngTemplateOutlet]="templateContent$()"
-            [ngTemplateOutletContext]="templateContext$()"
-            [ngTemplateOutletInjector]="injector"
-          />
-        }
-
-        <natu-overlay-arrow class="natu-popover__arrow" />
-      </div>
-    }
-  `,
+  templateUrl: './popover.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgTemplateOutlet, NatuOverlayArrowComponent],
+  imports: [NgTemplateOutlet, NatuOverlayArrowComponent, natuCardImports],
   host: {
     role: 'dialog',
     tabindex: '-1',
@@ -73,9 +54,12 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
   readonly arrowWidth;
   readonly arrowHeight;
 
+  readonly textTitle$;
+  readonly templateTitle$;
+  readonly templateTitleContext$;
   readonly textContent$;
   readonly templateContent$;
-  readonly templateContext$;
+  readonly templateContentContext$;
   readonly isOpen$;
   readonly context$;
   readonly floatingStyle$;
@@ -92,9 +76,13 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
     this.arrowWidth = this.overlayService.arrowWidth;
     this.arrowHeight = this.overlayService.arrowHeight;
 
+    this.textTitle$ = this.popoverService.textTitle$;
+    this.templateTitle$ = this.popoverService.templateTitle$;
+    this.templateTitleContext$ = this.popoverService.templateTitleContext$;
+
     this.textContent$ = this.popoverService.textContent$;
     this.templateContent$ = this.popoverService.templateContent$;
-    this.templateContext$ = this.popoverService.templateContext$;
+    this.templateContentContext$ = this.popoverService.templateContentContext$;
 
     this.isOpen$ = this.overlayService.isOpen$;
     this.context$ = this.overlayService.context$;
@@ -123,5 +111,9 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
 
   handleFinishClose() {
     this.overlayService.unmount();
+  }
+
+  handleDismiss() {
+    this.overlayService.changeOpen(false);
   }
 }

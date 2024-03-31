@@ -32,15 +32,32 @@ import { NatuPopoverService } from './popover.service';
 export class NatuPopoverDirective implements OnInit, OnDestroy {
   // Should be required but cannot because of https://github.com/angular/angular/issues/50510
   /** Content that will be shown by the popover. */
-  @Input({ alias: 'natuPopover' }) set content(
+  @Input({ alias: 'natuPopoverTitle' }) set title(
+    title: string | TemplateRef<unknown> | null | undefined,
+  ) {
+    this.popoverService.setTitle(title ?? '');
+  }
+
+  /** Context that will be used by the provided template content. */
+  @Input({ alias: 'natuPopoverTitleContext' }) set titleContext(
+    context: object | null | undefined,
+  ) {
+    this.popoverService.setTitleContext(context ?? null);
+  }
+
+  // Should be required but cannot because of https://github.com/angular/angular/issues/50510
+  /** Content that will be shown by the popover. */
+  @Input({ alias: 'natuPopoverContent' }) set content(
     content: string | TemplateRef<unknown> | null | undefined,
   ) {
     this.popoverService.setContent(content ?? '');
   }
 
   /** Context that will be used by the provided template content. */
-  @Input({ alias: 'natuPopoverContext' }) set context(context: object | null | undefined) {
-    this.popoverService.setTemplateContext(context ?? null);
+  @Input({ alias: 'natuPopoverContentContext' }) set contentContext(
+    context: object | null | undefined,
+  ) {
+    this.popoverService.setContentContext(context ?? null);
   }
 
   /** Where to place the popover relative to the reference element. */

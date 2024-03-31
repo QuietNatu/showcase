@@ -1,0 +1,35 @@
+@if (isOpen$() && context$()) {
+  <div
+    class="natu-popover"
+    [@openClose]="{ value: true, params: { transformation: transformation$() } }"
+    (@openClose.done)="$event.toState === 'void' && handleFinishClose()"
+  >
+    <natu-card [isEmbedded]="true" [isDismissable]="true" (dismiss)="handleDismiss()">
+      <natu-card-header [size]="'small'">
+        @if (textTitle$()) {
+          {{ textTitle$() }}
+        } @else {
+          <ng-template
+            [ngTemplateOutlet]="templateTitle$()"
+            [ngTemplateOutletContext]="templateTitleContext$()"
+            [ngTemplateOutletInjector]="injector"
+          />
+        }
+      </natu-card-header>
+
+      <natu-card-body>
+        @if (textContent$()) {
+          {{ textContent$() }}
+        } @else {
+          <ng-template
+            [ngTemplateOutlet]="templateContent$()"
+            [ngTemplateOutletContext]="templateContentContext$()"
+            [ngTemplateOutletInjector]="injector"
+          />
+        }
+      </natu-card-body>
+    </natu-card>
+
+    <natu-overlay-arrow class="natu-popover__arrow" />
+  </div>
+}

@@ -12,6 +12,8 @@ import { NatuCardHeaderComponent } from './components/card-header.component';
 import { NatuCardFooterComponent } from './components/card-footer.component';
 
 interface StoryProps extends NatuCardComponent {
+  hideHeader?: boolean;
+  hideFooter?: boolean;
   headerArgs?: Partial<NatuCardHeaderComponent>;
   footerArgs?: Partial<NatuCardFooterComponent>;
 }
@@ -27,7 +29,7 @@ const meta = {
     moduleMetadata({ imports: [natuCardImports, SvgIconComponent] }),
   ],
   render: (args) => {
-    const { headerArgs, footerArgs, ...cardArgs } = args;
+    const { hideHeader, hideFooter, headerArgs, footerArgs, ...cardArgs } = args;
 
     const templateArgs = argsToTemplate(cardArgs);
     const headerTemplateArgs = headerArgs?.size ? '[size]="headerArgs.size"' : '';
@@ -39,14 +41,18 @@ const meta = {
       props: args,
       template: `
         <natu-card ${templateArgs} style="height: 400px">
-          <natu-card-header ${headerTemplateArgs}>
-            <svg-icon natuCardHeaderIcon [key]="'rocket'" />
-            <span>Example header</span>
-          </natu-card-header>
+          @if(!hideHeader) {
+            <natu-card-header ${headerTemplateArgs}>
+              <svg-icon natuCardHeaderIcon [key]="'rocket'" />
+              <span>Example header</span>
+            </natu-card-header>
+          }
 
           <natu-card-body>Example body</natu-card-body>
 
-          <natu-card-footer ${footerTemplateArgs}>Example footer</natu-card-footer>
+          @if(!hideFooter) {
+            <natu-card-footer ${footerTemplateArgs}>Example footer</natu-card-footer>
+          }
         </natu-card>
       `,
     };
@@ -77,5 +83,12 @@ export const Small: Story = {
 export const WithFooterDivider: Story = {
   args: {
     footerArgs: { hasDivider: true },
+  },
+};
+
+export const NoHeaderOrFooter: Story = {
+  args: {
+    hideHeader: true,
+    hideFooter: true,
   },
 };

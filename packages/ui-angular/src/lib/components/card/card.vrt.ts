@@ -8,6 +8,7 @@ const scenarios: VrtScenario[] = [
   { story: 'embedded' },
   { story: 'small' },
   { story: 'with-footer-divider' },
+  { story: 'no-header-or-footer' },
 ];
 
 const testScenarios = createVrtStorybookScenarios({

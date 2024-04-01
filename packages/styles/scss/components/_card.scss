@@ -8,6 +8,7 @@
     display: flex;
     filter: var(--natu-elevation-shadow-base);
     flex-direction: column;
+    position: relative;
 
     &--embedded {
       filter: none;
@@ -36,7 +37,9 @@
   }
 
   .natu-card__dismiss {
-    margin-left: auto;
+    position: absolute;
+    right: var(--natu-size-spacing-2);
+    top: var(--natu-size-spacing-2);
   }
 
   .natu-card__body {

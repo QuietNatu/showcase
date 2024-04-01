@@ -9,8 +9,6 @@ import { natuButtonImports } from '../button/button.directive';
 import { NgTemplateOutlet } from '@angular/common';
 import { aliasedArgsToTemplate } from '../../test';
 
-/* TODO: is there a space so big between header and body of popover? */
-
 const meta = {
   title: 'Components/Popover',
   component: NatuPopoverDirective,
@@ -66,7 +64,14 @@ export const Nested: Story = {
         </button>
 
         <ng-template #popover>
-          <button type="button" [natuButton] [natuPopover]="nestedPopover" ${templateArgs}>Show nested popover</button>
+          <button type="button"
+            [natuButton]
+            [natuPopover]
+            [natuPopoverTitle]="'Title'"
+            [natuPopoverContent]="nestedPopover" ${templateArgs}
+          >
+            Show nested popover
+          </button>
         </ng-template>
 
         <ng-template #nestedPopover>Nested popover text</ng-template>

@@ -70,7 +70,8 @@ export function useOverlayFocus() {
     filter(Boolean),
     switchMap((element) => focusMonitor.monitor(element)),
     filter((origin) => {
-      const isValidEvent = origin === 'keyboard' || (origin === null && document.hasFocus());
+      const isValidEvent =
+        origin === 'keyboard' || origin === 'program' || (origin === null && document.hasFocus());
       return !overlayService.isDisabled$() && isValidEvent;
     }),
     map((origin) => origin !== null),

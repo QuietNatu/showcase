@@ -16,6 +16,7 @@ import { Side } from '@floating-ui/dom';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuPopoverService } from './popover.service';
 import { natuCardImports } from '../../components';
+import { A11yModule } from '@angular/cdk/a11y';
 
 const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 const sideTransforms: Record<Side, string> = {
@@ -30,7 +31,7 @@ const sideTransforms: Record<Side, string> = {
   templateUrl: './popover.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgTemplateOutlet, NatuOverlayArrowComponent, natuCardImports],
+  imports: [NgTemplateOutlet, NatuOverlayArrowComponent, natuCardImports, A11yModule],
   host: {
     role: 'dialog',
     tabindex: '-1',

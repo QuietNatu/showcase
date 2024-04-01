@@ -4,7 +4,13 @@
     [@openClose]="{ value: true, params: { transformation: transformation$() } }"
     (@openClose.done)="$event.toState === 'void' && handleFinishClose()"
   >
-    <natu-card [isEmbedded]="true" [isDismissable]="true" (dismiss)="handleDismiss()">
+    <natu-card
+      cdkTrapFocus
+      [cdkTrapFocusAutoCapture]="true"
+      [isEmbedded]="true"
+      [isDismissable]="true"
+      (dismiss)="handleDismiss()"
+    >
       <natu-card-header [size]="'small'">
         @if (textTitle$()) {
           {{ textTitle$() }}

@@ -2,6 +2,8 @@ import { screen, waitForElementToBeRemoved } from '@testing-library/angular';
 import { NatuPopoverDirective } from './popover.directive';
 import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
 
+/* TODO: change tests */
+
 describe(`${NatuPopoverDirective.name} accessibility`, () => {
   const scenarios = [
     {

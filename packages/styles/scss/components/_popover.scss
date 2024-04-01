@@ -2,25 +2,17 @@
 
 /* TODO: dark mode shadow */
 
-/* TODO: focus trap */
-
-/* TODO: check what is redundant with box */
-
 @layer popover {
   $-popover-background-color: var(--natu-color-surface-base);
 
   .natu-popover {
-    @include utils.control;
-    @include utils.control--fluid;
-    @include utils.text-regular;
-
-    background-color: $-popover-background-color;
-    color: var(--natu-color-font-base);
     display: block;
+    z-index: var(--natu-elevation-z-index-overlay);
+  }
+
+  .natu-popover__content {
     filter: var(--natu-elevation-shadow-overlay);
     max-width: utils.px-to-rem(360px);
-    padding: 0;
-    z-index: var(--natu-elevation-z-index-overlay);
   }
 
   .natu-popover__arrow {

@@ -7,7 +7,7 @@ const scenarios: VrtScenario[] = [
     story: 'default',
     onMount: async (page) => {
       await page.getByRole('button', { name: 'Show popover' }).click();
-      await page.getByRole('dialog', { name: 'Popover text' }).waitFor({ state: 'visible' });
+      await page.getByRole('dialog').getByText('Popover text').waitFor({ state: 'visible' });
     },
   },
 ];

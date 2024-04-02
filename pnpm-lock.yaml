@@ -688,8 +688,8 @@ importers:
         specifier: 17.3.2
         version: 17.3.2(@angular/core@17.3.2)
       '@angular/cdk':
-        specifier: 17.3.1
-        version: 17.3.1(@angular/common@17.3.2)(@angular/core@17.3.2)(rxjs@7.8.1)
+        specifier: 17.3.2
+        version: 17.3.2(@angular/common@17.3.2)(@angular/core@17.3.2)(rxjs@7.8.1)
       '@angular/cli':
         specifier: 17.3.2
         version: 17.3.2
@@ -850,8 +850,8 @@ importers:
   packages/ui-react:
     devDependencies:
       '@floating-ui/react':
-        specifier: 0.26.9
-        version: 0.26.9(react-dom@18.2.0)(react@18.2.0)
+        specifier: 0.26.10
+        version: 0.26.10(react-dom@18.2.0)(react@18.2.0)
       '@natu/assets':
         specifier: workspace:*
         version: link:../assets
@@ -1580,8 +1580,8 @@ packages:
       '@angular/core': 17.3.2(rxjs@7.8.1)(zone.js@0.14.4)
       tslib: 2.6.2
 
-  /@angular/cdk@17.3.1(@angular/common@17.3.2)(@angular/core@17.3.2)(rxjs@7.8.1):
-    resolution: {integrity: sha512-pHSN+KlCmdo2u9jY7Yxsry/ZK+EcjOYGzdwxXxcKragMzm7etY3BJiTl4N+qZRuV6cJlMj2PRkij8ABi/HQdEA==}
+  /@angular/cdk@17.3.2(@angular/common@17.3.2)(@angular/core@17.3.2)(rxjs@7.8.1):
+    resolution: {integrity: sha512-mC2U7aoIf7RSpGgIwVyfQEbaPDDX59plQt88KeTz15wjF8vosLt2DG0rZEoV8Mq14YS47J+jI76q/LJfd6/GCw==}
     peerDependencies:
       '@angular/common': ^17.0.0 || ^18.0.0
       '@angular/core': ^17.0.0 || ^18.0.0
@@ -1821,7 +1821,7 @@ packages:
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@babel/code-frame': 7.24.2
-      '@babel/generator': 7.23.6
+      '@babel/generator': 7.24.1
       '@babel/helper-compilation-targets': 7.23.6
       '@babel/helper-module-transforms': 7.23.3(@babel/core@7.24.0)
       '@babel/helpers': 7.24.1
@@ -5352,8 +5352,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /@floating-ui/react@0.26.9(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-p86wynZJVEkEq2BBjY/8p2g3biQ6TlgT4o/3KgFKyTWoJLU1GZ8wpctwRqtkEl2tseYA+kw7dBAIDFcednfI5w==}
+  /@floating-ui/react@0.26.10(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-sh6f9gVvWQdEzLObrWbJ97c0clJObiALsFe0LiR/kb3tDRKwEhObASEH2QyfdoO/ZBPzwxa9j+nYFo+sqgbioA==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -11067,7 +11067,7 @@ packages:
     resolution: {integrity: sha512-M0EUka6rb+QC4l9Z3T0nJEzNOO7JcoJlYMrBlyBCiFSXRyxjLKayd4TbQs2FDRWQU1h9FR7QVNHt+PEaoNL5rQ==}
     engines: {node: '>=0.4.0'}
     dependencies:
-      acorn: 8.11.2
+      acorn: 8.11.3
     dev: true
 
   /acorn-walk@7.2.0:

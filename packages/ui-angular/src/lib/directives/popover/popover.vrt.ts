@@ -15,7 +15,7 @@ const scenarios: VrtScenario[] = [
 const testScenarios = createVrtStorybookScenarios({
   scenarios,
   page: 'components-popover',
-  viewports: [{ name: 'custom', width: 200, height: 200 }],
+  viewports: [{ name: 'custom', width: 400, height: 200 }],
   variants: defaultVrtVariants,
 });
 

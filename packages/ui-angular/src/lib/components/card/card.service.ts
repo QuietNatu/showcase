@@ -13,12 +13,4 @@ export class NatuCardService {
     this.isDismissable$ = this.isDismissableSignal$.asReadonly();
     this.dismiss$ = this.dismissSubject$.asObservable();
   }
-
-  setIsDismissable(isDismissable: boolean) {
-    this.isDismissableSignal$.set(isDismissable);
-  }
-
-  dismiss() {
-    this.dismissSubject$.next();
-  }
 }

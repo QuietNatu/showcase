@@ -1,14 +1,12 @@
-import { screen, waitForElementToBeRemoved } from '@testing-library/angular';
+import { screen, waitForElementToBeRemoved, within } from '@testing-library/angular';
 import { NatuPopoverDirective } from './popover.directive';
 import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
-
-/* TODO: change tests */
 
 describe(`${NatuPopoverDirective.name} accessibility`, () => {
   const scenarios = [
     {
       name: 'Popover',
-      template: `<button type="button" natuPopover="Example popover" [natuPopoverIsOpen]="true" [natuPopoverPlacement]="'top'">Trigger</button>`,
+      template: `<button type="button" natuPopover [natuPopoverTitle]="'Example title'" [natuPopoverContent]="'Example popover'" [natuPopoverIsOpen]="true" [natuPopoverPlacement]="'top'">Trigger</button>`,
     },
   ];
 
@@ -31,79 +29,28 @@ describe(NatuPopoverDirective.name, () => {
     expect(isOpenChangeSpy).not.toHaveBeenCalled();
   });
 
-  it('shows popover when trigger is hovered', async () => {
+  it('shows popover when trigger is clicked', async () => {
     const { userEvent, isOpenChangeSpy } = await setup();
 
-    await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Trigger' }));
 
-    expect(await screen.findByRole('dialog', { name: 'Example popover' })).toBeInTheDocument();
+    const popover = await screen.findByRole('dialog');
+
+    expect(popover).toBeInTheDocument();
+    expect(await within(popover).findByText('Example title')).toBeInTheDocument();
+    expect(await within(popover).findByText('Example content')).toBeInTheDocument();
     expect(isOpenChangeSpy).toHaveBeenCalledOnceWith(true);
-  });
-
-  it('shows popover when trigger is focused', async () => {
-    const { userEvent, isOpenChangeSpy } = await setup();
-
-    await userEvent.tab();
-
-    expect(await screen.findByRole('dialog')).toBeInTheDocument();
-    expect(isOpenChangeSpy).toHaveBeenCalledOnceWith(true);
-  });
-
-  it('hides popover when trigger is unhovered', async () => {
-    const { userEvent, isOpenChangeSpy } = await setup();
-
-    await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
-
-    const popover = await screen.findByRole('dialog');
-
-    await userEvent.unhover(screen.getByRole('button', { name: 'Trigger' }));
-
-    await waitForElementToBeRemoved(popover);
-
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-    expect(isOpenChangeSpy).toHaveBeenCalledTimes(2);
-    expect(isOpenChangeSpy.calls.argsFor(1)).toEqual([false]);
-  });
-
-  it('hides popover when popover is unhovered', async () => {
-    const { userEvent, isOpenChangeSpy } = await setup();
-
-    await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
-
-    const popover = await screen.findByRole('dialog');
-
-    await userEvent.hover(popover);
-    await userEvent.unhover(popover);
-
-    await waitForElementToBeRemoved(popover);
-
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-    expect(isOpenChangeSpy).toHaveBeenCalledTimes(2);
-    expect(isOpenChangeSpy.calls.argsFor(1)).toEqual([false]);
-  });
-
-  it('hides popover when trigger loses focus', async () => {
-    const { userEvent, isOpenChangeSpy } = await setup();
-
-    await userEvent.tab();
-
-    const popover = await screen.findByRole('dialog');
-
-    await userEvent.tab();
-
-    await waitForElementToBeRemoved(popover);
-
-    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-    expect(isOpenChangeSpy).toHaveBeenCalledTimes(2);
-    expect(isOpenChangeSpy.calls.argsFor(1)).toEqual([false]);
   });
 
   it('hides popover when pressing Escape', async () => {
     const { userEvent, isOpenChangeSpy } = await setup();
 
-    await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Trigger' }));
 
     const popover = await screen.findByRole('dialog');
+
+    expect(popover).toBeInTheDocument();
+    expect(await within(popover).findByText('Example title')).toBeInTheDocument();
 
     await userEvent.keyboard('[Escape]');
 
@@ -117,9 +64,12 @@ describe(NatuPopoverDirective.name, () => {
   it('hides popover when clicked outside', async () => {
     const { container, userEvent, isOpenChangeSpy } = await setup();
 
-    await userEvent.tab();
+    await userEvent.click(screen.getByRole('button', { name: 'Trigger' }));
 
     const popover = await screen.findByRole('dialog');
+
+    expect(popover).toBeInTheDocument();
+    expect(await within(popover).findByText('Example title')).toBeInTheDocument();
 
     await userEvent.click(container);
 
@@ -134,9 +84,10 @@ describe(NatuPopoverDirective.name, () => {
   it('controls popover default visibility', async () => {
     const { userEvent, isOpenChangeSpy } = await setup({ defaultIsOpen: true });
 
-    const popover = await screen.findByRole('dialog', { name: 'Example popover' });
+    const popover = await screen.findByRole('dialog');
 
     expect(popover).toBeInTheDocument();
+    expect(await within(popover).findByText('Example title')).toBeInTheDocument();
 
     await userEvent.keyboard('[Escape]');
 
@@ -149,12 +100,16 @@ describe(NatuPopoverDirective.name, () => {
   it('controls popover visibility', async () => {
     const { rerender, isOpenChangeSpy } = await setup({ isOpen: true });
 
-    expect(await screen.findByRole('dialog', { name: 'Example popover' })).toBeInTheDocument();
+    const popover = await screen.findByRole('dialog');
+
+    expect(popover).toBeInTheDocument();
+    expect(await within(popover).findByText('Example title')).toBeInTheDocument();
 
     const componentProperties = aliasArgs({ isOpen: false }, 'natuPopover');
+
     await rerender({ componentProperties: componentProperties });
 
-    await waitForElementToBeRemoved(screen.queryByRole('dialog'));
+    await waitForElementToBeRemoved(popover);
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     expect(isOpenChangeSpy).not.toHaveBeenCalled();
@@ -163,20 +118,26 @@ describe(NatuPopoverDirective.name, () => {
   it('does not show popover if disabled', async () => {
     const { userEvent } = await setup({ isOpen: true, isDisabled: true });
 
-    await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Trigger' }));
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
   it('supports templates with context', async () => {
-    const props: Partial<NatuPopoverDirective> = { context: { count: 10 }, isOpen: true };
+    const props: Partial<NatuPopoverDirective> = {
+      titleContext: { count: 2 },
+      contentContext: { count: 10 },
+      isOpen: true,
+    };
     const componentProperties = aliasArgs(props, 'natuPopover');
     const templateArgs = aliasedArgsToTemplate(props, 'natuPopover');
 
     await render(
       `
-        <button type="button" [natuPopover]="popoverTemplate" ${templateArgs}>Trigger</button>
-        <ng-template #popoverTemplate let-count="count">Current value: {{count}}</ng-template>
+        <button type="button" natuPopover [natuPopoverTitle]="titleTemplate" [natuPopoverContent]="contentTemplate" ${templateArgs}>Trigger</button>
+
+        <ng-template #titleTemplate let-count="count">Title value: {{count}}</ng-template>
+        <ng-template #contentTemplate let-count="count">Content value: {{count}}</ng-template>
       `,
       {
         renderOptions: {
@@ -186,7 +147,10 @@ describe(NatuPopoverDirective.name, () => {
       },
     );
 
-    expect(await screen.findByRole('dialog', { name: 'Current value: 10' })).toBeInTheDocument();
+    const popover = await screen.findByRole('dialog');
+
+    expect(await within(popover).findByText('Title value: 2')).toBeInTheDocument();
+    expect(await within(popover).findByText('Content value: 10')).toBeInTheDocument();
   });
 
   async function setup(props: Partial<NatuPopoverDirective> = {}) {
@@ -202,7 +166,7 @@ describe(NatuPopoverDirective.name, () => {
     const templateArgs = aliasedArgsToTemplate(allProps, 'natuPopover');
 
     const view = await render(
-      `<button type="button" natuPopover="Example popover" ${templateArgs}>Trigger</button>`,
+      `<button type="button" natuPopover [natuPopoverTitle]="'Example title'" [natuPopoverContent]="'Example content'" ${templateArgs}>Trigger</button>`,
       {
         renderOptions: {
           imports: [NatuPopoverDirective],

@@ -850,8 +850,8 @@ importers:
   packages/ui-react:
     devDependencies:
       '@floating-ui/react':
-        specifier: 0.26.9
-        version: 0.26.9(react-dom@18.2.0)(react@18.2.0)
+        specifier: 0.26.10
+        version: 0.26.10(react-dom@18.2.0)(react@18.2.0)
       '@natu/assets':
         specifier: workspace:*
         version: link:../assets
@@ -5352,8 +5352,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /@floating-ui/react@0.26.9(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-p86wynZJVEkEq2BBjY/8p2g3biQ6TlgT4o/3KgFKyTWoJLU1GZ8wpctwRqtkEl2tseYA+kw7dBAIDFcednfI5w==}
+  /@floating-ui/react@0.26.10(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-sh6f9gVvWQdEzLObrWbJ97c0clJObiALsFe0LiR/kb3tDRKwEhObASEH2QyfdoO/ZBPzwxa9j+nYFo+sqgbioA==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -11067,7 +11067,7 @@ packages:
     resolution: {integrity: sha512-M0EUka6rb+QC4l9Z3T0nJEzNOO7JcoJlYMrBlyBCiFSXRyxjLKayd4TbQs2FDRWQU1h9FR7QVNHt+PEaoNL5rQ==}
     engines: {node: '>=0.4.0'}
     dependencies:
-      acorn: 8.11.2
+      acorn: 8.11.3
     dev: true
 
   /acorn-walk@7.2.0:

@@ -4,14 +4,14 @@ import {
   moduleMetadata,
   componentWrapperDecorator,
 } from '@storybook/angular';
-import { NatuTooltipDirective } from './tooltip.directive';
+import { NatuPopoverDirective } from './popover.directive';
 import { natuButtonImports } from '../button/button.directive';
 import { NgTemplateOutlet } from '@angular/common';
 import { aliasedArgsToTemplate } from '../../test';
 
 const meta = {
-  title: 'Components/Tooltip',
-  component: NatuTooltipDirective,
+  title: 'Components/Popover',
+  component: NatuPopoverDirective,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -21,37 +21,60 @@ const meta = {
     isOpen: { control: 'boolean' },
   },
   render: (args) => {
-    const templateArgs = aliasedArgsToTemplate(args, 'natuTooltip');
+    const templateArgs = aliasedArgsToTemplate(args, 'natuPopover');
 
     return {
       props: args,
       template: `
-        <button type="button" [natuButton] [natuTooltip]="tooltip" ${templateArgs}>Show tooltip</button>
-        <ng-template #tooltip>Tooltip text</ng-template>
+        <button type="button"
+          [natuButton]
+          [natuPopover]
+          [natuPopoverTitle]="'Title'"
+          [natuPopoverContent]="popover"
+          ${templateArgs}
+        >
+          Show popover
+        </button>
+        <ng-template #popover>Popover text</ng-template>
       `,
     };
   },
-} satisfies Meta<NatuTooltipDirective>;
+} satisfies Meta<NatuPopoverDirective>;
 
 export default meta;
-type Story = StoryObj<NatuTooltipDirective>;
+type Story = StoryObj<NatuPopoverDirective>;
 
 export const Default: Story = {};
 
 export const Nested: Story = {
   render: (args) => {
-    const templateArgs = aliasedArgsToTemplate(args, 'natuTooltip');
+    const templateArgs = aliasedArgsToTemplate(args, 'natuPopover');
 
     return {
       props: args,
       template: `
-        <button type="button" [natuButton] [natuTooltip]="tooltip" ${templateArgs}>Show tooltip</button>
+        <button type="button"
+          [natuButton]
+          [natuPopover]
+          [natuPopoverTitle]="'Title'"
+          [natuPopoverContent]="popover"
+          ${templateArgs}
+        >
+          Show popover
+        </button>
 
-        <ng-template #tooltip>
-          <button type="button" [natuButton] [natuTooltip]="nestedTooltip" ${templateArgs}>Show nested tooltip</button>
+        <ng-template #popover>
+          <button type="button"
+            [natuButton]
+            [natuPopover]
+            [natuPopoverTitle]="'Title'"
+            [natuPopoverContent]="nestedPopover" ${templateArgs}
+          >
+            Show nested popover
+          </button>
         </ng-template>
 
-        <ng-template #nestedTooltip>Nested tooltip text</ng-template>
+        <ng-template #nestedPopover>Nested popover text</ng-template>
       `,
     };
   },
@@ -62,7 +85,7 @@ export const Playground: Story = {
     componentWrapperDecorator((story) => `<div style="display: grid; gap: 10px">${story}</div>`),
   ],
   render: (args) => {
-    const templateArgs = aliasedArgsToTemplate(args, 'natuTooltip');
+    const templateArgs = aliasedArgsToTemplate(args, 'natuPopover');
 
     return {
       props: args,
@@ -86,8 +109,10 @@ export const Playground: Story = {
         <ng-template #button let-row="row" let-column="column" let-placement="placement">
           <button type="button"
             [natuButton]
-            [natuTooltip]="tooltip"
-            [natuTooltipPlacement]="placement"
+            [natuPopover]
+            [natuPopoverTitle]="placement"
+            [natuPopoverContent]="popover"
+            [natuPopoverPlacement]="placement"
             ${templateArgs}
             [style.width.px]="100"
             [style.grid-row]="row"
@@ -97,13 +122,10 @@ export const Playground: Story = {
           </button>
         </ng-template>
 
-        <ng-template #tooltip let-placement="placement">
+        <ng-template #popover>
           <div>
-            <div>{{placement}} tooltip example</div>
-            <div>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id iaculis.
               In hac habitasse platea dictumst.
-            </div>
           </div>
         </ng-template>
       `,

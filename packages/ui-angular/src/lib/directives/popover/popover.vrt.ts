@@ -1,21 +1,21 @@
 import { VrtScenario, createVrtStorybookScenarios } from '@natu/vrt';
 import { test } from '@playwright/test';
-import { defaultVrtVariants } from '../../vrt/variants';
+import { defaultVrtVariants } from '../../../vrt/variants';
 
 const scenarios: VrtScenario[] = [
   {
     story: 'default',
     onMount: async (page) => {
-      await page.getByRole('button', { name: 'Show tooltip' }).hover();
-      await page.getByRole('tooltip', { name: 'Tooltip text' }).waitFor({ state: 'visible' });
+      await page.getByRole('button', { name: 'Show popover' }).click();
+      await page.getByRole('dialog').getByText('Popover text').waitFor({ state: 'visible' });
     },
   },
 ];
 
 const testScenarios = createVrtStorybookScenarios({
   scenarios,
-  page: 'components-tooltip',
-  viewports: [{ name: 'custom', width: 200, height: 200 }],
+  page: 'components-popover',
+  viewports: [{ name: 'custom', width: 200, height: 400 }],
   variants: defaultVrtVariants,
 });
 

@@ -72,4 +72,4 @@ export const natuCardImports = [
   NatuCardHeaderIconDirective,
   NatuCardBodyComponent,
   NatuCardFooterComponent,
-];
+] as const;

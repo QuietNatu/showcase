@@ -27,8 +27,7 @@
       },
 
       base: { value: '{elevation.shadow.1}' },
-      overlay: { value: '{elevation.shadow.2}' },
-      toast: { value: '{elevation.shadow.4}' },
+      overlay: { value: '{elevation.shadow.4}' },
       tooltip: { value: '{elevation.shadow.6}' },
       modal: { value: '{elevation.shadow.8}' },
     },

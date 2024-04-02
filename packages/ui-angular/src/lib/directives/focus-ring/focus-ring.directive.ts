@@ -28,7 +28,7 @@ export class NatuFocusRingDirective {
   private getIsFocusVisible() {
     const isFocusVisible$ = this.focusMonitor
       .monitor(this.elementRef.nativeElement)
-      .pipe(map((origin) => origin === 'keyboard'));
+      .pipe(map((origin) => origin === 'keyboard' || origin === 'program'));
 
     return toSignal(isFocusVisible$, { initialValue: false });
   }

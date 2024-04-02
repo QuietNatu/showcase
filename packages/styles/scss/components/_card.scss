@@ -5,6 +5,7 @@
     @include utils.text-regular;
 
     background-color: var(--natu-color-surface-base);
+    border-radius: var(--natu-control-border-radius);
     display: flex;
     filter: var(--natu-elevation-shadow-base);
     flex-direction: column;

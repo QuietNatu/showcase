@@ -88,8 +88,8 @@ importers:
         specifier: 1.40.1
         version: 1.40.1
       '@solidjs/testing-library':
-        specifier: 0.8.6
-        version: 0.8.6(@solidjs/router@0.13.1)(solid-js@1.8.15)
+        specifier: 0.8.7
+        version: 0.8.7(solid-js@1.8.15)
       '@storybook/addon-a11y':
         specifier: 7.6.10
         version: 7.6.10
@@ -991,8 +991,8 @@ importers:
         specifier: 1.40.1
         version: 1.40.1
       '@solidjs/testing-library':
-        specifier: 0.8.6
-        version: 0.8.6(@solidjs/router@0.13.1)(solid-js@1.8.15)
+        specifier: 0.8.7
+        version: 0.8.7(solid-js@1.8.15)
       '@storybook/addon-a11y':
         specifier: 7.6.10
         version: 7.6.10
@@ -8112,22 +8112,16 @@ packages:
     resolution: {integrity: sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==}
     dev: true
 
-  /@solidjs/router@0.13.1(solid-js@1.8.15):
-    resolution: {integrity: sha512-Rz5Lf0ssWMuN+Wm2GFO0vwZoO/KSwYFSuCUzWrRAvje5M0ZYZrMk5FZxuzdJT+zg8KuqWJQlRALks5E0r+FjAA==}
-    peerDependencies:
-      solid-js: ^1.8.6
-    dependencies:
-      solid-js: 1.8.15
-    dev: true
-
-  /@solidjs/testing-library@0.8.6(@solidjs/router@0.13.1)(solid-js@1.8.15):
-    resolution: {integrity: sha512-MnDGfUw38SjE+lmCDZ44HeZq5WbDU7s/BTa7uvqv55GKatddoWiJmHanUAbuEtmwMdEv+fFQQzftkqrFXEn1BQ==}
+  /@solidjs/testing-library@0.8.7(solid-js@1.8.15):
+    resolution: {integrity: sha512-1Wl6Ewk+JyxQVzfG95KHa3H7hmCrdNcLigRgm0ih8fEBhbnVZakGoU2uizAWi5/8biwGwV9OQqW+bJO+nnJZ1Q==}
     engines: {node: '>= 14'}
     peerDependencies:
       '@solidjs/router': '>=0.9.0'
       solid-js: '>=1.0.0'
+    peerDependenciesMeta:
+      '@solidjs/router':
+        optional: true
     dependencies:
-      '@solidjs/router': 0.13.1(solid-js@1.8.15)
       '@testing-library/dom': 9.3.4
       solid-js: 1.8.15
     dev: true
@@ -19010,7 +19004,7 @@ packages:
   /regenerator-transform@0.15.2:
     resolution: {integrity: sha512-hfMp2BoF0qOk3uc5V20ALGDS2ddjQaLrdl7xrGXvAIow7qeWRM2VA2HuCHkUKk9slq3VwEwLNK3DFBqDfPGYtg==}
     dependencies:
-      '@babel/runtime': 7.24.0
+      '@babel/runtime': 7.24.1
     dev: true
 
   /regex-parser@2.3.0:

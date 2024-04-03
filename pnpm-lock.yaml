@@ -73,8 +73,8 @@ importers:
         specifier: 0.16.1
         version: 0.16.1(typescript@5.3.3)
       '@mswjs/interceptors':
-        specifier: 0.26.14
-        version: 0.26.14
+        specifier: 0.26.15
+        version: 0.26.15
       '@natu/eslint-config-solid':
         specifier: workspace:*
         version: link:../../packages/eslint-config-solid
@@ -5703,8 +5703,8 @@ packages:
       strict-event-emitter: 0.5.1
     dev: true
 
-  /@mswjs/interceptors@0.26.14:
-    resolution: {integrity: sha512-q4S8RGjOUzv3A3gCawuKkUEcNJXjdPaSqoRHFvuZPWQnc7yOw702iGBRDMJoBK+l0KSv9XN8YP5ek6duRzrpqw==}
+  /@mswjs/interceptors@0.26.15:
+    resolution: {integrity: sha512-HM47Lu1YFmnYHKMBynFfjCp0U/yRskHj/8QEJW0CBEPOlw8Gkmjfll+S9b8M7V5CNDw2/ciRxjjnWeaCiblSIQ==}
     engines: {node: '>=18'}
     dependencies:
       '@open-draft/deferred-promise': 2.2.0

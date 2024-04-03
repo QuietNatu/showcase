@@ -7,7 +7,7 @@ const scenarios: VrtScenario[] = [
     story: 'default',
     onMount: async (page) => {
       await page.getByRole('button', { name: 'Show tooltip' }).hover();
-      await page.getByRole('tooltip', { name: 'Tooltip Text' }).waitFor({ state: 'visible' });
+      await page.getByRole('tooltip', { name: 'Tooltip text' }).waitFor({ state: 'visible' });
     },
   },
 ];

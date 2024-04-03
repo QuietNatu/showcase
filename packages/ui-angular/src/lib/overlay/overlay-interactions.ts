@@ -70,13 +70,41 @@ export function useOverlayFocus() {
     filter(Boolean),
     switchMap((element) => focusMonitor.monitor(element)),
     filter((origin) => {
-      const isValidEvent = origin === 'keyboard' || (origin === null && document.hasFocus());
+      const isValidEvent =
+        origin === 'keyboard' || origin === 'program' || (origin === null && document.hasFocus());
       return !overlayService.isDisabled$() && isValidEvent;
     }),
     map((origin) => origin !== null),
   );
 
   registerEffect(effect$, (shouldOpen) => overlayService.changeOpen(shouldOpen));
+}
+
+/**
+ * Opens an overlay when it's reference element is clicked.
+ *
+ * Must be used in conjunction with {@link NatuOverlayService}.
+ */
+export function useOverlayClick() {
+  assertInInjectionContext(useOverlayClick);
+
+  const overlayService = inject(NatuOverlayService);
+
+  const referenceElement$ = toObservable(overlayService.referenceElement$).pipe(filter(Boolean));
+  const customButtonElement$ = referenceElement$.pipe(
+    filter((element) => element.tagName !== 'BUTTON'),
+  );
+
+  const click$ = referenceElement$.pipe(switchMap((element) => fromEvent(element, 'click')));
+
+  const customPress$ = customButtonElement$.pipe(
+    switchMap((element) => fromEvent<KeyboardEvent>(element, 'keydown')),
+    filter((event) => event.key === 'Enter' || event.key === ' '),
+  );
+
+  const effect$ = merge(click$, customPress$);
+
+  registerEffect(effect$, () => overlayService.changeOpen(true));
 }
 
 /**

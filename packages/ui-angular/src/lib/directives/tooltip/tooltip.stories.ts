@@ -51,7 +51,7 @@ export const Nested: Story = {
           <button type="button" [natuButton] [natuTooltip]="nestedTooltip" ${templateArgs}>Show nested tooltip</button>
         </ng-template>
 
-        <ng-template #nestedTooltip>Nested tooltip Text</ng-template>
+        <ng-template #nestedTooltip>Nested tooltip text</ng-template>
       `,
     };
   },

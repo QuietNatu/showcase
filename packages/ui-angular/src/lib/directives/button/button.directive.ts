@@ -46,12 +46,14 @@ export type NatuButtonVariants = VariantProps<typeof buttonVariants>;
   host: {
     '[class]': 'class$()',
     '[class.natu-button--disabled]': 'isDisabled',
+    '[class.natu-button--icon]': 'isIconButton',
     '[attr.aria-disabled]': 'isDisabled',
   },
   hostDirectives: [NatuFocusRingDirective],
 })
 export class NatuButtonDirective {
   @Input({ transform: booleanAttribute }) isDisabled = false;
+  @Input({ transform: booleanAttribute }) isIconButton = false;
 
   @Input() set variant(variant: NatuButtonVariants['variant']) {
     this.variant$.set(variant);
@@ -102,7 +104,7 @@ export class NatuButtonDirective {
   host: {
     role: 'button',
     '[class.natu-button--active]': 'isActive$()',
-    '[attr.tabindex]': '!disabled ? 0 : null',
+    '[attr.tabindex]': '0',
     // eslint-disable-next-line sonarjs/no-duplicate-string
     '(click)': '!isDisabled && natuButtonClick.emit($event)',
     '(keydown.enter)': '!isDisabled && natuButtonClick.emit($event)',
@@ -120,4 +122,4 @@ export class NatuA11yButtonDirective {
   readonly isActive$ = signal(false);
 }
 
-export const natuButtonImports = [NatuButtonDirective, NatuA11yButtonDirective];
+export const natuButtonImports = [NatuButtonDirective, NatuA11yButtonDirective] as const;

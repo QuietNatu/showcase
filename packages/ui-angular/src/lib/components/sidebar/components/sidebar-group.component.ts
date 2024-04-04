@@ -14,7 +14,12 @@ import { NatuSidebarItemComponent } from './sidebar-item.component';
 import { SvgIconComponent } from '@natu/assets';
 import { NatuSidebarService } from '../sidebar.service';
 import { createRandomUUID } from '@natu/utils';
-import { NatuFocusRingDirective, natuAccordionImports } from '../../../directives';
+import {
+  NatuFocusRingDirective,
+  NatuPopoverDirective,
+  NatuTooltipDirective,
+  natuAccordionImports,
+} from '../../../directives';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
 import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive';
@@ -32,6 +37,8 @@ import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive
     SvgIconComponent,
     natuAccordionImports,
     NgTemplateOutlet,
+    NatuPopoverDirective,
+    NatuTooltipDirective,
   ],
   host: {
     class: 'sidebar__group',
@@ -48,6 +55,7 @@ export class NatuSidebarGroupComponent {
   readonly isGroupPresent = signal(false);
   readonly isGroupHidden = signal(false);
   readonly isGroupExpanded = signal(false);
+  readonly isGroupPopoverOpen = signal(false);
 
   readonly iconTemplate = contentChild(NatuSidebarIconDirective, { read: TemplateRef });
   readonly labelTemplate = contentChild(NatuSidebarLabelDirective, { read: TemplateRef });

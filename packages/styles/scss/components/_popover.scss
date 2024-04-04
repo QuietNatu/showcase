@@ -7,12 +7,9 @@
 
   .natu-popover {
     display: block;
-    z-index: var(--natu-elevation-z-index-overlay);
-  }
-
-  .natu-popover__content {
     filter: var(--natu-elevation-shadow-overlay);
     max-width: utils.px-to-rem(360px);
+    z-index: var(--natu-elevation-z-index-overlay);
   }
 
   .natu-popover__arrow {

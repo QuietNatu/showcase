@@ -1,3 +1,5 @@
+<!-- TODO: check a11y -->
+
 @if (isExpanded()) {
   <ng-container
     natuAccordion
@@ -29,14 +31,31 @@
       </ul>
     </div>
   </ng-container>
-} @else {
-  <!-- TODO: popover only open with click -->
-
+} @else if (isGroupPopoverOpen()) {
   <button
     type="button"
     class="sidebar__item"
     natuFocusRing
     [natuFocusRingFocusVisibleClass]="'sidebar__item--focus'"
+    natuPopover
+    [natuPopoverTitle]="labelTemplate()"
+    [natuPopoverContent]="popoverGroupList"
+    [natuPopoverPlacement]="'right'"
+    [natuPopoverIsOpen]="isGroupPopoverOpen()"
+    (natuPopoverIsOpenChange)="isGroupPopoverOpen.set(false)"
+  >
+    <ng-template [ngTemplateOutlet]="iconContainerTemplate" />
+    <ng-template [ngTemplateOutlet]="labelContainerTemplate" />
+  </button>
+} @else {
+  <button
+    type="button"
+    class="sidebar__item"
+    natuFocusRing
+    [natuFocusRingFocusVisibleClass]="'sidebar__item--focus'"
+    [natuTooltip]="labelTemplate()"
+    [natuTooltipPlacement]="'right'"
+    (click)="isGroupPopoverOpen.set(true)"
   >
     <ng-template [ngTemplateOutlet]="iconContainerTemplate" />
     <ng-template [ngTemplateOutlet]="labelContainerTemplate" />
@@ -57,4 +76,17 @@
       <ng-template [ngTemplateOutlet]="labelTemplate" />
     </span>
   }
+</ng-template>
+
+<!-- TODO: put items in expanded mode -->
+<ng-template #popoverGroupList>
+  <div class="sidebar__group-list">
+    <ul class="sidebar__list">
+      @for (item of items(); track $index) {
+        <li class="sidebar__list-item">
+          <ng-template [ngTemplateOutlet]="item" />
+        </li>
+      }
+    </ul>
+  </div>
 </ng-template>

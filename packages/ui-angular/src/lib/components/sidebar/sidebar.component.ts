@@ -14,7 +14,7 @@ import { NatuSidebarItemDirective } from './directives/sidebar-item.directive';
 import { NatuSidebarLabelDirective } from './directives/sidebar-label.directive';
 import { NatuSidebarIconDirective } from './directives/sidebar-icon.directive';
 import { NatuSidebarGroupComponent } from './components/sidebar-group.component';
-import { NatuSidebarService } from './sidebar.service';
+import { NatuSidebarService } from './services/sidebar.service';
 import { registerEffect } from '../../utils/rxjs';
 import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
 import { caretDownIcon } from '@natu/assets/svg/caret-down';

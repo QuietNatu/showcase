@@ -12,7 +12,7 @@ import {
 import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 import { NatuSidebarItemComponent } from './sidebar-item.component';
 import { SvgIconComponent } from '@natu/assets';
-import { NatuSidebarService } from '../sidebar.service';
+import { NatuSidebarService } from '../services/sidebar.service';
 import { createRandomUUID } from '@natu/utils';
 import {
   NatuFocusRingDirective,

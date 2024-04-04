@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { controllableSignal } from '../../utils';
+import { controllableSignal } from '../../../utils';
 import { Subject } from 'rxjs';
 
 @Injectable()

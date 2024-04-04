@@ -6,16 +6,15 @@ import {
   TemplateRef,
   inject,
 } from '@angular/core';
-
 import { NgTemplateOutlet } from '@angular/common';
-import { NATU_IS_SIDEBAR_GROUP_POPOVER } from '../sidebar-tokens';
+import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popover.service';
 
 @Component({
   selector: 'natu-sidebar-group-popover-content',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NgTemplateOutlet],
-  providers: [{ provide: NATU_IS_SIDEBAR_GROUP_POPOVER, useValue: true }],
+  providers: [NatuSidebarGroupPopoverService],
   template: `
     <div class="sidebar__popover sidebar__group-list">
       <ul class="sidebar__list">

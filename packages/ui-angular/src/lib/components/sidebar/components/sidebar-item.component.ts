@@ -14,11 +14,11 @@ import {
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLinkActive } from '@angular/router';
 import { NatuFocusRingDirective, NatuTooltipDirective } from '../../../directives';
-import { NatuSidebarService } from '../sidebar.service';
+import { NatuSidebarService } from '../services/sidebar.service';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive';
 import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
-import { NATU_IS_SIDEBAR_GROUP_POPOVER } from '../sidebar-tokens';
+import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popover.service';
 
 /* TODO: document that sidebar already supports router links */
 @Component({
@@ -60,7 +60,9 @@ export class NatuSidebarItemComponent {
   private readonly tooltipDirective = inject(NatuTooltipDirective, { self: true });
   private readonly routerLinkActive = inject(RouterLinkActive, { optional: true, self: true });
   private readonly focusRingDirective = inject(NatuFocusRingDirective, { self: true });
-  private readonly isPopoverItem = inject(NATU_IS_SIDEBAR_GROUP_POPOVER, { optional: true });
+  private readonly sidebarGroupPopoverService = inject(NatuSidebarGroupPopoverService, {
+    optional: true,
+  });
 
   constructor() {
     this.isActive$ = this.getIsActive();
@@ -80,9 +82,11 @@ export class NatuSidebarItemComponent {
   }
 
   private registerSyncTooltip() {
+    const isPopoverItem = Boolean(this.sidebarGroupPopoverService);
+
     effect(() => {
       const labelTemplate = this.labelTemplate();
-      const isExpanded = this.isPopoverItem || this.sidebarService.isExpanded$();
+      const isExpanded = isPopoverItem || this.sidebarService.isExpanded$();
 
       untracked(() => {
         this.tooltipDirective.placement = 'right';

@@ -21,7 +21,6 @@ import { caretDownIcon } from '@natu/assets/svg/caret-down';
 import { caretRightIcon } from '@natu/assets/svg/caret-right';
 
 /* TODO: check i18n */
-/* TODO: group dropdown */
 
 @Component({
   selector: 'natu-sidebar',

@@ -78,15 +78,6 @@
   }
 </ng-template>
 
-<!-- TODO: put items in expanded mode -->
 <ng-template #popoverGroupList>
-  <div class="sidebar__group-list">
-    <ul class="sidebar__list">
-      @for (item of items(); track $index) {
-        <li class="sidebar__list-item">
-          <ng-template [ngTemplateOutlet]="item" />
-        </li>
-      }
-    </ul>
-  </div>
+  <natu-sidebar-group-popover-content [items]="items()" />
 </ng-template>

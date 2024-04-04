@@ -18,6 +18,7 @@ import { NatuSidebarService } from '../sidebar.service';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive';
 import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
+import { NATU_IS_SIDEBAR_GROUP_POPOVER } from '../sidebar-tokens';
 
 /* TODO: document that sidebar already supports router links */
 @Component({
@@ -59,6 +60,7 @@ export class NatuSidebarItemComponent {
   private readonly tooltipDirective = inject(NatuTooltipDirective, { self: true });
   private readonly routerLinkActive = inject(RouterLinkActive, { optional: true, self: true });
   private readonly focusRingDirective = inject(NatuFocusRingDirective, { self: true });
+  private readonly isPopoverItem = inject(NATU_IS_SIDEBAR_GROUP_POPOVER, { optional: true });
 
   constructor() {
     this.isActive$ = this.getIsActive();
@@ -80,7 +82,7 @@ export class NatuSidebarItemComponent {
   private registerSyncTooltip() {
     effect(() => {
       const labelTemplate = this.labelTemplate();
-      const isExpanded = this.sidebarService.isExpanded$();
+      const isExpanded = this.isPopoverItem || this.sidebarService.isExpanded$();
 
       untracked(() => {
         this.tooltipDirective.placement = 'right';

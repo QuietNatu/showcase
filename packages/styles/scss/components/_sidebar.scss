@@ -163,6 +163,10 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
     .sidebar--collapsed & {
       @include utils.visually-hidden;
     }
+
+    .sidebar__popover & {
+      margin-left: 0;
+    }
   }
 
   .sidebar__item-group-icon-area {

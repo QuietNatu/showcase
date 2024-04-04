@@ -23,6 +23,7 @@ import {
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
 import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive';
+import { NatuSidebarGroupPopoverContentComponent } from './sidebar-group-popover-content.component';
 
 @Component({
   selector: 'natu-sidebar-group',
@@ -39,6 +40,7 @@ import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive
     NgTemplateOutlet,
     NatuPopoverDirective,
     NatuTooltipDirective,
+    NatuSidebarGroupPopoverContentComponent,
   ],
   host: {
     class: 'sidebar__group',

@@ -5,7 +5,8 @@ import { NgTemplateOutlet } from '@angular/common';
 @Component({
   selector: 'natu-sidebar-actions',
   template: `
-    <nav>
+    <!-- TODO: add i18n once implemented -->
+    <nav [attr.aria-label]="'Main'">
       <ul class="sidebar__list">
         @for (item of items(); track $index) {
           <li class="sidebar__list-item">

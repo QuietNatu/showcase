@@ -3,9 +3,10 @@ import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 import { NgTemplateOutlet } from '@angular/common';
 
 @Component({
-  selector: 'natu-sidebar-footer-actions',
+  selector: 'natu-sidebar-secondary-actions',
   template: `
-    <nav>
+    <!-- TODO: add i18n once implemented -->
+    <nav [attr.aria-label]="'Secondary'">
       <ul class="sidebar__list">
         @for (item of items(); track $index) {
           <li class="sidebar__list-item">
@@ -19,6 +20,6 @@ import { NgTemplateOutlet } from '@angular/common';
   standalone: true,
   imports: [NgTemplateOutlet],
 })
-export class NatuSidebarFooterActionsComponent {
+export class NatuSidebarSecondaryActionsComponent {
   readonly items = contentChildren(NatuSidebarItemDirective, { read: TemplateRef });
 }

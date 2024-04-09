@@ -69,7 +69,7 @@ const meta = {
             </natu-sidebar-item>
           </natu-sidebar-actions>
 
-          <natu-sidebar-footer-actions>
+          <natu-sidebar-secondary-actions>
             <natu-sidebar-group *natuSidebarItem>
               <svg-icon *natuSidebarIcon [key]="'dna'" />
               <ng-template natuSidebarLabel>Group 1</ng-template>
@@ -92,7 +92,7 @@ const meta = {
               <svg-icon *natuSidebarIcon [key]="'rocket'" />
               <ng-template natuSidebarLabel>Item 1</ng-template>
             </natu-sidebar-item>
-          </natu-sidebar-footer-actions>
+          </natu-sidebar-secondary-actions>
         </natu-sidebar>
       `,
     };

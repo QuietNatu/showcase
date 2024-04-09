@@ -9,7 +9,7 @@ import {
 import { NatuSidebarHeaderComponent } from './components/sidebar-header.component';
 import { NatuSidebarItemComponent } from './components/sidebar-item.component';
 import { NatuSidebarActionsComponent } from './components/sidebar-actions.component';
-import { NatuSidebarFooterActionsComponent } from './components/sidebar-footer-actions.component';
+import { NatuSidebarSecondaryActionsComponent } from './components/sidebar-extra-actions.component';
 import { NatuSidebarItemDirective } from './directives/sidebar-item.directive';
 import { NatuSidebarLabelDirective } from './directives/sidebar-label.directive';
 import { NatuSidebarIconDirective } from './directives/sidebar-icon.directive';
@@ -19,8 +19,6 @@ import { registerEffect } from '../../utils/rxjs';
 import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
 import { caretDownIcon } from '@natu/assets/svg/caret-down';
 import { caretRightIcon } from '@natu/assets/svg/caret-right';
-
-/* TODO: check i18n */
 
 @Component({
   selector: 'natu-sidebar',
@@ -61,7 +59,7 @@ export const natuSidebarImports = [
   NatuSidebarComponent,
   NatuSidebarHeaderComponent,
   NatuSidebarActionsComponent,
-  NatuSidebarFooterActionsComponent,
+  NatuSidebarSecondaryActionsComponent,
   NatuSidebarItemComponent,
   NatuSidebarGroupComponent,
   NatuSidebarItemDirective,

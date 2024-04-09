@@ -1,5 +1,5 @@
 export * from './components/sidebar-actions.component';
-export * from './components/sidebar-footer-actions.component';
+export * from './components/sidebar-extra-actions.component';
 export * from './components/sidebar-group.component';
 export * from './components/sidebar-header.component';
 export * from './components/sidebar-item.component';

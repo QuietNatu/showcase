@@ -17,7 +17,6 @@ import { createRandomUUID } from '@natu/utils';
 import {
   NatuFocusRingDirective,
   NatuPopoverDirective,
-  NatuTooltipDirective,
   natuAccordionImports,
 } from '../../../directives';
 import { NgTemplateOutlet } from '@angular/common';
@@ -39,7 +38,6 @@ import { NatuSidebarGroupPopoverContentComponent } from './sidebar-group-popover
     natuAccordionImports,
     NgTemplateOutlet,
     NatuPopoverDirective,
-    NatuTooltipDirective,
     NatuSidebarGroupPopoverContentComponent,
   ],
   host: {
@@ -57,7 +55,6 @@ export class NatuSidebarGroupComponent {
   readonly isGroupPresent = signal(false);
   readonly isGroupHidden = signal(false);
   readonly isGroupExpanded = signal(false);
-  readonly isGroupPopoverOpen = signal(false);
 
   readonly iconTemplate = contentChild(NatuSidebarIconDirective, { read: TemplateRef });
   readonly labelTemplate = contentChild(NatuSidebarLabelDirective, { read: TemplateRef });

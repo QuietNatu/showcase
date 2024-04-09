@@ -182,6 +182,12 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
       transform: rotate(180deg);
     }
   }
+
+  .sidebar__item-collapsed-group-icon {
+    font-size: var(--natu-size-font-3);
+    position: absolute;
+    right: 0;
+  }
 }
 
 /* TODO: check animation times if too slow */

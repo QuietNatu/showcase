@@ -136,13 +136,12 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
     justify-content: center;
     width: $-sidebar-width;
 
-    /* TODO: popover dismiss button looks wrong */
-
     &--focus {
       @include utils.outline(var(--natu-color-outline-accent));
     }
 
-    .natu-sidebar--expanded & {
+    .natu-sidebar--expanded &,
+    .natu-sidebar__popover & {
       justify-content: start;
       width: 100%;
     }

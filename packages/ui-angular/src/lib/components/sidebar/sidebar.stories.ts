@@ -47,50 +47,50 @@ const meta = {
           <natu-sidebar-actions>
             <natu-sidebar-group *natuSidebarItem>
               <svg-icon *natuSidebarIcon [key]="'dna'" />
-              <ng-template natuSidebarLabel>Group 1</ng-template>
+              <ng-template natuSidebarLabel>Patients</ng-template>
 
               <a [natu-sidebar-item] *natuSidebarItem [routerLink]="[]" [routerLinkActive]>
-                <ng-template natuSidebarLabel>Link 1</ng-template>
+                <ng-template natuSidebarLabel>General Info</ng-template>
               </a>
 
               <a [natu-sidebar-item] *natuSidebarItem href="">
-                <ng-template natuSidebarLabel>Link 2</ng-template>
+                <ng-template natuSidebarLabel>Records</ng-template>
               </a>
             </natu-sidebar-group>
 
             <a [natu-sidebar-item] *natuSidebarItem href="">
               <svg-icon *natuSidebarIcon [key]="'mask-happy'" />
-              <ng-template natuSidebarLabel>Link 3</ng-template>
+              <ng-template natuSidebarLabel>Culture</ng-template>
             </a>
 
             <natu-sidebar-item *natuSidebarItem>
               <svg-icon *natuSidebarIcon [key]="'rocket'" />
-              <ng-template natuSidebarLabel>Item 1</ng-template>
+              <ng-template natuSidebarLabel>Activities</ng-template>
             </natu-sidebar-item>
           </natu-sidebar-actions>
 
           <natu-sidebar-secondary-actions>
             <natu-sidebar-group *natuSidebarItem>
               <svg-icon *natuSidebarIcon [key]="'dna'" />
-              <ng-template natuSidebarLabel>Group 1</ng-template>
+              <ng-template natuSidebarLabel>Patients</ng-template>
 
               <a [natu-sidebar-item] *natuSidebarItem href="">
-                <ng-template natuSidebarLabel>Link 1</ng-template>
+                <ng-template natuSidebarLabel>General Info</ng-template>
               </a>
 
               <a [natu-sidebar-item] *natuSidebarItem href="">
-                <ng-template natuSidebarLabel>Link 2</ng-template>
+                <ng-template natuSidebarLabel>Records</ng-template>
               </a>
             </natu-sidebar-group>
 
             <a [natu-sidebar-item] *natuSidebarItem href="">
               <svg-icon *natuSidebarIcon [key]="'mask-happy'" />
-              <ng-template natuSidebarLabel>Link 3</ng-template>
+              <ng-template natuSidebarLabel>Culture</ng-template>
             </a>
 
             <natu-sidebar-item *natuSidebarItem>
               <svg-icon *natuSidebarIcon [key]="'rocket'" />
-              <ng-template natuSidebarLabel>Item 1</ng-template>
+              <ng-template natuSidebarLabel>Activities</ng-template>
             </natu-sidebar-item>
           </natu-sidebar-secondary-actions>
         </natu-sidebar>

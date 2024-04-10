@@ -16,10 +16,10 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
   imports: [NgTemplateOutlet],
   providers: [NatuSidebarGroupPopoverService],
   template: `
-    <div class="sidebar__popover sidebar__group-list">
-      <ul class="sidebar__list">
+    <div class="natu-sidebar__popover natu-sidebar__group-list">
+      <ul class="natu-sidebar__list">
         @for (item of items; track $index) {
-          <li class="sidebar__list-item">
+          <li class="natu-sidebar__list-item">
             <ng-template [ngTemplateOutlet]="item" [ngTemplateOutletInjector]="injector" />
           </li>
         }

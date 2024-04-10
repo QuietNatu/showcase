@@ -29,9 +29,9 @@ import { dotsThreeVerticalIcon } from '@natu/assets/svg/dots-three-vertical';
   imports: [SvgIconComponent],
   providers: [NatuSidebarService],
   host: {
-    class: 'sidebar',
-    '[class.sidebar--expanded]': 'isExpanded$()',
-    '[class.sidebar--collapsed]': '!isExpanded$()',
+    class: 'natu-sidebar',
+    '[class.natu-sidebar--expanded]': 'isExpanded$()',
+    '[class.natu-sidebar--collapsed]': '!isExpanded$()',
   },
 })
 export class NatuSidebarComponent {

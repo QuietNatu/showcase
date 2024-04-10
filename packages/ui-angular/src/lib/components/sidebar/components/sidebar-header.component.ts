@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   host: {
-    class: 'sidebar__header',
+    class: 'natu-sidebar__header',
   },
 })
 export class NatuSidebarHeaderComponent {}

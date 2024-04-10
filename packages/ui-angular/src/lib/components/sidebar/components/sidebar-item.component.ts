@@ -25,13 +25,13 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
   selector: 'natu-sidebar-item,[natu-sidebar-item]',
   template: `
     @if (iconTemplate(); as iconTemplate) {
-      <span class="sidebar__item-icon">
+      <span class="natu-sidebar__item-icon">
         <ng-template [ngTemplateOutlet]="iconTemplate" />
       </span>
     }
 
     @if (labelTemplate(); as labelTemplate) {
-      <span class="sidebar__item-label">
+      <span class="natu-sidebar__item-label">
         <ng-template [ngTemplateOutlet]="labelTemplate" />
       </span>
     }
@@ -41,8 +41,8 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
   imports: [NgTemplateOutlet],
   host: {
     tabindex: '0',
-    class: 'sidebar__item',
-    '[class.sidebar__item--active]': 'isActive$()',
+    class: 'natu-sidebar__item',
+    '[class.natu-sidebar__item--active]': 'isActive$()',
   },
   hostDirectives: [NatuTooltipDirective, NatuFocusRingDirective],
 })
@@ -66,7 +66,7 @@ export class NatuSidebarItemComponent {
 
   constructor() {
     this.isActive$ = this.getIsActive();
-    this.focusRingDirective.focusVisibleClass = 'sidebar__item--focus';
+    this.focusRingDirective.focusVisibleClass = 'natu-sidebar__item--focus';
 
     this.registerSyncTooltip();
   }

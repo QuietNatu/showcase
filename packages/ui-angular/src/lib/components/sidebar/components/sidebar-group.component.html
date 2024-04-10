@@ -8,23 +8,23 @@
   >
     <button
       type="button"
-      class="sidebar__item"
+      class="natu-sidebar__item"
       natuAccordionTrigger
       natuFocusRing
-      [natuFocusRingFocusVisibleClass]="'sidebar__item--focus'"
+      [natuFocusRingFocusVisibleClass]="'natu-sidebar__item--focus'"
     >
       <ng-template [ngTemplateOutlet]="iconContainerTemplate" />
       <ng-template [ngTemplateOutlet]="labelContainerTemplate" />
 
-      <span class="sidebar__item-group-icon-area">
-        <svg-icon class="sidebar__item-group-icon" [key]="'caret-down'" />
+      <span class="natu-sidebar__item-group-icon-area">
+        <svg-icon class="natu-sidebar__item-group-icon" [key]="'caret-down'" />
       </span>
     </button>
 
-    <div #groupList class="sidebar__group-list" (transitionend)="handleGroupTransitionEnd()">
-      <ul natuAccordionContent class="sidebar__list">
+    <div #groupList class="natu-sidebar__group-list" (transitionend)="handleGroupTransitionEnd()">
+      <ul natuAccordionContent class="natu-sidebar__list">
         @for (item of items(); track $index) {
-          <li class="sidebar__list-item">
+          <li class="natu-sidebar__list-item">
             <ng-template [ngTemplateOutlet]="item" />
           </li>
         }
@@ -42,9 +42,9 @@
   >
     <button
       type="button"
-      class="sidebar__item"
+      class="natu-sidebar__item"
       natuFocusRing
-      [natuFocusRingFocusVisibleClass]="'sidebar__item--focus'"
+      [natuFocusRingFocusVisibleClass]="'natu-sidebar__item--focus'"
       [natuTooltip]="labelTemplate()"
       [natuTooltipIsDisabled]="isGroupPopoverOpen()"
       [natuTooltipPlacement]="'right'"
@@ -52,14 +52,14 @@
       <ng-template [ngTemplateOutlet]="iconContainerTemplate" />
       <ng-template [ngTemplateOutlet]="labelContainerTemplate" />
 
-      <svg-icon class="sidebar__item-collapsed-group-icon" [key]="'dots-three-vertical'" />
+      <svg-icon class="natu-sidebar__item-collapsed-group-icon" [key]="'dots-three-vertical'" />
     </button>
   </span>
 }
 
 <ng-template #iconContainerTemplate>
   @if (iconTemplate(); as iconTemplate) {
-    <span class="sidebar__item-icon">
+    <span class="natu-sidebar__item-icon">
       <ng-template [ngTemplateOutlet]="iconTemplate" />
     </span>
   }
@@ -67,7 +67,7 @@
 
 <ng-template #labelContainerTemplate>
   @if (labelTemplate(); as labelTemplate) {
-    <span class="sidebar__item-label">
+    <span class="natu-sidebar__item-label">
       <ng-template [ngTemplateOutlet]="labelTemplate" />
     </span>
   }

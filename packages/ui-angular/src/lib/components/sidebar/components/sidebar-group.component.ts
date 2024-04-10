@@ -43,10 +43,10 @@ import { NatuSidebarGroupPopoverContentComponent } from './sidebar-group-popover
     NatuSidebarGroupPopoverContentComponent,
   ],
   host: {
-    class: 'sidebar__group',
-    '[class.sidebar__group--expanded]': 'isGroupExpanded()',
-    '[class.sidebar__group--collapsed]': '!isGroupExpanded()',
-    '[class.sidebar__group--hidden]': '!isGroupHidden()',
+    class: 'natu-sidebar__group',
+    '[class.natu-sidebar__group--expanded]': 'isGroupExpanded()',
+    '[class.natu-sidebar__group--collapsed]': '!isGroupExpanded()',
+    '[class.natu-sidebar__group--hidden]': '!isGroupHidden()',
   },
 })
 export class NatuSidebarGroupComponent {

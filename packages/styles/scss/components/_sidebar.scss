@@ -21,9 +21,7 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
 }
 
 @layer sidebar {
-  /* TODO: missing prefix in classes */
-
-  .sidebar {
+  .natu-sidebar {
     background-color: var(--natu-color-surface-base);
     display: flex;
     flex-direction: column;
@@ -49,20 +47,20 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
     }
   }
 
-  .sidebar__header {
+  .natu-sidebar__header {
     align-items: center;
     display: flex;
     justify-content: center;
     margin-bottom: var(--natu-size-spacing-3);
   }
 
-  .sidebar__footer {
+  .natu-sidebar__footer {
     margin-top: auto;
     padding-top: var(--natu-size-spacing-3);
     position: relative;
   }
 
-  .sidebar__toggle-button {
+  .natu-sidebar__toggle-button {
     @include -item;
 
     font-size: var(--natu-size-font-6);
@@ -72,67 +70,67 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
       @include utils.outline(var(--natu-color-outline-accent));
     }
 
-    .sidebar--expanded & {
+    .natu-sidebar--expanded & {
       bottom: 0;
       position: absolute;
       right: 0;
     }
   }
 
-  .sidebar__toggle-button-icon {
+  .natu-sidebar__toggle-button-icon {
     transition: transform var(--natu-time-animation-slow) var(--natu-duration-standard);
 
-    .sidebar--expanded & {
+    .natu-sidebar--expanded & {
       transform: rotate(-180deg);
     }
   }
 
-  .sidebar__group {
+  .natu-sidebar__group {
     display: flex;
     flex-direction: column;
   }
 
-  .sidebar__group-list {
+  .natu-sidebar__group-list {
     /// https://dev.to/francescovetere/css-trick-transition-from-height-0-to-auto-21de
 
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows var(--natu-time-animation-slow) var(--natu-duration-standard);
 
-    .sidebar__group--expanded & {
+    .natu-sidebar__group--expanded & {
       grid-template-rows: 1fr;
     }
   }
 
-  .sidebar__list {
+  .natu-sidebar__list {
     align-items: start;
     flex-direction: column;
 
-    .sidebar__group & {
+    .natu-sidebar__group & {
       border-left: 1px solid var(--natu-color-border-neutral);
       margin-left: var(--natu-size-spacing-5);
     }
 
-    .sidebar__group--hidden & {
+    .natu-sidebar__group--hidden & {
       overflow: hidden;
     }
   }
 
-  .sidebar__list-item {
+  .natu-sidebar__list-item {
     width: 100%;
 
-    .sidebar--expanded .sidebar__footer &:last-child {
+    .natu-sidebar--expanded .natu-sidebar__footer &:last-child {
       // Make space for toggle button
       padding-right: $-sidebar-width;
     }
 
-    .sidebar--expanded .sidebar__footer .sidebar__list-item & {
+    .natu-sidebar--expanded .natu-sidebar__footer .natu-sidebar__list-item & {
       // Group items don't need to make space for toggle button
       padding-right: 0;
     }
   }
 
-  .sidebar__item {
+  .natu-sidebar__item {
     @include -item;
 
     justify-content: center;
@@ -148,45 +146,45 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
 
     /* TODO: active routerlink */
 
-    .sidebar--expanded & {
+    .natu-sidebar--expanded & {
       justify-content: start;
     }
   }
 
-  .sidebar__item-icon {
+  .natu-sidebar__item-icon {
     display: inline-flex;
     font-size: var(--natu-size-font-6);
   }
 
-  .sidebar__item-label {
+  .natu-sidebar__item-label {
     @include utils.ellipsis;
 
     margin-left: var(--natu-size-spacing-3);
 
-    .sidebar--collapsed & {
+    .natu-sidebar--collapsed & {
       @include utils.visually-hidden;
     }
 
-    .sidebar__popover & {
+    .natu-sidebar__popover & {
       margin-left: 0;
     }
   }
 
-  .sidebar__item-group-icon-area {
+  .natu-sidebar__item-group-icon-area {
     margin-left: auto;
     padding-left: var(--natu-size-spacing-3);
   }
 
-  .sidebar__item-group-icon {
+  .natu-sidebar__item-group-icon {
     font-size: var(--natu-size-font-5);
     transition: transform var(--natu-time-animation-slow) var(--natu-duration-standard);
 
-    .sidebar__group--expanded & {
+    .natu-sidebar__group--expanded & {
       transform: rotate(180deg);
     }
   }
 
-  .sidebar__item-collapsed-group-icon {
+  .natu-sidebar__item-collapsed-group-icon {
     font-size: var(--natu-size-font-3);
     position: absolute;
     right: 0;

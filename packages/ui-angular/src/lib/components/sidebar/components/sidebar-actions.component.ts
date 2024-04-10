@@ -7,9 +7,9 @@ import { NgTemplateOutlet } from '@angular/common';
   template: `
     <!-- TODO: add i18n once implemented -->
     <nav [attr.aria-label]="'Main'">
-      <ul class="sidebar__list">
+      <ul class="natu-sidebar__list">
         @for (item of items(); track $index) {
-          <li class="sidebar__list-item">
+          <li class="natu-sidebar__list-item">
             <ng-template [ngTemplateOutlet]="item" />
           </li>
         }
@@ -20,7 +20,7 @@ import { NgTemplateOutlet } from '@angular/common';
   standalone: true,
   imports: [NgTemplateOutlet],
   host: {
-    class: 'sidebar__body',
+    class: 'natu-sidebar__body',
   },
 })
 export class NatuSidebarActionsComponent {

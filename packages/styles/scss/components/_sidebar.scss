@@ -135,9 +135,12 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
   .sidebar__item {
     @include -item;
 
-    /* TODO: justify content change looks strange when transitioning */
-
     justify-content: center;
+    width: 100%;
+
+    /* TODO: popover dismiss button looks wrong */
+
+    /* TODO: justify content change looks strange when transitioning */
 
     &--focus {
       @include utils.outline(var(--natu-color-outline-accent));

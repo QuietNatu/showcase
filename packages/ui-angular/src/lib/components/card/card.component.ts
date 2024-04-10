@@ -15,7 +15,6 @@ import { xIcon } from '@natu/assets/svg/x';
 import { natuButtonImports } from '../../directives';
 import { NatuCardService } from './card.service';
 
-/* TODO: add tooltip overflow later */
 /* TODO: add i18n once implemented */
 
 @Component({

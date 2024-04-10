@@ -13,7 +13,6 @@ import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 import { NatuSidebarItemComponent } from './sidebar-item.component';
 import { SvgIconComponent } from '@natu/assets';
 import { NatuSidebarService } from '../services/sidebar.service';
-import { createRandomUUID } from '@natu/utils';
 import {
   NatuFocusRingDirective,
   NatuPopoverDirective,
@@ -51,7 +50,6 @@ import { NatuSidebarGroupPopoverContentComponent } from './sidebar-group-popover
 })
 export class NatuSidebarGroupComponent {
   readonly items = contentChildren(NatuSidebarItemDirective, { read: TemplateRef });
-  readonly id = `sidebar-group-${createRandomUUID()}`;
   readonly isExpanded;
 
   readonly isGroupPresent = signal(false);

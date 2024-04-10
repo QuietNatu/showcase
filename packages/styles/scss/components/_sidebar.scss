@@ -2,7 +2,6 @@
 
 $-sidebar-width: var(--natu-size-spacing-11);
 $-sidebar-width-expanded: utils.px-to-rem(240px);
-$-sidebar-item-icon-size: var(--natu-size-font-6);
 
 @mixin -item {
   @include utils.control;
@@ -134,8 +133,8 @@ $-sidebar-item-icon-size: var(--natu-size-font-6);
   .natu-sidebar__item {
     @include -item;
 
-    justify-content: start;
-    width: 100%;
+    justify-content: center;
+    width: $-sidebar-width;
 
     /* TODO: popover dismiss button looks wrong */
 
@@ -143,12 +142,9 @@ $-sidebar-item-icon-size: var(--natu-size-font-6);
       @include utils.outline(var(--natu-color-outline-accent));
     }
 
-    .natu-sidebar--collapsed & {
-      // Prevent awkward collapse / expand transition
-      padding: 0
-        calc(
-          (#{$-sidebar-width} - #{$-sidebar-item-icon-size}) / 2 - var(--natu-control-border-width)
-        );
+    .natu-sidebar--expanded & {
+      justify-content: start;
+      width: 100%;
     }
 
     /* TODO: active routerlink */
@@ -156,7 +152,7 @@ $-sidebar-item-icon-size: var(--natu-size-font-6);
 
   .natu-sidebar__item-icon {
     display: inline-flex;
-    font-size: $-sidebar-item-icon-size;
+    font-size: var(--natu-size-font-6);
   }
 
   .natu-sidebar__item-label {

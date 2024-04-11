@@ -7,14 +7,23 @@ import {
   applicationConfig,
 } from '@storybook/angular';
 import { NatuSidebarComponent, natuSidebarImports } from './sidebar.component';
-import { RouterLink, RouterLinkActive, provideRouter } from '@angular/router';
+import { Route, Router, RouterLink, RouterLinkActive, provideRouter } from '@angular/router';
 import { provideLocationMocks } from '@angular/common/testing';
 import { SvgIconComponent, provideSvgIcons } from '@natu/assets';
 import { dnaIcon } from '@natu/assets/svg/dna';
 import { maskHappyIcon } from '@natu/assets/svg/mask-happy';
 import { rocketIcon } from '@natu/assets/svg/rocket';
+import { NatuTestComponent } from '../../test';
+import { onStoryInitDecorator } from '../../stories';
 
-/* TODO: active item */
+/* TODO: remove routerlink active logic from sidebar? and add isActive input? */
+/* TODO: VRT */
+
+const routes: Route[] = [
+  { path: 'patients/info', component: NatuTestComponent },
+  { path: 'patients/records', component: NatuTestComponent },
+  { path: 'culture', component: NatuTestComponent },
+];
 
 const meta = {
   title: 'Components/Sidebar',
@@ -23,7 +32,7 @@ const meta = {
   decorators: [
     applicationConfig({
       providers: [
-        provideRouter([]),
+        provideRouter(routes),
         provideLocationMocks(),
         provideSvgIcons([dnaIcon, maskHappyIcon, rocketIcon]),
       ],
@@ -49,7 +58,7 @@ const meta = {
               <svg-icon *natuSidebarIcon [key]="'dna'" />
               <ng-template natuSidebarLabel>Patients</ng-template>
 
-              <a [natu-sidebar-item] *natuSidebarItem [routerLink]="[]" [routerLinkActive]>
+              <a [natu-sidebar-item] *natuSidebarItem href="">
                 <ng-template natuSidebarLabel>General Info</ng-template>
               </a>
 
@@ -58,7 +67,7 @@ const meta = {
               </a>
             </natu-sidebar-group>
 
-            <a [natu-sidebar-item] *natuSidebarItem href="">
+            <a [natu-sidebar-item] *natuSidebarItem [routerLink]="['/culture']" [routerLinkActive]>
               <svg-icon *natuSidebarIcon [key]="'mask-happy'" />
               <ng-template natuSidebarLabel>Culture</ng-template>
             </a>
@@ -105,6 +114,18 @@ type Story = StoryObj<NatuSidebarComponent>;
 export const Default: Story = {};
 
 export const Expanded: Story = {
+  args: {
+    defaultIsExpanded: true,
+  },
+};
+
+export const Active: Story = {
+  decorators: [onStoryInitDecorator((injector) => injector.get(Router).navigate(['/culture']))],
+};
+
+export const ActiveExpanded: Story = {
+  ...Active,
+
   args: {
     defaultIsExpanded: true,
   },

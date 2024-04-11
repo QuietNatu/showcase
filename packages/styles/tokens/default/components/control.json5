@@ -6,5 +6,6 @@
     'height-small': { value: '{size.spacing.7}' },
     'height-large': { value: '{size.spacing.11}' },
     padding: { value: 'calc({size.spacing.3} - {control.border-width})' },
+    'padding-borderless': { value: '{size.spacing.3}' },
   },
 }

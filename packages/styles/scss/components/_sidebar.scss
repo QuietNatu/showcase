@@ -4,7 +4,7 @@ $-sidebar-width: var(--natu-size-spacing-11);
 $-sidebar-width-expanded: utils.px-to-rem(240px);
 
 @mixin -item {
-  @include utils.control;
+  @include utils.control($hasBorder: false);
   @include utils.control--large;
   @include utils.text-label;
 
@@ -138,6 +138,27 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
 
     &--focus {
       @include utils.outline(var(--natu-color-outline-accent));
+
+      z-index: 2;
+    }
+
+    &--active {
+      background-color: var(--natu-color-surface-accent);
+      color: var(--natu-color-font-accent-active);
+
+      &:hover {
+        background-color: var(--natu-color-surface-accent-hover);
+      }
+
+      &::before {
+        background-color: var(--natu-color-surface-accent-strong-active);
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 2px;
+      }
     }
 
     .natu-sidebar--expanded &,

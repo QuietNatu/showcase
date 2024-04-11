@@ -77,7 +77,7 @@ export function useOverlayFocus() {
   const overlayService = inject(NatuOverlayService);
 
   const effect$ = toObservable(overlayService.referenceElement$).pipe(
-    filter(Boolean),
+    filter((element): element is HTMLElement => Boolean(element) && element instanceof HTMLElement),
     switchMap((element) => focusMonitor.monitor(element)),
     filter((origin) => {
       const isValidEvent =
@@ -160,6 +160,6 @@ export function useOverlayDismiss() {
   registerEffect(effect$, () => overlayService.changeOpen(false));
 }
 
-function isTargetOutsideElement(target: EventTarget | null, element: HTMLElement | null) {
+function isTargetOutsideElement(target: EventTarget | null, element: Element | null) {
   return Boolean(target && target instanceof Element && element && !element.contains(target));
 }

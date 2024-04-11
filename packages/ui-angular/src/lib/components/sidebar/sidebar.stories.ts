@@ -1,5 +1,4 @@
 import {
-  argsToTemplate,
   moduleMetadata,
   type Meta,
   type StoryObj,
@@ -15,9 +14,87 @@ import { maskHappyIcon } from '@natu/assets/svg/mask-happy';
 import { rocketIcon } from '@natu/assets/svg/rocket';
 import { NatuTestComponent } from '../../test';
 import { onStoryInitDecorator } from '../../stories';
+import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core';
 
-/* TODO: remove routerlink active logic from sidebar? and add isActive input? */
 /* TODO: VRT */
+
+@Component({
+  selector: 'natu-sidebar-story',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [natuSidebarImports, RouterLink, RouterLinkActive, SvgIconComponent],
+  template: `
+    <natu-sidebar [defaultIsExpanded]="defaultIsExpanded">
+      <natu-sidebar-header>
+        <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+          Example header
+        </div>
+      </natu-sidebar-header>
+
+      <natu-sidebar-actions>
+        <natu-sidebar-group *natuSidebarItem>
+          <svg-icon *natuSidebarIcon [key]="'dna'" />
+          <ng-template natuSidebarLabel>Patients</ng-template>
+
+          <a natu-sidebar-item *natuSidebarItem href="">
+            <ng-template natuSidebarLabel>General Info</ng-template>
+          </a>
+
+          <a natu-sidebar-item *natuSidebarItem href="">
+            <ng-template natuSidebarLabel>Records</ng-template>
+          </a>
+        </natu-sidebar-group>
+
+        <a
+          natu-sidebar-item
+          *natuSidebarItem
+          [isActive]="activeItem() === 'culture'"
+          [routerLink]="['/culture']"
+          routerLinkActive
+          (isActiveChange)="activeItem.set($event ? 'culture' : null)"
+        >
+          <svg-icon *natuSidebarIcon [key]="'mask-happy'" />
+          <ng-template natuSidebarLabel>Culture</ng-template>
+        </a>
+
+        <natu-sidebar-item *natuSidebarItem>
+          <svg-icon *natuSidebarIcon [key]="'rocket'" />
+          <ng-template natuSidebarLabel>Activities</ng-template>
+        </natu-sidebar-item>
+      </natu-sidebar-actions>
+
+      <natu-sidebar-secondary-actions>
+        <natu-sidebar-group *natuSidebarItem>
+          <svg-icon *natuSidebarIcon [key]="'dna'" />
+          <ng-template natuSidebarLabel>Patients</ng-template>
+
+          <a natu-sidebar-item *natuSidebarItem href="">
+            <ng-template natuSidebarLabel>General Info</ng-template>
+          </a>
+
+          <a natu-sidebar-item *natuSidebarItem href="">
+            <ng-template natuSidebarLabel>Records</ng-template>
+          </a>
+        </natu-sidebar-group>
+
+        <a natu-sidebar-item *natuSidebarItem href="">
+          <svg-icon *natuSidebarIcon [key]="'mask-happy'" />
+          <ng-template natuSidebarLabel>Culture</ng-template>
+        </a>
+
+        <natu-sidebar-item *natuSidebarItem>
+          <svg-icon *natuSidebarIcon [key]="'rocket'" />
+          <ng-template natuSidebarLabel>Activities</ng-template>
+        </natu-sidebar-item>
+      </natu-sidebar-secondary-actions>
+    </natu-sidebar>
+  `,
+})
+class NatuSidebarStoryComponent {
+  @Input() defaultIsExpanded?: boolean;
+
+  readonly activeItem = signal<string | null>(null);
+}
 
 const routes: Route[] = [
   { path: 'patients/info', component: NatuTestComponent },
@@ -27,7 +104,7 @@ const routes: Route[] = [
 
 const meta = {
   title: 'Components/Sidebar',
-  component: NatuSidebarComponent,
+  component: NatuSidebarStoryComponent,
   tags: ['autodocs'],
   decorators: [
     applicationConfig({
@@ -42,70 +119,6 @@ const meta = {
     }),
     componentWrapperDecorator((story) => `<div style="height: 500px">${story}</div>`),
   ],
-  render: (args) => {
-    const templateArgs = argsToTemplate(args);
-
-    return {
-      props: args,
-      template: `
-        <natu-sidebar ${templateArgs}>
-          <natu-sidebar-header>
-            <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Example header</div>
-          </natu-sidebar-header>
-
-          <natu-sidebar-actions>
-            <natu-sidebar-group *natuSidebarItem>
-              <svg-icon *natuSidebarIcon [key]="'dna'" />
-              <ng-template natuSidebarLabel>Patients</ng-template>
-
-              <a [natu-sidebar-item] *natuSidebarItem href="">
-                <ng-template natuSidebarLabel>General Info</ng-template>
-              </a>
-
-              <a [natu-sidebar-item] *natuSidebarItem href="">
-                <ng-template natuSidebarLabel>Records</ng-template>
-              </a>
-            </natu-sidebar-group>
-
-            <a [natu-sidebar-item] *natuSidebarItem [routerLink]="['/culture']" [routerLinkActive]>
-              <svg-icon *natuSidebarIcon [key]="'mask-happy'" />
-              <ng-template natuSidebarLabel>Culture</ng-template>
-            </a>
-
-            <natu-sidebar-item *natuSidebarItem>
-              <svg-icon *natuSidebarIcon [key]="'rocket'" />
-              <ng-template natuSidebarLabel>Activities</ng-template>
-            </natu-sidebar-item>
-          </natu-sidebar-actions>
-
-          <natu-sidebar-secondary-actions>
-            <natu-sidebar-group *natuSidebarItem>
-              <svg-icon *natuSidebarIcon [key]="'dna'" />
-              <ng-template natuSidebarLabel>Patients</ng-template>
-
-              <a [natu-sidebar-item] *natuSidebarItem href="">
-                <ng-template natuSidebarLabel>General Info</ng-template>
-              </a>
-
-              <a [natu-sidebar-item] *natuSidebarItem href="">
-                <ng-template natuSidebarLabel>Records</ng-template>
-              </a>
-            </natu-sidebar-group>
-
-            <a [natu-sidebar-item] *natuSidebarItem href="">
-              <svg-icon *natuSidebarIcon [key]="'mask-happy'" />
-              <ng-template natuSidebarLabel>Culture</ng-template>
-            </a>
-
-            <natu-sidebar-item *natuSidebarItem>
-              <svg-icon *natuSidebarIcon [key]="'rocket'" />
-              <ng-template natuSidebarLabel>Activities</ng-template>
-            </natu-sidebar-item>
-          </natu-sidebar-secondary-actions>
-        </natu-sidebar>
-      `,
-    };
-  },
 } satisfies Meta<NatuSidebarComponent>;
 
 export default meta;

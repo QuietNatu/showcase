@@ -2,17 +2,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  Signal,
   TemplateRef,
-  computed,
+  booleanAttribute,
   contentChild,
   effect,
   inject,
-  signal,
   untracked,
 } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { RouterLinkActive } from '@angular/router';
 import { NatuFocusRingDirective, NatuTooltipDirective } from '../../../directives';
 import { NatuSidebarService } from '../services/sidebar.service';
 import { NgTemplateOutlet } from '@angular/common';
@@ -42,43 +38,27 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
   host: {
     tabindex: '0',
     class: 'natu-sidebar__item',
-    '[class.natu-sidebar__item--active]': 'isActive$()',
+    '[class.natu-sidebar__item--active]': 'isActive',
   },
   hostDirectives: [NatuTooltipDirective, NatuFocusRingDirective],
 })
 export class NatuSidebarItemComponent {
-  @Input() set isActive(isActive: boolean | null | undefined) {
-    this.controlledIsActive$.set(isActive ?? null);
-  }
+  @Input({ transform: booleanAttribute }) isActive = false;
 
-  readonly isActive$;
   readonly iconTemplate = contentChild(NatuSidebarIconDirective, { read: TemplateRef });
   readonly labelTemplate = contentChild(NatuSidebarLabelDirective, { read: TemplateRef });
 
-  private readonly controlledIsActive$ = signal<boolean | null>(null);
   private readonly sidebarService = inject(NatuSidebarService);
   private readonly tooltipDirective = inject(NatuTooltipDirective, { self: true });
-  private readonly routerLinkActive = inject(RouterLinkActive, { optional: true, self: true });
   private readonly focusRingDirective = inject(NatuFocusRingDirective, { self: true });
   private readonly sidebarGroupPopoverService = inject(NatuSidebarGroupPopoverService, {
     optional: true,
   });
 
   constructor() {
-    this.isActive$ = this.getIsActive();
     this.focusRingDirective.focusVisibleClass = 'natu-sidebar__item--focus';
 
     this.registerSyncTooltip();
-  }
-
-  private getIsActive(): Signal<boolean> {
-    const routerIsActive$ = this.routerLinkActive
-      ? toSignal(this.routerLinkActive.isActiveChange, {
-          initialValue: this.routerLinkActive.isActive,
-        })
-      : null;
-
-    return computed(() => this.controlledIsActive$() ?? routerIsActive$?.() ?? false);
   }
 
   private registerSyncTooltip() {

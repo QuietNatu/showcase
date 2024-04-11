@@ -30,7 +30,7 @@
     </div>
   </ng-container>
 } @else {
-  <span
+  <ng-container
     natuPopover
     [natuPopoverTitle]="labelTemplate()"
     [natuPopoverContent]="popoverGroupList"
@@ -43,6 +43,7 @@
       class="natu-sidebar__item"
       natuFocusRing
       [natuFocusRingFocusVisibleClass]="'natu-sidebar__item--focus'"
+      natuPopoverReference
       [natuTooltip]="labelTemplate()"
       [natuTooltipIsDisabled]="isGroupPopoverOpen()"
       [natuTooltipPlacement]="'right'"
@@ -52,7 +53,7 @@
 
       <svg-icon class="natu-sidebar__item-collapsed-group-icon" [key]="'dots-three-vertical'" />
     </button>
-  </span>
+  </ng-container>
 }
 
 <ng-template #iconContainerTemplate>

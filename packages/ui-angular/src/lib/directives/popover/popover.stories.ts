@@ -4,7 +4,7 @@ import {
   moduleMetadata,
   componentWrapperDecorator,
 } from '@storybook/angular';
-import { NatuPopoverDirective } from './popover.directive';
+import { NatuPopoverDirective, natuPopoverImports } from './popover.directive';
 import { natuButtonImports } from '../button/button.directive';
 import { NgTemplateOutlet } from '@angular/common';
 import { aliasedArgsToTemplate } from '../../test';
@@ -16,7 +16,11 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-  decorators: [moduleMetadata({ imports: [natuButtonImports, NgTemplateOutlet] })],
+  decorators: [
+    moduleMetadata({
+      imports: [natuPopoverImports, natuButtonImports, NgTemplateOutlet],
+    }),
+  ],
   argTypes: {
     isOpen: { control: 'boolean' },
   },
@@ -75,6 +79,25 @@ export const Nested: Story = {
         </ng-template>
 
         <ng-template #nestedPopover>Nested popover text</ng-template>
+      `,
+    };
+  },
+};
+
+export const WithChildReference: Story = {
+  render: (args) => {
+    const templateArgs = aliasedArgsToTemplate(args, 'natuTooltip');
+
+    return {
+      props: args,
+      template: `
+        <ng-container natuPopover [natuPopoverTitle]="'Title'" [natuPopoverContent]="popover" ${templateArgs}>
+          <button type="button" natuButton natuPopoverReference>
+            Show popover
+          </button>
+        </ng-container>
+
+        <ng-template #popover>Popover text</ng-template>
       `,
     };
   },

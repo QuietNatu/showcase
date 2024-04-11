@@ -28,7 +28,7 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
     height: 100%;
     padding: var(--natu-size-spacing-3) 0;
     position: relative;
-    transition: width var(--natu-time-animation-slow) var(--natu-duration-standard);
+    transition: width var(--natu-time-animation-standard) var(--natu-duration-standard);
     width: $-sidebar-width;
 
     &::before {
@@ -78,7 +78,7 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
   }
 
   .natu-sidebar__toggle-button-icon {
-    transition: transform var(--natu-time-animation-slow) var(--natu-duration-standard);
+    transition: transform var(--natu-time-animation-standard) var(--natu-duration-standard);
 
     .natu-sidebar--expanded & {
       transform: rotate(-180deg);
@@ -95,7 +95,7 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
 
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows var(--natu-time-animation-slow) var(--natu-duration-standard);
+    transition: grid-template-rows var(--natu-time-animation-standard) var(--natu-duration-standard);
 
     .natu-sidebar__group--expanded & {
       grid-template-rows: 1fr;
@@ -166,8 +166,6 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
       justify-content: start;
       width: 100%;
     }
-
-    /* TODO: active routerlink */
   }
 
   .natu-sidebar__item-icon {
@@ -196,7 +194,7 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
 
   .natu-sidebar__item-group-icon {
     font-size: var(--natu-size-font-5);
-    transition: transform var(--natu-time-animation-slow) var(--natu-duration-standard);
+    transition: transform var(--natu-time-animation-standard) var(--natu-duration-standard);
 
     .natu-sidebar__group--expanded & {
       transform: rotate(180deg);
@@ -209,5 +207,3 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
     right: 0;
   }
 }
-
-/* TODO: check animation times if too slow */

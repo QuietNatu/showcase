@@ -16,8 +16,6 @@ import { NatuTestComponent } from '../../test';
 import { onStoryInitDecorator } from '../../stories';
 import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core';
 
-/* TODO: VRT */
-
 @Component({
   selector: 'natu-sidebar-story',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,7 +24,9 @@ import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core
   template: `
     <natu-sidebar [defaultIsExpanded]="defaultIsExpanded">
       <natu-sidebar-header>
-        <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+        <div
+          style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 0 0.5rem"
+        >
           Example header
         </div>
       </natu-sidebar-header>

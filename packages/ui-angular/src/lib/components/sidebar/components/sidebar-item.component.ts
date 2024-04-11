@@ -16,7 +16,6 @@ import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive
 import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
 import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popover.service';
 
-/* TODO: document that sidebar already supports router links */
 @Component({
   selector: 'natu-sidebar-item,[natu-sidebar-item]',
   template: `

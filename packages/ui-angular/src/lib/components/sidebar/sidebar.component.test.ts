@@ -1,6 +1,7 @@
 import { argsToTemplate } from '@storybook/angular';
 import { axe, render } from '../../test';
 import { NatuSidebarComponent, natuSidebarImports } from './sidebar.component';
+import { screen } from '@testing-library/angular';
 
 describe(`${NatuSidebarComponent.name} accessibility`, () => {
   const scenarios = [
@@ -17,10 +18,76 @@ describe(`${NatuSidebarComponent.name} accessibility`, () => {
   });
 });
 
-function setup(args: Partial<NatuSidebarComponent>) {
-  const templateArgs = argsToTemplate(args);
+describe(NatuSidebarComponent.name, () => {
+  it('is not expanded by default', async () => {
+    await setup();
 
-  return render(
+    expect(screen.getByRole('button', { name: 'Expand' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Collapse' })).not.toBeInTheDocument();
+  });
+
+  it('expands sidebar when button is clicked', async () => {
+    const { userEvent, isExpandedChangeSpy } = await setup();
+
+    await userEvent.click(screen.getByRole('button', { name: 'Expand' }));
+
+    expect(await screen.findByRole('button', { name: 'Collapse' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Expand' })).not.toBeInTheDocument();
+    expect(isExpandedChangeSpy).toHaveBeenCalledOnceWith(true);
+  });
+
+  it('collapses sidebar when button is clicked', async () => {
+    const { userEvent, isExpandedChangeSpy } = await setup();
+
+    await userEvent.click(screen.getByRole('button', { name: 'Expand' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Collapse' }));
+
+    expect(await screen.findByRole('button', { name: 'Expand' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Collapse' })).not.toBeInTheDocument();
+    expect(isExpandedChangeSpy).toHaveBeenCalledTimes(2);
+    expect(isExpandedChangeSpy.calls.argsFor(1)).toEqual([false]);
+  });
+
+  it('controls default sidebar expansion', async () => {
+    const { userEvent, isExpandedChangeSpy } = await setup({ defaultIsExpanded: true });
+
+    expect(await screen.findByRole('button', { name: 'Collapse' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Expand' })).not.toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole('button', { name: 'Collapse' }));
+
+    expect(await screen.findByRole('button', { name: 'Expand' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Collapse' })).not.toBeInTheDocument();
+    expect(isExpandedChangeSpy).toHaveBeenCalledOnceWith(false);
+  });
+
+  it('controls sidebar expansion', async () => {
+    const { userEvent, isExpandedChangeSpy } = await setup({ isExpanded: true });
+
+    expect(await screen.findByRole('button', { name: 'Collapse' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Expand' })).not.toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole('button', { name: 'Collapse' }));
+
+    expect(await screen.findByRole('button', { name: 'Collapse' })).toBeInTheDocument();
+    expect(isExpandedChangeSpy).toHaveBeenCalledOnceWith(false);
+  });
+
+  /* TODO: open group for collapsed and expanded */
+});
+
+async function setup(args: Partial<NatuSidebarComponent> = {}) {
+  // eslint-disable-next-line jasmine/no-unsafe-spy
+  const isExpandedChangeSpy = jasmine.createSpy();
+
+  const componentProperties = {
+    ...args,
+    isExpandedChange: isExpandedChangeSpy,
+  };
+
+  const templateArgs = argsToTemplate(componentProperties);
+
+  const view = await render(
     `
       <natu-sidebar ${templateArgs}>
         <natu-sidebar-header>Example header</natu-sidebar-header>
@@ -56,8 +123,10 @@ function setup(args: Partial<NatuSidebarComponent>) {
     {
       renderOptions: {
         imports: [natuSidebarImports],
-        componentProperties: args,
+        componentProperties,
       },
     },
   );
+
+  return { ...view, isExpandedChangeSpy };
 }

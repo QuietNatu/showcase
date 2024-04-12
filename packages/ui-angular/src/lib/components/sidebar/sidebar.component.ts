@@ -21,8 +21,6 @@ import { caretDownIcon } from '@natu/assets/svg/caret-down';
 import { caretRightIcon } from '@natu/assets/svg/caret-right';
 import { dotsThreeVerticalIcon } from '@natu/assets/svg/dots-three-vertical';
 
-/* TODO: test */
-
 @Component({
   selector: 'natu-sidebar',
   templateUrl: './sidebar.component.html',

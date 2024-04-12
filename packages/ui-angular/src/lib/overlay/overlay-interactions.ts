@@ -1,6 +1,16 @@
 import { assertInInjectionContext, inject } from '@angular/core';
 import { NatuOverlayService } from './overlay.service';
-import { EMPTY, filter, fromEvent, map, merge, switchMap, timer } from 'rxjs';
+import {
+  EMPTY,
+  asyncScheduler,
+  filter,
+  fromEvent,
+  map,
+  merge,
+  observeOn,
+  switchMap,
+  timer,
+} from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
 import { NatuPortalService } from '../portal';
@@ -67,7 +77,7 @@ export function useOverlayFocus() {
   const overlayService = inject(NatuOverlayService);
 
   const effect$ = toObservable(overlayService.referenceElement$).pipe(
-    filter(Boolean),
+    filter((element): element is HTMLElement => Boolean(element) && element instanceof HTMLElement),
     switchMap((element) => focusMonitor.monitor(element)),
     filter((origin) => {
       const isValidEvent =
@@ -100,6 +110,12 @@ export function useOverlayClick() {
   const customPress$ = customButtonElement$.pipe(
     switchMap((element) => fromEvent<KeyboardEvent>(element, 'keydown')),
     filter((event) => event.key === 'Enter' || event.key === ' '),
+    /**
+     * Delays Keydown event.
+     * Keydown event is triggered before a click event.
+     * If an overlay with focus trap is opened via keydown, a click event will be triggered on the newly focused element.
+     */
+    observeOn(asyncScheduler),
   );
 
   const effect$ = merge(click$, customPress$);
@@ -144,6 +160,6 @@ export function useOverlayDismiss() {
   registerEffect(effect$, () => overlayService.changeOpen(false));
 }
 
-function isTargetOutsideElement(target: EventTarget | null, element: HTMLElement | null) {
+function isTargetOutsideElement(target: EventTarget | null, element: Element | null) {
   return Boolean(target && target instanceof Element && element && !element.contains(target));
 }

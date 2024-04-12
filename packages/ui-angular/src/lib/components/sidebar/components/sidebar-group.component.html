@@ -1,0 +1,77 @@
+@if (isExpanded()) {
+  <ng-container
+    natuAccordion
+    [natuAccordionIsExpanded]="isGroupPresent()"
+    (natuAccordionIsExpandedChange)="handleGroupExpandedChange($event)"
+  >
+    <button
+      type="button"
+      class="natu-sidebar__item"
+      natuAccordionTrigger
+      natuFocusRing
+      [natuFocusRingFocusVisibleClass]="'natu-sidebar__item--focus'"
+    >
+      <ng-template [ngTemplateOutlet]="iconContainerTemplate" />
+      <ng-template [ngTemplateOutlet]="labelContainerTemplate" />
+
+      <span class="natu-sidebar__item-group-icon-area" aria-hidden="true">
+        <svg-icon class="natu-sidebar__item-group-icon" [key]="'caret-down'" />
+      </span>
+    </button>
+
+    <div #groupList class="natu-sidebar__group-list" (transitionend)="handleGroupTransitionEnd()">
+      <ul natuAccordionContent class="natu-sidebar__list">
+        @for (item of items(); track $index) {
+          <li class="natu-sidebar__list-item">
+            <ng-template [ngTemplateOutlet]="item" />
+          </li>
+        }
+      </ul>
+    </div>
+  </ng-container>
+} @else {
+  <ng-container
+    natuPopover
+    [natuPopoverTitle]="labelTemplate()"
+    [natuPopoverContent]="popoverGroupList"
+    [natuPopoverPlacement]="'right'"
+    [natuPopoverIsOpen]="isGroupPopoverOpen()"
+    (natuPopoverIsOpenChange)="isGroupPopoverOpen.set($event)"
+  >
+    <button
+      type="button"
+      class="natu-sidebar__item"
+      natuFocusRing
+      [natuFocusRingFocusVisibleClass]="'natu-sidebar__item--focus'"
+      natuPopoverReference
+      [natuTooltip]="labelTemplate()"
+      [natuTooltipIsDisabled]="isGroupPopoverOpen()"
+      [natuTooltipPlacement]="'right'"
+    >
+      <ng-template [ngTemplateOutlet]="iconContainerTemplate" />
+      <ng-template [ngTemplateOutlet]="labelContainerTemplate" />
+
+      <svg-icon class="natu-sidebar__item-collapsed-group-icon" [key]="'dots-three-vertical'" />
+    </button>
+  </ng-container>
+}
+
+<ng-template #iconContainerTemplate>
+  @if (iconTemplate(); as iconTemplate) {
+    <span class="natu-sidebar__item-icon" aria-hidden="true">
+      <ng-template [ngTemplateOutlet]="iconTemplate" />
+    </span>
+  }
+</ng-template>
+
+<ng-template #labelContainerTemplate>
+  @if (labelTemplate(); as labelTemplate) {
+    <span class="natu-sidebar__item-label">
+      <ng-template [ngTemplateOutlet]="labelTemplate" />
+    </span>
+  }
+</ng-template>
+
+<ng-template #popoverGroupList>
+  <natu-sidebar-group-popover-content [items]="items()" />
+</ng-template>

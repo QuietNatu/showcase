@@ -1,6 +1,7 @@
 import { screen, waitForElementToBeRemoved, within } from '@testing-library/angular';
-import { NatuPopoverDirective } from './popover.directive';
+import { NatuPopoverDirective, natuPopoverImports } from './popover.directive';
 import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
+import { NatuPopoverReferenceDirective } from './popover-reference.directive';
 
 describe(`${NatuPopoverDirective.name} accessibility`, () => {
   const scenarios = [
@@ -13,7 +14,7 @@ describe(`${NatuPopoverDirective.name} accessibility`, () => {
   scenarios.forEach(({ name, template }) => {
     it(`${name} has no accessibility violations`, async () => {
       const view = await render(template, {
-        renderOptions: { imports: [NatuPopoverDirective] },
+        renderOptions: { imports: [natuPopoverImports] },
       });
 
       expect(await axe(view.container)).toHaveNoViolations();
@@ -141,7 +142,7 @@ describe(NatuPopoverDirective.name, () => {
       `,
       {
         renderOptions: {
-          imports: [NatuPopoverDirective],
+          imports: [natuPopoverImports],
           componentProperties,
         },
       },
@@ -151,6 +152,24 @@ describe(NatuPopoverDirective.name, () => {
 
     expect(await within(popover).findByText('Title value: 2')).toBeInTheDocument();
     expect(await within(popover).findByText('Content value: 10')).toBeInTheDocument();
+  });
+
+  it(`supports setting reference element via ${NatuPopoverReferenceDirective.name}`, async () => {
+    const { userEvent } = await render(
+      `
+        <ng-container natuPopover [natuPopoverTitle]="'Example title'" [natuPopoverContent]="'Example content'">
+          <button type="button" natuPopoverReference>Trigger</button>
+        </ng-container>
+      `,
+      { renderOptions: { imports: [natuPopoverImports] } },
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: 'Trigger' }));
+
+    const popover = await screen.findByRole('dialog');
+
+    expect(popover).toBeInTheDocument();
+    expect(await within(popover).findByText('Example content')).toBeInTheDocument();
   });
 
   async function setup(props: Partial<NatuPopoverDirective> = {}) {
@@ -169,7 +188,7 @@ describe(NatuPopoverDirective.name, () => {
       `<button type="button" natuPopover [natuPopoverTitle]="'Example title'" [natuPopoverContent]="'Example content'" ${templateArgs}>Trigger</button>`,
       {
         renderOptions: {
-          imports: [NatuPopoverDirective],
+          imports: [natuPopoverImports],
           componentProperties: componentProperties,
         },
       },

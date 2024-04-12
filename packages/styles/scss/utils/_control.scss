@@ -1,18 +1,24 @@
 @use 'text';
 
-@mixin control {
+@mixin control($hasBorder: true) {
   @include text.text-label;
 
   align-items: center;
-  border: var(--natu-control-border-width) solid transparent;
   border-radius: var(--natu-control-border-radius);
   box-shadow: none;
   display: inline-flex;
   height: var(--natu-control-height);
   justify-content: center;
   outline: none;
-  padding: 0 var(--natu-control-padding);
   position: relative;
+
+  @if $hasBorder {
+    border: var(--natu-control-border-width) solid transparent;
+    padding: 0 var(--natu-control-padding);
+  } @else {
+    border: none;
+    padding: 0 var(--natu-control-padding-borderless);
+  }
 }
 
 @mixin control--small {
@@ -23,7 +29,12 @@
   height: var(--natu-control-height-large);
 }
 
-@mixin control--fluid {
+@mixin control--fluid($hasBorder: false) {
   height: auto;
-  padding: var(--natu-control-padding);
+
+  @if $hasBorder {
+    padding: var(--natu-control-padding);
+  } @else {
+    padding: var(--natu-control-padding-borderless);
+  }
 }

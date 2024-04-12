@@ -4,7 +4,7 @@ import {
   moduleMetadata,
   componentWrapperDecorator,
 } from '@storybook/angular';
-import { NatuTooltipDirective } from './tooltip.directive';
+import { NatuTooltipDirective, natuTooltipImports } from './tooltip.directive';
 import { natuButtonImports } from '../button/button.directive';
 import { NgTemplateOutlet } from '@angular/common';
 import { aliasedArgsToTemplate } from '../../test';
@@ -16,7 +16,9 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-  decorators: [moduleMetadata({ imports: [natuButtonImports, NgTemplateOutlet] })],
+  decorators: [
+    moduleMetadata({ imports: [natuTooltipImports, natuButtonImports, NgTemplateOutlet] }),
+  ],
   argTypes: {
     isOpen: { control: 'boolean' },
   },
@@ -52,6 +54,23 @@ export const Nested: Story = {
         </ng-template>
 
         <ng-template #nestedTooltip>Nested tooltip text</ng-template>
+      `,
+    };
+  },
+};
+
+export const WithChildReference: Story = {
+  render: (args) => {
+    const templateArgs = aliasedArgsToTemplate(args, 'natuTooltip');
+
+    return {
+      props: args,
+      template: `
+        <ng-container [natuTooltip]="tooltip" ${templateArgs}>
+          <button type="button" natuButton natuTooltipReference>Show tooltip</button>
+        </ng-container>
+
+        <ng-template #tooltip>Tooltip text</ng-template>
       `,
     };
   },

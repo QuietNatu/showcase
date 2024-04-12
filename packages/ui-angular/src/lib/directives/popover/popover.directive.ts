@@ -4,10 +4,11 @@ import {
   EventEmitter,
   Input,
   OnDestroy,
-  OnInit,
   Output,
+  Renderer2,
   TemplateRef,
   computed,
+  contentChild,
   effect,
   inject,
   untracked,
@@ -18,18 +19,14 @@ import { NatuPortalService } from '../../portal';
 import { useOverlayClick, useOverlayDismiss } from '../../overlay/overlay-interactions';
 import { registerEffect } from '../../utils/rxjs';
 import { NatuPopoverService } from './popover.service';
+import { NatuPopoverReferenceDirective } from './popover-reference.directive';
 
 @Directive({
   selector: '[natuPopover]',
   standalone: true,
   providers: [NatuOverlayService, NatuPortalService, NatuPopoverService],
-  host: {
-    '[attr.aria-haspopup]': "'dialog'",
-    '[attr.aria-expanded]': 'isMounted()',
-    '[attr.aria-controls]': 'floatingId()',
-  },
 })
-export class NatuPopoverDirective implements OnInit, OnDestroy {
+export class NatuPopoverDirective implements OnDestroy {
   // Should be required but cannot because of https://github.com/angular/angular/issues/50510
   /** Content that will be shown by the popover. */
   @Input({ alias: 'natuPopoverTitle' }) set title(
@@ -89,28 +86,26 @@ export class NatuPopoverDirective implements OnInit, OnDestroy {
   /** Controlled open state event emitter. */
   @Output('natuPopoverIsOpenChange') isOpenChange = new EventEmitter<boolean>();
 
-  readonly isMounted;
-  readonly floatingId;
-
   private readonly elementRef = inject(ElementRef);
+  private readonly renderer = inject(Renderer2);
   private readonly portalService = inject(NatuPortalService);
   private readonly overlayService = inject(NatuOverlayService);
   private readonly popoverService = inject(NatuPopoverService);
 
+  private readonly childReferenceRef = contentChild(NatuPopoverReferenceDirective, {
+    read: ElementRef,
+  });
+  private readonly referenceRef = computed(() => this.childReferenceRef() ?? this.elementRef);
+
   constructor() {
-    this.isMounted = this.overlayService.isMounted$;
-    this.floatingId = computed(() => `popover-${this.overlayService.floatingId}`);
+    this.overlayService.setHasTransitions(true);
 
     useOverlayClick();
     useOverlayDismiss();
 
+    this.registerManageReferenceElement();
     this.registerManageVisibility();
     registerEffect(this.overlayService.isOpenChange$, (isOpen) => this.isOpenChange.emit(isOpen));
-  }
-
-  ngOnInit(): void {
-    this.overlayService.setHasTransitions(true);
-    this.overlayService.setReferenceElement(this.elementRef);
   }
 
   ngOnDestroy(): void {
@@ -126,4 +121,33 @@ export class NatuPopoverDirective implements OnInit, OnDestroy {
       }
     });
   }
+
+  private registerManageReferenceElement() {
+    effect(() => {
+      const referenceRef = this.referenceRef();
+      untracked(() => this.overlayService.setReferenceElement(referenceRef));
+    });
+
+    effect(() => {
+      const referenceRef = this.referenceRef();
+
+      if (referenceRef) {
+        this.renderer.setAttribute(referenceRef.nativeElement, 'aria-haspopup', 'dialog');
+
+        this.renderer.setAttribute(
+          referenceRef.nativeElement,
+          'aria-expanded',
+          this.overlayService.isMounted$().toString(),
+        );
+
+        this.renderer.setAttribute(
+          referenceRef.nativeElement,
+          'aria-controls',
+          `popover-${this.overlayService.floatingId}`,
+        );
+      }
+    });
+  }
 }
+
+export const natuPopoverImports = [NatuPopoverDirective, NatuPopoverReferenceDirective] as const;

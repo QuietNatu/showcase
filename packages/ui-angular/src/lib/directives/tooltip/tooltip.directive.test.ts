@@ -1,6 +1,7 @@
 import { screen, waitForElementToBeRemoved } from '@testing-library/angular';
-import { NatuTooltipDirective } from './tooltip.directive';
+import { NatuTooltipDirective, natuTooltipImports } from './tooltip.directive';
 import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
+import { NatuTooltipReferenceDirective } from './tooltip-reference.directive';
 
 describe(`${NatuTooltipDirective.name} accessibility`, () => {
   const scenarios = [
@@ -13,7 +14,7 @@ describe(`${NatuTooltipDirective.name} accessibility`, () => {
   scenarios.forEach(({ name, template }) => {
     it(`${name} has no accessibility violations`, async () => {
       const view = await render(template, {
-        renderOptions: { imports: [NatuTooltipDirective] },
+        renderOptions: { imports: [natuTooltipImports] },
       });
 
       expect(await axe(view.container)).toHaveNoViolations();
@@ -187,6 +188,21 @@ describe(NatuTooltipDirective.name, () => {
     expect(await screen.findByRole('tooltip', { name: 'Current value: 10' })).toBeInTheDocument();
   });
 
+  it(`supports setting reference element via ${NatuTooltipReferenceDirective.name}`, async () => {
+    const { userEvent } = await render(
+      `
+        <ng-container natuTooltip="Example tooltip">
+          <button type="button" natuTooltipReference>Trigger</button>
+        </ng-container>
+      `,
+      { renderOptions: { imports: [natuTooltipImports] } },
+    );
+
+    await userEvent.hover(screen.getByRole('button', { name: 'Trigger' }));
+
+    expect(await screen.findByRole('tooltip', { name: 'Example tooltip' })).toBeInTheDocument();
+  });
+
   async function setup(props: Partial<NatuTooltipDirective> = {}) {
     // eslint-disable-next-line jasmine/no-unsafe-spy
     const isOpenChangeSpy = jasmine.createSpy();
@@ -203,7 +219,7 @@ describe(NatuTooltipDirective.name, () => {
       `<button type="button" natuTooltip="Example tooltip" ${templateArgs}>Trigger</button>`,
       {
         renderOptions: {
-          imports: [NatuTooltipDirective],
+          imports: [natuTooltipImports],
           componentProperties: componentProperties,
         },
       },

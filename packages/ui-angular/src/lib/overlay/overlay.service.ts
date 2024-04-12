@@ -96,7 +96,7 @@ export class NatuOverlayService {
   }
 
   /** Element that serves as the anchor for the position of the overlay. */
-  setReferenceElement(element: ElementRef<HTMLElement> | HTMLElement | null) {
+  setReferenceElement(element: ElementRef<Element> | Element | null) {
     this.floatingManager.setReferenceElement(element);
   }
 

@@ -3,7 +3,7 @@ import { NatuAccordionDirective, natuAccordionImports } from './accordion.direct
 import { aliasedArgsToTemplate } from '../../test';
 
 const meta = {
-  title: 'Components/Accordion',
+  title: 'Utils/Accordion',
   component: NatuAccordionDirective,
   tags: ['autodocs'],
   decorators: [moduleMetadata({ imports: [natuAccordionImports] })],

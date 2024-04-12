@@ -20,7 +20,7 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
   selector: 'natu-sidebar-item,[natu-sidebar-item]',
   template: `
     @if (iconTemplate(); as iconTemplate) {
-      <span class="natu-sidebar__item-icon">
+      <span class="natu-sidebar__item-icon" aria-hidden="true">
         <ng-template [ngTemplateOutlet]="iconTemplate" />
       </span>
     }

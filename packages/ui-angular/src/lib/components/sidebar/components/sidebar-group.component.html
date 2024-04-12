@@ -14,7 +14,7 @@
       <ng-template [ngTemplateOutlet]="iconContainerTemplate" />
       <ng-template [ngTemplateOutlet]="labelContainerTemplate" />
 
-      <span class="natu-sidebar__item-group-icon-area">
+      <span class="natu-sidebar__item-group-icon-area" aria-hidden="true">
         <svg-icon class="natu-sidebar__item-group-icon" [key]="'caret-down'" />
       </span>
     </button>
@@ -58,7 +58,7 @@
 
 <ng-template #iconContainerTemplate>
   @if (iconTemplate(); as iconTemplate) {
-    <span class="natu-sidebar__item-icon">
+    <span class="natu-sidebar__item-icon" aria-hidden="true">
       <ng-template [ngTemplateOutlet]="iconTemplate" />
     </span>
   }

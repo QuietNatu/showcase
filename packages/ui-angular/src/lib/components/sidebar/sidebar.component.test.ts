@@ -1,7 +1,7 @@
 import { argsToTemplate } from '@storybook/angular';
 import { axe, render } from '../../test';
 import { NatuSidebarComponent, natuSidebarImports } from './sidebar.component';
-import { screen } from '@testing-library/angular';
+import { screen, within } from '@testing-library/angular';
 
 describe(`${NatuSidebarComponent.name} accessibility`, () => {
   const scenarios = [
@@ -73,7 +73,28 @@ describe(NatuSidebarComponent.name, () => {
     expect(isExpandedChangeSpy).toHaveBeenCalledOnceWith(false);
   });
 
-  /* TODO: open group for collapsed and expanded */
+  it('shows subgroup items when a group is clicked in collapsed sidebar', async () => {
+    const { userEvent } = await setup();
+
+    await userEvent.click(await screen.findByRole('button', { name: 'Patients' }));
+
+    const popover = await screen.findByRole('dialog');
+
+    expect(popover).toBeInTheDocument();
+    expect(await within(popover).findByText('Patients')).toBeInTheDocument();
+    expect(await within(popover).findByRole('link', { name: 'General Info' })).toBeInTheDocument();
+  });
+
+  it('shows subgroup items when a group is clicked in expanded sidebar', async () => {
+    const { userEvent } = await setup({ isExpanded: true });
+
+    await userEvent.click(await screen.findByRole('button', { name: 'Patients' }));
+
+    const region = await screen.findByRole('region', { name: 'Patients' });
+
+    expect(region).toBeInTheDocument();
+    expect(await within(region).findByRole('link', { name: 'General Info' })).toBeInTheDocument();
+  });
 });
 
 async function setup(args: Partial<NatuSidebarComponent> = {}) {

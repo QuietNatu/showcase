@@ -90,8 +90,9 @@ function createViewportScenarios(
   variant?: string,
 ) {
   return viewports.map(({ name, ...viewport }) => {
-    const variantKey = variant ? `--${variant}` : '';
-    const id = `${options.page}--${scenario.story}${variantKey}--${name}`;
+    const id = [options.page, scenario.story, scenario.name, variant, name]
+      .filter(Boolean)
+      .join('--');
 
     return { ...options, ...scenario, id, url, viewport };
   });

@@ -66,7 +66,7 @@ import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core
       <natu-sidebar-secondary-actions>
         <natu-sidebar-group *natuSidebarItem>
           <svg-icon *natuSidebarIcon [key]="'dna'" />
-          <ng-template natuSidebarLabel>Patients</ng-template>
+          <ng-template natuSidebarLabel>Staff</ng-template>
 
           <a natu-sidebar-item *natuSidebarItem href="">
             <ng-template natuSidebarLabel>General Info</ng-template>

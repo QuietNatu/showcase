@@ -31,7 +31,7 @@ const testScenarios = createVrtStorybookScenarios({
 });
 
 testScenarios.forEach((scenario) => {
-  test.only(scenario.id, async ({ page }, testInfo) => {
+  test(scenario.id, async ({ page }, testInfo) => {
     await scenario.test(page, testInfo);
   });
 });

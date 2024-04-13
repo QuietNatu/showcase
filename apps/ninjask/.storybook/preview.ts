@@ -4,7 +4,6 @@ import { storyA11yConfig, storyThemeDecorator } from '@natu/ui-solid/stories';
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,

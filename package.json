@@ -45,5 +45,15 @@
     "stylelint-order": "6.0.4",
     "stylelint-scss": "6.0.0",
     "turbo": "1.13.2"
+  },
+  "msw": {
+    "workerDirectory": [
+      "apps/ninjask/public",
+      "apps/rotom/src",
+      "apps/smeargle/public"
+    ]
+  },
+  "dependencies": {
+    "msw": "2.2.13"
   }
 }

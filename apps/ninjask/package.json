@@ -47,7 +47,7 @@
     "cross-env": "7.0.3",
     "http-server": "14.1.1",
     "jsdom": "23.2.0",
-    "msw": "2.0.11",
+    "msw": "2.2.13",
     "source-map-explorer": "2.5.3",
     "storybook": "^8.0.8",
     "storybook-solidjs": "^1.0.0-beta.2",
@@ -58,8 +58,5 @@
     "vite-plugin-solid": "2.8.0",
     "vite-tsconfig-paths": "4.2.3",
     "vitest": "1.2.0"
-  },
-  "msw": {
-    "workerDirectory": "public"
   }
 }

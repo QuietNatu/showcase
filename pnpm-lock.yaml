@@ -276,8 +276,8 @@ importers:
         specifier: 8.0.8
         version: 8.0.8(vitest@1.2.0)
       '@testing-library/angular':
-        specifier: 15.1.0
-        version: 15.1.0(@angular/common@17.3.4)(@angular/core@17.3.4)(@angular/platform-browser@17.3.4)(@angular/router@17.3.4)
+        specifier: 15.2.0
+        version: 15.2.0(@angular/common@17.3.4)(@angular/core@17.3.4)(@angular/platform-browser@17.3.4)(@angular/router@17.3.4)
       '@testing-library/jasmine-dom':
         specifier: 1.3.3
         version: 1.3.3
@@ -761,8 +761,8 @@ importers:
         specifier: 8.0.8
         version: 8.0.8(vitest@1.2.0)
       '@testing-library/angular':
-        specifier: 15.1.0
-        version: 15.1.0(@angular/common@17.3.4)(@angular/core@17.3.4)(@angular/platform-browser@17.3.4)(@angular/router@17.3.4)
+        specifier: 15.2.0
+        version: 15.2.0(@angular/common@17.3.4)(@angular/core@17.3.4)(@angular/platform-browser@17.3.4)(@angular/router@17.3.4)
       '@testing-library/jasmine-dom':
         specifier: 1.3.3
         version: 1.3.3
@@ -8584,8 +8584,8 @@ packages:
       '@swc/counter': 0.1.3
     dev: true
 
-  /@testing-library/angular@15.1.0(@angular/common@17.3.4)(@angular/core@17.3.4)(@angular/platform-browser@17.3.4)(@angular/router@17.3.4):
-    resolution: {integrity: sha512-Fn4zsmM+adDL6mWCgnldesg6gU2F6Ql4s8odsjrpAqZCwg1weXJ4i+vb3PVfggvmtC5aUOwc3FVm43qk4LyAWQ==}
+  /@testing-library/angular@15.2.0(@angular/common@17.3.4)(@angular/core@17.3.4)(@angular/platform-browser@17.3.4)(@angular/router@17.3.4):
+    resolution: {integrity: sha512-FqLMyS8FYYR/6FOSZrmUW7NCFIYSYZyg2MFd8S5PZcUNdfoPRaNY6nEmeuyoiQn6IveKUKCH3vTfOIeI16nxHg==}
     peerDependencies:
       '@angular/common': '>= 17.0.0'
       '@angular/core': '>= 17.0.0'

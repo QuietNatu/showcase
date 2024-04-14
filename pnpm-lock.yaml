@@ -268,7 +268,7 @@ importers:
         version: 8.0.8(react@18.2.0)
       '@storybook/angular':
         specifier: 8.0.8
-        version: 8.0.8(@angular-devkit/architect@0.1703.3)(@angular-devkit/build-angular@17.3.4)(@angular-devkit/core@17.3.3)(@angular/cli@17.3.4)(@angular/common@17.3.4)(@angular/compiler-cli@17.3.4)(@angular/compiler@17.3.4)(@angular/core@17.3.4)(@angular/forms@17.3.4)(@angular/platform-browser-dynamic@17.3.4)(@angular/platform-browser@17.3.4)(esbuild@0.20.2)(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.1)(typescript@5.4.3)(zone.js@0.14.4)
+        version: 8.0.8(@angular-devkit/architect@0.1703.4)(@angular-devkit/build-angular@17.3.4)(@angular-devkit/core@17.3.4)(@angular/cli@17.3.4)(@angular/common@17.3.4)(@angular/compiler-cli@17.3.4)(@angular/compiler@17.3.4)(@angular/core@17.3.4)(@angular/forms@17.3.4)(@angular/platform-browser-dynamic@17.3.4)(@angular/platform-browser@17.3.4)(esbuild@0.20.2)(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.1)(typescript@5.4.3)(zone.js@0.14.4)
       '@storybook/blocks':
         specifier: 8.0.8
         version: 8.0.8(@types/react@18.2.59)(react-dom@18.2.0)(react@18.2.0)
@@ -680,8 +680,8 @@ importers:
         specifier: 17.3.4
         version: 17.3.4(@angular/core@17.3.4)
       '@angular/cdk':
-        specifier: 17.3.3
-        version: 17.3.3(@angular/common@17.3.4)(@angular/core@17.3.4)(rxjs@7.8.1)
+        specifier: 17.3.4
+        version: 17.3.4(@angular/common@17.3.4)(@angular/core@17.3.4)(rxjs@7.8.1)
       '@angular/cli':
         specifier: 17.3.4
         version: 17.3.4
@@ -753,7 +753,7 @@ importers:
         version: 8.0.8(react@18.2.0)
       '@storybook/angular':
         specifier: 8.0.8
-        version: 8.0.8(@angular-devkit/architect@0.1703.3)(@angular-devkit/build-angular@17.3.4)(@angular-devkit/core@17.3.3)(@angular/cli@17.3.4)(@angular/common@17.3.4)(@angular/compiler-cli@17.3.4)(@angular/compiler@17.3.4)(@angular/core@17.3.4)(@angular/forms@17.3.4)(@angular/platform-browser-dynamic@17.3.4)(@angular/platform-browser@17.3.4)(esbuild@0.20.2)(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.1)(typescript@5.4.3)(zone.js@0.14.4)
+        version: 8.0.8(@angular-devkit/architect@0.1703.4)(@angular-devkit/build-angular@17.3.4)(@angular-devkit/core@17.3.4)(@angular/cli@17.3.4)(@angular/common@17.3.4)(@angular/compiler-cli@17.3.4)(@angular/compiler@17.3.4)(@angular/core@17.3.4)(@angular/forms@17.3.4)(@angular/platform-browser-dynamic@17.3.4)(@angular/platform-browser@17.3.4)(esbuild@0.20.2)(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.1)(typescript@5.4.3)(zone.js@0.14.4)
       '@storybook/blocks':
         specifier: 8.0.8
         version: 8.0.8(@types/react@18.2.59)(react-dom@18.2.0)(react@18.2.0)
@@ -1110,16 +1110,6 @@ packages:
       '@jridgewell/trace-mapping': 0.3.25
     dev: true
 
-  /@angular-devkit/architect@0.1703.3:
-    resolution: {integrity: sha512-BKbdigCjmspqxOxSIQuWgPZzpyuKqZoTBDh0jDeLcAmvPsuxCgIWbsExI4OQ0CyusnQ+XT0IT39q8B9rvF56cg==}
-    engines: {node: ^18.13.0 || >=20.9.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
-    dependencies:
-      '@angular-devkit/core': 17.3.3
-      rxjs: 7.8.1
-    transitivePeerDependencies:
-      - chokidar
-    dev: true
-
   /@angular-devkit/architect@0.1703.4:
     resolution: {integrity: sha512-o+XCMOiMh8tmQGEwcxjAj2/lmUVT7CGSUAM31ydDomVOFFw4CnBvsoyKqQNRC+/AUXvovb2dCegQl/lTAnrwOg==}
     engines: {node: ^18.13.0 || >=20.9.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
@@ -1422,23 +1412,6 @@ packages:
       source-map: 0.7.4
     dev: true
 
-  /@angular-devkit/core@17.3.3:
-    resolution: {integrity: sha512-J22Sh3M7rj8Ar3iEs20ko5wgC3DE7vWfYZNdimt2IJiS4J7BEX8R3Awf+TRt+6AN3NFm3/xe1Sz4yvDh3FvNFg==}
-    engines: {node: ^18.13.0 || >=20.9.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
-    peerDependencies:
-      chokidar: ^3.5.2
-    peerDependenciesMeta:
-      chokidar:
-        optional: true
-    dependencies:
-      ajv: 8.12.0
-      ajv-formats: 2.1.1(ajv@8.12.0)
-      jsonc-parser: 3.2.1
-      picomatch: 4.0.1
-      rxjs: 7.8.1
-      source-map: 0.7.4
-    dev: true
-
   /@angular-devkit/core@17.3.4:
     resolution: {integrity: sha512-vE69/Db555NTRPh+LUFO3rAQBbv7QGrK59F7chRggDZKamtCq/FfhEg2O+0BXQnUitOQN6WgQ79+payFYWyCCg==}
     engines: {node: ^18.13.0 || >=20.9.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
@@ -1587,8 +1560,8 @@ packages:
       '@angular/core': 17.3.4(rxjs@7.8.1)(zone.js@0.14.4)
       tslib: 2.6.2
 
-  /@angular/cdk@17.3.3(@angular/common@17.3.4)(@angular/core@17.3.4)(rxjs@7.8.1):
-    resolution: {integrity: sha512-hfS9pwaNE6CTZqP3FBh9tZPbuf//bDqZ5IpMzscfDFrwX8ycxBiI3znH/rFSf9l1rL0OQGoqWWNVfJCT+RrukA==}
+  /@angular/cdk@17.3.4(@angular/common@17.3.4)(@angular/core@17.3.4)(rxjs@7.8.1):
+    resolution: {integrity: sha512-/wbKUbc0YC3HGE2TCgW7D07Q99PZ/5uoRvMyWw0/wHa8VLNavXZPecbvtyLs//3HnqoCMSUFE7E2Mrd7jAWfcA==}
     peerDependencies:
       '@angular/common': ^17.0.0 || ^18.0.0
       '@angular/core': ^17.0.0 || ^18.0.0
@@ -7530,7 +7503,7 @@ packages:
       memoizerific: 1.11.3
     dev: true
 
-  /@storybook/angular@8.0.8(@angular-devkit/architect@0.1703.3)(@angular-devkit/build-angular@17.3.4)(@angular-devkit/core@17.3.3)(@angular/cli@17.3.4)(@angular/common@17.3.4)(@angular/compiler-cli@17.3.4)(@angular/compiler@17.3.4)(@angular/core@17.3.4)(@angular/forms@17.3.4)(@angular/platform-browser-dynamic@17.3.4)(@angular/platform-browser@17.3.4)(esbuild@0.20.2)(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.1)(typescript@5.4.3)(zone.js@0.14.4):
+  /@storybook/angular@8.0.8(@angular-devkit/architect@0.1703.4)(@angular-devkit/build-angular@17.3.4)(@angular-devkit/core@17.3.4)(@angular/cli@17.3.4)(@angular/common@17.3.4)(@angular/compiler-cli@17.3.4)(@angular/compiler@17.3.4)(@angular/core@17.3.4)(@angular/forms@17.3.4)(@angular/platform-browser-dynamic@17.3.4)(@angular/platform-browser@17.3.4)(esbuild@0.20.2)(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.1)(typescript@5.4.3)(zone.js@0.14.4):
     resolution: {integrity: sha512-vDKbq2fZ5rWTGUHOhLBnCw5YKZWdFzgOEUIC8FKDfGV8ThYeTbQ+SbwcRHQl6TqYdHmKrWx7BJ7u41f2eq0xbA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
@@ -7552,9 +7525,9 @@ packages:
       '@angular/cli':
         optional: true
     dependencies:
-      '@angular-devkit/architect': 0.1703.3
+      '@angular-devkit/architect': 0.1703.4
       '@angular-devkit/build-angular': 17.3.4(@angular/compiler-cli@17.3.4)(@angular/service-worker@17.3.4)(@types/node@20.11.20)(karma@6.4.3)(typescript@5.4.3)
-      '@angular-devkit/core': 17.3.3
+      '@angular-devkit/core': 17.3.4
       '@angular/cli': 17.3.4
       '@angular/common': 17.3.4(@angular/core@17.3.4)(rxjs@7.8.1)
       '@angular/compiler': 17.3.4(@angular/core@17.3.4)

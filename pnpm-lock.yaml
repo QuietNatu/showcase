@@ -22,8 +22,8 @@ importers:
         specifier: 2.2.3
         version: 2.2.3
       '@playwright/test':
-        specifier: 1.40.1
-        version: 1.40.1
+        specifier: 1.43.0
+        version: 1.43.0
       dependency-cruiser:
         specifier: 16.0.0
         version: 16.0.0
@@ -89,8 +89,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/vrt
       '@playwright/test':
-        specifier: 1.40.1
-        version: 1.40.1
+        specifier: 1.43.0
+        version: 1.43.0
       '@solidjs/testing-library':
         specifier: 0.8.7
         version: 0.8.7(solid-js@1.8.16)
@@ -249,8 +249,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/vrt
       '@playwright/test':
-        specifier: 1.40.1
-        version: 1.40.1
+        specifier: 1.43.0
+        version: 1.43.0
       '@storybook/addon-a11y':
         specifier: 8.0.8
         version: 8.0.8
@@ -370,8 +370,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/vrt
       '@playwright/test':
-        specifier: 1.40.1
-        version: 1.40.1
+        specifier: 1.43.0
+        version: 1.43.0
       '@storybook/addon-a11y':
         specifier: 8.0.8
         version: 8.0.8
@@ -734,8 +734,8 @@ importers:
         specifier: workspace:*
         version: link:../vrt
       '@playwright/test':
-        specifier: 1.40.1
-        version: 1.40.1
+        specifier: 1.43.0
+        version: 1.43.0
       '@storybook/addon-a11y':
         specifier: 8.0.8
         version: 8.0.8
@@ -857,8 +857,8 @@ importers:
         specifier: workspace:*
         version: link:../vrt
       '@playwright/test':
-        specifier: 1.40.1
-        version: 1.40.1
+        specifier: 1.43.0
+        version: 1.43.0
       '@radix-ui/react-slot':
         specifier: 1.0.2
         version: 1.0.2(@types/react@18.2.59)(react@18.2.0)
@@ -974,8 +974,8 @@ importers:
         specifier: workspace:*
         version: link:../vrt
       '@playwright/test':
-        specifier: 1.40.1
-        version: 1.40.1
+        specifier: 1.43.0
+        version: 1.43.0
       '@solidjs/testing-library':
         specifier: 0.8.7
         version: 0.8.7(solid-js@1.8.16)
@@ -1082,8 +1082,8 @@ importers:
         specifier: workspace:*
         version: link:../tsconfig
       '@playwright/test':
-        specifier: 1.40.1
-        version: 1.40.1
+        specifier: 1.43.0
+        version: 1.43.0
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -5773,12 +5773,12 @@ packages:
     dev: true
     optional: true
 
-  /@playwright/test@1.40.1:
-    resolution: {integrity: sha512-EaaawMTOeEItCRvfmkI9v6rBkF1svM8wjl/YPRrg2N2Wmp+4qJYkWtJsbew1szfKKDm6fPLy4YAanBhIlf9dWw==}
+  /@playwright/test@1.43.0:
+    resolution: {integrity: sha512-Ebw0+MCqoYflop7wVKj711ccbNlrwTBCtjY5rlbiY9kHL2bCYxq+qltK6uPsVBGGAOb033H2VO0YobcQVxoW7Q==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
-      playwright: 1.40.1
+      playwright: 1.43.0
     dev: true
 
   /@radix-ui/react-compose-refs@1.0.1(@types/react@18.2.59)(react@18.2.0):
@@ -17062,18 +17062,18 @@ packages:
       pathe: 1.1.2
     dev: true
 
-  /playwright-core@1.40.1:
-    resolution: {integrity: sha512-+hkOycxPiV534c4HhpfX6yrlawqVUzITRKwHAmYfmsVreltEl6fAZJ3DPfLMOODw0H3s1Itd6MDCWmP1fl/QvQ==}
+  /playwright-core@1.43.0:
+    resolution: {integrity: sha512-iWFjyBUH97+pUFiyTqSLd8cDMMOS0r2ZYz2qEsPjH8/bX++sbIJT35MSwKnp1r/OQBAqC5XO99xFbJ9XClhf4w==}
     engines: {node: '>=16'}
     hasBin: true
     dev: true
 
-  /playwright@1.40.1:
-    resolution: {integrity: sha512-2eHI7IioIpQ0bS1Ovg/HszsN/XKNwEG1kbzSDDmADpclKc7CyqkHw7Mg2JCz/bbCxg25QUPcjksoMW7JcIFQmw==}
+  /playwright@1.43.0:
+    resolution: {integrity: sha512-SiOKHbVjTSf6wHuGCbqrEyzlm6qvXcv7mENP+OZon1I07brfZLGdfWV0l/efAzVx7TF3Z45ov1gPEkku9q25YQ==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
-      playwright-core: 1.40.1
+      playwright-core: 1.43.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true

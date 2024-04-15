@@ -99,7 +99,7 @@ importers:
         version: 8.0.8
       '@storybook/addon-essentials':
         specifier: 8.0.8
-        version: 8.0.8(@types/react@18.2.77)(react-dom@18.2.0)(react@18.2.0)
+        version: 8.0.8(@types/react@18.2.59)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-interactions':
         specifier: 8.0.8
         version: 8.0.8(vitest@1.2.0)
@@ -108,7 +108,7 @@ importers:
         version: 8.0.8(react@18.2.0)
       '@storybook/blocks':
         specifier: 8.0.8
-        version: 8.0.8(@types/react@18.2.77)(react-dom@18.2.0)(react@18.2.0)
+        version: 8.0.8(@types/react@18.2.59)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/test':
         specifier: 8.0.8
         version: 8.0.8(vitest@1.2.0)
@@ -654,8 +654,8 @@ importers:
         specifier: 5.0.5
         version: 5.0.5
       style-dictionary:
-        specifier: 4.0.0-prerelease.15
-        version: 4.0.0-prerelease.15
+        specifier: 4.0.0-prerelease.25
+        version: 4.0.0-prerelease.25
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -744,7 +744,7 @@ importers:
         version: 8.0.8
       '@storybook/addon-essentials':
         specifier: 8.0.8
-        version: 8.0.8(@types/react@18.2.77)(react-dom@18.2.0)(react@18.2.0)
+        version: 8.0.8(@types/react@18.2.59)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-interactions':
         specifier: 8.0.8
         version: 8.0.8(vitest@1.2.0)
@@ -756,7 +756,7 @@ importers:
         version: 8.0.8(@angular-devkit/architect@0.1703.4)(@angular-devkit/build-angular@17.3.4)(@angular-devkit/core@17.3.4)(@angular/cli@17.3.4)(@angular/common@17.3.4)(@angular/compiler-cli@17.3.4)(@angular/compiler@17.3.4)(@angular/core@17.3.4)(@angular/forms@17.3.4)(@angular/platform-browser-dynamic@17.3.4)(@angular/platform-browser@17.3.4)(esbuild@0.20.2)(react-dom@18.2.0)(react@18.2.0)(rxjs@7.8.1)(typescript@5.4.3)(zone.js@0.14.4)
       '@storybook/blocks':
         specifier: 8.0.8
-        version: 8.0.8(@types/react@18.2.77)(react-dom@18.2.0)(react@18.2.0)
+        version: 8.0.8(@types/react@18.2.59)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/test':
         specifier: 8.0.8
         version: 8.0.8(vitest@1.2.0)
@@ -984,7 +984,7 @@ importers:
         version: 8.0.8
       '@storybook/addon-essentials':
         specifier: 8.0.8
-        version: 8.0.8(@types/react@18.2.77)(react-dom@18.2.0)(react@18.2.0)
+        version: 8.0.8(@types/react@18.2.59)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-interactions':
         specifier: 8.0.8
         version: 8.0.8(vitest@1.2.0)
@@ -993,7 +993,7 @@ importers:
         version: 8.0.8(react@18.2.0)
       '@storybook/blocks':
         specifier: 8.0.8
-        version: 8.0.8(@types/react@18.2.77)(react-dom@18.2.0)(react@18.2.0)
+        version: 8.0.8(@types/react@18.2.59)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/test':
         specifier: 8.0.8
         version: 8.0.8(vitest@1.2.0)
@@ -4118,15 +4118,14 @@ packages:
       url: 0.11.3
     dev: true
 
-  /@bundled-es-modules/memfs@4.2.3:
-    resolution: {integrity: sha512-staos4ByDNS0Ikx2fHYMgluoDdbN5yEpB1hobjDkU7b946+NXAik50pLhWWZ/JC3wXqYW4B00ul1tNxgDz4TOQ==}
+  /@bundled-es-modules/memfs@4.8.1:
+    resolution: {integrity: sha512-9BodQuihWm3XJGKYuV/vXckK8Tkf9EDiT/au1NJeFUyBMe7EMYRtOqL9eLzrjqJSDJUFoGwQFHvraFHwR8cysQ==}
     dependencies:
       assert: 2.1.0
       buffer: 6.0.3
       events: 3.3.0
       memfs: 4.8.1
       path: 0.12.7
-      process: 0.11.10
       stream: 0.0.2
       util: 0.12.5
     dev: true
@@ -18995,15 +18994,15 @@ packages:
       through: 2.3.8
     dev: true
 
-  /style-dictionary@4.0.0-prerelease.15:
-    resolution: {integrity: sha512-kZ0qi0BClVsfh06+z/622VRKTcYdUvgSD6j1C/x50/Vvo2ndi/rcjyyTNmmwyqPMHp4lVgZ9BTUx0Mr9/+mzhA==}
+  /style-dictionary@4.0.0-prerelease.25:
+    resolution: {integrity: sha512-1dqKBBSvGbXPH2WFLUqqZBrmLnuNyXRkUOG1SEGJ0vDVrx+o4guOcx5aIBI9sLz2pyL7B8Yo0r4FizltFPi9WA==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     requiresBuild: true
     dependencies:
       '@bundled-es-modules/deepmerge': 4.3.1
       '@bundled-es-modules/glob': 10.3.13
-      '@bundled-es-modules/memfs': 4.2.3
+      '@bundled-es-modules/memfs': 4.8.1
       chalk: 5.3.0
       change-case: 5.4.3
       commander: 8.3.0

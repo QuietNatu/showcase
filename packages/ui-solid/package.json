@@ -39,7 +39,7 @@
     "@natu/tsconfig": "workspace:*",
     "@natu/utils": "workspace:*",
     "@natu/vrt": "workspace:*",
-    "@playwright/test": "1.43.0",
+    "@playwright/test": "1.43.1",
     "@solidjs/testing-library": "0.8.7",
     "@storybook/addon-a11y": "8.0.8",
     "@storybook/addon-essentials": "8.0.8",
@@ -49,8 +49,8 @@
     "@storybook/test": "8.0.8",
     "@testing-library/jest-dom": "6.4.2",
     "@testing-library/user-event": "14.5.2",
-    "@vitejs/plugin-react-swc": "3.5.0",
-    "@vitest/coverage-v8": "1.2.0",
+    "@vitejs/plugin-react-swc": "3.6.0",
+    "@vitest/coverage-v8": "1.5.0",
     "axe-core": "4.9.0",
     "cross-env": "7.0.3",
     "http-server": "14.1.1",
@@ -60,9 +60,9 @@
     "storybook-solidjs": "1.0.0-beta.2",
     "storybook-solidjs-vite": "1.0.0-beta.2",
     "typescript": "5.3.3",
-    "vite": "5.0.11",
+    "vite": "5.2.8",
     "vite-plugin-solid": "2.8.0",
-    "vitest": "1.2.0",
+    "vitest": "1.5.0",
     "vitest-axe": "0.1.0"
   }
 }

@@ -36,11 +36,4 @@
   h4 {
     @include utils.title-xs;
   }
-
-  svg {
-    display: inline-block;
-    fill: currentcolor;
-    height: 1em;
-    width: 1em;
-  }
 }

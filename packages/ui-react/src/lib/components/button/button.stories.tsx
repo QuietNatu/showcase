@@ -77,7 +77,7 @@ export const CustomElementDisabled: SlottedStory = {
 export const IconButton: UnslottedStory = {
   args: {
     isIconButton: true,
-    children: <RocketIcon />,
+    children: <RocketIcon className="natu-svg-icon" />,
   },
 };
 

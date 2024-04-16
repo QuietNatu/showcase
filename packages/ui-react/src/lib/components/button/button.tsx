@@ -36,6 +36,7 @@ type ElementProps = Omit<
 
 interface CommonProps extends ElementProps {
   isDisabled?: boolean;
+  isIconButton?: boolean;
   variant?: NatuButtonVariants['variant'];
   size?: NatuButtonVariants['size'];
 
@@ -58,8 +59,17 @@ export type NatuButtonProps = NatuButtonUnslottedProps | NatuButtonSlottedProps;
 
 export const NatuButton = forwardRef<HTMLButtonElement, NatuButtonProps>(
   function NatuButton(props, forwardedRef) {
-    const { asChild, children, className, isDisabled, onPress, variant, size, ...buttonProps } =
-      props;
+    const {
+      asChild,
+      children,
+      className,
+      isDisabled,
+      isIconButton,
+      onPress,
+      variant,
+      size,
+      ...buttonProps
+    } = props;
 
     const ref = useObjectRef(forwardedRef);
     const Component = asChild ? Slot : 'button';
@@ -82,6 +92,7 @@ export const NatuButton = forwardRef<HTMLButtonElement, NatuButtonProps>(
             'natu-button--disabled': isDisabled,
             'natu-button--focus': isFocusVisible && !isDisabled,
             'natu-button--active': asChild && isPressed,
+            'natu-button--icon': isIconButton,
           },
           className,
         )}

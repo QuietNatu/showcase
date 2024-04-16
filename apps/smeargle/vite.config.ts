@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react-swc';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
+import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -12,7 +13,19 @@ export default defineConfig(({ mode }) => {
   const isE2e = env.VITE_E2E === 'true';
 
   return {
-    plugins: [react(), tsconfigPaths(), VitePWA(isE2e ? { injectRegister: null } : pwaOptions)],
+    plugins: [
+      react(),
+      tsconfigPaths(),
+      svgr({
+        svgrOptions: {
+          ref: true,
+          svgoConfig: {
+            plugins: ['removeDimensions', 'cleanupAttrs'],
+          },
+        },
+      }),
+      VitePWA(isE2e ? { injectRegister: null } : pwaOptions),
+    ],
 
     build: {
       target: browserslistToEsbuild(),

@@ -2,11 +2,22 @@
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
+import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig(({}) => {
   return {
-    plugins: [react()],
+    plugins: [
+      react(),
+      svgr({
+        svgrOptions: {
+          ref: true,
+          svgoConfig: {
+            plugins: ['removeDimensions', 'cleanupAttrs'],
+          },
+        },
+      }),
+    ],
 
     test: {
       globals: true,
@@ -31,6 +42,7 @@ export default defineConfig(({}) => {
           '**/*.vrt.*',
           '**/index.*',
           'src/lib/test',
+          'src/vite-env.d.ts',
           'src/lib/stories',
         ],
         reporter: ['lcov', 'text-summary'],

@@ -21,10 +21,10 @@
   "devDependencies": {
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
-    "@vitest/coverage-v8": "1.2.0",
+    "@vitest/coverage-v8": "1.5.0",
     "jsdom": "23.2.0",
     "typescript": "5.3.3",
     "vite": "5.2.8",
-    "vitest": "1.2.0"
+    "vitest": "1.5.0"
   }
 }

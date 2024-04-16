@@ -19,7 +19,7 @@
   "devDependencies": {
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
-    "@playwright/test": "1.43.0",
+    "@playwright/test": "1.43.1",
     "typescript": "5.3.3"
   }
 }

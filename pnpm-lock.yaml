@@ -77,8 +77,8 @@ importers:
         specifier: 0.16.1
         version: 0.16.1(typescript@5.3.3)
       '@mswjs/interceptors':
-        specifier: 0.26.15
-        version: 0.26.15
+        specifier: 0.27.2
+        version: 0.27.2
       '@natu/eslint-config-solid':
         specifier: workspace:*
         version: link:../../packages/eslint-config-solid
@@ -524,8 +524,8 @@ importers:
         specifier: 0.8.0
         version: 0.8.0(eslint@8.57.0)(typescript@5.4.3)
       eslint-plugin-testing-library:
-        specifier: 6.2.0
-        version: 6.2.0(eslint@8.57.0)(typescript@5.4.3)
+        specifier: 6.2.2
+        version: 6.2.2(eslint@8.57.0)(typescript@5.4.3)
       eslint-plugin-unused-imports:
         specifier: 3.1.0
         version: 3.1.0(@typescript-eslint/eslint-plugin@6.18.1)(eslint@8.57.0)
@@ -579,8 +579,8 @@ importers:
         specifier: 0.8.0
         version: 0.8.0(eslint@8.57.0)(typescript@5.3.3)
       eslint-plugin-testing-library:
-        specifier: 6.2.0
-        version: 6.2.0(eslint@8.57.0)(typescript@5.3.3)
+        specifier: 6.2.2
+        version: 6.2.2(eslint@8.57.0)(typescript@5.3.3)
       eslint-plugin-unused-imports:
         specifier: 3.1.0
         version: 3.1.0(@typescript-eslint/eslint-plugin@6.18.1)(eslint@8.57.0)
@@ -631,8 +631,8 @@ importers:
         specifier: 0.8.0
         version: 0.8.0(eslint@8.57.0)(typescript@5.3.3)
       eslint-plugin-testing-library:
-        specifier: 6.2.0
-        version: 6.2.0(eslint@8.57.0)(typescript@5.3.3)
+        specifier: 6.2.2
+        version: 6.2.2(eslint@8.57.0)(typescript@5.3.3)
       eslint-plugin-unused-imports:
         specifier: 3.1.0
         version: 3.1.0(@typescript-eslint/eslint-plugin@6.18.1)(eslint@8.57.0)
@@ -5476,6 +5476,18 @@ packages:
       is-node-process: 1.2.0
       outvariant: 1.4.2
       strict-event-emitter: 0.5.1
+
+  /@mswjs/interceptors@0.27.2:
+    resolution: {integrity: sha512-mE6PhwcoW70EX8+h+Y/4dLfHk33GFt/y5PzDJz56ktMyaVGFXMJ5BYLbUjdmGEABfE0x5GgAGyKbrbkYww2s3A==}
+    engines: {node: '>=18'}
+    dependencies:
+      '@open-draft/deferred-promise': 2.2.0
+      '@open-draft/logger': 0.3.0
+      '@open-draft/until': 2.1.0
+      is-node-process: 1.2.0
+      outvariant: 1.4.2
+      strict-event-emitter: 0.5.1
+    dev: true
 
   /@ndelangen/get-tarball@3.0.9:
     resolution: {integrity: sha512-9JKTEik4vq+yGosHYhZ1tiH/3WpUS0Nh0kej4Agndhox8pAdWhEx5knFVRcb/ya9knCRCs1rPxNrSXTDdfVqpA==}
@@ -13174,8 +13186,8 @@ packages:
       - typescript
     dev: false
 
-  /eslint-plugin-testing-library@6.2.0(eslint@8.57.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-+LCYJU81WF2yQ+Xu4A135CgK8IszcFcyMF4sWkbiu6Oj+Nel0TrkZq/HvDw0/1WuO3dhDQsZA/OpEMGd0NfcUw==}
+  /eslint-plugin-testing-library@6.2.2(eslint@8.57.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-1E94YOTUDnOjSLyvOwmbVDzQi/WkKm3WVrMXu6SmBr6DN95xTGZmI6HJ/eOkSXh/DlheRsxaPsJvZByDBhWLVQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0, npm: '>=6'}
     peerDependencies:
       eslint: ^7.5.0 || ^8.0.0
@@ -13187,8 +13199,8 @@ packages:
       - typescript
     dev: false
 
-  /eslint-plugin-testing-library@6.2.0(eslint@8.57.0)(typescript@5.4.3):
-    resolution: {integrity: sha512-+LCYJU81WF2yQ+Xu4A135CgK8IszcFcyMF4sWkbiu6Oj+Nel0TrkZq/HvDw0/1WuO3dhDQsZA/OpEMGd0NfcUw==}
+  /eslint-plugin-testing-library@6.2.2(eslint@8.57.0)(typescript@5.4.3):
+    resolution: {integrity: sha512-1E94YOTUDnOjSLyvOwmbVDzQi/WkKm3WVrMXu6SmBr6DN95xTGZmI6HJ/eOkSXh/DlheRsxaPsJvZByDBhWLVQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0, npm: '>=6'}
     peerDependencies:
       eslint: ^7.5.0 || ^8.0.0

@@ -86,7 +86,8 @@ export const IconButton: Story = {
       const buttonArgs = argsToTemplate(args, { exclude: ['variant'] });
       return `
         <button type="button" [natuButton] [variant]="'${variant}'" ${buttonArgs}>
-          <svg-icon [key]="'rocket'" />
+          <span class="natu-visually-hidden">Icon</span>
+          <svg-icon [key]="'rocket'" aria-hidden="true" />
         </button>
       `;
     });

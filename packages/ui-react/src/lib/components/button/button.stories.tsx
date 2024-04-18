@@ -6,6 +6,7 @@ import {
   NatuButtonVariants,
 } from './button';
 import { storyVariantsDecorator } from '../../stories';
+import RocketIcon from '@natu/assets/svg/rocket.svg?react';
 
 const variants: Array<NatuButtonVariants['variant']> = [
   'primary',
@@ -22,11 +23,14 @@ const meta = {
   component: NatuButton,
   tags: ['autodocs'],
   decorators: [storyVariantsDecorator()],
+  args: {
+    children: 'Button',
+  },
   render: (args) => (
     <>
       {variants.map((variant) => (
         <NatuButton {...args} key={variant} variant={variant} asChild={false} type="button">
-          Button
+          {args.children}
         </NatuButton>
       ))}
     </>
@@ -67,5 +71,24 @@ export const CustomElementDisabled: SlottedStory = {
   render: CustomElement.render,
   args: {
     isDisabled: true,
+  },
+};
+
+export const IconButton: UnslottedStory = {
+  args: {
+    isIconButton: true,
+    children: (
+      <>
+        <span className="natu-visually-hidden">Icon</span>
+        <RocketIcon className="natu-svg-icon" aria-hidden="true" />
+      </>
+    ),
+  },
+};
+
+export const IconButtonSmall: UnslottedStory = {
+  args: {
+    ...IconButton.args,
+    size: 'small',
   },
 };

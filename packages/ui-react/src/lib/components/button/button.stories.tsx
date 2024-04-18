@@ -77,7 +77,12 @@ export const CustomElementDisabled: SlottedStory = {
 export const IconButton: UnslottedStory = {
   args: {
     isIconButton: true,
-    children: <RocketIcon className="natu-svg-icon" />,
+    children: (
+      <>
+        <span className="natu-visually-hidden">Icon</span>
+        <RocketIcon className="natu-svg-icon" aria-hidden="true" />
+      </>
+    ),
   },
 };
 

@@ -7,6 +7,7 @@ import {
 } from './button';
 import { storyVariantsDecorator } from '../../stories';
 import RocketIcon from '@natu/assets/svg/rocket.svg?react';
+import { NatuIcon } from '../icon/icon';
 
 const variants: Array<NatuButtonVariants['variant']> = [
   'primary',
@@ -80,7 +81,9 @@ export const IconButton: UnslottedStory = {
     children: (
       <>
         <span className="natu-visually-hidden">Icon</span>
-        <RocketIcon className="natu-svg-icon" aria-hidden="true" />
+        <NatuIcon aria-hidden="true">
+          <RocketIcon />
+        </NatuIcon>
       </>
     ),
   },

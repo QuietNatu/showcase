@@ -9,6 +9,7 @@ import {
   NatuCardProps,
 } from './card';
 import RocketIcon from '@natu/assets/svg/rocket.svg?react';
+import { NatuIcon } from '../icon/icon';
 
 interface StoryProps extends NatuCardProps {
   hideHeader?: boolean;
@@ -25,16 +26,23 @@ const meta = {
     const { headerArgs, footerArgs, hideHeader, hideFooter, ...cardArgs } = args;
 
     return (
-      <NatuCard {...cardArgs}>
+      <NatuCard {...cardArgs} style={{ height: '400px' }}>
         {!hideHeader && (
-          <NatuCardHeader {...headerArgs} icon={<RocketIcon className="natu-svg-icon" />}>
+          <NatuCardHeader
+            {...headerArgs}
+            icon={
+              <NatuIcon>
+                <RocketIcon />
+              </NatuIcon>
+            }
+          >
             Example header
           </NatuCardHeader>
         )}
 
-        <NatuCardBody>Example actions</NatuCardBody>
+        <NatuCardBody>Example body</NatuCardBody>
 
-        {!hideFooter && <NatuCardFooter {...footerArgs}>Example secondary actions</NatuCardFooter>}
+        {!hideFooter && <NatuCardFooter {...footerArgs}>Example footer</NatuCardFooter>}
       </NatuCard>
     );
   },

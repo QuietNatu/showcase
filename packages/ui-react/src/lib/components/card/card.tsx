@@ -3,6 +3,7 @@ import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { NatuButton } from '../button/button';
 import XIcon from '@natu/assets/svg/x.svg?react';
 import { Slot } from '@radix-ui/react-slot';
+import { NatuIcon } from '../icon/icon';
 
 export interface NatuCardProps extends ComponentPropsWithoutRef<'div'> {
   children?: ReactNode;
@@ -49,11 +50,14 @@ export function NatuCard(props: NatuCardProps) {
           type="button"
           className="natu-card__dismiss"
           variant="ghost"
+          size="small"
           isIconButton={true}
           onPress={onDismiss}
         >
           <span className="natu-visually-hidden">Dismiss</span>
-          <XIcon className="natu-svg-icon" aria-hidden="true" />
+          <NatuIcon aria-hidden="true">
+            <XIcon />
+          </NatuIcon>
         </NatuButton>
       )}
     </div>

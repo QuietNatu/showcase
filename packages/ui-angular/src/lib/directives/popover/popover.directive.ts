@@ -28,7 +28,7 @@ import { NatuPopoverReferenceDirective } from './popover-reference.directive';
 })
 export class NatuPopoverDirective implements OnDestroy {
   // Should be required but cannot because of https://github.com/angular/angular/issues/50510
-  /** Content that will be shown by the popover. */
+  /** Title that will be shown by the popover. */
   @Input({ alias: 'natuPopoverTitle' }) set title(
     title: string | TemplateRef<unknown> | null | undefined,
   ) {

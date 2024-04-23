@@ -660,8 +660,8 @@ importers:
         specifier: 5.0.5
         version: 5.0.5
       style-dictionary:
-        specifier: 4.0.0-prerelease.15
-        version: 4.0.0-prerelease.15
+        specifier: 4.0.0-prerelease.26
+        version: 4.0.0-prerelease.26
       typescript:
         specifier: 5.3.3
         version: 5.3.3
@@ -4127,15 +4127,14 @@ packages:
       url: 0.11.3
     dev: true
 
-  /@bundled-es-modules/memfs@4.2.3:
-    resolution: {integrity: sha512-staos4ByDNS0Ikx2fHYMgluoDdbN5yEpB1hobjDkU7b946+NXAik50pLhWWZ/JC3wXqYW4B00ul1tNxgDz4TOQ==}
+  /@bundled-es-modules/memfs@4.8.1:
+    resolution: {integrity: sha512-9BodQuihWm3XJGKYuV/vXckK8Tkf9EDiT/au1NJeFUyBMe7EMYRtOqL9eLzrjqJSDJUFoGwQFHvraFHwR8cysQ==}
     dependencies:
       assert: 2.1.0
       buffer: 6.0.3
       events: 3.3.0
       memfs: 4.8.1
       path: 0.12.7
-      process: 0.11.10
       stream: 0.0.2
       util: 0.12.5
     dev: true
@@ -19137,21 +19136,20 @@ packages:
       through: 2.3.8
     dev: true
 
-  /style-dictionary@4.0.0-prerelease.15:
-    resolution: {integrity: sha512-kZ0qi0BClVsfh06+z/622VRKTcYdUvgSD6j1C/x50/Vvo2ndi/rcjyyTNmmwyqPMHp4lVgZ9BTUx0Mr9/+mzhA==}
+  /style-dictionary@4.0.0-prerelease.26:
+    resolution: {integrity: sha512-pg/0accikT+2suJX9YPnJKBqU4wTJ9qtWD6cGl21TZdE9Ub7z1VzoIj7u5PdSK5355FHuri+yjOfzu+bLnMXdQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     requiresBuild: true
     dependencies:
       '@bundled-es-modules/deepmerge': 4.3.1
       '@bundled-es-modules/glob': 10.3.13
-      '@bundled-es-modules/memfs': 4.2.3
+      '@bundled-es-modules/memfs': 4.8.1
       chalk: 5.3.0
       change-case: 5.4.3
       commander: 8.3.0
       is-plain-obj: 4.1.0
       json5: 2.2.3
-      lodash-es: 4.17.21
       patch-package: 8.0.0
       path-unified: 0.1.0
       tinycolor2: 1.6.0

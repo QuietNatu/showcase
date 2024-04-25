@@ -1,6 +1,7 @@
 import { ComponentPropsWithoutRef, ReactNode, forwardRef, useCallback } from 'react';
 import {
   FloatingArrow,
+  FloatingFocusManager,
   FloatingPortal,
   Side,
   useClick,
@@ -78,31 +79,33 @@ export const NatuPopover = forwardRef<HTMLDivElement, NatuPopoverProps>(
 
         {popover.isMounted && (
           <FloatingPortal>
-            <div
-              ref={popover.floatingRef}
-              style={popover.floatingStyles}
-              {...popover.getFloatingProps()}
-            >
+            <FloatingFocusManager context={popover.floatingContext}>
               <div
-                ref={forwardedRef}
-                className={clsx('natu-popover', className)}
-                style={{ ...popover.transitionStyles, ...style }}
-                {...popoverProps}
+                ref={popover.floatingRef}
+                style={popover.floatingStyles}
+                {...popover.getFloatingProps()}
               >
-                <NatuCard isEmbedded={true} isDismissable={true} onDismiss={popover.onDismiss}>
-                  {title && <NatuCardHeader size="small">{title}</NatuCardHeader>}
-                  <NatuCardBody>{content}</NatuCardBody>
-                </NatuCard>
+                <div
+                  ref={forwardedRef}
+                  className={clsx('natu-popover', className)}
+                  style={{ ...popover.transitionStyles, ...style }}
+                  {...popoverProps}
+                >
+                  <NatuCard isEmbedded={true} isDismissable={true} onDismiss={popover.onDismiss}>
+                    {title && <NatuCardHeader size="small">{title}</NatuCardHeader>}
+                    <NatuCardBody>{content}</NatuCardBody>
+                  </NatuCard>
 
-                <FloatingArrow
-                  ref={popover.arrowRef}
-                  context={popover.floatingContext}
-                  width={popover.arrowWidth}
-                  height={popover.arrowHeight}
-                  className="natu-popover__arrow"
-                />
+                  <FloatingArrow
+                    ref={popover.arrowRef}
+                    context={popover.floatingContext}
+                    width={popover.arrowWidth}
+                    height={popover.arrowHeight}
+                    className="natu-popover__arrow"
+                  />
+                </div>
               </div>
-            </div>
+            </FloatingFocusManager>
           </FloatingPortal>
         )}
       </>

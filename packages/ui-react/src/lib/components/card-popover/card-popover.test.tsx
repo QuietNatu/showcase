@@ -46,7 +46,7 @@ test('hides popover when card dismiss button is clicked', async () => {
 
   expect(popover).toBeInTheDocument();
 
-  await userEvent.click(screen.getByRole('button', { name: 'Dismiss' }));
+  await userEvent.click(await screen.findByRole('button', { name: 'Dismiss' }));
 
   await waitForElementToBeRemoved(popover);
 

@@ -7,14 +7,14 @@ const scenarios: VrtScenario[] = [
     story: 'default',
     onMount: async (page) => {
       await page.getByRole('button', { name: 'Show popover' }).click();
-      await page.getByRole('dialog', { name: 'Example popover' }).waitFor({ state: 'visible' });
+      await page.getByRole('dialog', { name: 'Header' }).waitFor({ state: 'visible' });
     },
   },
 ];
 
 const testScenarios = createVrtStorybookScenarios({
   scenarios,
-  page: 'components-popover',
+  page: 'components-card-popover',
   viewports: [{ name: 'custom', width: 200, height: 400 }],
   variants: defaultVrtVariants,
 });

@@ -1,20 +1,9 @@
-import { ComponentPropsWithoutRef, ReactNode, forwardRef, useCallback } from 'react';
-import {
-  FloatingArrow,
-  FloatingFocusManager,
-  FloatingPortal,
-  Side,
-  useClick,
-  useDismiss,
-  useInteractions,
-  useRole,
-  useTransitionStyles,
-} from '@floating-ui/react';
+import { ComponentPropsWithoutRef, ReactNode, forwardRef } from 'react';
+import { FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
-import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
-import { NatuOverlayPlacement, NatuUseOverlayOptions, useOverlay } from '../../hooks/use-overlay';
-import { createContext } from '../../hooks';
+import { NatuOverlayPlacement } from '../../hooks/use-overlay';
+import { PopoverProvider, usePopover, usePopoverContext } from './use-popover';
 
 export interface NatuPopoverProps {
   children?: ReactNode;
@@ -46,10 +35,6 @@ export interface NatuPopoverContentProps extends ComponentPropsWithoutRef<'div'>
 
 export type NatuPopoverPlacement = NatuOverlayPlacement;
 
-const [PopoverProvider, usePopoverContext] = createContext<ReturnType<typeof usePopover>>({
-  name: 'PopoverContext',
-});
-
 export function NatuPopover(props: NatuPopoverProps) {
   const popover = usePopover({
     isOpen: props.isOpen,
@@ -74,7 +59,7 @@ export function NatuPopoverTrigger(props: NatuPopoverTriggerProps) {
 }
 
 export const NatuPopoverContent = forwardRef<HTMLDivElement, NatuPopoverContentProps>(
-  function NatuPopoverContent(props: NatuPopoverContentProps, forwardedRef) {
+  function NatuPopoverContent(props, forwardedRef) {
     const { hasEmbeddedContent, className, style, ...popoverProps } = props;
 
     const popover = usePopoverContext();
@@ -113,57 +98,3 @@ export const NatuPopoverContent = forwardRef<HTMLDivElement, NatuPopoverContentP
     );
   },
 );
-
-const animationDuration = NATU_TIME_ANIMATION_STANDARD;
-
-const sideTransforms: Record<Side, string> = {
-  top: 'translateY(4px)',
-  bottom: 'translateY(-4px)',
-  left: 'translateX(4px)',
-  right: 'translateX(-4px)',
-};
-
-function usePopover(options: NatuUseOverlayOptions) {
-  const {
-    context,
-    refs,
-    referenceRef,
-    arrowRef,
-    arrowHeight,
-    arrowWidth,
-    floatingStyles,
-    setIsOpen,
-  } = useOverlay(options);
-
-  const { isMounted, styles } = useTransitionStyles(context, {
-    duration: animationDuration,
-    initial: ({ side }) => ({
-      opacity: 0,
-      transform: sideTransforms[side],
-    }),
-  });
-
-  const enabled = !options.isDisabled;
-  const { getReferenceProps, getFloatingProps } = useInteractions([
-    useRole(context, { role: 'dialog', enabled }),
-    useClick(context, { enabled }),
-    useDismiss(context, { enabled }),
-  ]);
-
-  const handleDismiss = useCallback(() => setIsOpen(false), [setIsOpen]);
-
-  return {
-    isMounted,
-    onDismiss: handleDismiss,
-    referenceRef: referenceRef,
-    floatingRef: refs.setFloating,
-    arrowRef,
-    floatingStyles: floatingStyles,
-    floatingContext: context,
-    getReferenceProps,
-    getFloatingProps,
-    transitionStyles: styles,
-    arrowWidth,
-    arrowHeight,
-  };
-}

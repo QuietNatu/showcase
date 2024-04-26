@@ -4,6 +4,7 @@ import { useFocusRing, useFocusable } from 'react-aria';
 import { mergeProps, useObjectRef } from '@react-aria/utils';
 import { VariantProps, cva } from 'class-variance-authority';
 import clsx from 'clsx';
+import type { Except } from 'type-fest';
 
 const buttonVariants = cva('natu-button', {
   variants: {
@@ -29,7 +30,7 @@ const buttonVariants = cva('natu-button', {
 
 export type NatuButtonVariants = VariantProps<typeof buttonVariants>;
 
-type ElementProps = Omit<
+type ElementProps = Except<
   ComponentPropsWithoutRef<'button'>,
   'disabled' | 'type' | 'onFocus' | 'onBlur'
 >;

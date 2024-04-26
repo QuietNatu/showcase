@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { NatuButton } from '../button/button';
 import { NatuPopover, NatuPopoverContent, NatuPopoverProps, NatuPopoverTrigger } from './popover';
-import { NatuCard, NatuCardBody, NatuCardHeader } from '../card/card';
 
 const meta = {
   title: 'Components/Popover',
@@ -53,27 +52,6 @@ export const Nested: Story = {
               Nested popover text
             </NatuPopoverContent>
           </NatuPopover>
-        </NatuPopoverContent>
-      </NatuPopover>
-    );
-  },
-};
-
-export const WithEmbeddedContent: Story = {
-  render: (args) => {
-    return (
-      <NatuPopover {...args}>
-        <NatuPopoverTrigger>
-          <NatuButton type="button">Show popover</NatuButton>
-        </NatuPopoverTrigger>
-
-        <NatuPopoverContent aria-labelledby="popover-title-id" hasEmbeddedContent={true}>
-          <NatuCard isEmbedded={true}>
-            <NatuCardHeader size="small" id="popover-title-id">
-              Title
-            </NatuCardHeader>
-            <NatuCardBody>Content</NatuCardBody>
-          </NatuCard>
         </NatuPopoverContent>
       </NatuPopover>
     );

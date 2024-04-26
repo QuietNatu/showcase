@@ -70,7 +70,7 @@
     "react-aria": "3.31.1",
     "react-dom": "18.2.0",
     "storybook": "8.0.8",
-    "type-fest": "^4.17.0",
+    "type-fest": "4.17.0",
     "typescript": "5.3.3",
     "vite": "5.2.10",
     "vite-plugin-svgr": "4.2.0",

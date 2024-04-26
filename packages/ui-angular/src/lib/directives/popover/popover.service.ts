@@ -1,58 +1,61 @@
-import { Injectable, TemplateRef, computed, signal } from '@angular/core';
+import { ElementRef, Injectable, TemplateRef, inject, signal } from '@angular/core';
+import { NatuOverlayService } from '../../overlay';
 
 @Injectable()
 export class NatuPopoverService {
-  readonly textTitle$;
-  readonly templateTitle$;
-  readonly templateTitleContext$;
-  readonly textContent$;
-  readonly templateContent$;
-  readonly templateContentContext$;
+  readonly attributes$;
+  readonly content$;
+  readonly hasEmbeddedContent$;
+  readonly labelId$;
+  readonly descriptionId$;
 
-  private readonly title$ = signal<string | TemplateRef<unknown> | null>(null);
-  private readonly templateTitleContextSignal$ = signal<object | null>(null);
-  private readonly content$ = signal<string | TemplateRef<unknown> | null>(null);
-  private readonly templateContentContextSignal$ = signal<object | null>(null);
+  readonly floatingId;
+  readonly isMounted$;
+
+  private readonly attributesSignal$ = signal<Record<string, string>>({});
+  private readonly contentSignal$ = signal<TemplateRef<unknown> | null>(null);
+  private readonly hasEmbeddedContentSignal$ = signal<boolean>(false);
+  private readonly labelIdSignal$ = signal<string | null>(null);
+  private readonly descriptionIdSignal$ = signal<string | null>(null);
+
+  private readonly overlayService = inject(NatuOverlayService);
 
   constructor() {
-    this.textTitle$ = computed(() => {
-      const title = this.title$();
-      return typeof title === 'string' ? title : null;
-    });
+    this.attributes$ = this.attributesSignal$.asReadonly();
+    this.content$ = this.contentSignal$.asReadonly();
+    this.hasEmbeddedContent$ = this.hasEmbeddedContentSignal$.asReadonly();
+    this.labelId$ = this.labelIdSignal$.asReadonly();
+    this.descriptionId$ = this.descriptionIdSignal$.asReadonly();
 
-    this.templateTitle$ = computed(() => {
-      const title = this.title$();
-      return title instanceof TemplateRef ? title : null;
-    });
-
-    this.templateTitleContext$ = this.templateTitleContextSignal$.asReadonly();
-
-    this.textContent$ = computed(() => {
-      const content = this.content$();
-      return typeof content === 'string' ? content : null;
-    });
-
-    this.templateContent$ = computed(() => {
-      const content = this.content$();
-      return content instanceof TemplateRef ? content : null;
-    });
-
-    this.templateContentContext$ = this.templateContentContextSignal$.asReadonly();
+    this.floatingId = this.overlayService.floatingId;
+    this.isMounted$ = this.overlayService.isMounted$;
   }
 
-  setTitle(title: string | TemplateRef<unknown>) {
-    this.title$.set(title);
+  setAttributes(attributes: Record<string, string>) {
+    this.attributesSignal$.set(attributes);
   }
 
-  setTitleContext(context: object | null) {
-    this.templateTitleContextSignal$.set(context);
+  setContent(content: TemplateRef<unknown> | null) {
+    this.contentSignal$.set(content);
   }
 
-  setContent(content: string | TemplateRef<unknown>) {
-    this.content$.set(content);
+  setReferenceElement(element: Element | ElementRef<Element> | null) {
+    this.overlayService.setReferenceElement(element);
   }
 
-  setContentContext(context: object | null) {
-    this.templateContentContextSignal$.set(context);
+  setHasEmbeddedContent(hasEmbeddedContent: boolean) {
+    this.hasEmbeddedContentSignal$.set(hasEmbeddedContent);
+  }
+
+  setLabelId(id: string | null) {
+    this.labelIdSignal$.set(id);
+  }
+
+  setDescriptionId(id: string | null) {
+    this.descriptionIdSignal$.set(id);
+  }
+
+  dismiss() {
+    this.overlayService.changeOpen(false);
   }
 }

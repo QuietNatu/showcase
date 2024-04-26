@@ -64,6 +64,7 @@ export function useOverlay(options: NatuUseOverlayOptions) {
 
   return {
     isOpen,
+    setIsOpen,
     refs,
     referenceRef,
     context,

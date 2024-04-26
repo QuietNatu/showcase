@@ -10,6 +10,14 @@
     filter: var(--natu-elevation-shadow-overlay);
     max-width: utils.px-to-rem(360px);
     z-index: var(--natu-elevation-z-index-overlay);
+
+    &:not(&--has-embedded) {
+      @include utils.text-regular;
+
+      background-color: var(--natu-color-surface-base);
+      border-radius: var(--natu-control-border-radius);
+      padding: var(--natu-size-spacing-5);
+    }
   }
 
   .natu-popover__arrow {

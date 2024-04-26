@@ -16,7 +16,7 @@ import { NatuSidebarService } from '../services/sidebar.service';
 import {
   NatuFocusRingDirective,
   natuAccordionImports,
-  natuPopoverImports,
+  natuCardPopoverImports,
   natuTooltipImports,
 } from '../../../directives';
 import { NgTemplateOutlet } from '@angular/common';
@@ -38,7 +38,7 @@ import { NatuSidebarGroupPopoverContentComponent } from './sidebar-group-popover
     natuAccordionImports,
     NgTemplateOutlet,
     natuTooltipImports,
-    natuPopoverImports,
+    natuCardPopoverImports,
     NatuSidebarGroupPopoverContentComponent,
   ],
   host: {

@@ -32,27 +32,44 @@
 } @else {
   <ng-container
     natuPopover
-    [natuPopoverTitle]="labelTemplate()"
-    [natuPopoverContent]="popoverGroupList"
+    [natuPopoverHasEmbeddedContent]="true"
     [natuPopoverPlacement]="'right'"
     [natuPopoverIsOpen]="isGroupPopoverOpen()"
     (natuPopoverIsOpenChange)="isGroupPopoverOpen.set($event)"
   >
-    <button
-      type="button"
-      class="natu-sidebar__item"
-      natuFocusRing
-      [natuFocusRingFocusVisibleClass]="'natu-sidebar__item--focus'"
-      natuPopoverReference
-      [natuTooltip]="labelTemplate()"
+    <ng-container
+      natuTooltip
       [natuTooltipIsDisabled]="isGroupPopoverOpen()"
       [natuTooltipPlacement]="'right'"
     >
-      <ng-template [ngTemplateOutlet]="iconContainerTemplate" />
-      <ng-template [ngTemplateOutlet]="labelContainerTemplate" />
+      <button
+        type="button"
+        class="natu-sidebar__item"
+        natuFocusRing
+        [natuFocusRingFocusVisibleClass]="'natu-sidebar__item--focus'"
+        natuPopoverTrigger
+        natuTooltipTrigger
+      >
+        <ng-template [ngTemplateOutlet]="iconContainerTemplate" />
+        <ng-template [ngTemplateOutlet]="labelContainerTemplate" />
 
-      <svg-icon class="natu-sidebar__item-collapsed-group-icon" [key]="'dots-three-vertical'" />
-    </button>
+        <svg-icon class="natu-sidebar__item-collapsed-group-icon" [key]="'dots-three-vertical'" />
+      </button>
+
+      <ng-template natuTooltipContent>
+        <ng-template [ngTemplateOutlet]="labelTemplate() ?? null" />
+      </ng-template>
+    </ng-container>
+
+    <natu-card *natuPopoverContent natuPopoverCard>
+      <natu-card-header natuPopoverCardHeader>
+        <ng-template [ngTemplateOutlet]="labelTemplate() ?? null" />
+      </natu-card-header>
+
+      <natu-card-body natuPopoverCardBody>
+        <ng-template [ngTemplateOutlet]="popoverGroupList" />
+      </natu-card-body>
+    </natu-card>
   </ng-container>
 }
 

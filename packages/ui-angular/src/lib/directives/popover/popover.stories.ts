@@ -4,7 +4,11 @@ import {
   moduleMetadata,
   componentWrapperDecorator,
 } from '@storybook/angular';
-import { NatuPopoverDirective, natuPopoverImports } from './popover.directive';
+import {
+  NatuPopoverDirective,
+  natuCardPopoverImports,
+  natuPopoverImports,
+} from './popover.directive';
 import { natuButtonImports } from '../button/button.directive';
 import { NgTemplateOutlet } from '@angular/common';
 import { aliasedArgsToTemplate } from '../../test';
@@ -18,7 +22,7 @@ const meta = {
   },
   decorators: [
     moduleMetadata({
-      imports: [natuPopoverImports, natuButtonImports, NgTemplateOutlet],
+      imports: [natuPopoverImports, natuCardPopoverImports, natuButtonImports, NgTemplateOutlet],
     }),
   ],
   argTypes: {
@@ -30,16 +34,15 @@ const meta = {
     return {
       props: args,
       template: `
-        <button type="button"
-          [natuButton]
-          [natuPopover]
-          [natuPopoverTitle]="'Title'"
-          [natuPopoverContent]="popover"
-          ${templateArgs}
-        >
-          Show popover
-        </button>
-        <ng-template #popover>Popover text</ng-template>
+        <ng-container natuPopover [natuPopoverAttributes]="{ 'aria-labelledby': 'popover-content-id' }" ${templateArgs}>
+          <button type="button" natuButton natuPopoverTrigger>
+            Show popover
+          </button>
+
+          <ng-template natuPopoverContent>
+            <button type="button" natuButton id="popover-content-id">Example popover</button>
+          </ng-template>
+        </ng-container>
       `,
     };
   },
@@ -57,47 +60,42 @@ export const Nested: Story = {
     return {
       props: args,
       template: `
-        <button type="button"
-          [natuButton]
-          [natuPopover]
-          [natuPopoverTitle]="'Title'"
-          [natuPopoverContent]="popover"
-          ${templateArgs}
-        >
-          Show popover
-        </button>
-
-        <ng-template #popover>
-          <button type="button"
-            [natuButton]
-            [natuPopover]
-            [natuPopoverTitle]="'Title'"
-            [natuPopoverContent]="nestedPopover" ${templateArgs}
-          >
-            Show nested popover
+        <ng-container natuPopover [natuPopoverAttributes]="{ 'aria-labelledby': 'popover-button-id' }" ${templateArgs}>
+          <button type="button" natuButton natuPopoverTrigger id="popover-button-id">
+            Show popover
           </button>
-        </ng-template>
 
-        <ng-template #nestedPopover>Nested popover text</ng-template>
+          <ng-template natuPopoverContent>
+            <ng-container natuPopover [natuPopoverAttributes]="{ 'aria-labelledby': 'popover-nested-button-id' }" ${templateArgs}>
+              <button type="button" natuButton natuPopoverTrigger id="popover-nested-button-id">Show nested popover</button>
+
+              <ng-template natuPopoverContent>Nested popover text</ng-template>
+            </ng-container>
+          </ng-template>
+        </ng-container>
       `,
     };
   },
 };
 
-export const WithChildReference: Story = {
+export const WithCard: Story = {
   render: (args) => {
-    const templateArgs = aliasedArgsToTemplate(args, 'natuTooltip');
+    const templateArgs = aliasedArgsToTemplate(args, 'natuPopover');
 
     return {
       props: args,
       template: `
-        <ng-container natuPopover [natuPopoverTitle]="'Title'" [natuPopoverContent]="popover" ${templateArgs}>
-          <button type="button" natuButton natuPopoverReference>
+        <ng-container natuPopover [natuPopoverHasEmbeddedContent]="true" ${templateArgs}>
+          <button type="button" natuButton natuPopoverTrigger>
             Show popover
           </button>
-        </ng-container>
 
-        <ng-template #popover>Popover text</ng-template>
+          <natu-card *natuPopoverContent natuPopoverCard>
+            <natu-card-header natuPopoverCardHeader>Header</natu-card-header>
+
+            <natu-card-body natuPopoverCardBody>Example body</natu-card-body>
+          </natu-card>
+        </ng-container>
       `,
     };
   },
@@ -130,26 +128,32 @@ export const Playground: Story = {
         <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 5, column: 4, placement: 'bottom-end' }" />
 
         <ng-template #button let-row="row" let-column="column" let-placement="placement">
-          <button type="button"
-            [natuButton]
-            [natuPopover]
-            [natuPopoverTitle]="placement"
-            [natuPopoverContent]="popover"
+          <ng-container
+            natuPopover
             [natuPopoverPlacement]="placement"
+            [natuPopoverAttributes]="{ 'aria-labelledby': 'popover-button-id' }"
             ${templateArgs}
-            [style.width.px]="100"
-            [style.grid-row]="row"
-            [style.grid-column]="column"
           >
-            {{ placement }}
-          </button>
-        </ng-template>
+            <button type="button"
+              id="popover-button-id"
+              natuButton
+              natuPopoverTrigger
+              [style.width.px]="100"
+              [style.grid-row]="row"
+              [style.grid-column]="column"
+            >
+              {{ placement }}
+            </button>
 
-        <ng-template #popover>
-          <div>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id iaculis.
-              In hac habitasse platea dictumst.
-          </div>
+            <ng-template natuPopoverContent>
+              <div>{{placement}} popover example</div>
+
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id iaculis.
+                In hac habitasse platea dictumst.
+              </div>
+            </ng-template>
+          </ng-container>
         </ng-template>
       `,
     };

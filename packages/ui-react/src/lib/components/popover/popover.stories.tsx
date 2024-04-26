@@ -1,25 +1,29 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { NatuTooltip, NatuTooltipContent, NatuTooltipProps, NatuTooltipTrigger } from './tooltip';
 import { NatuButton } from '../button/button';
+import { NatuPopover, NatuPopoverContent, NatuPopoverProps, NatuPopoverTrigger } from './popover';
 
 const meta = {
-  title: 'Components/Tooltip',
-  component: NatuTooltip,
+  title: 'Components/Popover',
+  component: NatuPopover,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },
   args: {},
   render: (args) => (
-    <NatuTooltip {...args}>
-      <NatuTooltipTrigger>
-        <NatuButton type="button">Show tooltip</NatuButton>
-      </NatuTooltipTrigger>
+    <NatuPopover {...args}>
+      <NatuPopoverTrigger>
+        <NatuButton type="button">Show popover</NatuButton>
+      </NatuPopoverTrigger>
 
-      <NatuTooltipContent>Tooltip text</NatuTooltipContent>
-    </NatuTooltip>
+      <NatuPopoverContent aria-labelledby="popover-content-id">
+        <NatuButton type="button" id="popover-content-id">
+          Example popover
+        </NatuButton>
+      </NatuPopoverContent>
+    </NatuPopover>
   ),
-} satisfies Meta<typeof NatuTooltip>;
+} satisfies Meta<typeof NatuPopover>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -29,21 +33,27 @@ export const Default: Story = {};
 export const Nested: Story = {
   render: (args) => {
     return (
-      <NatuTooltip {...args}>
-        <NatuTooltipTrigger>
-          <NatuButton type="button">Show tooltip</NatuButton>
-        </NatuTooltipTrigger>
+      <NatuPopover {...args}>
+        <NatuPopoverTrigger>
+          <NatuButton type="button" id="popover-button-id">
+            Show popover
+          </NatuButton>
+        </NatuPopoverTrigger>
 
-        <NatuTooltipContent>
-          <NatuTooltip {...args}>
-            <NatuTooltipTrigger>
-              <NatuButton type="button">Show nested tooltip</NatuButton>
-            </NatuTooltipTrigger>
+        <NatuPopoverContent aria-labelledby="popover-button-id">
+          <NatuPopover {...args}>
+            <NatuPopoverTrigger>
+              <NatuButton type="button" id="popover-nested-button-id">
+                Show nested popover
+              </NatuButton>
+            </NatuPopoverTrigger>
 
-            <NatuTooltipContent>Nested tooltip text</NatuTooltipContent>
-          </NatuTooltip>
-        </NatuTooltipContent>
-      </NatuTooltip>
+            <NatuPopoverContent aria-labelledby="popover-nested-button-id">
+              Nested popover text
+            </NatuPopoverContent>
+          </NatuPopover>
+        </NatuPopoverContent>
+      </NatuPopover>
     );
   },
 };
@@ -70,29 +80,29 @@ export const Playground: Story = {
   ),
 };
 
-interface PlaygroundButtonProps extends NatuTooltipProps {
+interface PlaygroundButtonProps extends NatuPopoverProps {
   row: number;
   column: number;
 }
 
 function PlaygroundButton(props: PlaygroundButtonProps) {
-  const { row, column, ...tooltipProps } = props;
+  const { row, column, ...popoverProps } = props;
 
   return (
-    <NatuTooltip {...tooltipProps}>
-      <NatuTooltipTrigger>
+    <NatuPopover {...popoverProps}>
+      <NatuPopoverTrigger>
         <NatuButton type="button" style={{ gridRow: row, gridColumn: column, width: '100px' }}>
           {props.placement}
         </NatuButton>
-      </NatuTooltipTrigger>
+      </NatuPopoverTrigger>
 
-      <NatuTooltipContent>
-        <div>{props.placement}</div>
+      <NatuPopoverContent>
+        <div>{props.placement} popover example</div>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id
           iaculis. In hac habitasse platea dictumst.
         </div>
-      </NatuTooltipContent>
-    </NatuTooltip>
+      </NatuPopoverContent>
+    </NatuPopover>
   );
 }

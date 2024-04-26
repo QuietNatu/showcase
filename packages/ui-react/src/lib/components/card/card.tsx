@@ -52,7 +52,7 @@ export function NatuCard(props: NatuCardProps) {
           variant="ghost"
           size="small"
           isIconButton={true}
-          onPress={onDismiss}
+          onClick={onDismiss}
         >
           <span className="natu-visually-hidden">Dismiss</span>
           <NatuIcon aria-hidden="true">

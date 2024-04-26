@@ -1,24 +1,42 @@
-import { screen, waitForElementToBeRemoved, within } from '@testing-library/angular';
-import { NatuPopoverDirective, natuPopoverImports } from './popover.directive';
+import { screen, waitForElementToBeRemoved } from '@testing-library/angular';
+import {
+  NatuPopoverDirective,
+  natuCardPopoverImports,
+  natuPopoverImports,
+} from './popover.directive';
 import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
-import { NatuPopoverReferenceDirective } from './popover-reference.directive';
 
 describe(`${NatuPopoverDirective.name} accessibility`, () => {
   const scenarios = [
     {
-      name: 'Popover',
-      template: `<button type="button" natuPopover [natuPopoverTitle]="'Example title'" [natuPopoverContent]="'Example popover'" [natuPopoverIsOpen]="true" [natuPopoverPlacement]="'top'">Trigger</button>`,
+      name: 'Closed',
+      props: { isOpen: false },
+    },
+    {
+      name: 'Open',
+      props: { isOpen: true },
+      waitForTestToBeReady: async () => {
+        expect(await screen.findByRole('dialog', { name: 'Example popover' })).toBeInTheDocument();
+      },
     },
   ];
 
-  scenarios.forEach(({ name, template }) => {
+  scenarios.forEach(({ name, props, waitForTestToBeReady = () => Promise.resolve() }) => {
     it(`${name} has no accessibility violations`, async () => {
-      const view = await render(template, {
-        renderOptions: { imports: [natuPopoverImports] },
-      });
+      await setup(props);
 
-      expect(await axe(view.container)).toHaveNoViolations();
+      await waitForTestToBeReady();
+
+      expect(await axe(document.body)).toHaveNoViolations();
     });
+  });
+
+  it(`card has no accessibility violations`, async () => {
+    await setupCardPopover({ isOpen: true });
+
+    expect(await screen.findByRole('dialog', { name: 'Header' })).toBeInTheDocument();
+
+    expect(await axe(document.body)).toHaveNoViolations();
   });
 });
 
@@ -35,11 +53,7 @@ describe(NatuPopoverDirective.name, () => {
 
     await userEvent.click(screen.getByRole('button', { name: 'Trigger' }));
 
-    const popover = await screen.findByRole('dialog');
-
-    expect(popover).toBeInTheDocument();
-    expect(await within(popover).findByText('Example title')).toBeInTheDocument();
-    expect(await within(popover).findByText('Example content')).toBeInTheDocument();
+    expect(await screen.findByRole('dialog', { name: 'Example popover' })).toBeInTheDocument();
     expect(isOpenChangeSpy).toHaveBeenCalledOnceWith(true);
   });
 
@@ -48,10 +62,9 @@ describe(NatuPopoverDirective.name, () => {
 
     await userEvent.click(screen.getByRole('button', { name: 'Trigger' }));
 
-    const popover = await screen.findByRole('dialog');
+    const popover = await screen.findByRole('dialog', { name: 'Example popover' });
 
     expect(popover).toBeInTheDocument();
-    expect(await within(popover).findByText('Example title')).toBeInTheDocument();
 
     await userEvent.keyboard('[Escape]');
 
@@ -67,10 +80,9 @@ describe(NatuPopoverDirective.name, () => {
 
     await userEvent.click(screen.getByRole('button', { name: 'Trigger' }));
 
-    const popover = await screen.findByRole('dialog');
+    const popover = await screen.findByRole('dialog', { name: 'Example popover' });
 
     expect(popover).toBeInTheDocument();
-    expect(await within(popover).findByText('Example title')).toBeInTheDocument();
 
     await userEvent.click(container);
 
@@ -85,10 +97,9 @@ describe(NatuPopoverDirective.name, () => {
   it('controls popover default visibility', async () => {
     const { userEvent, isOpenChangeSpy } = await setup({ defaultIsOpen: true });
 
-    const popover = await screen.findByRole('dialog');
+    const popover = await screen.findByRole('dialog', { name: 'Example popover' });
 
     expect(popover).toBeInTheDocument();
-    expect(await within(popover).findByText('Example title')).toBeInTheDocument();
 
     await userEvent.keyboard('[Escape]');
 
@@ -101,10 +112,9 @@ describe(NatuPopoverDirective.name, () => {
   it('controls popover visibility', async () => {
     const { rerender, isOpenChangeSpy } = await setup({ isOpen: true });
 
-    const popover = await screen.findByRole('dialog');
+    const popover = await screen.findByRole('dialog', { name: 'Example popover' });
 
     expect(popover).toBeInTheDocument();
-    expect(await within(popover).findByText('Example title')).toBeInTheDocument();
 
     const componentProperties = aliasArgs({ isOpen: false }, 'natuPopover');
 
@@ -124,76 +134,88 @@ describe(NatuPopoverDirective.name, () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
-  it('supports templates with context', async () => {
-    const props: Partial<NatuPopoverDirective> = {
-      titleContext: { count: 2 },
-      contentContext: { count: 10 },
-      isOpen: true,
-    };
-    const componentProperties = aliasArgs(props, 'natuPopover');
-    const templateArgs = aliasedArgsToTemplate(props, 'natuPopover');
-
-    await render(
-      `
-        <button type="button" natuPopover [natuPopoverTitle]="titleTemplate" [natuPopoverContent]="contentTemplate" ${templateArgs}>Trigger</button>
-
-        <ng-template #titleTemplate let-count="count">Title value: {{count}}</ng-template>
-        <ng-template #contentTemplate let-count="count">Content value: {{count}}</ng-template>
-      `,
-      {
-        renderOptions: {
-          imports: [natuPopoverImports],
-          componentProperties,
-        },
-      },
-    );
-
-    const popover = await screen.findByRole('dialog');
-
-    expect(await within(popover).findByText('Title value: 2')).toBeInTheDocument();
-    expect(await within(popover).findByText('Content value: 10')).toBeInTheDocument();
-  });
-
-  it(`supports setting reference element via ${NatuPopoverReferenceDirective.name}`, async () => {
-    const { userEvent } = await render(
-      `
-        <ng-container natuPopover [natuPopoverTitle]="'Example title'" [natuPopoverContent]="'Example content'">
-          <button type="button" natuPopoverReference>Trigger</button>
-        </ng-container>
-      `,
-      { renderOptions: { imports: [natuPopoverImports] } },
-    );
+  it('hides popover when card dismiss button is clicked', async () => {
+    const { userEvent, isOpenChangeSpy } = await setupCardPopover();
 
     await userEvent.click(screen.getByRole('button', { name: 'Trigger' }));
 
-    const popover = await screen.findByRole('dialog');
+    const popover = await screen.findByRole('dialog', { name: 'Header' });
 
     expect(popover).toBeInTheDocument();
-    expect(await within(popover).findByText('Example content')).toBeInTheDocument();
+
+    await userEvent.click(screen.getByRole('button', { name: 'Dismiss' }));
+
+    await waitForElementToBeRemoved(popover);
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+
+    expect(isOpenChangeSpy).toHaveBeenCalledTimes(2);
+    expect(isOpenChangeSpy.calls.argsFor(1)).toEqual([false]);
   });
-
-  async function setup(props: Partial<NatuPopoverDirective> = {}) {
-    // eslint-disable-next-line jasmine/no-unsafe-spy
-    const isOpenChangeSpy = jasmine.createSpy();
-
-    const allProps = {
-      ...props,
-      isOpenChange: isOpenChangeSpy,
-    };
-
-    const componentProperties = aliasArgs(allProps, 'natuPopover');
-    const templateArgs = aliasedArgsToTemplate(allProps, 'natuPopover');
-
-    const view = await render(
-      `<button type="button" natuPopover [natuPopoverTitle]="'Example title'" [natuPopoverContent]="'Example content'" ${templateArgs}>Trigger</button>`,
-      {
-        renderOptions: {
-          imports: [natuPopoverImports],
-          componentProperties: componentProperties,
-        },
-      },
-    );
-
-    return { ...view, isOpenChangeSpy };
-  }
 });
+
+async function setup(props: Partial<NatuPopoverDirective> = {}) {
+  // eslint-disable-next-line jasmine/no-unsafe-spy
+  const isOpenChangeSpy = jasmine.createSpy();
+
+  const allProps = {
+    ...props,
+    isOpenChange: isOpenChangeSpy,
+  };
+
+  const componentProperties = aliasArgs(allProps, 'natuPopover');
+  const templateArgs = aliasedArgsToTemplate(allProps, 'natuPopover');
+
+  const view = await render(
+    `
+      <ng-container natuPopover ${templateArgs} [natuPopoverAttributes]="{ 'aria-labelledby': 'popover-content-id' }">
+        <button type="button" natuPopoverTrigger>Trigger</button>
+
+        <div *natuPopoverContent id="popover-content-id">Example popover</div>
+      </ng-container>
+    `,
+    {
+      renderOptions: {
+        imports: [natuPopoverImports],
+        componentProperties: componentProperties,
+      },
+    },
+  );
+
+  return { ...view, isOpenChangeSpy };
+}
+
+async function setupCardPopover(props: Partial<NatuPopoverDirective> = {}) {
+  // eslint-disable-next-line jasmine/no-unsafe-spy
+  const isOpenChangeSpy = jasmine.createSpy();
+
+  const allProps = {
+    ...props,
+    isOpenChange: isOpenChangeSpy,
+  };
+
+  const componentProperties = aliasArgs(allProps, 'natuPopover');
+  const templateArgs = aliasedArgsToTemplate(allProps, 'natuPopover');
+
+  const view = await render(
+    `
+      <ng-container natuPopover ${templateArgs} [natuPopoverHasEmbeddedContent]="true">
+        <button type="button" natuPopoverTrigger>Trigger</button>
+
+        <natu-card *natuPopoverContent natuPopoverCard>
+            <natu-card-header natuPopoverCardHeader>Header</natu-card-header>
+
+            <natu-card-body natuPopoverCardBody>Example body</natu-card-body>
+        </natu-card>
+      </ng-container>
+    `,
+    {
+      renderOptions: {
+        imports: [natuCardPopoverImports],
+        componentProperties: componentProperties,
+      },
+    },
+  );
+
+  return { ...view, isOpenChangeSpy };
+}

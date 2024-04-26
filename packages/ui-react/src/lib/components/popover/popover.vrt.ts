@@ -1,6 +1,6 @@
 import { VrtScenario, createVrtStorybookScenarios } from '@natu/vrt';
 import { test } from '@playwright/test';
-import { defaultVrtVariants } from '../../../vrt/variants';
+import { defaultVrtVariants } from '../../vrt/variants';
 
 const scenarios: VrtScenario[] = [
   {
@@ -8,13 +8,6 @@ const scenarios: VrtScenario[] = [
     onMount: async (page) => {
       await page.getByRole('button', { name: 'Show popover' }).click();
       await page.getByRole('dialog', { name: 'Example popover' }).waitFor({ state: 'visible' });
-    },
-  },
-  {
-    story: 'with-card',
-    onMount: async (page) => {
-      await page.getByRole('button', { name: 'Show popover' }).click();
-      await page.getByRole('dialog', { name: 'Header' }).waitFor({ state: 'visible' });
     },
   },
 ];

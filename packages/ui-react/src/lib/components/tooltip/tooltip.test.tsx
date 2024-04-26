@@ -1,10 +1,9 @@
 import { composeStories } from '@storybook/react';
 import { axe, render, renderStory, waitForAsyncActions } from '../../test';
 import * as stories from './tooltip.stories';
-import { NatuButton } from '../button/button';
 import { ReactNode } from 'react';
 import { screen, waitForElementToBeRemoved } from '@testing-library/react';
-import { NatuTooltip, NatuTooltipProps } from './tooltip';
+import { NatuTooltip, NatuTooltipContent, NatuTooltipProps, NatuTooltipTrigger } from './tooltip';
 import { NatuUiConfigProvider } from '../../providers';
 
 const { Playground, ...tooltipStories } = composeStories(stories);
@@ -98,7 +97,7 @@ test('hides tooltip when trigger loses focus', async () => {
   await waitForElementToBeRemoved(screen.queryByRole('tooltip'));
 
   expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
-  expect(onOpenChangeSpy).toHaveBeenCalledTimes(4); // Click also triggers hover
+  expect(onOpenChangeSpy).toHaveBeenCalledTimes(3);
   expect(onOpenChangeSpy).toHaveBeenLastCalledWith(false);
 });
 
@@ -156,8 +155,12 @@ test('controls tooltip visibility', async () => {
   expect(await screen.findByRole('tooltip', { name: 'Example tooltip' })).toBeInTheDocument();
 
   rerender(
-    <NatuTooltip content="Example tooltip" onOpenChange={onOpenChangeSpy} isOpen={false}>
-      <NatuButton type="button">Trigger</NatuButton>
+    <NatuTooltip onOpenChange={onOpenChangeSpy} isOpen={false}>
+      <NatuTooltipTrigger>
+        <button type="button">Trigger</button>
+      </NatuTooltipTrigger>
+
+      <NatuTooltipContent>Example tooltip</NatuTooltipContent>
     </NatuTooltip>,
   );
 
@@ -180,8 +183,12 @@ async function setup(props: Partial<NatuTooltipProps> = {}) {
   const onOpenChangeSpy = vi.fn();
 
   const view = render(
-    <NatuTooltip content="Example tooltip" onOpenChange={onOpenChangeSpy} {...props}>
-      <NatuButton type="button">Trigger</NatuButton>
+    <NatuTooltip onOpenChange={onOpenChangeSpy} {...props}>
+      <NatuTooltipTrigger>
+        <button type="button">Trigger</button>
+      </NatuTooltipTrigger>
+
+      <NatuTooltipContent>Example tooltip</NatuTooltipContent>
     </NatuTooltip>,
     { renderOptions: { wrapper: UiConfigProvider } },
   );

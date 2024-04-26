@@ -6,18 +6,23 @@ import { NatuTooltipReferenceDirective } from './tooltip-reference.directive';
 describe(`${NatuTooltipDirective.name} accessibility`, () => {
   const scenarios = [
     {
-      name: 'Tooltip',
-      template: `<button type="button" natuTooltip="Example tooltip" [natuTooltipIsOpen]="true" [natuTooltipPlacement]="'top'">Trigger</button>`,
+      name: 'Closed',
+      props: { isOpen: false },
+    },
+    {
+      name: 'Open',
+      props: { isOpen: true },
+      waitForTestToBeReady: () => screen.findByText('Example tooltip'),
     },
   ];
 
-  scenarios.forEach(({ name, template }) => {
+  scenarios.forEach(({ name, props, waitForTestToBeReady = () => Promise.resolve() }) => {
     it(`${name} has no accessibility violations`, async () => {
-      const view = await render(template, {
-        renderOptions: { imports: [natuTooltipImports] },
-      });
+      await setup(props);
 
-      expect(await axe(view.container)).toHaveNoViolations();
+      await waitForTestToBeReady();
+
+      expect(await axe(document.body)).toHaveNoViolations();
     });
   });
 });
@@ -202,29 +207,29 @@ describe(NatuTooltipDirective.name, () => {
 
     expect(await screen.findByRole('tooltip', { name: 'Example tooltip' })).toBeInTheDocument();
   });
-
-  async function setup(props: Partial<NatuTooltipDirective> = {}) {
-    // eslint-disable-next-line jasmine/no-unsafe-spy
-    const isOpenChangeSpy = jasmine.createSpy();
-
-    const allProps = {
-      ...props,
-      isOpenChange: isOpenChangeSpy,
-    };
-
-    const componentProperties = aliasArgs(allProps, 'natuTooltip');
-    const templateArgs = aliasedArgsToTemplate(allProps, 'natuTooltip');
-
-    const view = await render(
-      `<button type="button" natuTooltip="Example tooltip" ${templateArgs}>Trigger</button>`,
-      {
-        renderOptions: {
-          imports: [natuTooltipImports],
-          componentProperties: componentProperties,
-        },
-      },
-    );
-
-    return { ...view, isOpenChangeSpy };
-  }
 });
+
+async function setup(props: Partial<NatuTooltipDirective> = {}) {
+  // eslint-disable-next-line jasmine/no-unsafe-spy
+  const isOpenChangeSpy = jasmine.createSpy();
+
+  const allProps = {
+    ...props,
+    isOpenChange: isOpenChangeSpy,
+  };
+
+  const componentProperties = aliasArgs(allProps, 'natuTooltip');
+  const templateArgs = aliasedArgsToTemplate(allProps, 'natuTooltip');
+
+  const view = await render(
+    `<button type="button" natuTooltip="Example tooltip" ${templateArgs}>Trigger</button>`,
+    {
+      renderOptions: {
+        imports: [natuTooltipImports],
+        componentProperties: componentProperties,
+      },
+    },
+  );
+
+  return { ...view, isOpenChangeSpy };
+}

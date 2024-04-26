@@ -6,7 +6,9 @@ import {
   Injector,
   OnDestroy,
   OnInit,
+  Renderer2,
   computed,
+  effect,
   inject,
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
@@ -37,6 +39,8 @@ const sideTransforms: Record<Side, string> = {
     tabindex: '-1',
     '[id]': '"popover-" + floatingId',
     '[style]': 'floatingStyle$()',
+    '[attr.aria-labelledby]': 'labelId$()',
+    '[attr.aria-describedby]': 'descriptionId$()',
   },
   animations: [
     trigger('openClose', [
@@ -55,12 +59,10 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
   readonly arrowWidth;
   readonly arrowHeight;
 
-  readonly textTitle$;
-  readonly templateTitle$;
-  readonly templateTitleContext$;
-  readonly textContent$;
-  readonly templateContent$;
-  readonly templateContentContext$;
+  readonly labelId$;
+  readonly descriptionId$;
+  readonly hasEmbeddedContent$;
+  readonly content$;
   readonly isOpen$;
   readonly context$;
   readonly floatingStyle$;
@@ -69,6 +71,7 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
   readonly injector = inject(Injector);
 
   private readonly elementRef = inject(ElementRef);
+  private readonly renderer = inject(Renderer2);
   private readonly overlayService = inject(NatuOverlayService);
   private readonly popoverService = inject(NatuPopoverService);
 
@@ -77,14 +80,10 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
     this.arrowWidth = this.overlayService.arrowWidth;
     this.arrowHeight = this.overlayService.arrowHeight;
 
-    this.textTitle$ = this.popoverService.textTitle$;
-    this.templateTitle$ = this.popoverService.templateTitle$;
-    this.templateTitleContext$ = this.popoverService.templateTitleContext$;
-
-    this.textContent$ = this.popoverService.textContent$;
-    this.templateContent$ = this.popoverService.templateContent$;
-    this.templateContentContext$ = this.popoverService.templateContentContext$;
-
+    this.labelId$ = this.popoverService.labelId$;
+    this.descriptionId$ = this.popoverService.descriptionId$;
+    this.hasEmbeddedContent$ = this.popoverService.hasEmbeddedContent$;
+    this.content$ = this.popoverService.content$;
     this.isOpen$ = this.overlayService.isOpen$;
     this.context$ = this.overlayService.context$;
     this.floatingStyle$ = this.overlayService.floatingStyle$;
@@ -100,6 +99,8 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
 
       return sideTransforms[side];
     });
+
+    this.registerSpreadExtraAttributes();
   }
 
   ngOnInit(): void {
@@ -114,7 +115,14 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
     this.overlayService.unmount();
   }
 
-  handleDismiss() {
-    this.overlayService.changeOpen(false);
+  private registerSpreadExtraAttributes() {
+    // Could be improved if this feature is added someday https://github.com/angular/angular/issues/14545
+    effect(() => {
+      const attributes = this.popoverService.attributes$();
+
+      Object.entries(attributes).forEach(([name, value]) => {
+        this.renderer.setAttribute(this.elementRef.nativeElement, name, value);
+      });
+    });
   }
 }

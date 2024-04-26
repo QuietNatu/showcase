@@ -32,8 +32,7 @@
 } @else {
   <ng-container
     natuPopover
-    [natuPopoverTitle]="labelTemplate()"
-    [natuPopoverContent]="popoverGroupList"
+    [natuPopoverHasEmbeddedContent]="true"
     [natuPopoverPlacement]="'right'"
     [natuPopoverIsOpen]="isGroupPopoverOpen()"
     (natuPopoverIsOpenChange)="isGroupPopoverOpen.set($event)"
@@ -43,7 +42,7 @@
       class="natu-sidebar__item"
       natuFocusRing
       [natuFocusRingFocusVisibleClass]="'natu-sidebar__item--focus'"
-      natuPopoverReference
+      natuPopoverTrigger
       [natuTooltip]="labelTemplate()"
       [natuTooltipIsDisabled]="isGroupPopoverOpen()"
       [natuTooltipPlacement]="'right'"
@@ -53,6 +52,16 @@
 
       <svg-icon class="natu-sidebar__item-collapsed-group-icon" [key]="'dots-three-vertical'" />
     </button>
+
+    <natu-card *natuPopoverContent natuPopoverCard>
+      <natu-card-header natuPopoverCardHeader>
+        <ng-template [ngTemplateOutlet]="labelTemplate() ?? null" />
+      </natu-card-header>
+
+      <natu-card-body natuPopoverCardBody>
+        <ng-template [ngTemplateOutlet]="popoverGroupList" />
+      </natu-card-body>
+    </natu-card>
   </ng-container>
 }
 

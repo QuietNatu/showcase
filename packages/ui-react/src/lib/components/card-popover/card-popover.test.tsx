@@ -38,7 +38,7 @@ test.each(storyTestCases)('%s has no accessibility violations when open', async 
 });
 
 test('hides popover when card dismiss button is clicked', async () => {
-  const { container, userEvent, onOpenChangeSpy } = await setup();
+  const { userEvent, onOpenChangeSpy } = await setup();
 
   await userEvent.click(screen.getByRole('button', { name: 'Trigger' }));
 
@@ -46,7 +46,7 @@ test('hides popover when card dismiss button is clicked', async () => {
 
   expect(popover).toBeInTheDocument();
 
-  await userEvent.click(container);
+  await userEvent.click(screen.getByRole('button', { name: 'Dismiss' }));
 
   await waitForElementToBeRemoved(popover);
 

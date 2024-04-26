@@ -3,7 +3,7 @@ import { axe, render, renderStory, waitForAsyncActions } from '../../test';
 import * as stories from './tooltip.stories';
 import { ReactNode } from 'react';
 import { screen, waitForElementToBeRemoved } from '@testing-library/react';
-import { NatuTooltip, NatuTooltipProps } from './tooltip';
+import { NatuTooltip, NatuTooltipContent, NatuTooltipProps, NatuTooltipTrigger } from './tooltip';
 import { NatuUiConfigProvider } from '../../providers';
 
 const { Playground, ...tooltipStories } = composeStories(stories);
@@ -155,8 +155,12 @@ test('controls tooltip visibility', async () => {
   expect(await screen.findByRole('tooltip', { name: 'Example tooltip' })).toBeInTheDocument();
 
   rerender(
-    <NatuTooltip content="Example tooltip" onOpenChange={onOpenChangeSpy} isOpen={false}>
-      <button type="button">Trigger</button>
+    <NatuTooltip onOpenChange={onOpenChangeSpy} isOpen={false}>
+      <NatuTooltipTrigger>
+        <button type="button">Trigger</button>
+      </NatuTooltipTrigger>
+
+      <NatuTooltipContent>Example tooltip</NatuTooltipContent>
     </NatuTooltip>,
   );
 
@@ -179,8 +183,12 @@ async function setup(props: Partial<NatuTooltipProps> = {}) {
   const onOpenChangeSpy = vi.fn();
 
   const view = render(
-    <NatuTooltip content="Example tooltip" onOpenChange={onOpenChangeSpy} {...props}>
-      <button type="button">Trigger</button>
+    <NatuTooltip onOpenChange={onOpenChangeSpy} {...props}>
+      <NatuTooltipTrigger>
+        <button type="button">Trigger</button>
+      </NatuTooltipTrigger>
+
+      <NatuTooltipContent>Example tooltip</NatuTooltipContent>
     </NatuTooltip>,
     { renderOptions: { wrapper: UiConfigProvider } },
   );

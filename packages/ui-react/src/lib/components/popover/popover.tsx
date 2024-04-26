@@ -36,7 +36,7 @@ export interface NatuPopoverProps {
 }
 
 export interface NatuPopoverTriggerProps {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export interface NatuPopoverContentProps extends ComponentPropsWithoutRef<'div'> {

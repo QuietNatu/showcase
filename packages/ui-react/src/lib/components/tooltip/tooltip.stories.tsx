@@ -87,7 +87,7 @@ function PlaygroundButton(props: PlaygroundButtonProps) {
       </NatuTooltipTrigger>
 
       <NatuTooltipContent>
-        <div>{props.placement} tooltip example</div>
+        <div>{props.placement}</div>
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id
           iaculis. In hac habitasse platea dictumst.

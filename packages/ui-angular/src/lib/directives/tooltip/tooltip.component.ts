@@ -33,15 +33,9 @@ const sideTransforms: Record<Side, string> = {
         [@openClose]="{ value: true, params: { transformation: transformation$() } }"
         (@openClose.done)="$event.toState === 'void' && handleFinishClose()"
       >
-        @if (textContent$()) {
-          {{ textContent$() }}
-        } @else {
-          <ng-template
-            [ngTemplateOutlet]="templateContent$()"
-            [ngTemplateOutletContext]="templateContext$()"
-            [ngTemplateOutletInjector]="injector"
-          />
-        }
+        <div>
+          <ng-template [ngTemplateOutlet]="content$()" [ngTemplateOutletInjector]="injector" />
+        </div>
 
         <natu-overlay-arrow class="natu-tooltip__arrow" />
       </div>
@@ -73,9 +67,7 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
   readonly arrowWidth;
   readonly arrowHeight;
 
-  readonly textContent$;
-  readonly templateContent$;
-  readonly templateContext$;
+  readonly content$;
   readonly isOpen$;
   readonly context$;
   readonly floatingStyle$;
@@ -92,9 +84,7 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
     this.arrowWidth = this.overlayService.arrowWidth;
     this.arrowHeight = this.overlayService.arrowHeight;
 
-    this.textContent$ = this.tooltipService.textContent$;
-    this.templateContent$ = this.tooltipService.templateContent$;
-    this.templateContext$ = this.tooltipService.templateContext$;
+    this.content$ = this.tooltipService.content$;
 
     this.isOpen$ = this.overlayService.isOpen$;
     this.context$ = this.overlayService.context$;

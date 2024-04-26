@@ -9,7 +9,12 @@ import {
   inject,
   untracked,
 } from '@angular/core';
-import { NatuFocusRingDirective, NatuTooltipDirective } from '../../../directives';
+import {
+  NatuFocusRingDirective,
+  NatuTooltipDirective,
+  NatuTooltipTriggerDirective,
+  natuTooltipImports,
+} from '../../../directives';
 import { NatuSidebarService } from '../services/sidebar.service';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive';
@@ -30,16 +35,20 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
         <ng-template [ngTemplateOutlet]="labelTemplate" />
       </span>
     }
+
+    <ng-template natuTooltipContent>
+      <ng-template [ngTemplateOutlet]="labelTemplate() ?? null" />
+    </ng-template>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgTemplateOutlet],
+  imports: [NgTemplateOutlet, natuTooltipImports],
   host: {
     tabindex: '0',
     class: 'natu-sidebar__item',
     '[class.natu-sidebar__item--active]': 'isActive',
   },
-  hostDirectives: [NatuTooltipDirective, NatuFocusRingDirective],
+  hostDirectives: [NatuTooltipDirective, NatuTooltipTriggerDirective, NatuFocusRingDirective],
 })
 export class NatuSidebarItemComponent {
   @Input({ transform: booleanAttribute }) isActive = false;
@@ -64,12 +73,10 @@ export class NatuSidebarItemComponent {
     const isPopoverItem = Boolean(this.sidebarGroupPopoverService);
 
     effect(() => {
-      const labelTemplate = this.labelTemplate();
       const isExpanded = isPopoverItem || this.sidebarService.isExpanded$();
 
       untracked(() => {
         this.tooltipDirective.placement = 'right';
-        this.tooltipDirective.content = labelTemplate;
         this.tooltipDirective.isDisabled = isExpanded;
       });
     });

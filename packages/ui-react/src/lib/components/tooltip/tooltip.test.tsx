@@ -1,7 +1,6 @@
 import { composeStories } from '@storybook/react';
 import { axe, render, renderStory, waitForAsyncActions } from '../../test';
 import * as stories from './tooltip.stories';
-import { NatuButton } from '../button/button';
 import { ReactNode } from 'react';
 import { screen, waitForElementToBeRemoved } from '@testing-library/react';
 import { NatuTooltip, NatuTooltipProps } from './tooltip';
@@ -98,7 +97,7 @@ test('hides tooltip when trigger loses focus', async () => {
   await waitForElementToBeRemoved(screen.queryByRole('tooltip'));
 
   expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
-  expect(onOpenChangeSpy).toHaveBeenCalledTimes(4); // Click also triggers hover
+  expect(onOpenChangeSpy).toHaveBeenCalledTimes(3);
   expect(onOpenChangeSpy).toHaveBeenLastCalledWith(false);
 });
 
@@ -157,7 +156,7 @@ test('controls tooltip visibility', async () => {
 
   rerender(
     <NatuTooltip content="Example tooltip" onOpenChange={onOpenChangeSpy} isOpen={false}>
-      <NatuButton type="button">Trigger</NatuButton>
+      <button type="button">Trigger</button>
     </NatuTooltip>,
   );
 
@@ -181,7 +180,7 @@ async function setup(props: Partial<NatuTooltipProps> = {}) {
 
   const view = render(
     <NatuTooltip content="Example tooltip" onOpenChange={onOpenChangeSpy} {...props}>
-      <NatuButton type="button">Trigger</NatuButton>
+      <button type="button">Trigger</button>
     </NatuTooltip>,
     { renderOptions: { wrapper: UiConfigProvider } },
   );

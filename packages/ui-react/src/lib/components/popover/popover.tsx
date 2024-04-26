@@ -14,19 +14,10 @@ import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuOverlayPlacement, NatuUseOverlayOptions, useOverlay } from '../../hooks/use-overlay';
-import { NatuCard, NatuCardBody, NatuCardHeader } from '../card/card';
+import { createContext } from '../../hooks';
 
-type PopoverOverlayElementProps = Omit<ComponentPropsWithoutRef<'div'>, 'content' | 'title'>;
-
-export interface NatuPopoverProps extends PopoverOverlayElementProps {
-  /** Reference element that will trigger the popover. */
-  children: ReactNode;
-
-  /** Title that will be shown by the popover. */
-  title?: ReactNode;
-
-  /** Content that will be shown by the popover. */
-  content: ReactNode;
+export interface NatuPopoverProps {
+  children?: ReactNode;
 
   /** Controlled open state. */
   isOpen?: boolean;
@@ -44,71 +35,81 @@ export interface NatuPopoverProps extends PopoverOverlayElementProps {
   isDisabled?: boolean;
 }
 
+export interface NatuPopoverTriggerProps {
+  children: ReactNode;
+}
+
+export interface NatuPopoverContentProps extends ComponentPropsWithoutRef<'div'> {
+  /** Whether the popover has embedded content (like Card) and thus should not be styled. */
+  hasEmbeddedContent?: boolean;
+}
+
 export type NatuPopoverPlacement = NatuOverlayPlacement;
 
-export const NatuPopover = forwardRef<HTMLDivElement, NatuPopoverProps>(
-  function NatuPopover(props, forwardedRef) {
-    const {
-      children,
-      title,
-      content,
-      isOpen,
-      defaultIsOpen,
-      onOpenChange,
-      placement,
-      isDisabled,
-      style,
-      className,
-      ...popoverProps
-    } = props;
+const [PopoverProvider, usePopoverContext] = createContext<ReturnType<typeof usePopover>>({
+  name: 'PopoverContext',
+});
 
-    const popover = usePopover({
-      isOpen: isOpen,
-      defaultIsOpen: defaultIsOpen,
-      onOpenChange: onOpenChange,
-      placement: placement,
-      isDisabled: isDisabled,
-      hasArrow: true,
-    });
+export function NatuPopover(props: NatuPopoverProps) {
+  const popover = usePopover({
+    isOpen: props.isOpen,
+    defaultIsOpen: props.defaultIsOpen,
+    onOpenChange: props.onOpenChange,
+    placement: props.placement,
+    isDisabled: props.isDisabled,
+    hasArrow: true,
+  });
+
+  return <PopoverProvider value={popover}>{props.children}</PopoverProvider>;
+}
+
+export function NatuPopoverTrigger(props: NatuPopoverTriggerProps) {
+  const popover = usePopoverContext();
+
+  return (
+    <Slot ref={popover.referenceRef} {...popover.getReferenceProps()}>
+      {props.children}
+    </Slot>
+  );
+}
+
+export const NatuPopoverContent = forwardRef<HTMLDivElement, NatuPopoverContentProps>(
+  function NatuPopoverContent(props: NatuPopoverContentProps, forwardedRef) {
+    const { hasEmbeddedContent, className, style, ...popoverProps } = props;
+
+    const popover = usePopoverContext();
+
+    if (!popover.isMounted) {
+      return null;
+    }
 
     return (
-      <>
-        <Slot ref={popover.referenceRef} {...popover.getReferenceProps()}>
-          {props.children}
-        </Slot>
+      <FloatingPortal>
+        <FloatingFocusManager context={popover.floatingContext}>
+          <div ref={popover.floatingRef} style={popover.floatingStyles}>
+            <div
+              ref={forwardedRef}
+              className={clsx(
+                'natu-popover',
+                { 'natu-popover--has-embedded': hasEmbeddedContent },
+                className,
+              )}
+              style={{ ...popover.transitionStyles, ...style }}
+              {...popover.getFloatingProps(popoverProps)}
+            >
+              <div>{props.children}</div>
 
-        {popover.isMounted && (
-          <FloatingPortal>
-            <FloatingFocusManager context={popover.floatingContext}>
-              <div
-                ref={popover.floatingRef}
-                style={popover.floatingStyles}
-                {...popover.getFloatingProps()}
-              >
-                <div
-                  ref={forwardedRef}
-                  className={clsx('natu-popover', className)}
-                  style={{ ...popover.transitionStyles, ...style }}
-                  {...popoverProps}
-                >
-                  <NatuCard isEmbedded={true} isDismissable={true} onDismiss={popover.onDismiss}>
-                    {title && <NatuCardHeader size="small">{title}</NatuCardHeader>}
-                    <NatuCardBody>{content}</NatuCardBody>
-                  </NatuCard>
-
-                  <FloatingArrow
-                    ref={popover.arrowRef}
-                    context={popover.floatingContext}
-                    width={popover.arrowWidth}
-                    height={popover.arrowHeight}
-                    className="natu-popover__arrow"
-                  />
-                </div>
-              </div>
-            </FloatingFocusManager>
-          </FloatingPortal>
-        )}
-      </>
+              <FloatingArrow
+                ref={popover.arrowRef}
+                context={popover.floatingContext}
+                width={popover.arrowWidth}
+                height={popover.arrowHeight}
+                className="natu-popover__arrow"
+              />
+            </div>
+          </div>
+        </FloatingFocusManager>
+      </FloatingPortal>
     );
   },
 );

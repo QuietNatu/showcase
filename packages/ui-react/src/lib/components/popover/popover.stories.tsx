@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { NatuButton } from '../button/button';
-import { NatuPopover, NatuPopoverProps } from './popover';
+import { NatuPopover, NatuPopoverContent, NatuPopoverProps, NatuPopoverTrigger } from './popover';
+import { NatuCard, NatuCardBody, NatuCardHeader } from '../card/card';
 
 const meta = {
   title: 'Components/Popover',
@@ -9,14 +10,18 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-  args: {
-    content: undefined,
-    children: undefined,
-    title: 'Title',
-  },
+  args: {},
   render: (args) => (
-    <NatuPopover {...args} content="Popover text">
-      <NatuButton type="button">Show popver</NatuButton>
+    <NatuPopover {...args}>
+      <NatuPopoverTrigger>
+        <NatuButton type="button">Show popover</NatuButton>
+      </NatuPopoverTrigger>
+
+      <NatuPopoverContent aria-labelledby="popover-content-id">
+        <NatuButton type="button" id="popover-content-id">
+          Example popover
+        </NatuButton>
+      </NatuPopoverContent>
     </NatuPopover>
   ),
 } satisfies Meta<typeof NatuPopover>;
@@ -28,15 +33,48 @@ export const Default: Story = {};
 
 export const Nested: Story = {
   render: (args) => {
-    const content = (
-      <NatuPopover {...args} content="Nested popover text">
-        <NatuButton type="button">Show nested popover</NatuButton>
+    return (
+      <NatuPopover {...args}>
+        <NatuPopoverTrigger>
+          <NatuButton type="button" id="popover-button-id">
+            Show popover
+          </NatuButton>
+        </NatuPopoverTrigger>
+
+        <NatuPopoverContent aria-labelledby="popover-button-id">
+          <NatuPopover {...args}>
+            <NatuPopoverTrigger>
+              <NatuButton type="button" id="popover-nested-button-id">
+                Show nested popover
+              </NatuButton>
+            </NatuPopoverTrigger>
+
+            <NatuPopoverContent aria-labelledby="popover-nested-button-id">
+              Nested popover text
+            </NatuPopoverContent>
+          </NatuPopover>
+        </NatuPopoverContent>
       </NatuPopover>
     );
+  },
+};
 
+export const WithEmbeddedContent: Story = {
+  render: (args) => {
     return (
-      <NatuPopover {...args} content={content}>
-        <NatuButton type="button">Show popover</NatuButton>
+      <NatuPopover {...args}>
+        <NatuPopoverTrigger>
+          <NatuButton type="button">Show popover</NatuButton>
+        </NatuPopoverTrigger>
+
+        <NatuPopoverContent aria-labelledby="popover-title-id" hasEmbeddedContent={true}>
+          <NatuCard isEmbedded={true}>
+            <NatuCardHeader size="small" id="popover-title-id">
+              Title
+            </NatuCardHeader>
+            <NatuCardBody>Content</NatuCardBody>
+          </NatuCard>
+        </NatuPopoverContent>
       </NatuPopover>
     );
   },
@@ -72,21 +110,21 @@ interface PlaygroundButtonProps extends NatuPopoverProps {
 function PlaygroundButton(props: PlaygroundButtonProps) {
   const { row, column, ...popoverProps } = props;
 
-  const popoverContent = (
-    <div>
-      <div>{props.placement} popover example</div>
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id iaculis.
-        In hac habitasse platea dictumst.
-      </div>
-    </div>
-  );
-
   return (
-    <NatuPopover {...popoverProps} content={popoverContent}>
-      <NatuButton type="button" style={{ gridRow: row, gridColumn: column, width: '100px' }}>
-        {props.placement}
-      </NatuButton>
+    <NatuPopover {...popoverProps}>
+      <NatuPopoverTrigger>
+        <NatuButton type="button" style={{ gridRow: row, gridColumn: column, width: '100px' }}>
+          {props.placement}
+        </NatuButton>
+      </NatuPopoverTrigger>
+
+      <NatuPopoverContent>
+        <div>{props.placement} popover example</div>
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id
+          iaculis. In hac habitasse platea dictumst.
+        </div>
+      </NatuPopoverContent>
     </NatuPopover>
   );
 }

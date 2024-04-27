@@ -1,5 +1,10 @@
 import { ComponentPropsWithoutRef, ReactNode, forwardRef } from 'react';
-import { FloatingArrow, FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
+import {
+  FloatingArrow,
+  FloatingFocusManager,
+  FloatingPortal,
+  useMergeRefs,
+} from '@floating-ui/react';
 import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
 import { NatuOverlayPlacement } from '../../hooks/use-overlay';
@@ -24,9 +29,7 @@ export interface NatuPopoverProps {
   isDisabled?: boolean;
 }
 
-export interface NatuPopoverTriggerProps {
-  children?: ReactNode;
-}
+export type NatuPopoverTriggerProps = ComponentPropsWithoutRef<'div'>;
 
 export interface NatuPopoverContentProps extends ComponentPropsWithoutRef<'div'> {
   /** Whether the popover has embedded content (like Card) and thus should not be styled. */
@@ -48,15 +51,18 @@ export function NatuPopover(props: NatuPopoverProps) {
   return <PopoverProvider value={popover}>{props.children}</PopoverProvider>;
 }
 
-export function NatuPopoverTrigger(props: NatuPopoverTriggerProps) {
-  const popover = usePopoverContext();
+export const NatuPopoverTrigger = forwardRef<HTMLElement, NatuPopoverTriggerProps>(
+  function NatuPopoverTrigger(props, forwardedRef) {
+    const popover = usePopoverContext();
+    const ref = useMergeRefs([popover.referenceRef, forwardedRef]);
 
-  return (
-    <Slot ref={popover.referenceRef} {...popover.getReferenceProps()}>
-      {props.children}
-    </Slot>
-  );
-}
+    return (
+      <Slot ref={ref} {...popover.getReferenceProps(props)}>
+        {props.children}
+      </Slot>
+    );
+  },
+);
 
 export const NatuPopoverContent = forwardRef<HTMLDivElement, NatuPopoverContentProps>(
   function NatuPopoverContent(props, forwardedRef) {

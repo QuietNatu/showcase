@@ -7,6 +7,7 @@ import {
   useFocus,
   useHover,
   useInteractions,
+  useMergeRefs,
   useRole,
   useTransitionStyles,
 } from '@floating-ui/react';
@@ -36,12 +37,8 @@ export interface NatuTooltipProps {
   isDisabled?: boolean;
 }
 
-export interface NatuTooltipTriggerProps {
-  children?: ReactNode;
-}
-
+export type NatuTooltipTriggerProps = ComponentPropsWithoutRef<'div'>;
 export type NatuTooltipContentProps = ComponentPropsWithoutRef<'div'>;
-
 export type NatuTooltipPlacement = NatuOverlayPlacement;
 
 const [TooltipProvider, useTooltipContext] = createContext<ReturnType<typeof useTooltip>>({
@@ -61,15 +58,18 @@ export function NatuTooltip(props: NatuTooltipProps) {
   return <TooltipProvider value={tooltip}>{props.children}</TooltipProvider>;
 }
 
-export function NatuTooltipTrigger(props: NatuTooltipTriggerProps) {
-  const tooltip = useTooltipContext();
+export const NatuTooltipTrigger = forwardRef<HTMLElement, NatuTooltipTriggerProps>(
+  function NatuTooltipTrigger(props, forwardedRef) {
+    const tooltip = useTooltipContext();
+    const ref = useMergeRefs([tooltip.referenceRef, forwardedRef]);
 
-  return (
-    <Slot ref={tooltip.referenceRef} {...tooltip.getReferenceProps()}>
-      {props.children}
-    </Slot>
-  );
-}
+    return (
+      <Slot ref={ref} {...tooltip.getReferenceProps(props)}>
+        {props.children}
+      </Slot>
+    );
+  },
+);
 
 export const NatuTooltipContent = forwardRef<HTMLDivElement, NatuTooltipContentProps>(
   function NatuPopoverContent(props: NatuTooltipContentProps, forwardedRef) {

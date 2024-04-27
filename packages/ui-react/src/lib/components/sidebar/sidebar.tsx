@@ -1,8 +1,10 @@
 import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
-import { ReactNode, useState } from 'react';
-import { MergeExclusive } from 'type-fest';
+import { ReactElement, ReactNode, useState } from 'react';
+import { Except, MergeExclusive } from 'type-fest';
 import CaretRightIcon from '@natu/assets/svg/caret-right.svg?react';
+import CaretDownIcon from '@natu/assets/svg/caret-down.svg?react';
+import DotsThreeVerticalIcon from '@natu/assets/svg/dots-three-vertical.svg?react';
 import { NatuIcon } from '../icon/icon';
 import { NatuTooltip, NatuTooltipContent, NatuTooltipTrigger } from '../tooltip/tooltip';
 import {
@@ -16,16 +18,22 @@ import {
 /* TODO: docs */
 export type NatuSidebarAction = NatuSidebarIndividualAction | NatuSidebarGroupAction;
 
-export interface NatuSidebarIndividualAction {
-  icon?: ReactNode;
+interface NatuSidebarIndividualAction {
+  icon: ReactNode;
   label: ReactNode;
-  itemWrapper: (children: ReactNode) => ReactNode;
+  // TODO: warn that element used must have forward ref
+  render: (props: RenderItemProps) => ReactElement;
 }
 
 interface NatuSidebarGroupAction {
-  icon?: ReactNode;
+  icon: ReactNode;
   label: ReactNode;
-  items: NatuSidebarIndividualAction[];
+  items: Except<NatuSidebarIndividualAction, 'icon'>[];
+}
+
+interface RenderItemProps {
+  children: ReactNode;
+  className: string;
 }
 
 export interface NatuSidebarProps {
@@ -34,30 +42,41 @@ export interface NatuSidebarProps {
   secondaryActions?: NatuSidebarAction[];
 }
 
-interface NatuSidebarListProps {
+interface SidebarListProps {
   isSidebarExpanded: boolean;
   items: MergeExclusive<NatuSidebarIndividualAction, NatuSidebarGroupAction>[];
 }
 
-interface NatuSidebarItemProps {
+interface SidebarItemProps {
   isSidebarExpanded: boolean;
   item: NatuSidebarIndividualAction;
 }
 
-interface NatuSidebarGroupProps {
+interface SidebarGroupProps {
   isSidebarExpanded: boolean;
   group: NatuSidebarGroupAction;
 }
 
-interface NatuSidebarIconProps {
+interface CollapsedSidebarGroupProps {
+  group: NatuSidebarGroupAction;
+}
+
+interface ExpandedSidebarGroupProps {
+  group: NatuSidebarGroupAction;
+}
+
+interface SidebarIconProps {
+  children?: ReactNode;
+}
+
+interface SidebarLabelProps {
   children?: ReactNode;
 }
 
 export function NatuSidebar(props: NatuSidebarProps) {
   const { actions = [], secondaryActions = [] } = props;
 
-  /* TODO: create hook */
-  const [isExpanded, setIsExpanded] = useState(false);
+  const { isExpanded, onToggleExpansion } = useSidebar();
 
   return (
     <div
@@ -66,12 +85,12 @@ export function NatuSidebar(props: NatuSidebarProps) {
         'natu-sidebar--collapsed': !isExpanded,
       })}
     >
-      {props.children}
+      <div>{props.children}</div>
 
       {/* TODO: add i18n once implemented  */}
       {actions.length > 0 && (
         <nav aria-label="Main">
-          <NatuSidebarList items={actions} isSidebarExpanded={isExpanded} />
+          <SidebarList items={actions} isSidebarExpanded={isExpanded} />
         </nav>
       )}
 
@@ -79,15 +98,11 @@ export function NatuSidebar(props: NatuSidebarProps) {
         {/* TODO: add i18n once implemented  */}
         {secondaryActions.length > 0 && (
           <nav aria-label="Secondary">
-            <NatuSidebarList items={secondaryActions} isSidebarExpanded={isExpanded} />
+            <SidebarList items={secondaryActions} isSidebarExpanded={isExpanded} />
           </nav>
         )}
 
-        <button
-          type="button"
-          className="natu-sidebar__toggle-button"
-          onClick={() => setIsExpanded((isExpanded) => !isExpanded)}
-        >
+        <button type="button" className="natu-sidebar__toggle-button" onClick={onToggleExpansion}>
           {/* TODO: add i18n once implemented */}
           <span className="natu-visually-hidden">{isExpanded ? 'Collapse' : 'Expand'}</span>
 
@@ -100,18 +115,14 @@ export function NatuSidebar(props: NatuSidebarProps) {
   );
 }
 
-export function NatuSidebarHeader({ children }: { children?: ReactNode }) {
-  return <div>{children}</div>;
-}
-
 /* TODO: check rerenders */
-export function NatuSidebarList(props: NatuSidebarListProps) {
+function SidebarList(props: SidebarListProps) {
   const listItems = props.items.map((item, index) => (
     <li key={index} className="natu-sidebar__list-item">
       {item.items ? (
-        <NatuSidebarGroup group={item} isSidebarExpanded={props.isSidebarExpanded} />
+        <SidebarGroup group={item} isSidebarExpanded={props.isSidebarExpanded} />
       ) : (
-        <NatuSidebarItem item={item} isSidebarExpanded={props.isSidebarExpanded} />
+        <SidebarItem item={item} isSidebarExpanded={props.isSidebarExpanded} />
       )}
     </li>
   ));
@@ -119,21 +130,22 @@ export function NatuSidebarList(props: NatuSidebarListProps) {
   return <ul className="natu-sidebar__list">{listItems}</ul>;
 }
 
-export function NatuSidebarItem(props: NatuSidebarItemProps) {
+function SidebarItem(props: SidebarItemProps) {
   const { item, isSidebarExpanded } = props;
 
-  /* TODO: slot should not be needed */
   return (
     <NatuTooltip isDisabled={isSidebarExpanded} placement="right">
       <NatuTooltipTrigger>
-        <Slot className="natu-sidebar__item">
-          {item.itemWrapper(
+        {/* This must be a render prop, if it was a component it would require it's ref to be forwarded */}
+        {item.render({
+          className: 'natu-sidebar__item',
+          children: (
             <>
-              <NatuSidebarIcon>{item.icon}</NatuSidebarIcon>
-              <NatuSidebarLabel>{item.label}</NatuSidebarLabel>
-            </>,
-          )}
-        </Slot>
+              <SidebarIcon>{item.icon}</SidebarIcon>
+              <SidebarLabel>{item.label}</SidebarLabel>
+            </>
+          ),
+        })}
       </NatuTooltipTrigger>
 
       <NatuTooltipContent>{item.label}</NatuTooltipContent>
@@ -141,40 +153,62 @@ export function NatuSidebarItem(props: NatuSidebarItemProps) {
   );
 }
 
-export function NatuSidebarGroup(props: NatuSidebarGroupProps) {
-  const { group, isSidebarExpanded } = props;
+export function SidebarGroup(props: SidebarGroupProps) {
+  return props.isSidebarExpanded ? (
+    <ExpandedSidebarGroup group={props.group} />
+  ) : (
+    <CollapsedSidebarGroup group={props.group} />
+  );
+}
 
-  /* TODO: create hook */
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+function CollapsedSidebarGroup(props: CollapsedSidebarGroupProps) {
+  const { group } = props;
 
-  // TODO: triggers not stacking
+  const { isPopoverOpen, onPopoverOpenChange } = useSidebarCollapsedGroup();
+
+  return (
+    <NatuCardPopover placement="right" isOpen={isPopoverOpen} onOpenChange={onPopoverOpenChange}>
+      <NatuTooltip isDisabled={isPopoverOpen} placement="right">
+        <NatuCardPopoverTrigger>
+          <NatuTooltipTrigger>
+            {/* TODO: base button headless component with just functionality? */}
+            <button type="button" className="natu-sidebar__item">
+              <SidebarIcon>{group.icon}</SidebarIcon>
+              <SidebarLabel>{group.label}</SidebarLabel>
+
+              <NatuIcon className="natu-sidebar__item-collapsed-group-icon" aria-hidden="true">
+                <DotsThreeVerticalIcon />
+              </NatuIcon>
+            </button>
+          </NatuTooltipTrigger>
+        </NatuCardPopoverTrigger>
+
+        <NatuTooltipContent>{group.label}</NatuTooltipContent>
+      </NatuTooltip>
+
+      <NatuCardPopoverContent>
+        <NatuCardPopoverContentHeader>Header</NatuCardPopoverContentHeader>
+        <NatuCardPopoverContentBody>Body</NatuCardPopoverContentBody>
+      </NatuCardPopoverContent>
+    </NatuCardPopover>
+  );
+}
+
+function ExpandedSidebarGroup(props: ExpandedSidebarGroupProps) {
+  const { group } = props;
 
   return (
     <>
-      <NatuCardPopover
-        isDisabled={isSidebarExpanded}
-        placement="right"
-        isOpen={isPopoverOpen}
-        onOpenChange={(isOpen) => setIsPopoverOpen(isOpen)}
-      >
-        <NatuTooltip isDisabled={isSidebarExpanded || isPopoverOpen} placement="right">
-          <NatuCardPopoverTrigger>
-            <NatuTooltipTrigger>
-              <button type="button" className="natu-sidebar__item">
-                <NatuSidebarIcon>{group.icon}</NatuSidebarIcon>
-                <NatuSidebarLabel>{group.label}</NatuSidebarLabel>
-              </button>
-            </NatuTooltipTrigger>
-          </NatuCardPopoverTrigger>
+      <button type="button" className="natu-sidebar__item">
+        <SidebarIcon>{group.icon}</SidebarIcon>
+        <SidebarLabel>{group.label}</SidebarLabel>
 
-          <NatuTooltipContent>{group.label}</NatuTooltipContent>
-        </NatuTooltip>
-
-        <NatuCardPopoverContent>
-          <NatuCardPopoverContentHeader>Header</NatuCardPopoverContentHeader>
-          <NatuCardPopoverContentBody>Body</NatuCardPopoverContentBody>
-        </NatuCardPopoverContent>
-      </NatuCardPopover>
+        <span className="natu-sidebar__item-group-icon-area" aria-hidden="true">
+          <NatuIcon className="natu-sidebar__item-group-icon">
+            <CaretDownIcon />
+          </NatuIcon>
+        </span>
+      </button>
 
       <div className="natu-sidebar__group-list">
         {/* TODO */}
@@ -184,15 +218,7 @@ export function NatuSidebarGroup(props: NatuSidebarGroupProps) {
   );
 }
 
-export function NatuSidebarGroupItem({ children }: { children?: ReactNode }) {
-  return <button type="button">{children}</button>;
-}
-
-export function NatuSidebarGroupList({ children }: { children?: ReactNode }) {
-  return <ul>{children}</ul>;
-}
-
-export function NatuSidebarIcon(props: NatuSidebarIconProps) {
+function SidebarIcon(props: SidebarIconProps) {
   return (
     <Slot className="natu-sidebar__item-icon" aria-hidden="true">
       {props.children}
@@ -200,6 +226,22 @@ export function NatuSidebarIcon(props: NatuSidebarIconProps) {
   );
 }
 
-export function NatuSidebarLabel({ children }: { children?: ReactNode }) {
-  return <div className="natu-sidebar__item-label">{children}</div>;
+function SidebarLabel(props: SidebarLabelProps) {
+  return <div className="natu-sidebar__item-label">{props.children}</div>;
+}
+
+function useSidebar() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleToggleExpansion = () => setIsExpanded((isExpanded) => !isExpanded);
+
+  return { isExpanded, onToggleExpansion: handleToggleExpansion };
+}
+
+function useSidebarCollapsedGroup() {
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+  const handlePopoverOpenChange = (isOpen: boolean) => setIsPopoverOpen(isOpen);
+
+  return { isPopoverOpen, onPopoverOpenChange: handlePopoverOpenChange };
 }

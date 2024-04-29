@@ -19,6 +19,7 @@ const meta = {
   args: {
     actions: [
       {
+        id: 'patients',
         label: 'Patients',
         icon: (
           <NatuIcon>
@@ -27,7 +28,8 @@ const meta = {
         ),
         items: [
           {
-            label: 'General Info',
+            id: 'patients/general-info',
+            label: 'patients',
             render: (props) => (
               <a {...props} href="/">
                 {props.children}
@@ -35,6 +37,7 @@ const meta = {
             ),
           },
           {
+            id: 'patients/records',
             label: 'Records',
             render: (props) => (
               <a {...props} href="/">
@@ -45,6 +48,7 @@ const meta = {
         ],
       },
       {
+        id: 'culture',
         label: 'Culture',
         icon: (
           <NatuIcon>
@@ -58,6 +62,7 @@ const meta = {
         ),
       },
       {
+        id: 'activities',
         label: 'Activities',
         icon: (
           <NatuIcon>
@@ -74,6 +79,7 @@ const meta = {
 
     secondaryActions: [
       {
+        id: 'staff',
         label: 'Staff',
         icon: (
           <NatuIcon>
@@ -82,6 +88,7 @@ const meta = {
         ),
         items: [
           {
+            id: 'staff/general-info',
             label: 'General Info',
             render: (props) => (
               <a {...props} href="/">
@@ -90,6 +97,7 @@ const meta = {
             ),
           },
           {
+            id: 'staff/records',
             label: 'Records',
             render: (props) => (
               <a {...props} href="/">
@@ -100,6 +108,7 @@ const meta = {
         ],
       },
       {
+        id: 'culture2',
         label: 'Culture',
         icon: (
           <NatuIcon>
@@ -113,6 +122,7 @@ const meta = {
         ),
       },
       {
+        id: 'activities2',
         label: 'Activities',
         icon: (
           <NatuIcon>
@@ -134,3 +144,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
+
+export const Expanded: Story = {
+  args: {
+    // TODO: default is expanded
+  },
+};
+
+export const Active: Story = {
+  args: {
+    activeAction: 'culture',
+  },
+};

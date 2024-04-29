@@ -19,6 +19,7 @@ import {
 export type NatuSidebarAction = NatuSidebarIndividualAction | NatuSidebarGroupAction;
 
 interface NatuSidebarIndividualAction {
+  id: string;
   icon: ReactNode;
   label: ReactNode;
   // TODO: warn that element used must have forward ref
@@ -26,6 +27,7 @@ interface NatuSidebarIndividualAction {
 }
 
 interface NatuSidebarGroupAction {
+  id: string;
   icon: ReactNode;
   label: ReactNode;
   items: Except<NatuSidebarIndividualAction, 'icon'>[];
@@ -40,14 +42,17 @@ export interface NatuSidebarProps {
   children?: ReactNode;
   actions?: NatuSidebarAction[];
   secondaryActions?: NatuSidebarAction[];
+  activeAction?: string | null;
 }
 
 interface SidebarListProps {
+  activeAction: string | null;
   isSidebarExpanded: boolean;
   items: MergeExclusive<NatuSidebarIndividualAction, NatuSidebarGroupAction>[];
 }
 
 interface SidebarItemProps {
+  isActive: boolean;
   isSidebarExpanded: boolean;
   item: NatuSidebarIndividualAction;
 }
@@ -74,7 +79,7 @@ interface SidebarLabelProps {
 }
 
 export function NatuSidebar(props: NatuSidebarProps) {
-  const { actions = [], secondaryActions = [] } = props;
+  const { actions = [], secondaryActions = [], activeAction = null } = props;
 
   const { isExpanded, onToggleExpansion } = useSidebar();
 
@@ -90,7 +95,7 @@ export function NatuSidebar(props: NatuSidebarProps) {
       {/* TODO: add i18n once implemented  */}
       {actions.length > 0 && (
         <nav aria-label="Main">
-          <SidebarList items={actions} isSidebarExpanded={isExpanded} />
+          <SidebarList items={actions} isSidebarExpanded={isExpanded} activeAction={activeAction} />
         </nav>
       )}
 
@@ -98,7 +103,11 @@ export function NatuSidebar(props: NatuSidebarProps) {
         {/* TODO: add i18n once implemented  */}
         {secondaryActions.length > 0 && (
           <nav aria-label="Secondary">
-            <SidebarList items={secondaryActions} isSidebarExpanded={isExpanded} />
+            <SidebarList
+              items={secondaryActions}
+              isSidebarExpanded={isExpanded}
+              activeAction={activeAction}
+            />
           </nav>
         )}
 
@@ -117,12 +126,16 @@ export function NatuSidebar(props: NatuSidebarProps) {
 
 /* TODO: check rerenders */
 function SidebarList(props: SidebarListProps) {
-  const listItems = props.items.map((item, index) => (
-    <li key={index} className="natu-sidebar__list-item">
+  const listItems = props.items.map((item) => (
+    <li key={item.id} className="natu-sidebar__list-item">
       {item.items ? (
         <SidebarGroup group={item} isSidebarExpanded={props.isSidebarExpanded} />
       ) : (
-        <SidebarItem item={item} isSidebarExpanded={props.isSidebarExpanded} />
+        <SidebarItem
+          item={item}
+          isSidebarExpanded={props.isSidebarExpanded}
+          isActive={props.activeAction === item.id}
+        />
       )}
     </li>
   ));
@@ -131,14 +144,14 @@ function SidebarList(props: SidebarListProps) {
 }
 
 function SidebarItem(props: SidebarItemProps) {
-  const { item, isSidebarExpanded } = props;
+  const { item, isSidebarExpanded, isActive } = props;
 
   return (
     <NatuTooltip isDisabled={isSidebarExpanded} placement="right">
       <NatuTooltipTrigger>
         {/* This must be a render prop, if it was a component it would require it's ref to be forwarded */}
         {item.render({
-          className: 'natu-sidebar__item',
+          className: clsx('natu-sidebar__item', { '  natu-sidebar__item--active': isActive }),
           children: (
             <>
               <SidebarIcon>{item.icon}</SidebarIcon>

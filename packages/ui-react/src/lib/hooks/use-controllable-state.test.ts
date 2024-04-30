@@ -48,12 +48,17 @@ test('supports uncontrolled state', () => {
   );
 
   act(() => {
-    result.current[1]('changed-value');
+    result.current[1]('changed');
+  });
+
+  act(() => {
+    result.current[1]((previousValue) => `${previousValue}-value`);
   });
 
   expect(result.current[0]).toBe('changed-value');
-  expect(onChangeSpy).toHaveBeenCalledTimes(1);
-  expect(onChangeSpy).toHaveBeenCalledWith('changed-value');
+  expect(onChangeSpy).toHaveBeenCalledTimes(2);
+  expect(onChangeSpy).toHaveBeenNthCalledWith(1, 'changed');
+  expect(onChangeSpy).toHaveBeenNthCalledWith(2, 'changed-value');
   expect(result.current[2]).toBe(false);
 });
 
@@ -70,8 +75,13 @@ test('supports controlled state', () => {
     result.current[1]('changed-value');
   });
 
+  act(() => {
+    result.current[1]((previousValue) => `${previousValue}-value`);
+  });
+
   expect(result.current[0]).toBe('controlled-value');
-  expect(onChangeSpy).toHaveBeenCalledTimes(1);
-  expect(onChangeSpy).toHaveBeenCalledWith('changed-value');
+  expect(onChangeSpy).toHaveBeenCalledTimes(2);
+  expect(onChangeSpy).toHaveBeenNthCalledWith(1, 'changed-value');
+  expect(onChangeSpy).toHaveBeenNthCalledWith(2, 'controlled-value-value');
   expect(result.current[2]).toBe(true);
 });

@@ -22,7 +22,7 @@ import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
 import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popover.service';
 
 @Component({
-  selector: 'natu-sidebar-item,[natu-sidebar-item]',
+  selector: '[natu-sidebar-item]',
   template: `
     @if (iconTemplate(); as iconTemplate) {
       <span class="natu-sidebar__item-icon" aria-hidden="true">
@@ -44,7 +44,6 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
   standalone: true,
   imports: [NgTemplateOutlet, natuTooltipImports],
   host: {
-    tabindex: '0',
     class: 'natu-sidebar__item',
     '[class.natu-sidebar__item--active]': 'isActive',
   },

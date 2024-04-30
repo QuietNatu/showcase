@@ -1,6 +1,6 @@
 import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
-import { ReactElement, ReactNode, useState } from 'react';
+import { HTMLAttributes, ReactElement, ReactNode, forwardRef, useState } from 'react';
 import { Except, MergeExclusive, SetOptional } from 'type-fest';
 import CaretRightIcon from '@natu/assets/svg/caret-right.svg?react';
 import CaretDownIcon from '@natu/assets/svg/caret-down.svg?react';
@@ -16,10 +16,9 @@ import {
 } from '../card-popover/card-popover';
 import * as Collapsible from '@radix-ui/react-collapsible';
 import { useControllableState } from '../../hooks';
+import { mergeProps, useFocusRing } from 'react-aria';
 
 /* TODO: docs */
-
-/* TODO: focus */
 
 export type NatuSidebarAction = NatuSidebarIndividualAction | NatuSidebarGroupAction;
 
@@ -28,7 +27,7 @@ interface NatuSidebarIndividualAction {
   icon: ReactNode;
   label: ReactNode;
   // TODO: warn that element used must have forward ref
-  render: (props: RenderItemProps) => ReactElement;
+  render: (children: ReactNode) => ReactElement;
 }
 
 interface NatuSidebarGroupAction {
@@ -39,11 +38,6 @@ interface NatuSidebarGroupAction {
 }
 
 type SidebarAction = SetOptional<NatuSidebarIndividualAction, 'icon'>;
-
-interface RenderItemProps {
-  children: ReactNode;
-  className: string;
-}
 
 export interface NatuSidebarProps extends UseSidebarOptions {
   children?: ReactNode;
@@ -179,15 +173,14 @@ function SidebarItem(props: SidebarItemProps) {
       <NatuTooltipTrigger>
         {/* This must be a render prop, if it was a component it would require it's ref to be forwarded. */}
         {/* TODO: check if this is not needed with React 19 ref changes */}
-        {item.render({
-          className: clsx('natu-sidebar__item', { '  natu-sidebar__item--active': isActive }),
-          children: (
+        <SidebarItemTrigger className={clsx({ 'natu-sidebar__item--active': isActive })}>
+          {item.render(
             <>
               {item.icon && <SidebarIcon>{item.icon}</SidebarIcon>}
               <SidebarLabel>{item.label}</SidebarLabel>
-            </>
-          ),
-        })}
+            </>,
+          )}
+        </SidebarItemTrigger>
       </NatuTooltipTrigger>
 
       <NatuTooltipContent>{item.label}</NatuTooltipContent>
@@ -195,7 +188,27 @@ function SidebarItem(props: SidebarItemProps) {
   );
 }
 
-export function SidebarGroup(props: SidebarGroupProps) {
+const SidebarItemTrigger = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
+  function SidebarItemTrigger(props, forwardedRef) {
+    const { focusProps, isFocusVisible } = useFocusRing({ autoFocus: true });
+
+    return (
+      <Slot
+        ref={forwardedRef}
+        {...mergeProps(props, focusProps)}
+        className={clsx(
+          'natu-sidebar__item',
+          { 'natu-sidebar__item--focus': isFocusVisible },
+          props.className,
+        )}
+      >
+        {props.children}
+      </Slot>
+    );
+  },
+);
+
+function SidebarGroup(props: SidebarGroupProps) {
   const Group = props.isExpanded ? ExpandedSidebarGroup : CollapsedSidebarGroup;
   return <Group group={props.group} activeAction={props.activeAction} />;
 }
@@ -209,14 +222,16 @@ function CollapsedSidebarGroup(props: CollapsedSidebarGroupProps) {
       <NatuTooltip isDisabled={isPopoverOpen} placement="right">
         <NatuCardPopoverTrigger>
           <NatuTooltipTrigger>
-            <button type="button" className="natu-sidebar__item">
-              <SidebarIcon>{group.icon}</SidebarIcon>
-              <SidebarLabel>{group.label}</SidebarLabel>
+            <SidebarItemTrigger>
+              <button type="button">
+                <SidebarIcon>{group.icon}</SidebarIcon>
+                <SidebarLabel>{group.label}</SidebarLabel>
 
-              <NatuIcon className="natu-sidebar__item-collapsed-group-icon" aria-hidden="true">
-                <DotsThreeVerticalIcon />
-              </NatuIcon>
-            </button>
+                <NatuIcon className="natu-sidebar__item-collapsed-group-icon" aria-hidden="true">
+                  <DotsThreeVerticalIcon />
+                </NatuIcon>
+              </button>
+            </SidebarItemTrigger>
           </NatuTooltipTrigger>
         </NatuCardPopoverTrigger>
 
@@ -246,16 +261,18 @@ function ExpandedSidebarGroup(props: ExpandedSidebarGroupProps) {
       open={isGroupOpen}
       onOpenChange={onGroupOpenChange}
     >
-      <Collapsible.Trigger className="natu-sidebar__item">
-        <SidebarIcon>{group.icon}</SidebarIcon>
-        <SidebarLabel>{group.label}</SidebarLabel>
+      <SidebarItemTrigger>
+        <Collapsible.Trigger>
+          <SidebarIcon>{group.icon}</SidebarIcon>
+          <SidebarLabel>{group.label}</SidebarLabel>
 
-        <span className="natu-sidebar__item-group-icon-area" aria-hidden="true">
-          <NatuIcon className="natu-sidebar__item-group-icon">
-            <CaretDownIcon />
-          </NatuIcon>
-        </span>
-      </Collapsible.Trigger>
+          <span className="natu-sidebar__item-group-icon-area" aria-hidden="true">
+            <NatuIcon className="natu-sidebar__item-group-icon">
+              <CaretDownIcon />
+            </NatuIcon>
+          </span>
+        </Collapsible.Trigger>
+      </SidebarItemTrigger>
 
       <Collapsible.Content className="natu-sidebar__group-content">
         <SidebarList items={group.items} isExpanded={true} activeAction={activeAction} />
@@ -298,8 +315,5 @@ function useSidebarCollapsedGroup() {
 function useSidebarExpandedGroup() {
   const [isGroupOpen, setIsGroupOpen] = useState(false);
 
-  return {
-    isGroupOpen: isGroupOpen,
-    onGroupOpenChange: setIsGroupOpen,
-  };
+  return { isGroupOpen: isGroupOpen, onGroupOpenChange: setIsGroupOpen };
 }

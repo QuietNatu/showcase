@@ -6,20 +6,24 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
 @keyframes sidebar-slide-down {
   from {
     height: 0;
+    overflow: hidden;
   }
 
   to {
     height: var(--radix-collapsible-content-height);
+    overflow: hidden;
   }
 }
 
 @keyframes sidebar-slide-up {
   from {
     height: var(--radix-collapsible-content-height);
+    overflow: hidden;
   }
 
   to {
     height: 0;
+    overflow: hidden;
   }
 }
 
@@ -123,9 +127,6 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
   }
 
   .natu-sidebar__group-content {
-    // TODO: check if this breaks sub group focus
-    overflow: hidden;
-
     .natu-sidebar__group--expanded & {
       animation: sidebar-slide-down var(--natu-time-animation-standard)
         var(--natu-duration-standard);

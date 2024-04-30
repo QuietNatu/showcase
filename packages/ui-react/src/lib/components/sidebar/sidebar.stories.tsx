@@ -30,20 +30,12 @@ const meta = {
           {
             id: 'patients/general-info',
             label: 'General Info',
-            render: (props) => (
-              <a {...props} href="/">
-                {props.children}
-              </a>
-            ),
+            render: (children) => <a href="/">{children}</a>,
           },
           {
             id: 'patients/records',
             label: 'Records',
-            render: (props) => (
-              <a {...props} href="/">
-                {props.children}
-              </a>
-            ),
+            render: (children) => <a href="/">{children}</a>,
           },
         ],
       },
@@ -55,11 +47,7 @@ const meta = {
             <MaskHappyIcon />
           </NatuIcon>
         ),
-        render: (props) => (
-          <a {...props} href="/">
-            {props.children}
-          </a>
-        ),
+        render: (children) => <a href="/">{children}</a>,
       },
       {
         id: 'activities',
@@ -69,11 +57,7 @@ const meta = {
             <RocketIcon />
           </NatuIcon>
         ),
-        render: (props) => (
-          <button {...props} type="button">
-            {props.children}
-          </button>
-        ),
+        render: (children) => <button type="button">{children}</button>,
       },
     ],
 
@@ -90,20 +74,12 @@ const meta = {
           {
             id: 'staff/general-info',
             label: 'General Info',
-            render: (props) => (
-              <a {...props} href="/">
-                {props.children}
-              </a>
-            ),
+            render: (children) => <a href="/">{children}</a>,
           },
           {
             id: 'staff/records',
             label: 'Records',
-            render: (props) => (
-              <a {...props} href="/">
-                {props.children}
-              </a>
-            ),
+            render: (children) => <a href="/">{children}</a>,
           },
         ],
       },
@@ -115,11 +91,7 @@ const meta = {
             <MaskHappyIcon />
           </NatuIcon>
         ),
-        render: (props) => (
-          <a {...props} href="/">
-            {props.children}
-          </a>
-        ),
+        render: (children) => <a href="/">{children}</a>,
       },
       {
         id: 'activities2',
@@ -129,11 +101,7 @@ const meta = {
             <RocketIcon />
           </NatuIcon>
         ),
-        render: (props) => (
-          <button {...props} type="button">
-            {props.children}
-          </button>
-        ),
+        render: (children) => <button type="button">{children}</button>,
       },
     ],
   },
@@ -167,5 +135,12 @@ export const Expanded: Story = {
 export const Active: Story = {
   args: {
     activeAction: 'culture',
+  },
+};
+
+export const ActiveExpanded: Story = {
+  args: {
+    activeAction: 'culture',
+    defaultIsExpanded: true,
   },
 };

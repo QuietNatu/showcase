@@ -29,7 +29,7 @@ const meta = {
         items: [
           {
             id: 'patients/general-info',
-            label: 'patients',
+            label: 'General Info',
             render: (props) => (
               <a {...props} href="/">
                 {props.children}
@@ -137,7 +137,20 @@ const meta = {
       },
     ],
   },
-  render: (args) => <NatuSidebar {...args}>Example header</NatuSidebar>,
+  render: (args) => (
+    <NatuSidebar {...args}>
+      <div
+        style={{
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+          padding: '0 0.5rem',
+        }}
+      >
+        Example header
+      </div>
+    </NatuSidebar>
+  ),
 } satisfies Meta<typeof NatuSidebar>;
 
 export default meta;

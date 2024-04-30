@@ -1,7 +1,7 @@
 import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
 import { ReactElement, ReactNode, useState } from 'react';
-import { Except, MergeExclusive } from 'type-fest';
+import { Except, MergeExclusive, SetOptional } from 'type-fest';
 import CaretRightIcon from '@natu/assets/svg/caret-right.svg?react';
 import CaretDownIcon from '@natu/assets/svg/caret-down.svg?react';
 import DotsThreeVerticalIcon from '@natu/assets/svg/dots-three-vertical.svg?react';
@@ -14,8 +14,12 @@ import {
   NatuCardPopoverContentHeader,
   NatuCardPopoverTrigger,
 } from '../card-popover/card-popover';
+import * as Collapsible from '@radix-ui/react-collapsible';
 
 /* TODO: docs */
+
+/* TODO: focus */
+
 export type NatuSidebarAction = NatuSidebarIndividualAction | NatuSidebarGroupAction;
 
 interface NatuSidebarIndividualAction {
@@ -33,6 +37,8 @@ interface NatuSidebarGroupAction {
   items: Except<NatuSidebarIndividualAction, 'icon'>[];
 }
 
+type SidebarAction = SetOptional<NatuSidebarIndividualAction, 'icon'>;
+
 interface RenderItemProps {
   children: ReactNode;
   className: string;
@@ -47,26 +53,29 @@ export interface NatuSidebarProps {
 
 interface SidebarListProps {
   activeAction: string | null;
-  isSidebarExpanded: boolean;
-  items: MergeExclusive<NatuSidebarIndividualAction, NatuSidebarGroupAction>[];
+  isExpanded: boolean;
+  items: MergeExclusive<SidebarAction, NatuSidebarGroupAction>[];
 }
 
 interface SidebarItemProps {
   isActive: boolean;
-  isSidebarExpanded: boolean;
-  item: NatuSidebarIndividualAction;
+  isExpanded: boolean;
+  item: SetOptional<NatuSidebarIndividualAction, 'icon'>;
 }
 
 interface SidebarGroupProps {
-  isSidebarExpanded: boolean;
+  activeAction: string | null;
+  isExpanded: boolean;
   group: NatuSidebarGroupAction;
 }
 
 interface CollapsedSidebarGroupProps {
+  activeAction: string | null;
   group: NatuSidebarGroupAction;
 }
 
 interface ExpandedSidebarGroupProps {
+  activeAction: string | null;
   group: NatuSidebarGroupAction;
 }
 
@@ -80,7 +89,6 @@ interface SidebarLabelProps {
 
 export function NatuSidebar(props: NatuSidebarProps) {
   const { actions = [], secondaryActions = [], activeAction = null } = props;
-
   const { isExpanded, onToggleExpansion } = useSidebar();
 
   return (
@@ -90,12 +98,12 @@ export function NatuSidebar(props: NatuSidebarProps) {
         'natu-sidebar--collapsed': !isExpanded,
       })}
     >
-      <div>{props.children}</div>
+      <div className="natu-sidebar__header">{props.children}</div>
 
       {/* TODO: add i18n once implemented  */}
       {actions.length > 0 && (
         <nav aria-label="Main">
-          <SidebarList items={actions} isSidebarExpanded={isExpanded} activeAction={activeAction} />
+          <SidebarList items={actions} isExpanded={isExpanded} activeAction={activeAction} />
         </nav>
       )}
 
@@ -105,7 +113,7 @@ export function NatuSidebar(props: NatuSidebarProps) {
           <nav aria-label="Secondary">
             <SidebarList
               items={secondaryActions}
-              isSidebarExpanded={isExpanded}
+              isExpanded={isExpanded}
               activeAction={activeAction}
             />
           </nav>
@@ -129,11 +137,15 @@ function SidebarList(props: SidebarListProps) {
   const listItems = props.items.map((item) => (
     <li key={item.id} className="natu-sidebar__list-item">
       {item.items ? (
-        <SidebarGroup group={item} isSidebarExpanded={props.isSidebarExpanded} />
+        <SidebarGroup
+          group={item}
+          isExpanded={props.isExpanded}
+          activeAction={props.activeAction}
+        />
       ) : (
         <SidebarItem
           item={item}
-          isSidebarExpanded={props.isSidebarExpanded}
+          isExpanded={props.isExpanded}
           isActive={props.activeAction === item.id}
         />
       )}
@@ -144,17 +156,18 @@ function SidebarList(props: SidebarListProps) {
 }
 
 function SidebarItem(props: SidebarItemProps) {
-  const { item, isSidebarExpanded, isActive } = props;
+  const { item, isExpanded, isActive } = props;
 
   return (
-    <NatuTooltip isDisabled={isSidebarExpanded} placement="right">
+    <NatuTooltip isDisabled={isExpanded} placement="right">
       <NatuTooltipTrigger>
-        {/* This must be a render prop, if it was a component it would require it's ref to be forwarded */}
+        {/* This must be a render prop, if it was a component it would require it's ref to be forwarded. */}
+        {/* TODO: check if this is not needed with React 19 ref changes */}
         {item.render({
           className: clsx('natu-sidebar__item', { '  natu-sidebar__item--active': isActive }),
           children: (
             <>
-              <SidebarIcon>{item.icon}</SidebarIcon>
+              {item.icon && <SidebarIcon>{item.icon}</SidebarIcon>}
               <SidebarLabel>{item.label}</SidebarLabel>
             </>
           ),
@@ -167,16 +180,12 @@ function SidebarItem(props: SidebarItemProps) {
 }
 
 export function SidebarGroup(props: SidebarGroupProps) {
-  return props.isSidebarExpanded ? (
-    <ExpandedSidebarGroup group={props.group} />
-  ) : (
-    <CollapsedSidebarGroup group={props.group} />
-  );
+  const Group = props.isExpanded ? ExpandedSidebarGroup : CollapsedSidebarGroup;
+  return <Group group={props.group} activeAction={props.activeAction} />;
 }
 
 function CollapsedSidebarGroup(props: CollapsedSidebarGroupProps) {
-  const { group } = props;
-
+  const { group, activeAction } = props;
   const { isPopoverOpen, onPopoverOpenChange } = useSidebarCollapsedGroup();
 
   return (
@@ -184,7 +193,6 @@ function CollapsedSidebarGroup(props: CollapsedSidebarGroupProps) {
       <NatuTooltip isDisabled={isPopoverOpen} placement="right">
         <NatuCardPopoverTrigger>
           <NatuTooltipTrigger>
-            {/* TODO: base button headless component with just functionality? */}
             <button type="button" className="natu-sidebar__item">
               <SidebarIcon>{group.icon}</SidebarIcon>
               <SidebarLabel>{group.label}</SidebarLabel>
@@ -200,19 +208,29 @@ function CollapsedSidebarGroup(props: CollapsedSidebarGroupProps) {
       </NatuTooltip>
 
       <NatuCardPopoverContent>
-        <NatuCardPopoverContentHeader>Header</NatuCardPopoverContentHeader>
-        <NatuCardPopoverContentBody>Body</NatuCardPopoverContentBody>
+        <NatuCardPopoverContentHeader>{group.label}</NatuCardPopoverContentHeader>
+        <NatuCardPopoverContentBody className="natu-sidebar__popover">
+          <SidebarList items={group.items} isExpanded={true} activeAction={activeAction} />
+        </NatuCardPopoverContentBody>
       </NatuCardPopoverContent>
     </NatuCardPopover>
   );
 }
 
 function ExpandedSidebarGroup(props: ExpandedSidebarGroupProps) {
-  const { group } = props;
+  const { group, activeAction } = props;
+  const { isGroupOpen, onGroupOpenChange } = useSidebarExpandedGroup();
 
   return (
-    <>
-      <button type="button" className="natu-sidebar__item">
+    <Collapsible.Root
+      className={clsx('natu-sidebar__group', {
+        'natu-sidebar__group--expanded': isGroupOpen,
+        'natu-sidebar__group--collapsed': !isGroupOpen,
+      })}
+      open={isGroupOpen}
+      onOpenChange={onGroupOpenChange}
+    >
+      <Collapsible.Trigger className="natu-sidebar__item">
         <SidebarIcon>{group.icon}</SidebarIcon>
         <SidebarLabel>{group.label}</SidebarLabel>
 
@@ -221,13 +239,12 @@ function ExpandedSidebarGroup(props: ExpandedSidebarGroupProps) {
             <CaretDownIcon />
           </NatuIcon>
         </span>
-      </button>
+      </Collapsible.Trigger>
 
-      <div className="natu-sidebar__group-list">
-        {/* TODO */}
-        {/* <NatuSidebarList items={group.items} /> */}
-      </div>
-    </>
+      <Collapsible.Content className="natu-sidebar__group-content">
+        <SidebarList items={group.items} isExpanded={true} activeAction={activeAction} />
+      </Collapsible.Content>
+    </Collapsible.Root>
   );
 }
 
@@ -254,7 +271,14 @@ function useSidebar() {
 function useSidebarCollapsedGroup() {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
-  const handlePopoverOpenChange = (isOpen: boolean) => setIsPopoverOpen(isOpen);
+  return { isPopoverOpen, onPopoverOpenChange: setIsPopoverOpen };
+}
 
-  return { isPopoverOpen, onPopoverOpenChange: handlePopoverOpenChange };
+function useSidebarExpandedGroup() {
+  const [isGroupOpen, setIsGroupOpen] = useState(false);
+
+  return {
+    isGroupOpen: isGroupOpen,
+    onGroupOpenChange: setIsGroupOpen,
+  };
 }

@@ -15,6 +15,7 @@ import {
   NatuCardPopoverTrigger,
 } from '../card-popover/card-popover';
 import * as Collapsible from '@radix-ui/react-collapsible';
+import { useControllableState } from '../../hooks';
 
 /* TODO: docs */
 
@@ -44,7 +45,7 @@ interface RenderItemProps {
   className: string;
 }
 
-export interface NatuSidebarProps {
+export interface NatuSidebarProps extends UseSidebarOptions {
   children?: ReactNode;
   actions?: NatuSidebarAction[];
   secondaryActions?: NatuSidebarAction[];
@@ -87,9 +88,24 @@ interface SidebarLabelProps {
   children?: ReactNode;
 }
 
+interface UseSidebarOptions {
+  /** Controlled expanded state. */
+  isExpanded?: boolean;
+
+  /** Default value for uncontrolled expanded state. */
+  defaultIsExpanded?: boolean;
+
+  /** Controlled expanded state handler. */
+  onExpandedChange?: (isOpen: boolean) => void;
+}
+
 export function NatuSidebar(props: NatuSidebarProps) {
   const { actions = [], secondaryActions = [], activeAction = null } = props;
-  const { isExpanded, onToggleExpansion } = useSidebar();
+  const { isExpanded, onToggleExpansion } = useSidebar({
+    isExpanded: props.isExpanded,
+    defaultIsExpanded: props.defaultIsExpanded,
+    onExpandedChange: props.onExpandedChange,
+  });
 
   return (
     <div
@@ -260,8 +276,13 @@ function SidebarLabel(props: SidebarLabelProps) {
   return <div className="natu-sidebar__item-label">{props.children}</div>;
 }
 
-function useSidebar() {
-  const [isExpanded, setIsExpanded] = useState(false);
+function useSidebar(options: UseSidebarOptions) {
+  const [isExpanded, setIsExpanded] = useControllableState({
+    value: options.isExpanded,
+    defaultValue: options.defaultIsExpanded,
+    finalValue: false,
+    onChange: options.onExpandedChange,
+  });
 
   const handleToggleExpansion = () => setIsExpanded((isExpanded) => !isExpanded);
 

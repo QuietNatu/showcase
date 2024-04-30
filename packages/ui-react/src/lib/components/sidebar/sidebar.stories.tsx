@@ -160,7 +160,7 @@ export const Default: Story = {};
 
 export const Expanded: Story = {
   args: {
-    // TODO: default is expanded
+    defaultIsExpanded: true,
   },
 };
 

@@ -52,7 +52,7 @@
     "storybook": "8.0.9",
     "storybook-solidjs": "1.0.0-beta.2",
     "storybook-solidjs-vite": "1.0.0-beta.2",
-    "typescript": "5.3.3",
+    "typescript": "5.4.5",
     "vite": "5.2.10",
     "vite-plugin-pwa": "0.19.8",
     "vite-plugin-solid": "2.8.0",

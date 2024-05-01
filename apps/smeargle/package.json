@@ -54,7 +54,7 @@
     "cross-env": "7.0.3",
     "http-server": "14.1.1",
     "jsdom": "23.2.0",
-    "msw": "2.2.13",
+    "msw": "2.2.14",
     "source-map-explorer": "2.5.3",
     "storybook": "8.0.9",
     "typescript": "5.3.3",

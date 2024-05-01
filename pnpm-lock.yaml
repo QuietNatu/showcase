@@ -842,8 +842,8 @@ importers:
   packages/ui-react:
     devDependencies:
       '@floating-ui/react':
-        specifier: 0.26.12
-        version: 0.26.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: 0.26.13
+        version: 0.26.13(react-dom@18.2.0)(react@18.2.0)
       '@natu/assets':
         specifier: workspace:*
         version: link:../assets
@@ -2149,7 +2149,7 @@ packages:
     resolution: {integrity: sha512-viKb0F9f2s0BCS22QSF308z/+1YWKV/76mwt61NBzS5izMzDPwdq1pTrzf+Li3npBWX9KdQbkeCt1jSAM7lZqg==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.24.0
+      '@babel/types': 7.24.5
     dev: true
 
   /@babel/helper-module-transforms@7.23.3(@babel/core@7.23.9):
@@ -5159,13 +5159,13 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.24.2
-      '@babel/generator': 7.24.1
+      '@babel/generator': 7.24.5
       '@babel/helper-environment-visitor': 7.22.20
       '@babel/helper-function-name': 7.23.0
       '@babel/helper-hoist-variables': 7.22.5
       '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/parser': 7.24.1
-      '@babel/types': 7.24.0
+      '@babel/parser': 7.24.5
+      '@babel/types': 7.24.5
       debug: 4.3.4
       globals: 11.12.0
     transitivePeerDependencies:
@@ -6256,8 +6256,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
-  /@floating-ui/react@0.26.12(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-D09o62HrWdIkstF2kGekIKAC0/N/Dl6wo3CQsnLcOmO3LkW6Ik8uIb3kw8JYkwxNCcg+uJ2bpWUiIijTBep05w==}
+  /@floating-ui/react@0.26.13(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-kBa9wntpugzrZ8t/4yWelvSmEKZdeTXTJzrxqyrLmcU/n1SM4nvse8yQh2e1b37rJGvtu0EplV9+IkBrCJ1vkw==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'

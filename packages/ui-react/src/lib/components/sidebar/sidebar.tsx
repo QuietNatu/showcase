@@ -20,13 +20,36 @@ import { mergeProps, useFocusRing } from 'react-aria';
 
 /* TODO: docs */
 
+export interface NatuSidebarProps extends UseSidebarOptions {
+  children?: ReactNode;
+  /**
+   * Actions to be placed in the main navigation bar of the sidebar.
+   *
+   * Should be used to place most links and actions of the app.
+   */
+  actions?: NatuSidebarAction[];
+  /**
+   * Actions to be placed in the secondary navigation bar of the sidebar.
+   *
+   * It's purpose should be mainly for less important actions or external links to the app.
+   */
+  secondaryActions?: NatuSidebarAction[];
+  /** Action that is currently active (ex: current active link) */
+  activeAction?: string | null;
+}
+
 export type NatuSidebarAction = NatuSidebarIndividualAction | NatuSidebarGroupAction;
 
 interface NatuSidebarIndividualAction {
   id: string;
   icon: ReactNode;
   label: ReactNode;
-  // TODO: warn that element used must have forward ref
+  /**
+   * Render props to customize the item element. Item should be an either an anchor for links or a button for actions.
+   *
+   * @example
+   * { render: (children) => <a href="/">{children}</a> }
+   */
   render: (children: ReactNode) => ReactElement;
 }
 
@@ -38,13 +61,6 @@ interface NatuSidebarGroupAction {
 }
 
 type SidebarAction = SetOptional<NatuSidebarIndividualAction, 'icon'>;
-
-export interface NatuSidebarProps extends UseSidebarOptions {
-  children?: ReactNode;
-  actions?: NatuSidebarAction[];
-  secondaryActions?: NatuSidebarAction[];
-  activeAction?: string | null;
-}
 
 interface SidebarListProps {
   activeAction: string | null;

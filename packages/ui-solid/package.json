@@ -50,7 +50,7 @@
     "@testing-library/jest-dom": "6.4.2",
     "@testing-library/user-event": "14.5.2",
     "@vitejs/plugin-react-swc": "3.6.0",
-    "@vitest/coverage-v8": "1.5.0",
+    "@vitest/coverage-v8": "1.5.2",
     "axe-core": "4.9.0",
     "cross-env": "7.0.3",
     "http-server": "14.1.1",
@@ -62,7 +62,7 @@
     "typescript": "5.3.3",
     "vite": "5.2.10",
     "vite-plugin-solid": "2.8.0",
-    "vitest": "1.5.0",
+    "vitest": "1.5.2",
     "vitest-axe": "0.1.0"
   }
 }

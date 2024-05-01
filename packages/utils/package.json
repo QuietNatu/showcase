@@ -22,7 +22,7 @@
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@vitest/coverage-v8": "1.5.2",
-    "jsdom": "23.2.0",
+    "jsdom": "24.0.0",
     "typescript": "5.3.3",
     "vite": "5.2.10",
     "vitest": "1.5.2"

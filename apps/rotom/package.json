@@ -43,7 +43,7 @@
     "@angular-eslint/schematics": "17.3.0",
     "@angular/cli": "17.3.6",
     "@angular/compiler-cli": "17.3.6",
-    "@compodoc/compodoc": "1.1.23",
+    "@compodoc/compodoc": "1.1.24",
     "@mswjs/data": "0.16.1",
     "@natu/eslint-config-angular": "workspace:*",
     "@natu/tsconfig": "workspace:*",

@@ -1,13 +1,13 @@
 @if (isExpanded()) {
   <ng-container
-    natuAccordion
-    [natuAccordionIsExpanded]="isGroupPresent()"
-    (natuAccordionIsExpandedChange)="handleGroupExpandedChange($event)"
+    natuDisclosure
+    [natuDisclosureIsExpanded]="isGroupPresent()"
+    (natuDisclosureIsExpandedChange)="handleGroupExpandedChange($event)"
   >
     <button
       type="button"
       class="natu-sidebar__item"
-      natuAccordionTrigger
+      natuDisclosureTrigger
       natuFocusRing
       [natuFocusRingFocusVisibleClass]="'natu-sidebar__item--focus'"
     >
@@ -20,7 +20,7 @@
     </button>
 
     <div #groupList class="natu-sidebar__group-list" (transitionend)="handleGroupTransitionEnd()">
-      <ul natuAccordionContent class="natu-sidebar__list">
+      <ul natuDisclosureContent class="natu-sidebar__list">
         @for (item of items(); track $index) {
           <li class="natu-sidebar__list-item">
             <ng-template [ngTemplateOutlet]="item" />

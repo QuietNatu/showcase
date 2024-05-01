@@ -117,6 +117,7 @@ module.exports = {
         'vitest/prefer-to-be-falsy': 'off',
         'vitest/prefer-to-be-truthy': 'off',
         'vitest/require-top-level-describe': 'off',
+        'vitest/max-expects': 'off',
         'testing-library/no-await-sync-events': 'off',
         'testing-library/no-manual-cleanup': 'error',
         '@typescript-eslint/no-non-null-assertion': 'off',

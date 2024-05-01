@@ -77,6 +77,7 @@ module.exports = {
         'vitest/prefer-to-be-falsy': 'off',
         'vitest/prefer-to-be-truthy': 'off',
         'vitest/require-top-level-describe': 'off',
+        'vitest/max-expects': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/unbound-method': 'off',
         'functional/no-expression-statements': 'off',

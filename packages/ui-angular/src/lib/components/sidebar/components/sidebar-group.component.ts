@@ -15,7 +15,7 @@ import { SvgIconComponent } from '@natu/assets';
 import { NatuSidebarService } from '../services/sidebar.service';
 import {
   NatuFocusRingDirective,
-  natuAccordionImports,
+  natuDisclosureImports,
   natuCardPopoverImports,
   natuTooltipImports,
 } from '../../../directives';
@@ -35,7 +35,7 @@ import { NatuSidebarGroupPopoverContentComponent } from './sidebar-group-popover
     NatuSidebarLabelDirective,
     NatuFocusRingDirective,
     SvgIconComponent,
-    natuAccordionImports,
+    natuDisclosureImports,
     NgTemplateOutlet,
     natuTooltipImports,
     natuCardPopoverImports,

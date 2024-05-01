@@ -1,11 +1,11 @@
-import { NatuAccordionDirective, natuAccordionImports } from './accordion.directive';
+import { NatuDisclosureDirective, natuDisclosureImports } from './disclosure.directive';
 import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
 import { screen } from '@testing-library/angular';
 
-describe(`${NatuAccordionDirective.name} accessibility`, () => {
+describe(`${NatuDisclosureDirective.name} accessibility`, () => {
   const scenarios = [
-    { name: 'Collapsed accordion', args: { isExpanded: false } },
-    { name: 'Expanded accordion', args: { isExpanded: true } },
+    { name: 'Collapsed disclosure', args: { isExpanded: false } },
+    { name: 'Expanded disclosure', args: { isExpanded: true } },
   ];
 
   scenarios.forEach(({ name, args }) => {
@@ -17,7 +17,7 @@ describe(`${NatuAccordionDirective.name} accessibility`, () => {
   });
 });
 
-describe(NatuAccordionDirective.name, () => {
+describe(NatuDisclosureDirective.name, () => {
   it('does not show content by default', async () => {
     await setup();
 
@@ -73,7 +73,7 @@ describe(NatuAccordionDirective.name, () => {
 
     expect(await screen.findByRole('region')).toBeInTheDocument();
 
-    const componentProperties = aliasArgs({ isExpanded: false }, 'natuAccordion');
+    const componentProperties = aliasArgs({ isExpanded: false }, 'natuDisclosure');
     await rerender({ componentProperties });
 
     expect(screen.queryByRole('region')).not.toBeInTheDocument();
@@ -81,7 +81,7 @@ describe(NatuAccordionDirective.name, () => {
   });
 });
 
-async function setup(props: Partial<NatuAccordionDirective> = {}) {
+async function setup(props: Partial<NatuDisclosureDirective> = {}) {
   // eslint-disable-next-line jasmine/no-unsafe-spy
   const isExpandedChangeSpy = jasmine.createSpy();
 
@@ -90,17 +90,17 @@ async function setup(props: Partial<NatuAccordionDirective> = {}) {
     isExpandedChange: isExpandedChangeSpy,
   };
 
-  const componentProperties = aliasArgs(allProps, 'natuAccordion');
-  const templateArgs = aliasedArgsToTemplate(allProps, 'natuAccordion');
+  const componentProperties = aliasArgs(allProps, 'natuDisclosure');
+  const templateArgs = aliasedArgsToTemplate(allProps, 'natuDisclosure');
 
   const view = await render(
-    ` <div [natuAccordion] ${templateArgs}>
-        <button type="button" [natuAccordionTrigger]>Example Trigger</button>
-        <div [natuAccordionContent]>Example Content</div>
+    ` <div [natuDisclosure] ${templateArgs}>
+        <button type="button" [natuDisclosureTrigger]>Example Trigger</button>
+        <div [natuDisclosureContent]>Example Content</div>
       </div>`,
     {
       renderOptions: {
-        imports: [natuAccordionImports],
+        imports: [natuDisclosureImports],
         componentProperties,
       },
     },

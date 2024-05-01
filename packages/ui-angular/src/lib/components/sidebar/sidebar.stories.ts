@@ -57,10 +57,10 @@ import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core
           <ng-template natuSidebarLabel>Culture</ng-template>
         </a>
 
-        <natu-sidebar-item *natuSidebarItem>
+        <button type="button" natu-sidebar-item *natuSidebarItem>
           <svg-icon *natuSidebarIcon [key]="'rocket'" />
           <ng-template natuSidebarLabel>Activities</ng-template>
-        </natu-sidebar-item>
+        </button>
       </natu-sidebar-actions>
 
       <natu-sidebar-secondary-actions>
@@ -82,10 +82,10 @@ import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core
           <ng-template natuSidebarLabel>Culture</ng-template>
         </a>
 
-        <natu-sidebar-item *natuSidebarItem>
+        <button type="button" natu-sidebar-item *natuSidebarItem>
           <svg-icon *natuSidebarIcon [key]="'rocket'" />
           <ng-template natuSidebarLabel>Activities</ng-template>
-        </natu-sidebar-item>
+        </button>
       </natu-sidebar-secondary-actions>
     </natu-sidebar>
   `,

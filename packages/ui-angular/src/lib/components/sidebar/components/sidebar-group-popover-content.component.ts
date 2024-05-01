@@ -16,7 +16,7 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
   imports: [NgTemplateOutlet],
   providers: [NatuSidebarGroupPopoverService],
   template: `
-    <div class="natu-sidebar__popover natu-sidebar__group-list">
+    <div class="natu-sidebar__popover">
       <ul class="natu-sidebar__list">
         @for (item of items; track $index) {
           <li class="natu-sidebar__list-item">

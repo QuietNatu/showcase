@@ -127,17 +127,17 @@ async function setup(args: Partial<NatuSidebarComponent> = {}) {
             </a>
           </natu-sidebar-group>
 
-          <natu-sidebar-item *natuSidebarItem>
+          <button type="button" natu-sidebar-item *natuSidebarItem>
             <span *natuSidebarIcon>🧪</span>
             <ng-template natuSidebarLabel>Activities</ng-template>
-          </natu-sidebar-item>
+          </button>
         </natu-sidebar-actions>
 
         <natu-sidebar-secondary-actions>
-          <natu-sidebar-item *natuSidebarItem>
+          <button type="button" natu-sidebar-item *natuSidebarItem>
             <span *natuSidebarIcon>🧪</span>
             <ng-template natuSidebarLabel>Activities</ng-template>
-          </natu-sidebar-item>
+          </button>
         </natu-sidebar-secondary-actions>
       </natu-sidebar>
     `,

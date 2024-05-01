@@ -4,8 +4,8 @@ import { Subject } from 'rxjs';
 import { createRandomUUID } from '@natu/utils';
 
 @Injectable()
-export class NatuAccordionService {
-  readonly id = `accordion-${createRandomUUID()}`;
+export class NatuDisclosureService {
+  readonly id = `disclosure-${createRandomUUID()}`;
 
   /** Expanded state. */
   readonly isExpanded$;

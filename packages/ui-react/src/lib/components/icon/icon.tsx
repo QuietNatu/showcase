@@ -1,8 +1,10 @@
 import clsx from 'clsx';
-import { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef, forwardRef } from 'react';
 
 export type NatuIconProps = ComponentPropsWithoutRef<'div'>;
 
-export function NatuIcon(props: NatuIconProps) {
-  return <div {...props} className={clsx('natu-icon', props.className)} />;
-}
+export const NatuIcon = forwardRef<HTMLDivElement, NatuIconProps>(
+  function NatuIcon(props, forwardedRef) {
+    return <div ref={forwardedRef} {...props} className={clsx('natu-icon', props.className)} />;
+  },
+);

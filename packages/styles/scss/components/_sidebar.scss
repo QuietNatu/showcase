@@ -3,6 +3,30 @@
 $-sidebar-width: var(--natu-size-spacing-11);
 $-sidebar-width-expanded: utils.px-to-rem(240px);
 
+@keyframes sidebar-slide-down {
+  from {
+    height: 0;
+    overflow: hidden;
+  }
+
+  to {
+    height: var(--radix-collapsible-content-height);
+    overflow: hidden;
+  }
+}
+
+@keyframes sidebar-slide-up {
+  from {
+    height: var(--radix-collapsible-content-height);
+    overflow: hidden;
+  }
+
+  to {
+    height: 0;
+    overflow: hidden;
+  }
+}
+
 @mixin -item {
   @include utils.control($hasBorder: false);
   @include utils.control--large;
@@ -99,6 +123,17 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
 
     .natu-sidebar__group--expanded & {
       grid-template-rows: 1fr;
+    }
+  }
+
+  .natu-sidebar__group-content {
+    .natu-sidebar__group--expanded & {
+      animation: sidebar-slide-down var(--natu-time-animation-standard)
+        var(--natu-duration-standard);
+    }
+
+    .natu-sidebar__group--collapsed & {
+      animation: sidebar-slide-up var(--natu-time-animation-standard) var(--natu-duration-standard);
     }
   }
 

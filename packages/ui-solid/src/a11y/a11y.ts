@@ -1,4 +1,4 @@
-import { RuleObject, getRules } from 'axe-core';
+import axe from 'axe-core';
 
 const enabledTags = [
   'wcag2a',
@@ -13,7 +13,7 @@ const enabledTags = [
 /**
  * Default rules needed to match target a11y standards
  */
-export const axeRules = getRules(enabledTags).map(({ ruleId, tags }) => ({
+export const axeRules = axe.getRules(enabledTags).map(({ ruleId, tags }) => ({
   id: ruleId,
   enabled: !tags.includes('experimental') && !tags.includes('deprecated'),
 }));
@@ -21,7 +21,7 @@ export const axeRules = getRules(enabledTags).map(({ ruleId, tags }) => ({
 /**
  * Default rules needed to match target a11y standards
  */
-export const axeRulesObject = axeRules.reduce<RuleObject>((dictionary, rule) => {
+export const axeRulesObject = axeRules.reduce<axe.RuleObject>((dictionary, rule) => {
   // eslint-disable-next-line functional/immutable-data
   dictionary[rule.id] = { enabled: rule.enabled };
   return dictionary;

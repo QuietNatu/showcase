@@ -73,7 +73,7 @@
     "karma-coverage": "2.2.1",
     "karma-jasmine": "5.1.0",
     "karma-spec-reporter": "0.0.36",
-    "msw": "2.2.13",
+    "msw": "2.3.0",
     "source-map-explorer": "2.5.3",
     "storybook": "8.0.9",
     "typescript": "5.4.5"

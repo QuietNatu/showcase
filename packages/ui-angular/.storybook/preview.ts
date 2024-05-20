@@ -9,6 +9,7 @@ import { provideUiConfig } from '../src';
 setCompodocJson(docJson);
 
 const preview: Preview = {
+  tags: ['autodocs'],
   parameters: {
     controls: {
       matchers: {

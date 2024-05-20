@@ -5,7 +5,6 @@ import RocketIcon from '@natu/assets/svg/rocket.svg?react';
 const meta = {
   title: 'Components/Icon',
   component: NatuIcon,
-  tags: ['autodocs'],
   render: (args) => (
     <NatuIcon {...args} style={{ fontSize: '20px' }}>
       <RocketIcon />

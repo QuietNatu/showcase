@@ -119,7 +119,6 @@ class ServiceComponentComponent {
 const meta = {
   title: 'Utils/Portal',
   component: NatuPortalDirective,
-  tags: ['autodocs'],
   decorators: [
     moduleMetadata({
       imports: [

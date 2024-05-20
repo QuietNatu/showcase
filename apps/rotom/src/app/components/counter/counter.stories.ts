@@ -4,7 +4,6 @@ import { CounterComponent } from './counter.component';
 const meta = {
   title: 'Components/Counter',
   component: CounterComponent,
-  tags: ['autodocs'],
 } satisfies Meta<CounterComponent>;
 
 export default meta;

@@ -16,7 +16,6 @@ import { aliasedArgsToTemplate } from '../../test';
 const meta = {
   title: 'Components/Popover',
   component: NatuPopoverDirective,
-  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },

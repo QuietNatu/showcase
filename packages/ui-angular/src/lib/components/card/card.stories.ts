@@ -21,7 +21,6 @@ interface StoryProps extends NatuCardComponent {
 const meta = {
   title: 'Components/Card',
   component: NatuCardComponent,
-  tags: ['autodocs'],
   decorators: [
     applicationConfig({
       providers: [provideSvgIcons([rocketIcon])],

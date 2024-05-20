@@ -23,7 +23,6 @@ const variants: Array<NatuButtonVariants['variant']> = [
 const meta = {
   title: 'Components/Button',
   component: NatuButtonDirective,
-  tags: ['autodocs'],
   decorators: [
     applicationConfig({ providers: [provideSvgIcons([rocketIcon])] }),
     moduleMetadata({ imports: [natuButtonImports, SvgIconComponent] }),

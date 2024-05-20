@@ -21,8 +21,5 @@ const config: StorybookConfig = {
     name: getAbsolutePath('@storybook/angular'),
     options: {},
   },
-  docs: {
-    autodocs: 'tag',
-  },
 };
 export default config;

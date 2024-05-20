@@ -8,7 +8,6 @@ import { NatuIcon } from '../icon/icon';
 const meta = {
   title: 'Components/Sidebar',
   component: NatuSidebar,
-  tags: ['autodocs'],
   decorators: [
     (Story) => (
       <div style={{ height: '500px' }}>

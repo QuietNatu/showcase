@@ -5,7 +5,6 @@ import { NatuButton } from '../button/button';
 const meta = {
   title: 'Components/Tooltip',
   component: NatuTooltip,
-  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },

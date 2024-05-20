@@ -5,7 +5,6 @@ import { NatuPopover, NatuPopoverContent, NatuPopoverProps, NatuPopoverTrigger }
 const meta = {
   title: 'Components/Popover',
   component: NatuPopover,
-  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },

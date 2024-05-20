@@ -4,7 +4,6 @@ import { NatuCounter } from './counter';
 const meta = {
   title: 'Components/Counter',
   component: NatuCounter,
-  tags: ['autodocs'],
 } satisfies Meta<typeof NatuCounter>;
 
 export default meta;

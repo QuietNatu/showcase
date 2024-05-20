@@ -22,7 +22,6 @@ const variants: Array<NatuButtonVariants['variant']> = [
 const meta = {
   title: 'Components/Button',
   component: NatuButton,
-  tags: ['autodocs'],
   decorators: [storyVariantsDecorator()],
   args: {
     children: 'Button',

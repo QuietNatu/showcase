@@ -2,6 +2,8 @@ import type { Preview } from 'storybook-solidjs';
 import '../src/styles/styles.scss';
 import { storyA11yConfig, storyThemeDecorator } from '../src/lib/stories';
 
+// TODO: add tags: ['autodocs'], once types are fixed
+
 const preview: Preview = {
   parameters: {
     controls: {

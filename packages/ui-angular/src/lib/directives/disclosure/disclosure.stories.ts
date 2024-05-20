@@ -5,7 +5,6 @@ import { aliasedArgsToTemplate } from '../../test';
 const meta = {
   title: 'Utils/Disclosure',
   component: NatuDisclosureDirective,
-  tags: ['autodocs'],
   decorators: [moduleMetadata({ imports: [natuDisclosureImports] })],
   render: (args) => {
     const templateArgs = aliasedArgsToTemplate(args, 'natuDisclosure');
@@ -13,10 +12,10 @@ const meta = {
     return {
       props: args,
       template: `
-        <div [natuDisclosure] ${templateArgs}>
-          <button type="button" [natuDisclosureTrigger]>Disclosure Trigger</button>
+        <div natuDisclosure ${templateArgs}>
+          <button type="button" natuDisclosureTrigger>Disclosure Trigger</button>
 
-          <div [natuDisclosureContent]>Disclosure Content</div>
+          <div natuDisclosureContent>Disclosure Content</div>
         </div>
       `,
     };

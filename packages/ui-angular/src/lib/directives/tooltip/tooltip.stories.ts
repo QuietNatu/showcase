@@ -12,7 +12,6 @@ import { aliasedArgsToTemplate } from '../../test';
 const meta = {
   title: 'Components/Tooltip',
   component: NatuTooltipDirective,
-  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },

@@ -105,7 +105,6 @@ const routes: Route[] = [
 const meta = {
   title: 'Components/Sidebar',
   component: NatuSidebarStoryComponent,
-  tags: ['autodocs'],
   decorators: [
     applicationConfig({
       providers: [

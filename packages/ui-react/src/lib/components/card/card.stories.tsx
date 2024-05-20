@@ -21,7 +21,6 @@ interface StoryProps extends NatuCardProps {
 const meta = {
   title: 'Components/Card',
   component: NatuCard,
-  tags: ['autodocs'],
   render: (args) => {
     const { headerArgs, footerArgs, hideHeader, hideFooter, ...cardArgs } = args;
 

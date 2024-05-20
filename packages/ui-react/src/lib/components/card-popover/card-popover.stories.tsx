@@ -11,7 +11,6 @@ import {
 const meta = {
   title: 'Components/CardPopover',
   component: NatuCardPopover,
-  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },

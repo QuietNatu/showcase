@@ -21,8 +21,6 @@ const config: StorybookConfig = {
     name: getAbsolutePath('storybook-solidjs-vite'),
     options: {},
   },
-  docs: {
-    autodocs: 'tag',
-  },
+  docs: {},
 };
 export default config;

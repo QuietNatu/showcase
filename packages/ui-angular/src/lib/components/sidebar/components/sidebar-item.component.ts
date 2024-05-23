@@ -1,17 +1,18 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
   TemplateRef,
   booleanAttribute,
+  computed,
   contentChild,
-  effect,
   inject,
-  untracked,
+  input,
 } from '@angular/core';
 import {
   NatuFocusRingDirective,
+  NatuFocusRingDirectiveConfigService,
   NatuTooltipDirective,
+  NatuTooltipDirectiveConfigService,
   NatuTooltipTriggerDirective,
   natuTooltipImports,
 } from '../../../directives';
@@ -20,6 +21,7 @@ import { NgTemplateOutlet } from '@angular/common';
 import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive';
 import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
 import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popover.service';
+import { connectSignal } from '../../../utils';
 
 @Component({
   selector: '[natu-sidebar-item]',
@@ -43,27 +45,28 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [NgTemplateOutlet, natuTooltipImports],
+  providers: [NatuTooltipDirectiveConfigService, NatuFocusRingDirectiveConfigService],
   host: {
     class: 'natu-sidebar__item',
-    '[class.natu-sidebar__item--active]': 'isActive',
+    '[class.natu-sidebar__item--active]': 'isActive()',
   },
   hostDirectives: [NatuTooltipDirective, NatuTooltipTriggerDirective, NatuFocusRingDirective],
 })
 export class NatuSidebarItemComponent {
-  @Input({ transform: booleanAttribute }) isActive = false;
+  readonly isActive = input(false, { transform: booleanAttribute });
 
   readonly iconTemplate = contentChild(NatuSidebarIconDirective, { read: TemplateRef });
   readonly labelTemplate = contentChild(NatuSidebarLabelDirective, { read: TemplateRef });
 
   private readonly sidebarService = inject(NatuSidebarService);
-  private readonly tooltipDirective = inject(NatuTooltipDirective, { self: true });
-  private readonly focusRingDirective = inject(NatuFocusRingDirective, { self: true });
+  private readonly tooltipDirectiveConfigService = inject(NatuTooltipDirectiveConfigService);
+  private readonly focusRingDirectiveConfigService = inject(NatuFocusRingDirectiveConfigService);
   private readonly sidebarGroupPopoverService = inject(NatuSidebarGroupPopoverService, {
     optional: true,
   });
 
   constructor() {
-    this.focusRingDirective.focusVisibleClass = 'natu-sidebar__item--focus';
+    this.focusRingDirectiveConfigService.focusVisibleClass.set('natu-sidebar__item--focus');
 
     this.registerSyncTooltip();
   }
@@ -71,13 +74,12 @@ export class NatuSidebarItemComponent {
   private registerSyncTooltip() {
     const isPopoverItem = Boolean(this.sidebarGroupPopoverService);
 
-    effect(() => {
-      const isExpanded = isPopoverItem || this.sidebarService.isExpanded$();
-
-      untracked(() => {
-        this.tooltipDirective.placement = 'right';
-        this.tooltipDirective.isDisabled = isExpanded;
-      });
-    });
+    connectSignal(
+      computed(() => isPopoverItem || this.sidebarService.isExpanded$()),
+      (isExpanded) => {
+        this.tooltipDirectiveConfigService.placement.set('right');
+        this.tooltipDirectiveConfigService.isDisabled.set(isExpanded);
+      },
+    );
   }
 }

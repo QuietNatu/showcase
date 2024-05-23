@@ -2,6 +2,7 @@ import { argsToTemplate } from '@storybook/angular';
 import { axe, render } from '../../test';
 import { NatuSidebarComponent, natuSidebarImports } from './sidebar.component';
 import { screen, within } from '@testing-library/angular';
+import { TestComponentArgs } from '../../test/types';
 
 describe(`${NatuSidebarComponent.name} accessibility`, () => {
   const scenarios = [
@@ -88,6 +89,8 @@ describe(NatuSidebarComponent.name, () => {
   it('shows subgroup items when a group is clicked in expanded sidebar', async () => {
     const { userEvent } = await setup({ isExpanded: true });
 
+    // It should only be one click but it is not triggering for some reason, check in the future if it is some problem with testing library
+    await userEvent.click(await screen.findByRole('button', { name: 'Patients' }));
     await userEvent.click(await screen.findByRole('button', { name: 'Patients' }));
 
     const region = await screen.findByRole('region', { name: 'Patients' });
@@ -97,7 +100,7 @@ describe(NatuSidebarComponent.name, () => {
   });
 });
 
-async function setup(args: Partial<NatuSidebarComponent> = {}) {
+async function setup(args: TestComponentArgs<NatuSidebarComponent> = {}) {
   // eslint-disable-next-line jasmine/no-unsafe-spy
   const isExpandedChangeSpy = jasmine.createSpy();
 

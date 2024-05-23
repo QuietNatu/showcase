@@ -8,7 +8,6 @@ import {
   OnInit,
   Renderer2,
   computed,
-  effect,
   inject,
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
@@ -19,6 +18,7 @@ import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuPopoverService } from './popover.service';
 import { natuCardImports } from '../../components';
 import { A11yModule } from '@angular/cdk/a11y';
+import { connectSignal } from '../../utils';
 
 const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 const sideTransforms: Record<Side, string> = {
@@ -117,9 +117,7 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
 
   private registerSpreadExtraAttributes() {
     // Could be improved if this feature is added someday https://github.com/angular/angular/issues/14545
-    effect(() => {
-      const attributes = this.popoverService.attributes$();
-
+    connectSignal(this.popoverService.attributes$, (attributes) => {
       Object.entries(attributes).forEach(([name, value]) => {
         this.renderer.setAttribute(this.elementRef.nativeElement, name, value);
       });

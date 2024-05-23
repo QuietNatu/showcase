@@ -1,4 +1,4 @@
-import { Signal, computed, effect, signal } from '@angular/core';
+import { Signal, computed, effect, signal, untracked } from '@angular/core';
 
 interface CreateControllableSignalOptions<T> {
   /** Value for controlled state */
@@ -29,17 +29,14 @@ export function controllableSignal<T>(options: CreateControllableSignalOptions<T
   // eslint-disable-next-line functional/no-let
   let hasDefaultValueBeenSet = false;
 
-  effect(
-    () => {
-      const defaultValue = defaultValue$?.();
+  effect(() => {
+    const defaultValue = defaultValue$?.();
 
-      if (!hasDefaultValueBeenSet && defaultValue !== undefined) {
-        hasDefaultValueBeenSet = true;
-        uncontrolledValue$.set(defaultValue);
-      }
-    },
-    { allowSignalWrites: true },
-  );
+    if (!hasDefaultValueBeenSet && defaultValue !== undefined) {
+      hasDefaultValueBeenSet = true;
+      untracked(() => uncontrolledValue$.set(defaultValue));
+    }
+  });
 
   const isControlled$ = computed(() => controlledValue$() !== undefined);
 

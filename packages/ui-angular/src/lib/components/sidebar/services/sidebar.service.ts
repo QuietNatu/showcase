@@ -2,6 +2,8 @@ import { Injectable, signal } from '@angular/core';
 import { controllableSignal } from '../../../utils';
 import { Subject } from 'rxjs';
 
+/* TODO: remove sifrao from all signals */
+
 @Injectable()
 export class NatuSidebarService {
   readonly isExpanded$;

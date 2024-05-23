@@ -2,11 +2,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChild,
   computed,
+  effect,
   inject,
+  untracked,
+  viewChild,
 } from '@angular/core';
 import { Side } from '@floating-ui/dom';
 import { NatuOverlayService } from './overlay.service';
@@ -45,8 +45,8 @@ const rotation: Record<Side, string> = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class NatuOverlayArrowComponent implements OnInit, OnDestroy {
-  @ViewChild('arrow', { static: true }) arrowRef!: ElementRef<HTMLElement>;
+export class NatuOverlayArrowComponent {
+  readonly arrowRef = viewChild.required<ElementRef<HTMLElement>>('arrow');
 
   readonly width;
   readonly height;
@@ -63,14 +63,20 @@ export class NatuOverlayArrowComponent implements OnInit, OnDestroy {
     this.viewBox = this.getViewBox();
     this.dValue = this.getDValue();
     this.style$ = this.getStyle();
-  }
 
-  ngOnInit(): void {
-    this.overlayService.setArrowElement(this.arrowRef);
-  }
+    effect((onCleanup) => {
+      const arrowRef = this.arrowRef();
 
-  ngOnDestroy(): void {
-    this.overlayService.setArrowElement(null);
+      untracked(() => {
+        this.overlayService.setArrowElement(arrowRef);
+      });
+
+      onCleanup(() => {
+        untracked(() => {
+          this.overlayService.setArrowElement(null);
+        });
+      });
+    });
   }
 
   private getViewBox() {

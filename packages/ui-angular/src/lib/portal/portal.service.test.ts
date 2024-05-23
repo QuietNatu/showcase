@@ -4,12 +4,12 @@ import { render } from '../test';
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
-  OnDestroy,
-  OnInit,
   TemplateRef,
-  ViewChild,
+  effect,
   inject,
+  input,
+  untracked,
+  viewChild,
 } from '@angular/core';
 import { ComponentType } from '@angular/cdk/portal';
 
@@ -20,20 +20,26 @@ describe(NatuPortalService.name, () => {
       changeDetection: ChangeDetectionStrategy.OnPush,
       standalone: true,
       providers: [NatuPortalService],
-      template: `<ng-template #template>{{ text }}</ng-template>`,
+      template: `<ng-template #template>{{ text() }}</ng-template>`,
     })
-    class TestTemplateComponent implements OnInit, OnDestroy {
-      @Input({ required: true }) text!: string;
-      @ViewChild('template', { static: true }) template!: TemplateRef<unknown>;
+    class TestTemplateComponent {
+      readonly text = input.required<string>();
+      readonly template = viewChild<TemplateRef<unknown>>('template');
 
       private readonly portalService = inject(NatuPortalService);
 
-      ngOnInit(): void {
-        this.portalService.attachTemplate(this.template);
-      }
+      constructor() {
+        effect((onCleanup) => {
+          const template = this.template();
 
-      ngOnDestroy(): void {
-        this.portalService.detach();
+          if (template) {
+            untracked(() => this.portalService.attachTemplate(template));
+
+            onCleanup(() => {
+              untracked(() => this.portalService.detach());
+            });
+          }
+        });
       }
     }
 
@@ -43,22 +49,31 @@ describe(NatuPortalService.name, () => {
       standalone: true,
       imports: [TestTemplateComponent],
       providers: [NatuPortalService],
-      template: `<ng-template #template>
-        <div>Example content</div>
-        <natu-test-template [text]="'Nested content'" />
-      </ng-template>`,
+      template: `
+        <ng-template #template>
+          <div>Example content</div>
+          <natu-test-template [text]="'Nested content'" />
+        </ng-template>
+      `,
     })
-    class TestNestedTemplateComponent implements OnInit, OnDestroy {
-      @ViewChild('template', { static: true }) template!: TemplateRef<unknown>;
+    class TestNestedTemplateComponent {
+      readonly template = viewChild<TemplateRef<unknown>>('template');
 
       private readonly portalService = inject(NatuPortalService);
 
-      ngOnInit(): void {
-        this.portalService.attachTemplate(this.template);
-      }
+      // eslint-disable-next-line sonarjs/no-identical-functions
+      constructor() {
+        effect((onCleanup) => {
+          const template = this.template();
 
-      ngOnDestroy(): void {
-        this.portalService.detach();
+          if (template) {
+            untracked(() => this.portalService.attachTemplate(template));
+
+            onCleanup(() => {
+              untracked(() => this.portalService.detach());
+            });
+          }
+        });
       }
     }
 
@@ -105,17 +120,20 @@ describe(NatuPortalService.name, () => {
       providers: [NatuPortalService],
       template: ``,
     })
-    class TestComponentComponent implements OnInit, OnDestroy {
-      @Input({ required: true }) component!: ComponentType<unknown>;
+    class TestComponentComponent {
+      readonly component = input.required<ComponentType<unknown>>();
 
       private readonly portalService = inject(NatuPortalService);
 
-      ngOnInit(): void {
-        this.portalService.attachComponent(this.component);
-      }
+      constructor() {
+        effect((onCleanup) => {
+          const component = this.component();
+          untracked(() => this.portalService.attachComponent(component));
 
-      ngOnDestroy(): void {
-        this.portalService.detach();
+          onCleanup(() => {
+            untracked(() => this.portalService.detach());
+          });
+        });
       }
     }
 
@@ -169,8 +187,10 @@ describe(NatuPortalService.name, () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
         standalone: true,
         imports: [TestComponentComponent],
-        template: `<div>Example content</div>
-          <natu-test-component [component]="component" />`,
+        template: `
+          <div>Example content</div>
+          <natu-test-component [component]="component" />
+        `,
       })
       class TestContentComponent {
         readonly component = TestNestedContentComponent;

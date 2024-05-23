@@ -1,5 +1,15 @@
-import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
-import { NatuCardService } from '../card.service';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Injectable,
+  Signal,
+  computed,
+  inject,
+  input,
+  signal,
+} from '@angular/core';
+
+type Size = 'small' | 'medium';
 
 @Component({
   selector: 'natu-card-header,[natu-card-header]',
@@ -14,11 +24,25 @@ import { NatuCardService } from '../card.service';
   `,
   host: {
     class: 'natu-card__header',
-    '[class.natu-card__header--small]': 'size === "small"',
+    '[class.natu-card__header--small]': 'finalSize() === "small"',
   },
 })
 export class NatuCardHeaderComponent {
-  @Input() size: 'small' | 'medium' = 'medium';
+  readonly size = input<Size>('medium');
 
-  readonly cardService = inject(NatuCardService);
+  readonly finalSize: Signal<Size>;
+
+  private readonly configService = inject(NatuCardHeaderComponentConfigService, {
+    self: true,
+    optional: true,
+  });
+
+  constructor() {
+    this.finalSize = computed(() => this.configService?.size() ?? this.size());
+  }
+}
+
+@Injectable()
+export class NatuCardHeaderComponentConfigService {
+  readonly size = signal<Size | undefined>(undefined);
 }

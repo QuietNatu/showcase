@@ -1,8 +1,9 @@
-import { Directive, EventEmitter, Input, Output, booleanAttribute, inject } from '@angular/core';
+import { Directive, booleanAttribute, inject, input } from '@angular/core';
 import { NatuDisclosureService } from './disclosure.service';
-import { registerEffect } from '../../utils/rxjs';
 import { NatuDisclosureTriggerDirective } from './disclosure-trigger.directive';
 import { NatuDisclosureContentDirective } from './disclosure-content.directive';
+import { connectSignal } from '../../utils';
+import { outputFromObservable } from '@angular/core/rxjs-interop';
 
 /**
  * Contains all the parts of the disclosure.
@@ -14,34 +15,39 @@ import { NatuDisclosureContentDirective } from './disclosure-content.directive';
 })
 export class NatuDisclosureDirective {
   /** Controlled expanded state. */
-  @Input({ alias: 'natuDisclosureIsExpanded' }) set isExpanded(
-    isExpanded: boolean | null | undefined,
-  ) {
-    this.disclosureService.setIsExpanded(isExpanded ?? undefined);
-  }
+  readonly isExpanded = input<boolean | null | undefined>(undefined, {
+    alias: 'natuDisclosureIsExpanded',
+  });
 
   /** Default value for uncontrolled expanded state. */
-  @Input({ alias: 'natuDisclosureDefaultIsExpanded' }) set defaultIsExpanded(
-    defaultIsExpanded: boolean | null | undefined,
-  ) {
-    this.disclosureService.setDefaultIsExpanded(defaultIsExpanded ?? undefined);
-  }
+  readonly defaultIsExpanded = input<boolean | null | undefined>(undefined, {
+    alias: 'natuDisclosureDefaultIsExpanded',
+  });
 
   /** Whether the disclosure should be disabled. */
-  @Input({ alias: 'natuDisclosureIsDisabled', transform: booleanAttribute }) set isDisabled(
-    isDisabled: boolean,
-  ) {
-    this.disclosureService.isDisabled$.set(isDisabled);
-  }
-
-  /** Controlled expanded state event emitter. */
-  @Output('natuDisclosureIsExpandedChange') isExpandedChange = new EventEmitter<boolean>();
+  readonly isDisabled = input(false, {
+    alias: 'natuDisclosureIsDisabled',
+    transform: booleanAttribute,
+  });
 
   private readonly disclosureService = inject(NatuDisclosureService);
 
+  /** Controlled expanded state event emitter. */
+  readonly isExpandedChange = outputFromObservable(this.disclosureService.isExpandedChange$, {
+    alias: 'natuDisclosureIsExpandedChange',
+  });
+
   constructor() {
-    registerEffect(this.disclosureService.isExpandedChange$, (isExpanded) => {
-      this.isExpandedChange.emit(isExpanded);
+    connectSignal(this.isExpanded, (isExpanded) => {
+      this.disclosureService.setIsExpanded(isExpanded ?? undefined);
+    });
+
+    connectSignal(this.defaultIsExpanded, (defaultIsExpanded) => {
+      this.disclosureService.setDefaultIsExpanded(defaultIsExpanded ?? undefined);
+    });
+
+    connectSignal(this.isDisabled, (isDisabled) => {
+      this.disclosureService.isDisabled$.set(isDisabled);
     });
   }
 }

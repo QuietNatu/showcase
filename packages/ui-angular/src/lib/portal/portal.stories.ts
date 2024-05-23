@@ -2,12 +2,11 @@ import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
-  Output,
   TemplateRef,
-  ViewChild,
   inject,
+  output,
   signal,
+  viewChild,
 } from '@angular/core';
 import { NatuPortalDirective } from './portal.directive';
 import { natuButtonImports } from '../directives/button/button.directive';
@@ -24,8 +23,8 @@ import { NatuPortalService } from './portal.service';
   imports: [natuButtonImports],
 })
 class ButtonsComponent {
-  @Output() attach = new EventEmitter<void>();
-  @Output() detach = new EventEmitter<void>();
+  readonly attach = output<void>();
+  readonly detach = output<void>();
 }
 
 @Component({
@@ -75,12 +74,12 @@ class NestedComponent {
   providers: [NatuPortalService],
 })
 class ServiceTemplateComponent {
-  @ViewChild('portalTemplate', { static: true }) portalTemplateRef!: TemplateRef<unknown>;
+  readonly portalTemplateRef = viewChild.required<TemplateRef<unknown>>('portalTemplate');
 
   private readonly portaService = inject(NatuPortalService);
 
   attach() {
-    this.portaService.attachTemplate(this.portalTemplateRef);
+    this.portaService.attachTemplate(this.portalTemplateRef());
   }
 
   detach() {

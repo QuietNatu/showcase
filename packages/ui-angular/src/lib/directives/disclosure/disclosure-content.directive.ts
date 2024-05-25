@@ -22,6 +22,6 @@ export class NatuDisclosureContentDirective {
 
   constructor() {
     this.id = this.disclosureService.id;
-    this.isExpanded = this.disclosureService.isExpanded$;
+    this.isExpanded = this.disclosureService.isExpanded;
   }
 }

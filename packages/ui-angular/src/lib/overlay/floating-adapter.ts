@@ -87,10 +87,10 @@ export function manageFloating(options: ManageFloatingOptions) {
     );
 
     return {
-      referenceElement$: referenceElement,
-      floatingElement$: floatingElement,
-      context$: toSignal(context$, { initialValue: null }),
-      floatingStyle$: toSignal(floatingStyle$, { initialValue: null }),
+      referenceElement: referenceElement.asReadonly(),
+      floatingElement: floatingElement.asReadonly(),
+      context: toSignal(context$, { initialValue: null }),
+      floatingStyle: toSignal(floatingStyle$, { initialValue: null }),
 
       setPlacement: (newPlacement: Placement | null) => {
         placement.set(newPlacement);

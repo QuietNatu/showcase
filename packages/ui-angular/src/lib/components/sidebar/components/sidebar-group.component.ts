@@ -65,7 +65,7 @@ export class NatuSidebarGroupComponent {
   private readonly groupListRef = viewChild<ElementRef<HTMLElement>>('groupList');
 
   constructor() {
-    this.isExpanded = this.sidebarService.isExpanded$;
+    this.isExpanded = this.sidebarService.isExpanded;
   }
 
   handleGroupExpandedChange(isGroupExpanded: boolean) {

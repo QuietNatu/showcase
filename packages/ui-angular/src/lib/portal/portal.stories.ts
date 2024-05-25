@@ -30,9 +30,9 @@ class ButtonsComponent {
 @Component({
   selector: 'natu-default',
   template: `
-    <natu-buttons (attach)="isVisible$.set(true)" (detach)="isVisible$.set(false)" />
+    <natu-buttons (attach)="isVisible.set(true)" (detach)="isVisible.set(false)" />
 
-    @if (isVisible$()) {
+    @if (isVisible()) {
       <div *natuPortal>Example content</div>
     }
   `,
@@ -41,15 +41,15 @@ class ButtonsComponent {
   imports: [ButtonsComponent, NatuPortalDirective],
 })
 class DefaultComponent {
-  readonly isVisible$ = signal(false);
+  readonly isVisible = signal(false);
 }
 
 @Component({
   selector: 'natu-nested',
   template: `
-    <natu-buttons (attach)="isVisible$.set(true)" (detach)="isVisible$.set(false)" />
+    <natu-buttons (attach)="isVisible.set(true)" (detach)="isVisible.set(false)" />
 
-    @if (isVisible$()) {
+    @if (isVisible()) {
       <natu-nested *natuPortal />
     }
   `,
@@ -58,7 +58,7 @@ class DefaultComponent {
   imports: [ButtonsComponent, NatuPortalDirective],
 })
 class NestedComponent {
-  readonly isVisible$ = signal(false);
+  readonly isVisible = signal(false);
 }
 
 @Component({

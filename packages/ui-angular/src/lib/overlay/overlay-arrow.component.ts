@@ -33,7 +33,7 @@ const rotation: Record<Side, string> = {
       [attr.width]="width"
       [attr.height]="width"
       [attr.viewBox]="viewBox"
-      [style]="style$()"
+      [style]="style()"
     >
       <path stroke="none" [attr.d]="dValue" />
 
@@ -53,7 +53,7 @@ export class NatuOverlayArrowComponent {
   readonly viewBox;
   readonly dValue;
 
-  readonly style$;
+  readonly style;
 
   private readonly overlayService = inject(NatuOverlayService);
 
@@ -62,7 +62,7 @@ export class NatuOverlayArrowComponent {
     this.height = this.overlayService.arrowHeight;
     this.viewBox = this.getViewBox();
     this.dValue = this.getDValue();
-    this.style$ = this.getStyle();
+    this.style = this.getStyle();
 
     effect((onCleanup) => {
       const arrowRef = this.arrowRef();
@@ -97,7 +97,7 @@ export class NatuOverlayArrowComponent {
 
   private getStyle() {
     return computed<Partial<CSSStyleDeclaration>>(() => {
-      const context = this.overlayService.context$();
+      const context = this.overlayService.context();
 
       if (!context) {
         return {};

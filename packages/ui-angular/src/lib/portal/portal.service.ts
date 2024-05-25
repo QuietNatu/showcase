@@ -27,9 +27,9 @@ type Content = TemplateRef<unknown> | ComponentType<unknown>;
 @Injectable()
 export class NatuPortalService {
   /** *Internal* - The content to be renderef by the portal. */
-  readonly content$;
+  readonly content;
   /** *Internal* - The instance of the created portal element. */
-  readonly portalElement$;
+  readonly portalElement;
 
   private readonly document = inject(DOCUMENT);
   private readonly componentFactoryResolver = inject(ComponentFactoryResolver);
@@ -38,40 +38,40 @@ export class NatuPortalService {
   private readonly parentPortal = inject(NatuPortalService, { optional: true, skipSelf: true });
 
   private readonly portalOutlet = new DomPortalOutlet(
-    this.parentPortal?.portalElement$() ?? this.document.body,
+    this.parentPortal?.portalElement() ?? this.document.body,
     this.componentFactoryResolver,
     this.applicationRef,
     this.injector,
   );
 
-  private readonly contentSignal$ = signal<Content | null>(null);
-  private readonly portalElementRef$ = signal<ElementRef<HTMLElement> | null>(null);
+  private readonly contentSignal = signal<Content | null>(null);
+  private readonly portalElementRef = signal<ElementRef<HTMLElement> | null>(null);
 
   constructor() {
-    this.content$ = this.contentSignal$.asReadonly();
-    this.portalElement$ = computed(() => this.portalElementRef$()?.nativeElement ?? null);
+    this.content = this.contentSignal.asReadonly();
+    this.portalElement = computed(() => this.portalElementRef()?.nativeElement ?? null);
 
     this.registerManagePortal();
   }
 
   /** Attaches template to a portal. */
   attachTemplate(content: TemplateRef<unknown>) {
-    this.contentSignal$.set(content);
+    this.contentSignal.set(content);
   }
 
   /** Attaches component to a portal.*/
   attachComponent(content: ComponentType<unknown>) {
-    this.contentSignal$.set(content);
+    this.contentSignal.set(content);
   }
 
   /** Detaches content from the portal. */
   detach() {
-    this.contentSignal$.set(null);
+    this.contentSignal.set(null);
   }
 
   private registerManagePortal() {
     effect((onCleanup) => {
-      const content = this.contentSignal$();
+      const content = this.contentSignal();
 
       if (!content) {
         return;
@@ -79,13 +79,13 @@ export class NatuPortalService {
 
       const portal = new ComponentPortal(NatuPortalComponent);
       const componentRef = this.portalOutlet.attach(portal);
-      untracked(() => this.portalElementRef$.set(componentRef.injector.get(ElementRef)));
+      untracked(() => this.portalElementRef.set(componentRef.injector.get(ElementRef)));
 
       onCleanup(() => {
         // Detach is triggering effects in the background
         untracked(() => {
           this.portalOutlet.detach();
-          this.portalElementRef$.set(null);
+          this.portalElementRef.set(null);
         });
       });
     });

@@ -12,11 +12,11 @@ import { NatuPortalService } from './portal.service';
 @Component({
   selector: 'natu-portal',
   template: `
-    @if (templateContent$()) {
-      <ng-template [ngTemplateOutlet]="templateContent$()" [ngTemplateOutletInjector]="injector" />
+    @if (templateContent()) {
+      <ng-template [ngTemplateOutlet]="templateContent()" [ngTemplateOutletInjector]="injector" />
     } @else {
       <ng-template
-        [ngComponentOutlet]="componentContent$()"
+        [ngComponentOutlet]="componentContent()"
         [ngComponentOutletInjector]="injector"
       />
     }
@@ -26,20 +26,20 @@ import { NatuPortalService } from './portal.service';
   imports: [NgTemplateOutlet, NgComponentOutlet],
 })
 export class NatuPortalComponent {
-  readonly templateContent$;
-  readonly componentContent$;
+  readonly templateContent;
+  readonly componentContent;
   readonly injector = inject(Injector);
 
   private readonly portalService = inject(NatuPortalService);
 
   constructor() {
-    this.templateContent$ = computed(() => {
-      const content = this.portalService.content$();
+    this.templateContent = computed(() => {
+      const content = this.portalService.content();
       return content instanceof TemplateRef ? content : null;
     });
 
-    this.componentContent$ = computed(() => {
-      const content = this.portalService.content$();
+    this.componentContent = computed(() => {
+      const content = this.portalService.content();
       return !(content instanceof TemplateRef) ? content : null;
     });
   }

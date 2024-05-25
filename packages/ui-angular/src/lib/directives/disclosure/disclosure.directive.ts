@@ -47,7 +47,7 @@ export class NatuDisclosureDirective {
     });
 
     connectSignal(this.isDisabled, (isDisabled) => {
-      this.disclosureService.isDisabled$.set(isDisabled);
+      this.disclosureService.isDisabled.set(isDisabled);
     });
   }
 }

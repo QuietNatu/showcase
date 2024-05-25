@@ -75,7 +75,7 @@ export class NatuSidebarItemComponent {
     const isPopoverItem = Boolean(this.sidebarGroupPopoverService);
 
     connectSignal(
-      computed(() => isPopoverItem || this.sidebarService.isExpanded$()),
+      computed(() => isPopoverItem || this.sidebarService.isExpanded()),
       (isExpanded) => {
         this.tooltipDirectiveConfigService.placement.set('right');
         this.tooltipDirectiveConfigService.isDisabled.set(isExpanded);

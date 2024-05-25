@@ -1,7 +1,5 @@
 import { Signal, effect, untracked } from '@angular/core';
 
-/* TODO: test */
-
 /**
  * Used to update some data based on a signal, while also untracking the update.
  *

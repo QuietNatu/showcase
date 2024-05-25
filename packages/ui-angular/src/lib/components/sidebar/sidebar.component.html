@@ -11,7 +11,7 @@
     (click)="sidebarService.toggleExpansion()"
   >
     <!-- TODO: add i18n once implemented -->
-    <span class="natu-visually-hidden">{{ isExpanded$() ? 'Collapse' : 'Expand' }}</span>
+    <span class="natu-visually-hidden">{{ isSidebarExpanded() ? 'Collapse' : 'Expand' }}</span>
     <svg-icon class="natu-sidebar__toggle-button-icon" key="caret-right" />
   </button>
 </div>

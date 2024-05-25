@@ -24,8 +24,8 @@ import { connectSignal } from '../../utils';
   providers: [NatuSidebarService],
   host: {
     class: 'natu-sidebar',
-    '[class.natu-sidebar--expanded]': 'isExpanded$()',
-    '[class.natu-sidebar--collapsed]': '!isExpanded$()',
+    '[class.natu-sidebar--expanded]': 'isSidebarExpanded()',
+    '[class.natu-sidebar--collapsed]': '!isSidebarExpanded()',
   },
 })
 export class NatuSidebarComponent {
@@ -36,7 +36,7 @@ export class NatuSidebarComponent {
 
   readonly isExpandedChange = outputFromObservable(this.sidebarService.isExpandedChange$);
 
-  readonly isExpanded$ = this.sidebarService.isExpanded$;
+  readonly isSidebarExpanded = this.sidebarService.isExpanded;
 
   constructor() {
     injectRegisterIcons([caretDownIcon, caretRightIcon, dotsThreeVerticalIcon]);

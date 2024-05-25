@@ -3,40 +3,40 @@ import { NatuOverlayService } from '../../overlay';
 
 @Injectable()
 export class NatuPopoverService {
-  readonly attributes$;
-  readonly content$;
-  readonly hasEmbeddedContent$;
-  readonly labelId$;
-  readonly descriptionId$;
+  readonly attributes;
+  readonly content;
+  readonly hasEmbeddedContent;
+  readonly labelId;
+  readonly descriptionId;
 
   readonly floatingId;
-  readonly isMounted$;
+  readonly isMounted;
 
-  private readonly attributesSignal$ = signal<Record<string, string>>({});
-  private readonly contentSignal$ = signal<TemplateRef<unknown> | null>(null);
-  private readonly hasEmbeddedContentSignal$ = signal<boolean>(false);
-  private readonly labelIdSignal$ = signal<string | null>(null);
-  private readonly descriptionIdSignal$ = signal<string | null>(null);
+  private readonly attributesSignal = signal<Record<string, string>>({});
+  private readonly contentSignal = signal<TemplateRef<unknown> | null>(null);
+  private readonly hasEmbeddedContentSignal = signal<boolean>(false);
+  private readonly labelIdSignal = signal<string | null>(null);
+  private readonly descriptionIdSignal = signal<string | null>(null);
 
   private readonly overlayService = inject(NatuOverlayService);
 
   constructor() {
-    this.attributes$ = this.attributesSignal$.asReadonly();
-    this.content$ = this.contentSignal$.asReadonly();
-    this.hasEmbeddedContent$ = this.hasEmbeddedContentSignal$.asReadonly();
-    this.labelId$ = this.labelIdSignal$.asReadonly();
-    this.descriptionId$ = this.descriptionIdSignal$.asReadonly();
+    this.attributes = this.attributesSignal.asReadonly();
+    this.content = this.contentSignal.asReadonly();
+    this.hasEmbeddedContent = this.hasEmbeddedContentSignal.asReadonly();
+    this.labelId = this.labelIdSignal.asReadonly();
+    this.descriptionId = this.descriptionIdSignal.asReadonly();
 
     this.floatingId = this.overlayService.floatingId;
-    this.isMounted$ = this.overlayService.isMounted$;
+    this.isMounted = this.overlayService.isMounted;
   }
 
   setAttributes(attributes: Record<string, string>) {
-    this.attributesSignal$.set(attributes);
+    this.attributesSignal.set(attributes);
   }
 
   setContent(content: TemplateRef<unknown> | null) {
-    this.contentSignal$.set(content);
+    this.contentSignal.set(content);
   }
 
   setReferenceElement(element: Element | ElementRef<Element> | null) {
@@ -44,15 +44,15 @@ export class NatuPopoverService {
   }
 
   setHasEmbeddedContent(hasEmbeddedContent: boolean) {
-    this.hasEmbeddedContentSignal$.set(hasEmbeddedContent);
+    this.hasEmbeddedContentSignal.set(hasEmbeddedContent);
   }
 
   setLabelId(id: string | null) {
-    this.labelIdSignal$.set(id);
+    this.labelIdSignal.set(id);
   }
 
   setDescriptionId(id: string | null) {
-    this.descriptionIdSignal$.set(id);
+    this.descriptionIdSignal.set(id);
   }
 
   dismiss() {

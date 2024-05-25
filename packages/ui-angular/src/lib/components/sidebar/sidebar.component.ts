@@ -1,11 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { outputFromObservable } from '@angular/core/rxjs-interop';
 import { NatuSidebarHeaderComponent } from './components/sidebar-header.component';
 import { NatuSidebarItemComponent } from './components/sidebar-item.component';
 import { NatuSidebarActionsComponent } from './components/sidebar-actions.component';
@@ -15,11 +9,11 @@ import { NatuSidebarLabelDirective } from './directives/sidebar-label.directive'
 import { NatuSidebarIconDirective } from './directives/sidebar-icon.directive';
 import { NatuSidebarGroupComponent } from './components/sidebar-group.component';
 import { NatuSidebarService } from './services/sidebar.service';
-import { registerEffect } from '../../utils/rxjs';
 import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
 import { caretDownIcon } from '@natu/assets/svg/caret-down';
 import { caretRightIcon } from '@natu/assets/svg/caret-right';
 import { dotsThreeVerticalIcon } from '@natu/assets/svg/dots-three-vertical';
+import { connectSignal } from '../../utils';
 
 @Component({
   selector: 'natu-sidebar',
@@ -30,28 +24,29 @@ import { dotsThreeVerticalIcon } from '@natu/assets/svg/dots-three-vertical';
   providers: [NatuSidebarService],
   host: {
     class: 'natu-sidebar',
-    '[class.natu-sidebar--expanded]': 'isExpanded$()',
-    '[class.natu-sidebar--collapsed]': '!isExpanded$()',
+    '[class.natu-sidebar--expanded]': 'isSidebarExpanded()',
+    '[class.natu-sidebar--collapsed]': '!isSidebarExpanded()',
   },
 })
 export class NatuSidebarComponent {
-  @Input() set isExpanded(isExpanded: boolean | null | undefined) {
-    this.sidebarService.setIsExpanded(isExpanded ?? undefined);
-  }
-  @Input() set defaultIsExpanded(defaultIsExpanded: boolean | null | undefined) {
-    this.sidebarService.setDefaultIsExpanded(defaultIsExpanded ?? undefined);
-  }
-
-  @Output() isExpandedChange = new EventEmitter<boolean>();
+  readonly isExpanded = input<boolean | null | undefined>(undefined);
+  readonly defaultIsExpanded = input<boolean | null | undefined>(undefined);
 
   readonly sidebarService = inject(NatuSidebarService);
-  readonly isExpanded$ = this.sidebarService.isExpanded$;
+
+  readonly isExpandedChange = outputFromObservable(this.sidebarService.isExpandedChange$);
+
+  readonly isSidebarExpanded = this.sidebarService.isExpanded;
 
   constructor() {
     injectRegisterIcons([caretDownIcon, caretRightIcon, dotsThreeVerticalIcon]);
 
-    registerEffect(this.sidebarService.isExpandedChange$, (isOpen) => {
-      this.isExpandedChange.emit(isOpen);
+    connectSignal(this.isExpanded, (isExpanded) => {
+      this.sidebarService.setIsExpanded(isExpanded ?? undefined);
+    });
+
+    connectSignal(this.defaultIsExpanded, (defaultIsExpanded) => {
+      this.sidebarService.setDefaultIsExpanded(defaultIsExpanded ?? undefined);
     });
   }
 }

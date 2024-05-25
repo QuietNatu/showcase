@@ -10,17 +10,26 @@ import { SvgIconComponent, provideSvgIcons } from '@natu/assets';
 import { rocketIcon } from '@natu/assets/svg/rocket';
 import { NatuCardHeaderComponent } from './components/card-header.component';
 import { NatuCardFooterComponent } from './components/card-footer.component';
+import { NatuCardBodyComponent } from './components/card-body.component';
+import { NatuCardHeaderIconDirective } from './directives/card-header-icon.directive';
+import { TestComponentArgs } from '../../test/types';
 
 interface StoryProps extends NatuCardComponent {
   hideHeader?: boolean;
   hideFooter?: boolean;
-  headerArgs?: Partial<NatuCardHeaderComponent>;
-  footerArgs?: Partial<NatuCardFooterComponent>;
+  headerArgs?: TestComponentArgs<NatuCardHeaderComponent>;
+  footerArgs?: TestComponentArgs<NatuCardFooterComponent>;
 }
 
 const meta = {
   title: 'Components/Card',
   component: NatuCardComponent,
+  subcomponents: {
+    NatuCardHeaderIconDirective,
+    NatuCardHeaderComponent,
+    NatuCardBodyComponent,
+    NatuCardFooterComponent,
+  },
   decorators: [
     applicationConfig({
       providers: [provideSvgIcons([rocketIcon])],

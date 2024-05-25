@@ -1,10 +1,14 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
-  Input,
-  Output,
+  Injectable,
+  Signal,
   booleanAttribute,
+  computed,
+  inject,
+  input,
+  output,
+  signal,
 } from '@angular/core';
 import { NatuCardHeaderComponent } from './components/card-header.component';
 import { NatuCardBodyComponent } from './components/card-body.component';
@@ -13,7 +17,6 @@ import { NatuCardHeaderIconDirective } from './directives/card-header-icon.direc
 import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
 import { xIcon } from '@natu/assets/svg/x';
 import { natuButtonImports } from '../../directives';
-import { NatuCardService } from './card.service';
 
 /* TODO: add i18n once implemented */
 
@@ -22,13 +25,12 @@ import { NatuCardService } from './card.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [natuButtonImports, SvgIconComponent],
-  providers: [NatuCardService],
   template: `
     <ng-content select="natu-card-header,[natu-card-header]" />
     <ng-content />
     <ng-content select="natu-card-footer,[natu-card-footer]" />
 
-    @if (isDismissable) {
+    @if (finalIsDismissable()) {
       <button
         type="button"
         natuButton
@@ -45,7 +47,7 @@ import { NatuCardService } from './card.service';
   `,
   host: {
     class: 'natu-card',
-    '[class.natu-card--embedded]': 'isEmbedded',
+    '[class.natu-card--embedded]': 'finalIsEmbedded()',
   },
 })
 export class NatuCardComponent {
@@ -53,16 +55,35 @@ export class NatuCardComponent {
    * Whether the card is part of another component or not.
    * Will hide borders, box-shadows, etc if true.
    */
-  @Input({ transform: booleanAttribute }) isEmbedded = false;
+  readonly isEmbedded = input(false, { transform: booleanAttribute });
 
   /** Whether to show the dismissable button or not. */
-  @Input({ transform: booleanAttribute }) isDismissable: boolean = false;
+  readonly isDismissable = input(false, { transform: booleanAttribute });
 
-  @Output() dismiss = new EventEmitter<void>();
+  readonly dismiss = output<void>();
+
+  readonly finalIsEmbedded: Signal<boolean>;
+  readonly finalIsDismissable: Signal<boolean>;
+
+  private readonly configService = inject(NatuCardComponentConfigService, {
+    self: true,
+    optional: true,
+  });
 
   constructor() {
     injectRegisterIcons([xIcon]);
+
+    this.finalIsEmbedded = computed(() => this.configService?.isEmbedded() ?? this.isEmbedded());
+    this.finalIsDismissable = computed(
+      () => this.configService?.isDismissable() ?? this.isDismissable(),
+    );
   }
+}
+
+@Injectable()
+export class NatuCardComponentConfigService {
+  readonly isEmbedded = signal<boolean | undefined>(undefined);
+  readonly isDismissable = signal<boolean | undefined>(undefined);
 }
 
 export const natuCardImports = [

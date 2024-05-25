@@ -65,24 +65,27 @@ export class NatuSidebarGroupComponent {
   private readonly groupListRef = viewChild<ElementRef<HTMLElement>>('groupList');
 
   constructor() {
-    this.isExpanded = this.sidebarService.isExpanded$;
+    this.isExpanded = this.sidebarService.isExpanded;
   }
 
   handleGroupExpandedChange(isGroupExpanded: boolean) {
     this.isGroupExpanded.set(isGroupExpanded);
 
-    if (!isGroupExpanded || !this.groupHasAnimation()) {
-      this.isGroupHidden.set(isGroupExpanded);
-    }
-
-    if (isGroupExpanded || !this.groupHasAnimation()) {
+    if (!this.groupHasAnimation()) {
       this.isGroupPresent.set(isGroupExpanded);
+      this.isGroupHidden.set(!isGroupExpanded);
+    } else if (isGroupExpanded) {
+      this.isGroupPresent.set(isGroupExpanded);
+    } else {
+      this.isGroupHidden.set(isGroupExpanded);
     }
   }
 
   handleGroupTransitionEnd() {
-    this.isGroupHidden.set(this.isGroupExpanded());
-    this.isGroupPresent.set(this.isGroupExpanded());
+    const isGroupExpanded = this.isGroupExpanded();
+
+    this.isGroupHidden.set(isGroupExpanded);
+    this.isGroupPresent.set(isGroupExpanded);
   }
 
   private groupHasAnimation() {

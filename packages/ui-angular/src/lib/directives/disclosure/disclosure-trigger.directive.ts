@@ -23,8 +23,8 @@ export class NatuDisclosureTriggerDirective {
 
   constructor() {
     this.id = this.disclosureService.id;
-    this.isExpanded = this.disclosureService.isExpanded$;
-    this.isDisabled = this.disclosureService.isDisabled$;
+    this.isExpanded = this.disclosureService.isExpanded;
+    this.isDisabled = this.disclosureService.isDisabled;
   }
 
   toggleExpansion() {

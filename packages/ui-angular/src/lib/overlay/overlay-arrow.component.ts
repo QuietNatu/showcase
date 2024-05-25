@@ -2,11 +2,11 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChild,
   computed,
+  effect,
   inject,
+  untracked,
+  viewChild,
 } from '@angular/core';
 import { Side } from '@floating-ui/dom';
 import { NatuOverlayService } from './overlay.service';
@@ -33,7 +33,7 @@ const rotation: Record<Side, string> = {
       [attr.width]="width"
       [attr.height]="width"
       [attr.viewBox]="viewBox"
-      [style]="style$()"
+      [style]="style()"
     >
       <path stroke="none" [attr.d]="dValue" />
 
@@ -45,15 +45,15 @@ const rotation: Record<Side, string> = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
 })
-export class NatuOverlayArrowComponent implements OnInit, OnDestroy {
-  @ViewChild('arrow', { static: true }) arrowRef!: ElementRef<HTMLElement>;
+export class NatuOverlayArrowComponent {
+  readonly arrowRef = viewChild.required<ElementRef<HTMLElement>>('arrow');
 
   readonly width;
   readonly height;
   readonly viewBox;
   readonly dValue;
 
-  readonly style$;
+  readonly style;
 
   private readonly overlayService = inject(NatuOverlayService);
 
@@ -62,15 +62,21 @@ export class NatuOverlayArrowComponent implements OnInit, OnDestroy {
     this.height = this.overlayService.arrowHeight;
     this.viewBox = this.getViewBox();
     this.dValue = this.getDValue();
-    this.style$ = this.getStyle();
-  }
+    this.style = this.getStyle();
 
-  ngOnInit(): void {
-    this.overlayService.setArrowElement(this.arrowRef);
-  }
+    effect((onCleanup) => {
+      const arrowRef = this.arrowRef();
 
-  ngOnDestroy(): void {
-    this.overlayService.setArrowElement(null);
+      untracked(() => {
+        this.overlayService.setArrowElement(arrowRef);
+      });
+
+      onCleanup(() => {
+        untracked(() => {
+          this.overlayService.setArrowElement(null);
+        });
+      });
+    });
   }
 
   private getViewBox() {
@@ -91,7 +97,7 @@ export class NatuOverlayArrowComponent implements OnInit, OnDestroy {
 
   private getStyle() {
     return computed<Partial<CSSStyleDeclaration>>(() => {
-      const context = this.overlayService.context$();
+      const context = this.overlayService.context();
 
       if (!context) {
         return {};

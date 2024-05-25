@@ -6,7 +6,7 @@ import { NatuTooltipService } from '../tooltip.service';
   standalone: true,
   host: {
     '[attr.aria-describedby]':
-      "tooltipService.isMounted$() ? 'tooltip-' + tooltipService.floatingId : null",
+      "tooltipService.isMounted() ? 'tooltip-' + tooltipService.floatingId : null",
   },
 })
 export class NatuTooltipTriggerDirective implements OnInit {

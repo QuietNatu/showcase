@@ -5,6 +5,7 @@ import {
   natuPopoverImports,
 } from './popover.directive';
 import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
+import { TestComponentArgs } from '../../test/types';
 
 describe(`${NatuPopoverDirective.name} accessibility`, () => {
   const scenarios = [
@@ -154,7 +155,7 @@ describe(NatuPopoverDirective.name, () => {
   });
 });
 
-async function setup(props: Partial<NatuPopoverDirective> = {}) {
+async function setup(props: TestComponentArgs<NatuPopoverDirective> = {}) {
   // eslint-disable-next-line jasmine/no-unsafe-spy
   const isOpenChangeSpy = jasmine.createSpy();
 
@@ -185,7 +186,7 @@ async function setup(props: Partial<NatuPopoverDirective> = {}) {
   return { ...view, isOpenChangeSpy };
 }
 
-async function setupCardPopover(props: Partial<NatuPopoverDirective> = {}) {
+async function setupCardPopover(props: TestComponentArgs<NatuPopoverDirective> = {}) {
   // eslint-disable-next-line jasmine/no-unsafe-spy
   const isOpenChangeSpy = jasmine.createSpy();
 

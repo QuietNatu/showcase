@@ -3,6 +3,7 @@ import { aliasArgs, aliasedArgsToTemplate, render } from '../../test';
 import { NatuFocusRingDirective } from './focus-ring.directive';
 import { A11yModule, FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
 import { Subject } from 'rxjs';
+import { TestComponentArgs } from '../../test/types';
 
 describe(NatuFocusRingDirective.name, () => {
   it('by default, does not set focus visible class', async () => {
@@ -33,7 +34,7 @@ describe(NatuFocusRingDirective.name, () => {
     expect(screen.getByRole('button')).not.toHaveClassName('example-class');
   });
 
-  async function setup(props: Partial<NatuFocusRingDirective> = {}) {
+  async function setup(props: TestComponentArgs<NatuFocusRingDirective> = {}) {
     // eslint-disable-next-line jasmine/no-unsafe-spy
     const focusMonitorSpy = jasmine.createSpyObj<FocusMonitor>(FocusMonitor.name, ['monitor']);
     const focusMonitorTrigger$ = new Subject<FocusOrigin>();

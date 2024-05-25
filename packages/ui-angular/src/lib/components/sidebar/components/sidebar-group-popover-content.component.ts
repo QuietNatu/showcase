@@ -2,9 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   Injector,
-  Input,
   TemplateRef,
   inject,
+  input,
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popover.service';
@@ -18,7 +18,7 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
   template: `
     <div class="natu-sidebar__popover">
       <ul class="natu-sidebar__list">
-        @for (item of items; track $index) {
+        @for (item of items(); track $index) {
           <li class="natu-sidebar__list-item">
             <ng-template [ngTemplateOutlet]="item" [ngTemplateOutletInjector]="injector" />
           </li>
@@ -28,7 +28,7 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
   `,
 })
 export class NatuSidebarGroupPopoverContentComponent {
-  @Input({ required: true }) items!: ReadonlyArray<TemplateRef<unknown>>;
+  readonly items = input.required<ReadonlyArray<TemplateRef<unknown>>>();
 
   readonly injector = inject(Injector);
 }

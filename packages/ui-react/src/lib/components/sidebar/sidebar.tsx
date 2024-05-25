@@ -18,8 +18,6 @@ import * as Collapsible from '@radix-ui/react-collapsible';
 import { useControllableState } from '../../hooks';
 import { mergeProps, useFocusRing } from 'react-aria';
 
-/* TODO: docs */
-
 export interface NatuSidebarProps extends UseSidebarOptions {
   children?: ReactNode;
   /**
@@ -158,7 +156,6 @@ export function NatuSidebar(props: NatuSidebarProps) {
   );
 }
 
-/* TODO: check rerenders */
 function SidebarList(props: SidebarListProps) {
   const listItems = props.items.map((item) => (
     <li key={item.id} className="natu-sidebar__list-item">

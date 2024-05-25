@@ -8,7 +8,6 @@ import {
   OnInit,
   Renderer2,
   computed,
-  effect,
   inject,
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
@@ -19,6 +18,7 @@ import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuPopoverService } from './popover.service';
 import { natuCardImports } from '../../components';
 import { A11yModule } from '@angular/cdk/a11y';
+import { connectSignal } from '../../utils';
 
 const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 const sideTransforms: Record<Side, string> = {
@@ -38,9 +38,9 @@ const sideTransforms: Record<Side, string> = {
     role: 'dialog',
     tabindex: '-1',
     '[id]': '"popover-" + floatingId',
-    '[style]': 'floatingStyle$()',
-    '[attr.aria-labelledby]': 'labelId$()',
-    '[attr.aria-describedby]': 'descriptionId$()',
+    '[style]': 'floatingStyle()',
+    '[attr.aria-labelledby]': 'labelId()',
+    '[attr.aria-describedby]': 'descriptionId()',
   },
   animations: [
     trigger('openClose', [
@@ -59,14 +59,14 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
   readonly arrowWidth;
   readonly arrowHeight;
 
-  readonly labelId$;
-  readonly descriptionId$;
-  readonly hasEmbeddedContent$;
-  readonly content$;
-  readonly isOpen$;
-  readonly context$;
-  readonly floatingStyle$;
-  readonly transformation$;
+  readonly labelId;
+  readonly descriptionId;
+  readonly hasEmbeddedContent;
+  readonly content;
+  readonly isOpen;
+  readonly context;
+  readonly floatingStyle;
+  readonly transformation;
 
   readonly injector = inject(Injector);
 
@@ -80,16 +80,16 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
     this.arrowWidth = this.overlayService.arrowWidth;
     this.arrowHeight = this.overlayService.arrowHeight;
 
-    this.labelId$ = this.popoverService.labelId$;
-    this.descriptionId$ = this.popoverService.descriptionId$;
-    this.hasEmbeddedContent$ = this.popoverService.hasEmbeddedContent$;
-    this.content$ = this.popoverService.content$;
-    this.isOpen$ = this.overlayService.isOpen$;
-    this.context$ = this.overlayService.context$;
-    this.floatingStyle$ = this.overlayService.floatingStyle$;
+    this.labelId = this.popoverService.labelId;
+    this.descriptionId = this.popoverService.descriptionId;
+    this.hasEmbeddedContent = this.popoverService.hasEmbeddedContent;
+    this.content = this.popoverService.content;
+    this.isOpen = this.overlayService.isOpen;
+    this.context = this.overlayService.context;
+    this.floatingStyle = this.overlayService.floatingStyle;
 
-    this.transformation$ = computed(() => {
-      const placement = this.overlayService.context$()?.placement;
+    this.transformation = computed(() => {
+      const placement = this.overlayService.context()?.placement;
 
       if (!placement) {
         return null;
@@ -117,9 +117,7 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
 
   private registerSpreadExtraAttributes() {
     // Could be improved if this feature is added someday https://github.com/angular/angular/issues/14545
-    effect(() => {
-      const attributes = this.popoverService.attributes$();
-
+    connectSignal(this.popoverService.attributes, (attributes) => {
       Object.entries(attributes).forEach(([name, value]) => {
         this.renderer.setAttribute(this.elementRef.nativeElement, name, value);
       });

@@ -3,24 +3,24 @@ import { NatuOverlayService } from '../../overlay';
 
 @Injectable()
 export class NatuTooltipService {
-  readonly content$;
+  readonly content;
 
   readonly floatingId;
-  readonly isMounted$;
+  readonly isMounted;
 
-  private readonly contentSignal$ = signal<TemplateRef<unknown> | null>(null);
+  private readonly contentSignal = signal<TemplateRef<unknown> | null>(null);
 
   private readonly overlayService = inject(NatuOverlayService);
 
   constructor() {
-    this.content$ = this.contentSignal$.asReadonly();
+    this.content = this.contentSignal.asReadonly();
 
     this.floatingId = this.overlayService.floatingId;
-    this.isMounted$ = this.overlayService.isMounted$;
+    this.isMounted = this.overlayService.isMounted;
   }
 
   setContent(content: TemplateRef<unknown>) {
-    this.contentSignal$.set(content);
+    this.contentSignal.set(content);
   }
 
   setReferenceElement(element: Element | ElementRef<Element> | null) {

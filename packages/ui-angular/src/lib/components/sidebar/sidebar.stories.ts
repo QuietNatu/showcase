@@ -14,7 +14,7 @@ import { maskHappyIcon } from '@natu/assets/svg/mask-happy';
 import { rocketIcon } from '@natu/assets/svg/rocket';
 import { NatuTestComponent } from '../../test';
 import { onStoryInitDecorator } from '../../stories';
-import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 
 @Component({
   selector: 'natu-sidebar-story',
@@ -22,7 +22,7 @@ import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core
   standalone: true,
   imports: [natuSidebarImports, RouterLink, RouterLinkActive, SvgIconComponent],
   template: `
-    <natu-sidebar [defaultIsExpanded]="defaultIsExpanded">
+    <natu-sidebar [defaultIsExpanded]="defaultIsExpanded()">
       <natu-sidebar-header>
         <div
           style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 0 0.5rem"
@@ -91,7 +91,7 @@ import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core
   `,
 })
 class NatuSidebarStoryComponent {
-  @Input() defaultIsExpanded?: boolean;
+  readonly defaultIsExpanded = input<boolean | undefined>(undefined);
 
   readonly activeItem = signal<string | null>(null);
 }

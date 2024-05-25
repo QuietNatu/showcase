@@ -1,6 +1,7 @@
 import { screen, waitForElementToBeRemoved } from '@testing-library/angular';
 import { NatuTooltipDirective, natuTooltipImports } from './tooltip.directive';
 import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
+import { TestComponentArgs } from '../../test/types';
 
 describe(`${NatuTooltipDirective.name} accessibility`, () => {
   const scenarios = [
@@ -172,7 +173,7 @@ describe(NatuTooltipDirective.name, () => {
   });
 });
 
-async function setup(props: Partial<NatuTooltipDirective> = {}) {
+async function setup(props: TestComponentArgs<NatuTooltipDirective> = {}) {
   // eslint-disable-next-line jasmine/no-unsafe-spy
   const isOpenChangeSpy = jasmine.createSpy();
 

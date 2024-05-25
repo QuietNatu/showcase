@@ -6,7 +6,7 @@ import { NatuPopoverService } from '../popover.service';
   standalone: true,
   host: {
     'aria-haspopup': 'dialog',
-    '[attr.aria-expanded]': 'popoverService.isMounted$()',
+    '[attr.aria-expanded]': 'popoverService.isMounted()',
     '[attr.aria-controls]': "'popover-' + popoverService.floatingId",
   },
 })

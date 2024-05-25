@@ -1,6 +1,7 @@
 import { NatuDisclosureDirective, natuDisclosureImports } from './disclosure.directive';
 import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
-import { screen } from '@testing-library/angular';
+import { screen, waitForElementToBeRemoved } from '@testing-library/angular';
+import { TestComponentArgs } from '../../test/types';
 
 describe(`${NatuDisclosureDirective.name} accessibility`, () => {
   const scenarios = [
@@ -76,12 +77,14 @@ describe(NatuDisclosureDirective.name, () => {
     const componentProperties = aliasArgs({ isExpanded: false }, 'natuDisclosure');
     await rerender({ componentProperties });
 
+    await waitForElementToBeRemoved(() => screen.queryByRole('region'));
+
     expect(screen.queryByRole('region')).not.toBeInTheDocument();
     expect(isExpandedChangeSpy).not.toHaveBeenCalled();
   });
 });
 
-async function setup(props: Partial<NatuDisclosureDirective> = {}) {
+async function setup(props: TestComponentArgs<NatuDisclosureDirective> = {}) {
   // eslint-disable-next-line jasmine/no-unsafe-spy
   const isExpandedChangeSpy = jasmine.createSpy();
 
@@ -94,9 +97,9 @@ async function setup(props: Partial<NatuDisclosureDirective> = {}) {
   const templateArgs = aliasedArgsToTemplate(allProps, 'natuDisclosure');
 
   const view = await render(
-    ` <div [natuDisclosure] ${templateArgs}>
-        <button type="button" [natuDisclosureTrigger]>Example Trigger</button>
-        <div [natuDisclosureContent]>Example Content</div>
+    ` <div natuDisclosure ${templateArgs}>
+        <button type="button" natuDisclosureTrigger>Example Trigger</button>
+        <div natuDisclosureContent>Example Content</div>
       </div>`,
     {
       renderOptions: {

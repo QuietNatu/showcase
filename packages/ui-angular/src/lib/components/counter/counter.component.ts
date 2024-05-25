@@ -8,9 +8,9 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
   imports: [],
 })
 export class NatuCounterComponent {
-  readonly count$ = signal(0);
+  readonly count = signal(0);
 
   handleIncrementCount() {
-    this.count$.update((count) => count + 1);
+    this.count.update((count) => count + 1);
   }
 }

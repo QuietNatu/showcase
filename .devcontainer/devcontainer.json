@@ -1,47 +1,48 @@
 {
-	"$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-	"name": "Ubuntu",
-	"image": "mcr.microsoft.com/devcontainers/base:jammy",
-  
-	"features": {
-	  "ghcr.io/devcontainers/features/git:1": {
-		"ppa": true,
-		"version": "os-provided"
-	  },
-	  "ghcr.io/devcontainers/features/git-lfs:1": {
-		"autoPull": true,
-		"version": "latest"
-	  },
-	  "ghcr.io/devcontainers/features/node:1": {
-		"nodeGypDependencies": true,
-		"version": "20",
-		"nvmVersion": "latest"
-	  }
-	},
-  
-	"customizations": {
-	  "vscode": {
-		"extensions": [
-		  "EditorConfig.EditorConfig",
-		  "dbaeumer.vscode-eslint",
-		  "esbenp.prettier-vscode",
-		  "stylelint.vscode-stylelint",
-		  "mrmlnc.vscode-scss",
-		  "vitest.explorer",
-		  "ms-playwright.playwright",
-		  "Angular.ng-template",
-		  "KnisterPeter.vscode-commitizen",
-		  "christian-kohler.path-intellisense",
-		  "mrmlnc.vscode-json5",
-		  "github.vscode-github-actions"
-		]
-	  }
-	},
-  
-	"postCreateCommand": "pnpm install && pnpm exec playwright install --with-deps chromium && pnpm build",
-  
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-	
-	"remoteUser": "vscode"
-  }
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+  "name": "Ubuntu",
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {
+      "ppa": true,
+      "version": "os-provided"
+    },
+    "ghcr.io/devcontainers/features/git-lfs:1": {
+      "autoPull": true,
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "nodeGypDependencies": true,
+      "version": "20",
+      "nvmVersion": "latest"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "stylelint.vscode-stylelint",
+        "mrmlnc.vscode-scss",
+        "vitest.explorer",
+        "ms-playwright.playwright",
+        "Angular.ng-template",
+        "KnisterPeter.vscode-commitizen",
+        "christian-kohler.path-intellisense",
+        "mrmlnc.vscode-json5",
+        "github.vscode-github-actions"
+      ]
+    }
+  },
+
+  "postCreateCommand": "pnpm install && pnpm exec playwright install --with-deps chromium && pnpm build",
+
+  "portsAttributes": {
+    "6000-7000": { "onAutoForward": "silent" }
+  },
+
+  "remoteUser": "vscode"
+}

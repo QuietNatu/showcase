@@ -83,6 +83,7 @@
             }
           },
           "options": {
+            "host": "0.0.0.0",
             "port": 6101,
             "open": true
           },
@@ -136,6 +137,7 @@
             "browserTarget": "rotom:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
+            "host": "0.0.0.0",
             "port": 6102,
             "assets": ["src/assets", "src/mockServiceWorker.js"]
           }

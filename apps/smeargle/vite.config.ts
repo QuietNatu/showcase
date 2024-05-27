@@ -34,6 +34,7 @@ export default defineConfig(({ mode }) => {
     server: {
       open: mode !== 'test',
       port: 6001,
+      host: true, // Remove when solved https://github.com/vitejs/vite/issues/16522
     },
 
     test: {

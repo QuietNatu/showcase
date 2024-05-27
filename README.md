@@ -1,5 +1,11 @@
 # Showcase
 
+<!-- TODO: update readme, mention wsl config max ram usage, add any issue that should be looked at in the future -->
+<!-- TODO: husky not working, not in a git repository when pnpm i runs -->
+<!-- TODO: never open dev container in a windows file system always clone repository to a volume in docker -->
+<!-- TODO: build devcontainer docker image is recommended? -->
+<!-- TODO: corepack? -->
+
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/QuietNatu/showcase/ci.yml?style=for-the-badge)](https://github.com/QuietNatu/showcase/actions/workflows/ci.yml) [![GitHub last commit](https://img.shields.io/github/last-commit/QuietNatu/showcase?style=for-the-badge)](https://github.com/QuietNatu/showcase/branches/all)
 
 A project to practice and showcase what I have learned.

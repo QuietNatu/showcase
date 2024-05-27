@@ -33,7 +33,8 @@
         "KnisterPeter.vscode-commitizen",
         "christian-kohler.path-intellisense",
         "mrmlnc.vscode-json5",
-        "github.vscode-github-actions"
+        "github.vscode-github-actions",
+        "eamodio.gitlens"
       ]
     }
   },

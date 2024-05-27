@@ -15,7 +15,7 @@
     "preview-storybook": "http-server -c-1 ./storybook-static --silent",
     "vrt": "playwright test --config vrt/playwright.config.ts",
     "vrt-update": "pnpm vrt --update-snapshots",
-    "vrt-show-report": "playwright show-report vrt/report --port 6114"
+    "vrt-show-report": "playwright show-report vrt/report --port 6114 --host 0.0.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "17.3.7",

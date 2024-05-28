@@ -10,6 +10,8 @@ on:
 env:
   HUSKY: 0
   PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+  TURBO_CACHE_DIR: .turbo
+  VRT_BROWSER: chromium
 
 jobs:
   test:
@@ -20,167 +22,154 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build and run dev container task
-        uses: devcontainers/ci@v0.3
+      - name: Restore turbo cache
+        uses: actions/cache/restore@v3
         with:
-          runCmd: pnpm run vrt
+          path: ${{ env.TURBO_CACHE_DIR }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
 
-  # test:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 15
+      - name: Use pnpm
+        uses: pnpm/action-setup@v2
 
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: 'pnpm'
 
-  #     - name: Restore turbo cache
-  #       uses: actions/cache/restore@v3
-  #       with:
-  #         path: ${{ env.TURBO_CACHE_DIR }}
-  #         key: ${{ runner.os }}-turbo-${{ github.sha }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-turbo-
+      - name: Install dependencies
+        # change to pnpm ci once it is implemented
+        run: |
+          pnpm i --frozen-lockfile --loglevel warn
+          pnpm exec playwright install --with-deps chromium
 
-  #     - name: Use pnpm
-  #       uses: pnpm/action-setup@v2
+      - name: Lint files
+        run: pnpm run lint --cache-dir=${{ env.TURBO_CACHE_DIR }}
 
-  #     - name: Use Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version-file: 'package.json'
-  #         cache: 'pnpm'
+      - name: Run tests
+        run: pnpm run test --cache-dir=${{ env.TURBO_CACHE_DIR }}
 
-  #     - name: Install dependencies
-  #       # change to pnpm ci once it is implemented
-  #       run: |
-  #         pnpm i --frozen-lockfile --loglevel warn
-  #         pnpm exec playwright install --with-deps chromium
+      - name: Build
+        run: pnpm run build --cache-dir=${{ env.TURBO_CACHE_DIR }}
 
-  #     - name: Lint files
-  #       run: pnpm run lint --cache-dir=${{ env.TURBO_CACHE_DIR }}
+      - name: Save turbo cache
+        uses: actions/cache/save@v3
+        if: success() || failure()
+        with:
+          path: ${{ env.TURBO_CACHE_DIR }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
 
-  #     - name: Run tests
-  #       run: pnpm run test --cache-dir=${{ env.TURBO_CACHE_DIR }}
+  vrt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
 
-  #     - name: Build
-  #       run: pnpm run build --cache-dir=${{ env.TURBO_CACHE_DIR }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: 'true'
 
-  #     - name: Save turbo cache
-  #       uses: actions/cache/save@v3
-  #       if: success() || failure()
-  #       with:
-  #         path: ${{ env.TURBO_CACHE_DIR }}
-  #         key: ${{ runner.os }}-turbo-${{ github.sha }}
+      - name: Pull LFS files
+        run: git lfs pull
 
-  # vrt:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 15
+      - name: Restore turbo cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ${{ env.TURBO_CACHE_DIR }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
 
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
-  #       with:
-  #         lfs: 'true'
+      - name: Use pnpm
+        uses: pnpm/action-setup@v2
 
-  #     - name: Pull LFS files
-  #       run: git lfs pull
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: 'pnpm'
 
-  #     - name: Restore turbo cache
-  #       uses: actions/cache/restore@v3
-  #       with:
-  #         path: ${{ env.TURBO_CACHE_DIR }}
-  #         key: ${{ runner.os }}-turbo-${{ github.sha }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-turbo-
+      - name: Install dependencies
+        # change to pnpm ci once it is implemented
+        run: |
+          pnpm i --frozen-lockfile --loglevel warn
+          pnpm exec playwright install --with-deps ${{ env.VRT_BROWSER }}
 
-  #     - name: Use pnpm
-  #       uses: pnpm/action-setup@v2
+      - name: Run tests
+        run: pnpm run vrt --cache-dir="${{ env.TURBO_CACHE_DIR }}"
 
-  #     - name: Use Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version-file: 'package.json'
-  #         cache: 'pnpm'
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: vrt-report
+          path: |
+            apps/*/vrt/report
+            packages/*/vrt/report
+          retention-days: 1
 
-  #     - name: Install dependencies
-  #       # change to pnpm ci once it is implemented
-  #       run: |
-  #         pnpm i --frozen-lockfile --loglevel warn
-  #         pnpm exec playwright install --with-deps ${{ env.VRT_BROWSER }}
+      - name: Save turbo cache
+        uses: actions/cache/save@v3
+        if: success() || failure()
+        with:
+          path: ${{ env.TURBO_CACHE_DIR }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
 
-  #     - name: Run tests
-  #       run: pnpm run vrt --cache-dir="${{ env.TURBO_CACHE_DIR }}"
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
 
-  #     - name: Upload report
-  #       uses: actions/upload-artifact@v4
-  #       if: failure()
-  #       with:
-  #         name: vrt-report
-  #         path: |
-  #           apps/*/vrt/report
-  #           packages/*/vrt/report
-  #         retention-days: 1
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
 
-  #     - name: Save turbo cache
-  #       uses: actions/cache/save@v3
-  #       if: success() || failure()
-  #       with:
-  #         path: ${{ env.TURBO_CACHE_DIR }}
-  #         key: ${{ runner.os }}-turbo-${{ github.sha }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-  # e2e:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 15
+      - name: Restore turbo cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ${{ env.TURBO_CACHE_DIR }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
 
-  #   strategy:
-  #     matrix:
-  #       browser: [chromium, firefox, webkit]
+      - name: Use pnpm
+        uses: pnpm/action-setup@v2
 
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: 'pnpm'
 
-  #     - name: Restore turbo cache
-  #       uses: actions/cache/restore@v3
-  #       with:
-  #         path: ${{ env.TURBO_CACHE_DIR }}
-  #         key: ${{ runner.os }}-turbo-${{ github.sha }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-turbo-
+      - name: Install dependencies
+        # change to pnpm ci once it is implemented
+        run: |
+          pnpm i --frozen-lockfile --loglevel warn
+          pnpm exec playwright install --with-deps ${{ matrix.browser }}
 
-  #     - name: Use pnpm
-  #       uses: pnpm/action-setup@v2
+      - name: Build
+        run: pnpm run build --cache-dir=${{ env.TURBO_CACHE_DIR }}
+        env:
+          VITE_E2E: true
 
-  #     - name: Use Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version-file: 'package.json'
-  #         cache: 'pnpm'
+      - name: Run tests
+        run: pnpm run e2e --force --no-cache -- --project="${{ matrix.browser }}"
 
-  #     - name: Install dependencies
-  #       # change to pnpm ci once it is implemented
-  #       run: |
-  #         pnpm i --frozen-lockfile --loglevel warn
-  #         pnpm exec playwright install --with-deps ${{ matrix.browser }}
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: e2e-report-${{ matrix.browser }}
+          path: apps/*/e2e/results
+          retention-days: 1
 
-  #     - name: Build
-  #       run: pnpm run build --cache-dir=${{ env.TURBO_CACHE_DIR }}
-  #       env:
-  #         VITE_E2E: true
-
-  #     - name: Run tests
-  #       run: pnpm run e2e --force --no-cache -- --project="${{ matrix.browser }}"
-
-  #     - uses: actions/upload-artifact@v4
-  #       if: failure()
-  #       with:
-  #         name: e2e-report-${{ matrix.browser }}
-  #         path: apps/*/e2e/results
-  #         retention-days: 1
-
-  #     - name: Save turbo cache
-  #       uses: actions/cache/save@v3
-  #       if: success() || failure()
-  #       with:
-  #         path: ${{ env.TURBO_CACHE_DIR }}
-  #         key: ${{ runner.os }}-turbo-${{ github.sha }}
+      - name: Save turbo cache
+        uses: actions/cache/save@v3
+        if: success() || failure()
+        with:
+          path: ${{ env.TURBO_CACHE_DIR }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}

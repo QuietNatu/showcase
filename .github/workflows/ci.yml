@@ -22,7 +22,7 @@ jobs:
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.3
         with:
-          runCmd: pnpm run test
+          runCmd: pnpm run vrt
 
   # test:
   #   runs-on: ubuntu-latest

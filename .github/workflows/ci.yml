@@ -55,16 +55,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Restore turbo cache
-        uses: actions/cache/restore@v3
+      - name: Cache Turbo
+        uses: actions/cache@v4
         with:
+          save-always: true
           path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}-${{ github.job }}
           restore-keys: |
             ${{ runner.os }}-turbo-
 
       - name: Use pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -87,13 +88,6 @@ jobs:
       - name: Build
         run: pnpm run build --cache-dir=${{ env.TURBO_CACHE_DIR }}
 
-      - name: Save turbo cache
-        uses: actions/cache/save@v3
-        if: success() || failure()
-        with:
-          path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-
   vrt:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -107,16 +101,17 @@ jobs:
       - name: Pull LFS files
         run: git lfs pull
 
-      - name: Restore turbo cache
-        uses: actions/cache/restore@v3
+      - name: Cache Turbo
+        uses: actions/cache@v4
         with:
+          save-always: true
           path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}-${{ github.job }}
           restore-keys: |
             ${{ runner.os }}-turbo-
 
       - name: Use pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -143,13 +138,6 @@ jobs:
             packages/*/vrt/report
           retention-days: 1
 
-      - name: Save turbo cache
-        uses: actions/cache/save@v3
-        if: success() || failure()
-        with:
-          path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-
   e2e:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -163,15 +151,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Restore turbo cache
-        uses: actions/cache/restore@v3
+        uses: actions/cache@v4
         with:
+          save-always: true
           path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}-${{ github.job }}
           restore-keys: |
             ${{ runner.os }}-turbo-
 
       - name: Use pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v3
 
       - name: Use Node.js
         uses: actions/setup-node@v4
@@ -199,10 +188,3 @@ jobs:
           name: e2e-report-${{ matrix.browser }}
           path: apps/*/e2e/results
           retention-days: 1
-
-      - name: Save turbo cache
-        uses: actions/cache/save@v3
-        if: success() || failure()
-        with:
-          path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}

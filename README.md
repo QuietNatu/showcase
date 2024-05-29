@@ -1,11 +1,10 @@
 # Showcase
 
-<!-- TODO: vrts -->
-<!-- TODO: dockerfile -->
-<!-- TODO: headed browser (vrt for example) -->
+<!-- TODO: document never open dev container in a windows file system always clone repository to a volume in docker -->
+<!-- TODO: document that dev containers in CI are not stable yet but should be used in the future -->
+<!-- TODO: document desktop lite access via browser on a 5900 localhost and the password -->
 <!-- TODO: prebuild image (check devcontainer ci) -->
-<!-- TODO: never open dev container in a windows file system always clone repository to a volume in docker -->
-<!-- TODO: mention that dev containers in CI are not stable yet but should be used in the future -->
+<!-- TODO: check run args, or try to forward ports to remove vite host -->
 
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/QuietNatu/showcase/ci.yml?style=for-the-badge)](https://github.com/QuietNatu/showcase/actions/workflows/ci.yml) [![GitHub last commit](https://img.shields.io/github/last-commit/QuietNatu/showcase?style=for-the-badge)](https://github.com/QuietNatu/showcase/branches/all)
 

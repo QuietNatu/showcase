@@ -50,7 +50,6 @@
   },
   "msw": {
     "workerDirectory": [
-      "apps/ninjask/public",
       "apps/rotom/src",
       "apps/smeargle/public"
     ]

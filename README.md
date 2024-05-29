@@ -71,7 +71,6 @@ Inside this monorepo there are 3 different types of packages and apps:
 
 - **React** packages along with an app named **Smeargle**.
 - **Angular** packages along with an app named **Rotom**.
-- **SolidJS** packages along with an app named **Ninjask**.
 
 The main objective of this is to try to solve the same issues using different libraries/frameworks and find out what kind of problems they have and the different solutions they provide.
 

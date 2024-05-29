@@ -12,7 +12,7 @@ export default {
   forbidOnly: !!isCi,
   retries: isCi ? 2 : 0,
   maxFailures: 0,
-  reporter: [['list'], ['html', { outputFolder: 'report', host: '0.0.0.0', port: '6214' }]],
+  reporter: [['list'], ['html', { outputFolder: 'report', port: '6214' }]],
   use: {
     baseURL: `http://localhost:${port}/`,
     headless: true,

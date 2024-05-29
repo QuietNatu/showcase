@@ -5,10 +5,6 @@
       "path": "..",
     },
     {
-      "name": "🚀 ninjask",
-      "path": "../apps/ninjask",
-    },
-    {
       "name": "🚀 rotom",
       "path": "../apps/rotom",
     },
@@ -29,10 +25,6 @@
       "path": "../packages/eslint-config-react",
     },
     {
-      "name": "📦 eslint-config-solid",
-      "path": "../packages/eslint-config-solid",
-    },
-    {
       "name": "📦 styles",
       "path": "../packages/styles",
     },
@@ -47,10 +39,6 @@
     {
       "name": "📦 ui-react",
       "path": "../packages/ui-react",
-    },
-    {
-      "name": "📦 ui-solid",
-      "path": "../packages/ui-solid",
     },
     {
       "name": "📦 utils",
@@ -78,6 +66,7 @@
       "**/dist": true,
       "**/storybook-static": true,
       "**/vrt/report": true,
+      "**/.turbo": true,
     },
   },
 }

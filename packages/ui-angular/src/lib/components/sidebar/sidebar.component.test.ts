@@ -79,10 +79,9 @@ describe(NatuSidebarComponent.name, () => {
 
     await userEvent.click(await screen.findByRole('button', { name: 'Patients' }));
 
-    const popover = await screen.findByRole('dialog');
+    const popover = await screen.findByRole('dialog', { name: 'Patients' });
 
     expect(popover).toBeInTheDocument();
-    expect(await within(popover).findByText('Patients')).toBeInTheDocument();
     expect(await within(popover).findByRole('link', { name: 'General Info' })).toBeInTheDocument();
   });
 
@@ -121,11 +120,11 @@ async function setup(args: TestComponentArgs<NatuSidebarComponent> = {}) {
             <span *natuSidebarIcon>🧪</span>
             <ng-template natuSidebarLabel>Patients</ng-template>
 
-            <a natu-sidebar-item *natuSidebarItem href="">
+            <a natu-sidebar-item *natuSidebarItem href="/general-info">
               <ng-template natuSidebarLabel>General Info</ng-template>
             </a>
 
-            <a natu-sidebar-item *natuSidebarItem href="">
+            <a natu-sidebar-item *natuSidebarItem href="/records">
               <ng-template natuSidebarLabel>Records</ng-template>
             </a>
           </natu-sidebar-group>

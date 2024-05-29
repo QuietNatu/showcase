@@ -1,6 +1,9 @@
 # Showcase
 
-<!-- TODO: angular tests ports, port is already in use -->
+<!-- TODO: vrts -->
+<!-- TODO: dockerfile -->
+<!-- TODO: headed browser (vrt for example) -->
+<!-- TODO: prebuild image (check devcontainer ci) -->
 <!-- TODO: never open dev container in a windows file system always clone repository to a volume in docker -->
 <!-- TODO: mention that dev containers in CI are not stable yet but should be used in the future -->
 

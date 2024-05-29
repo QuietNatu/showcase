@@ -1,28 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
   "name": "Ubuntu",
-  "image": "mcr.microsoft.com/devcontainers/base:jammy",
-
-  "features": {
-    "ghcr.io/devcontainers/features/git:1": {
-      "ppa": true,
-      "version": "os-provided"
-    },
-    "ghcr.io/devcontainers/features/git-lfs:1": {
-      "autoPull": true,
-      "version": "latest"
-    },
-    "ghcr.io/devcontainers/features/node:1": {
-      "nodeGypDependencies": true,
-      "version": "20",
-      "nvmVersion": "latest"
-    },
-    "ghcr.io/devcontainers/features/desktop-lite:1": {
-      "password": "vscode",
-      "webPort": "5900",
-      "vncPort": "5901"
-    }
-  },
+  "image": "ghcr.io/quietnatu/showcase/devcontainer:latest",
 
   "customizations": {
     "vscode": {

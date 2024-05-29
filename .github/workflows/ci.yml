@@ -40,6 +40,7 @@ jobs:
       - name: Build dev container image
         uses: devcontainers/ci@v0.3
         with:
+          configFile: ./.devcontainer/devcontainer-base.json
           imageName: ghcr.io/${{ steps.lowercase-repository.outputs.repository }}/devcontainer
           cacheFrom: ghcr.io/${{ steps.lowercase-repository.outputs.repository }}/devcontainer
           push: always

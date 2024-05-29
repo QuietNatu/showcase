@@ -42,7 +42,8 @@
   "postCreateCommand": "corepack enable pnpm && corepack install && pnpm install && pnpm exec playwright install --with-deps && pnpm build",
 
   "portsAttributes": {
-    "6000-7000": { "onAutoForward": "silent" }
+    "5000-7000": { "onAutoForward": "silent" },
+    "9222": { "onAutoForward": "silent" }
   },
 
   "remoteUser": "vscode"

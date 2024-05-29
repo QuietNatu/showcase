@@ -14,6 +14,19 @@ env:
   VRT_BROWSER: chromium
 
 jobs:
+  prebuild-devcontainer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    # TODO: restrict to main
+    steps:
+      - name: Pre-build dev container image
+        uses: devcontainers/ci@v0.3
+        with:
+          imageName: ghcr.io/QuietNatu/showcase-devcontainer
+          cacheFrom: ghcr.io/QuietNatu/showcase-devcontainer
+          push: always
+
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 15

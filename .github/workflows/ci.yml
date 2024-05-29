@@ -17,6 +17,8 @@ jobs:
   build-devcontainer:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      packages: write
 
     # TODO: restrict to main
     steps:

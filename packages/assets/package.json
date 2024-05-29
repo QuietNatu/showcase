@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@ngneat/svg-generator": "7.0.3",
-    "react": "18.2.0",
+    "react": "18.3.1",
     "rimraf": "5.0.5"
   }
 }

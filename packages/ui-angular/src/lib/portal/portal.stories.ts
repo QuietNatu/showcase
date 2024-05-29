@@ -2,12 +2,11 @@ import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
-  Output,
   TemplateRef,
-  ViewChild,
   inject,
+  output,
   signal,
+  viewChild,
 } from '@angular/core';
 import { NatuPortalDirective } from './portal.directive';
 import { natuButtonImports } from '../directives/button/button.directive';
@@ -24,16 +23,16 @@ import { NatuPortalService } from './portal.service';
   imports: [natuButtonImports],
 })
 class ButtonsComponent {
-  @Output() attach = new EventEmitter<void>();
-  @Output() detach = new EventEmitter<void>();
+  readonly attach = output<void>();
+  readonly detach = output<void>();
 }
 
 @Component({
   selector: 'natu-default',
   template: `
-    <natu-buttons (attach)="isVisible$.set(true)" (detach)="isVisible$.set(false)" />
+    <natu-buttons (attach)="isVisible.set(true)" (detach)="isVisible.set(false)" />
 
-    @if (isVisible$()) {
+    @if (isVisible()) {
       <div *natuPortal>Example content</div>
     }
   `,
@@ -42,15 +41,15 @@ class ButtonsComponent {
   imports: [ButtonsComponent, NatuPortalDirective],
 })
 class DefaultComponent {
-  readonly isVisible$ = signal(false);
+  readonly isVisible = signal(false);
 }
 
 @Component({
   selector: 'natu-nested',
   template: `
-    <natu-buttons (attach)="isVisible$.set(true)" (detach)="isVisible$.set(false)" />
+    <natu-buttons (attach)="isVisible.set(true)" (detach)="isVisible.set(false)" />
 
-    @if (isVisible$()) {
+    @if (isVisible()) {
       <natu-nested *natuPortal />
     }
   `,
@@ -59,7 +58,7 @@ class DefaultComponent {
   imports: [ButtonsComponent, NatuPortalDirective],
 })
 class NestedComponent {
-  readonly isVisible$ = signal(false);
+  readonly isVisible = signal(false);
 }
 
 @Component({
@@ -75,12 +74,12 @@ class NestedComponent {
   providers: [NatuPortalService],
 })
 class ServiceTemplateComponent {
-  @ViewChild('portalTemplate', { static: true }) portalTemplateRef!: TemplateRef<unknown>;
+  readonly portalTemplateRef = viewChild.required<TemplateRef<unknown>>('portalTemplate');
 
   private readonly portaService = inject(NatuPortalService);
 
   attach() {
-    this.portaService.attachTemplate(this.portalTemplateRef);
+    this.portaService.attachTemplate(this.portalTemplateRef());
   }
 
   detach() {
@@ -119,7 +118,6 @@ class ServiceComponentComponent {
 const meta = {
   title: 'Utils/Portal',
   component: NatuPortalDirective,
-  tags: ['autodocs'],
   decorators: [
     moduleMetadata({
       imports: [

@@ -1,9 +1,10 @@
 import { ComponentPropsWithoutRef, FocusEvent, forwardRef } from 'react';
 import { Slot } from '@radix-ui/react-slot';
-import { PressEvent, useFocusRing, useFocusable, usePress } from 'react-aria';
+import { useFocusRing, useFocusable } from 'react-aria';
 import { mergeProps, useObjectRef } from '@react-aria/utils';
 import { VariantProps, cva } from 'class-variance-authority';
 import clsx from 'clsx';
+import type { Except } from 'type-fest';
 
 const buttonVariants = cva('natu-button', {
   variants: {
@@ -29,18 +30,17 @@ const buttonVariants = cva('natu-button', {
 
 export type NatuButtonVariants = VariantProps<typeof buttonVariants>;
 
-type ElementProps = Omit<
+type ElementProps = Except<
   ComponentPropsWithoutRef<'button'>,
   'disabled' | 'type' | 'onFocus' | 'onBlur'
 >;
 
 interface CommonProps extends ElementProps {
   isDisabled?: boolean;
+  isIconButton?: boolean;
   variant?: NatuButtonVariants['variant'];
   size?: NatuButtonVariants['size'];
 
-  /** Handler that is called when the element is pressed. */
-  onPress?: (e: PressEvent) => void;
   onFocus?: (e: FocusEvent<Element, Element>) => void;
   onBlur?: (e: FocusEvent<Element, Element>) => void;
 }
@@ -58,30 +58,33 @@ export type NatuButtonProps = NatuButtonUnslottedProps | NatuButtonSlottedProps;
 
 export const NatuButton = forwardRef<HTMLButtonElement, NatuButtonProps>(
   function NatuButton(props, forwardedRef) {
-    const { asChild, children, className, isDisabled, onPress, variant, size, ...buttonProps } =
-      props;
+    const {
+      asChild,
+      children,
+      className,
+      isDisabled,
+      isIconButton,
+      variant,
+      size,
+      ...buttonProps
+    } = props;
 
     const ref = useObjectRef(forwardedRef);
     const Component = asChild ? Slot : 'button';
 
     const { focusProps, isFocusVisible } = useFocusRing();
     const { focusableProps } = useFocusable(props, ref);
-    const { pressProps, isPressed } = usePress({
-      isDisabled,
-      onPress,
-      ref,
-    });
 
     return (
       <Component
-        {...mergeProps(focusProps, focusableProps, pressProps, buttonProps)}
+        {...mergeProps(focusProps, focusableProps, buttonProps)}
         ref={ref}
         className={clsx(
           buttonVariants({ variant, size }),
           {
             'natu-button--disabled': isDisabled,
-            'natu-button--focus-visible': isFocusVisible && !isDisabled,
-            'natu-button--active': asChild && isPressed,
+            'natu-button--focus': isFocusVisible && !isDisabled,
+            'natu-button--icon': isIconButton,
           },
           className,
         )}

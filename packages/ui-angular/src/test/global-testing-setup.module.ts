@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NATU_UI_CONFIG, NatuUiConfig } from '../lib/core';
+import { NatuUiConfig, provideUiConfig } from '../lib/core';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 const config: NatuUiConfig = {
@@ -7,6 +7,6 @@ const config: NatuUiConfig = {
 };
 
 @NgModule({
-  providers: [provideNoopAnimations(), { provide: NATU_UI_CONFIG, useValue: config }],
+  providers: [provideNoopAnimations(), provideUiConfig(config)],
 })
 export class GlobaltTestingSetupModule {}

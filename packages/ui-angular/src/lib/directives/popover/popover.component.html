@@ -1,0 +1,14 @@
+@if (isOpen() && context()) {
+  <div
+    class="natu-popover"
+    [class.natu-popover--has-embedded]="hasEmbeddedContent()"
+    [@openClose]="{ value: true, params: { transformation: transformation() } }"
+    (@openClose.done)="$event.toState === 'void' && handleFinishClose()"
+  >
+    <div cdkTrapFocus [cdkTrapFocusAutoCapture]="true">
+      <ng-template [ngTemplateOutlet]="content()" [ngTemplateOutletInjector]="injector" />
+    </div>
+
+    <natu-overlay-arrow class="natu-popover__arrow" />
+  </div>
+}

@@ -1,0 +1,17 @@
+<ng-content select="natu-sidebar-header" />
+
+<ng-content />
+
+<div class="natu-sidebar__footer">
+  <ng-content select="natu-sidebar-secondary-actions" />
+
+  <button
+    type="button"
+    class="natu-sidebar__toggle-button"
+    (click)="sidebarService.toggleExpansion()"
+  >
+    <!-- TODO: add i18n once implemented -->
+    <span class="natu-visually-hidden">{{ isSidebarExpanded() ? 'Collapse' : 'Expand' }}</span>
+    <svg-icon class="natu-sidebar__toggle-button-icon" key="caret-right" />
+  </button>
+</div>

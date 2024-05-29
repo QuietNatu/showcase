@@ -28,10 +28,10 @@
   },
   "devDependencies": {
     "@natu/tsconfig": "workspace:*",
-    "@types/node": "20.11.16",
+    "@types/node": "20.12.11",
     "rimraf": "5.0.5",
-    "style-dictionary": "4.0.0-prerelease.7",
-    "typescript": "5.3.3",
-    "vite": "5.0.11"
+    "style-dictionary": "4.0.0-prerelease.15",
+    "typescript": "5.4.5",
+    "vite": "5.2.10"
   }
 }

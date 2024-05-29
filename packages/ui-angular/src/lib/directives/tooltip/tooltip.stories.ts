@@ -4,7 +4,7 @@ import {
   moduleMetadata,
   componentWrapperDecorator,
 } from '@storybook/angular';
-import { NatuTooltipDirective } from './tooltip.directive';
+import { NatuTooltipDirective, natuTooltipImports } from './tooltip.directive';
 import { natuButtonImports } from '../button/button.directive';
 import { NgTemplateOutlet } from '@angular/common';
 import { aliasedArgsToTemplate } from '../../test';
@@ -12,11 +12,12 @@ import { aliasedArgsToTemplate } from '../../test';
 const meta = {
   title: 'Components/Tooltip',
   component: NatuTooltipDirective,
-  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },
-  decorators: [moduleMetadata({ imports: [natuButtonImports, NgTemplateOutlet] })],
+  decorators: [
+    moduleMetadata({ imports: [natuTooltipImports, natuButtonImports, NgTemplateOutlet] }),
+  ],
   argTypes: {
     isOpen: { control: 'boolean' },
   },
@@ -26,8 +27,10 @@ const meta = {
     return {
       props: args,
       template: `
-        <button type="button" [natuButton] [natuTooltip]="tooltip" ${templateArgs}>Show tooltip</button>
-        <ng-template #tooltip>Tooltip text</ng-template>
+        <ng-container natuTooltip ${templateArgs}>
+          <button type="button" natuButton natuTooltipTrigger>Show tooltip</button>
+          <ng-template natuTooltipContent>Tooltip text</ng-template>
+        </ng-container>
       `,
     };
   },
@@ -45,13 +48,17 @@ export const Nested: Story = {
     return {
       props: args,
       template: `
-        <button type="button" [natuButton] [natuTooltip]="tooltip" ${templateArgs}>Show tooltip</button>
+        <ng-container natuTooltip ${templateArgs}>
+          <button type="button" natuButton natuTooltipTrigger>Show tooltip</button>
 
-        <ng-template #tooltip>
-          <button type="button" [natuButton] [natuTooltip]="nestedTooltip" ${templateArgs}>Show nested tooltip</button>
-        </ng-template>
+          <ng-template natuTooltipContent>
+            <ng-container natuTooltip ${templateArgs}>
+              <button type="button" natuButton natuTooltipTrigger ${templateArgs}>Show nested tooltip</button>
 
-        <ng-template #nestedTooltip>Nested tooltip Text</ng-template>
+              <ng-template natuTooltipContent>Nested tooltip text</ng-template>
+            </ng-container>
+          </ng-template>
+        </ng-container>
       `,
     };
   },
@@ -84,27 +91,25 @@ export const Playground: Story = {
         <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 5, column: 4, placement: 'bottom-end' }" />
 
         <ng-template #button let-row="row" let-column="column" let-placement="placement">
-          <button type="button"
-            [natuButton]
-            [natuTooltip]="tooltip"
-            [natuTooltipPlacement]="placement"
-            ${templateArgs}
-            [style.width.px]="100"
-            [style.grid-row]="row"
-            [style.grid-column]="column"
-          >
-            {{ placement }}
-          </button>
-        </ng-template>
+          <ng-container natuTooltip [natuTooltipPlacement]="placement" ${templateArgs}>
+            <button type="button"
+              natuButton
+              natuTooltipTrigger
+              [style.width.px]="100"
+              [style.grid-row]="row"
+              [style.grid-column]="column"
+            >
+              {{ placement }}
+            </button>
 
-        <ng-template #tooltip let-placement="placement">
-          <div>
-            <div>{{placement}} tooltip example</div>
-            <div>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id iaculis.
-              In hac habitasse platea dictumst.
-            </div>
-          </div>
+            <ng-template natuTooltipContent>
+              <div>{{placement}}</div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id iaculis.
+                In hac habitasse platea dictumst.
+              </div>
+            </ng-template>
+          </ng-container>
         </ng-template>
       `,
     };

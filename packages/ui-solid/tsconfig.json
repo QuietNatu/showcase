@@ -1,8 +1,0 @@
-{
-  "extends": "@natu/tsconfig/tsconfig.vite-solid.json",
-  "compilerOptions": {
-    "types": ["vitest/globals"]
-  },
-  "include": ["src", ".storybook/*"],
-  "references": [{ "path": "./tsconfig.node.json" }]
-}

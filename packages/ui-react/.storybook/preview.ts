@@ -4,8 +4,8 @@ import { storyThemeDecorator } from '../src/lib/stories/decorators';
 import { storyA11yConfig } from '../src/lib/stories';
 
 const preview: Preview = {
+  tags: ['autodocs'],
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,

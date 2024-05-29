@@ -1,33 +1,29 @@
-import { Injectable, TemplateRef, computed, signal } from '@angular/core';
+import { ElementRef, Injectable, TemplateRef, inject, signal } from '@angular/core';
+import { NatuOverlayService } from '../../overlay';
 
 @Injectable()
 export class NatuTooltipService {
-  readonly textContent$;
-  readonly templateContent$;
-  readonly templateContext$;
+  readonly content;
 
-  private readonly contentSignal$ = signal<string | TemplateRef<unknown> | null>(null);
-  private readonly templateContextSignal$ = signal<object | null>(null);
+  readonly floatingId;
+  readonly isMounted;
+
+  private readonly contentSignal = signal<TemplateRef<unknown> | null>(null);
+
+  private readonly overlayService = inject(NatuOverlayService);
 
   constructor() {
-    this.textContent$ = computed(() => {
-      const content = this.contentSignal$();
-      return typeof content === 'string' ? content : null;
-    });
+    this.content = this.contentSignal.asReadonly();
 
-    this.templateContent$ = computed(() => {
-      const content = this.contentSignal$();
-      return content instanceof TemplateRef ? content : null;
-    });
-
-    this.templateContext$ = this.templateContextSignal$.asReadonly();
+    this.floatingId = this.overlayService.floatingId;
+    this.isMounted = this.overlayService.isMounted;
   }
 
-  setContent(content: string | TemplateRef<unknown>) {
-    this.contentSignal$.set(content);
+  setContent(content: TemplateRef<unknown>) {
+    this.contentSignal.set(content);
   }
 
-  setTemplateContext(context: object | null) {
-    this.templateContextSignal$.set(context);
+  setReferenceElement(element: Element | ElementRef<Element> | null) {
+    this.overlayService.setReferenceElement(element);
   }
 }

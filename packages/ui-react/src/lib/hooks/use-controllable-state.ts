@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 
 interface UseControllableStateOptions<T> {
   /** Value for controlled state */
@@ -21,19 +21,29 @@ interface UseControllableStateOptions<T> {
  */
 export function useControllableState<T>(
   options: UseControllableStateOptions<T>,
-): [value: T, onChange: (value: T) => void, isControlled: boolean] {
+): [value: T, onChange: (value: SetStateAction<T>) => void, isControlled: boolean] {
   const { value, defaultValue, finalValue, onChange = () => {} } = options;
 
   const [uncontrolledValue, setUncontrolledValue] = useState(
     defaultValue === undefined ? finalValue : defaultValue,
   );
 
-  const handleUncontrolledChange = (val: T) => {
-    setUncontrolledValue(val);
-    onChange(val);
+  const isUncontrolled = value === undefined;
+  const currentValue = isUncontrolled ? (uncontrolledValue as T) : (value as T);
+
+  const handleChange = (action: SetStateAction<T>) => {
+    const nextValue = getStateActionValue(currentValue, action);
+
+    if (isUncontrolled) {
+      setUncontrolledValue(nextValue);
+    }
+
+    onChange(nextValue);
   };
 
-  return value === undefined
-    ? [uncontrolledValue as T, handleUncontrolledChange, false]
-    : [value as T, onChange, true];
+  return [currentValue, handleChange, !isUncontrolled];
+}
+
+function getStateActionValue<T>(previousValue: T, action: SetStateAction<T>) {
+  return typeof action === 'function' ? (action as (prevValue: T) => T)(previousValue) : action;
 }

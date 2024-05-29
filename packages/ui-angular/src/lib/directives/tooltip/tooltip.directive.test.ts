@@ -1,22 +1,28 @@
 import { screen, waitForElementToBeRemoved } from '@testing-library/angular';
-import { NatuTooltipDirective } from './tooltip.directive';
+import { NatuTooltipDirective, natuTooltipImports } from './tooltip.directive';
 import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
+import { TestComponentArgs } from '../../test/types';
 
 describe(`${NatuTooltipDirective.name} accessibility`, () => {
   const scenarios = [
     {
-      name: 'Tooltip',
-      template: `<button type="button" natuTooltip="Example tooltip" [natuTooltipIsOpen]="true">Trigger</button>`,
+      name: 'Closed',
+      props: { isOpen: false },
+    },
+    {
+      name: 'Open',
+      props: { isOpen: true },
+      waitForTestToBeReady: () => screen.findByRole('tooltip', { name: 'Example tooltip' }),
     },
   ];
 
-  scenarios.forEach(({ name, template }) => {
+  scenarios.forEach(({ name, props, waitForTestToBeReady = () => Promise.resolve() }) => {
     it(`${name} has no accessibility violations`, async () => {
-      const view = await render(template, {
-        renderOptions: { imports: [NatuTooltipDirective] },
-      });
+      await setup(props);
 
-      expect(await axe(view.container)).toHaveNoViolations();
+      await waitForTestToBeReady();
+
+      expect(await axe(document.body)).toHaveNoViolations();
     });
   });
 });
@@ -165,50 +171,34 @@ describe(NatuTooltipDirective.name, () => {
 
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
   });
-
-  it('supports templates with context', async () => {
-    const props: Partial<NatuTooltipDirective> = { context: { count: 10 }, isOpen: true };
-    const componentProperties = aliasArgs(props, 'natuTooltip');
-    const templateArgs = aliasedArgsToTemplate(props, 'natuTooltip');
-
-    await render(
-      `
-        <button type="button" [natuTooltip]="tooltipTemplate" ${templateArgs}>Trigger</button>
-        <ng-template #tooltipTemplate let-count="count">Current value: {{count}}</ng-template>
-      `,
-      {
-        renderOptions: {
-          imports: [NatuTooltipDirective],
-          componentProperties: componentProperties,
-        },
-      },
-    );
-
-    expect(await screen.findByRole('tooltip', { name: 'Current value: 10' })).toBeInTheDocument();
-  });
-
-  async function setup(props: Partial<NatuTooltipDirective> = {}) {
-    // eslint-disable-next-line jasmine/no-unsafe-spy
-    const isOpenChangeSpy = jasmine.createSpy();
-
-    const allProps = {
-      ...props,
-      isOpenChange: isOpenChangeSpy,
-    };
-
-    const componentProperties = aliasArgs(allProps, 'natuTooltip');
-    const templateArgs = aliasedArgsToTemplate(allProps, 'natuTooltip');
-
-    const view = await render(
-      `<button type="button" natuTooltip="Example tooltip" ${templateArgs}>Trigger</button>`,
-      {
-        renderOptions: {
-          imports: [NatuTooltipDirective],
-          componentProperties: componentProperties,
-        },
-      },
-    );
-
-    return { ...view, isOpenChangeSpy };
-  }
 });
+
+async function setup(props: TestComponentArgs<NatuTooltipDirective> = {}) {
+  // eslint-disable-next-line jasmine/no-unsafe-spy
+  const isOpenChangeSpy = jasmine.createSpy();
+
+  const allProps = {
+    ...props,
+    isOpenChange: isOpenChangeSpy,
+  };
+
+  const componentProperties = aliasArgs(allProps, 'natuTooltip');
+  const templateArgs = aliasedArgsToTemplate(allProps, 'natuTooltip');
+
+  const view = await render(
+    `
+      <ng-container natuTooltip ${templateArgs}>
+        <button type="button" natuTooltipTrigger>Trigger</button>
+        <ng-template natuTooltipContent>Example tooltip</ng-template>
+      </ng-container>
+    `,
+    {
+      renderOptions: {
+        imports: [natuTooltipImports],
+        componentProperties: componentProperties,
+      },
+    },
+  );
+
+  return { ...view, isOpenChangeSpy };
+}

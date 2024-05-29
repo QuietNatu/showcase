@@ -1,6 +1,6 @@
 # Rotom (Angular)
 
-> Rotom, the Plasma Pokémon. With a body made of plasma, Rotom is able to permeate various kinds of electrics devices, causing all sorts of problems.
+> Rotom, the Plasma Pokémon. With a body made of plasma, Rotom is able to permeate various kinds of electric devices, causing all sorts of problems.
 
 ## 🤡 Gotchas
 
@@ -11,6 +11,9 @@
 - https://github.com/angular/angular/issues/10887
 - https://github.com/angular/angular/issues/14842
 - https://github.com/angular/components/issues/1432
+- https://github.com/angular/angular/issues/14659
+- https://github.com/angular/angular/issues/14545
+- https://github.com/angular/angular/issues/13776
 
 ### Karma Jasmine HTML Reporter interferes with tests
 
@@ -35,4 +38,8 @@ This makes it so that the apps that use the library need to know the directory o
 
 ### Angular does not support moduleResolution: "bundler"
 
-Unline React and SolidJS, Angular only works if you use moduleResolution: "node". The downside of it is that you miss out on new features that are supported by typescript, namely using the "exports" field in package.json for a package to have sub exported folders (ex: "@natu/ui-angular" and "@natu/ui-angular/test")
+Unlike React and SolidJS, Angular only works if you use moduleResolution: "node". The downside of it is that you miss out on new features that are supported by typescript, namely using the "exports" field in package.json for a package to have sub exported folders (ex: "@natu/ui-angular" and "@natu/ui-angular/test")
+
+### Directives applied to the same element share service instances that are provided by both directives
+
+For example if a tooltip directive and a popover directive both provide an overlay service, and both of these directives are applied to the same element, the instance of the overlay service will be the same for both directives. Which means that when the tooltip directive triggers actions on the overlay service, the popover directive will also be affected. This is because injectors in Angular are done at the element level. This is not intuitive and produces unexpected results. To mitigate this, a token must be created for each directive that should have a different instance of a service, but this has drawbacks. Child injectors furthen down the hierarchy will not be able to pick up a parent instance of a service unless it also uses the same token.

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+  "name": "Ubuntu Desktop",
+  "image": "ghcr.io/quietnatu/showcase/devcontainer:latest",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "EditorConfig.EditorConfig",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "stylelint.vscode-stylelint",
+        "mrmlnc.vscode-scss",
+        "vitest.explorer",
+        "ms-playwright.playwright",
+        "Angular.ng-template",
+        "KnisterPeter.vscode-commitizen",
+        "christian-kohler.path-intellisense",
+        "mrmlnc.vscode-json5",
+        "github.vscode-github-actions",
+        "eamodio.gitlens"
+      ]
+    }
+  },
+
+  "postCreateCommand": "corepack enable pnpm && corepack install && pnpm install && pnpm exec playwright install --with-deps && pnpm build",
+
+  "runArgs": ["--network", "host"],
+
+  "forwardPorts": [5900],
+  "portsAttributes": {
+    "5900": {
+      "label": "desktop"
+    },
+    "5000-7000": { "onAutoForward": "silent" },
+    "9222": { "onAutoForward": "silent" }
+  },
+
+  "remoteUser": "vscode"
+}

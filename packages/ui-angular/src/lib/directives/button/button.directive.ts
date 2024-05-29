@@ -1,20 +1,22 @@
 import {
   Directive,
   ElementRef,
-  EventEmitter,
-  Input,
   NgZone,
-  Output,
   Signal,
   booleanAttribute,
   computed,
   inject,
+  input,
+  output,
   signal,
 } from '@angular/core';
 import { VariantProps, cva } from 'class-variance-authority';
 import { fromEvent } from 'rxjs';
-import { rxEffects } from '@rx-angular/state/effects';
-import { FocusMonitor } from '@angular/cdk/a11y';
+import { registerEffect } from '../../utils/rxjs';
+import {
+  NatuFocusRingDirective,
+  NatuFocusRingDirectiveConfigService,
+} from '../focus-ring/focus-ring.directive';
 
 const buttonVariants = cva('natu-button', {
   variants: {
@@ -44,40 +46,31 @@ export type NatuButtonVariants = VariantProps<typeof buttonVariants>;
   selector: '[natuButton]',
   standalone: true,
   host: {
-    '[class]': 'class$()',
-    '[class.natu-button--focus-visible]': 'isFocusVisible$()',
-    '[class.natu-button--disabled]': 'isDisabled',
-    '[attr.aria-disabled]': 'isDisabled',
+    '[class]': 'class()',
+    '[class.natu-button--disabled]': 'isDisabled()',
+    '[class.natu-button--icon]': 'isIconButton()',
+    '[attr.aria-disabled]': 'isDisabled()',
   },
+  hostDirectives: [NatuFocusRingDirective],
+  providers: [NatuFocusRingDirectiveConfigService],
 })
 export class NatuButtonDirective {
-  @Input({ transform: booleanAttribute }) isDisabled = false;
+  readonly isDisabled = input(false, { transform: booleanAttribute });
+  readonly isIconButton = input(false, { transform: booleanAttribute });
+  readonly variant = input<NatuButtonVariants['variant']>('primary');
+  readonly size = input<NatuButtonVariants['size']>('medium');
 
-  @Input() set variant(variant: NatuButtonVariants['variant']) {
-    this.variant$.set(variant);
-  }
-
-  @Input() set size(size: NatuButtonVariants['size']) {
-    this.size$.set(size);
-  }
-
-  readonly class$: Signal<string>;
-  readonly isActive$ = signal(false);
-  readonly isFocusVisible$ = signal(false);
-
-  private readonly variant$ = signal<NatuButtonVariants['variant']>('primary');
-  private readonly size$ = signal<NatuButtonVariants['size']>('medium');
+  readonly class: Signal<string>;
 
   private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly ngZone = inject(NgZone);
-  private readonly effects = rxEffects();
-  private readonly focusMonitor = inject(FocusMonitor); // Change this once CDK directives are standalone...
+  private readonly focusRingDirectiveConfigService = inject(NatuFocusRingDirectiveConfigService);
 
   constructor() {
-    this.class$ = computed(() => buttonVariants({ variant: this.variant$(), size: this.size$() }));
+    this.focusRingDirectiveConfigService.focusVisibleClass.set('natu-button--focus');
+    this.class = computed(() => buttonVariants({ variant: this.variant(), size: this.size() }));
 
     this.registerStopDisabledClicks();
-    this.registerManageFocusVisible();
   }
 
   /**
@@ -88,18 +81,12 @@ export class NatuButtonDirective {
       // Cannot be done via host bind otherwise this handler will not be the first one to be ran.
       const click$ = fromEvent(this.elementRef.nativeElement, 'click', { capture: true });
 
-      this.effects.register(click$, (event) => {
-        if (this.isDisabled) {
+      registerEffect(click$, (event) => {
+        if (this.isDisabled()) {
           event.preventDefault();
           event.stopImmediatePropagation();
         }
       });
-    });
-  }
-
-  private registerManageFocusVisible() {
-    this.effects.register(this.focusMonitor.monitor(this.elementRef.nativeElement), (origin) => {
-      this.isFocusVisible$.set(origin === 'keyboard');
     });
   }
 }
@@ -109,23 +96,23 @@ export class NatuButtonDirective {
   standalone: true,
   host: {
     role: 'button',
-    '[class.natu-button--active]': 'isActive$()',
-    '[attr.tabindex]': '!disabled ? 0 : null',
+    '[class.natu-button--active]': 'isActive()',
+    '[attr.tabindex]': '0',
     // eslint-disable-next-line sonarjs/no-duplicate-string
-    '(click)': '!isDisabled && natuButtonClick.emit($event)',
-    '(keydown.enter)': '!isDisabled && natuButtonClick.emit($event)',
-    '(keydown.space)': '!isDisabled && natuButtonClick.emit($event)',
-    '(mousedown)': '!isDisabled && isActive$.set(true)',
-    '(mouseup)': '!isDisabled && isActive$.set(false)',
+    '(click)': '!isDisabled() && natuButtonClick.emit($event)',
+    '(keydown.enter)': '!isDisabled() && natuButtonClick.emit($event)',
+    '(keydown.space)': '!isDisabled() && natuButtonClick.emit($event)',
+    '(mousedown)': '!isDisabled() && isActive.set(true)',
+    '(mouseup)': '!isDisabled() && isActive.set(false)',
   },
 })
 export class NatuA11yButtonDirective {
-  @Input({ transform: booleanAttribute }) isDisabled = false;
+  readonly isDisabled = input(false, { transform: booleanAttribute });
 
   // Workaround because of this https://github.com/angular/angular/issues/4059
-  @Output() natuButtonClick = new EventEmitter<Event>();
+  readonly natuButtonClick = output<Event>();
 
-  readonly isActive$ = signal(false);
+  readonly isActive = signal(false);
 }
 
-export const natuButtonImports = [NatuButtonDirective, NatuA11yButtonDirective];
+export const natuButtonImports = [NatuButtonDirective, NatuA11yButtonDirective] as const;

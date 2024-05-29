@@ -1,21 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { NatuTooltip, NatuTooltipProps } from './tooltip';
+import { NatuTooltip, NatuTooltipContent, NatuTooltipProps, NatuTooltipTrigger } from './tooltip';
 import { NatuButton } from '../button/button';
 
 const meta = {
   title: 'Components/Tooltip',
   component: NatuTooltip,
-  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
   },
-  args: {
-    content: undefined,
-    children: undefined,
-  },
+  args: {},
   render: (args) => (
-    <NatuTooltip {...args} content="Tooltip Text">
-      <NatuButton type="button">Show tooltip</NatuButton>
+    <NatuTooltip {...args}>
+      <NatuTooltipTrigger>
+        <NatuButton type="button">Show tooltip</NatuButton>
+      </NatuTooltipTrigger>
+
+      <NatuTooltipContent>Tooltip text</NatuTooltipContent>
     </NatuTooltip>
   ),
 } satisfies Meta<typeof NatuTooltip>;
@@ -27,15 +27,21 @@ export const Default: Story = {};
 
 export const Nested: Story = {
   render: (args) => {
-    const content = (
-      <NatuTooltip {...args} content="Nested tooltip Text">
-        <NatuButton type="button">Show nested tooltip</NatuButton>
-      </NatuTooltip>
-    );
-
     return (
-      <NatuTooltip {...args} content={content}>
-        <NatuButton type="button">Show tooltip</NatuButton>
+      <NatuTooltip {...args}>
+        <NatuTooltipTrigger>
+          <NatuButton type="button">Show tooltip</NatuButton>
+        </NatuTooltipTrigger>
+
+        <NatuTooltipContent>
+          <NatuTooltip {...args}>
+            <NatuTooltipTrigger>
+              <NatuButton type="button">Show nested tooltip</NatuButton>
+            </NatuTooltipTrigger>
+
+            <NatuTooltipContent>Nested tooltip text</NatuTooltipContent>
+          </NatuTooltip>
+        </NatuTooltipContent>
       </NatuTooltip>
     );
   },
@@ -71,21 +77,21 @@ interface PlaygroundButtonProps extends NatuTooltipProps {
 function PlaygroundButton(props: PlaygroundButtonProps) {
   const { row, column, ...tooltipProps } = props;
 
-  const tooltipContent = (
-    <div>
-      <div>{props.placement} tooltip example</div>
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id iaculis.
-        In hac habitasse platea dictumst.
-      </div>
-    </div>
-  );
-
   return (
-    <NatuTooltip {...tooltipProps} content={tooltipContent}>
-      <NatuButton type="button" style={{ gridRow: row, gridColumn: column, width: '100px' }}>
-        {props.placement}
-      </NatuButton>
+    <NatuTooltip {...tooltipProps}>
+      <NatuTooltipTrigger>
+        <NatuButton type="button" style={{ gridRow: row, gridColumn: column, width: '100px' }}>
+          {props.placement}
+        </NatuButton>
+      </NatuTooltipTrigger>
+
+      <NatuTooltipContent>
+        <div>{props.placement}</div>
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis nec tellus id
+          iaculis. In hac habitasse platea dictumst.
+        </div>
+      </NatuTooltipContent>
     </NatuTooltip>
   );
 }

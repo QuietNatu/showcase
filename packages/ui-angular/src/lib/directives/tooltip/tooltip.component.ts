@@ -27,21 +27,15 @@ const sideTransforms: Record<Side, string> = {
 @Component({
   selector: 'natu-tooltip',
   template: `
-    @if (isOpen$() && context$()) {
+    @if (isOpen() && context()) {
       <div
         class="natu-tooltip"
-        [@openClose]="{ value: true, params: { transformation: transformation$() } }"
+        [@openClose]="{ value: true, params: { transformation: transformation() } }"
         (@openClose.done)="$event.toState === 'void' && handleFinishClose()"
       >
-        @if (textContent$()) {
-          {{ textContent$() }}
-        } @else {
-          <ng-template
-            [ngTemplateOutlet]="templateContent$()"
-            [ngTemplateOutletContext]="templateContext$()"
-            [ngTemplateOutletInjector]="injector"
-          />
-        }
+        <div>
+          <ng-template [ngTemplateOutlet]="content()" [ngTemplateOutletInjector]="injector" />
+        </div>
 
         <natu-overlay-arrow class="natu-tooltip__arrow" />
       </div>
@@ -54,7 +48,7 @@ const sideTransforms: Record<Side, string> = {
     role: 'tooltip',
     tabindex: '-1',
     '[id]': '"tooltip-" + floatingId',
-    '[style]': 'floatingStyle$()',
+    '[style]': 'floatingStyle()',
   },
   animations: [
     trigger('openClose', [
@@ -73,13 +67,11 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
   readonly arrowWidth;
   readonly arrowHeight;
 
-  readonly textContent$;
-  readonly templateContent$;
-  readonly templateContext$;
-  readonly isOpen$;
-  readonly context$;
-  readonly floatingStyle$;
-  readonly transformation$;
+  readonly content;
+  readonly isOpen;
+  readonly context;
+  readonly floatingStyle;
+  readonly transformation;
 
   readonly injector = inject(Injector);
 
@@ -92,16 +84,14 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
     this.arrowWidth = this.overlayService.arrowWidth;
     this.arrowHeight = this.overlayService.arrowHeight;
 
-    this.textContent$ = this.tooltipService.textContent$;
-    this.templateContent$ = this.tooltipService.templateContent$;
-    this.templateContext$ = this.tooltipService.templateContext$;
+    this.content = this.tooltipService.content;
 
-    this.isOpen$ = this.overlayService.isOpen$;
-    this.context$ = this.overlayService.context$;
-    this.floatingStyle$ = this.overlayService.floatingStyle$;
+    this.isOpen = this.overlayService.isOpen;
+    this.context = this.overlayService.context;
+    this.floatingStyle = this.overlayService.floatingStyle;
 
-    this.transformation$ = computed(() => {
-      const placement = this.overlayService.context$()?.placement;
+    this.transformation = computed(() => {
+      const placement = this.overlayService.context()?.placement;
 
       if (!placement) {
         return null;

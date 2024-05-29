@@ -1,45 +1,42 @@
-import { Signal, computed, effect, signal } from '@angular/core';
+import { Signal, computed, effect, signal, untracked } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 interface CreateControllableSignalOptions<T> {
   /** Value for controlled state */
-  value$: Signal<T | undefined>;
+  value: Signal<T | undefined>;
 
   /** Default value for uncontrolled state */
-  defaultValue$?: Signal<T | undefined>;
+  defaultValue?: Signal<T | undefined>;
 
   /** Final value for uncontrolled state when value and defaultValue are not provided */
   finalValue?: T;
-
-  /** Controlled state onChange handler */
-  onChange?: (value: T) => void;
 }
 
 /**
  * Manage state of both controlled and uncontrolled components.
  */
 export function controllableSignal<T>(options: CreateControllableSignalOptions<T>): {
-  value$: Signal<T>;
+  value: Signal<T>;
   change: (value: T) => void;
-  isControlled$: Signal<boolean>;
+  valueChange$: Observable<T>;
+  isControlled: Signal<boolean>;
 } {
-  const { value$: controlledValue$, defaultValue$, finalValue, onChange = () => {} } = options;
+  const { value: controlledValue$, defaultValue: defaultValue$, finalValue } = options;
 
   const uncontrolledValue$ = signal(finalValue);
+  const valueChange$ = new Subject<T>();
 
   // eslint-disable-next-line functional/no-let
   let hasDefaultValueBeenSet = false;
 
-  effect(
-    () => {
-      const defaultValue = defaultValue$?.();
+  effect(() => {
+    const defaultValue = defaultValue$?.();
 
-      if (!hasDefaultValueBeenSet && defaultValue !== undefined) {
-        hasDefaultValueBeenSet = true;
-        uncontrolledValue$.set(defaultValue);
-      }
-    },
-    { allowSignalWrites: true },
-  );
+    if (!hasDefaultValueBeenSet && defaultValue !== undefined) {
+      hasDefaultValueBeenSet = true;
+      untracked(() => uncontrolledValue$.set(defaultValue));
+    }
+  });
 
   const isControlled$ = computed(() => controlledValue$() !== undefined);
 
@@ -57,8 +54,8 @@ export function controllableSignal<T>(options: CreateControllableSignalOptions<T
       uncontrolledValue$.set(value);
     }
 
-    onChange(value);
+    valueChange$.next(value);
   };
 
-  return { value$, change, isControlled$ };
+  return { value: value$, change, valueChange$, isControlled: isControlled$ };
 }

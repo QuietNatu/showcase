@@ -1,4 +1,0 @@
-{
-  "extends": "@natu/tsconfig/tsconfig.vite-node.json",
-  "include": ["vite.config.ts", "vrt/playwright.config.ts"]
-}

@@ -7,6 +7,7 @@ import {
   useFocus,
   useHover,
   useInteractions,
+  useMergeRefs,
   useRole,
   useTransitionStyles,
 } from '@floating-ui/react';
@@ -15,15 +16,10 @@ import clsx from 'clsx';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuOverlayPlacement, NatuUseOverlayOptions, useOverlay } from '../../hooks/use-overlay';
 import { useNatuUiConfig } from '../../providers/ui-config';
+import { createContext } from '../../hooks';
 
-type TooltipOverlayElementProps = Omit<ComponentPropsWithoutRef<'div'>, 'content'>;
-
-export interface NatuTooltipProps extends TooltipOverlayElementProps {
-  /** Reference element that will trigger the tooltip. */
-  children: ReactNode;
-
-  /** Content that will be shown by the tooltip. */
-  content: ReactNode;
+export interface NatuTooltipProps {
+  children?: ReactNode;
 
   /** Controlled open state. */
   isOpen?: boolean;
@@ -41,65 +37,71 @@ export interface NatuTooltipProps extends TooltipOverlayElementProps {
   isDisabled?: boolean;
 }
 
+export type NatuTooltipTriggerProps = ComponentPropsWithoutRef<'div'>;
+export type NatuTooltipContentProps = ComponentPropsWithoutRef<'div'>;
 export type NatuTooltipPlacement = NatuOverlayPlacement;
 
-export const NatuTooltip = forwardRef<HTMLDivElement, NatuTooltipProps>(
-  function NatuTooltip(props, forwardedRef) {
-    const {
-      children,
-      content,
-      isOpen,
-      defaultIsOpen,
-      onOpenChange,
-      placement,
-      isDisabled,
-      style,
-      className,
-      ...tooltipProps
-    } = props;
+const [TooltipProvider, useTooltipContext] = createContext<ReturnType<typeof useTooltip>>({
+  name: 'TooltipContext',
+});
 
-    const tooltip = useTooltip({
-      isOpen: isOpen,
-      defaultIsOpen: defaultIsOpen,
-      onOpenChange: onOpenChange,
-      placement: placement,
-      isDisabled: isDisabled,
-      hasArrow: true,
-    });
+export function NatuTooltip(props: NatuTooltipProps) {
+  const tooltip = useTooltip({
+    isOpen: props.isOpen,
+    defaultIsOpen: props.defaultIsOpen,
+    onOpenChange: props.onOpenChange,
+    placement: props.placement,
+    isDisabled: props.isDisabled,
+    hasArrow: true,
+  });
+
+  return <TooltipProvider value={tooltip}>{props.children}</TooltipProvider>;
+}
+
+export const NatuTooltipTrigger = forwardRef<HTMLElement, NatuTooltipTriggerProps>(
+  function NatuTooltipTrigger(props, forwardedRef) {
+    const tooltip = useTooltipContext();
+    const ref = useMergeRefs([tooltip.referenceRef, forwardedRef]);
 
     return (
-      <>
-        <Slot ref={tooltip.referenceRef} {...tooltip.getReferenceProps()}>
-          {props.children}
-        </Slot>
+      <Slot ref={ref} {...tooltip.getReferenceProps(props)}>
+        {props.children}
+      </Slot>
+    );
+  },
+);
 
-        {tooltip.isMounted && (
-          <FloatingPortal>
-            <div
-              ref={tooltip.floatingRef}
-              style={tooltip.floatingStyles}
-              {...tooltip.getFloatingProps()}
-            >
-              <div
-                ref={forwardedRef}
-                className={clsx('natu-tooltip', className)}
-                style={{ ...tooltip.transitionStyles, ...style }}
-                {...tooltipProps}
-              >
-                {props.content}
+export const NatuTooltipContent = forwardRef<HTMLDivElement, NatuTooltipContentProps>(
+  function NatuPopoverContent(props: NatuTooltipContentProps, forwardedRef) {
+    const { className, style, ...tooltipProps } = props;
 
-                <FloatingArrow
-                  ref={tooltip.arrowRef}
-                  context={tooltip.floatingContext}
-                  width={tooltip.arrowWidth}
-                  height={tooltip.arrowHeight}
-                  className="natu-tooltip__arrow"
-                />
-              </div>
-            </div>
-          </FloatingPortal>
-        )}
-      </>
+    const tooltip = useTooltipContext();
+
+    if (!tooltip.isMounted) {
+      return null;
+    }
+
+    return (
+      <FloatingPortal>
+        <div ref={tooltip.floatingRef} style={tooltip.floatingStyles}>
+          <div
+            ref={forwardedRef}
+            className={clsx('natu-tooltip', className)}
+            style={{ ...tooltip.transitionStyles, ...style }}
+            {...tooltip.getFloatingProps(tooltipProps)}
+          >
+            <div>{props.children}</div>
+
+            <FloatingArrow
+              ref={tooltip.arrowRef}
+              context={tooltip.floatingContext}
+              width={tooltip.arrowWidth}
+              height={tooltip.arrowHeight}
+              className="natu-tooltip__arrow"
+            />
+          </div>
+        </div>
+      </FloatingPortal>
     );
   },
 );

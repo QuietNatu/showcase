@@ -1,6 +1,10 @@
 @use 'sass:map';
 @use '../utils';
 
+/* TODO: adjust color contrast */
+
+/* TODO: adjust dark theme disabled colors and hovers */
+
 $-variants: (
   'primary': (
     'default': (
@@ -17,7 +21,6 @@ $-variants: (
       'background-color': var(--natu-color-surface-accent-strong),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-invert),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-surface-accent-strong-active),
@@ -45,7 +48,6 @@ $-variants: (
       'background-color': var(--natu-color-surface-critical-strong),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-invert),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-surface-critical-strong-active),
@@ -73,7 +75,6 @@ $-variants: (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-accent),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-surface-accent-active),
@@ -101,7 +102,6 @@ $-variants: (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-critical),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-surface-critical-active),
@@ -129,7 +129,6 @@ $-variants: (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-accent),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-surface-accent-active),
@@ -157,7 +156,6 @@ $-variants: (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-critical),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-surface-critical-active),
@@ -185,7 +183,6 @@ $-variants: (
       'background-color': var(--natu-color-transparent),
       'border-color': var(--natu-color-transparent),
       'color': var(--natu-color-font-accent),
-      'box-shadow': 0 0 0 2px var(--natu-color-outline-accent),
     ),
     'active': (
       'background-color': var(--natu-color-transparent),
@@ -225,6 +222,17 @@ $-variants: (
       cursor: not-allowed;
     }
 
+    &--icon {
+      font-size: var(--natu-size-font-6);
+      padding: 0 calc(var(--natu-size-spacing-2) - var(--natu-control-border-width));
+      width: var(--natu-control-height);
+
+      &.natu-button--small {
+        font-size: var(--natu-size-font-5);
+        width: var(--natu-control-height-small);
+      }
+    }
+
     @each $variant, $states in $-variants {
       &--#{$variant} {
         @include set-state-props($states, 'default');
@@ -234,8 +242,9 @@ $-variants: (
         }
 
         &:target,
-        &.natu-button--focus-visible {
+        &.natu-button--focus {
           @include set-state-props($states, 'focus');
+          @include utils.outline(var(--natu-color-outline-accent));
         }
 
         &:active,

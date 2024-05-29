@@ -1,9 +1,10 @@
-import { ElementRef, Injectable, computed, signal } from '@angular/core';
-import { Subject, filter, map, merge, switchMap } from 'rxjs';
+import { ElementRef, Injectable, Signal, computed, signal } from '@angular/core';
+import { Observable, Subject, filter, map, merge, switchMap } from 'rxjs';
 import { Placement } from '@floating-ui/dom';
-import { manageFloating } from './floating-adapter';
+import { FloatingContext, manageFloating } from './floating-adapter';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { controllableSignal } from '../utils';
+import { createRandomUUID } from '@natu/utils';
 
 export type NatuOverlayPlacement = Placement;
 
@@ -24,37 +25,36 @@ export class NatuOverlayService {
   readonly arrowWidth = arrowWidth;
   readonly arrowHeight = arrowHeight;
   /** Id to use for the floating element */
-  readonly floatingId = crypto.randomUUID();
+  readonly floatingId = createRandomUUID();
 
   /** Element that serves as the anchor for the position of the overlay. */
-  readonly referenceElement$;
+  readonly referenceElement: Signal<Element | null>;
   /** Element that floats nexts to the reference element and remains anchored to. Represents the overlay itself. */
-  readonly floatingElement$;
+  readonly floatingElement: Signal<HTMLElement | null>;
   /** Result of the overlay calculations. */
-  readonly context$;
+  readonly context: Signal<FloatingContext | null>;
   /** Styles that should be applied to the floating element */
-  readonly floatingStyle$;
-  /** Controlled open state. */
-  readonly isOpen$;
-  /** Controlled open state notifier. */
-  readonly isOpenChange$ = new Subject<boolean>();
+  readonly floatingStyle: Signal<Partial<CSSStyleDeclaration> | null>;
+  /** Open state. */
+  readonly isOpen: Signal<boolean>;
+  /** Open state notifier. */
+  readonly isOpenChange$: Observable<boolean>;
   /** Whether the overlay should be rendered or not. */
-  readonly isMounted$;
+  readonly isMounted: Signal<boolean>;
   /** Whether the tooltip should be disabled. */
-  readonly isDisabled$;
+  readonly isDisabled: Signal<boolean>;
 
   private readonly unmount$ = new Subject<void>();
 
-  private readonly isDisabledSignal$ = signal(false);
-  private readonly hasTransitions$ = signal(false);
-  private readonly controlledIsOpen$ = signal<boolean | undefined>(undefined);
-  private readonly defaultIsOpen$ = signal<boolean | undefined>(undefined);
+  private readonly isDisabledSignal = signal(false);
+  private readonly hasTransitions = signal(false);
+  private readonly controlledIsOpen = signal<boolean | undefined>(undefined);
+  private readonly defaultIsOpen = signal<boolean | undefined>(undefined);
 
   private readonly isOpenManager = controllableSignal<boolean>({
-    value$: this.controlledIsOpen$,
-    defaultValue$: this.defaultIsOpen$,
+    value: this.controlledIsOpen,
+    defaultValue: this.defaultIsOpen,
     finalValue: false,
-    onChange: (isOpen) => this.isOpenChange$.next(isOpen),
   });
 
   private readonly floatingManager = manageFloating({
@@ -65,28 +65,29 @@ export class NatuOverlayService {
   });
 
   constructor() {
-    this.referenceElement$ = this.floatingManager.referenceElement$;
-    this.floatingElement$ = this.floatingManager.floatingElement$;
-    this.context$ = this.floatingManager.context$;
-    this.floatingStyle$ = this.floatingManager.floatingStyle$;
-    this.isDisabled$ = this.isDisabledSignal$.asReadonly();
-    this.isOpen$ = computed(() => (this.isDisabledSignal$() ? false : this.isOpenManager.value$()));
-    this.isMounted$ = this.getIsMounted();
+    this.referenceElement = this.floatingManager.referenceElement;
+    this.floatingElement = this.floatingManager.floatingElement;
+    this.context = this.floatingManager.context;
+    this.floatingStyle = this.floatingManager.floatingStyle;
+    this.isDisabled = this.isDisabledSignal.asReadonly();
+    this.isOpen = computed(() => (this.isDisabledSignal() ? false : this.isOpenManager.value()));
+    this.isOpenChange$ = this.isOpenManager.valueChange$;
+    this.isMounted = this.getIsMounted();
   }
 
   /** Controlled open state. */
   setIsOpen(isOpen: boolean | undefined) {
-    this.controlledIsOpen$.set(isOpen);
+    this.controlledIsOpen.set(isOpen);
   }
 
   /** Default value for uncontrolled open state. */
   setDefaultIsOpen(defaultIsOpen: boolean | undefined) {
-    this.defaultIsOpen$.set(defaultIsOpen);
+    this.defaultIsOpen.set(defaultIsOpen);
   }
 
   /** Whether the tooltip should be disabled. */
   setIsDisabled(isDisabled: boolean) {
-    this.isDisabledSignal$.set(isDisabled);
+    this.isDisabledSignal.set(isDisabled);
   }
 
   /** Where to place the tooltip relative to the reference element. */
@@ -95,7 +96,7 @@ export class NatuOverlayService {
   }
 
   /** Element that serves as the anchor for the position of the overlay. */
-  setReferenceElement(element: ElementRef<HTMLElement> | HTMLElement | null) {
+  setReferenceElement(element: ElementRef<Element> | Element | null) {
     this.floatingManager.setReferenceElement(element);
   }
 
@@ -111,7 +112,7 @@ export class NatuOverlayService {
 
   /** Uncontrolled open state. */
   changeOpen(isOpen: boolean) {
-    if (!this.isDisabledSignal$() && isOpen !== this.isOpenManager.value$()) {
+    if (!this.isDisabledSignal() && isOpen !== this.isOpenManager.value()) {
       this.isOpenManager.change(isOpen);
     }
   }
@@ -122,7 +123,7 @@ export class NatuOverlayService {
    * `unmount` event must be triggered for overlay to close.
    */
   setHasTransitions(hasTransitions: boolean) {
-    this.hasTransitions$.set(hasTransitions);
+    this.hasTransitions.set(hasTransitions);
   }
 
   /**
@@ -135,17 +136,17 @@ export class NatuOverlayService {
   }
 
   private getIsMounted() {
-    const isOpen$ = toObservable(this.isOpen$);
+    const isOpen$ = toObservable(this.isOpen);
     const mount$ = isOpen$.pipe(filter(Boolean));
     const unmount$ = this.unmount$.pipe(map(() => false));
     const isMounted$ = merge(mount$, unmount$);
 
-    const valueObservable$ = toObservable(this.hasTransitions$).pipe(
+    const valueObservable$ = toObservable(this.hasTransitions).pipe(
       switchMap((hasTransitions) => (hasTransitions ? isMounted$ : isOpen$)),
     );
 
-    const value$ = toSignal(valueObservable$, { initialValue: false });
+    const value = toSignal(valueObservable$, { initialValue: false });
 
-    return computed(() => (this.isDisabledSignal$() ? false : value$()));
+    return computed(() => (this.isDisabledSignal() ? false : value()));
   }
 }

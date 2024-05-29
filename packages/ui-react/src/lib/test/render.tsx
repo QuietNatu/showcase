@@ -1,4 +1,4 @@
-import { JSXElementConstructor, ReactElement } from 'react';
+import { JSXElementConstructor, ReactNode } from 'react';
 import {
   act,
   // eslint-disable-next-line @typescript-eslint/no-restricted-imports
@@ -35,7 +35,7 @@ interface ProviderOptions {
 /**
  * Renders elements and sets up userEvent.
  */
-export function render(ui: ReactElement, options: RenderOptions = {}) {
+export function render(ui: ReactNode, options: RenderOptions = {}) {
   const wrapper = wrapTestProviders(options.providerOptions, options.renderOptions?.wrapper);
   const renderOptions = { ...options.renderOptions, wrapper };
 
@@ -64,7 +64,7 @@ export function renderHook<Props, Result>(
 /**
  * Renders a story.
  */
-export function renderStory(ui: ReactElement, options: RenderStoryOptions = {}) {
+export function renderStory(ui: ReactNode, options: RenderStoryOptions = {}) {
   return render(ui, options);
 }
 
@@ -80,24 +80,24 @@ export function waitForAsyncActions() {
 
 function wrapTestProviders(
   props: ProviderOptions = {},
-  Wrapper?: JSXElementConstructor<{ children: React.ReactElement }>,
+  Wrapper?: JSXElementConstructor<{ children: ReactNode }>,
 ) {
-  const UiConfigWrapper = ({ children }: { children: ReactElement }) => (
+  const UiConfigWrapper = ({ children }: { children: ReactNode }) => (
     <NatuUiConfigProvider value={{ tooltip: { hoverDelay: 0 } }}>{children}</NatuUiConfigProvider>
   );
 
-  return ({ children }: { children: ReactElement }) =>
+  return ({ children }: { children: ReactNode }) =>
     applyWrappers(Wrapper ? <Wrapper>{children}</Wrapper> : children, [
       !props.excludeUiConfig && UiConfigWrapper,
     ]);
 }
 
 function applyWrappers(
-  children: ReactElement,
-  wrappers: Array<false | ((props: { children: ReactElement }) => JSX.Element)>,
+  children: ReactNode,
+  wrappers: Array<false | ((props: { children: ReactNode }) => JSX.Element)>,
 ) {
   return wrappers
-    .filter((wrapper): wrapper is (props: { children: ReactElement }) => JSX.Element =>
+    .filter((wrapper): wrapper is (props: { children: ReactNode }) => JSX.Element =>
       Boolean(wrapper),
     )
     .reduceRight((children, wrapper) => wrapper({ children }), children);

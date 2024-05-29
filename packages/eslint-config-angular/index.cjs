@@ -139,7 +139,10 @@ module.exports = {
     {
       files: ['*.stories.[jt]s?(x)'],
       extends: [],
-      rules: {},
+      plugins: ['@typescript-eslint'],
+      rules: {
+        '@typescript-eslint/restrict-template-expressions': 'off',
+      },
     },
     {
       files: ['{e2e,vrt}/**/*'],

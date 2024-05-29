@@ -24,7 +24,7 @@ export interface ManageFloatingOptions {
 export type FloatingContext = ComputePositionReturn;
 
 interface GetComputedPositionOptions {
-  referenceElement: HTMLElement;
+  referenceElement: Element;
   floatingElement: HTMLElement;
   arrowElement?: HTMLElement;
   placement?: Placement;
@@ -44,7 +44,7 @@ export function manageFloating(options: ManageFloatingOptions) {
   const ngZone = inject(NgZone);
 
   return ngZone.runOutsideAngular(() => {
-    const referenceElement = signal<HTMLElement | null>(null);
+    const referenceElement = signal<Element | null>(null);
     const floatingElement = signal<HTMLElement | null>(null);
     const arrowElement = signal<HTMLElement | null>(null);
     const placement = signal<Placement | null>(null);
@@ -87,16 +87,16 @@ export function manageFloating(options: ManageFloatingOptions) {
     );
 
     return {
-      referenceElement$: referenceElement,
-      floatingElement$: floatingElement,
-      context$: toSignal(context$, { initialValue: null }),
-      floatingStyle$: toSignal(floatingStyle$, { initialValue: null }),
+      referenceElement: referenceElement.asReadonly(),
+      floatingElement: floatingElement.asReadonly(),
+      context: toSignal(context$, { initialValue: null }),
+      floatingStyle: toSignal(floatingStyle$, { initialValue: null }),
 
       setPlacement: (newPlacement: Placement | null) => {
         placement.set(newPlacement);
       },
 
-      setReferenceElement: (element: ElementRef<HTMLElement> | HTMLElement | null) => {
+      setReferenceElement: (element: ElementRef<Element> | Element | null) => {
         referenceElement.set(coerceElement(element));
       },
 
@@ -111,7 +111,7 @@ export function manageFloating(options: ManageFloatingOptions) {
   });
 }
 
-function startAutoUpdate(referenceElement: HTMLElement, floatingElement: HTMLElement) {
+function startAutoUpdate(referenceElement: Element, floatingElement: HTMLElement) {
   return new Observable<void>((observer) => {
     const cleanup = autoUpdate(referenceElement, floatingElement, () => {
       observer.next();

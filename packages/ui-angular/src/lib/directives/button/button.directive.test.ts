@@ -6,16 +6,21 @@ import {
   natuButtonImports,
 } from './button.directive';
 import { argsToTemplate } from '@storybook/angular';
+import { TestComponentArgs } from '../../test/types';
 
 describe(`${NatuButtonDirective.name} accessibility`, () => {
   const scenarios = [
     {
       name: 'Button',
-      template: `<button [natuButton]>Button</button>`,
+      template: `<button type="button" [natuButton]>Button</button>`,
     },
     {
       name: 'A11y button',
       template: `<span [natuButton]>Button</span>`,
+    },
+    {
+      name: 'Icon button',
+      template: `<button type="button" [natuButton] [isIconButton]="true">🧪</button>`,
     },
   ];
 
@@ -75,7 +80,7 @@ describe(NatuA11yButtonDirective.name, () => {
     expect(clickSpy).not.toHaveBeenCalled();
   });
 
-  async function setup(props: Partial<NatuA11yButtonDirective> = {}) {
+  async function setup(props: TestComponentArgs<NatuA11yButtonDirective> = {}) {
     // eslint-disable-next-line jasmine/no-unsafe-spy
     const clickSpy = jasmine.createSpy();
 

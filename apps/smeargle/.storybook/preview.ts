@@ -3,8 +3,8 @@ import type { Preview } from '@storybook/react';
 import { storyA11yConfig, storyThemeDecorator } from '@natu/ui-react/stories';
 
 const preview: Preview = {
+  tags: ['autodocs'],
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,

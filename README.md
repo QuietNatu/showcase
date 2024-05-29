@@ -17,14 +17,27 @@ A project to practice and showcase what I have learned.
 
 ## ⚡️ Quick start
 
-To setup the project you have to...
+To setup the project you can either use the provided [Development Container](https://containers.dev/) _(recommended)_ or do a local setup.
+
+### Development Container
+
+Instead of locally cloning and setting up the project, it is recommended to clone a repository into a Devcontainer volume. This is preferred because it allows everyone to develop in a consistent environment, minimizing time wasted setting up the project and troubleshooting issues related to differences in the machine used. To set it up you have to:
+
+- [Download](https://www.docker.com/) and install **Docker**.
+- [Clone the repository in a Container volume](https://code.visualstudio.com/docs/devcontainers/containers#_quick-start-open-a-git-repository-or-github-pr-in-an-isolated-container-volume).
+- Once container finishes setting up, all the dependencies will already be installed and the project is ready to be used.
+
+### Local Setup
+
+If for some reason you cannot use Docker or prefer to locally set it up you have to:
 
 - [Download](https://nodejs.org/en/) and install the **Node** version specified on this project's **package.json**.
 - [Download](https://pnpm.io/) and install the **PNPM** version specified on this project's **package.json**.
 - [Download](https://git-lfs.com/) and install **Git LFS** _(Git for windows already includes Git LFS)_.
 - For **Angular** apps, create a local `environment-development.ts` file in the environments folder, similar to the other environment files.
+- Run `pnpm install` to install all dependencies.
 
-Run `pnpm install` to install all dependencies and then...
+### Commands
 
 - To start the app in development mode run `pnpm dev`.
 - To start the app in production mode build it with `pnpm build` and then serve it with `pnpm preview`.
@@ -34,6 +47,7 @@ Run `pnpm install` to install all dependencies and then...
 - To run unit tests use `pnpm test`.
 - To run visual regression tests use `pnpm vrt`.
 - To run end-to-end tests use `pnpm e2e`.
+- To interact with browsers opened inside a Devcontainer connect to the Container volume by opening a browser in http://localhost:5900/ and using the password "**vscode**"
 
 ## 💻 Supported browsers
 
@@ -57,7 +71,6 @@ Inside this monorepo there are 3 different types of packages and apps:
 
 - **React** packages along with an app named **Smeargle**.
 - **Angular** packages along with an app named **Rotom**.
-- **SolidJS** packages along with an app named **Ninjask**.
 
 The main objective of this is to try to solve the same issues using different libraries/frameworks and find out what kind of problems they have and the different solutions they provide.
 

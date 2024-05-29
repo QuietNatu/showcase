@@ -7,8 +7,8 @@ import { storyA11yConfig } from '@natu/ui-angular/stories';
 setCompodocJson(docJson);
 
 const preview: Preview = {
+  tags: ['autodocs'],
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,

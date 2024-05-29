@@ -1,6 +1,16 @@
 import { assertInInjectionContext, inject } from '@angular/core';
 import { NatuOverlayService } from './overlay.service';
-import { EMPTY, filter, fromEvent, map, merge, switchMap, timer } from 'rxjs';
+import {
+  EMPTY,
+  asyncScheduler,
+  filter,
+  fromEvent,
+  map,
+  merge,
+  observeOn,
+  switchMap,
+  timer,
+} from 'rxjs';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { DOCUMENT } from '@angular/common';
 import { NatuPortalService } from '../portal';
@@ -23,8 +33,8 @@ export function useOverlayHover(options: HoverOptions = {}) {
   const overlayService = inject(NatuOverlayService);
   const delay = options.delay ?? 0;
 
-  const referenceElement$ = toObservable(overlayService.referenceElement$).pipe(filter(Boolean));
-  const portalElement$ = toObservable(portalService.portalElement$).pipe(filter(Boolean));
+  const referenceElement$ = toObservable(overlayService.referenceElement).pipe(filter(Boolean));
+  const portalElement$ = toObservable(portalService.portalElement).pipe(filter(Boolean));
 
   const referenceEnter$ = referenceElement$.pipe(
     switchMap((element) => fromEvent(element, 'mouseenter')),
@@ -47,7 +57,7 @@ export function useOverlayHover(options: HoverOptions = {}) {
   );
 
   const effect$ = merge(referenceEnter$, referenceLeave$, portalEnter$, portalLeave$).pipe(
-    filter(() => !overlayService.isDisabled$()),
+    filter(() => !overlayService.isDisabled()),
     switchMap((shouldOpen) => timer(delay).pipe(map(() => shouldOpen))),
   );
 
@@ -66,17 +76,51 @@ export function useOverlayFocus() {
   const focusMonitor = inject(FocusMonitor);
   const overlayService = inject(NatuOverlayService);
 
-  const effect$ = toObservable(overlayService.referenceElement$).pipe(
-    filter(Boolean),
+  const effect$ = toObservable(overlayService.referenceElement).pipe(
+    filter((element): element is HTMLElement => Boolean(element) && element instanceof HTMLElement),
     switchMap((element) => focusMonitor.monitor(element)),
     filter((origin) => {
-      const isValidEvent = origin === 'keyboard' || (origin === null && document.hasFocus());
-      return !overlayService.isDisabled$() && isValidEvent;
+      const isValidEvent =
+        origin === 'keyboard' || origin === 'program' || (origin === null && document.hasFocus());
+      return !overlayService.isDisabled() && isValidEvent;
     }),
     map((origin) => origin !== null),
   );
 
   registerEffect(effect$, (shouldOpen) => overlayService.changeOpen(shouldOpen));
+}
+
+/**
+ * Opens an overlay when it's reference element is clicked.
+ *
+ * Must be used in conjunction with {@link NatuOverlayService}.
+ */
+export function useOverlayClick() {
+  assertInInjectionContext(useOverlayClick);
+
+  const overlayService = inject(NatuOverlayService);
+
+  const referenceElement$ = toObservable(overlayService.referenceElement).pipe(filter(Boolean));
+  const customButtonElement$ = referenceElement$.pipe(
+    filter((element) => element.tagName !== 'BUTTON'),
+  );
+
+  const click$ = referenceElement$.pipe(switchMap((element) => fromEvent(element, 'click')));
+
+  const customPress$ = customButtonElement$.pipe(
+    switchMap((element) => fromEvent<KeyboardEvent>(element, 'keydown')),
+    filter((event) => event.key === 'Enter' || event.key === ' '),
+    /**
+     * Delays Keydown event.
+     * Keydown event is triggered before a click event.
+     * If an overlay with focus trap is opened via keydown, a click event will be triggered on the newly focused element.
+     */
+    observeOn(asyncScheduler),
+  );
+
+  const effect$ = merge(click$, customPress$);
+
+  registerEffect(effect$, () => overlayService.changeOpen(true));
 }
 
 /**
@@ -91,7 +135,7 @@ export function useOverlayDismiss() {
   const portalService = inject(NatuPortalService);
   const overlayService = inject(NatuOverlayService);
 
-  const effect$ = toObservable(overlayService.isOpen$).pipe(
+  const effect$ = toObservable(overlayService.isOpen).pipe(
     switchMap((isOpen) => {
       if (!isOpen) {
         return EMPTY;
@@ -104,8 +148,8 @@ export function useOverlayDismiss() {
       const clickOutside$ = fromEvent<MouseEvent>(document, 'mousedown').pipe(
         filter(
           (event) =>
-            isTargetOutsideElement(event.target, portalService.portalElement$()) &&
-            isTargetOutsideElement(event.target, overlayService.referenceElement$()),
+            isTargetOutsideElement(event.target, portalService.portalElement()) &&
+            isTargetOutsideElement(event.target, overlayService.referenceElement()),
         ),
       );
 
@@ -116,6 +160,6 @@ export function useOverlayDismiss() {
   registerEffect(effect$, () => overlayService.changeOpen(false));
 }
 
-function isTargetOutsideElement(target: EventTarget | null, element: HTMLElement | null) {
+function isTargetOutsideElement(target: EventTarget | null, element: Element | null) {
   return Boolean(target && target instanceof Element && element && !element.contains(target));
 }

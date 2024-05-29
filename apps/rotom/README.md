@@ -2,6 +2,10 @@
 
 > Rotom, the Plasma Pokémon. With a body made of plasma, Rotom is able to permeate various kinds of electric devices, causing all sorts of problems.
 
+<!-- TODO: zonejs -->
+<!-- TODO: public folder -->
+<!-- TODO:     "moduleResolution": "bundler", https://github.com/cexbrayat/angular-cli-diff/compare/17.3.8...18.0.0-next.0 -->
+
 ## 🤡 Gotchas
 
 ### Important issues unresolved for more than 5 years

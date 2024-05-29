@@ -23,6 +23,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Test variable
+        run: echo ${{ github.repository }}
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3

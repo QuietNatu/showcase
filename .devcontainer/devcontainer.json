@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-  "name": "Ubuntu",
+  "name": "Ubuntu Desktop",
   "image": "ghcr.io/quietnatu/showcase/devcontainer:latest",
 
   "customizations": {

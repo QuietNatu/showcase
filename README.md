@@ -4,8 +4,6 @@
 <!-- TODO: document that dev containers in CI are not stable yet but should be used in the future -->
 <!-- TODO: document desktop lite access via browser on a 5900 localhost and the password -->
 
-<!-- TODO: prebuild image (check devcontainer ci) -->
-
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/QuietNatu/showcase/ci.yml?style=for-the-badge)](https://github.com/QuietNatu/showcase/actions/workflows/ci.yml) [![GitHub last commit](https://img.shields.io/github/last-commit/QuietNatu/showcase?style=for-the-badge)](https://github.com/QuietNatu/showcase/branches/all)
 
 A project to practice and showcase what I have learned.

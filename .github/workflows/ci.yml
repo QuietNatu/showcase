@@ -30,11 +30,16 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Repository to lowercase
+        id: lowercase-repository
+        run: |
+          echo "repository=${GITHUB_REPOSITORY@L}" >> $GITHUB_OUTPUT
+
       - name: Build dev container image
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/${{ github.repository }}/devcontainer
-          cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
+          imageName: ghcr.io/${{ steps.lowercase-repository.outputs.repository }}/devcontainer
+          cacheFrom: ghcr.io/${{ steps.lowercase-repository.outputs.repository }}/devcontainer
           push: always
 
   test:

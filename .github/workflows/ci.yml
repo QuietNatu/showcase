@@ -23,9 +23,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Test variable
-        run: echo ${{ github.repository }}
-
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -36,8 +33,8 @@ jobs:
       - name: Build dev container image
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/quietnatu/showcase/devcontainer
-          cacheFrom: ghcr.io/quietnatu/showcase/devcontainer
+          imageName: ghcr.io/${{ github.repository }}/devcontainer
+          cacheFrom: ghcr.io/${{ github.repository }}/devcontainer
           push: always
 
   test:

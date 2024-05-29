@@ -36,11 +36,11 @@ import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core
           <svg-icon *natuSidebarIcon [key]="'dna'" />
           <ng-template natuSidebarLabel>Patients</ng-template>
 
-          <a natu-sidebar-item *natuSidebarItem href="">
+          <a natu-sidebar-item *natuSidebarItem href="/general-info">
             <ng-template natuSidebarLabel>General Info</ng-template>
           </a>
 
-          <a natu-sidebar-item *natuSidebarItem href="">
+          <a natu-sidebar-item *natuSidebarItem href="/records">
             <ng-template natuSidebarLabel>Records</ng-template>
           </a>
         </natu-sidebar-group>
@@ -68,16 +68,16 @@ import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core
           <svg-icon *natuSidebarIcon [key]="'dna'" />
           <ng-template natuSidebarLabel>Staff</ng-template>
 
-          <a natu-sidebar-item *natuSidebarItem href="">
+          <a natu-sidebar-item *natuSidebarItem href="/general-info">
             <ng-template natuSidebarLabel>General Info</ng-template>
           </a>
 
-          <a natu-sidebar-item *natuSidebarItem href="">
+          <a natu-sidebar-item *natuSidebarItem href="/general-records">
             <ng-template natuSidebarLabel>Records</ng-template>
           </a>
         </natu-sidebar-group>
 
-        <a natu-sidebar-item *natuSidebarItem href="">
+        <a natu-sidebar-item *natuSidebarItem href="/culture">
           <svg-icon *natuSidebarIcon [key]="'mask-happy'" />
           <ng-template natuSidebarLabel>Culture</ng-template>
         </a>

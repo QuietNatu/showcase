@@ -1,5 +1,7 @@
 name: CI
 
+# In the future check if Devcontainers should be used to all run the pipeline
+
 on:
   workflow_dispatch:
   push:

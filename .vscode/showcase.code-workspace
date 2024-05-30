@@ -67,6 +67,7 @@
       "**/storybook-static": true,
       "**/vrt/report": true,
       "**/.turbo": true,
+      "**/documentation.json": true,
     },
   },
 }

@@ -62,7 +62,8 @@ ls:
     .config.ts: kebab-case
 
 ignore:
-  - apps/rotom/src/mockServiceWorker.js
   - apps/*/src/locales
   - packages/*/src/locales
   - apps/*/e2e/playwright.config.ts
+  - apps/*/vrt/playwright.config.ts
+  - packages/*/vrt/playwright.config.ts

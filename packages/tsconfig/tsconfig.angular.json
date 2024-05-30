@@ -9,7 +9,7 @@
     "useDefineForClassFields": false,
 
     /* File resolution */
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,

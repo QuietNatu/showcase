@@ -8,7 +8,7 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     proxies: {
-      '/src/mockServiceWorker.js': '/base/mockServiceWorker.js',
+      '/public/mockServiceWorker.js': '/base/mockServiceWorker.js',
     },
     plugins: [
       require('karma-jasmine'),

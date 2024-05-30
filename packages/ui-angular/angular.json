@@ -58,7 +58,7 @@
             "compodocArgs": ["-e", "json", "-d", "."],
             "port": 6112,
             "styles": ["src/styles/styles.scss"],
-            "assets": ["src/assets"]
+            "assets": []
           }
         },
         "build-storybook": {
@@ -70,7 +70,7 @@
             "compodocArgs": ["-e", "json", "-d", "."],
             "outputDir": "storybook-static",
             "styles": ["src/styles/styles.scss"],
-            "assets": ["src/assets"]
+            "assets": []
           }
         }
       }

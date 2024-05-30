@@ -5,8 +5,6 @@
   "version": "0.0.0",
   "type": "module",
   "sideEffects": false,
-  "types": "./ts/index.d.ts",
-  "module": "./ts/index.js",
   "exports": {
     ".": {
       "types": "./ts/index.d.ts",

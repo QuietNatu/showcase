@@ -1,14 +1,13 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Injectable,
+  InjectionToken,
   Signal,
   booleanAttribute,
   computed,
   inject,
   input,
   output,
-  signal,
 } from '@angular/core';
 import { NatuCardHeaderComponent } from './components/card-header.component';
 import { NatuCardBodyComponent } from './components/card-body.component';
@@ -65,26 +64,20 @@ export class NatuCardComponent {
   readonly finalIsEmbedded: Signal<boolean>;
   readonly finalIsDismissable: Signal<boolean>;
 
-  private readonly configService = inject(NatuCardComponentConfigService, {
-    self: true,
-    optional: true,
-  });
+  private readonly data = inject(NATU_CARD_DATA, { self: true, optional: true });
 
   constructor() {
     injectRegisterIcons([xIcon]);
 
-    this.finalIsEmbedded = computed(() => this.configService?.isEmbedded() ?? this.isEmbedded());
-    this.finalIsDismissable = computed(
-      () => this.configService?.isDismissable() ?? this.isDismissable(),
-    );
+    this.finalIsEmbedded = computed(() => this.data?.isEmbedded() ?? this.isEmbedded());
+    this.finalIsDismissable = computed(() => this.data?.isDismissable() ?? this.isDismissable());
   }
 }
 
-@Injectable()
-export class NatuCardComponentConfigService {
-  readonly isEmbedded = signal<boolean | undefined>(undefined);
-  readonly isDismissable = signal<boolean | undefined>(undefined);
-}
+export const NATU_CARD_DATA = new InjectionToken<{
+  isEmbedded: Signal<boolean | undefined>;
+  isDismissable: Signal<boolean | undefined>;
+}>('NATU_CARD_DATA');
 
 export const natuCardImports = [
   NatuCardComponent,

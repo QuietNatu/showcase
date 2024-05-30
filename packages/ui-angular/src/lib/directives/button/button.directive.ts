@@ -13,10 +13,8 @@ import {
 import { VariantProps, cva } from 'class-variance-authority';
 import { fromEvent } from 'rxjs';
 import { registerEffect } from '../../utils/rxjs';
-import {
-  NatuFocusRingDirective,
-  NatuFocusRingDirectiveConfigService,
-} from '../focus-ring/focus-ring.directive';
+import { NATU_FOCUS_RING_DATA, NatuFocusRingDirective } from '../focus-ring/focus-ring.directive';
+import { provideToken } from '../../utils';
 
 const buttonVariants = cva('natu-button', {
   variants: {
@@ -52,7 +50,12 @@ export type NatuButtonVariants = VariantProps<typeof buttonVariants>;
     '[attr.aria-disabled]': 'isDisabled()',
   },
   hostDirectives: [NatuFocusRingDirective],
-  providers: [NatuFocusRingDirectiveConfigService],
+  providers: [
+    provideToken({
+      provide: NATU_FOCUS_RING_DATA,
+      useValue: { focusVisibleClass: signal('natu-button--focus') },
+    }),
+  ],
 })
 export class NatuButtonDirective {
   readonly isDisabled = input(false, { transform: booleanAttribute });
@@ -64,10 +67,8 @@ export class NatuButtonDirective {
 
   private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly ngZone = inject(NgZone);
-  private readonly focusRingDirectiveConfigService = inject(NatuFocusRingDirectiveConfigService);
 
   constructor() {
-    this.focusRingDirectiveConfigService.focusVisibleClass.set('natu-button--focus');
     this.class = computed(() => buttonVariants({ variant: this.variant(), size: this.size() }));
 
     this.registerStopDisabledClicks();

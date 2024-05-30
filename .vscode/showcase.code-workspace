@@ -68,6 +68,7 @@
       "**/vrt/report": true,
       "**/.turbo": true,
       "**/documentation.json": true,
+      "**/node_modules": true,
     },
   },
 }

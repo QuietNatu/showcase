@@ -2,12 +2,11 @@ import { FocusMonitor } from '@angular/cdk/a11y';
 import {
   Directive,
   ElementRef,
-  Injectable,
+  InjectionToken,
   Signal,
   computed,
   inject,
   input,
-  signal,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
@@ -32,15 +31,12 @@ export class NatuFocusRingDirective {
 
   private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly focusMonitor = inject(FocusMonitor); // Change this once CDK directives are standalone...
-  private readonly configService = inject(NatuFocusRingDirectiveConfigService, {
-    optional: true,
-    self: true,
-  });
+  private readonly data = inject(NATU_FOCUS_RING_DATA, { optional: true, self: true });
 
   constructor() {
     this.isFocusVisible = this.getIsFocusVisible();
     this.finalFocusVisibleClass = computed(
-      () => this.configService?.focusVisibleClass() ?? this.focusVisibleClass(),
+      () => this.data?.focusVisibleClass() ?? this.focusVisibleClass(),
     );
   }
 
@@ -53,7 +49,6 @@ export class NatuFocusRingDirective {
   }
 }
 
-@Injectable()
-export class NatuFocusRingDirectiveConfigService {
-  readonly focusVisibleClass = signal<string | undefined>(undefined);
-}
+export const NATU_FOCUS_RING_DATA = new InjectionToken<{
+  focusVisibleClass: Signal<string | undefined>;
+}>('NATU_FOCUS_RING_DATA');

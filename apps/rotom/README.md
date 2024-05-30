@@ -2,10 +2,7 @@
 
 > Rotom, the Plasma Pokémon. With a body made of plasma, Rotom is able to permeate various kinds of electric devices, causing all sorts of problems.
 
-<!-- TODO: storybook not working in rotom -->
 <!-- TODO: only angular-eslint package is needed now when migrating to eslint v9 -->
-<!-- TODO: public folder -->
-<!-- TODO: check if storybook icons did not change -->
 
 ## 🔗 Useful links
 

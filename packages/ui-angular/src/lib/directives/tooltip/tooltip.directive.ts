@@ -1,13 +1,13 @@
 import {
   Directive,
-  Injectable,
+  InjectionToken,
   OnDestroy,
+  Signal,
   booleanAttribute,
   computed,
   effect,
   inject,
   input,
-  signal,
   untracked,
 } from '@angular/core';
 import { NatuTooltipComponent } from './tooltip.component';
@@ -55,10 +55,7 @@ export class NatuTooltipDirective implements OnDestroy {
   private readonly portalService = inject(NatuPortalService);
   private readonly overlayService = inject(NatuOverlayService);
   private readonly uiConfig = inject(NATU_UI_CONFIG, { optional: true });
-  private readonly configService = inject(NatuTooltipDirectiveConfigService, {
-    self: true,
-    optional: true,
-  });
+  private readonly data = inject(NATU_TOOLTIP_DATA, { self: true, optional: true });
 
   /** Controlled open state event emitter. */
   readonly isOpenChange = outputFromObservable(this.overlayService.isOpenChange$, {
@@ -73,14 +70,14 @@ export class NatuTooltipDirective implements OnDestroy {
     useOverlayDismiss();
 
     connectSignal(
-      computed(() => this.configService?.placement() ?? this.placement() ?? null),
+      computed(() => this.data?.placement() ?? this.placement() ?? null),
       (placement) => {
         this.overlayService.setPlacement(placement);
       },
     );
 
     connectSignal(
-      computed(() => this.configService?.isDisabled() ?? this.isDisabled()),
+      computed(() => this.data?.isDisabled() ?? this.isDisabled()),
       (isDisabled) => {
         this.overlayService.setIsDisabled(isDisabled);
       },
@@ -112,11 +109,10 @@ export class NatuTooltipDirective implements OnDestroy {
   }
 }
 
-@Injectable()
-export class NatuTooltipDirectiveConfigService {
-  readonly placement = signal<NatuOverlayPlacement | null | undefined>(undefined);
-  readonly isDisabled = signal<boolean | undefined>(undefined);
-}
+export const NATU_TOOLTIP_DATA = new InjectionToken<{
+  placement: Signal<NatuOverlayPlacement | null | undefined>;
+  isDisabled: Signal<boolean | undefined>;
+}>('NATU_TOOLTIP_DATA');
 
 export const natuTooltipImports = [
   NatuTooltipDirective,

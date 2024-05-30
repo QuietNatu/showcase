@@ -1,12 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Injectable,
+  InjectionToken,
   Signal,
   computed,
   inject,
   input,
-  signal,
 } from '@angular/core';
 
 type Size = 'small' | 'medium';
@@ -32,17 +31,13 @@ export class NatuCardHeaderComponent {
 
   readonly finalSize: Signal<Size>;
 
-  private readonly configService = inject(NatuCardHeaderComponentConfigService, {
-    self: true,
-    optional: true,
-  });
+  private readonly data = inject(NATU_CARD_HEADER_DATA, { self: true, optional: true });
 
   constructor() {
-    this.finalSize = computed(() => this.configService?.size() ?? this.size());
+    this.finalSize = computed(() => this.data?.size() ?? this.size());
   }
 }
 
-@Injectable()
-export class NatuCardHeaderComponentConfigService {
-  readonly size = signal<Size | undefined>(undefined);
-}
+export const NATU_CARD_HEADER_DATA = new InjectionToken<{ size: Signal<Size | undefined> }>(
+  'NATU_CARD__HEADER_DATA',
+);

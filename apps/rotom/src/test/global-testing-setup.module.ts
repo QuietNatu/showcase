@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, provideZoneChangeDetection } from '@angular/core';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 import { NatuUiConfig, provideUiConfig } from '@natu/ui-angular';
 
@@ -7,6 +7,10 @@ const config: NatuUiConfig = {
 };
 
 @NgModule({
-  providers: [provideNoopAnimations(), provideUiConfig(config)],
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideNoopAnimations(),
+    provideUiConfig(config),
+  ],
 })
 export class GlobaltTestingSetupModule {}

@@ -5,6 +5,7 @@ import { StoryConfigDirective, storyConfigDecorator } from './decorators';
 import { storyA11yConfig } from '../src/lib/stories';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideUiConfig } from '../src';
+import { provideZoneChangeDetection } from '@angular/core';
 
 setCompodocJson(docJson);
 
@@ -53,7 +54,11 @@ const preview: Preview = {
   },
   decorators: [
     applicationConfig({
-      providers: [provideAnimations(), provideUiConfig()],
+      providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideAnimations(),
+        provideUiConfig(),
+      ],
     }),
     moduleMetadata({ imports: [StoryConfigDirective] }),
     storyConfigDecorator(),

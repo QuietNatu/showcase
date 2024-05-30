@@ -4,8 +4,20 @@
   "license": "MIT",
   "version": "0.0.0",
   "sideEffects": false,
-  "module": "src/index.ts",
-  "types": "src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./test": {
+      "types": "./src/lib/test/index.ts",
+      "default": "./src/lib/test/index.ts"
+    },
+    "./stories": {
+      "types": "./src/lib/stories/index.ts",
+      "default": "./src/lib/stories/index.ts"
+    }
+  },
   "scripts": {
     "lint": "ng lint",
     "test": "ng test --code-coverage",
@@ -19,8 +31,8 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "18.0.1",
-    "@angular-eslint/builder": "17.5.1",
-    "@angular-eslint/schematics": "17.5.1",
+    "@angular-eslint/builder": "18.0.0",
+    "@angular-eslint/schematics": "18.0.0",
     "@angular/animations": "18.0.0",
     "@angular/cdk": "18.0.0",
     "@angular/cli": "18.0.1",

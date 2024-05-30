@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/angular';
 import { aliasArgs, aliasedArgsToTemplate, render } from '../../test';
 import { NatuFocusRingDirective } from './focus-ring.directive';
-import { A11yModule, FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
+import { FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
 import { Subject } from 'rxjs';
 import { TestComponentArgs } from '../../test/types';
 
@@ -47,7 +47,7 @@ describe(NatuFocusRingDirective.name, () => {
       `<button type="button" natuFocusRing ${templateArgs}>Button</button>`,
       {
         renderOptions: {
-          imports: [NatuFocusRingDirective, A11yModule],
+          imports: [NatuFocusRingDirective],
           providers: [{ provide: FocusMonitor, useValue: focusMonitorSpy }],
           componentProperties,
         },

@@ -50,7 +50,7 @@
   },
   "msw": {
     "workerDirectory": [
-      "apps/rotom/src",
+      "apps/rotom/public",
       "apps/smeargle/public"
     ]
   },

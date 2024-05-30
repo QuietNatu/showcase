@@ -24,13 +24,10 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/favicon.svg",
-              "src/apple-touch-icon.png",
-              "src/assets",
-              "src/mockServiceWorker.js",
-              "src/manifest.webmanifest",
-              "src/robots.txt"
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
             ],
             "styles": ["src/styles/styles.scss"],
             "scripts": []
@@ -40,13 +37,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "2kB",
+                  "maximumError": "4kB"
                 }
               ],
               "outputHashing": "all",
@@ -102,13 +99,10 @@
             "tsConfig": "tsconfig.test.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/favicon.svg",
-              "src/apple-touch-icon.png",
-              "src/assets",
-              "src/mockServiceWorker.js",
-              "src/manifest.webmanifest",
-              "src/robots.txt"
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
             ],
             "styles": ["src/styles/styles.scss"],
             "scripts": [],
@@ -136,8 +130,7 @@
             "browserTarget": "rotom:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "port": 6102,
-            "assets": ["src/assets", "src/mockServiceWorker.js"]
+            "port": 6102
           }
         },
         "build-storybook": {
@@ -147,8 +140,7 @@
             "browserTarget": "rotom:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "outputDir": "storybook-static",
-            "assets": ["src/assets", "src/mockServiceWorker.js"]
+            "outputDir": "storybook-static"
           }
         }
       }

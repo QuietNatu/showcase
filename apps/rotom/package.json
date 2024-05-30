@@ -4,7 +4,7 @@
   "license": "MIT",
   "version": "0.0.0",
   "scripts": {
-    "dev": "ng serve",
+    "dev": "ng dev",
     "build": "ng build",
     "preview": "http-server -c-1 dist/browser --silent",
     "lint": "ng lint",
@@ -39,8 +39,8 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "18.0.1",
-    "@angular-eslint/builder": "17.5.1",
-    "@angular-eslint/schematics": "17.5.1",
+    "@angular-eslint/builder": "18.0.0",
+    "@angular-eslint/schematics": "18.0.0",
     "@angular/cli": "18.0.1",
     "@angular/compiler-cli": "18.0.0",
     "@compodoc/compodoc": "1.1.24",

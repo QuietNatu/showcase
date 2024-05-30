@@ -504,8 +504,8 @@ importers:
         specifier: 5.0.7
         version: 5.0.7
       style-dictionary:
-        specifier: 4.0.0-prerelease.15
-        version: 4.0.0-prerelease.15
+        specifier: 4.0.0-prerelease.30
+        version: 4.0.0-prerelease.30
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -9098,8 +9098,8 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
 
-  style-dictionary@4.0.0-prerelease.15:
-    resolution: {integrity: sha512-kZ0qi0BClVsfh06+z/622VRKTcYdUvgSD6j1C/x50/Vvo2ndi/rcjyyTNmmwyqPMHp4lVgZ9BTUx0Mr9/+mzhA==}
+  style-dictionary@4.0.0-prerelease.30:
+    resolution: {integrity: sha512-2ERq4poRPZvCSMSJ9WSS+fh3PrcO+WZQiRsDgKLLTZuYBEYuC/14EJmvlQVh7herljAdD5dEpApLNv1Z5q9lDw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -21066,7 +21066,7 @@ snapshots:
       minimist: 1.2.8
       through: 2.3.8
 
-  style-dictionary@4.0.0-prerelease.15:
+  style-dictionary@4.0.0-prerelease.30:
     dependencies:
       '@bundled-es-modules/deepmerge': 4.3.1
       '@bundled-es-modules/glob': 10.3.13
@@ -21076,7 +21076,6 @@ snapshots:
       commander: 8.3.0
       is-plain-obj: 4.1.0
       json5: 2.2.3
-      lodash-es: 4.17.21
       patch-package: 8.0.0
       path-unified: 0.1.0
       tinycolor2: 1.6.0

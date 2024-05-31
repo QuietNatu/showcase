@@ -5,6 +5,7 @@ export function createRandomUUID() {
   return crypto.randomUUID();
 }
 
+/* TODO: remove */
 console.log('');
 
 export function x() {

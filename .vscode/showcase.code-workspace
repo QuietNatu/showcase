@@ -59,7 +59,6 @@
   ],
   "settings": {
     "terminal.integrated.cwd": "${workspaceFolder:🌱 root}",
-    "eslint.workingDirectories": ["../.."],
     "search.exclude": {
       "**/.angular": true,
       "**/coverage": true,

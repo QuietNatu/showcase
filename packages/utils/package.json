@@ -17,7 +17,7 @@
     "test-watch": "vitest"
   },
   "devDependencies": {
-    "@natu/eslint-config-react": "workspace:*",
+    "@natu/eslint-config": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@vitest/coverage-v8": "1.5.2",
     "jsdom": "24.0.0",

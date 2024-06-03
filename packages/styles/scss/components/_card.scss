@@ -1,6 +1,6 @@
 @use '../utils';
 
-@layer card {
+@layer natu-card {
   .natu-card {
     @include utils.text-regular;
 

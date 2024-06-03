@@ -44,7 +44,7 @@ $-sidebar-width-expanded: utils.px-to-rem(240px);
   }
 }
 
-@layer sidebar {
+@layer natu-sidebar {
   .natu-sidebar {
     background-color: var(--natu-color-surface-base);
     display: flex;

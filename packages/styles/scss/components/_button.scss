@@ -203,7 +203,7 @@ $-variants: (
   }
 }
 
-@layer button {
+@layer natu-button {
   .natu-button {
     @include utils.control;
 

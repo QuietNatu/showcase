@@ -14,7 +14,7 @@
     color: var(--natu-color-font-invert);
     display: block;
     filter: var(--natu-elevation-shadow-tooltip);
-    max-width: utils.px-to-rem(360px);
+    max-inline-size: utils.px-to-rem(360px);
     z-index: var(--natu-elevation-z-index-overlay);
   }
 

@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import JasmineDOM from '@testing-library/jasmine-dom/dist';
+import { toHaveNoViolations } from 'jasmine-axe';
 import { getTestBed } from '@angular/core/testing';
 import {
   BrowserDynamicTestingModule,
@@ -21,6 +22,7 @@ getTestBed().initTestEnvironment(
 beforeAll(async () => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   jasmine.addMatchers(JasmineDOM);
+  jasmine.addMatchers(toHaveNoViolations);
   await mockWorker.start({ onUnhandledRequest: 'warn' });
 });
 

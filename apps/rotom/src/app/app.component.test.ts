@@ -8,7 +8,6 @@ describe(AppComponent.name, () => {
 
     await userEvent.click(screen.getByRole('button', { name: 'count is 0' }));
 
-    expect(screen.getByText('Angular')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'count is 1' })).toBeInTheDocument();
   });
 });

@@ -21,5 +21,7 @@ const config: StorybookConfig = {
     name: getAbsolutePath('@storybook/angular'),
     options: {},
   },
+  /* TODO: change this once storybook fixes adding assets in angular.json */
+  staticDirs: ['../public'],
 };
 export default config;

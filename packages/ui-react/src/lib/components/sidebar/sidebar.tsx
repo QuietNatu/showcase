@@ -1,6 +1,13 @@
 import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
-import { HTMLAttributes, ReactElement, ReactNode, forwardRef, useState } from 'react';
+import {
+  ComponentPropsWithoutRef,
+  HTMLAttributes,
+  ReactElement,
+  ReactNode,
+  forwardRef,
+  useState,
+} from 'react';
 import { Except, MergeExclusive, SetOptional } from 'type-fest';
 import CaretRightIcon from '@natu/assets/svg/caret-right.svg?react';
 import CaretDownIcon from '@natu/assets/svg/caret-down.svg?react';
@@ -18,8 +25,7 @@ import * as Collapsible from '@radix-ui/react-collapsible';
 import { useControllableState } from '../../hooks';
 import { mergeProps, useFocusRing } from 'react-aria';
 
-export interface NatuSidebarProps extends UseSidebarOptions {
-  children?: ReactNode;
+export interface NatuSidebarProps extends UseSidebarOptions, ComponentPropsWithoutRef<'div'> {
   /**
    * Actions to be placed in the main navigation bar of the sidebar.
    *
@@ -107,54 +113,71 @@ interface UseSidebarOptions {
   onExpandedChange?: (isOpen: boolean) => void;
 }
 
-export function NatuSidebar(props: NatuSidebarProps) {
-  const { actions = [], secondaryActions = [], activeAction = null } = props;
-  const { isExpanded, onToggleExpansion } = useSidebar({
-    isExpanded: props.isExpanded,
-    defaultIsExpanded: props.defaultIsExpanded,
-    onExpandedChange: props.onExpandedChange,
-  });
+export const NatuSidebar = forwardRef<HTMLDivElement, NatuSidebarProps>(
+  function NatuSidebar(props, forwardedRef) {
+    const {
+      children,
+      actions = [],
+      secondaryActions = [],
+      activeAction = null,
+      isExpanded: controlledIsExpanded,
+      defaultIsExpanded,
+      onExpandedChange,
+    } = props;
 
-  return (
-    <div
-      className={clsx('natu-sidebar', {
-        'natu-sidebar--expanded': isExpanded,
-        'natu-sidebar--collapsed': !isExpanded,
-      })}
-    >
-      <div className="natu-sidebar__header">{props.children}</div>
+    const { isExpanded, onToggleExpansion } = useSidebar({
+      isExpanded: controlledIsExpanded,
+      defaultIsExpanded: defaultIsExpanded,
+      onExpandedChange: onExpandedChange,
+    });
 
-      {/* TODO: add i18n once implemented  */}
-      {actions.length > 0 && (
-        <nav aria-label="Main">
-          <SidebarList items={actions} isExpanded={isExpanded} activeAction={activeAction} />
-        </nav>
-      )}
+    return (
+      <div
+        ref={forwardedRef}
+        {...props}
+        className={clsx(
+          'natu-sidebar',
+          {
+            'natu-sidebar--expanded': isExpanded,
+            'natu-sidebar--collapsed': !isExpanded,
+          },
+          props.className,
+        )}
+      >
+        <div className="natu-sidebar__header">{children}</div>
 
-      <div className="natu-sidebar__footer">
         {/* TODO: add i18n once implemented  */}
-        {secondaryActions.length > 0 && (
-          <nav aria-label="Secondary">
-            <SidebarList
-              items={secondaryActions}
-              isExpanded={isExpanded}
-              activeAction={activeAction}
-            />
+        {actions.length > 0 && (
+          <nav aria-label="Main">
+            <SidebarList items={actions} isExpanded={isExpanded} activeAction={activeAction} />
           </nav>
         )}
 
-        <button type="button" className="natu-sidebar__toggle-button" onClick={onToggleExpansion}>
-          {/* TODO: add i18n once implemented */}
-          <span className="natu-visually-hidden">{isExpanded ? 'Collapse' : 'Expand'}</span>
+        <div className="natu-sidebar__footer">
+          {/* TODO: add i18n once implemented  */}
+          {secondaryActions.length > 0 && (
+            <nav aria-label="Secondary">
+              <SidebarList
+                items={secondaryActions}
+                isExpanded={isExpanded}
+                activeAction={activeAction}
+              />
+            </nav>
+          )}
 
-          <NatuIcon className="natu-sidebar__toggle-button-icon" aria-hidden="true">
-            <CaretRightIcon />
-          </NatuIcon>
-        </button>
+          <button type="button" className="natu-sidebar__toggle-button" onClick={onToggleExpansion}>
+            {/* TODO: add i18n once implemented */}
+            <span className="natu-visually-hidden">{isExpanded ? 'Collapse' : 'Expand'}</span>
+
+            <NatuIcon className="natu-sidebar__toggle-button-icon" aria-hidden="true">
+              <CaretRightIcon />
+            </NatuIcon>
+          </button>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  },
+);
 
 function SidebarList(props: SidebarListProps) {
   const listItems = props.items.map((item) => (

@@ -1,10 +1,12 @@
-$-header-size: var(--natu-size-spacing-11);
+:root {
+  --natu-header-size: var(--natu-size-spacing-11);
+}
 
 @layer natu-header {
   .natu-header {
     align-items: center;
     background-color: var(--natu-color-surface-base);
-    block-size: $-header-size;
+    block-size: var(--natu-header-size);
     border-block-end: 1px solid var(--natu-color-surface-neutral-active);
     display: flex;
     padding-inline: var(--natu-size-spacing-3);

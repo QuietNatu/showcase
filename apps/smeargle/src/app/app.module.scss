@@ -1,0 +1,22 @@
+.root {
+  display: grid;
+  grid-template-areas:
+    'header header'
+    'sidebar main';
+  grid-template-columns: auto 1fr;
+}
+
+.header {
+  grid-area: header;
+}
+
+.sidebar {
+  align-self: start;
+  grid-area: sidebar;
+}
+
+.main {
+  grid-area: main;
+  padding-block: var(--natu-size-spacing-3);
+  padding-inline: var(--natu-size-spacing-3);
+}

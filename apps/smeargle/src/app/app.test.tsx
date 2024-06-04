@@ -1,12 +1,15 @@
-import { screen } from '@testing-library/react';
-import { App } from './app';
-import { render } from '@natu/ui-react/test';
+import { composeStories } from '@storybook/react';
+import * as stories from './app.stories';
+import { axe, renderStory } from '@natu/ui-react/test';
 
-test('renders', async () => {
-  const { userEvent } = render(<App />);
+const storyTestCases = Object.entries(composeStories(stories));
 
-  await userEvent.click(screen.getByRole('button', { name: 'count is 0' }));
+test.each(storyTestCases)('renders %s story', (_, Story) => {
+  const { container } = renderStory(<Story />);
+  expect(container).toBeInTheDocument();
+});
 
-  expect(screen.getByText('Vite + React')).toBeInTheDocument();
-  expect(screen.getByRole('button', { name: 'count is 1' })).toBeInTheDocument();
+test.each(storyTestCases)('%s has no accessibility violations', async (_, Story) => {
+  const { baseElement } = renderStory(<Story />);
+  expect(await axe(baseElement)).toHaveNoViolations();
 });

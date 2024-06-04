@@ -1,28 +1,19 @@
-import reactLogo from '../assets/react.svg';
-import viteLogo from '/vite.svg';
-import './app.css';
 import { Counter } from './components/counter/counter';
+import { Header } from './components/header/header';
+import { Sidebar } from './components/sidebar/sidebar';
+import '../styles/styles.scss';
+import styles from './app.module.scss';
 
 export function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <Counter />
+    <div className={styles.root}>
+      <Header className={styles.header} />
 
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+      <Sidebar className={styles.sidebar} />
+
+      <main className={styles.main}>
+        <Counter />
+      </main>
+    </div>
   );
 }

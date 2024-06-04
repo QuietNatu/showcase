@@ -5,7 +5,8 @@ $-header-size: var(--natu-size-spacing-11);
     align-items: center;
     background-color: var(--natu-color-surface-base);
     block-size: $-header-size;
-    display: block;
+    border-block-end: 1px solid var(--natu-color-surface-neutral-active);
     display: flex;
+    padding-inline: var(--natu-size-spacing-3);
   }
 }

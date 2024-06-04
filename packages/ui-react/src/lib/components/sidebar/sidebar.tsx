@@ -123,6 +123,7 @@ export const NatuSidebar = forwardRef<HTMLDivElement, NatuSidebarProps>(
       isExpanded: controlledIsExpanded,
       defaultIsExpanded,
       onExpandedChange,
+      ...sidebarProps
     } = props;
 
     const { isExpanded, onToggleExpansion } = useSidebar({
@@ -134,7 +135,7 @@ export const NatuSidebar = forwardRef<HTMLDivElement, NatuSidebarProps>(
     return (
       <div
         ref={forwardedRef}
-        {...props}
+        {...sidebarProps}
         className={clsx(
           'natu-sidebar',
           {

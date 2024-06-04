@@ -58,6 +58,7 @@
     "msw": "2.3.0",
     "source-map-explorer": "2.5.3",
     "storybook": "8.1.5",
+    "type-fest": "4.17.0",
     "typescript": "5.4.5",
     "vite": "5.2.11",
     "vite-plugin-pwa": "0.19.8",

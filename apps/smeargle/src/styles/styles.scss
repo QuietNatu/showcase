@@ -1,1 +1,5 @@
 @use '@natu/styles/scss';
+
+:root {
+  --natu-sticky-block-start: var(--natu-header-size);
+}

@@ -1,6 +1,6 @@
+import { axe, renderStory } from '../../test';
 import { composeStories } from '@storybook/react';
-import * as stories from './app.stories';
-import { axe, renderStory } from '@natu/ui-react/test';
+import * as stories from './header.stories';
 
 const storyTestCases = Object.entries(composeStories(stories));
 

@@ -1,5 +1,5 @@
 import { composeStories } from '@storybook/react';
-import * as stories from './app.stories';
+import * as stories from './sidebar.stories';
 import { axe, renderStory } from '@natu/ui-react/test';
 
 const storyTestCases = Object.entries(composeStories(stories));

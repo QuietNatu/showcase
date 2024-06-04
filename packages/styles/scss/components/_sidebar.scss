@@ -191,7 +191,7 @@ $-sidebar-size-expanded: utils.px-to-rem(240px);
         content: '';
         inline-size: 2px;
         inset-block: 0;
-        inset-inline-end: 0;
+        inset-inline-start: 0;
         position: absolute;
       }
     }

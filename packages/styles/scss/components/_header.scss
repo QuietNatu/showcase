@@ -1,0 +1,11 @@
+$-header-size: var(--natu-size-spacing-11);
+
+@layer natu-header {
+  .natu-header {
+    align-items: center;
+    background-color: var(--natu-color-surface-base);
+    block-size: $-header-size;
+    display: block;
+    display: flex;
+  }
+}

@@ -1,8 +1,8 @@
-@layer icon {
+@layer natu-icon {
   .natu-icon {
+    block-size: 1em;
     display: inline-block;
     fill: currentcolor;
-    height: 1em;
-    width: 1em;
+    inline-size: 1em;
   }
 }

@@ -2,13 +2,13 @@
 
 /* TODO: dark mode shadow */
 
-@layer popover {
+@layer natu-popover {
   $-popover-background-color: var(--natu-color-surface-base);
 
   .natu-popover {
     display: block;
     filter: var(--natu-elevation-shadow-overlay);
-    max-width: utils.px-to-rem(360px);
+    max-inline-size: utils.px-to-rem(360px);
     z-index: var(--natu-elevation-z-index-overlay);
 
     &:not(&--has-embedded) {
@@ -16,7 +16,8 @@
 
       background-color: var(--natu-color-surface-base);
       border-radius: var(--natu-control-border-radius);
-      padding: var(--natu-size-spacing-5);
+      padding-block: var(--natu-size-spacing-5);
+      padding-inline: var(--natu-size-spacing-5);
     }
   }
 

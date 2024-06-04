@@ -203,19 +203,21 @@ $-variants: (
   }
 }
 
-@layer button {
+@layer natu-button {
   .natu-button {
     @include utils.control;
 
     cursor: pointer;
     font-weight: var(--natu-font-weight-strong);
-    padding: 0 calc(var(--natu-size-spacing-4) - var(--natu-control-border-width));
+    padding-block: 0;
+    padding-inline: calc(var(--natu-size-spacing-4) - var(--natu-control-border-width));
     user-select: none;
 
     &--small {
       @include utils.control--small;
 
-      padding: 0 calc(var(--natu-size-spacing-3) - var(--natu-control-border-width));
+      padding-block: 0;
+      padding-inline: calc(var(--natu-size-spacing-3) - var(--natu-control-border-width));
     }
 
     &--disabled {
@@ -224,12 +226,13 @@ $-variants: (
 
     &--icon {
       font-size: var(--natu-size-font-6);
-      padding: 0 calc(var(--natu-size-spacing-2) - var(--natu-control-border-width));
-      width: var(--natu-control-height);
+      inline-size: var(--natu-control-height);
+      padding-block: 0;
+      padding-inline: calc(var(--natu-size-spacing-2) - var(--natu-control-border-width));
 
       &.natu-button--small {
         font-size: var(--natu-size-font-5);
-        width: var(--natu-control-height-small);
+        inline-size: var(--natu-control-height-small);
       }
     }
 

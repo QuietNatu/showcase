@@ -4,37 +4,41 @@
   @include text.text-label;
 
   align-items: center;
+  block-size: var(--natu-control-height);
   border-radius: var(--natu-control-border-radius);
   box-shadow: none;
   display: inline-flex;
-  height: var(--natu-control-height);
   justify-content: center;
   outline: none;
   position: relative;
 
   @if $hasBorder {
     border: var(--natu-control-border-width) solid transparent;
-    padding: 0 var(--natu-control-padding);
+    padding-block: 0;
+    padding-inline: var(--natu-control-padding);
   } @else {
     border: none;
-    padding: 0 var(--natu-control-padding-borderless);
+    padding-block: 0;
+    padding-inline: var(--natu-control-padding-borderless);
   }
 }
 
 @mixin control--small {
-  height: var(--natu-control-height-small);
+  block-size: var(--natu-control-height-small);
 }
 
 @mixin control--large {
-  height: var(--natu-control-height-large);
+  block-size: var(--natu-control-height-large);
 }
 
 @mixin control--fluid($hasBorder: false) {
-  height: auto;
+  block-size: auto;
 
   @if $hasBorder {
-    padding: var(--natu-control-padding);
+    padding-block: var(--natu-control-padding);
+    padding-inline: var(--natu-control-padding);
   } @else {
-    padding: var(--natu-control-padding-borderless);
+    padding-block: var(--natu-control-padding-borderless);
+    padding-inline: var(--natu-control-padding-borderless);
   }
 }

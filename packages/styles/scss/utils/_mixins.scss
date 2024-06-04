@@ -7,13 +7,13 @@
 
 /// Makes element only visible for screen readers */
 @mixin visually-hidden {
+  block-size: 1px;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  height: 1px;
+  inline-size: 1px;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
 }
 
 /* TODO: outline color is too weak */

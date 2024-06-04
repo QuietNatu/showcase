@@ -1,6 +1,6 @@
 @use '../utils';
 
-@layer card {
+@layer natu-card {
   .natu-card {
     @include utils.text-regular;
 
@@ -20,16 +20,18 @@
     @include utils.title-md;
 
     align-items: center;
+    block-size: var(--natu-size-spacing-15);
     display: flex;
     gap: var(--natu-size-spacing-2);
-    height: var(--natu-size-spacing-15);
-    padding: var(--natu-size-spacing-5);
+    padding-block: var(--natu-size-spacing-5);
+    padding-inline: var(--natu-size-spacing-5);
 
     &--small {
       @include utils.title-sm;
 
-      height: var(--natu-size-spacing-13);
-      padding: var(--natu-size-spacing-4) var(--natu-size-spacing-5);
+      block-size: var(--natu-size-spacing-13);
+      padding-block: var(--natu-size-spacing-4);
+      padding-inline: var(--natu-size-spacing-5);
     }
   }
 
@@ -38,30 +40,33 @@
   }
 
   .natu-card__dismiss {
+    inset-block-start: var(--natu-size-spacing-2);
+    inset-inline-end: var(--natu-size-spacing-2);
     position: absolute;
-    right: var(--natu-size-spacing-2);
-    top: var(--natu-size-spacing-2);
   }
 
   .natu-card__body {
     display: block;
     flex: 1;
-    padding: var(--natu-size-spacing-5);
+    padding-block: var(--natu-size-spacing-5);
+    padding-inline: var(--natu-size-spacing-5);
   }
 
   .natu-card__footer {
     align-items: center;
+    block-size: var(--natu-size-spacing-15);
     display: flex;
-    height: var(--natu-size-spacing-15);
-    padding: var(--natu-size-spacing-5);
+    padding-block: var(--natu-size-spacing-5);
+    padding-inline: var(--natu-size-spacing-5);
 
     &--small {
-      height: var(--natu-size-spacing-13);
-      padding: var(--natu-size-spacing-3) var(--natu-size-spacing-5);
+      block-size: var(--natu-size-spacing-13);
+      padding-block: var(--natu-size-spacing-3);
+      padding-inline: var(--natu-size-spacing-5);
     }
 
     &--with-divider {
-      border-top: 1px solid var(--natu-color-border-base);
+      border-block-start: 1px solid var(--natu-color-border-base);
     }
   }
 }

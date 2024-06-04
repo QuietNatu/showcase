@@ -31,8 +31,8 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "18.0.2",
-    "@angular-eslint/builder": "18.0.0",
-    "@angular-eslint/schematics": "18.0.0",
+    "@angular-eslint/builder": "18.0.1",
+    "@angular-eslint/schematics": "18.0.1",
     "@angular/animations": "18.0.1",
     "@angular/cdk": "18.0.0",
     "@angular/cli": "18.0.2",

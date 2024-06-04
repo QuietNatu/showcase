@@ -1,0 +1,6 @@
+.sidebar {
+  block-size: calc(100dvh - var(--natu-sticky-block-start, 0));
+  inset-block: var(--natu-sticky-block-start, 0) 0;
+  inset-inline-start: 0;
+  position: sticky;
+}

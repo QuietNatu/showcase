@@ -1,0 +1,88 @@
+openapi: 3.1.0
+
+info:
+  title: Showcase API
+  description: API to be used by the showcase apps. Manages the delivery of packages to recipients as well as any auxiliary tasks required to achieve this purpose.
+  version: 0.0.0
+
+servers:
+  - url: http://localhost:7000/api
+    description: Local server.
+
+tags:
+  - name: deliveries
+    description: Operations with deliveries.
+
+  - name: packages
+    description: Operations with packages.
+
+  - name: recipients
+    description: Operations with recipients.
+
+paths:
+  /deliveries:
+    get:
+      summary: Returns deliveries.
+      tags:
+        - deliveries
+      responses:
+        '200':
+          description: An array of deliveries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Delivery'
+
+  /packages:
+    get:
+      summary: Returns packages.
+      tags:
+        - packages
+      responses:
+        '200':
+          description: An array of packages
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Package'
+
+components:
+  schemas:
+    Delivery:
+      type: object
+      properties:
+        id:
+          description: 'UUID'
+          type: string
+        recipient:
+          $ref: '#/components/schemas/Recipient'
+        packages:
+          type: array
+          $ref: '#/components/schemas/Package'
+      # TODO: verify this
+      required:
+        - id
+        - recipient
+        - packages
+
+    Package:
+      type: object
+      properties:
+        id:
+          description: 'UUID'
+          type: string
+      required:
+        - id
+
+    Recipient:
+      type: object
+      properties:
+        id:
+          description: 'UUID'
+          type: string
+      required:
+        - id

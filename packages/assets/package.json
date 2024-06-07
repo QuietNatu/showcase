@@ -9,7 +9,7 @@
     "build": "rimraf angular/svg && svg-generator"
   },
   "dependencies": {
-    "@ngneat/svg-icon": "7.1.0"
+    "@ngneat/svg-icon": "7.1.6"
   },
   "devDependencies": {
     "@ngneat/svg-generator": "7.0.3",

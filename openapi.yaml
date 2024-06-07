@@ -63,7 +63,6 @@ components:
         packages:
           type: array
           $ref: '#/components/schemas/Package'
-      # TODO: verify this
       required:
         - id
         - recipient

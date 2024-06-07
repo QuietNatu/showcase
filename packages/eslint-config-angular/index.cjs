@@ -3,6 +3,13 @@ module.exports = {
     browser: true,
     es2022: true,
   },
+  ignorePatterns: [
+    'dist',
+    '**/*.config.js',
+    '**/*.config.ts',
+    '!src/**/*.config.js',
+    '!src/**/*.config.ts',
+  ],
   overrides: [
     {
       files: ['*.ts'],

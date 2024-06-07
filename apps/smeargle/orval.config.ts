@@ -5,6 +5,7 @@ export default defineConfig({
     input: '../../openapi.yaml',
     output: {
       clean: true,
+      client: 'axios-functions',
       workspace: './src/api',
       target: './api.ts',
       mode: 'tags-split',

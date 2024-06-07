@@ -16,6 +16,13 @@ module.exports = {
       version: 'detect',
     },
   },
+  ignorePatterns: [
+    'dist',
+    '**/*.config.js',
+    '**/*.config.ts',
+    '!src/**/*.config.js',
+    '!src/**/*.config.ts',
+  ],
   extends: [
     'turbo',
     'eslint:recommended',

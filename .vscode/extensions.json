@@ -11,6 +11,7 @@
     "KnisterPeter.vscode-commitizen",
     "christian-kohler.path-intellisense",
     "mrmlnc.vscode-json5",
-    "clinyong.vscode-css-modules"
+    "clinyong.vscode-css-modules",
+    "redhat.vscode-yaml"
   ]
 }

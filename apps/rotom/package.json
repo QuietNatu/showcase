@@ -17,7 +17,8 @@
     "vrt": "playwright test --config vrt/playwright.config.ts",
     "vrt-update": "pnpm vrt --update-snapshots",
     "vrt-show-report": "playwright show-report vrt/report --port 6104",
-    "e2e": "playwright test --config e2e/playwright.config.ts"
+    "e2e": "playwright test --config e2e/playwright.config.ts",
+    "build-api": "orval --config ./orval.config.ts"
   },
   "dependencies": {
     "@angular/animations": "18.0.1",
@@ -44,6 +45,7 @@
     "@angular/cli": "18.0.2",
     "@angular/compiler-cli": "18.0.1",
     "@compodoc/compodoc": "1.1.25",
+    "@faker-js/faker": "^8.4.1",
     "@mswjs/data": "0.16.1",
     "@natu/eslint-config-angular": "workspace:*",
     "@natu/tsconfig": "workspace:*",
@@ -74,6 +76,8 @@
     "karma-jasmine": "5.1.0",
     "karma-spec-reporter": "0.0.36",
     "msw": "2.3.0",
+    "orval": "^6.30.2",
+    "prettier": "3.2.5",
     "source-map-explorer": "2.5.3",
     "storybook": "8.1.5",
     "typescript": "5.4.5"

@@ -18,18 +18,21 @@
     "vrt": "playwright test --config vrt/playwright.config.ts",
     "vrt-update": "pnpm vrt --update-snapshots",
     "vrt-show-report": "playwright show-report vrt/report --port 6004",
-    "e2e": "cross-env VITE_E2E=true playwright test --config e2e/playwright.config.ts"
+    "e2e": "cross-env VITE_E2E=true playwright test --config e2e/playwright.config.ts",
+    "build-api": "orval --config ./orval.config.ts"
   },
   "dependencies": {
     "@natu/assets": "workspace:*",
     "@natu/styles": "workspace:*",
     "@natu/ui-react": "workspace:*",
     "@natu/utils": "workspace:*",
+    "axios": "^1.7.2",
     "clsx": "2.1.1",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@mswjs/data": "0.16.1",
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
@@ -56,6 +59,8 @@
     "http-server": "14.1.1",
     "jsdom": "24.0.0",
     "msw": "2.3.0",
+    "orval": "^6.30.2",
+    "prettier": "3.2.5",
     "source-map-explorer": "2.5.3",
     "storybook": "8.1.5",
     "type-fest": "4.17.0",

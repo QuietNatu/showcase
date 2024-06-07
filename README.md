@@ -34,8 +34,13 @@ If for some reason you cannot use Docker or prefer to locally set it up you have
 - [Download](https://nodejs.org/en/) and install the **Node** version specified on this project's **package.json**.
 - [Download](https://pnpm.io/) and install the **PNPM** version specified on this project's **package.json**.
 - [Download](https://git-lfs.com/) and install **Git LFS** _(Git for windows already includes Git LFS)_.
-- For **Angular** apps, create a local `environment-development.ts` file in the environments folder, similar to the other environment files.
 - Run `pnpm install` to install all dependencies.
+
+### Common Setup
+
+These steps are required when using any of the above approaches:
+
+- For Angular apps, create a local environment-development.ts file in the environments folder, similar to the other environment files.
 
 ### Commands
 

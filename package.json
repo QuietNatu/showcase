@@ -27,7 +27,8 @@
     "vrt": "turbo run vrt --continue",
     "vrt-update": "turbo run vrt-update",
     "vrt-show-report": "turbo run vrt-show-report --parallel",
-    "e2e": "turbo run e2e --continue"
+    "e2e": "turbo run e2e --continue",
+    "build-api": "turbo run build-api"
   },
   "devDependencies": {
     "@commitlint/cli": "19.3.0",

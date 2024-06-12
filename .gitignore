@@ -47,3 +47,4 @@ packages/assets/angular/svg
 packages/styles/scss/tokens
 packages/styles/ts/tokens
 apps/*/src/api
+bundle-analysis.html

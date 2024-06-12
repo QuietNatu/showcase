@@ -3,8 +3,15 @@ import { Header } from './components/header/header';
 import { Sidebar } from './components/sidebar/sidebar';
 import '../styles/styles.scss';
 import styles from './app.module.scss';
+import { useTranslation } from 'react-i18next';
+// TODO:
+// import { TypeOptions } from 'i18next';
+
+// const x: TypeOptions['resources'][TypeOptions['defaultNS']];
 
 export function App() {
+  const { t } = useTranslation();
+
   return (
     <div className={styles.root}>
       <Header className={styles.header} />
@@ -13,6 +20,8 @@ export function App() {
 
       <main className={styles.main}>
         <Counter />
+
+        <div>{t('hello')}</div>
       </main>
     </div>
   );

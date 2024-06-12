@@ -42,7 +42,7 @@ export default defineConfig(({}) => {
           '**/*.vrt.*',
           '**/index.*',
           'src/lib/test',
-          'src/vite-env.d.ts',
+          'src/@types',
           'src/lib/stories',
         ],
         reporter: ['lcov', 'text-summary'],

@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "test": "ng test --code-coverage",
     "test-watch": "ng test --watch --browsers Chrome",
-    "analyse": "pnpm build --source-map true --named-chunks true && source-map-explorer dist/**/*.js",
+    "analyse": "pnpm build --source-map true --named-chunks true && source-map-explorer dist/**/*.js --html bundle-analysis.html",
     "storybook": "ng run rotom:storybook",
     "build-storybook": "ng run rotom:build-storybook",
     "preview-storybook": "http-server -c-1 ./storybook-static --silent",

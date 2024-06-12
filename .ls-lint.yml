@@ -61,9 +61,16 @@ ls:
     .module.ts: kebab-case
     .config.ts: kebab-case
 
+  # Api Generator stuff
+  apps/*/src/api:
+    .schemas.ts: kebab-case
+    .msw.ts: kebab-case
+
 ignore:
   - apps/*/src/locales
   - packages/*/src/locales
   - apps/*/e2e/playwright.config.ts
   - apps/*/vrt/playwright.config.ts
   - packages/*/vrt/playwright.config.ts
+  - apps/*/e2e/results
+  - '**/*/@types'

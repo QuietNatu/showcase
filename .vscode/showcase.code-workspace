@@ -45,6 +45,10 @@
       "path": "../packages/utils",
     },
     {
+      "name": "📦 vite-plugin-bundle-i18n",
+      "path": "../packages/vite-plugin-bundle-i18n",
+    },
+    {
       "name": "📦 vrt",
       "path": "../packages/vrt",
     },

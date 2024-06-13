@@ -1,0 +1,5 @@
+{
+  "extends": "@natu/tsconfig/tsconfig.vite.json",
+  "compilerOptions": {},
+  "include": ["src"]
+}

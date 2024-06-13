@@ -1,0 +1,31 @@
+{
+  "name": "@natu/vite-plugin-bundle-i18n",
+  "private": true,
+  "license": "MIT",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup"
+  },
+  "peerDependencies": {
+    "vite": "5.2.12"
+  },
+  "dependencies": {
+    "picomatch": "^4.0.2"
+  },
+  "devDependencies": {
+    "@natu/eslint-config-react": "workspace:*",
+    "@natu/tsconfig": "workspace:*",
+    "@natu/utils": "workspace:*",
+    "@types/picomatch": "^2.3.3",
+    "tsup": "^8.1.0",
+    "typescript": "5.4.5"
+  }
+}

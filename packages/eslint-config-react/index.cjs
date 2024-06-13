@@ -125,6 +125,12 @@ module.exports = {
         'vitest/prefer-to-be-truthy': 'off',
         'vitest/require-top-level-describe': 'off',
         'vitest/max-expects': 'off',
+        'vitest/no-hooks': [
+          'error',
+          {
+            allow: ['afterEach', 'afterAll'],
+          },
+        ],
         'testing-library/no-await-sync-events': 'off',
         'testing-library/no-manual-cleanup': 'error',
         '@typescript-eslint/no-non-null-assertion': 'off',

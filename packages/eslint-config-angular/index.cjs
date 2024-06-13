@@ -117,6 +117,7 @@ module.exports = {
         'functional/no-mixed-types': 'off',
         'functional/prefer-immutable-types': 'off',
         'functional/no-classes': 'off',
+        // TODO: still classes still needed?
         'functional/immutable-data': ['error', { ignoreClasses: true }],
       },
     },

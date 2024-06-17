@@ -12,6 +12,8 @@ import {
 import { userEvent } from '@testing-library/user-event';
 import { NatuUiConfigProvider } from '../providers';
 
+/* TODO: re export these utils in smeargle to add i18n and add eslint rule to forbid these exports in smeargle */
+
 export type UserEventOptions = Parameters<typeof userEvent.setup>[0];
 
 interface RenderOptions {

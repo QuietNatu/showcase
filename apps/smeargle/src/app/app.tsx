@@ -21,7 +21,8 @@ export function App() {
       <main className={styles.main}>
         <Counter />
 
-        <div>{t('hello')}</div>
+        {/* TODO: remove */}
+        <div>{t('common.hello')}</div>
       </main>
     </div>
   );

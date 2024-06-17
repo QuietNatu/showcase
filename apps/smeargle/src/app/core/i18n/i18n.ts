@@ -9,7 +9,7 @@ import { Locale, setDefaultOptions } from 'date-fns';
 type Language = (typeof supportedLanguages)[number];
 
 const supportedLanguages = ['en-GB', 'en-US', 'pt-PT'] as const;
-const regionalFallbackLanguages = ['en-GB', 'pt-PT'] as const satisfies Language[];
+const fallbackLanguages: Language[] = ['en-GB', 'pt-PT'];
 const fallbackLanguage: Language = 'en-GB';
 const dateLocales: Record<Language, () => Promise<Locale>> = {
   'en-GB': () => import(`date-fns/locale/en-GB`).then((m) => m.enGB),
@@ -35,7 +35,7 @@ export function setupI18n() {
       load: 'currentOnly',
       supportedLngs: supportedLanguages,
       fallbackLng: (language = fallbackLanguage) => {
-        return getRegionalFallbackLanguage(language, regionalFallbackLanguages) ?? fallbackLanguage;
+        return getFallbackLanguage(language, fallbackLanguages) ?? fallbackLanguage;
       },
 
       interpolation: {
@@ -64,15 +64,12 @@ async function updateDateLocale(language: Language) {
 }
 
 // TODO: move to utils
-function getRegionalFallbackLanguage(
-  language: string,
-  regionalFallbackLanguages: string[],
-): string | undefined {
-  const regionlessLanguage = createRegionlessLanguage(language);
+function getFallbackLanguage(language: string, fallbackLanguages: string[]): string | undefined {
+  const languageCode = removeLocaleFromLanguage(language);
 
-  const fallbackLanguageDictionary = regionalFallbackLanguages.reduce<Record<string, string>>(
+  const fallbackLanguageDictionary = fallbackLanguages.reduce<Record<string, string>>(
     (dictionary, language) => {
-      const regionlessLanguage = createRegionlessLanguage(language);
+      const regionlessLanguage = removeLocaleFromLanguage(language);
 
       // eslint-disable-next-line functional/immutable-data
       dictionary[regionlessLanguage] = language;
@@ -82,11 +79,11 @@ function getRegionalFallbackLanguage(
     {},
   );
 
-  return fallbackLanguageDictionary[regionlessLanguage];
+  return fallbackLanguageDictionary[languageCode];
 }
 
 // TODO: move to utils
-function createRegionlessLanguage(language: string) {
+function removeLocaleFromLanguage(language: string) {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   return language.split('-')[0]!;
 }

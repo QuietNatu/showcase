@@ -6,6 +6,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import svgr from 'vite-plugin-svgr';
+import bundleI18n from '@natu/vite-plugin-bundle-i18n';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -25,6 +26,7 @@ export default defineConfig(({ mode }) => {
         },
       }),
       VitePWA(isE2e ? { injectRegister: null } : pwaOptions),
+      bundleI18n({ source: 'src/locales', destination: 'locales' }),
     ],
 
     build: {

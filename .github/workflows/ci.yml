@@ -79,14 +79,14 @@ jobs:
           pnpm i --frozen-lockfile --loglevel warn
           pnpm exec playwright install --with-deps chromium
 
+      - name: Build
+        run: pnpm run build --cache-dir=${{ env.TURBO_CACHE_DIR }}
+
       - name: Lint files
         run: pnpm run lint --cache-dir=${{ env.TURBO_CACHE_DIR }}
 
       - name: Run tests
         run: pnpm run test --cache-dir=${{ env.TURBO_CACHE_DIR }}
-
-      - name: Build
-        run: pnpm run build --cache-dir=${{ env.TURBO_CACHE_DIR }}
 
   vrt:
     runs-on: ubuntu-latest

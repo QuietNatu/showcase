@@ -26,7 +26,11 @@ export default defineConfig(({ mode }) => {
         },
       }),
       VitePWA(isE2e ? { injectRegister: null } : pwaOptions),
-      bundleI18n({ source: 'src/locales', destination: 'locales' }),
+      bundleI18n({
+        source: 'src/locales/original',
+        devDestination: 'src/locales/bundle',
+        buildDestination: 'locales',
+      }),
     ],
 
     build: {

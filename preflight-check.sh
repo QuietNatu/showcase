@@ -9,9 +9,9 @@ export CI=1
 
 # change to pnpm ci once it is implemented
 pnpm i --frozen-lockfile
+pnpm run build
 pnpm run lint
 pnpm run test
-pnpm run build
 pnpm run vrt
 
 echo -e "\n${GREEN}preflight-check success"

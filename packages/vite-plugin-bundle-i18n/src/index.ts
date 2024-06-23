@@ -1,14 +1,16 @@
 import type { Plugin, ResolvedConfig } from 'vite';
 import { normalizePath } from 'vite';
+import fs from 'fs';
 import path from 'path';
 import picomatch from 'picomatch';
-import { bundleLocales, saveLocales } from '@natu/utils/node';
-
-/* TODO: check what is still needed */
+import { bundleLocale, bundleLocales, saveLocale, saveLocales } from '@natu/utils/node';
 
 interface BundleI18nOptions {
   source: string;
-  destination: string;
+  /** Destination of the files to be used while developing. */
+  devDestination: string;
+  /** Destination of the files to be used when application is build. */
+  buildDestination: string;
 }
 
 /**
@@ -18,14 +20,11 @@ interface BundleI18nOptions {
  * for each of them.
  */
 export default function bundleI18n(options: BundleI18nOptions): Plugin {
-  const { source, destination: destinationDir } = options;
+  const { source, devDestination, buildDestination } = options;
 
   const bundledFileName = 'translation.json';
-  const virtualModuleId = 'virtual:i18n';
-  const resolvedVirtualModuleId = '\0' + virtualModuleId;
 
   let config: ResolvedConfig;
-  let bundledLocales: Map<string, Record<string, unknown>>;
 
   let webSourcePath: string;
   let isLocale: picomatch.Matcher;
@@ -35,14 +34,15 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
 
   return {
     name: 'vite-plugin-bundle-i18n',
+    enforce: 'pre',
     configResolved(resolvedConfig) {
       config = resolvedConfig;
 
       if (config.command === 'serve') {
-        webSourcePath = `${config.base}${destinationDir}`;
+        webSourcePath = `${config.base}${buildDestination}`;
         fileSourcePath = normalizePath(path.resolve(config.root, source));
 
-        const webSourceFilesPath = `${config.base}${destinationDir}/*/${bundledFileName}`;
+        const webSourceFilesPath = `${config.base}${buildDestination}/*/${bundledFileName}`;
         isLocale = picomatch(webSourceFilesPath);
 
         const fileSourceFilesPath = normalizePath(path.resolve(config.root, source, '**/*.json'));
@@ -50,30 +50,30 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
       }
     },
     buildStart() {
-      bundledLocales = bundleLocales({ root: config.root, source });
-    },
-    resolveId(id) {
-      return id === virtualModuleId ? resolvedVirtualModuleId : undefined;
-    },
-    load(id) {
-      return id === resolvedVirtualModuleId
-        ? `export default new Map(${JSON.stringify(Array.from(bundledLocales))})`
-        : undefined;
-    },
-    writeBundle() {
-      const destination = path.resolve(config.root, config.build.outDir, destinationDir);
+      const bundledLocales = bundleLocales({ root: config.root, source });
+      const destination = path.resolve(config.root, devDestination);
+      // At first glance virtual modules would be better for this but since typescript types depend on the generated translations they need to be persisted.
       saveLocales({ root: config.root, destination, bundledLocales, filename: bundledFileName });
     },
+    writeBundle() {
+      const source = path.resolve(config.root, devDestination);
+      const destination = path.resolve(config.root, config.build.outDir, buildDestination);
+
+      fs.cpSync(source, destination, { recursive: true });
+    },
     configureServer(server) {
-      server.middlewares.use((req, res, next) => {
-        if (req.originalUrl && isLocale(req.originalUrl)) {
-          const requestedLanguage = req.originalUrl
-            .substring(webSourcePath.length + 1)
-            .split('/')[0]!;
+      server.middlewares.use((request, response, next) => {
+        if (request.originalUrl && isLocale(request.originalUrl)) {
+          const language = request.originalUrl.substring(webSourcePath.length + 1).split('/')[0]!;
+          const languagePath = path.resolve(config.root, devDestination, language, bundledFileName);
 
-          const locale = bundledLocales.get(requestedLanguage);
-
-          res.end(JSON.stringify(locale));
+          if (fs.existsSync(languagePath)) {
+            const fileData = fs.readFileSync(languagePath);
+            response.end(fileData.toString());
+          } else {
+            response.writeHead(404);
+            response.end();
+          }
         } else {
           next();
         }
@@ -81,19 +81,25 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
     },
     handleHotUpdate({ file, server }) {
       if (shouldReload(normalizePath(file))) {
-        const changedLanguage = file.substring(fileSourcePath.length + 1).split('/')[0]!;
+        const language = file.substring(fileSourcePath.length + 1).split('/')[0]!;
 
-        const bundledLocale = bundleLocales({
+        const bundledLocale = bundleLocale({
           root: config.root,
           source,
-          language: changedLanguage,
-        }).get(changedLanguage);
+          language: language,
+        });
 
-        if (bundledLocale) {
-          bundledLocales.set(changedLanguage, bundledLocale);
+        const destination = path.resolve(config.root, devDestination);
 
-          server.ws.send({ type: 'full-reload', path: '*' });
-        }
+        saveLocale({
+          root: config.root,
+          destination,
+          language,
+          filename: bundledFileName,
+          bundledLocale,
+        });
+
+        server.ws.send({ type: 'full-reload', path: '*' });
       }
     },
   };

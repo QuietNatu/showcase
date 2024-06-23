@@ -1,4 +1,4 @@
-import { bundleLocales, saveLocales } from './locales';
+import { bundleLocale, bundleLocales, saveLocale, saveLocales } from './locales';
 import fs from 'fs';
 import path from 'path';
 
@@ -37,17 +37,12 @@ test('bundles all locales', () => {
 });
 
 test('bundles a given locale', () => {
-  const expected = new Map([
-    [
-      'en-GB',
-      {
-        common: { hello: 'Hello GB' },
-        features: { feature: { name: 'Feature GB' } },
-      },
-    ],
-  ]);
+  const expected = {
+    common: { hello: 'Hello GB' },
+    features: { feature: { name: 'Feature GB' } },
+  };
 
-  const result = bundleLocales({
+  const result = bundleLocale({
     root: import.meta.dirname,
     source: sourcePath,
     language: 'en-GB',
@@ -82,4 +77,26 @@ test('saves bundled locales', () => {
 
   expect(enGbJson).toStrictEqual(expectedEnGb);
   expect(enUsJson).toStrictEqual(expectedEnUs);
+});
+
+test('saves a given locale', () => {
+  const expectedEnGb = { common: { hello: 'Hello GB' } };
+
+  saveLocale({
+    root: import.meta.dirname,
+    destination: destinationPath,
+    language: 'en-GB',
+    bundledLocale: expectedEnGb,
+    filename: 'translation.json',
+  });
+
+  const destination = path.resolve(destinationPath);
+
+  const enGbFileData = fs.readFileSync(path.resolve(`${destination}/en-GB/translation.json`));
+  const enGbJson = JSON.parse(enGbFileData.toString()) as unknown;
+
+  const enUsExists = fs.existsSync(path.resolve(`${destination}/en-US/translation.json`));
+
+  expect(enGbJson).toStrictEqual(expectedEnGb);
+  expect(enUsExists).toBe(false);
 });

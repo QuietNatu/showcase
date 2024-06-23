@@ -1,24 +1,33 @@
 import fs from 'fs';
 import path from 'path';
 
-interface BundleLocalesOptions {
+type BundleLocalesOptions = Pick<BundleLocaleOptions, 'root' | 'source'>;
+
+interface BundleLocaleOptions {
   /** The root path of the project. */
   root: string;
   /** The relative path to the source. */
   source: string;
-  /** The only language to included in the bundle. */
-  language?: string;
+  /** The only language to be included in the bundle. */
+  language: string;
 }
 
-interface SaveLocalesOptions {
+interface SaveLocalesOptions extends Pick<SaveLocaleOptions, 'root' | 'destination' | 'filename'> {
+  /* The pre-bundled locales */
+  bundledLocales: Map<string, Record<string, unknown>>;
+}
+
+interface SaveLocaleOptions {
   /** The root path of the project. */
   root: string;
   /** The relative path to the destination. */
   destination: string;
   /** The name of the file to save to. */
   filename: string;
-  /* The pre-bundled locales */
-  bundledLocales: Map<string, Record<string, unknown>>;
+  /** The language corresponding to the locale. */
+  language: string;
+  /* The pre-bundled locale */
+  bundledLocale: Record<string, unknown>;
 }
 
 /**
@@ -26,11 +35,10 @@ interface SaveLocalesOptions {
  * The folder and file names will be used as keys for the created json.
  */
 export function bundleLocales(options: BundleLocalesOptions): Map<string, Record<string, unknown>> {
-  const { root, source, language: selectedLanguage } = options;
+  const { root, source } = options;
 
   const bundledLocales = fs
     .readdirSync(source)
-    .filter((language) => !selectedLanguage || language === selectedLanguage)
     .map((language) => {
       const languageSource = path.resolve(root, source, language);
 
@@ -38,7 +46,7 @@ export function bundleLocales(options: BundleLocalesOptions): Map<string, Record
         return;
       }
 
-      const bundle = bundleLocale(languageSource);
+      const bundle = bundleLocale({ root, source, language });
       return [language, bundle] as const;
     })
     .filter((bundle): bundle is [string, Record<string, unknown>] => Boolean(bundle));
@@ -46,7 +54,19 @@ export function bundleLocales(options: BundleLocalesOptions): Map<string, Record
   return new Map(bundledLocales);
 }
 
-function bundleLocale(source: string): Record<string, unknown> {
+/**
+ * Recursively merges all json files into a single file.
+ * The folder and file names will be used as keys for the created json.
+ */
+export function bundleLocale(options: BundleLocaleOptions): Record<string, unknown> {
+  const { root, source, language } = options;
+
+  const languageSource = path.resolve(root, source, language);
+
+  return _bundleLocale(languageSource);
+}
+
+function _bundleLocale(source: string): Record<string, unknown> {
   return fs
     .readdirSync(source)
     .map((file) => {
@@ -63,7 +83,7 @@ function bundleLocale(source: string): Record<string, unknown> {
       const namespace = path.parse(file).name;
 
       if (isDirectory) {
-        return { namespace, json: bundleLocale(filePath) };
+        return { namespace, json: _bundleLocale(filePath) };
       } else {
         const fileData = fs.readFileSync(filePath);
         const json = JSON.parse(fileData.toString()) as Record<string, unknown>;
@@ -84,11 +104,20 @@ function bundleLocale(source: string): Record<string, unknown> {
 export function saveLocales(options: SaveLocalesOptions) {
   const { root, destination, bundledLocales, filename } = options;
 
-  bundledLocales.forEach((bundle, language) => {
-    const destinationDirPath = path.resolve(root, destination, language);
-    const destinationPath = path.resolve(destinationDirPath, filename);
-
-    fs.mkdirSync(destinationDirPath, { recursive: true });
-    fs.writeFileSync(destinationPath, JSON.stringify(bundle));
+  bundledLocales.forEach((bundledLocale, language) => {
+    saveLocale({ root, destination, filename, bundledLocale, language });
   });
+}
+
+/**
+ * Writes bundled locale to a given destination.
+ */
+export function saveLocale(options: SaveLocaleOptions) {
+  const { root, destination, bundledLocale, language, filename } = options;
+
+  const destinationDirPath = path.resolve(root, destination, language);
+  const destinationPath = path.resolve(destinationDirPath, filename);
+
+  fs.mkdirSync(destinationDirPath, { recursive: true });
+  fs.writeFileSync(destinationPath, JSON.stringify(bundledLocale));
 }

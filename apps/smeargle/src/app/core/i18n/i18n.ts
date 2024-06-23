@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { Locale, setDefaultOptions } from 'date-fns';
+import { getFallbackLanguage } from '@natu/utils';
 
 type Language = (typeof supportedLanguages)[number];
 
@@ -57,32 +58,9 @@ async function updateDateLocale(language: Language) {
   /* TODO: try catch ?
    */
 
+  /* TODO: provider? and hook */
+
   setDefaultOptions({ locale: await dateLocales[language]() });
-}
-
-// TODO: move to utils
-function getFallbackLanguage(language: string, fallbackLanguages: string[]): string | undefined {
-  const languageCode = removeLocaleFromLanguage(language);
-
-  const fallbackLanguageDictionary = fallbackLanguages.reduce<Record<string, string>>(
-    (dictionary, language) => {
-      const regionlessLanguage = removeLocaleFromLanguage(language);
-
-      // eslint-disable-next-line functional/immutable-data
-      dictionary[regionlessLanguage] = language;
-
-      return dictionary;
-    },
-    {},
-  );
-
-  return fallbackLanguageDictionary[languageCode];
-}
-
-// TODO: move to utils
-function removeLocaleFromLanguage(language: string) {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return language.split('-')[0]!;
 }
 
 function updateDocumentLanguage(language: Language) {

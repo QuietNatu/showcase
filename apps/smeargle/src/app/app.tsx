@@ -4,10 +4,9 @@ import { Sidebar } from './components/sidebar/sidebar';
 import '../styles/styles.scss';
 import styles from './app.module.scss';
 import { useTranslation } from 'react-i18next';
-// TODO:
-// import { TypeOptions } from 'i18next';
 
-// const x: TypeOptions['resources'][TypeOptions['defaultNS']];
+/* TODO: error boundary */
+/* TODO: more suspense here? */
 
 export function App() {
   const { t } = useTranslation();

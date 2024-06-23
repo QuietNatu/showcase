@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { setDefaultOptions } from 'date-fns';
 import { enGB as dateEnGb } from 'date-fns/locale/en-GB';
-import locales from 'virtual:i18n';
+import enGb from '@/locales/bundle/en-GB/translation.json';
 
 // TODO: provide i18n in tests
 
@@ -11,17 +11,21 @@ export function setupTestI18n() {
 
   void i18n.use(initReactI18next).init({
     debug: false,
-    load: 'currentOnly',
+    lng: 'en-GB',
     supportedLngs: ['en-GB'],
 
     resources: {
-      'en-GB': {
-        translation: locales.get('en-GB') ?? {},
-      },
+      'en-GB': { translation: enGb },
     },
 
     interpolation: {
       escapeValue: false, // react is already safe from xss => https://www.i18next.com/translation-function/interpolation#unescape
     },
+
+    react: {
+      useSuspense: false, // Resources are already loaded
+    },
   });
+
+  return i18n;
 }

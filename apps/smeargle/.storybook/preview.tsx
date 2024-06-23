@@ -1,6 +1,10 @@
 import '../src/styles/styles.scss';
 import type { Preview } from '@storybook/react';
 import { storyA11yConfig, storyThemeDecorator } from '@natu/ui-react/stories';
+import { setupTestI18n } from '@/mocks/i18n';
+import { I18nextProvider } from 'react-i18next';
+
+const i18n = setupTestI18n();
 
 const preview: Preview = {
   tags: ['autodocs'],
@@ -45,7 +49,17 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [storyThemeDecorator()],
+  decorators: [
+    storyThemeDecorator(),
+
+    (Story) => {
+      return (
+        <I18nextProvider i18n={i18n}>
+          <Story />
+        </I18nextProvider>
+      );
+    },
+  ],
 };
 
 export default preview;

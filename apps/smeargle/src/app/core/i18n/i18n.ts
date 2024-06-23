@@ -4,8 +4,6 @@ import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { Locale, setDefaultOptions } from 'date-fns';
 
-/* TODO: html lang */
-
 type Language = (typeof supportedLanguages)[number];
 
 const supportedLanguages = ['en-GB', 'en-US', 'pt-PT'] as const;
@@ -18,11 +16,10 @@ const dateLocales: Record<Language, () => Promise<Locale>> = {
 };
 
 export function setupI18n() {
-  /* TODO: use config for week starts on and firstweekcontains date */
   setDefaultOptions({ weekStartsOn: 1, firstWeekContainsDate: 4 });
 
   i18n.on('languageChanged', (language) => {
-    // TODO
+    updateDocumentLanguage(language as Language);
     void updateDateLocale(language as Language);
   });
 
@@ -86,4 +83,8 @@ function getFallbackLanguage(language: string, fallbackLanguages: string[]): str
 function removeLocaleFromLanguage(language: string) {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   return language.split('-')[0]!;
+}
+
+function updateDocumentLanguage(language: Language) {
+  document.documentElement.setAttribute('lang', language);
 }

@@ -9,8 +9,3 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
-
-declare module 'virtual:i18n' {
-  const resources: Map<string, Record<string, unknown>>;
-  export default resources;
-}

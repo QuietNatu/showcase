@@ -6,10 +6,12 @@ import styles from './app.module.scss';
 import { useTranslation } from 'react-i18next';
 
 /* TODO: error boundary */
-/* TODO: more suspense here? */
+/* TODO: move suspense here? */
+/* TODO: remove */
+const date = new Date(2024, 5, 23);
 
 export function App() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className={styles.root}>
@@ -21,7 +23,17 @@ export function App() {
         <Counter />
 
         {/* TODO: remove */}
+        <select
+          value={i18n.language}
+          onChange={(event) => void i18n.changeLanguage(event.target.value)}
+        >
+          <option value="en-GB">en-GB</option>
+          <option value="en-US">en-US</option>
+          <option value="pt-PT">pt-PT</option>
+        </select>
+
         <div>{t('common.hello')}</div>
+        <div>{t('common.testDate', { value: date })}</div>
       </main>
     </div>
   );

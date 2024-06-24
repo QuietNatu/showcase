@@ -1,3 +1,4 @@
 {
-  "hello": "Hello EN US"
+  "hello": "Hello EN US",
+  "testDate": "The time is {{value, datetime}}"
 }

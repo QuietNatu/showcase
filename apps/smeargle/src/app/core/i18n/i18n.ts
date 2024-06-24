@@ -2,26 +2,22 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import { Locale, setDefaultOptions } from 'date-fns';
+import { setDefaultOptions } from 'date-fns';
 import { getFallbackLanguage } from '@natu/utils';
 
 type Language = (typeof supportedLanguages)[number];
 
+/* TODO: forbid date-fns format and parse */
+
 const supportedLanguages = ['en-GB', 'en-US', 'pt-PT'] as const;
 const fallbackLanguages: Language[] = ['en-GB', 'pt-PT'];
 const fallbackLanguage: Language = 'en-GB';
-const dateLocales: Record<Language, () => Promise<Locale>> = {
-  'en-GB': () => import(`date-fns/locale/en-GB`).then((m) => m.enGB),
-  'en-US': () => import(`date-fns/locale/en-US`).then((m) => m.enUS),
-  'pt-PT': () => import(`date-fns/locale/pt`).then((m) => m.pt),
-};
 
 export function setupI18n() {
   setDefaultOptions({ weekStartsOn: 1, firstWeekContainsDate: 4 });
 
   i18n.on('languageChanged', (language) => {
-    updateDocumentLanguage(language as Language);
-    void updateDateLocale(language as Language);
+    updateDocumentLanguage(language);
   });
 
   void i18n
@@ -32,8 +28,8 @@ export function setupI18n() {
       debug: import.meta.env.DEV,
       load: 'currentOnly',
       supportedLngs: supportedLanguages,
-      fallbackLng: (language = fallbackLanguage) => {
-        return getFallbackLanguage(language, fallbackLanguages) ?? fallbackLanguage;
+      fallbackLng: (language) => {
+        return getFallbackLanguage(language, fallbackLanguages, fallbackLanguage);
       },
 
       interpolation: {
@@ -47,22 +43,6 @@ export function setupI18n() {
     });
 }
 
-async function updateDateLocale(language: Language) {
-  /* TODO: needs to be language without culture? */
-
-  /* TODO: trigger suspense */
-  /* TODO: use this in the future https://react.dev/reference/react/use */
-
-  // TODO
-  // console.log({ dateLocaleLanguage: language });
-  /* TODO: try catch ?
-   */
-
-  /* TODO: provider? and hook */
-
-  setDefaultOptions({ locale: await dateLocales[language]() });
-}
-
-function updateDocumentLanguage(language: Language) {
+function updateDocumentLanguage(language: string) {
   document.documentElement.setAttribute('lang', language);
 }

@@ -1,4 +1,4 @@
-import { createContext } from '../hooks';
+import { createContext } from '../utils';
 
 export interface NatuUiConfig {
   tooltip?: {

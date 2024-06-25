@@ -4,7 +4,7 @@ import * as stories from './tooltip.stories';
 import { ReactNode } from 'react';
 import { screen, waitForElementToBeRemoved } from '@testing-library/react';
 import { NatuTooltip, NatuTooltipContent, NatuTooltipProps, NatuTooltipTrigger } from './tooltip';
-import { NatuUiConfigProvider } from '../../providers';
+import { NatuUiConfigProvider } from '../../contexts';
 
 const { Playground, ...tooltipStories } = composeStories(stories);
 const storyTestCases = Object.entries(tooltipStories);

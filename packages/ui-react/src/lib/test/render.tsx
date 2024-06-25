@@ -10,7 +10,7 @@ import {
 } from '@testing-library/react';
 // eslint-disable-next-line @typescript-eslint/no-restricted-imports
 import { userEvent } from '@testing-library/user-event';
-import { NatuUiConfigProvider } from '../providers';
+import { NatuUiConfigProvider } from '../contexts';
 
 /* TODO: re export these utils in smeargle to add i18n and add eslint rule to forbid these exports in smeargle */
 

@@ -7,8 +7,6 @@ import { getFallbackLanguage } from '@natu/utils';
 
 type Language = (typeof supportedLanguages)[number];
 
-/* TODO: forbid date-fns format and parse */
-
 const supportedLanguages = ['en-GB', 'en-US', 'pt-PT'] as const;
 const fallbackLanguages: Language[] = ['en-GB', 'pt-PT'];
 const fallbackLanguage: Language = 'en-GB';

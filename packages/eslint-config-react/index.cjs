@@ -82,6 +82,11 @@ module.exports = {
             importNames: ['axe'],
             message: 'use our axe wrapper.',
           },
+          {
+            name: 'date-fns',
+            importNames: ['format', 'parse'],
+            message: 'use our i18n library.',
+          },
         ],
       },
     ],

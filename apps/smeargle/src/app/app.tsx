@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 /* TODO: error boundary */
 /* TODO: move suspense here? */
+/* TODO: ui package */
 /* TODO: remove */
 const date = new Date(2024, 5, 23);
 

@@ -4,6 +4,7 @@ import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { setDefaultOptions } from 'date-fns';
 import { getFallbackLanguage } from '@natu/utils';
+import { appConfig } from '../config';
 
 type Language = (typeof supportedLanguages)[number];
 
@@ -11,8 +12,13 @@ const supportedLanguages = ['en-GB', 'en-US', 'pt-PT'] as const;
 const fallbackLanguages: Language[] = ['en-GB', 'pt-PT'];
 const fallbackLanguage: Language = 'en-GB';
 
+/* TODO: dependency injection */
+
 export function setupI18n() {
-  setDefaultOptions({ weekStartsOn: 1, firstWeekContainsDate: 4 });
+  setDefaultOptions({
+    weekStartsOn: appConfig.date.weekStartsOn,
+    firstWeekContainsDate: appConfig.date.firstWeekContainsDate,
+  });
 
   i18n.on('languageChanged', (language) => {
     updateDocumentLanguage(language);

@@ -1,13 +1,11 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { setDefaultOptions } from 'date-fns';
-import { enGB as dateEnGb } from 'date-fns/locale/en-GB';
 import enGb from '@/locales/bundle/en-GB/translation.json';
 
-// TODO: provide i18n in tests
-
 export function setupTestI18n() {
-  setDefaultOptions({ weekStartsOn: 1, firstWeekContainsDate: 4, locale: dateEnGb });
+  /* TODO: move to config */
+  setDefaultOptions({ weekStartsOn: 1, firstWeekContainsDate: 4 });
 
   void i18n.use(initReactI18next).init({
     debug: false,

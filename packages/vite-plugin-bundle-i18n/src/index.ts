@@ -11,6 +11,8 @@ interface BundleI18nOptions {
   devDestination: string;
   /** Destination of the files to be used when application is build. */
   buildDestination: string;
+  /** Name of the generated bundle json file. */
+  filename: string;
 }
 
 /**
@@ -21,8 +23,7 @@ interface BundleI18nOptions {
  */
 export default function bundleI18n(options: BundleI18nOptions): Plugin {
   const { source, devDestination, buildDestination } = options;
-
-  const bundledFileName = 'translation.json';
+  const bundledFilename = `${options.filename}.json`;
 
   let config: ResolvedConfig;
 
@@ -42,7 +43,7 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
         webSourcePath = `${config.base}${buildDestination}`;
         fileSourcePath = normalizePath(path.resolve(config.root, source));
 
-        const webSourceFilesPath = `${config.base}${buildDestination}/*/${bundledFileName}`;
+        const webSourceFilesPath = `${config.base}${buildDestination}/*/${bundledFilename}`;
         isLocale = picomatch(webSourceFilesPath);
 
         const fileSourceFilesPath = normalizePath(path.resolve(config.root, source, '**/*.json'));
@@ -53,7 +54,7 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
       const bundledLocales = bundleLocales({ root: config.root, source });
       const destination = path.resolve(config.root, devDestination);
       // At first glance virtual modules would be better for this but since typescript types depend on the generated translations they need to be persisted.
-      saveLocales({ root: config.root, destination, bundledLocales, filename: bundledFileName });
+      saveLocales({ root: config.root, destination, bundledLocales, filename: bundledFilename });
     },
     writeBundle() {
       const source = path.resolve(config.root, devDestination);
@@ -65,7 +66,7 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
       server.middlewares.use((request, response, next) => {
         if (request.originalUrl && isLocale(request.originalUrl)) {
           const language = request.originalUrl.substring(webSourcePath.length + 1).split('/')[0]!;
-          const languagePath = path.resolve(config.root, devDestination, language, bundledFileName);
+          const languagePath = path.resolve(config.root, devDestination, language, bundledFilename);
 
           if (fs.existsSync(languagePath)) {
             const fileData = fs.readFileSync(languagePath);
@@ -95,7 +96,7 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
           root: config.root,
           destination,
           language,
-          filename: bundledFileName,
+          filename: bundledFilename,
           bundledLocale,
         });
 

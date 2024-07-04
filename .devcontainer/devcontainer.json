@@ -25,7 +25,7 @@
     }
   },
 
-  "postCreateCommand": "corepack enable pnpm && corepack install && pnpm install && pnpm exec playwright install --with-deps && pnpm build",
+  "postCreateCommand": "git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' && git config pull.rebase false && corepack enable pnpm && corepack install && pnpm install && pnpm exec playwright install --with-deps && pnpm build",
 
   "runArgs": ["--network", "host"],
 
@@ -36,6 +36,10 @@
     },
     "5000-7000": { "onAutoForward": "silent" },
     "9222": { "onAutoForward": "silent" }
+  },
+
+  "remoteEnv": {
+    "GIT_CLONE_PROTECTION_ACTIVE": "false"
   },
 
   "remoteUser": "vscode"

@@ -19,7 +19,9 @@
     "vrt-update": "pnpm vrt --update-snapshots",
     "vrt-show-report": "playwright show-report vrt/report --port 6004",
     "e2e": "cross-env VITE_E2E=true playwright test --config e2e/playwright.config.ts",
-    "build-api": "orval --config ./orval.config.ts"
+    "build-dependencies": "pnpm build-api && pnpm build-i18n",
+    "build-api": "orval --config ./orval.config.ts",
+    "build-i18n": "bundle-i18n --source src/locales/original --destination src/locales/bundle --filename translation"
   },
   "dependencies": {
     "@natu/assets": "workspace:*",
@@ -39,6 +41,7 @@
   "devDependencies": {
     "@faker-js/faker": "8.4.1",
     "@mswjs/data": "0.16.1",
+    "@natu/bundle-i18n": "workspace:*",
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/vite-plugin-bundle-i18n": "workspace:*",

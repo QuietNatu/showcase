@@ -17,6 +17,10 @@
       "path": "../packages/assets",
     },
     {
+      "name": "📦 bundle-i18n",
+      "path": "../packages/bundle-i18n",
+    },
+    {
       "name": "📦 eslint-config-angular",
       "path": "../packages/eslint-config-angular",
     },

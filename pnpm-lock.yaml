@@ -289,6 +289,9 @@ importers:
       '@mswjs/data':
         specifier: 0.16.1
         version: 0.16.1(typescript@5.4.5)
+      '@natu/bundle-i18n':
+        specifier: workspace:*
+        version: link:../../packages/bundle-i18n
       '@natu/eslint-config-react':
         specifier: workspace:*
         version: link:../../packages/eslint-config-react
@@ -416,6 +419,34 @@ importers:
       rimraf:
         specifier: 5.0.7
         version: 5.0.7
+
+  packages/bundle-i18n:
+    dependencies:
+      '@natu/utils':
+        specifier: workspace:*
+        version: link:../utils
+      commander:
+        specifier: ^12.1.0
+        version: 12.1.0
+      picocolors:
+        specifier: ^1.0.1
+        version: 1.0.1
+    devDependencies:
+      '@natu/eslint-config-react':
+        specifier: workspace:*
+        version: link:../eslint-config-react
+      '@natu/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      '@types/node':
+        specifier: 20.14.1
+        version: 20.14.1
+      tsup:
+        specifier: ^8.1.0
+        version: 8.1.0(@swc/core@1.5.27)(postcss@8.4.38)(typescript@5.4.5)
+      typescript:
+        specifier: 5.4.5
+        version: 5.4.5
 
   packages/eslint-config-angular:
     dependencies:
@@ -886,6 +917,9 @@ importers:
 
   packages/vite-plugin-bundle-i18n:
     dependencies:
+      '@natu/utils':
+        specifier: workspace:*
+        version: link:../utils
       picomatch:
         specifier: ^4.0.2
         version: 4.0.2
@@ -899,9 +933,6 @@ importers:
       '@natu/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
-      '@natu/utils':
-        specifier: workspace:*
-        version: link:../utils
       '@types/picomatch':
         specifier: ^2.3.3
         version: 2.3.3

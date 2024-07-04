@@ -30,6 +30,7 @@ export default defineConfig(({ mode }) => {
         source: 'src/locales/original',
         devDestination: 'src/locales/bundle',
         buildDestination: 'locales',
+        filename: 'translation',
       }),
     ],
 

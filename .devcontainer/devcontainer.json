@@ -39,7 +39,8 @@
   },
 
   "remoteEnv": {
-    "GIT_CLONE_PROTECTION_ACTIVE": "false"
+    "GIT_MERGE_AUTOEDIT": "no",
+    "GIT_CLONE_PROTECTION_ACTIVE": "false" // TODO: check if this can be removed in the future
   },
 
   "remoteUser": "vscode"

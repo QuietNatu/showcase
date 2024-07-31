@@ -24,8 +24,8 @@ importers:
         specifier: 1.44.1
         version: 1.44.1
       dependency-cruiser:
-        specifier: 16.3.3
-        version: 16.3.3
+        specifier: 16.3.10
+        version: 16.3.10
       eslint:
         specifier: 8.57.0
         version: 8.57.0
@@ -5013,21 +5013,12 @@ packages:
     resolution: {integrity: sha512-OPdCF6GsMIP+Az+aWfAAOEt2/+iVDKE7oy6lJ098aoe59oAmK76qV6Gw60SbZ8jHuG2wH058GF4pLFbYamYrVA==}
     engines: {node: '>=0.4.0'}
 
-  acorn-walk@8.3.2:
-    resolution: {integrity: sha512-cjkyv4OtNCIeqhHrfS81QWXoCBPExR/J62oyEqepVw8WaQeSqpW2uhuLPh1m9eWhDuOo/jUXVTlifvesOWp/4A==}
-    engines: {node: '>=0.4.0'}
-
   acorn-walk@8.3.3:
     resolution: {integrity: sha512-MxXdReSRhGO7VlFe1bRG/oI7/mdLV9B9JJT0N8vZOhF7gFRR5l3M8W9G8JxmKV+JC5mGqJ0QvqfSOLsCPa4nUw==}
     engines: {node: '>=0.4.0'}
 
   acorn@7.4.1:
     resolution: {integrity: sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
-
-  acorn@8.11.3:
-    resolution: {integrity: sha512-Y9rRfJG5jcKOE0CLisYbojUjIrIEE7AGMzA/Sm4BslANhbS+cDMpgBdcPT91oJ7OuJ9hYJBx59RjbhxVnrF8Xg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
 
@@ -5096,9 +5087,6 @@ packages:
 
   ajv@8.13.0:
     resolution: {integrity: sha512-PRA911Blj99jR5RMeTunVbNXMF6Lp4vZXnk5GQjcnUWUTsrXtekg/pnmFFI2u/I36Y/2bITGS30GZCXei6uNkA==}
-
-  ajv@8.16.0:
-    resolution: {integrity: sha512-F0twR8U1ZU67JIEtekUcLkXkoO5mMMmgGD8sK/xUFzJ805jxHQl92hImFAqqXMyMYjSPOyUPAwHYhB72g5sTXw==}
 
   ajv@8.17.1:
     resolution: {integrity: sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==}
@@ -6048,8 +6036,8 @@ packages:
     resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
     engines: {node: '>= 0.8'}
 
-  dependency-cruiser@16.3.3:
-    resolution: {integrity: sha512-+YHPbd6RqM1nLUUbRVkbYO6mVeeq+VEL+bBkR+KFkYVU20vs1D0TalZ9z/hDLxiYiYCSTctUaoWWaUrRc1I+mw==}
+  dependency-cruiser@16.3.10:
+    resolution: {integrity: sha512-WkCnibHBfvaiaQ+S46LZ6h4AR6oj42Vsf5/0Vgtrwdwn7ZekMJdZ/ALoTwNp/RaGlKW+MbV/fhSZOvmhAWVWzQ==}
     engines: {node: ^18.17||>=20}
     hasBin: true
 
@@ -6239,6 +6227,10 @@ packages:
 
   enhanced-resolve@5.17.0:
     resolution: {integrity: sha512-dwDPwZL0dmye8Txp2gzFmA6sxALaSvdRDjPH0viLcKrtlOL3tw62nWWweVD1SdILDTJrbrL6tdWVN58Wo6U3eA==}
+    engines: {node: '>=10.13.0'}
+
+  enhanced-resolve@5.17.1:
+    resolution: {integrity: sha512-LMHl3dXhTcfv8gM4kEzIUeTQ+7fpdA0l2tUf34BddXPkz2A5xJ5L/Pchd5BL6rdccM9QGvu0sWZzK1Z1t4wwyg==}
     engines: {node: '>=10.13.0'}
 
   enquirer@2.3.6:
@@ -6654,10 +6646,6 @@ packages:
   figures@3.2.0:
     resolution: {integrity: sha512-yaduQFRKLXYOGgEn6AZau90j3ggSOyiqXU0F9JZfeXYhNa+Jk4X+s45A2zg5jns87GAFa34BBm2kXw4XpNcbdg==}
     engines: {node: '>=8'}
-
-  figures@6.1.0:
-    resolution: {integrity: sha512-d+l3qxjSesT4V7v2fh+QnmFnUWv9lSpjarhShNTgBOfA0ttejbQUAlHLitbjkoRiDulW0OPoQPYIGhIC8ohejg==}
-    engines: {node: '>=18'}
 
   file-entry-cache@6.0.1:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
@@ -7240,10 +7228,6 @@ packages:
     resolution: {integrity: sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==}
     engines: {node: '>=8'}
 
-  indent-string@5.0.0:
-    resolution: {integrity: sha512-m6FAo/spmsW2Ab2fU35JTYwtOKa2yAwXSwgjSv1TJzh4Mh7mC3lzAOVLBprb72XsTrgkEIsl7YrFNAiDiRhIGg==}
-    engines: {node: '>=12'}
-
   inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
     deprecated: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
@@ -7532,10 +7516,6 @@ packages:
   is-unicode-supported@0.1.0:
     resolution: {integrity: sha512-knxG2q4UC3u8stRGyAVJCOdxFmv5DZiRcdlIaAQXAbSfJya+OhopNotLQrstBhququ4ZpuKbDc/8S6mgXgPFPw==}
     engines: {node: '>=10'}
-
-  is-unicode-supported@2.0.0:
-    resolution: {integrity: sha512-FRdAyx5lusK1iHG0TWpVtk9+1i+GjrzRffhDg4ovQ7mcidMQ6mj+MhKPmvh7Xwyv5gIS06ns49CA7Sqg7lC22Q==}
-    engines: {node: '>=18'}
 
   is-weakmap@2.0.2:
     resolution: {integrity: sha512-K5pXYOm9wqY1RgjpL3YTkF39tni1XajUIkawTLUo9EZEVUFga5gSQJF8nNS7ZwJQ02y+1YCNYcMh+HIf1ZqE+w==}
@@ -9438,10 +9418,6 @@ packages:
     resolution: {integrity: sha512-th5B4L2U+eGLq1TVh7zNRGBapioSORUeymIydxgFpwww9d2qyKvtuPU2jJuHvYAwwqi2Y596QBL3eEqcPEYL8Q==}
     engines: {node: '>=10'}
 
-  semver-try-require@7.0.0:
-    resolution: {integrity: sha512-LI7GzDuAZmNKOY0/LY4nB3ifh6kYMvBimFTHVpA6wNEl3gw59QrLbTAnJb7vQzPd1qXPz+BtKJZaYORXWMerrA==}
-    engines: {node: ^18.17||>=20}
-
   semver@5.7.2:
     resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
     hasBin: true
@@ -9452,6 +9428,11 @@ packages:
 
   semver@7.6.2:
     resolution: {integrity: sha512-FNAIBWCx9qcRhoHcgcJ0gvU7SN1lYU2ZXuSfl04bSC5OpvDHFyJCjdNHomPXxjQlCBU67YW64PzY7/VIEH7F2w==}
+    engines: {node: '>=10'}
+    hasBin: true
+
+  semver@7.6.3:
+    resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -10609,8 +10590,8 @@ packages:
     resolution: {integrity: sha512-8wrBCMtVhqcXP2Sup1ctSkga6uc2Bx0IIvKyT7yTFier5AXHooSI+QyQQAtTb7+E0IUCCKyTFmXqdqgum2XWGg==}
     engines: {node: '>=10.13.0'}
 
-  watskeburt@4.0.2:
-    resolution: {integrity: sha512-w7X8AGrBZExP5/3e3c1X/CUY8Yod/aiAazQCvrg7n8Un6piD+NFFK926G15zRq4+wu0XAEWpSsZ4C+fEfVOCYw==}
+  watskeburt@4.1.0:
+    resolution: {integrity: sha512-KkY5H51ajqy9HYYI+u9SIURcWnqeVVhdH0I+ab6aXPGHfZYxgRCwnR6Lm3+TYB6jJVt5jFqw4GAKmwf1zHmGQw==}
     engines: {node: ^18||>=20}
     hasBin: true
 
@@ -17346,29 +17327,21 @@ snapshots:
     dependencies:
       acorn: 7.4.1
 
-  acorn-jsx@5.3.2(acorn@8.11.3):
-    dependencies:
-      acorn: 8.11.3
-
   acorn-jsx@5.3.2(acorn@8.12.1):
     dependencies:
       acorn: 8.12.1
 
   acorn-loose@8.4.0:
     dependencies:
-      acorn: 8.11.3
+      acorn: 8.12.1
 
   acorn-walk@7.2.0: {}
-
-  acorn-walk@8.3.2: {}
 
   acorn-walk@8.3.3:
     dependencies:
       acorn: 8.12.1
 
   acorn@7.4.1: {}
-
-  acorn@8.11.3: {}
 
   acorn@8.12.1: {}
 
@@ -17423,13 +17396,6 @@ snapshots:
       uri-js: 4.4.1
 
   ajv@8.13.0:
-    dependencies:
-      fast-deep-equal: 3.1.3
-      json-schema-traverse: 1.0.0
-      require-from-string: 2.0.2
-      uri-js: 4.4.1
-
-  ajv@8.16.0:
     dependencies:
       fast-deep-equal: 3.1.3
       json-schema-traverse: 1.0.0
@@ -18453,35 +18419,30 @@ snapshots:
 
   depd@2.0.0: {}
 
-  dependency-cruiser@16.3.3:
+  dependency-cruiser@16.3.10:
     dependencies:
-      acorn: 8.11.3
-      acorn-jsx: 5.3.2(acorn@8.11.3)
+      acorn: 8.12.1
+      acorn-jsx: 5.3.2(acorn@8.12.1)
       acorn-jsx-walk: 2.0.0
       acorn-loose: 8.4.0
-      acorn-walk: 8.3.2
-      ajv: 8.16.0
-      chalk: 5.3.0
+      acorn-walk: 8.3.3
+      ajv: 8.17.1
       commander: 12.1.0
-      enhanced-resolve: 5.17.0
-      figures: 6.1.0
+      enhanced-resolve: 5.17.1
       ignore: 5.3.1
-      indent-string: 5.0.0
       interpret: 3.1.1
       is-installed-globally: 1.0.0
       json5: 2.2.3
-      lodash: 4.17.21
       memoize: 10.0.0
+      picocolors: 1.0.1
       picomatch: 4.0.2
       prompts: 2.4.2
       rechoir: 0.8.0
       safe-regex: 2.1.1
-      semver: 7.6.2
-      semver-try-require: 7.0.0
+      semver: 7.6.3
       teamcity-service-messages: 0.1.14
       tsconfig-paths-webpack-plugin: 4.1.0
-      watskeburt: 4.0.2
-      wrap-ansi: 9.0.0
+      watskeburt: 4.1.0
 
   dependency-graph@0.11.0: {}
 
@@ -18664,6 +18625,11 @@ snapshots:
       - utf-8-validate
 
   enhanced-resolve@5.17.0:
+    dependencies:
+      graceful-fs: 4.2.11
+      tapable: 2.2.1
+
+  enhanced-resolve@5.17.1:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.2.1
@@ -19333,10 +19299,6 @@ snapshots:
   figures@3.2.0:
     dependencies:
       escape-string-regexp: 1.0.5
-
-  figures@6.1.0:
-    dependencies:
-      is-unicode-supported: 2.0.0
 
   file-entry-cache@6.0.1:
     dependencies:
@@ -20030,8 +19992,6 @@ snapshots:
 
   indent-string@4.0.0: {}
 
-  indent-string@5.0.0: {}
-
   inflight@1.0.6:
     dependencies:
       once: 1.4.0
@@ -20281,8 +20241,6 @@ snapshots:
       which-typed-array: 1.1.15
 
   is-unicode-supported@0.1.0: {}
-
-  is-unicode-supported@2.0.0: {}
 
   is-weakmap@2.0.2: {}
 
@@ -22502,15 +22460,13 @@ snapshots:
       '@types/node-forge': 1.3.11
       node-forge: 1.3.1
 
-  semver-try-require@7.0.0:
-    dependencies:
-      semver: 7.6.2
-
   semver@5.7.2: {}
 
   semver@6.3.1: {}
 
   semver@7.6.2: {}
+
+  semver@7.6.3: {}
 
   send@0.18.0:
     dependencies:
@@ -23903,7 +23859,7 @@ snapshots:
       glob-to-regexp: 0.4.1
       graceful-fs: 4.2.11
 
-  watskeburt@4.0.2: {}
+  watskeburt@4.1.0: {}
 
   wbuf@1.7.3:
     dependencies:

@@ -5,10 +5,8 @@ import { mockDatabase } from '@/mocks/server/database/database';
 import { mockServer } from '@/mocks/server/server';
 import { drop } from '@mswjs/data';
 import { deleteAllCookies } from '@natu/utils';
-import { setupTestI18n } from '@/mocks/i18n';
 
 beforeAll(() => {
-  setupTestI18n();
   mockServer.listen();
 });
 

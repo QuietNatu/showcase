@@ -925,7 +925,7 @@ importers:
         version: 4.0.2
       vite:
         specifier: 5.2.12
-        version: 5.2.12(@types/node@20.14.1)(less@4.2.0)(sass@1.77.4)(terser@5.31.1)
+        version: 5.2.12(@types/node@20.14.8)(less@4.2.0)(sass@1.77.4)(terser@5.31.1)
     devDependencies:
       '@natu/eslint-config-react':
         specifier: workspace:*
@@ -2651,9 +2651,6 @@ packages:
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
-
-  '@floating-ui/utils@0.2.2':
-    resolution: {integrity: sha512-J4yDIIthosAsRZ5CPYP/jQvUAQtlZTTD/4suA08/FEnlxqW3sKS9iAhgsa9VYLZ6vDHn/ixJgIqRQPotoBjxIw==}
 
   '@floating-ui/utils@0.2.4':
     resolution: {integrity: sha512-dWO2pw8hhi+WrXq1YJy2yCuWoL20PddgGaqTgVe4cOS9Q6qklXCiA1tJEqX6BEwRNSCP84/afac9hd4MS+zEUA==}
@@ -4604,6 +4601,9 @@ packages:
 
   '@types/node@18.19.34':
     resolution: {integrity: sha512-eXF4pfBNV5DAMKGbI02NnDtWrQ40hAN558/2vvS4gMpMIxaf6JmD7YjnZbq0Q9TDSSkKBamime8ewRoomHdt4g==}
+
+  '@types/node@20.14.1':
+    resolution: {integrity: sha512-T2MzSGEu+ysB/FkWfqmhV3PLyQlowdptmmgD20C6QxsS8Fmv5SjpZ1ayXaEC0S21/h5UJ9iA6W/5vSNU5l00OA==}
 
   '@types/node@20.14.8':
     resolution: {integrity: sha512-DO+2/jZinXfROG7j7WKFn/3C6nFwxy2lLpgLjEXJz+0XKphZlTLJ14mo8Vfg8X5BWN6XjyESXq+LcYdT7tR3bA==}
@@ -13589,8 +13589,6 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       tabbable: 6.2.0
 
-  '@floating-ui/utils@0.2.2': {}
-
   '@floating-ui/utils@0.2.4': {}
 
   '@foliojs-fork/fontkit@1.9.2':
@@ -16803,6 +16801,10 @@ snapshots:
       '@types/node': 20.14.8
 
   '@types/node@18.19.34':
+    dependencies:
+      undici-types: 5.26.5
+
+  '@types/node@20.14.1':
     dependencies:
       undici-types: 5.26.5
 

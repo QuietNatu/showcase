@@ -21,6 +21,7 @@
 - https://github.com/angular/angular/issues/14545
 - https://github.com/angular/angular/issues/13776
 - https://github.com/angular/angular-cli/issues/11787
+- https://github.com/angular/angular/issues/25963
 
 ### Karma Jasmine HTML Reporter interferes with tests
 

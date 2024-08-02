@@ -1,6 +1,7 @@
 import { composeStories } from '@storybook/react';
 import * as stories from './popover.stories';
-import { axe, render, renderStory, waitForAsyncActions } from '../../test';
+import { axe, waitForAsyncActions } from '../../test';
+import { render, renderStory } from '../../../test/render';
 import { NatuPopover, NatuPopoverContent, NatuPopoverProps, NatuPopoverTrigger } from './popover';
 import { screen, waitForElementToBeRemoved } from '@testing-library/react';
 

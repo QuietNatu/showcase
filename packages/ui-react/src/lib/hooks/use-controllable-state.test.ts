@@ -1,4 +1,4 @@
-import { renderHook } from '../test';
+import { renderHook } from '../../test/render';
 import { act } from '@testing-library/react';
 import { useControllableState } from './use-controllable-state';
 

@@ -1,4 +1,4 @@
-import { renderHook } from '../test';
+import { renderHook } from '../../test/render';
 import { createContext } from './context';
 
 test('renders when context has a default value', () => {

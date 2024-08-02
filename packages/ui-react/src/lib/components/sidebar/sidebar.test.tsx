@@ -1,5 +1,6 @@
 import { composeStories } from '@storybook/react';
-import { axe, render, renderStory } from '../../test';
+import { axe } from '../../test';
+import { render, renderStory } from '../../../test/render';
 import * as stories from './sidebar.stories';
 import { NatuSidebar, NatuSidebarAction, NatuSidebarProps } from './sidebar';
 import { NatuIcon } from '../icon/icon';

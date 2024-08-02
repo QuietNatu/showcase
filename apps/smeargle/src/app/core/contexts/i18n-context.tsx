@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useRef } from 'react';
 import { AppConfig, useAppConfig } from './config-context';
 import { setDefaultOptions } from 'date-fns';
 import i18n from 'i18next';
@@ -57,42 +57,6 @@ export function AppI18nProvider(props: { children: ReactNode }) {
   }
 
   return <I18nextProvider i18n={i18n}>{props.children}</I18nextProvider>;
-}
-
-function useSetupI18n(appConfig: AppConfig) {
-  useEffect(() => {
-    if (i18n.isInitialized || i18n.isInitializing) {
-      return;
-    }
-
-    i18n.on('languageChanged', updateDocumentLanguage);
-
-    void i18n
-      .use(HttpBackend)
-      .use(LanguageDetector)
-      .use(initReactI18next)
-      .init({
-        debug: import.meta.env.DEV,
-        load: 'currentOnly',
-        supportedLngs: appConfig.i18n.supportedLanguages,
-        fallbackLng: (language) => {
-          return getFallbackLanguage(
-            language,
-            appConfig.i18n.fallbackLanguages,
-            appConfig.i18n.finalFallbackLanguage,
-          );
-        },
-
-        interpolation: {
-          escapeValue: false, // react is already safe from xss => https://www.i18next.com/translation-function/interpolation#unescape
-        },
-
-        detection: {
-          order: ['localStorage', 'navigator'],
-          lookupLocalStorage: 'language',
-        },
-      });
-  }, [appConfig.i18n]);
 }
 
 function updateDocumentLanguage(language: string) {

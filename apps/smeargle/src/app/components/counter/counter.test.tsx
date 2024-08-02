@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
-import { render } from '@natu/ui-react/test';
 import { Counter } from './counter';
+import { render } from '@/test/render';
 
 test('renders', async () => {
   const { userEvent } = render(<Counter />);

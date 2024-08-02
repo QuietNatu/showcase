@@ -1,4 +1,5 @@
-import { axe, renderStory } from '../../test';
+import { axe } from '../../test';
+import { renderStory } from '../../../test/render';
 import { composeStories } from '@storybook/react';
 import * as stories from './button.stories';
 

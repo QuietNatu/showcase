@@ -12,6 +12,10 @@
       "dependsOn": ["^build", "build-api"],
       "outputs": ["dist/**"]
     },
+    "preview": {
+      "dependsOn": ["build"],
+      "persistent": true
+    },
     "@natu/assets#build": {
       "outputs": ["angular/svg/**"]
     },

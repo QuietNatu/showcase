@@ -29,7 +29,6 @@ export default defineConfig(({ mode }) => {
       bundleI18n({
         source: 'src/locales/original',
         devDestination: 'src/locales/bundle',
-        buildDestination: 'locales',
         filename: 'translation',
       }),
     ],

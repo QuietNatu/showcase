@@ -3,7 +3,7 @@ import { AppConfig, useAppConfig } from './config-context';
 import { setDefaultOptions } from 'date-fns';
 import i18n from 'i18next';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
-import HttpBackend from 'i18next-http-backend';
+import resourcesToBackend from 'i18next-resources-to-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { getFallbackLanguage } from '@natu/utils';
 
@@ -30,7 +30,12 @@ export function AppI18nProvider(props: { children: ReactNode }) {
     i18n.on('languageChanged', updateDocumentLanguage);
 
     void i18n
-      .use(HttpBackend)
+      .use(
+        resourcesToBackend(
+          (language: string, namespace: string) =>
+            import(`../../../locales/bundle/${language}/${namespace}.json`),
+        ),
+      )
       .use(LanguageDetector)
       .use(initReactI18next)
       .init({

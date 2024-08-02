@@ -9,8 +9,8 @@ interface BundleI18nOptions {
   source: string;
   /** Destination of the files to be used while developing. */
   devDestination: string;
-  /** Destination of the files to be used when application is build. */
-  buildDestination: string;
+  /** Destination of the files to be used when application is build. Not needed if files are dynamically imported. */
+  buildDestination?: string;
   /** Name of the generated bundle json file. */
   filename: string;
 }
@@ -27,7 +27,7 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
 
   let config: ResolvedConfig;
 
-  let webSourcePath: string;
+  let webSourcePath: string | undefined;
   let isLocale: picomatch.Matcher;
 
   let fileSourcePath: string;
@@ -40,7 +40,7 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
       config = resolvedConfig;
 
       if (config.command === 'serve') {
-        webSourcePath = `${config.base}${buildDestination}`;
+        webSourcePath = buildDestination ? `${config.base}${buildDestination}` : undefined;
         fileSourcePath = normalizePath(path.resolve(config.root, source));
 
         const webSourceFilesPath = `${config.base}${buildDestination}/*/${bundledFilename}`;
@@ -57,14 +57,20 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
       saveLocales({ root: config.root, destination, bundledLocales, filename: bundledFilename });
     },
     writeBundle() {
-      const source = path.resolve(config.root, devDestination);
-      const destination = path.resolve(config.root, config.build.outDir, buildDestination);
+      if (buildDestination) {
+        const source = path.resolve(config.root, devDestination);
+        const destination = path.resolve(config.root, config.build.outDir, buildDestination);
 
-      fs.cpSync(source, destination, { recursive: true });
+        fs.cpSync(source, destination, { recursive: true });
+      }
     },
     configureServer(server) {
+      if (!buildDestination) {
+        return;
+      }
+
       server.middlewares.use((request, response, next) => {
-        if (request.originalUrl && isLocale(request.originalUrl)) {
+        if (webSourcePath && request.originalUrl && isLocale(request.originalUrl)) {
           const language = request.originalUrl.substring(webSourcePath.length + 1).split('/')[0]!;
           const languagePath = path.resolve(config.root, devDestination, language, bundledFilename);
 

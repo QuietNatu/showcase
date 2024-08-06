@@ -332,8 +332,8 @@ importers:
         specifier: 1.5.2
         version: 1.5.2(vitest@1.5.2(@types/node@22.1.0)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.3))
       autoprefixer:
-        specifier: 10.4.19
-        version: 10.4.19(postcss@8.4.41)
+        specifier: 10.4.20
+        version: 10.4.20(postcss@8.4.41)
       browserslist-to-esbuild:
         specifier: 2.1.1
         version: 2.1.1(browserslist@4.23.3)
@@ -5373,6 +5373,13 @@ packages:
 
   autoprefixer@10.4.19:
     resolution: {integrity: sha512-BaENR2+zBZ8xXhM4pUaKUxlVdxZ0EZhjvbopwnXmxRUfqDmwSpC2lAi/QXvx7NRdPCo1WKEcEF6mV64si1z4Ew==}
+    engines: {node: ^10 || ^12 || >=14}
+    hasBin: true
+    peerDependencies:
+      postcss: ^8.1.0
+
+  autoprefixer@10.4.20:
+    resolution: {integrity: sha512-XY25y5xSv/wEoqzDyXXME4AFfkZI0P23z6Fs3YgymDnKJkCGOnkL0iTxCa85UTqaSgfcqyf3UA6+c7wUvx/16g==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
@@ -18077,7 +18084,7 @@ snapshots:
       postcss: 8.4.38
       postcss-value-parser: 4.2.0
 
-  autoprefixer@10.4.19(postcss@8.4.41):
+  autoprefixer@10.4.20(postcss@8.4.41):
     dependencies:
       browserslist: 4.23.3
       caniuse-lite: 1.0.30001649

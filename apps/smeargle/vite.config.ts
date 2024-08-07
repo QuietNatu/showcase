@@ -42,6 +42,10 @@ export default defineConfig(({ mode }) => {
       port: 6001,
     },
 
+    preview: {
+      port: 6009,
+    },
+
     test: {
       globals: true,
       css: false,

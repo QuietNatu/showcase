@@ -12,6 +12,7 @@ import { userEvent } from '@testing-library/user-event';
 import { NatuUiConfigProvider } from '@natu/ui-react';
 import { I18nProviderMock } from '@/mocks/i18n';
 import { createTestWrapper } from '@natu/ui-react/test';
+import { AppConfigProvider } from '@/app/core/contexts/config/config-provider';
 
 /* TODO: re export these utils in smeargle to add i18n and add eslint rule to forbid these exports in smeargle */
 
@@ -32,6 +33,7 @@ interface RenderHookOptions<Props> {
 type RenderStoryOptions = RenderOptions;
 
 interface ProviderOptions {
+  excludeAppConfig?: boolean;
   excludeI18n?: boolean;
   excludeUiConfig?: boolean;
 }
@@ -77,12 +79,14 @@ function wrapTest(
   BaseWrapper?: JSXElementConstructor<{ children: ReactNode }>,
 ) {
   return createTestWrapper([
+    !props.excludeAppConfig && AppConfigWrapper,
     !props.excludeI18n && I18nWrapper,
-    !props.excludeI18n && UiConfigWrapper,
+    !props.excludeUiConfig && UiConfigWrapper,
     BaseWrapper,
   ]);
 }
 
+const AppConfigWrapper = (props: { children: ReactNode }) => <AppConfigProvider {...props} />;
 const I18nWrapper = (props: { children: ReactNode }) => <I18nProviderMock {...props} />;
 const UiConfigWrapper = (props: { children: ReactNode }) => (
   <NatuUiConfigProvider {...props} value={{ tooltip: { hoverDelay: 0 } }} />

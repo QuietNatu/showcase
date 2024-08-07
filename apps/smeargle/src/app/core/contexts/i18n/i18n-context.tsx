@@ -1,5 +1,5 @@
 import { ReactNode, useRef } from 'react';
-import { AppConfig, useAppConfig } from './config-context';
+import { AppConfig, useAppConfig } from '../config/config-context';
 import { setDefaultOptions } from 'date-fns';
 import i18n from 'i18next';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
@@ -10,7 +10,7 @@ import { getFallbackLanguage } from '@natu/utils';
 /* TODO: disable coverage */
 
 /**
- * TODO
+ * Manages i18n for the app.
  */
 export function AppI18nProvider(props: { children: ReactNode }) {
   const appConfig = useAppConfig();
@@ -33,7 +33,7 @@ export function AppI18nProvider(props: { children: ReactNode }) {
       .use(
         resourcesToBackend(
           (language: string, namespace: string) =>
-            import(`../../../locales/bundle/${language}/${namespace}.json`),
+            import(`../../../../locales/bundle/${language}/${namespace}.json`),
         ),
       )
       .use(LanguageDetector)

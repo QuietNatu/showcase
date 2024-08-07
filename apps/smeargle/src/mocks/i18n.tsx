@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { setDefaultOptions } from 'date-fns';
 import enGb from '@/locales/bundle/en-GB/translation.json';
-import { useAppConfig } from '@/app/core/contexts/config-context';
+import { useAppConfig } from '@/app/core/contexts/config/config-context';
 import { ReactNode } from 'react';
 
 export function I18nProviderMock(props: { children: ReactNode }) {

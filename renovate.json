@@ -23,28 +23,28 @@
     },
     {
       "groupName": "Eslint",
-      "matchPackagePatterns": ["eslint"],
-      "matchUpdateTypes": ["major"]
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": ["/eslint/"]
     },
     {
       "groupName": "Stylelint",
-      "matchPackagePatterns": ["stylelint"],
-      "matchUpdateTypes": ["major"]
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": ["/stylelint/"]
     },
     {
       "groupName": "TestingLibrary",
-      "matchPackagePrefixes": ["@testing-library/"],
-      "matchUpdateTypes": ["major"]
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": ["@testing-library/{/,}**"]
     },
     {
       "groupName": "Workbox",
-      "matchPackagePatterns": ["workbox"],
-      "matchUpdateTypes": ["major"]
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": ["/workbox/"]
     },
     {
       "groupName": "I18next",
-      "matchPackagePatterns": ["i18next"],
-      "matchUpdateTypes": ["major"]
+      "matchUpdateTypes": ["major"],
+      "matchPackageNames": ["/i18next/"]
     },
     {
       "groupName": "Vite",
@@ -72,10 +72,10 @@
     },
     {
       "groupName": "Core storybook",
-      "matchPackagePatterns": ["^@storybook", "^storybook$"],
       "matchUpdateTypes": ["major", "minor", "patch"],
       "description": "it is better to update via storybook",
-      "dependencyDashboardApproval": true
+      "dependencyDashboardApproval": true,
+      "matchPackageNames": ["/^@storybook/", "/^storybook$/"]
     },
     {
       "matchPackageNames": ["turbo"],
@@ -86,20 +86,20 @@
     {
       "groupName": "Angular dependencies",
       "matchFileNames": ["apps/rotom/package.json", "packages/*-angular/package.json"],
-      "matchPackagePatterns": [
-        "^@angular/",
-        "^@angular-",
-        "^ng-packagr$",
-        "^rxjs$",
-        "^tslib$",
-        "^zone\\.js$",
-        "^jasmine-core$",
-        "@types/jasmine$",
-        "^typescript$"
-      ],
       "matchUpdateTypes": ["major", "minor"],
       "description": "the possibility of an Angular update breaking dependencies is very high",
-      "dependencyDashboardApproval": true
+      "dependencyDashboardApproval": true,
+      "matchPackageNames": [
+        "/^@angular//",
+        "/^@angular-/",
+        "/^ng-packagr$/",
+        "/^rxjs$/",
+        "/^tslib$/",
+        "/^zone\\.js$/",
+        "/^jasmine-core$/",
+        "/@types/jasmine$/",
+        "/^typescript$/"
+      ]
     }
   ]
 }

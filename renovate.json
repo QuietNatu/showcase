@@ -3,6 +3,7 @@
   "extends": ["config:js-app"],
   "schedule": ["before 5am every weekday"],
   "timezone": "Europe/London",
+  "configMigration": true,
   "prConcurrentLimit": 2,
   "platformAutomerge": true,
   "baseBranches": ["main"],

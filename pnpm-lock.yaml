@@ -713,8 +713,8 @@ importers:
   packages/ui-react:
     devDependencies:
       '@floating-ui/react':
-        specifier: 0.26.20
-        version: 0.26.20(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 0.26.21
+        version: 0.26.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@natu/assets':
         specifier: workspace:*
         version: link:../assets
@@ -2578,8 +2578,8 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
-  '@floating-ui/react@0.26.20':
-    resolution: {integrity: sha512-RixKJJG92fcIsVoqrFr4Onpzh7hlOx4U7NV4aLhMLmtvjZ5oTB/WzXaANYUZATKqXvvW7t9sCxtzejip26N5Ag==}
+  '@floating-ui/react@0.26.21':
+    resolution: {integrity: sha512-7P5ncDIiYd6RrwpCDbKyFzvabM014QlzlumtDbK3Bck0UueC+Rp8BLS34qcGBcN1pZCTodl4QNnCVmKv4tSxfQ==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -13671,7 +13671,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@floating-ui/react@0.26.20(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@floating-ui/react@0.26.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@floating-ui/react-dom': 2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@floating-ui/utils': 0.2.6

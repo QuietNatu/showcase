@@ -1,7 +1,8 @@
 import '../src/styles/styles.scss';
 import type { Preview } from '@storybook/react';
 import { storyA11yConfig, storyThemeDecorator } from '@natu/ui-react/stories';
-import { I18nProviderMock } from '@/mocks/i18n';
+import { mockI18n } from '@/mocks/i18n';
+import { AppConfigProvider } from '@/app/core/contexts/config/config-provider';
 
 const preview: Preview = {
   tags: ['autodocs'],
@@ -46,14 +47,15 @@ const preview: Preview = {
       },
     },
   },
+  loaders: [mockI18n],
   decorators: [
     storyThemeDecorator(),
 
     (Story) => {
       return (
-        <I18nProviderMock>
+        <AppConfigProvider>
           <Story />
-        </I18nProviderMock>
+        </AppConfigProvider>
       );
     },
   ],

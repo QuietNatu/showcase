@@ -5,10 +5,6 @@ import '../styles/styles.scss';
 import styles from './app.module.scss';
 import { useTranslation } from 'react-i18next';
 
-/* TODO: error boundary */
-/* TODO: move suspense here? */
-/* TODO: ui package */
-
 export function App() {
   const { t } = useTranslation();
 

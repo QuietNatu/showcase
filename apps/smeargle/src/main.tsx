@@ -16,6 +16,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AppConfigProvider>
       <AppI18nProvider>
+        {/* TODO: error boundary */}
         {/* TODO: better component */}
         <Suspense fallback="loading">
           <App />

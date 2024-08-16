@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import { setDefaultOptions } from 'date-fns';
 import enGb from '../locales/en-GB/translation.json';
 
-export function setupI18n() {
+export function mockI18n() {
   setDefaultOptions({ weekStartsOn: 1, firstWeekContainsDate: 4 });
 
   return i18n.use(initReactI18next).init({

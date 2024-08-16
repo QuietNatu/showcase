@@ -7,8 +7,6 @@ import resourcesToBackend from 'i18next-resources-to-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { getFallbackLanguage } from '@natu/utils';
 
-/* TODO: disable coverage */
-
 /**
  * Manages i18n for the app.
  */

@@ -5,9 +5,12 @@ import { mockDatabase } from '@/mocks/server/database/database';
 import { mockServer } from '@/mocks/server/server';
 import { drop } from '@mswjs/data';
 import { deleteAllCookies } from '@natu/utils';
+import { mockI18n } from '@/mocks/i18n';
 
-beforeAll(() => {
+beforeAll(async () => {
   mockServer.listen();
+
+  await mockI18n();
 });
 
 afterEach(() => {

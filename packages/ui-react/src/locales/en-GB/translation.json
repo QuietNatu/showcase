@@ -1,0 +1,15 @@
+{
+  "ui": {
+    "card": {
+      "dismiss": "Dismiss"
+    },
+    "sidebar": {
+      "collapse": "Collapse",
+      "expand": "Expand",
+      "section": {
+        "main": "Main",
+        "secondary": "Secondary"
+      }
+    }
+  }
+}

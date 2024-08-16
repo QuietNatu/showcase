@@ -166,6 +166,8 @@ $-sidebar-size-expanded: utils.px-to-rem(240px);
     }
   }
 
+  /* TODO: sass deprecation warning */
+
   .natu-sidebar__item {
     @include -item;
 

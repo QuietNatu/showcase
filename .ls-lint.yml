@@ -69,7 +69,8 @@ ls:
 ignore:
   - apps/*/src/locales
   - packages/*/src/locales
-  - apps/*/e2e/playwright.config.ts
+  - apps/*/src/api
+  - apps/*/e2e/{report,results,playwright.config.ts}
   - apps/*/vrt/playwright.config.ts
   - packages/*/vrt/playwright.config.ts
   - apps/*/e2e/results

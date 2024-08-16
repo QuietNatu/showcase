@@ -3,6 +3,8 @@ import { CounterComponent } from './components/counter/counter.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
+/* TODO: can robots.txt be in public folder? */
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

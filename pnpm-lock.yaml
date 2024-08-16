@@ -590,8 +590,8 @@ importers:
         specifier: 1.1.25
         version: 1.1.25(typescript@5.5.4)
       '@floating-ui/dom':
-        specifier: 1.6.9
-        version: 1.6.9
+        specifier: 1.6.10
+        version: 1.6.10
       '@natu/assets':
         specifier: workspace:*
         version: link:../assets
@@ -713,8 +713,8 @@ importers:
   packages/ui-react:
     devDependencies:
       '@floating-ui/react':
-        specifier: 0.26.21
-        version: 0.26.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 0.26.22
+        version: 0.26.22(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@natu/assets':
         specifier: workspace:*
         version: link:../assets
@@ -2557,8 +2557,8 @@ packages:
   '@floating-ui/core@1.6.6':
     resolution: {integrity: sha512-Vkvsw6EcpMHjvZZdMkSY+djMGFbt7CRssW99Ne8tar2WLnZ/l3dbxeTShbLQj+/s35h+Qb4cmnob+EzwtjrXGQ==}
 
-  '@floating-ui/dom@1.6.9':
-    resolution: {integrity: sha512-zB1PcI350t4tkm3rvUhSRKa9sT7vH5CrAbQxW+VaPYJXKAO0gsg4CTueL+6Ajp7XzAQC8CW4Jj1Wgqc0sB6oUQ==}
+  '@floating-ui/dom@1.6.10':
+    resolution: {integrity: sha512-fskgCFv8J8OamCmyun8MfjB1Olfn+uZKjOKZ0vhYF3gRmEUXcGOjxWL8bBr7i4kIuPZ2KD2S3EUIOxnjC8kl2A==}
 
   '@floating-ui/react-dom@2.1.1':
     resolution: {integrity: sha512-4h84MJt3CHrtG18mGsXuLCHMrug49d7DFkU0RMIyshRveBeyV2hmV/pDaF2Uxtu8kgq5r46llp5E5FQiR0K2Yg==}
@@ -2566,14 +2566,17 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
-  '@floating-ui/react@0.26.21':
-    resolution: {integrity: sha512-7P5ncDIiYd6RrwpCDbKyFzvabM014QlzlumtDbK3Bck0UueC+Rp8BLS34qcGBcN1pZCTodl4QNnCVmKv4tSxfQ==}
+  '@floating-ui/react@0.26.22':
+    resolution: {integrity: sha512-LNv4azPt8SpT4WW7Kku5JNVjLk2GcS0bGGjFTAgqOONRFo9r/aaGHHPpdiIuQbB1t8shmWyWqTTUDmZ9fcNshg==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
   '@floating-ui/utils@0.2.6':
     resolution: {integrity: sha512-0KI3zGxIUs1KDR/pjQPdJH4Z8nGBm0yJ5WRoRfdw1Kzeh45jkIfA0rmD0kBF6fKHH+xaH7g8y4jIXyAV5MGK3g==}
+
+  '@floating-ui/utils@0.2.7':
+    resolution: {integrity: sha512-X8R8Oj771YRl/w+c1HqAC1szL8zWQRwFvgDwT129k9ACdBoud/+/rX9V0qiMl6LWUdP9voC2nDVZYPMQQsb6eA==}
 
   '@foliojs-fork/fontkit@1.9.2':
     resolution: {integrity: sha512-IfB5EiIb+GZk+77TRB86AHroVaqfq8JRFlUbz0WEwsInyCG0epX2tCPOy+UfaWPju30DeVoUAXfzWXmhn753KA==}
@@ -13242,28 +13245,30 @@ snapshots:
 
   '@floating-ui/core@1.6.6':
     dependencies:
-      '@floating-ui/utils': 0.2.6
+      '@floating-ui/utils': 0.2.7
 
-  '@floating-ui/dom@1.6.9':
+  '@floating-ui/dom@1.6.10':
     dependencies:
       '@floating-ui/core': 1.6.6
-      '@floating-ui/utils': 0.2.6
+      '@floating-ui/utils': 0.2.7
 
   '@floating-ui/react-dom@2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@floating-ui/dom': 1.6.9
+      '@floating-ui/dom': 1.6.10
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@floating-ui/react@0.26.21(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@floating-ui/react@0.26.22(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@floating-ui/react-dom': 2.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@floating-ui/utils': 0.2.6
+      '@floating-ui/utils': 0.2.7
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       tabbable: 6.2.0
 
   '@floating-ui/utils@0.2.6': {}
+
+  '@floating-ui/utils@0.2.7': {}
 
   '@foliojs-fork/fontkit@1.9.2':
     dependencies:

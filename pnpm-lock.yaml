@@ -151,28 +151,28 @@ importers:
         specifier: 1.44.1
         version: 1.44.1
       '@storybook/addon-a11y':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-docs':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-essentials':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-interactions':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@20.14.14)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.6)(terser@5.29.2))
       '@storybook/addon-links':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/angular':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(yr3tvfrpiegwbjsotk2lpc2aoq)
       '@storybook/blocks':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/test':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@20.14.14)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.6)(terser@5.29.2))
       '@testing-library/angular':
         specifier: 16.0.0
@@ -235,7 +235,7 @@ importers:
         specifier: 2.5.3
         version: 2.5.3
       storybook:
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2))
       typescript:
         specifier: 5.5.4
@@ -287,31 +287,31 @@ importers:
         specifier: 1.44.1
         version: 1.44.1
       '@storybook/addon-a11y':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-essentials':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-interactions':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@22.1.0)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
       '@storybook/addon-links':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-onboarding':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/blocks':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/react':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(typescript@5.4.5)
       '@storybook/react-vite':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@2.79.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(typescript@5.4.5)(vite@5.2.12(@types/node@22.1.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
       '@storybook/test':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@22.1.0)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
       '@testing-library/react':
         specifier: 15.0.7
@@ -359,7 +359,7 @@ importers:
         specifier: 2.5.3
         version: 2.5.3
       storybook:
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2))
       type-fest:
         specifier: 4.17.0
@@ -614,28 +614,28 @@ importers:
         specifier: 1.44.1
         version: 1.44.1
       '@storybook/addon-a11y':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-docs':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-essentials':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-interactions':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@20.14.14)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
       '@storybook/addon-links':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/angular':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(az26bpiz76yetg6pqzu3b63cpe)
       '@storybook/blocks':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/test':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@20.14.14)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
       '@testing-library/angular':
         specifier: 16.0.0
@@ -698,7 +698,7 @@ importers:
         specifier: 7.8.1
         version: 7.8.1
       storybook:
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2))
       tslib:
         specifier: 2.6.2
@@ -746,31 +746,31 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.3.1)
       '@storybook/addon-a11y':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-essentials':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-interactions':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@22.1.0)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
       '@storybook/addon-links':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-onboarding':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/blocks':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/react':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(typescript@5.4.5)
       '@storybook/react-vite':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.20.0)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(typescript@5.4.5)(vite@5.2.12(@types/node@22.1.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
       '@storybook/test':
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@22.1.0)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
       '@testing-library/jest-dom':
         specifier: 6.4.6
@@ -821,7 +821,7 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       storybook:
-        specifier: ^8.2.9
+        specifier: 8.2.9
         version: 8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2))
       type-fest:
         specifier: 4.17.0
@@ -2807,6 +2807,7 @@ packages:
 
   '@ls-lint/ls-lint@2.2.3':
     resolution: {integrity: sha512-ekM12jNm/7O2I/hsRv9HvYkRdfrHpiV1epVuI2NP+eTIcEgdIdKkKCs9KgQydu/8R5YXTov9aHdOgplmCHLupw==}
+    cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -19215,7 +19216,7 @@ snapshots:
     dependencies:
       '@sindresorhus/merge-streams': 2.3.0
       fast-glob: 3.3.2
-      ignore: 5.3.1
+      ignore: 5.3.2
       path-type: 5.0.0
       slash: 5.1.0
       unicorn-magic: 0.1.0
@@ -19320,7 +19321,7 @@ snapshots:
       he: 1.2.0
       param-case: 3.0.4
       relateurl: 0.2.7
-      terser: 5.31.3
+      terser: 5.31.6
 
   html-tags@3.3.1: {}
 

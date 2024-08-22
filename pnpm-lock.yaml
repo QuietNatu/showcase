@@ -396,8 +396,8 @@ importers:
         specifier: 18.3.1
         version: 18.3.1
       rimraf:
-        specifier: 5.0.7
-        version: 5.0.7
+        specifier: 5.0.10
+        version: 5.0.10
 
   packages/eslint-config-angular:
     dependencies:
@@ -528,8 +528,8 @@ importers:
         specifier: 20.14.14
         version: 20.14.14
       rimraf:
-        specifier: 5.0.7
-        version: 5.0.7
+        specifier: 5.0.10
+        version: 5.0.10
       style-dictionary:
         specifier: 4.0.0-prerelease.15
         version: 4.0.0-prerelease.15
@@ -9083,9 +9083,8 @@ packages:
     deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
-  rimraf@5.0.7:
-    resolution: {integrity: sha512-nV6YcJo5wbLW77m+8KjH8aB/7/rxQy9SZ0HY5shnwULfS+9nmTtVXAJET5NdZmCzA4fPI/Hm1wo/Po/4mopOdg==}
-    engines: {node: '>=14.18'}
+  rimraf@5.0.10:
+    resolution: {integrity: sha512-l0OE8wL34P4nJH/H2ffoaniAokM2qSmrtXHmlpvYr5AVVX8msAyW0l8NVJFDxlSK4u3Uh/f41cQheDVdnYijwQ==}
     hasBin: true
 
   rollup@2.79.1:
@@ -21831,7 +21830,7 @@ snapshots:
     dependencies:
       glob: 7.2.3
 
-  rimraf@5.0.7:
+  rimraf@5.0.10:
     dependencies:
       glob: 10.4.5
 
@@ -23554,7 +23553,7 @@ snapshots:
       launch-editor: 2.8.1
       open: 10.1.0
       p-retry: 6.2.0
-      rimraf: 5.0.7
+      rimraf: 5.0.10
       schema-utils: 4.2.0
       selfsigned: 2.4.1
       serve-index: 1.9.1
@@ -23594,7 +23593,7 @@ snapshots:
       launch-editor: 2.8.1
       open: 10.1.0
       p-retry: 6.2.0
-      rimraf: 5.0.7
+      rimraf: 5.0.10
       schema-utils: 4.2.0
       selfsigned: 2.4.1
       serve-index: 1.9.1

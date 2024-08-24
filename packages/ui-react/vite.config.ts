@@ -44,6 +44,7 @@ export default defineConfig(({}) => {
           'src/lib/test',
           'src/@types',
           'src/lib/stories',
+          'src/lib/vrt',
         ],
         reporter: ['lcov', 'text-summary'],
       },

@@ -1,4 +1,1 @@
-{
-  "hello": "Olá",
-  "testDate": "O tempo é {{value, datetime(weekday: 'long')}}"
-}
+{}

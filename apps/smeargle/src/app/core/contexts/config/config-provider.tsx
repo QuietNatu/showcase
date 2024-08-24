@@ -3,8 +3,6 @@ import { _AppConfigProvider, AppConfig } from './config-context';
 
 /* TODO: make this runtime with requests */
 
-/* TODO: test */
-
 const appConfig: AppConfig = {
   date: {
     weekStartsOn: 1,

@@ -82,7 +82,7 @@
     "ng-packagr": "18.1.0",
     "rxjs": "7.8.1",
     "storybook": "8.2.9",
-    "tslib": "2.6.2",
+    "tslib": "2.6.3",
     "typescript": "5.5.4",
     "zone.js": "0.14.10"
   }

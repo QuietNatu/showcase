@@ -24,6 +24,7 @@ import {
 import * as Collapsible from '@radix-ui/react-collapsible';
 import { useControllableState } from '../../hooks';
 import { mergeProps, useFocusRing } from 'react-aria';
+import { useTranslation } from 'react-i18next';
 
 export interface NatuSidebarProps extends UseSidebarOptions, ComponentPropsWithoutRef<'div'> {
   /**
@@ -132,6 +133,8 @@ export const NatuSidebar = forwardRef<HTMLDivElement, NatuSidebarProps>(
       onExpandedChange: onExpandedChange,
     });
 
+    const { t } = useTranslation(undefined, { keyPrefix: 'ui.sidebar' });
+
     return (
       <div
         ref={forwardedRef}
@@ -147,17 +150,15 @@ export const NatuSidebar = forwardRef<HTMLDivElement, NatuSidebarProps>(
       >
         <div className="natu-sidebar__header">{children}</div>
 
-        {/* TODO: add i18n once implemented  */}
         {actions.length > 0 && (
-          <nav aria-label="Main">
+          <nav aria-label={t('section.main')}>
             <SidebarList items={actions} isExpanded={isExpanded} activeAction={activeAction} />
           </nav>
         )}
 
         <div className="natu-sidebar__footer">
-          {/* TODO: add i18n once implemented  */}
           {secondaryActions.length > 0 && (
-            <nav aria-label="Secondary">
+            <nav aria-label={t('section.secondary')}>
               <SidebarList
                 items={secondaryActions}
                 isExpanded={isExpanded}
@@ -167,8 +168,7 @@ export const NatuSidebar = forwardRef<HTMLDivElement, NatuSidebarProps>(
           )}
 
           <button type="button" className="natu-sidebar__toggle-button" onClick={onToggleExpansion}>
-            {/* TODO: add i18n once implemented */}
-            <span className="natu-visually-hidden">{isExpanded ? 'Collapse' : 'Expand'}</span>
+            <span className="natu-visually-hidden">{t(isExpanded ? 'collapse' : 'expand')}</span>
 
             <NatuIcon className="natu-sidebar__toggle-button-icon" aria-hidden="true">
               <CaretRightIcon />

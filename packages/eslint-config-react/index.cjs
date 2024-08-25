@@ -82,6 +82,11 @@ module.exports = {
             importNames: ['axe'],
             message: 'use our axe wrapper.',
           },
+          {
+            name: 'date-fns',
+            importNames: ['format', 'parse'],
+            message: 'use our i18n library.',
+          },
         ],
       },
     ],
@@ -125,6 +130,12 @@ module.exports = {
         'vitest/prefer-to-be-truthy': 'off',
         'vitest/require-top-level-describe': 'off',
         'vitest/max-expects': 'off',
+        'vitest/no-hooks': [
+          'error',
+          {
+            allow: ['afterEach', 'afterAll'],
+          },
+        ],
         'testing-library/no-await-sync-events': 'off',
         'testing-library/no-manual-cleanup': 'error',
         '@typescript-eslint/no-non-null-assertion': 'off',

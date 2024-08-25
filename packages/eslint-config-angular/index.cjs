@@ -59,6 +59,11 @@ module.exports = {
                 importNames: ['axe'],
                 message: 'use our axe wrapper.',
               },
+              {
+                name: 'date-fns',
+                importNames: ['format', 'parse'],
+                message: 'use our i18n library.',
+              },
             ],
             patterns: [
               {
@@ -117,6 +122,7 @@ module.exports = {
         'functional/no-mixed-types': 'off',
         'functional/prefer-immutable-types': 'off',
         'functional/no-classes': 'off',
+        // TODO: still classes still needed?
         'functional/immutable-data': ['error', { ignoreClasses: true }],
       },
     },

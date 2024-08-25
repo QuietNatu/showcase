@@ -38,10 +38,10 @@ $-sidebar-size-expanded: utils.px-to-rem(240px);
   display: flex;
   text-decoration: none;
   user-select: none;
+}
 
-  &:hover {
-    background-color: var(--natu-color-surface-neutral);
-  }
+@mixin -item--hover {
+  background-color: var(--natu-color-surface-neutral);
 }
 
 @layer natu-sidebar {
@@ -90,6 +90,10 @@ $-sidebar-size-expanded: utils.px-to-rem(240px);
 
     font-size: var(--natu-size-font-6);
     inline-size: $-sidebar-size;
+
+    &:hover {
+      @include -item--hover;
+    }
 
     &:focus-visible {
       @include utils.outline(var(--natu-color-outline-accent));
@@ -171,6 +175,10 @@ $-sidebar-size-expanded: utils.px-to-rem(240px);
 
     inline-size: $-sidebar-size;
     justify-content: center;
+
+    &:hover {
+      @include -item--hover;
+    }
 
     &--focus {
       @include utils.outline(var(--natu-color-outline-accent));

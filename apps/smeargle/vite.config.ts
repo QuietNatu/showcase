@@ -6,6 +6,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import svgr from 'vite-plugin-svgr';
+import bundleI18n from '@natu/vite-plugin-bundle-i18n';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -25,6 +26,11 @@ export default defineConfig(({ mode }) => {
         },
       }),
       VitePWA(isE2e ? { injectRegister: null } : pwaOptions),
+      bundleI18n({
+        source: 'src/locales/original',
+        devDestination: 'src/locales/bundle',
+        filename: 'translation',
+      }),
     ],
 
     build: {
@@ -64,9 +70,12 @@ export default defineConfig(({ mode }) => {
           '**/*.vrt.*',
           'src/test',
           'src/mocks',
+          'src/@types',
           'src/main.tsx',
-          'src/vite-env.d.ts',
           'src/service-worker.ts',
+          'src/api',
+          'src/vrt',
+          'src/app/core/contexts/i18n/i18n-context.tsx',
         ],
         reporter: ['lcov', 'text-summary'],
       },

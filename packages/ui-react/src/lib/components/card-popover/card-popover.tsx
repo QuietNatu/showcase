@@ -16,7 +16,7 @@ import {
   NatuCardHeaderProps,
 } from '../card/card';
 import { usePopoverContext } from '../popover/use-popover';
-import { createContext } from '../../hooks';
+import { createContext } from '../../utils';
 
 export type NatuCardPopoverProps = NatuPopoverProps;
 export type NatuCardPopoverTriggerProps = NatuPopoverTriggerProps;

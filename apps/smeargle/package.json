@@ -11,7 +11,7 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test": "vitest run --coverage",
     "test-watch": "vitest",
-    "analyse": "pnpm build --sourcemap && source-map-explorer dist/assets/**/*.js",
+    "analyse": "pnpm build --sourcemap && source-map-explorer dist/assets/**/*.js --html bundle-analysis.html",
     "storybook": "storybook dev -p 6002",
     "build-storybook": "storybook build",
     "preview-storybook": "http-server -c-1 ./storybook-static --silent",
@@ -19,7 +19,9 @@
     "vrt-update": "pnpm vrt --update-snapshots",
     "vrt-show-report": "playwright show-report vrt/report --port 6004",
     "e2e": "cross-env VITE_E2E=true playwright test --config e2e/playwright.config.ts",
-    "build-api": "orval --config ./orval.config.ts"
+    "build-dependencies": "pnpm build-api && pnpm build-i18n",
+    "build-api": "orval --config ./orval.config.ts",
+    "build-i18n": "bundle-i18n --source src/locales/original --destination src/locales/bundle --filename translation"
   },
   "dependencies": {
     "@natu/assets": "workspace:*",
@@ -28,14 +30,21 @@
     "@natu/utils": "workspace:*",
     "axios": "1.7.4",
     "clsx": "2.1.1",
+    "date-fns": "^3.6.0",
+    "i18next": "^23.11.5",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "i18next-resources-to-backend": "^1.2.1",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "react-i18next": "^14.1.2"
   },
   "devDependencies": {
     "@faker-js/faker": "8.4.1",
     "@mswjs/data": "0.16.1",
+    "@natu/bundle-i18n": "workspace:*",
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
+    "@natu/vite-plugin-bundle-i18n": "workspace:*",
     "@natu/vrt": "workspace:*",
     "@playwright/test": "1.44.1",
     "@storybook/addon-a11y": "8.2.9",

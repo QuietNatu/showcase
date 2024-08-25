@@ -14,12 +14,14 @@
 
 - https://github.com/angular/angular/issues/4059
 - https://github.com/angular/angular/issues/7626
-- https://github.com/angular/angular/issues/10887
 - https://github.com/angular/angular/issues/14842
 - https://github.com/angular/components/issues/1432
 - https://github.com/angular/angular/issues/14659
 - https://github.com/angular/angular/issues/14545
 - https://github.com/angular/angular/issues/13776
+- https://github.com/angular/angular-cli/issues/11787
+- https://github.com/angular/angular/issues/25963
+- https://github.com/angular/angular/issues/12627
 
 ### Karma Jasmine HTML Reporter interferes with tests
 

@@ -4,6 +4,7 @@ import { NatuButton } from '../button/button';
 import XIcon from '@natu/assets/svg/x.svg?react';
 import { Slot } from '@radix-ui/react-slot';
 import { NatuIcon } from '../icon/icon';
+import { useTranslation } from 'react-i18next';
 
 export interface NatuCardProps extends ComponentPropsWithoutRef<'div'> {
   children?: ReactNode;
@@ -38,6 +39,8 @@ export interface NatuCardFooterProps extends ComponentPropsWithoutRef<'div'> {
 export function NatuCard(props: NatuCardProps) {
   const { className, isEmbedded, isDismissable, onDismiss, ...cardProps } = props;
 
+  const { t } = useTranslation(undefined, { keyPrefix: 'ui.card' });
+
   return (
     <div
       {...cardProps}
@@ -54,7 +57,7 @@ export function NatuCard(props: NatuCardProps) {
           isIconButton={true}
           onClick={onDismiss}
         >
-          <span className="natu-visually-hidden">Dismiss</span>
+          <span className="natu-visually-hidden">{t('dismiss')}</span>
           <NatuIcon aria-hidden="true">
             <XIcon />
           </NatuIcon>

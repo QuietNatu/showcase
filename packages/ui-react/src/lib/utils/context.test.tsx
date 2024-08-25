@@ -1,5 +1,5 @@
-import { renderHook } from '../test';
-import { createContext } from './use-context';
+import { renderHook } from '../../test/render';
+import { createContext } from './context';
 
 test('renders when context has a default value', () => {
   const [, useTest] = createContext<string | undefined>({

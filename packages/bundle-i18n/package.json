@@ -1,0 +1,26 @@
+{
+  "name": "@natu/bundle-i18n",
+  "private": true,
+  "license": "MIT",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "bin": {
+    "bundle-i18n": "./index.js"
+  },
+  "scripts": {
+    "build": "tsup"
+  },
+  "dependencies": {
+    "@natu/utils": "workspace:*",
+    "commander": "^12.1.0",
+    "picocolors": "^1.0.1"
+  },
+  "devDependencies": {
+    "@natu/eslint-config-react": "workspace:*",
+    "@natu/tsconfig": "workspace:*",
+    "@types/node": "20.14.1",
+    "tsup": "^8.1.0",
+    "typescript": "5.4.5"
+  }
+}

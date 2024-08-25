@@ -4,12 +4,12 @@
   "globalEnv": ["CI", "PORT", "DEV", "VITE_E2E"],
   "pipeline": {
     "dev": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "build-dependencies"],
       "cache": false,
       "persistent": true
     },
     "build": {
-      "dependsOn": ["^build", "build-api"],
+      "dependsOn": ["^build", "build-dependencies"],
       "outputs": ["dist/**"]
     },
     "preview": {
@@ -23,10 +23,10 @@
       "outputs": ["scss/tokens/**", "ts/tokens/**"]
     },
     "lint": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build", "build-dependencies"]
     },
     "test": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "build-dependencies"],
       "outputs": ["coverage/**"]
     },
     "test-watch": {
@@ -34,16 +34,16 @@
       "persistent": true
     },
     "analyse": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "build-dependencies"],
       "outputs": ["dist/**"]
     },
     "storybook": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "build-dependencies"],
       "cache": false,
       "persistent": true
     },
     "build-storybook": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "build-dependencies"],
       "outputs": ["storybook-static/**"]
     },
     "vrt": {
@@ -63,6 +63,7 @@
     "build-api": {
       "inputs": ["$TURBO_DEFAULT$", "../../openapi.yaml"],
       "outputs": ["src/api/**"]
-    }
+    },
+    "build-dependencies": {}
   }
 }

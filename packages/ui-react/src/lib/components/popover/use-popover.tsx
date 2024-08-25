@@ -9,7 +9,7 @@ import {
 } from '@floating-ui/react';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuUseOverlayOptions, useOverlay } from '../../hooks/use-overlay';
-import { createContext } from '../../hooks';
+import { createContext } from '../../utils';
 
 const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 

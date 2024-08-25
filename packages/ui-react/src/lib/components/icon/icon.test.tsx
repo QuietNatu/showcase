@@ -1,6 +1,7 @@
 import { composeStories } from '@storybook/react';
 import * as stories from './icon.stories';
-import { axe, renderStory } from '../../test';
+import { axe } from '../../test';
+import { renderStory } from '../../../test/render';
 
 const storyTestCases = Object.entries(composeStories(stories));
 

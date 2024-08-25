@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react';
 import '../src/styles/styles.scss';
 import { storyThemeDecorator } from '../src/lib/stories/decorators';
 import { storyA11yConfig } from '../src/lib/stories';
+import { mockI18n } from '../src/mocks/i18n';
 
 const preview: Preview = {
   tags: ['autodocs'],
@@ -46,6 +47,7 @@ const preview: Preview = {
       },
     },
   },
+  loaders: [mockI18n],
   decorators: [storyThemeDecorator()],
 };
 

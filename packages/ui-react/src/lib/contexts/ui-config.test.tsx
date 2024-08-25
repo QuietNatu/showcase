@@ -1,5 +1,5 @@
-import { NatuUiConfigProvider, useNatuUiConfig } from '.';
-import { renderHook } from '../test';
+import { renderHook } from '../../test/render';
+import { NatuUiConfigProvider, useNatuUiConfig } from './ui-config';
 
 test('renders when provider exists', () => {
   const { result } = renderHook(() => useNatuUiConfig(), {

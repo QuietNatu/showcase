@@ -1,6 +1,7 @@
 import { composeStories } from '@storybook/react';
 import * as stories from './card-popover.stories';
-import { axe, render, renderStory, waitForAsyncActions } from '../../test';
+import { axe, waitForAsyncActions } from '../../test';
+import { render, renderStory } from '../../../test/render';
 import {
   NatuCardPopover,
   NatuCardPopoverContent,

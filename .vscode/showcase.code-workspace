@@ -17,6 +17,10 @@
       "path": "../packages/assets",
     },
     {
+      "name": "📦 bundle-i18n",
+      "path": "../packages/bundle-i18n",
+    },
+    {
       "name": "📦 eslint-config-angular",
       "path": "../packages/eslint-config-angular",
     },
@@ -43,6 +47,10 @@
     {
       "name": "📦 utils",
       "path": "../packages/utils",
+    },
+    {
+      "name": "📦 vite-plugin-bundle-i18n",
+      "path": "../packages/vite-plugin-bundle-i18n",
     },
     {
       "name": "📦 vrt",

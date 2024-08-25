@@ -1,10 +1,11 @@
 import { composeStories } from '@storybook/react';
-import { axe, render, renderStory, waitForAsyncActions } from '../../test';
+import { axe, waitForAsyncActions } from '../../test';
+import { render, renderStory } from '../../../test/render';
 import * as stories from './tooltip.stories';
 import { ReactNode } from 'react';
 import { screen, waitForElementToBeRemoved } from '@testing-library/react';
 import { NatuTooltip, NatuTooltipContent, NatuTooltipProps, NatuTooltipTrigger } from './tooltip';
-import { NatuUiConfigProvider } from '../../providers';
+import { NatuUiConfigProvider } from '../../contexts';
 
 const { Playground, ...tooltipStories } = composeStories(stories);
 const storyTestCases = Object.entries(tooltipStories);

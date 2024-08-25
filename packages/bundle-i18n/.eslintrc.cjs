@@ -7,5 +7,6 @@ module.exports = {
     project: './tsconfig.json',
   },
   extends: ['@natu/eslint-config-react'],
+  ignorePatterns: ['index.js'],
   rules: {},
 };

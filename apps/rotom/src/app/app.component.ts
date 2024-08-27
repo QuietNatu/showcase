@@ -5,6 +5,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 /* TODO: can robots.txt be in public folder? */
 
+// TODO: check https://github.com/Romanchuk/angular-i18next/blob/master/libs/angular-i18next/src/lib/I18NextService.ts
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -6,12 +6,12 @@
   <ng-content select="natu-sidebar-secondary-actions" />
 
   <button
+    *natuTranslation="{ keyPrefix: 'ui.sidebar' }; let t"
     type="button"
     class="natu-sidebar__toggle-button"
     (click)="sidebarService.toggleExpansion()"
   >
-    <!-- TODO: add i18n once implemented -->
-    <span class="natu-visually-hidden">{{ isSidebarExpanded() ? 'Collapse' : 'Expand' }}</span>
+    <span class="natu-visually-hidden">{{ t(isSidebarExpanded() ? 'collapse' : 'expand') }}</span>
     <svg-icon class="natu-sidebar__toggle-button-icon" key="caret-right" />
   </button>
 </div>

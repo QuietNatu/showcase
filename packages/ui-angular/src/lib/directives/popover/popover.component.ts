@@ -28,6 +28,8 @@ const sideTransforms: Record<Side, string> = {
   right: 'translateX(-4px)',
 };
 
+/* TODO: replace oninit and ondestroy */
+
 @Component({
   selector: 'natu-popover',
   templateUrl: './popover.component.html',

@@ -8,6 +8,12 @@
 
 - Check differences between Angular versions - https://github.com/cexbrayat/angular-cli-diff
 
+## 💡 Decisions
+
+### Why create an adapter for [i18next](https://www.npmjs.com/package/i18next) instead of using [angular-i18next](https://www.npmjs.com/package/angular-i18next)?
+
+Ideally if a library already exists it should be used. But in this case, angular-i18next does not provide all the features provided by i18next, namely type checking translation keys.
+
 ## 🤡 Gotchas
 
 ### Important issues unresolved for more than 5 years
@@ -22,6 +28,7 @@
 - https://github.com/angular/angular-cli/issues/11787
 - https://github.com/angular/angular/issues/25963
 - https://github.com/angular/angular/issues/12627
+- https://github.com/angular/angular/issues/28731
 
 ### Karma Jasmine HTML Reporter interferes with tests
 

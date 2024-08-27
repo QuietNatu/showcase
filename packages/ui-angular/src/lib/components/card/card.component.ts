@@ -16,21 +16,22 @@ import { NatuCardHeaderIconDirective } from './directives/card-header-icon.direc
 import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
 import { xIcon } from '@natu/assets/svg/x';
 import { natuButtonImports } from '../../directives';
-
-/* TODO: add i18n once implemented */
+import { NatuTranslationDirective } from '../../i18n';
 
 @Component({
   selector: 'natu-card,[natu-card]',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [natuButtonImports, SvgIconComponent],
+  imports: [natuButtonImports, SvgIconComponent, NatuTranslationDirective],
   template: `
     <ng-content select="natu-card-header,[natu-card-header]" />
     <ng-content />
     <ng-content select="natu-card-footer,[natu-card-footer]" />
 
     @if (finalIsDismissable()) {
+      <!-- TODO: check if object keyprefix creates multiple rerenders -->
       <button
+        *natuTranslation="{ keyPrefix: 'ui.card' }; let t"
         type="button"
         natuButton
         [isIconButton]="true"
@@ -39,7 +40,7 @@ import { natuButtonImports } from '../../directives';
         class="natu-card__dismiss"
         (click)="dismiss.emit()"
       >
-        <span class="natu-visually-hidden">Dismiss</span>
+        <span class="natu-visually-hidden">{{ t('dismiss') }}</span>
         <svg-icon [key]="'x'" aria-hidden="true" />
       </button>
     }

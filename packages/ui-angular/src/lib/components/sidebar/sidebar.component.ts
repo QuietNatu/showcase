@@ -14,13 +14,14 @@ import { caretDownIcon } from '@natu/assets/svg/caret-down';
 import { caretRightIcon } from '@natu/assets/svg/caret-right';
 import { dotsThreeVerticalIcon } from '@natu/assets/svg/dots-three-vertical';
 import { connectSignal } from '../../utils';
+import { NatuTranslationDirective } from '../../i18n';
 
 @Component({
   selector: 'natu-sidebar',
   templateUrl: './sidebar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [SvgIconComponent],
+  imports: [SvgIconComponent, NatuTranslationDirective],
   providers: [NatuSidebarService],
   host: {
     class: 'natu-sidebar',

@@ -104,6 +104,18 @@ importers:
       '@natu/utils':
         specifier: workspace:*
         version: link:../../packages/utils
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
+      i18next:
+        specifier: ^23.14.0
+        version: 23.14.0
+      i18next-browser-languagedetector:
+        specifier: ^8.0.0
+        version: 8.0.0
+      i18next-resources-to-backend:
+        specifier: ^1.2.1
+        version: 1.2.1
       rxjs:
         specifier: 7.8.1
         version: 7.8.1
@@ -116,7 +128,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 18.1.4
-        version: 18.1.4(@angular/compiler-cli@18.1.4(@angular/compiler@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(@angular/service-worker@18.1.4(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(@swc/core@1.7.14(@swc/helpers@0.5.12))(@types/node@20.14.14)(chokidar@3.6.0)(html-webpack-plugin@5.6.0(webpack@5.93.0(@swc/core@1.7.14(@swc/helpers@0.5.12))(esbuild@0.21.5)))(karma@6.4.4)(ng-packagr@18.1.0(@angular/compiler-cli@18.1.4(@angular/compiler@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(tslib@2.6.3)(typescript@5.5.4))(typescript@5.5.4)
+        version: 18.1.4(@angular/compiler-cli@18.1.4(@angular/compiler@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(@angular/service-worker@18.1.4(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(@swc/core@1.7.14(@swc/helpers@0.5.12))(@types/node@20.14.14)(chokidar@3.6.0)(html-webpack-plugin@5.6.0(webpack@5.93.0(@swc/core@1.7.14(@swc/helpers@0.5.12))))(karma@6.4.4)(ng-packagr@18.1.0(@angular/compiler-cli@18.1.4(@angular/compiler@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(tslib@2.6.3)(typescript@5.5.4))(typescript@5.5.4)
       '@angular-eslint/builder':
         specifier: 18.2.0
         version: 18.2.0(@swc/core@1.7.14(@swc/helpers@0.5.12))(eslint@8.57.0)(typescript@5.5.4)
@@ -161,19 +173,19 @@ importers:
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-interactions':
         specifier: 8.2.9
-        version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@20.14.14)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.6)(terser@5.29.2))
+        version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@20.14.14)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
       '@storybook/addon-links':
         specifier: 8.2.9
         version: 8.2.9(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/angular':
         specifier: 8.2.9
-        version: 8.2.9(jp7yls4znlosxoeij3kzxyz6di)
+        version: 8.2.9(e3tykq7djv3gh3movbbtxkijny)
       '@storybook/blocks':
         specifier: 8.2.9
         version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/test':
         specifier: 8.2.9
-        version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@20.14.14)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.6)(terser@5.29.2))
+        version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@20.14.14)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
       '@testing-library/angular':
         specifier: 16.0.0
         version: 16.0.0(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(@angular/platform-browser@18.1.4(@angular/animations@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/router@18.1.4(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(@angular/platform-browser@18.1.4(@angular/animations@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(rxjs@7.8.1))
@@ -595,7 +607,7 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 18.1.4
-        version: 18.1.4(@angular/compiler-cli@18.1.4(@angular/compiler@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(@angular/service-worker@18.1.4(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(@swc/core@1.7.14(@swc/helpers@0.5.12))(@types/node@20.14.14)(chokidar@3.6.0)(html-webpack-plugin@5.6.0(webpack@5.93.0(@swc/core@1.7.14(@swc/helpers@0.5.12))))(karma@6.4.4)(ng-packagr@18.1.0(@angular/compiler-cli@18.1.4(@angular/compiler@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(tslib@2.6.3)(typescript@5.5.4))(typescript@5.5.4)
+        version: 18.1.4(@angular/compiler-cli@18.1.4(@angular/compiler@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(@angular/service-worker@18.1.4(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(@swc/core@1.7.14(@swc/helpers@0.5.12))(@types/node@20.14.14)(chokidar@3.6.0)(html-webpack-plugin@5.6.0(webpack@5.93.0(@swc/core@1.7.14(@swc/helpers@0.5.12))(esbuild@0.21.5)))(karma@6.4.4)(ng-packagr@18.1.0(@angular/compiler-cli@18.1.4(@angular/compiler@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(tslib@2.6.3)(typescript@5.5.4))(typescript@5.5.4)
       '@angular-eslint/builder':
         specifier: 18.2.0
         version: 18.2.0(@swc/core@1.7.14(@swc/helpers@0.5.12))(eslint@8.57.0)(typescript@5.5.4)
@@ -673,19 +685,19 @@ importers:
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/addon-interactions':
         specifier: 8.2.9
-        version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@20.14.14)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
+        version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@20.14.14)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.6)(terser@5.29.2))
       '@storybook/addon-links':
         specifier: 8.2.9
         version: 8.2.9(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/angular':
         specifier: 8.2.9
-        version: 8.2.9(e3tykq7djv3gh3movbbtxkijny)
+        version: 8.2.9(jp7yls4znlosxoeij3kzxyz6di)
       '@storybook/blocks':
         specifier: 8.2.9
         version: 8.2.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
       '@storybook/test':
         specifier: 8.2.9
-        version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@20.14.14)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
+        version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))(vitest@1.5.2(@types/node@20.14.14)(jsdom@24.0.0)(less@4.2.0)(sass@1.77.6)(terser@5.29.2))
       '@testing-library/angular':
         specifier: 16.0.0
         version: 16.0.0(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(@angular/platform-browser@18.1.4(@angular/animations@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/router@18.1.4(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(@angular/platform-browser@18.1.4(@angular/animations@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10)))(rxjs@7.8.1))
@@ -713,12 +725,18 @@ importers:
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
       eslint:
         specifier: 8.57.0
         version: 8.57.0
       http-server:
         specifier: 14.1.1
         version: 14.1.1
+      i18next:
+        specifier: ^23.14.0
+        version: 23.14.0
       jasmine-axe:
         specifier: 1.1.0
         version: 1.1.0
@@ -752,6 +770,9 @@ importers:
       tslib:
         specifier: 2.6.3
         version: 2.6.3
+      type-fest:
+        specifier: 4.17.0
+        version: 4.17.0
       typescript:
         specifier: 5.5.4
         version: 5.5.4
@@ -2893,6 +2914,7 @@ packages:
 
   '@ls-lint/ls-lint@2.2.3':
     resolution: {integrity: sha512-ekM12jNm/7O2I/hsRv9HvYkRdfrHpiV1epVuI2NP+eTIcEgdIdKkKCs9KgQydu/8R5YXTov9aHdOgplmCHLupw==}
+    cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true
 

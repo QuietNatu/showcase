@@ -23,6 +23,7 @@ beforeAll(async () => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   jasmine.addMatchers(JasmineDOM);
   jasmine.addMatchers(toHaveNoViolations);
+
   await mockWorker.start({ onUnhandledRequest: 'warn' });
 });
 

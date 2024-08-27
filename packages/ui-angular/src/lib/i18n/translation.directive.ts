@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Directive,
   effect,
   inject,
@@ -19,7 +20,6 @@ interface ViewContext<TKPrefix extends KeyPrefix<DefaultNamespace>> {
 }
 
 /* TODO: docs */
-/* TODO: test */
 
 @Directive({
   selector: '[natuTranslation]',
@@ -37,23 +37,26 @@ export class NatuTranslationDirective<TKPrefix extends KeyPrefix<DefaultNamespac
 
   private readonly templateRef = inject<TemplateRef<ViewContext<TKPrefix>>>(TemplateRef);
   private readonly viewContainerRef = inject(ViewContainerRef);
-  private readonly translationFunction = injectTranslationFunction<TKPrefix>();
+  private readonly translationFunction = injectTranslationFunction<TKPrefix>(this.options);
+  private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
   constructor() {
     effect((onCleanup) => {
       const translationFunction = this.translationFunction();
 
-      if (translationFunction) {
-        const viewRef = untracked(() =>
-          this.viewContainerRef.createEmbeddedView<ViewContext<TKPrefix>>(this.templateRef, {
-            $implicit: translationFunction,
-          }),
-        );
+      const viewRef = untracked(() =>
+        this.viewContainerRef.createEmbeddedView<ViewContext<TKPrefix>>(this.templateRef, {
+          $implicit: translationFunction,
+        }),
+      );
 
-        onCleanup(() => {
-          untracked(() => viewRef.destroy());
-        });
-      }
+      this.changeDetectorRef.detectChanges();
+
+      onCleanup(() => {
+        untracked(() => viewRef.destroy());
+
+        this.changeDetectorRef.detectChanges();
+      });
     });
   }
 }

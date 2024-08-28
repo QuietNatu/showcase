@@ -19,13 +19,13 @@
   },
   "dependencies": {
     "@natu/utils": "workspace:*",
-    "picomatch": "^4.0.2"
+    "picomatch": "4.0.2"
   },
   "devDependencies": {
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
-    "@types/picomatch": "^2.3.3",
-    "tsup": "^8.1.0",
+    "@types/picomatch": "2.3.4",
+    "tsup": "8.2.4",
     "typescript": "5.4.5"
   }
 }

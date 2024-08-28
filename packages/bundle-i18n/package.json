@@ -13,14 +13,14 @@
   },
   "dependencies": {
     "@natu/utils": "workspace:*",
-    "commander": "^12.1.0",
-    "picocolors": "^1.0.1"
+    "commander": "12.1.0",
+    "picocolors": "1.0.1"
   },
   "devDependencies": {
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@types/node": "20.14.1",
-    "tsup": "^8.1.0",
+    "tsup": "8.2.4",
     "typescript": "5.4.5"
   }
 }

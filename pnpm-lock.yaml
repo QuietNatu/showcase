@@ -262,16 +262,16 @@ importers:
         specifier: 2.1.1
         version: 2.1.1
       date-fns:
-        specifier: ^3.6.0
+        specifier: 3.6.0
         version: 3.6.0
       i18next:
-        specifier: ^23.11.5
+        specifier: 23.11.5
         version: 23.11.5
       i18next-browser-languagedetector:
-        specifier: ^8.0.0
+        specifier: 8.0.0
         version: 8.0.0
       i18next-resources-to-backend:
-        specifier: ^1.2.1
+        specifier: 1.2.1
         version: 1.2.1
       react:
         specifier: 18.3.1
@@ -280,7 +280,7 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: ^14.1.2
+        specifier: 14.1.2
         version: 14.1.2(i18next@23.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@faker-js/faker':
@@ -426,10 +426,10 @@ importers:
         specifier: workspace:*
         version: link:../utils
       commander:
-        specifier: ^12.1.0
+        specifier: 12.1.0
         version: 12.1.0
       picocolors:
-        specifier: ^1.0.1
+        specifier: 1.0.1
         version: 1.0.1
     devDependencies:
       '@natu/eslint-config-react':
@@ -442,7 +442,7 @@ importers:
         specifier: 20.14.1
         version: 20.14.1
       tsup:
-        specifier: ^8.1.0
+        specifier: 8.2.4
         version: 8.2.4(@swc/core@1.7.18(@swc/helpers@0.5.12))(jiti@1.21.6)(postcss@8.4.41)(typescript@5.4.5)(yaml@2.5.0)
       typescript:
         specifier: 5.4.5
@@ -930,7 +930,7 @@ importers:
         specifier: workspace:*
         version: link:../utils
       picomatch:
-        specifier: ^4.0.2
+        specifier: 4.0.2
         version: 4.0.2
       vite:
         specifier: 5.2.12
@@ -943,10 +943,10 @@ importers:
         specifier: workspace:*
         version: link:../tsconfig
       '@types/picomatch':
-        specifier: ^2.3.3
+        specifier: 2.3.4
         version: 2.3.4
       tsup:
-        specifier: ^8.1.0
+        specifier: 8.2.4
         version: 8.2.4(@swc/core@1.7.18(@swc/helpers@0.5.12))(jiti@1.21.6)(postcss@8.4.41)(typescript@5.4.5)(yaml@2.5.0)
       typescript:
         specifier: 5.4.5
@@ -21965,7 +21965,7 @@ snapshots:
 
   regenerator-transform@0.15.2:
     dependencies:
-      '@babel/runtime': 7.24.7
+      '@babel/runtime': 7.25.4
 
   regex-parser@2.3.0: {}
 

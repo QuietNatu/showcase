@@ -8,28 +8,38 @@ interface Options<TKPrefix extends KeyPrefix<DefaultNamespace>> {
   keyPrefix: TKPrefix;
 }
 
-//** TODO: DOCS explain this is needed because it depends on the current instance */
-export function injectTranslationFunction<TKPrefix extends KeyPrefix<DefaultNamespace> = undefined>(
+interface TranslationInstance {
+  t: TFunction;
+}
+
+/**
+ * Provides a reactive translation function with applied defaults.
+ *
+ * @param options - options that will modify the translation function instance
+ * @param options.keyPrefix - prefix that will be applied to all translations
+ * @returns the translation function
+ */
+export function injectTranslation<TKPrefix extends KeyPrefix<DefaultNamespace> = undefined>(
   options: Partial<Options<TKPrefix>> | Signal<Partial<Options<TKPrefix>>> = {},
-): Signal<TFunction> {
-  assertInInjectionContext(injectTranslationFunction);
+): Signal<TranslationInstance> {
+  assertInInjectionContext(injectTranslation);
 
   const translationService = inject(NatuTranslationService);
 
   const options$ = isSignal(options) ? toObservable(options) : of(options);
 
-  const t$ = merge(
+  const instance$ = merge(
     options$,
     // this.translationService.events.initialized$, // TODO: this or like how react does it? Is it even needed? Wont language changed also be triggered?
     translationService.languageChanged$,
   ).pipe(
     filter(() => checkIsReady(translationService)),
     withLatestFrom(options$),
-    map(([, options]) => translationService.i18n.getFixedT(null, null, options.keyPrefix)),
+    map(([, options]) => ({ t: translationService.i18n.getFixedT(null, null, options.keyPrefix) })),
   );
 
-  return toSignal(t$, {
-    initialValue: defaultTFunction as TFunction<DefaultNamespace, TKPrefix>,
+  return toSignal(instance$, {
+    initialValue: { t: defaultTFunction as TFunction<DefaultNamespace, TKPrefix> },
   });
 }
 

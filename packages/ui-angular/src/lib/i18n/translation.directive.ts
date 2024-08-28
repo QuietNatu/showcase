@@ -9,7 +9,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { DefaultNamespace, KeyPrefix, TFunction } from 'i18next';
-import { injectTranslationFunction } from './translation-function';
+import { injectTranslation } from './inject-translation';
 
 interface Options<TKPrefix extends KeyPrefix<DefaultNamespace>> {
   keyPrefix: TKPrefix;
@@ -19,8 +19,9 @@ interface ViewContext<TKPrefix extends KeyPrefix<DefaultNamespace>> {
   $implicit: TFunction<DefaultNamespace, TKPrefix>;
 }
 
-/* TODO: docs */
-
+/**
+ * Structural directive that provides the translation function to a template.
+ */
 @Directive({
   selector: '[natuTranslation]',
   standalone: true,
@@ -37,16 +38,16 @@ export class NatuTranslationDirective<TKPrefix extends KeyPrefix<DefaultNamespac
 
   private readonly templateRef = inject<TemplateRef<ViewContext<TKPrefix>>>(TemplateRef);
   private readonly viewContainerRef = inject(ViewContainerRef);
-  private readonly translationFunction = injectTranslationFunction<TKPrefix>(this.options);
+  private readonly translationInstance = injectTranslation<TKPrefix>(this.options);
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
   constructor() {
     effect((onCleanup) => {
-      const translationFunction = this.translationFunction();
+      const { t } = this.translationInstance();
 
       const viewRef = untracked(() =>
         this.viewContainerRef.createEmbeddedView<ViewContext<TKPrefix>>(this.templateRef, {
-          $implicit: translationFunction,
+          $implicit: t,
         }),
       );
 

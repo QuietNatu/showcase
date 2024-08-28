@@ -29,7 +29,6 @@ import { NatuTranslationDirective } from '../../i18n';
     <ng-content select="natu-card-footer,[natu-card-footer]" />
 
     @if (finalIsDismissable()) {
-      <!-- TODO: check if object keyprefix creates multiple rerenders -->
       <button
         *natuTranslation="{ keyPrefix: 'ui.card' }; let t"
         type="button"

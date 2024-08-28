@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import { injectTranslationFunction } from './translation-function';
+import { injectTranslation } from './inject-translation';
 import { TestBed } from '@angular/core/testing';
 import { NATU_I18N_INSTANCE } from './translation-tokens';
 import { NatuTranslationService } from './translation.service';
@@ -8,9 +8,9 @@ import { firstValueFrom, Subject } from 'rxjs';
 import { signal } from '@angular/core';
 import { toObservable } from '@angular/core/rxjs-interop';
 
-describe(injectTranslationFunction.name, () => {
+describe(injectTranslation.name, () => {
   it('fails if function is not used within an injection context', () => {
-    expect(injectTranslationFunction).toThrow();
+    expect(injectTranslation).toThrow();
   });
 
   it('provides default translate function when translations are still not ready', () => {
@@ -26,7 +26,7 @@ describe(injectTranslationFunction.name, () => {
       providers: [{ provide: NatuTranslationService, useValue: translationServiceMock }],
     });
 
-    const t = TestBed.runInInjectionContext(() => injectTranslationFunction()());
+    const { t } = TestBed.runInInjectionContext(() => injectTranslation()());
 
     expect(t('example', 'default value')).toBe('default value');
     expect(t('example', { defaultValue: 'default value' })).toBe('default value');
@@ -41,12 +41,12 @@ describe(injectTranslationFunction.name, () => {
       providers: [{ provide: NATU_I18N_INSTANCE, useValue: i18nInstance }],
     });
 
-    const t1 = TestBed.runInInjectionContext(() => injectTranslationFunction()());
-    const t2 = TestBed.runInInjectionContext(
-      () => injectTranslationFunction({ keyPrefix: 'group' as any })(), // eslint-disable-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment
+    const { t: t1 } = TestBed.runInInjectionContext(() => injectTranslation()());
+    const { t: t2 } = TestBed.runInInjectionContext(
+      () => injectTranslation({ keyPrefix: 'group' as any })(), // eslint-disable-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment
     );
-    const t3 = await TestBed.runInInjectionContext(() => {
-      const t = injectTranslationFunction(signal({ keyPrefix: 'group' as any })); // eslint-disable-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment
+    const { t: t3 } = await TestBed.runInInjectionContext(() => {
+      const t = injectTranslation(signal({ keyPrefix: 'group' as any })); // eslint-disable-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment
       return firstValueFrom(toObservable(t));
     });
 

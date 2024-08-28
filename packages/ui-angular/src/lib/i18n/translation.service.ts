@@ -4,7 +4,9 @@ import { Observable, Subject } from 'rxjs';
 import { NATU_I18N_INSTANCE } from './translation-tokens';
 
 /**
- * TODO: Add note that this should not be used directly because t function wont be correct
+ * Provides i18n instance as well as utils to more easily interact with it.
+ *
+ * Should not be used to directly perform translations as they will not be reactive.
  */
 @Injectable({ providedIn: 'root' })
 export class NatuTranslationService {

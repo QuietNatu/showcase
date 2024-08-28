@@ -36,4 +36,4 @@ try {
   console.error(pc.red('bundle failed to be created'));
 }
 
-// TODO: watch mode for Angular
+// TODO: watch mode for Angular chokidar or @parcel/watcher?

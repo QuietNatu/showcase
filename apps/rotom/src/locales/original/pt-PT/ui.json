@@ -1,0 +1,13 @@
+{
+  "card": {
+    "dismiss": "Fechar"
+  },
+  "sidebar": {
+    "collapse": "Colapsar",
+    "expand": "Expandir",
+    "section": {
+      "main": "Principal",
+      "secondary": "Secundária"
+    }
+  }
+}

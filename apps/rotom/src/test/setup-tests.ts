@@ -12,6 +12,7 @@ import { drop } from '@mswjs/data';
 import { GlobaltTestingSetupModule } from './global-testing-setup.module';
 import { mockWorker } from '@/mocks/server/browser';
 import { deleteAllCookies } from '@natu/utils';
+import { mockI18n } from '@/mocks/i18n';
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
@@ -25,6 +26,8 @@ beforeAll(async () => {
   jasmine.addMatchers(toHaveNoViolations);
 
   await mockWorker.start({ onUnhandledRequest: 'warn' });
+
+  await mockI18n();
 });
 
 afterEach(() => {

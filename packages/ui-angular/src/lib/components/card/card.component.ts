@@ -13,7 +13,7 @@ import { NatuCardHeaderComponent } from './components/card-header.component';
 import { NatuCardBodyComponent } from './components/card-body.component';
 import { NatuCardFooterComponent } from './components/card-footer.component';
 import { NatuCardHeaderIconDirective } from './directives/card-header-icon.directive';
-import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
+import { SvgIconComponent, injectRegisterIcons } from '@ngneat/svg-icon';
 import { xIcon } from '@natu/assets/svg/x';
 import { natuButtonImports } from '../../directives';
 import { NatuTranslationDirective } from '../../i18n';

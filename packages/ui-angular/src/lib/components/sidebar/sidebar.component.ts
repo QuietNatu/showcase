@@ -9,7 +9,7 @@ import { NatuSidebarLabelDirective } from './directives/sidebar-label.directive'
 import { NatuSidebarIconDirective } from './directives/sidebar-icon.directive';
 import { NatuSidebarGroupComponent } from './components/sidebar-group.component';
 import { NatuSidebarService } from './services/sidebar.service';
-import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
+import { SvgIconComponent, injectRegisterIcons } from '@ngneat/svg-icon';
 import { caretDownIcon } from '@natu/assets/svg/caret-down';
 import { caretRightIcon } from '@natu/assets/svg/caret-right';
 import { dotsThreeVerticalIcon } from '@natu/assets/svg/dots-three-vertical';

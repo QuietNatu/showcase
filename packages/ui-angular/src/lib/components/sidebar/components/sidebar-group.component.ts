@@ -11,7 +11,7 @@ import {
 } from '@angular/core';
 import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 import { NatuSidebarItemComponent } from './sidebar-item.component';
-import { SvgIconComponent } from '@natu/assets';
+import { SvgIconComponent } from '@ngneat/svg-icon';
 import { NatuSidebarService } from '../services/sidebar.service';
 import {
   NatuFocusRingDirective,

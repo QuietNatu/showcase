@@ -1,11 +1,16 @@
+/* eslint-disable no-console */
+
 import { program } from 'commander';
 import { bundleLocales, saveLocales } from '@natu/utils/node';
 import pc from 'picocolors';
+import watcher from '@parcel/watcher';
+import path from 'path';
 
 interface Options {
   source: string;
   destination: string;
   filename: string;
+  watch?: boolean;
 }
 
 program
@@ -18,22 +23,33 @@ program
   .requiredOption('--source <source>', 'source dir of translations')
   .requiredOption('--destination <destination>', 'destination dir of bundled translations')
   .requiredOption('--filename <filename>', 'name of the bundled file')
+  .option('--watch', 'watch for changes in source dir')
   .parse();
 
 const root = process.cwd();
-const { source, destination, filename } = program.opts<Options>();
+const { source, destination, filename, watch } = program.opts<Options>();
 
-try {
-  const bundledLocales = bundleLocales({ root, source });
-  saveLocales({ bundledLocales, root, destination, filename: `${filename}.json` });
+function bundleI18n() {
+  try {
+    const bundledLocales = bundleLocales({ root, source });
+    saveLocales({ bundledLocales, root, destination, filename: `${filename}.json` });
 
-  // eslint-disable-next-line no-console
-  console.info(pc.green(`bundle created successfully at "${destination}"`));
-} catch (error) {
-  // eslint-disable-next-line no-console
-  console.error(error);
-  // eslint-disable-next-line no-console
-  console.error(pc.red('bundle failed to be created'));
+    console.info(pc.green(`bundle created successfully at "${destination}"`));
+  } catch (error) {
+    console.error(error);
+    console.error(pc.red('bundle failed to be created'));
+  }
 }
 
-// TODO: watch mode for Angular chokidar or @parcel/watcher?
+bundleI18n();
+
+if (watch) {
+  void watcher.subscribe(path.resolve(root, source), (error, _events) => {
+    if (error) {
+      console.error(error);
+      console.error(pc.red('error while watching for bundle changes'));
+    } else {
+      bundleI18n();
+    }
+  });
+}

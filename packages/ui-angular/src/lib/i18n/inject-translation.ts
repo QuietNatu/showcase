@@ -44,6 +44,7 @@ export function injectTranslation<TKPrefix extends KeyPrefix<DefaultNamespace> =
 }
 
 function checkIsReady(translationService: NatuTranslationService) {
+  /* TODO: should this be used in APP_INITIALIZED is being used? */
   return translationService.i18n.isInitialized || translationService.i18n.initializedStoreOnce;
 }
 

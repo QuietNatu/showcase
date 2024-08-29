@@ -5,6 +5,9 @@ import '../styles/styles.scss';
 import styles from './app.module.scss';
 import { useTranslation } from 'react-i18next';
 
+/* TODO: error boundary? */
+/* TODO: loading while app is not ready? (i18n via APP_INITIALIZER -> https://netbasal.com/optimize-user-experience-while-your-angular-app-loads-7e982a67ff1a) */
+
 export function App() {
   const { t } = useTranslation();
 

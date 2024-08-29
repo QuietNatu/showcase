@@ -34,6 +34,7 @@ export class NatuTranslationDirective<TKPrefix extends KeyPrefix<DefaultNamespac
     return true;
   }
 
+  /* TODO: there is a better way to do this with structural directives? */
   readonly options = input<Partial<Options<TKPrefix>>>({}, { alias: 'natuTranslation' });
 
   private readonly templateRef = inject<TemplateRef<ViewContext<TKPrefix>>>(TemplateRef);

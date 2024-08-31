@@ -603,8 +603,8 @@ importers:
         specifier: 5.0.10
         version: 5.0.10
       style-dictionary:
-        specifier: 4.0.0-prerelease.15
-        version: 4.0.0-prerelease.15
+        specifier: 4.1.0
+        version: 4.1.0
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -3007,6 +3007,7 @@ packages:
 
   '@ls-lint/ls-lint@2.2.3':
     resolution: {integrity: sha512-ekM12jNm/7O2I/hsRv9HvYkRdfrHpiV1epVuI2NP+eTIcEgdIdKkKCs9KgQydu/8R5YXTov9aHdOgplmCHLupw==}
+    cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -5185,6 +5186,10 @@ packages:
   '@yarnpkg/parsers@3.0.0-rc.46':
     resolution: {integrity: sha512-aiATs7pSutzda/rq8fnuPwTglyVwjM22bNnK2ZgjrpAjQHSSl3lztd2f9evst1W/qnC58DRz7T7QndUDumAR4Q==}
     engines: {node: '>=14.15.0'}
+
+  '@zip.js/zip.js@2.7.52':
+    resolution: {integrity: sha512-+5g7FQswvrCHwYKNMd/KFxZSObctLSsQOgqBSi0LzwHo3li9Eh1w5cF5ndjQw9Zbr3ajVnd2+XyiX85gAetx1Q==}
+    engines: {bun: '>=0.7.0', deno: '>=1.0.0', node: '>=16.5.0'}
 
   '@zkochan/js-yaml@0.0.7':
     resolution: {integrity: sha512-nrUSn7hzt7J6JWgWGz78ZYI8wj+gdIJdk0Ynjpp8l+trkn58Uqsf6RYrYkEK+3X18EX+TNdtJI0WxAtc+L84SQ==}
@@ -9933,8 +9938,8 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
 
-  style-dictionary@4.0.0-prerelease.15:
-    resolution: {integrity: sha512-kZ0qi0BClVsfh06+z/622VRKTcYdUvgSD6j1C/x50/Vvo2ndi/rcjyyTNmmwyqPMHp4lVgZ9BTUx0Mr9/+mzhA==}
+  style-dictionary@4.1.0:
+    resolution: {integrity: sha512-DfY64t/XsL0bycnabIcIna/H1GyjK4sKLui2t0q6flr2uM+VpRNoSNCPOpi5YSouhKEFjoiC6ediyrMzraTz8A==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -17686,6 +17691,8 @@ snapshots:
       js-yaml: 3.14.1
       tslib: 2.6.3
 
+  '@zip.js/zip.js@2.7.52': {}
+
   '@zkochan/js-yaml@0.0.7':
     dependencies:
       argparse: 2.0.1
@@ -21632,7 +21639,7 @@ snapshots:
       make-fetch-happen: 13.0.1
       nopt: 7.2.1
       proc-log: 4.2.0
-      semver: 7.6.2
+      semver: 7.6.3
       tar: 6.2.1
       which: 4.0.0
     transitivePeerDependencies:
@@ -21653,7 +21660,7 @@ snapshots:
   normalize-package-data@6.0.2:
     dependencies:
       hosted-git-info: 7.0.2
-      semver: 7.6.2
+      semver: 7.6.3
       validate-npm-package-license: 3.0.4
 
   normalize-path@3.0.0: {}
@@ -23432,17 +23439,17 @@ snapshots:
       minimist: 1.2.8
       through: 2.3.8
 
-  style-dictionary@4.0.0-prerelease.15:
+  style-dictionary@4.1.0:
     dependencies:
       '@bundled-es-modules/deepmerge': 4.3.1
       '@bundled-es-modules/glob': 10.4.2
       '@bundled-es-modules/memfs': 4.9.4
+      '@zip.js/zip.js': 2.7.52
       chalk: 5.3.0
       change-case: 5.4.4
       commander: 8.3.0
       is-plain-obj: 4.1.0
       json5: 2.2.3
-      lodash-es: 4.17.21
       patch-package: 8.0.0
       path-unified: 0.1.0
       tinycolor2: 1.6.0

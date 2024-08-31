@@ -21,8 +21,8 @@ importers:
         specifier: 2.2.3
         version: 2.2.3
       '@playwright/test':
-        specifier: 1.44.1
-        version: 1.44.1
+        specifier: 1.46.1
+        version: 1.46.1
       dependency-cruiser:
         specifier: 16.3.10
         version: 16.3.10
@@ -166,8 +166,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/vrt
       '@playwright/test':
-        specifier: 1.44.1
-        version: 1.44.1
+        specifier: 1.46.1
+        version: 1.46.1
       '@storybook/addon-a11y':
         specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.3(@babel/core@7.25.2)))
@@ -326,8 +326,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/vrt
       '@playwright/test':
-        specifier: 1.44.1
-        version: 1.44.1
+        specifier: 1.46.1
+        version: 1.46.1
       '@storybook/addon-a11y':
         specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))
@@ -686,8 +686,8 @@ importers:
         specifier: 7.1.6
         version: 7.1.6(@angular/common@18.1.4(@angular/core@18.1.4(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))
       '@playwright/test':
-        specifier: 1.44.1
-        version: 1.44.1
+        specifier: 1.46.1
+        version: 1.46.1
       '@storybook/addon-a11y':
         specifier: 8.2.9
         version: 8.2.9(storybook@8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2)))
@@ -818,8 +818,8 @@ importers:
         specifier: workspace:*
         version: link:../vrt
       '@playwright/test':
-        specifier: 1.44.1
-        version: 1.44.1
+        specifier: 1.46.1
+        version: 1.46.1
       '@radix-ui/react-collapsible':
         specifier: 1.0.3
         version: 1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -996,8 +996,8 @@ importers:
         specifier: workspace:*
         version: link:../tsconfig
       '@playwright/test':
-        specifier: 1.44.1
-        version: 1.44.1
+        specifier: 1.46.1
+        version: 1.46.1
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -3322,9 +3322,9 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@playwright/test@1.44.1':
-    resolution: {integrity: sha512-1hZ4TNvD5z9VuhNJ/walIjvMVvYkZKf71axoF/uiAqpntQJXpG64dlXhoDXE3OczPuTuvjf/M5KWFg5VAVUS3Q==}
-    engines: {node: '>=16'}
+  '@playwright/test@1.46.1':
+    resolution: {integrity: sha512-Fq6SwLujA/DOIvNC2EL/SojJnkKf/rAwJ//APpJJHRyMi1PdKrY3Az+4XNQ51N4RTbItbIByQ0jgd1tayq1aeA==}
+    engines: {node: '>=18'}
     hasBin: true
 
   '@radix-ui/primitive@1.0.1':
@@ -8987,14 +8987,14 @@ packages:
   pkg-types@1.1.3:
     resolution: {integrity: sha512-+JrgthZG6m3ckicaOB74TwQ+tBWsFl3qVQg7mN8ulwSOElJ7gBhKzj2VkCPnZ4NlF6kEquYU+RIYNVAvzd54UA==}
 
-  playwright-core@1.44.1:
-    resolution: {integrity: sha512-wh0JWtYTrhv1+OSsLPgFzGzt67Y7BE/ZS3jEqgGBlp2ppp1ZDj8c+9IARNW4dwf1poq5MgHreEM2KV/GuR4cFA==}
-    engines: {node: '>=16'}
+  playwright-core@1.46.1:
+    resolution: {integrity: sha512-h9LqIQaAv+CYvWzsZ+h3RsrqCStkBHlgo6/TJlFst3cOTlLghBQlJwPOZKQJTKNaD3QIB7aAVQ+gfWbN3NXB7A==}
+    engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.44.1:
-    resolution: {integrity: sha512-qr/0UJ5CFAtloI3avF95Y0L1xQo6r3LQArLIg/z/PoGJ6xa+EwzrwO5lpNr/09STxdHuUoP2mvuELJS+hLdtgg==}
-    engines: {node: '>=16'}
+  playwright@1.46.1:
+    resolution: {integrity: sha512-oPcr1yqoXLCkgKtD5eNUPLiN40rYEM39odNpIb6VE6S7/15gJmA1NzVv6zJYusV0e7tzvkU/utBFNa/Kpxmwng==}
+    engines: {node: '>=18'}
     hasBin: true
 
   pluralize@8.0.0:
@@ -14586,9 +14586,9 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@playwright/test@1.44.1':
+  '@playwright/test@1.46.1':
     dependencies:
-      playwright: 1.44.1
+      playwright: 1.46.1
 
   '@radix-ui/primitive@1.0.1':
     dependencies:
@@ -22237,11 +22237,11 @@ snapshots:
       mlly: 1.7.1
       pathe: 1.1.2
 
-  playwright-core@1.44.1: {}
+  playwright-core@1.46.1: {}
 
-  playwright@1.44.1:
+  playwright@1.46.1:
     dependencies:
-      playwright-core: 1.44.1
+      playwright-core: 1.46.1
     optionalDependencies:
       fsevents: 2.3.2
 

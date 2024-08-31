@@ -46,7 +46,7 @@
     "@natu/tsconfig": "workspace:*",
     "@natu/vite-plugin-bundle-i18n": "workspace:*",
     "@natu/vrt": "workspace:*",
-    "@playwright/test": "1.44.1",
+    "@playwright/test": "1.46.1",
     "@storybook/addon-a11y": "8.2.9",
     "@storybook/addon-essentials": "8.2.9",
     "@storybook/addon-interactions": "8.2.9",

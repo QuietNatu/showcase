@@ -60,7 +60,7 @@
     "@natu/eslint-config-angular": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/vrt": "workspace:*",
-    "@playwright/test": "1.44.1",
+    "@playwright/test": "1.46.1",
     "@storybook/addon-a11y": "8.2.9",
     "@storybook/addon-docs": "8.2.9",
     "@storybook/addon-essentials": "8.2.9",

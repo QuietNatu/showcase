@@ -6,7 +6,7 @@
   <ng-content select="natu-sidebar-secondary-actions" />
 
   <button
-    *natuTranslation="{ keyPrefix: 'ui.sidebar' }; let t"
+    *natuTranslation="let t; keyPrefix: 'ui.sidebar'"
     type="button"
     class="natu-sidebar__toggle-button"
     (click)="sidebarService.toggleExpansion()"

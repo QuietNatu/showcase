@@ -6,10 +6,7 @@ import { NatuTranslationDirective } from '../../../i18n';
 @Component({
   selector: 'natu-sidebar-actions',
   template: `
-    <nav
-      *natuTranslation="{ keyPrefix: 'ui.sidebar' }; let t"
-      [attr.aria-label]="t('section.main')"
-    >
+    <nav *natuTranslation="let t; keyPrefix: 'ui.sidebar'" [attr.aria-label]="t('section.main')">
       <ul class="natu-sidebar__list">
         @for (item of items(); track $index) {
           <li class="natu-sidebar__list-item">

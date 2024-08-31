@@ -2,8 +2,7 @@
 
 <app-sidebar class="app__sidebar" />
 
-<!-- TODO: can empty object be improved? -->
-<main class="app__main" *natuTranslation="{}; let t">
+<main class="app__main" *natuTranslation="let t">
   <div>{{ t('features.app.homepage.description') }}</div>
 
   <app-counter />

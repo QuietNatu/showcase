@@ -30,7 +30,7 @@ import { NatuTranslationDirective } from '../../i18n';
 
     @if (finalIsDismissable()) {
       <button
-        *natuTranslation="{ keyPrefix: 'ui.card' }; let t"
+        *natuTranslation="let t; keyPrefix: 'ui.card'"
         type="button"
         natuButton
         [isIconButton]="true"

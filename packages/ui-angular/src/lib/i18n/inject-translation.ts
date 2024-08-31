@@ -1,14 +1,20 @@
-import { assertInInjectionContext, inject, isSignal, Signal } from '@angular/core';
+import {
+  assertInInjectionContext,
+  computed,
+  inject,
+  isSignal,
+  signal,
+  Signal,
+} from '@angular/core';
 import { DefaultNamespace, KeyPrefix, TFunction } from 'i18next';
 import { NatuTranslationService } from './translation.service';
-import { toObservable, toSignal } from '@angular/core/rxjs-interop';
-import { filter, map, merge, of, withLatestFrom } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
-interface Options<TKPrefix extends KeyPrefix<DefaultNamespace>> {
-  keyPrefix: TKPrefix;
+export interface InjectTranslationOptions<TKPrefix extends KeyPrefix<DefaultNamespace>> {
+  keyPrefix?: TKPrefix;
 }
 
-interface TranslationInstance {
+export interface InjectTranslationResult {
   t: TFunction;
 }
 
@@ -20,26 +26,22 @@ interface TranslationInstance {
  * @returns the translation function
  */
 export function injectTranslation<TKPrefix extends KeyPrefix<DefaultNamespace> = undefined>(
-  options: Partial<Options<TKPrefix>> | Signal<Partial<Options<TKPrefix>>> = {},
-): Signal<TranslationInstance> {
+  options: InjectTranslationOptions<TKPrefix> | Signal<InjectTranslationOptions<TKPrefix>> = {},
+): Signal<InjectTranslationResult> {
   assertInInjectionContext(injectTranslation);
 
   const translationService = inject(NatuTranslationService);
 
-  const options$ = isSignal(options) ? toObservable(options) : of(options);
+  const options$ = isSignal(options) ? options : signal(options);
+  const language$ = toSignal(translationService.languageChanged$, { initialValue: null });
 
-  const instance$ = merge(
-    options$,
-    // this.translationService.events.initialized$, // TODO: this or like how react does it? Is it even needed? Wont language changed also be triggered?
-    translationService.languageChanged$,
-  ).pipe(
-    filter(() => checkIsReady(translationService)),
-    withLatestFrom(options$),
-    map(([, options]) => ({ t: translationService.i18n.getFixedT(null, null, options.keyPrefix) })),
-  );
+  return computed(() => {
+    const options = options$();
+    const language = language$();
 
-  return toSignal(instance$, {
-    initialValue: { t: defaultTFunction as TFunction<DefaultNamespace, TKPrefix> },
+    return checkIsReady(translationService)
+      ? { t: translationService.i18n.getFixedT(language, null, options.keyPrefix) }
+      : { t: defaultTFunction as TFunction<DefaultNamespace, TKPrefix> };
   });
 }
 

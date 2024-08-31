@@ -7,7 +7,7 @@ import { NatuTranslationDirective } from '../../../i18n';
   selector: 'natu-sidebar-secondary-actions',
   template: `
     <nav
-      *natuTranslation="{ keyPrefix: 'ui.sidebar' }; let t"
+      *natuTranslation="let t; keyPrefix: 'ui.sidebar'"
       [attr.aria-label]="t('section.secondary')"
     >
       <ul class="natu-sidebar__list">

@@ -1,5 +1,6 @@
 import {
   ChangeDetectorRef,
+  computed,
   Directive,
   effect,
   inject,
@@ -10,10 +11,6 @@ import {
 } from '@angular/core';
 import { DefaultNamespace, KeyPrefix, TFunction } from 'i18next';
 import { injectTranslation } from './inject-translation';
-
-interface Options<TKPrefix extends KeyPrefix<DefaultNamespace>> {
-  keyPrefix: TKPrefix;
-}
 
 interface ViewContext<TKPrefix extends KeyPrefix<DefaultNamespace>> {
   $implicit: TFunction<DefaultNamespace, TKPrefix>;
@@ -34,13 +31,14 @@ export class NatuTranslationDirective<TKPrefix extends KeyPrefix<DefaultNamespac
     return true;
   }
 
-  /* TODO: there is a better way to do this with structural directives? */
-  readonly options = input<Partial<Options<TKPrefix>>>({}, { alias: 'natuTranslation' });
+  readonly keyPrefix = input<TKPrefix | undefined>(undefined, {
+    alias: 'natuTranslationKeyPrefix',
+  });
 
   private readonly templateRef = inject<TemplateRef<ViewContext<TKPrefix>>>(TemplateRef);
   private readonly viewContainerRef = inject(ViewContainerRef);
-  private readonly translationInstance = injectTranslation<TKPrefix>(this.options);
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
+  private readonly translationInstance = this.getTranslationInstance();
 
   constructor() {
     effect((onCleanup) => {
@@ -60,5 +58,11 @@ export class NatuTranslationDirective<TKPrefix extends KeyPrefix<DefaultNamespac
         this.changeDetectorRef.detectChanges();
       });
     });
+  }
+
+  private getTranslationInstance() {
+    const options = computed(() => ({ keyPrefix: this.keyPrefix() }));
+
+    return injectTranslation(options);
   }
 }

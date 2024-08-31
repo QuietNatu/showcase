@@ -21,7 +21,7 @@ describe(NatuTranslationDirective.name, () => {
   it('provides translation function with key prefix', async () => {
     const i18nInstance = await createI18nInstance();
 
-    await render(`<div *natuTranslation="{ keyPrefix: 'group' }; let t">{{ t('example') }}</div>`, {
+    await render(`<div *natuTranslation="let t; keyPrefix: 'group'">{{ t('example') }}</div>`, {
       renderOptions: {
         imports: [NatuTranslationDirective],
         providers: [{ provide: NATU_I18N_INSTANCE, useValue: i18nInstance }],

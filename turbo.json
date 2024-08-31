@@ -2,7 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
   "globalEnv": ["CI", "PORT", "DEV", "VITE_E2E"],
-  "pipeline": {
+  "tasks": {
     "dev": {
       "dependsOn": ["^build", "build-dependencies"],
       "cache": false,
@@ -27,7 +27,8 @@
     },
     "test": {
       "dependsOn": ["^build", "build-dependencies"],
-      "outputs": ["coverage/**"]
+      "outputs": ["coverage/**"],
+      "env": ["PLAYWRIGHT_BROWSERS_PATH"]
     },
     "test-watch": {
       "cache": false,
@@ -48,11 +49,13 @@
     },
     "vrt": {
       "dependsOn": ["build-storybook"],
-      "outputs": ["vrt/report/**", "vrt/results/**", "vrt/screenshots/**"]
+      "outputs": ["vrt/report/**", "vrt/results/**", "vrt/screenshots/**"],
+      "env": ["PLAYWRIGHT_BROWSERS_PATH"]
     },
     "vrt-update": {
       "dependsOn": ["build-storybook"],
-      "outputs": ["vrt/report/**", "vrt/results/**", "vrt/screenshots/**"]
+      "outputs": ["vrt/report/**", "vrt/results/**", "vrt/screenshots/**"],
+      "env": ["PLAYWRIGHT_BROWSERS_PATH"]
     },
     "vrt-show-report": {
       "cache": false

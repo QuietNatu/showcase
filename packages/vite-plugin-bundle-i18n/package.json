@@ -26,6 +26,6 @@
     "@natu/tsconfig": "workspace:*",
     "@types/picomatch": "2.3.4",
     "tsup": "8.2.4",
-    "typescript": "5.4.5"
+    "typescript": "5.5.4"
   }
 }

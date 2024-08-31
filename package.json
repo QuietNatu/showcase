@@ -58,7 +58,7 @@
   },
   "pnpm": {
     "overrides": {
-      "@testing-library/dom": "10.1.0"
+      "@testing-library/dom": "10.4.0"
     }
   }
 }

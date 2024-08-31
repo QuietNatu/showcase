@@ -286,8 +286,8 @@ importers:
         specifier: 3.6.0
         version: 3.6.0
       i18next:
-        specifier: 23.11.5
-        version: 23.11.5
+        specifier: 23.14.0
+        version: 23.14.0
       i18next-browser-languagedetector:
         specifier: 8.0.0
         version: 8.0.0
@@ -302,7 +302,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-i18next:
         specifier: 14.1.2
-        version: 14.1.2(i18next@23.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 14.1.2(i18next@23.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@faker-js/faker':
         specifier: 8.4.1
@@ -896,8 +896,8 @@ importers:
         specifier: 14.1.1
         version: 14.1.1
       i18next:
-        specifier: 23.11.5
-        version: 23.11.5
+        specifier: 23.14.0
+        version: 23.14.0
       jsdom:
         specifier: 24.0.0
         version: 24.0.0
@@ -912,7 +912,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-i18next:
         specifier: 14.1.2
-        version: 14.1.2(i18next@23.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 14.1.2(i18next@23.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       storybook:
         specifier: 8.2.9
         version: 8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2))
@@ -7342,9 +7342,6 @@ packages:
 
   i18next-resources-to-backend@1.2.1:
     resolution: {integrity: sha512-okHbVA+HZ7n1/76MsfhPqDou0fptl2dAlhRDu2ideXloRRduzHsqDOznJBef+R3DFZnbvWoBW+KxJ7fnFjd6Yw==}
-
-  i18next@23.11.5:
-    resolution: {integrity: sha512-41pvpVbW9rhZPk5xjCX2TPJi2861LEig/YRhUkY+1FQ2IQPS0bKUDYnEqY8XPPbB48h1uIwLnP9iiEfuSl20CA==}
 
   i18next@23.14.0:
     resolution: {integrity: sha512-Y5GL4OdA8IU2geRrt2+Uc1iIhsjICdHZzT9tNwQ3TVqdNzgxHToGCKf/TPRP80vTCAP6svg2WbbJL+Gx5MFQVA==}
@@ -20328,10 +20325,6 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.6
 
-  i18next@23.11.5:
-    dependencies:
-      '@babel/runtime': 7.25.0
-
   i18next@23.14.0:
     dependencies:
       '@babel/runtime': 7.25.6
@@ -22558,11 +22551,11 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       react-is: 18.1.0
 
-  react-i18next@14.1.2(i18next@23.11.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-i18next@14.1.2(i18next@23.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.25.0
       html-parse-stringify: 3.0.1
-      i18next: 23.11.5
+      i18next: 23.14.0
       react: 18.3.1
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)

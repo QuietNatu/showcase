@@ -45,7 +45,7 @@ function createTestScenario(options: Options, scenario: VrtScenario): TestScenar
 }
 
 function createTestRunner(scenario: TestScenario) {
-  return async (page: Page, testInfo: TestInfo): Promise<void> => {
+  return async (page: Page, _testInfo: TestInfo): Promise<void> => {
     await page.setViewportSize(scenario.viewport);
     await page.goto(scenario.url, { waitUntil: 'networkidle' });
 
@@ -53,11 +53,8 @@ function createTestRunner(scenario: TestScenario) {
     await scenario.onMount?.(page);
 
     const screenshot = await page.screenshot({ animations: 'disabled' });
-    expect(screenshot).toMatchSnapshot({ threshold: scenario.threshold });
-
-    if (!testInfo.errors.length) {
-      await testInfo.attach('screenshot', { body: screenshot, contentType: 'image/png' });
-    }
+    // Conflict between playwright types and typescript version if unknown can be removed in the future
+    expect(screenshot as unknown).toMatchSnapshot({ threshold: scenario.threshold });
   };
 }
 

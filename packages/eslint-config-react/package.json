@@ -10,7 +10,7 @@
     "@typescript-eslint/parser": "6.18.1",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
-    "eslint-config-turbo": "1.13.4",
+    "eslint-config-turbo": "2.1.1",
     "eslint-plugin-functional": "6.4.0",
     "eslint-plugin-jest-dom": "5.2.0",
     "eslint-plugin-jsx-a11y": "6.8.0",

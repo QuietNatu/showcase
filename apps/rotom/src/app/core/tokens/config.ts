@@ -1,4 +1,4 @@
-import { Injectable, InjectionToken, signal } from '@angular/core';
+import { InjectionToken } from '@angular/core';
 import { Day, FirstWeekContainsDate } from 'date-fns';
 
 export interface AppConfig {
@@ -28,8 +28,3 @@ const appConfig: AppConfig = {
 };
 
 export const APP_CONFIG = new InjectionToken('APP_CONFIG', { factory: () => appConfig });
-
-@Injectable({ providedIn: 'root' })
-export class AppConfigService {
-  readonly config = signal<AppConfig>(appConfig);
-}

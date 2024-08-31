@@ -35,6 +35,7 @@
     "@angular/router": "18.1.4",
     "@angular/service-worker": "18.1.4",
     "@natu/assets": "workspace:*",
+    "@natu/bundle-i18n": "workspace:*",
     "@natu/styles": "workspace:*",
     "@natu/ui-angular": "workspace:*",
     "@natu/utils": "workspace:*",

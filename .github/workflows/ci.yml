@@ -58,9 +58,8 @@ jobs:
       - name: Cache Turbo
         uses: actions/cache@v4
         with:
-          save-always: true
           path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}-${{ github.job }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-turbo-
 
@@ -80,13 +79,13 @@ jobs:
           pnpm exec playwright install --with-deps chromium
 
       - name: Lint files
-        run: pnpm run lint --cache-dir=${{ env.TURBO_CACHE_DIR }}
+        run: pnpm run lint
 
       - name: Run tests
-        run: pnpm run test --cache-dir=${{ env.TURBO_CACHE_DIR }}
+        run: pnpm run test
 
       - name: Build
-        run: pnpm run build --cache-dir=${{ env.TURBO_CACHE_DIR }}
+        run: pnpm run build
 
   vrt:
     runs-on: ubuntu-latest
@@ -104,9 +103,8 @@ jobs:
       - name: Cache Turbo
         uses: actions/cache@v4
         with:
-          save-always: true
           path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}-${{ github.job }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-turbo-
 
@@ -126,7 +124,7 @@ jobs:
           pnpm exec playwright install --with-deps ${{ env.VRT_BROWSER }}
 
       - name: Run tests
-        run: pnpm run vrt --cache-dir="${{ env.TURBO_CACHE_DIR }}"
+        run: pnpm run vrt
 
       - name: Upload report
         uses: actions/upload-artifact@v4
@@ -153,9 +151,8 @@ jobs:
       - name: Restore turbo cache
         uses: actions/cache@v4
         with:
-          save-always: true
           path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}-${{ github.job }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-turbo-
 
@@ -175,7 +172,7 @@ jobs:
           pnpm exec playwright install --with-deps ${{ matrix.browser }}
 
       - name: Build
-        run: pnpm run build --cache-dir=${{ env.TURBO_CACHE_DIR }}
+        run: pnpm run build
         env:
           VITE_E2E: true
 

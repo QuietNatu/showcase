@@ -27,9 +27,8 @@ jobs:
       - name: Cache Turbo
         uses: actions/cache@v4
         with:
-          save-always: true
           path: ${{ env.TURBO_CACHE_DIR }}
-          key: ${{ runner.os }}-turbo-${{ github.sha }}-${{ github.job }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-turbo-
 
@@ -49,7 +48,7 @@ jobs:
           pnpm exec playwright install --with-deps ${{ env.VRT_BROWSER }}
 
       - name: Run tests
-        run: pnpm run vrt-update --cache-dir="${{ env.TURBO_CACHE_DIR }}"
+        run: pnpm run vrt-update
 
       - name: Commit updated screenshots
         run: |

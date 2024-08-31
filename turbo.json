@@ -68,11 +68,11 @@
       "outputs": ["src/api/**"]
     },
     "build-dependencies": {},
-    "build-dependencies#rotom": {
-      "outputs": ["api/**", "src/locales/bundle/**"]
+    "@natu/rotom#build-dependencies": {
+      "outputs": ["src/api/**", "src/locales/bundle/**"]
     },
-    "build-dependencies#smeargle": {
-      "outputs": ["api/**", "src/locales/bundle/**"]
+    "@natu/smeargle#build-dependencies": {
+      "outputs": ["src/api/**", "src/locales/bundle/**"]
     }
   }
 }

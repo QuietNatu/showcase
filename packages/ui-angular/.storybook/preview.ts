@@ -6,6 +6,7 @@ import { storyA11yConfig } from '../src/lib/stories';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideUiConfig } from '../src';
 import { provideZoneChangeDetection } from '@angular/core';
+import { mockI18n } from '../src/mocks/i18n';
 
 setCompodocJson(docJson);
 
@@ -52,6 +53,7 @@ const preview: Preview = {
       },
     },
   },
+  loaders: [mockI18n],
   decorators: [
     applicationConfig({
       providers: [

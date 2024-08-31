@@ -4,7 +4,9 @@
   "license": "MIT",
   "version": "0.0.0",
   "scripts": {
-    "dev": "ng dev",
+    "dev": "npm-run-all --parallel dev-bundle-i18n dev-ng",
+    "dev-ng": "ng dev",
+    "dev-bundle-i18n": "pnpm build-i18n --watch",
     "build": "ng build",
     "preview": "http-server -c-1 dist/browser --silent -o",
     "lint": "ng lint",
@@ -18,8 +20,9 @@
     "vrt-update": "pnpm vrt --update-snapshots",
     "vrt-show-report": "playwright show-report vrt/report --port 6104",
     "e2e": "playwright test --config e2e/playwright.config.ts",
-    "build-dependencies": "pnpm build-api",
-    "build-api": "orval --config ./orval.config.ts"
+    "build-dependencies": "pnpm build-api && pnpm build-i18n",
+    "build-api": "orval --config ./orval.config.ts",
+    "build-i18n": "bundle-i18n --source src/locales/original --destination src/locales/bundle --filename translation"
   },
   "dependencies": {
     "@angular/animations": "18.1.4",
@@ -35,6 +38,11 @@
     "@natu/styles": "workspace:*",
     "@natu/ui-angular": "workspace:*",
     "@natu/utils": "workspace:*",
+    "@ngneat/svg-icon": "7.1.6",
+    "date-fns": "^3.6.0",
+    "i18next": "^23.14.0",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "i18next-resources-to-backend": "^1.2.1",
     "rxjs": "7.8.1",
     "tslib": "2.6.3",
     "zone.js": "0.14.10"
@@ -48,6 +56,7 @@
     "@compodoc/compodoc": "1.1.25",
     "@faker-js/faker": "8.4.1",
     "@mswjs/data": "0.16.1",
+    "@natu/bundle-i18n": "workspace:*",
     "@natu/eslint-config-angular": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/vrt": "workspace:*",
@@ -77,6 +86,7 @@
     "karma-jasmine": "5.1.0",
     "karma-spec-reporter": "0.0.36",
     "msw": "2.3.0",
+    "npm-run-all2": "^6.2.2",
     "orval": "6.30.2",
     "prettier": "3.2.5",
     "source-map-explorer": "2.5.3",

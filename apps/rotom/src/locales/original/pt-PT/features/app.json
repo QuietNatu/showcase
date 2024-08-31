@@ -1,0 +1,6 @@
+{
+  "homepage": {
+    "description": "Esta é a página inicial",
+    "date": "Data atual: {{value, datetime(year: 'numeric'; month: 'numeric'; day: 'numeric'; hour: 'numeric'; minute: 'numeric'; second: 'numeric')}}"
+  }
+}

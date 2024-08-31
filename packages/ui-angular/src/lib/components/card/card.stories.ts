@@ -6,7 +6,7 @@ import {
   applicationConfig,
 } from '@storybook/angular';
 import { NatuCardComponent, natuCardImports } from './card.component';
-import { SvgIconComponent, provideSvgIcons } from '@natu/assets';
+import { SvgIconComponent, provideSvgIcons } from '@ngneat/svg-icon';
 import { rocketIcon } from '@natu/assets/svg/rocket';
 import { NatuCardHeaderComponent } from './components/card-header.component';
 import { NatuCardFooterComponent } from './components/card-footer.component';

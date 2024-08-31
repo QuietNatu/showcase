@@ -1,5 +1,5 @@
 import { InjectionToken, makeEnvironmentProviders } from '@angular/core';
-import { provideSvgIconsConfig } from '@natu/assets';
+import { provideSvgIconsConfig } from '@ngneat/svg-icon';
 
 export interface NatuUiConfig {
   iconConfig?: Partial<Parameters<typeof provideSvgIconsConfig>[0]>;

@@ -7,7 +7,7 @@ import {
 } from '@storybook/angular';
 import { NatuButtonDirective, NatuButtonVariants, natuButtonImports } from './button.directive';
 import { storyVariantsDecorator } from '../../stories';
-import { SvgIconComponent, provideSvgIcons } from '@natu/assets';
+import { SvgIconComponent, provideSvgIcons } from '@ngneat/svg-icon';
 import { rocketIcon } from '@natu/assets/svg/rocket';
 
 const variants: Array<NatuButtonVariants['variant']> = [

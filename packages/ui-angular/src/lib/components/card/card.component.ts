@@ -13,17 +13,16 @@ import { NatuCardHeaderComponent } from './components/card-header.component';
 import { NatuCardBodyComponent } from './components/card-body.component';
 import { NatuCardFooterComponent } from './components/card-footer.component';
 import { NatuCardHeaderIconDirective } from './directives/card-header-icon.directive';
-import { SvgIconComponent, injectRegisterIcons } from '@natu/assets';
+import { SvgIconComponent, injectRegisterIcons } from '@ngneat/svg-icon';
 import { xIcon } from '@natu/assets/svg/x';
 import { natuButtonImports } from '../../directives';
-
-/* TODO: add i18n once implemented */
+import { NatuTranslationDirective } from '../../i18n';
 
 @Component({
   selector: 'natu-card,[natu-card]',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [natuButtonImports, SvgIconComponent],
+  imports: [natuButtonImports, SvgIconComponent, NatuTranslationDirective],
   template: `
     <ng-content select="natu-card-header,[natu-card-header]" />
     <ng-content />
@@ -31,6 +30,7 @@ import { natuButtonImports } from '../../directives';
 
     @if (finalIsDismissable()) {
       <button
+        *natuTranslation="let t; keyPrefix: 'ui.card'"
         type="button"
         natuButton
         [isIconButton]="true"
@@ -39,7 +39,7 @@ import { natuButtonImports } from '../../directives';
         class="natu-card__dismiss"
         (click)="dismiss.emit()"
       >
-        <span class="natu-visually-hidden">Dismiss</span>
+        <span class="natu-visually-hidden">{{ t('dismiss') }}</span>
         <svg-icon [key]="'x'" aria-hidden="true" />
       </button>
     }

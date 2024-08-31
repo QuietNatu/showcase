@@ -8,7 +8,7 @@ import {
 import { NatuSidebarComponent, natuSidebarImports } from './sidebar.component';
 import { Route, Router, RouterLink, RouterLinkActive, provideRouter } from '@angular/router';
 import { provideLocationMocks } from '@angular/common/testing';
-import { SvgIconComponent, provideSvgIcons } from '@natu/assets';
+import { SvgIconComponent, provideSvgIcons } from '@ngneat/svg-icon';
 import { dnaIcon } from '@natu/assets/svg/dna';
 import { maskHappyIcon } from '@natu/assets/svg/mask-happy';
 import { rocketIcon } from '@natu/assets/svg/rocket';

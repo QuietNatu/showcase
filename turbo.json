@@ -12,15 +12,15 @@
       "dependsOn": ["^build", "build-dependencies"],
       "outputs": ["dist/**"]
     },
-    "preview": {
-      "dependsOn": ["build"],
-      "persistent": true
-    },
     "@natu/assets#build": {
       "outputs": ["angular/svg/**"]
     },
     "@natu/styles#build": {
       "outputs": ["scss/tokens/**", "ts/tokens/**"]
+    },
+    "preview": {
+      "dependsOn": ["build"],
+      "persistent": true
     },
     "lint": {
       "dependsOn": ["^build", "build-dependencies"]
@@ -64,6 +64,12 @@
       "inputs": ["$TURBO_DEFAULT$", "../../openapi.yaml"],
       "outputs": ["src/api/**"]
     },
-    "build-dependencies": {}
+    "build-dependencies": {},
+    "build-dependencies#rotom": {
+      "outputs": ["api/**", "src/locales/bundle/**"]
+    },
+    "build-dependencies#smeargle": {
+      "outputs": ["api/**", "src/locales/bundle/**"]
+    }
   }
 }

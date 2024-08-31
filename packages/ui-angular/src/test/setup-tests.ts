@@ -10,6 +10,7 @@ import {
 import { GlobaltTestingSetupModule } from './global-testing-setup.module';
 import { toHaveNoViolations } from 'jasmine-axe';
 import { deleteAllCookies } from '@natu/utils';
+import { mockI18n } from '../mocks/i18n';
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
@@ -17,10 +18,12 @@ getTestBed().initTestEnvironment(
   platformBrowserDynamicTesting(),
 );
 
-beforeAll(() => {
+beforeAll(async () => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   jasmine.addMatchers(JasmineDOM);
   jasmine.addMatchers(toHaveNoViolations);
+
+  await mockI18n();
 });
 
 afterEach(() => {

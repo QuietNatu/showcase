@@ -108,7 +108,12 @@
             "scripts": [],
             "karmaConfig": "karma.config.js",
             "include": ["**/*.test.ts"],
-            "codeCoverageExclude": ["src/mocks/**/*", "src/api/**/*"],
+            "codeCoverageExclude": [
+              "src/mocks/**/*",
+              "src/api/**/*",
+              "src/test/**/*",
+              "src/app/core/providers/**/*"
+            ],
             "fileReplacements": [
               {
                 "replace": "src/environments/environment.ts",

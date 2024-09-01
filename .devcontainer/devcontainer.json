@@ -35,7 +35,18 @@
       "label": "desktop"
     },
     "5000-7000": { "onAutoForward": "silent" },
-    "9222": { "onAutoForward": "silent" }
+    "9222": { "onAutoForward": "silent" },
+    "6001": { "onAutoForward": "openBrowser" },
+    "6002": { "onAutoForward": "openBrowser" },
+    "6004": { "onAutoForward": "openBrowser" },
+    "6009": { "onAutoForward": "openBrowser" },
+    "6012": { "onAutoForward": "openBrowser" },
+    "6014": { "onAutoForward": "openBrowser" },
+    "6101": { "onAutoForward": "openBrowser" },
+    "6102": { "onAutoForward": "openBrowser" },
+    "6104": { "onAutoForward": "openBrowser" },
+    "6112": { "onAutoForward": "openBrowser" },
+    "6114": { "onAutoForward": "openBrowser" }
   },
 
   "remoteEnv": {

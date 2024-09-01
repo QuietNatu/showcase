@@ -8,7 +8,6 @@ import { NatuTranslationDirective } from '@natu/ui-angular';
 /* TODO: loading while app is not ready? (i18n via APP_INITIALIZER -> https://netbasal.com/optimize-user-experience-while-your-angular-app-loads-7e982a67ff1a) */
 
 /* TODO: why are non headless tests not running in dev container */
-/* TODO: why are localhosts not opening automatically on the browser */
 
 @Component({
   selector: 'app-root',

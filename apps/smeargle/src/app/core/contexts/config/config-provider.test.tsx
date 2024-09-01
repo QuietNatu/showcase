@@ -2,20 +2,11 @@ import { renderHook } from '@/test/render';
 import { AppConfig, useAppConfig } from './config-context';
 import { AppConfigProvider } from './config-provider';
 
-// TODO: remove this once runtime config implemented
-const appConfig: AppConfig = {
-  date: {
-    weekStartsOn: 1,
-    firstWeekContainsDate: 4,
-  },
-  i18n: {
-    supportedLanguages: ['en-GB', 'en-US', 'pt-PT'],
-    fallbackLanguages: ['en-GB', 'pt-PT'],
-    finalFallbackLanguage: 'en-GB',
-  },
-};
-
 test('renders when provider exists', () => {
+  const expected = { example: 'example config' } as unknown as AppConfig;
+
+  vi.stubGlobal('__natu_config__' satisfies keyof typeof window, expected);
+
   const { result } = renderHook(() => useAppConfig(), {
     renderOptions: {
       wrapper: ({ children }) => <AppConfigProvider>{children}</AppConfigProvider>,
@@ -23,7 +14,7 @@ test('renders when provider exists', () => {
     providerOptions: { excludeAppConfig: true },
   });
 
-  expect(result.current).toStrictEqual(appConfig);
+  expect(result.current).toStrictEqual(expected);
 });
 
 test('throws error when provider does not exist', () => {

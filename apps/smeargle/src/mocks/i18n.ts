@@ -2,14 +2,17 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { setDefaultOptions } from 'date-fns';
 import enGb from '@/locales/bundle/en-GB/translation.json';
+import { appConfigMock } from './config';
 
 export function mockI18n() {
-  setDefaultOptions({ weekStartsOn: 1, firstWeekContainsDate: 4 });
+  const { weekStartsOn, firstWeekContainsDate } = appConfigMock.date;
+
+  setDefaultOptions({ weekStartsOn, firstWeekContainsDate });
 
   return i18n.use(initReactI18next).init({
     debug: false,
-    lng: 'en-GB',
-    supportedLngs: ['en-GB'],
+    lng: appConfigMock.i18n.defaultLanguage,
+    supportedLngs: appConfigMock.i18n.supportedLanguages,
 
     resources: {
       'en-GB': { translation: enGb },

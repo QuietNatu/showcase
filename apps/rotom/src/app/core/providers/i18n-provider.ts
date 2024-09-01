@@ -34,7 +34,7 @@ function initI18n(appConfig: AppConfig) {
           return getFallbackLanguage(
             language,
             appConfig.i18n.fallbackLanguages,
-            appConfig.i18n.finalFallbackLanguage,
+            appConfig.i18n.defaultLanguage,
           );
         },
 

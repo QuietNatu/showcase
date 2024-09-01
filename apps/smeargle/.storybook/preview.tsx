@@ -2,7 +2,8 @@ import '../src/styles/styles.scss';
 import type { Preview } from '@storybook/react';
 import { storyA11yConfig, storyThemeDecorator } from '@natu/ui-react/stories';
 import { mockI18n } from '@/mocks/i18n';
-import { AppConfigProvider } from '@/app/core/contexts/config/config-provider';
+import { AppConfigContext } from '@/app/core/contexts/config/config-context';
+import { appConfigMock } from '@/mocks/config';
 
 const preview: Preview = {
   tags: ['autodocs'],
@@ -53,9 +54,9 @@ const preview: Preview = {
 
     (Story) => {
       return (
-        <AppConfigProvider>
+        <AppConfigContext.Provider value={appConfigMock}>
           <Story />
-        </AppConfigProvider>
+        </AppConfigContext.Provider>
       );
     },
   ],

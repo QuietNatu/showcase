@@ -112,7 +112,8 @@
               "src/mocks/**/*",
               "src/api/**/*",
               "src/test/**/*",
-              "src/app/core/providers/**/*"
+              "src/app/core/providers/**/*",
+              "src/app/core/tokens/**/*"
             ],
             "fileReplacements": [
               {

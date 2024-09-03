@@ -6,7 +6,6 @@ import { AppConfigContext } from '@/app/core/contexts/config/config-context';
 import { appConfigMock } from '@/mocks/config';
 
 const preview: Preview = {
-  tags: ['autodocs'],
   parameters: {
     controls: {
       matchers: {

@@ -12,7 +12,6 @@ import { appConfigMock } from '@/mocks/config';
 setCompodocJson(docJson);
 
 const preview: Preview = {
-  tags: ['autodocs'],
   parameters: {
     controls: {
       matchers: {

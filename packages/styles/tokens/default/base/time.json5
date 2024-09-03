@@ -1,10 +1,10 @@
 {
   time: {
     animation: {
-      quick: { value: 88 },
-      fast: { value: 133 },
-      standard: { value: 200 },
-      slow: { value: 300 },
+      quick: { value: 88, type: 'time' },
+      fast: { value: 133, type: 'time' },
+      standard: { value: 200, type: 'time' },
+      slow: { value: 300, type: 'time' },
     },
   },
 }

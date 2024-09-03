@@ -93,7 +93,7 @@ Typically, configuration files or environment variables, are used to modify the 
 
 To avoid rebundling or rebuilding, the apps in this repository use runtime configuration files named `config.js`.
 These files are then imported via a script present in the index.html of each app, before the app itself renders.
-These files can then be replaced via for example [Kubernetes ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and thus allowing for an app to be configured without recreating the container image.
+These files can then be replaced, for example with [Kubernetes ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/), and thus allowing for an app to be configured without recreating the container image.
 
 ## 💭 Thoughts
 

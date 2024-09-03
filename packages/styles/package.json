@@ -18,7 +18,7 @@
     }
   },
   "scripts": {
-    "build": "pnpm clean && node ./tokens/config.js",
+    "build": "pnpm clean && node ./tokens/config.ts",
     "clean": "rimraf ./scss/tokens ./ts/tokens"
   },
   "dependencies": {
@@ -28,7 +28,7 @@
     "@natu/tsconfig": "workspace:*",
     "@types/node": "20.14.14",
     "rimraf": "5.0.10",
-    "style-dictionary": "4.0.0-prerelease.15",
+    "style-dictionary": "4.1.0",
     "typescript": "5.5.4",
     "vite": "5.2.12"
   }

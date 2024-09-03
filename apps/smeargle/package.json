@@ -28,7 +28,7 @@
     "@natu/styles": "workspace:*",
     "@natu/ui-react": "workspace:*",
     "@natu/utils": "workspace:*",
-    "axios": "1.7.6",
+    "axios": "1.7.7",
     "clsx": "2.1.1",
     "date-fns": "3.6.0",
     "i18next": "23.14.0",

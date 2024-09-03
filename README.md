@@ -6,10 +6,16 @@ A project to practice and showcase what I have learned.
 
 - [Showcase](#showcase)
   - [⚡️ Quick start](#️-quick-start)
+    - [Development Container](#development-container)
+    - [Local Setup](#local-setup)
+    - [Common Setup](#common-setup)
+    - [Commands](#commands)
   - [💻 Supported browsers](#-supported-browsers)
   - [📝 Standards](#-standards)
   - [🖋️ VS Code](#️-vs-code)
   - [🧱 Project structure](#-project-structure)
+  - [🔧 Technical decisions](#-technical-decisions)
+    - [SPA runtime configuration](#spa-runtime-configuration)
   - [💭 Thoughts](#-thoughts)
     - [Component libraries](#component-libraries)
     - [Visual Regression Tests (VRT)](#visual-regression-tests-vrt)
@@ -72,12 +78,22 @@ A list of recommended extensions is provided. When this project is opened, **VS 
 
 This project is a **monorepo**. It contains **apps** that can be deployed and **packages** used by those apps.
 
-Inside this monorepo there are 3 different types of packages and apps:
+Inside this monorepo there are 2 different types of packages and apps:
 
 - **React** packages along with an app named **Smeargle**.
 - **Angular** packages along with an app named **Rotom**.
 
 The main objective of this is to try to solve the same issues using different libraries/frameworks and find out what kind of problems they have and the different solutions they provide.
+
+## 🔧 Technical decisions
+
+### SPA runtime configuration
+
+Typically, configuration files or environment variables, are used to modify the behaviour of an app. In the case of Single-page applications, all environment variables must be provided before the application is bundled and configuration files must be provided before the container for the app is built. To change these variables/files the application would have to be bundled/built again.
+
+To avoid rebundling or rebuilding, the apps in this repository use runtime configuration files named `config.js`.
+These files are then imported via a script present in the index.html of each app, before the app itself renders.
+These files can then be replaced, for example with [Kubernetes ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/), and thus allowing for an app to be configured without recreating the container image.
 
 ## 💭 Thoughts
 

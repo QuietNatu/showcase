@@ -6,6 +6,8 @@ import { storyA11yConfig } from '@natu/ui-angular/stories';
 import { provideZoneChangeDetection } from '@angular/core';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { mockI18n } from '@/mocks/i18n';
+import { APP_CONFIG } from '@/app/core/tokens/config';
+import { appConfigMock } from '@/mocks/config';
 
 setCompodocJson(docJson);
 
@@ -54,7 +56,11 @@ const preview: Preview = {
   loaders: [mockI18n],
   decorators: [
     applicationConfig({
-      providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideAnimations()],
+      providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideAnimations(),
+        { provide: APP_CONFIG, useValue: appConfigMock },
+      ],
     }),
     moduleMetadata({ imports: [StoryConfigDirective] }),
     storyConfigDecorator(),

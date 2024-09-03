@@ -14,5 +14,6 @@ pnpm run lint
 pnpm run test
 pnpm run build
 pnpm run vrt
+pnpm run e2e
 
 echo -e "\n${GREEN}preflight-check success"

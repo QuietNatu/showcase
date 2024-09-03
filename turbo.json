@@ -49,19 +49,19 @@
     },
     "vrt": {
       "dependsOn": ["build-storybook"],
-      "outputs": ["vrt/report/**", "vrt/results/**", "vrt/screenshots/**"],
+      "outputs": ["vrt/report/**", "vrt/screenshots/**"],
       "env": ["PLAYWRIGHT_BROWSERS_PATH"]
     },
     "vrt-update": {
       "dependsOn": ["build-storybook"],
-      "outputs": ["vrt/report/**", "vrt/results/**", "vrt/screenshots/**"],
+      "outputs": ["vrt/report/**", "vrt/screenshots/**"],
       "env": ["PLAYWRIGHT_BROWSERS_PATH"]
     },
     "vrt-show-report": {
       "cache": false
     },
     "e2e": {
-      "outputs": ["e2e/report/**", "e2e/results/**"]
+      "outputs": ["e2e/report/**"]
     },
     "build-api": {
       "inputs": ["$TURBO_DEFAULT$", "../../openapi.yaml"],

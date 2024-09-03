@@ -23,6 +23,8 @@ export default defineConfig(({}) => {
       globals: true,
       css: false,
       restoreMocks: true,
+      unstubEnvs: true,
+      unstubGlobals: true,
       include: ['src/**/*.test.*'],
       environment: 'jsdom',
       setupFiles: 'src/test/setup-tests.ts',

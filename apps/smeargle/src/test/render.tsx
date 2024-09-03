@@ -11,7 +11,8 @@ import {
 import { userEvent } from '@testing-library/user-event';
 import { NatuUiConfigProvider } from '@natu/ui-react';
 import { createTestWrapper } from '@natu/ui-react/test';
-import { AppConfigProvider } from '@/app/core/contexts/config/config-provider';
+import { AppConfigContext } from '@/app/core/contexts/config/config-context';
+import { appConfigMock } from '@/mocks/config';
 
 export type UserEventOptions = Parameters<typeof userEvent.setup>[0];
 
@@ -81,7 +82,10 @@ function wrapTest(
   ]);
 }
 
-const AppConfigWrapper = (props: { children: ReactNode }) => <AppConfigProvider {...props} />;
+const AppConfigWrapper = (props: { children: ReactNode }) => (
+  <AppConfigContext.Provider value={appConfigMock} {...props} />
+);
+
 const UiConfigWrapper = (props: { children: ReactNode }) => (
   <NatuUiConfigProvider {...props} value={{ tooltip: { hoverDelay: 0 } }} />
 );

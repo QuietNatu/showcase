@@ -9,10 +9,10 @@ export interface AppConfig {
   i18n: {
     supportedLanguages: string[];
     fallbackLanguages: string[];
-    finalFallbackLanguage: string;
+    defaultLanguage: string;
   };
 }
 
-export const [_AppConfigProvider, useAppConfig] = createContext<AppConfig>({
+export const [, useAppConfig, AppConfigContext] = createContext<AppConfig>({
   name: 'AppConfigContext',
 });

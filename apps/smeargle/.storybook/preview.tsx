@@ -5,7 +5,6 @@ import { mockI18n } from '@/mocks/i18n';
 import { AppConfigProvider } from '@/app/core/contexts/config/config-provider';
 
 const preview: Preview = {
-  tags: ['autodocs'],
   parameters: {
     controls: {
       matchers: {

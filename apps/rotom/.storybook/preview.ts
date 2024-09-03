@@ -10,7 +10,6 @@ import { mockI18n } from '@/mocks/i18n';
 setCompodocJson(docJson);
 
 const preview: Preview = {
-  tags: ['autodocs'],
   parameters: {
     controls: {
       matchers: {

@@ -1,4 +1,3 @@
-/* TODO: explain in readme about runtime config? */
 window.__natu_config__ = {
   date: {
     weekStartsOn: 1,

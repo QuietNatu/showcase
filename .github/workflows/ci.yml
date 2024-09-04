@@ -79,13 +79,13 @@ jobs:
           pnpm exec playwright install --with-deps chromium
 
       - name: Lint files
-        run: pnpm run lint
+        run: pnpm run lint --affected
 
       - name: Run tests
-        run: pnpm run test
+        run: pnpm run test --affected
 
       - name: Build
-        run: pnpm run build
+        run: pnpm run build --affected
 
   vrt:
     runs-on: ubuntu-latest
@@ -124,7 +124,7 @@ jobs:
           pnpm exec playwright install --with-deps ${{ env.VRT_BROWSER }}
 
       - name: Run tests
-        run: pnpm run vrt
+        run: pnpm run vrt --affected
 
       - name: Upload report
         uses: actions/upload-artifact@v4

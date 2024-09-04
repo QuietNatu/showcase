@@ -48,7 +48,7 @@ jobs:
           pnpm exec playwright install --with-deps ${{ env.VRT_BROWSER }}
 
       - name: Run tests
-        run: pnpm run vrt-update
+        run: pnpm run vrt-update --affected
 
       - name: Commit updated screenshots
         run: |

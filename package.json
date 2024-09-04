@@ -48,7 +48,7 @@
     "stylelint-order": "6.0.4",
     "stylelint-scss": "6.3.0",
     "turbo": "2.1.1",
-    "vitest": "1.5.2"
+    "vitest": "2.0.5"
   },
   "msw": {
     "workerDirectory": [

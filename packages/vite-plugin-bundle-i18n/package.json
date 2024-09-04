@@ -24,7 +24,7 @@
   "devDependencies": {
     "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
-    "@types/picomatch": "2.3.4",
+    "@types/picomatch": "3.0.1",
     "tsup": "8.2.4",
     "typescript": "5.5.4"
   }

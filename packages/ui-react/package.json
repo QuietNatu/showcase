@@ -44,7 +44,7 @@
     "@playwright/test": "1.46.1",
     "@radix-ui/react-collapsible": "1.0.3",
     "@radix-ui/react-slot": "1.0.2",
-    "@react-aria/utils": "3.24.1",
+    "@react-aria/utils": "3.25.2",
     "@storybook/addon-a11y": "8.2.9",
     "@storybook/addon-essentials": "8.2.9",
     "@storybook/addon-interactions": "8.2.9",

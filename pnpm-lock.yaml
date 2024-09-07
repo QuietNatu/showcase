@@ -24,8 +24,8 @@ importers:
         specifier: 1.46.1
         version: 1.46.1
       dependency-cruiser:
-        specifier: 16.3.10
-        version: 16.3.10
+        specifier: 16.4.1
+        version: 16.4.1
       eslint:
         specifier: 8.57.0
         version: 8.57.0
@@ -6072,8 +6072,8 @@ packages:
     resolution: {integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==}
     engines: {node: '>= 0.8'}
 
-  dependency-cruiser@16.3.10:
-    resolution: {integrity: sha512-WkCnibHBfvaiaQ+S46LZ6h4AR6oj42Vsf5/0Vgtrwdwn7ZekMJdZ/ALoTwNp/RaGlKW+MbV/fhSZOvmhAWVWzQ==}
+  dependency-cruiser@16.4.1:
+    resolution: {integrity: sha512-tmByrPhRMdjg/FsE3eT24QSXKhrZpo9APpDCg5Wgg0ReAhZughE3iKseD++UtSYsLQIjD1aYNSeNiAvqbcup9Q==}
     engines: {node: ^18.17||>=20}
     hasBin: true
 
@@ -7191,10 +7191,6 @@ packages:
   ignore-walk@6.0.5:
     resolution: {integrity: sha512-VuuG0wCnjhnylG1ABXT3dAuIpTNDs/G8jlpmwXY03fXoXy/8ZK8/T+hMzt8L4WnrLCJgdybqgPagnF/f97cg3A==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
-
-  ignore@5.3.1:
-    resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
-    engines: {node: '>= 4'}
 
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
@@ -17420,7 +17416,7 @@ snapshots:
 
   depd@2.0.0: {}
 
-  dependency-cruiser@16.3.10:
+  dependency-cruiser@16.4.1:
     dependencies:
       acorn: 8.12.1
       acorn-jsx: 5.3.2(acorn@8.12.1)
@@ -17430,7 +17426,7 @@ snapshots:
       ajv: 8.17.1
       commander: 12.1.0
       enhanced-resolve: 5.17.1
-      ignore: 5.3.1
+      ignore: 5.3.2
       interpret: 3.1.1
       is-installed-globally: 1.0.0
       json5: 2.2.3
@@ -18929,8 +18925,6 @@ snapshots:
   ignore-walk@6.0.5:
     dependencies:
       minimatch: 9.0.5
-
-  ignore@5.3.1: {}
 
   ignore@5.3.2: {}
 

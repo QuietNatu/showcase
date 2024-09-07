@@ -1,0 +1,26 @@
+{
+  "name": "@natu/eslint-config",
+  "private": true,
+  "license": "MIT",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "default": "./index.js"
+    }
+  },
+  "dependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "eslint": "9.10.0",
+    "eslint-config-turbo": "2.1.1",
+    "eslint-plugin-functional": "7.0.2",
+    "eslint-plugin-playwright": "1.6.2",
+    "eslint-plugin-vitest": "0.5.4",
+    "typescript-eslint": "^8.4.0"
+  },
+  "devDependencies": {
+    "@types/eslint__js": "^8.42.3",
+    "typescript": "5.5.4"
+  }
+}

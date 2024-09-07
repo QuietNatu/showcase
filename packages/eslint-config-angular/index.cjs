@@ -26,15 +26,8 @@ module.exports = {
         'plugin:functional/stylistic',
         'plugin:storybook/recommended',
         'plugin:sonarjs/recommended',
-        'prettier', // should be last to override the other configs
       ],
-      plugins: [
-        '@typescript-eslint',
-        '@ngneat/reactive-forms',
-        'unused-imports',
-        'functional',
-        'sonarjs',
-      ],
+      plugins: ['@typescript-eslint', 'unused-imports', 'functional', 'sonarjs'],
       rules: {
         'no-console': 'warn',
         '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
@@ -95,7 +88,6 @@ module.exports = {
         ],
         '@angular-eslint/prefer-on-push-component-change-detection': 'error',
         '@angular-eslint/no-host-metadata-property': 'off',
-        '@ngneat/reactive-forms/no-angular-forms-imports': 'error',
         'rxjs/ban-observables': ['error', { first: true }],
         'rxjs/finnish': [
           'error',

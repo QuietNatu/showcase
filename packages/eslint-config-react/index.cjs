@@ -37,7 +37,6 @@ module.exports = {
     'plugin:functional/stylistic',
     'plugin:storybook/recommended',
     'plugin:sonarjs/recommended',
-    'prettier', // should be last to override the other configs
   ],
   plugins: [
     '@typescript-eslint',

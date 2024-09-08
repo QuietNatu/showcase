@@ -3,7 +3,9 @@ import tseslint from 'typescript-eslint';
 import functional from 'eslint-plugin-functional';
 import { FlatCompat } from '@eslint/eslintrc';
 import playwright from 'eslint-plugin-playwright';
-import vitest from 'eslint-plugin-vitest';
+import vitest from '@vitest/eslint-plugin';
+import react from 'eslint-plugin-react';
+import globals from 'globals';
 
 /* TODO: replace main with exports in package.json */
 /* TODO: add "type": "module" to all missing package json */
@@ -23,6 +25,7 @@ const baseConfig = tseslint.config(
   {
     rules: {
       'no-console': 'warn',
+      '@typescript-eslint/no-empty-function': 'off',
       '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
       '@typescript-eslint/no-non-null-assertion': 'warn',
       '@typescript-eslint/no-unsafe-member-access': 'off',
@@ -37,6 +40,23 @@ const baseConfig = tseslint.config(
       'functional/no-mixed-types': 'off',
       'functional/prefer-immutable-types': 'off',
     },
+  },
+  {
+    /* TODO: adjust this */
+    ignores: [
+      'node_modules/',
+      'dist/',
+      'coverage/',
+      'public/',
+      'vite.config.ts',
+      'playwright.config.ts',
+      'eslint.config.js',
+      'commitlint.config.js',
+      'lint-staged.config.js',
+      'prettier.config.js',
+      'stylelint.config.js',
+      'postcss.config.js',
+    ],
   },
 );
 
@@ -73,11 +93,33 @@ const vitestConfig = tseslint.config({
   },
 });
 
+const reactConfig = tseslint.config(
+  ...baseConfig,
+  {
+    files: ['**/*.[jt]s?(x)'],
+    ...react.configs.flat.recommended,
+    ...react.configs.flat['jsx-runtime'],
+    languageOptions: {
+      ...react.configs.flat.recommended.languageOptions,
+    },
+  },
+  {
+    files: ['**/*.[jt]s?(x)'],
+    languageOptions: {
+      globals: {
+        ...globals.serviceworker,
+        ...globals.browser,
+      },
+    },
+  },
+);
+
 export default {
-  config: {
+  configs: {
     base: baseConfig,
     e2e: e2eConfig,
     vrt: vrtConfig,
     vitest: vitestConfig,
+    react: reactConfig,
   },
 };

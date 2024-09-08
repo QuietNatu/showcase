@@ -42,7 +42,6 @@
     "@faker-js/faker": "8.4.1",
     "@mswjs/data": "0.16.1",
     "@natu/bundle-i18n": "workspace:*",
-    "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/vite-plugin-bundle-i18n": "workspace:*",
     "@natu/vrt": "workspace:*",

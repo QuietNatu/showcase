@@ -15,7 +15,6 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "devDependencies": {
-    "@natu/eslint-config-react": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@playwright/test": "1.46.1",
     "typescript": "5.5.4"

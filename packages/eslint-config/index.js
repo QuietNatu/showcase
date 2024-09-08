@@ -6,6 +6,9 @@ import playwright from 'eslint-plugin-playwright';
 import vitest from '@vitest/eslint-plugin';
 import react from 'eslint-plugin-react';
 import globals from 'globals';
+import jestDom from 'eslint-plugin-jest-dom';
+import testingLibrary from 'eslint-plugin-testing-library';
+import { fixupPluginRules } from '@eslint/compat';
 
 /* TODO: replace main with exports in package.json */
 /* TODO: add "type": "module" to all missing package json */
@@ -70,28 +73,45 @@ const vrtConfig = tseslint.config({
   files: ['vrt/**/*', 'src/**/*.vrt.ts'],
 });
 
-const vitestConfig = tseslint.config({
-  files: ['src/**/*.test.[jt]s?(x)'],
-  plugins: {
-    vitest,
+const vitestConfig = tseslint.config(
+  {
+    files: ['src/**/*.test.[jt]s?(x)'],
+    plugins: {
+      vitest,
+    },
+    rules: {
+      ...vitest.configs.recommended.rules,
+      ...vitest.configs.all.rules,
+      'vitest/prefer-expect-resolves': 'off',
+      'vitest/prefer-expect-assertions': 'off',
+      'vitest/prefer-to-be-falsy': 'off',
+      'vitest/prefer-to-be-truthy': 'off',
+      'vitest/require-top-level-describe': 'off',
+      'vitest/max-expects': 'off',
+      'vitest/no-hooks': [
+        'error',
+        {
+          allow: ['afterEach', 'afterAll'],
+        },
+      ],
+    },
   },
-  rules: {
-    ...vitest.configs.recommended.rules,
-    ...vitest.configs.all.rules,
-    'vitest/prefer-expect-resolves': 'off',
-    'vitest/prefer-expect-assertions': 'off',
-    'vitest/prefer-to-be-falsy': 'off',
-    'vitest/prefer-to-be-truthy': 'off',
-    'vitest/require-top-level-describe': 'off',
-    'vitest/max-expects': 'off',
-    'vitest/no-hooks': [
-      'error',
-      {
-        allow: ['afterEach', 'afterAll'],
-      },
-    ],
+  {
+    files: ['src/**/*.test.[jt]s?(x)'],
+    ...jestDom.configs['flat/recommended'],
   },
-});
+  {
+    files: ['src/**/*.test.[jt]s?(x)'],
+    plugins: {
+      'testing-library': fixupPluginRules({
+        rules: testingLibrary.rules,
+      }),
+    },
+    rules: {
+      ...testingLibrary.configs['flat/react'].rules,
+    },
+  },
+);
 
 const reactConfig = tseslint.config(
   ...baseConfig,

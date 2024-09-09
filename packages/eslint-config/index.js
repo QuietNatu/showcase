@@ -6,6 +6,7 @@ import playwright from 'eslint-plugin-playwright';
 import vitest from '@vitest/eslint-plugin';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 import jestDom from 'eslint-plugin-jest-dom';
 import testingLibrary from 'eslint-plugin-testing-library';
@@ -140,7 +141,15 @@ const reactConfig = tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      // 'react-hooks/exhaustive-deps': 'error',
+    },
+  },
+  {
+    files: ['**/*.[jt]s?(x)'],
+    plugins: {
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      'react-refresh/only-export-components': ['error', { allowConstantExport: true }],
     },
   },
 );

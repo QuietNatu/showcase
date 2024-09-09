@@ -4,6 +4,7 @@ import { FlatCompat } from '@eslint/eslintrc';
 import { fixupPluginRules } from '@eslint/compat';
 import tseslint from 'typescript-eslint';
 import functional from 'eslint-plugin-functional';
+import unusedImports from 'eslint-plugin-unused-imports';
 import playwright from 'eslint-plugin-playwright';
 import vitest from '@vitest/eslint-plugin';
 import jestDom from 'eslint-plugin-jest-dom';
@@ -29,6 +30,11 @@ const baseConfig = tseslint.config(
   functional.configs.recommended,
   functional.configs.stylistic,
   {
+    plugins: {
+      'unused-imports': unusedImports,
+    },
+  },
+  {
     rules: {
       'no-console': 'warn',
       '@typescript-eslint/no-empty-function': 'off',
@@ -45,6 +51,7 @@ const baseConfig = tseslint.config(
       'functional/no-return-void': 'off',
       'functional/no-mixed-types': 'off',
       'functional/prefer-immutable-types': 'off',
+      'unused-imports/no-unused-imports': 'error',
     },
   },
   {

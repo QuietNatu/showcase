@@ -22,7 +22,6 @@
     "typescript-eslint": "^8.4.0"
   },
   "devDependencies": {
-    "@types/eslint__js": "^8.42.3",
     "typescript": "5.5.4"
   }
 }

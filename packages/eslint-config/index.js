@@ -5,6 +5,7 @@ import { FlatCompat } from '@eslint/eslintrc';
 import playwright from 'eslint-plugin-playwright';
 import vitest from '@vitest/eslint-plugin';
 import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import jestDom from 'eslint-plugin-jest-dom';
 import testingLibrary from 'eslint-plugin-testing-library';
@@ -130,6 +131,16 @@ const reactConfig = tseslint.config(
         ...globals.serviceworker,
         ...globals.browser,
       },
+    },
+  },
+  {
+    files: ['**/*.[jt]s?(x)'],
+    plugins: {
+      'react-hooks': fixupPluginRules(reactHooks),
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      // 'react-hooks/exhaustive-deps': 'error',
     },
   },
 );

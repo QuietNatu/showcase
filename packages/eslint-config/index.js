@@ -1,16 +1,17 @@
+import globals from 'globals';
 import eslint from '@eslint/js';
+import { FlatCompat } from '@eslint/eslintrc';
+import { fixupPluginRules } from '@eslint/compat';
 import tseslint from 'typescript-eslint';
 import functional from 'eslint-plugin-functional';
-import { FlatCompat } from '@eslint/eslintrc';
 import playwright from 'eslint-plugin-playwright';
 import vitest from '@vitest/eslint-plugin';
+import jestDom from 'eslint-plugin-jest-dom';
+import testingLibrary from 'eslint-plugin-testing-library';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
-import globals from 'globals';
-import jestDom from 'eslint-plugin-jest-dom';
-import testingLibrary from 'eslint-plugin-testing-library';
-import { fixupPluginRules } from '@eslint/compat';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
 
 /* TODO: replace main with exports in package.json */
 /* TODO: add "type": "module" to all missing package json */
@@ -151,6 +152,10 @@ const reactConfig = tseslint.config(
     rules: {
       'react-refresh/only-export-components': ['error', { allowConstantExport: true }],
     },
+  },
+  {
+    files: ['**/*.[jt]s?(x)'],
+    ...jsxA11y.flatConfigs.recommended,
   },
 );
 

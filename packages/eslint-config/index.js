@@ -18,6 +18,9 @@ import jsxA11y from 'eslint-plugin-jsx-a11y';
 /* TODO: add "type": "module" to all missing package json */
 /* TODO: missing packages
   eslint-plugin-sonarjs
+  eslint-plugin-storybook
+*/
+/* TODO: explore extra packages
   eslint-plugin-import / eslint-plugin-import-x
   eslint-plugin-jsdoc
 */

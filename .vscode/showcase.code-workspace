@@ -29,10 +29,6 @@
       "path": "../packages/eslint-config-angular",
     },
     {
-      "name": "📦 eslint-config-react",
-      "path": "../packages/eslint-config-react",
-    },
-    {
       "name": "📦 styles",
       "path": "../packages/styles",
     },

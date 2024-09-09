@@ -67,7 +67,7 @@ async function makeSurePageIsReady(page: Page) {
   await page.waitForTimeout(500);
 }
 
-function createVariants(variants: Array<Record<string, unknown>>) {
+function createVariants(variants: Record<string, unknown>[]) {
   return variants.map((variant) => {
     const url = Object.entries(variant)
       .map((entry) => entry.join(':'))

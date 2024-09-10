@@ -13,6 +13,7 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
+// import angular from 'angular-eslint';
 
 /* TODO: replace main with exports in package.json */
 /* TODO: add "type": "module" to all missing package json */
@@ -112,8 +113,8 @@ const vitestConfig = tseslint.config(
     },
   },
   {
-    files: ['src/**/*.test.[jt]s?(x)'],
     ...jestDom.configs['flat/recommended'],
+    files: ['src/**/*.test.[jt]s?(x)'],
   },
   {
     files: ['src/**/*.test.[jt]s?(x)'],
@@ -131,12 +132,12 @@ const vitestConfig = tseslint.config(
 const reactConfig = tseslint.config(
   ...baseConfig,
   {
-    files: ['**/*.[jt]s?(x)'],
     ...react.configs.flat.recommended,
     ...react.configs.flat['jsx-runtime'],
     languageOptions: {
       ...react.configs.flat.recommended.languageOptions,
     },
+    files: ['**/*.[jt]s?(x)'],
   },
   {
     files: ['**/*.[jt]s?(x)'],
@@ -166,10 +167,45 @@ const reactConfig = tseslint.config(
     },
   },
   {
-    files: ['**/*.[jt]s?(x)'],
     ...jsxA11y.flatConfigs.recommended,
+    files: ['**/*.[jt]s?(x)'],
   },
 );
+
+// blocked until this is solved -> https://github.com/angular-eslint/angular-eslint/issues/1859
+// const angularConfig = tseslint.config(
+//   ...baseConfig,
+//   {
+//     files: ['**/*.ts'],
+//     extends: [...angular.configs.tsRecommended],
+//     processor: angular.processInlineTemplates,
+//     rules: {
+//       '@angular-eslint/directive-selector': [
+//         'error',
+//         {
+//           type: 'attribute',
+//           prefix: 'app',
+//           style: 'camelCase',
+//         },
+//       ],
+//       '@angular-eslint/component-selector': [
+//         'error',
+//         {
+//           type: ['attribute', 'element'],
+//           prefix: 'app',
+//           style: 'kebab-case',
+//         },
+//       ],
+//       '@angular-eslint/prefer-on-push-component-change-detection': 'error',
+//       '@angular-eslint/prefer-standalone': 'error',
+//     },
+//   },
+//   {
+//     files: ['**/*.html'],
+//     extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
+//     rules: {},
+//   },
+// );
 
 export default {
   configs: {
@@ -178,5 +214,6 @@ export default {
     vrt: vrtConfig,
     vitest: vitestConfig,
     react: reactConfig,
+    // angular: angularConfig,
   },
 };

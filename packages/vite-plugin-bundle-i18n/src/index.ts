@@ -28,7 +28,7 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
   let config: ResolvedConfig;
 
   let webSourcePath: string | undefined;
-  let isLocale: picomatch.Matcher;
+  let isLocale: picomatch.Matcher | undefined;
 
   let fileSourcePath: string;
   let shouldReload: picomatch.Matcher;
@@ -43,8 +43,10 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
         webSourcePath = buildDestination ? `${config.base}${buildDestination}` : undefined;
         fileSourcePath = normalizePath(path.resolve(config.root, source));
 
-        const webSourceFilesPath = `${config.base}${buildDestination}/*/${bundledFilename}`;
-        isLocale = picomatch(webSourceFilesPath);
+        if (buildDestination) {
+          const webSourceFilesPath = `${config.base}${buildDestination}/*/${bundledFilename}`;
+          isLocale = picomatch(webSourceFilesPath);
+        }
 
         const fileSourceFilesPath = normalizePath(path.resolve(config.root, source, '**/*.json'));
         shouldReload = picomatch(fileSourceFilesPath);
@@ -70,7 +72,7 @@ export default function bundleI18n(options: BundleI18nOptions): Plugin {
       }
 
       server.middlewares.use((request, response, next) => {
-        if (webSourcePath && request.originalUrl && isLocale(request.originalUrl)) {
+        if (webSourcePath && request.originalUrl && isLocale?.(request.originalUrl)) {
           const language = request.originalUrl.substring(webSourcePath.length + 1).split('/')[0]!;
           const languagePath = path.resolve(config.root, devDestination, language, bundledFilename);
 

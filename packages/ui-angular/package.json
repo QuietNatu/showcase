@@ -47,7 +47,7 @@
     "@compodoc/compodoc": "1.1.25",
     "@floating-ui/dom": "1.6.10",
     "@natu/assets": "workspace:*",
-    "@natu/eslint-config-angular": "workspace:*",
+    "@natu/eslint-config": "workspace:*",
     "@natu/styles": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/utils": "workspace:*",

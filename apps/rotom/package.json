@@ -57,7 +57,6 @@
     "@faker-js/faker": "8.4.1",
     "@mswjs/data": "0.16.1",
     "@natu/bundle-i18n": "workspace:*",
-    "@natu/eslint-config-angular": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/vrt": "workspace:*",
     "@playwright/test": "1.46.1",

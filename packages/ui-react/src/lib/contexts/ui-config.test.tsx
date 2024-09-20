@@ -2,7 +2,7 @@ import { renderHook } from '../../test/render';
 import { NatuUiConfigProvider, useNatuUiConfig } from './ui-config';
 
 test('renders when provider exists', () => {
-  const { result } = renderHook(() => useNatuUiConfig(), {
+  const { result } = renderHook(useNatuUiConfig, {
     renderOptions: {
       wrapper: ({ children }) => <NatuUiConfigProvider value={{}}>{children}</NatuUiConfigProvider>,
     },
@@ -13,7 +13,7 @@ test('renders when provider exists', () => {
 });
 
 test('renders when provider does not exist', () => {
-  const { result } = renderHook(() => useNatuUiConfig(), {
+  const { result } = renderHook(useNatuUiConfig, {
     providerOptions: { excludeUiConfig: true },
   });
 

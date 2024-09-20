@@ -41,8 +41,8 @@ interface CommonProps extends ElementProps {
   variant?: NatuButtonVariants['variant'];
   size?: NatuButtonVariants['size'];
 
-  onFocus?: (e: FocusEvent<Element, Element>) => void;
-  onBlur?: (e: FocusEvent<Element, Element>) => void;
+  onFocus?: (e: FocusEvent) => void;
+  onBlur?: (e: FocusEvent) => void;
 }
 
 export interface NatuButtonUnslottedProps extends CommonProps {

@@ -72,7 +72,7 @@ const vrtConfig = tseslint.config(
 
 const jasmineConfig = tseslint.config(
   {
-    files: ['src/**/*.test.ts'],
+    files: ['src/**/*.test.ts', 'src/**/test/**/*.ts'],
     plugins: {
       jasmine: {
         rules: jasmine.rules,

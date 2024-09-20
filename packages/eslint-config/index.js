@@ -87,11 +87,15 @@ const e2eConfig = tseslint.config({
 const vrtConfig = tseslint.config({
   ...playwright.configs['flat/recommended'],
   files: ['vrt/**/*', 'src/**/*.vrt.ts'],
+  rules: {
+    'playwright/expect-expect': 'off',
+    'playwright/valid-title': 'off',
+  },
 });
 
 const vitestConfig = tseslint.config(
   {
-    files: ['src/**/*.test.[jt]s?(x)'],
+    files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
     plugins: {
       vitest,
     },
@@ -114,10 +118,10 @@ const vitestConfig = tseslint.config(
   },
   {
     ...jestDom.configs['flat/recommended'],
-    files: ['src/**/*.test.[jt]s?(x)'],
+    files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
   },
   {
-    files: ['src/**/*.test.[jt]s?(x)'],
+    files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
     plugins: {
       'testing-library': fixupPluginRules({
         rules: testingLibrary.rules,
@@ -159,6 +163,7 @@ const reactConfig = tseslint.config(
   },
   {
     files: ['**/*.[jt]s?(x)'],
+    ignores: ['**/*.test.[jt]s?(x)', '**/test/**/*.[jt]s?(x)'],
     plugins: {
       'react-refresh': reactRefresh,
     },
@@ -169,6 +174,54 @@ const reactConfig = tseslint.config(
   {
     ...jsxA11y.flatConfigs.recommended,
     files: ['**/*.[jt]s?(x)'],
+  },
+  {
+    files: ['**/*.[jt]s?(x)'],
+    rules: {
+      '@typescript-eslint/no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: '@testing-library/react',
+              importNames: ['render', 'renderHook'],
+              message: 'use our test helpers.',
+            },
+            {
+              name: '@testing-library/user-event',
+              message: 'use our test helpers.',
+            },
+            {
+              name: 'react',
+              importNames: ['createContext'],
+              message: 'use our createContext function.',
+            },
+            {
+              name: 'react-dom/test-utils',
+              message: 'use testing library instead.',
+            },
+            {
+              name: 'vitest-axe',
+              importNames: ['axe'],
+              message: 'use our axe wrapper.',
+            },
+            {
+              name: 'date-fns',
+              importNames: ['format', 'parse'],
+              message: 'use our i18n library.',
+            },
+          ],
+        },
+      ],
+      'react/button-has-type': [
+        'error',
+        {
+          button: true,
+          submit: true,
+          reset: false,
+        },
+      ],
+    },
   },
 );
 

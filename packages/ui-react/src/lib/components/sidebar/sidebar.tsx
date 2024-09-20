@@ -338,7 +338,9 @@ function useSidebar(options: UseSidebarOptions) {
     onChange: options.onExpandedChange,
   });
 
-  const handleToggleExpansion = () => setIsExpanded((isExpanded) => !isExpanded);
+  const handleToggleExpansion = () => {
+    setIsExpanded((isExpanded) => !isExpanded);
+  };
 
   return { isExpanded, onToggleExpansion: handleToggleExpansion };
 }

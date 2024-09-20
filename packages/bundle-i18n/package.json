@@ -9,7 +9,8 @@
     "bundle-i18n": "./index.js"
   },
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "lint": "eslint src --report-unused-disable-directives --no-warn-ignored --max-warnings 0"
   },
   "dependencies": {
     "@natu/utils": "workspace:*",

@@ -57,6 +57,7 @@ const baseConfig = tseslint.config(
       'functional/no-return-void': 'off',
       'functional/no-mixed-types': 'off',
       'functional/prefer-immutable-types': 'off',
+      'functional/prefer-tacit': 'off',
       'unused-imports/no-unused-imports': 'error',
     },
   },

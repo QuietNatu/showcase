@@ -51,11 +51,11 @@ function checkIsReady(translationService: NatuTranslationService) {
 
 function defaultTFunction(
   key: string | string[],
-  optionsOrDefaultValue: string | { defaultValue: string },
+  optionsOrDefaultValue: string | { defaultValue: string } | undefined,
 ): string {
   if (typeof optionsOrDefaultValue === 'string') {
     return optionsOrDefaultValue;
-  } else if (typeof optionsOrDefaultValue.defaultValue === 'string') {
+  } else if (typeof optionsOrDefaultValue?.defaultValue === 'string') {
     return optionsOrDefaultValue.defaultValue;
   } else {
     return Array.isArray(key) ? key.join('.') : key;

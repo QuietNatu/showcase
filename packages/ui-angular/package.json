@@ -45,7 +45,7 @@
     "@angular/platform-browser-dynamic": "18.2.5",
     "@angular/router": "18.2.5",
     "@compodoc/compodoc": "1.1.25",
-    "@floating-ui/dom": "1.6.10",
+    "@floating-ui/dom": "1.6.11",
     "@natu/assets": "workspace:*",
     "@natu/eslint-config": "workspace:*",
     "@natu/styles": "workspace:*",

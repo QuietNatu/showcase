@@ -16,7 +16,7 @@
     "@natu/utils": "workspace:*",
     "@parcel/watcher": "2.4.1",
     "commander": "12.1.0",
-    "picocolors": "1.0.1"
+    "picocolors": "1.1.0"
   },
   "devDependencies": {
     "@natu/eslint-config": "workspace:*",

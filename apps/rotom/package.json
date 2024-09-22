@@ -9,7 +9,7 @@
     "dev-bundle-i18n": "pnpm build-i18n --watch",
     "build": "ng build",
     "preview": "http-server -c-1 dist/browser --silent -o",
-    "lint": "ng lint",
+    "lint": "eslint src --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "test": "ng test --code-coverage",
     "test-watch": "ng test --watch --browsers Chrome",
     "analyse": "pnpm build --source-map true --named-chunks true && source-map-explorer dist/**/*.js --html bundle-analysis.html",

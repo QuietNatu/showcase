@@ -6,6 +6,10 @@ export default tseslint.config(
   ...projectConfig.configs.vitest,
   ...projectConfig.configs.vrt,
   ...projectConfig.configs.e2e,
+  ...projectConfig.configs.storybook,
+  {
+    ignores: ['src/api/'],
+  },
   {
     languageOptions: {
       parserOptions: {

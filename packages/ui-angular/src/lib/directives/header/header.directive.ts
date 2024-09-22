@@ -1,7 +1,7 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: 'header[natu-header]',
+  selector: 'header[natuHeader]',
   standalone: true,
   host: {
     class: 'natu-header',

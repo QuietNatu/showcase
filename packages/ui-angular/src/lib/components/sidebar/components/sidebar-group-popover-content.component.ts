@@ -28,7 +28,7 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
   `,
 })
 export class NatuSidebarGroupPopoverContentComponent {
-  readonly items = input.required<ReadonlyArray<TemplateRef<unknown>>>();
+  readonly items = input.required<readonly TemplateRef<unknown>[]>();
 
   readonly injector = inject(Injector);
 }

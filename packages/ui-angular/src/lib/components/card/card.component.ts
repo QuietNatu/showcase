@@ -59,7 +59,7 @@ export class NatuCardComponent {
   /** Whether to show the dismissable button or not. */
   readonly isDismissable = input(false, { transform: booleanAttribute });
 
-  readonly dismiss = output<void>();
+  readonly dismiss = output();
 
   readonly finalIsEmbedded: Signal<boolean>;
   readonly finalIsDismissable: Signal<boolean>;

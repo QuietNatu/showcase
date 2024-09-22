@@ -3,7 +3,7 @@ import { NatuHeaderDirective } from './header.directive';
 
 describe(`${NatuHeaderDirective.name} accessibility`, () => {
   it(`has no accessibility violations`, async () => {
-    const view = await render(`<header natu-header>Header</header>`, {
+    const view = await render(`<header natuHeader>Header</header>`, {
       renderOptions: { imports: [NatuHeaderDirective] },
     });
 

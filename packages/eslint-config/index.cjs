@@ -29,6 +29,7 @@ const baseConfig = tseslint.config(
       '@typescript-eslint/no-non-null-assertion': 'warn',
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
       'unused-imports/no-unused-imports': 'error',
     },
   },
@@ -70,6 +71,13 @@ const vrtConfig = tseslint.config(
   },
 );
 
+const storybookConfig = tseslint.config({
+  files: ['src/**/*.stories.[jt]s?(x)'],
+  rules: {
+    '@typescript-eslint/restrict-template-expressions': 'off',
+  },
+});
+
 const jasmineConfig = tseslint.config(
   {
     files: ['src/**/*.test.ts', 'src/**/test/**/*.ts'],
@@ -83,7 +91,7 @@ const jasmineConfig = tseslint.config(
     },
   },
   {
-    files: ['src/**/*.test.ts'],
+    files: ['src/**/*.test.ts', 'src/**/test/**/*.ts'],
     plugins: {
       'testing-library': fixupPluginRules({
         rules: testingLibrary.rules,
@@ -91,6 +99,12 @@ const jasmineConfig = tseslint.config(
     },
     rules: {
       ...testingLibrary.configs['flat/angular'].rules,
+    },
+  },
+  {
+    files: ['src/**/*.test.ts', 'src/**/test/**/*.ts'],
+    rules: {
+      '@typescript-eslint/restrict-template-expressions': 'off',
     },
   },
 );
@@ -101,6 +115,43 @@ const angularConfig = tseslint.config(
     extends: [...baseConfig, ...angular.configs.tsRecommended],
     processor: angular.processInlineTemplates,
     rules: {
+      '@typescript-eslint/no-extraneous-class': 'off',
+      '@typescript-eslint/no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: '@testing-library/angular',
+              importNames: ['render'],
+              message: 'use our test helpers.',
+            },
+            {
+              name: '@testing-library/user-event',
+              message: 'use our test helpers.',
+            },
+            {
+              name: 'jasmine-axe',
+              importNames: ['axe'],
+              message: 'use our axe wrapper.',
+            },
+            {
+              name: 'date-fns',
+              importNames: ['format', 'parse'],
+              message: 'use our i18n library.',
+            },
+          ],
+          patterns: [
+            {
+              group: [
+                '**/environments/*',
+                '!**/environments/environment',
+                '!**/environments/environment-types',
+              ],
+              message: 'import environments/environment',
+            },
+          ],
+        },
+      ],
       '@angular-eslint/directive-selector': [
         'error',
         {
@@ -133,6 +184,7 @@ module.exports = {
     base: baseConfig,
     e2e: e2eConfig,
     vrt: vrtConfig,
+    storybook: storybookConfig,
     jasmine: jasmineConfig,
     angular: angularConfig,
   },

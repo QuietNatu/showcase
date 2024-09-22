@@ -10,7 +10,7 @@ import { storyVariantsDecorator } from '../../stories';
 import { SvgIconComponent, provideSvgIcons } from '@ngneat/svg-icon';
 import { rocketIcon } from '@natu/assets/svg/rocket';
 
-const variants: Array<NatuButtonVariants['variant']> = [
+const variants: NatuButtonVariants['variant'][] = [
   'primary',
   'destructive',
   'outline',

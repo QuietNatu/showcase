@@ -99,9 +99,13 @@ export class NatuPopoverDirective implements OnDestroy {
   private registerManageVisibility() {
     effect(() => {
       if (this.overlayService.isMounted()) {
-        untracked(() => this.portalService.attachComponent(NatuPopoverComponent));
+        untracked(() => {
+          this.portalService.attachComponent(NatuPopoverComponent);
+        });
       } else {
-        untracked(() => this.portalService.detach());
+        untracked(() => {
+          this.portalService.detach();
+        });
       }
     });
   }

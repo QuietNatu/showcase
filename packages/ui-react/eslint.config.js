@@ -5,6 +5,7 @@ export default tseslint.config(
   ...projectConfig.configs.react,
   ...projectConfig.configs.vitest,
   ...projectConfig.configs.vrt,
+  ...projectConfig.configs.storybook,
   {
     languageOptions: {
       parserOptions: {

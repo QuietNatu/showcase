@@ -17,7 +17,11 @@ export function useStoryThemeProvider() {
   });
 
   return {
-    setTheme: (theme: string) => theme$.set(theme),
-    setColorScheme: (colorScheme: string) => colorScheme$.set(colorScheme),
+    setTheme: (theme: string) => {
+      theme$.set(theme);
+    },
+    setColorScheme: (colorScheme: string) => {
+      colorScheme$.set(colorScheme);
+    },
   };
 }

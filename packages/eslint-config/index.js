@@ -48,6 +48,7 @@ const baseConfig = tseslint.config(
       '@typescript-eslint/no-non-null-assertion': 'warn',
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
       'functional/functional-parameters': [
         'error',
         { allowRestParameter: true, enforceParameterCount: false },
@@ -94,6 +95,13 @@ const vrtConfig = tseslint.config({
   },
 });
 
+const storybookConfig = tseslint.config({
+  files: ['src/**/*.stories.[jt]s?(x)'],
+  rules: {
+    '@typescript-eslint/restrict-template-expressions': 'off',
+  },
+});
+
 const vitestConfig = tseslint.config(
   {
     files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
@@ -130,6 +138,12 @@ const vitestConfig = tseslint.config(
     },
     rules: {
       ...testingLibrary.configs['flat/react'].rules,
+    },
+  },
+  {
+    files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
+    rules: {
+      '@typescript-eslint/restrict-template-expressions': 'off',
     },
   },
 );
@@ -226,46 +240,14 @@ const reactConfig = tseslint.config(
   },
 );
 
-// blocked until this is solved -> https://github.com/angular-eslint/angular-eslint/issues/1859
-// const angularConfig = tseslint.config(
-//   ...baseConfig,
-//   {
-//     files: ['**/*.ts'],
-//     extends: [...angular.configs.tsRecommended],
-//     processor: angular.processInlineTemplates,
-//     rules: {
-//       '@angular-eslint/directive-selector': [
-//         'error',
-//         {
-//           type: 'attribute',
-//           prefix: 'app',
-//           style: 'camelCase',
-//         },
-//       ],
-//       '@angular-eslint/component-selector': [
-//         'error',
-//         {
-//           type: ['attribute', 'element'],
-//           prefix: 'app',
-//           style: 'kebab-case',
-//         },
-//       ],
-//       '@angular-eslint/prefer-on-push-component-change-detection': 'error',
-//       '@angular-eslint/prefer-standalone': 'error',
-//     },
-//   },
-//   {
-//     files: ['**/*.html'],
-//     extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
-//     rules: {},
-//   },
-// );
+// add angular when this is solved -> https://github.com/angular-eslint/angular-eslint/issues/1859
 
 export default {
   configs: {
     base: baseConfig,
     e2e: e2eConfig,
     vrt: vrtConfig,
+    storybook: storybookConfig,
     vitest: vitestConfig,
     react: reactConfig,
     // angular: angularConfig,

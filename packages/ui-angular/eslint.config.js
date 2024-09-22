@@ -3,6 +3,9 @@ const projectConfig = require('@natu/eslint-config');
 
 module.exports = tseslint.config(
   ...projectConfig.configs.angular,
+  ...projectConfig.configs.jasmine,
+  ...projectConfig.configs.vrt,
+  ...projectConfig.configs.storybook,
   {
     files: ['**/*.ts'],
     rules: {
@@ -24,8 +27,6 @@ module.exports = tseslint.config(
       ],
     },
   },
-  ...projectConfig.configs.jasmine,
-  ...projectConfig.configs.vrt,
   {
     languageOptions: {
       parserOptions: {

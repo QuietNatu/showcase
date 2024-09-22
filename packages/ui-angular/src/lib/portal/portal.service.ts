@@ -79,7 +79,9 @@ export class NatuPortalService {
 
       const portal = new ComponentPortal(NatuPortalComponent);
       const componentRef = this.portalOutlet.attach(portal);
-      untracked(() => this.portalElementRef.set(componentRef.injector.get(ElementRef)));
+      untracked(() => {
+        this.portalElementRef.set(componentRef.injector.get(ElementRef));
+      });
 
       onCleanup(() => {
         // Detach is triggering effects in the background

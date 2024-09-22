@@ -21,7 +21,7 @@
     "build": "tsx ./tokens/config.ts"
   },
   "dependencies": {
-    "modern-normalize": "3.0.0"
+    "modern-normalize": "3.0.1"
   },
   "devDependencies": {
     "@natu/tsconfig": "workspace:*",

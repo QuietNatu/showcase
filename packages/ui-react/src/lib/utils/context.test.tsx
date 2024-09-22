@@ -7,7 +7,7 @@ test('renders when context has a default value', () => {
     name: 'TestContext',
   });
 
-  const { result } = renderHook(useTest);
+  const { result } = renderHook(() => useTest());
 
   expect(result.current).toBe('test');
 });
@@ -17,7 +17,7 @@ test('renders when provider exists', () => {
     name: 'TestContext',
   });
 
-  const { result } = renderHook(useTest, {
+  const { result } = renderHook(() => useTest(), {
     renderOptions: {
       wrapper: ({ children }) => <TestProvider value="test">{children}</TestProvider>,
     },
@@ -33,7 +33,7 @@ test('does not render', () => {
     name: 'TestContext',
   });
 
-  expect(() => renderHook(useTest)).toThrow('missing TestContext provider');
+  expect(() => renderHook(() => useTest())).toThrow('missing TestContext provider');
 
   logErrorSpy.mockRestore();
 });

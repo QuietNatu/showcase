@@ -151,8 +151,8 @@ importers:
         specifier: 8.4.1
         version: 8.4.1
       '@mswjs/data':
-        specifier: 0.16.1
-        version: 0.16.1(typescript@5.5.4)
+        specifier: 0.16.2
+        version: 0.16.2(typescript@5.5.4)
       '@natu/bundle-i18n':
         specifier: workspace:*
         version: link:../../packages/bundle-i18n
@@ -314,8 +314,8 @@ importers:
         specifier: 8.4.1
         version: 8.4.1
       '@mswjs/data':
-        specifier: 0.16.1
-        version: 0.16.1(typescript@5.5.4)
+        specifier: 0.16.2
+        version: 0.16.2(typescript@5.5.4)
       '@natu/bundle-i18n':
         specifier: workspace:*
         version: link:../../packages/bundle-i18n
@@ -2941,8 +2941,8 @@ packages:
     resolution: {integrity: sha512-W68qOHEjx1iD+4VjQudlx26CPIoxmIAtK4ZCexU0/UJBG6jYhcuyzKJx+Iw8uhBIGd9eba64XgWVgo20it1qwA==}
     engines: {node: '>=18'}
 
-  '@mswjs/data@0.16.1':
-    resolution: {integrity: sha512-VhJvL/VmgAuU9/tDOcKcxHfNd+8nxYntZnrkaQEQPvZZnFwQQR9bzI1FTRROGxCHVoyfv9v84AEkl/7CIw4FAg==}
+  '@mswjs/data@0.16.2':
+    resolution: {integrity: sha512-/C0d/PBcJyQJokUhcjO4HiZPc67hzllKlRtD1XELygl2t991/ATAAQJVcStn4YtVALsNodruzOHT0JIvgr0hnA==}
 
   '@mswjs/interceptors@0.29.1':
     resolution: {integrity: sha512-3rDakgJZ77+RiQUuSK69t1F0m8BQKA8Vh5DCS5V0DWvNY67zob2JhhQrhCO0AKLGINTRSFd1tBaHcJTkhefoSw==}
@@ -13154,7 +13154,7 @@ snapshots:
 
   '@mswjs/cookies@1.1.1': {}
 
-  '@mswjs/data@0.16.1(typescript@5.5.4)':
+  '@mswjs/data@0.16.2(typescript@5.5.4)':
     dependencies:
       '@types/lodash': 4.17.7
       '@types/md5': 2.3.5

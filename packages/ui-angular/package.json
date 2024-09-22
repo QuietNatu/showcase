@@ -19,7 +19,7 @@
     }
   },
   "scripts": {
-    "lint": "ng lint",
+    "lint": "eslint src --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "test": "ng test --code-coverage",
     "test-watch": "ng test --watch --browsers Chrome",
     "storybook": "ng run lib:storybook",
@@ -47,7 +47,7 @@
     "@compodoc/compodoc": "1.1.25",
     "@floating-ui/dom": "1.6.10",
     "@natu/assets": "workspace:*",
-    "@natu/eslint-config-angular": "workspace:*",
+    "@natu/eslint-config": "workspace:*",
     "@natu/styles": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@natu/utils": "workspace:*",
@@ -73,7 +73,7 @@
     "class-variance-authority": "0.7.0",
     "cross-env": "7.0.3",
     "date-fns": "3.6.0",
-    "eslint": "8.57.0",
+    "eslint": "9.10.0",
     "http-server": "14.1.1",
     "i18next": "23.14.0",
     "jasmine-axe": "1.1.0",

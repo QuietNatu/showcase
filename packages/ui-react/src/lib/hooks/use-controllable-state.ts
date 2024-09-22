@@ -25,6 +25,7 @@ export function useControllableState<T>(
   const { value, defaultValue, finalValue, onChange = () => {} } = options;
 
   const [uncontrolledValue, setUncontrolledValue] = useState(
+    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
     defaultValue === undefined ? finalValue : defaultValue,
   );
 

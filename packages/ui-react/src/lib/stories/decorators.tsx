@@ -6,8 +6,8 @@ import { useEffect } from 'react';
  */
 export function storyThemeDecorator(): Decorator {
   return (Story, { globals }) => {
-    const theme = globals['theme'] as string;
-    const colorScheme = globals['colorScheme'] as string;
+    const theme = globals.theme as string;
+    const colorScheme = globals.colorScheme as string;
 
     useEffect(() => {
       document.documentElement.setAttribute('data-theme', theme);

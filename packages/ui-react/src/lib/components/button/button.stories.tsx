@@ -9,7 +9,7 @@ import { storyVariantsDecorator } from '../../stories';
 import RocketIcon from '@natu/assets/svg/rocket.svg?react';
 import { NatuIcon } from '../icon/icon';
 
-const variants: Array<NatuButtonVariants['variant']> = [
+const variants: NatuButtonVariants['variant'][] = [
   'primary',
   'destructive',
   'outline',

@@ -22,7 +22,6 @@ export const axeRules = axe.getRules(enabledTags).map(({ ruleId, tags }) => ({
  * Default rules needed to match target a11y standards
  */
 export const axeRulesObject = axeRules.reduce<axe.RuleObject>((dictionary, rule) => {
-  // eslint-disable-next-line functional/immutable-data
   dictionary[rule.id] = { enabled: rule.enabled };
   return dictionary;
 }, {});

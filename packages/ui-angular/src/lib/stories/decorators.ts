@@ -16,17 +16,15 @@ export function storyVariantsDecorator<TArgs>(): Decorator<TArgs> {
  * Gives access to the injector to inject services that need to be configured for the stories.
  */
 export function onStoryInitDecorator<TArgs>(
-  callback: (injector: Injector) => void | Promise<unknown>,
+  callback: (injector: Injector) => void | Promise<void>,
 ): Decorator<TArgs> {
   return (storyFn) => {
     const story = storyFn();
 
     if (!story.applicationConfig) {
-      // eslint-disable-next-line functional/immutable-data
       story.applicationConfig = { providers: [] };
     }
 
-    // eslint-disable-next-line functional/immutable-data
     story.applicationConfig.providers.unshift({
       provide: APP_INITIALIZER,
       useFactory: (injector: Injector) => () => callback(injector),

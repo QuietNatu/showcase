@@ -61,7 +61,9 @@ export function useOverlayHover(options: HoverOptions = {}) {
     switchMap((shouldOpen) => timer(delay).pipe(map(() => shouldOpen))),
   );
 
-  registerEffect(effect$, (shouldOpen) => overlayService.changeOpen(shouldOpen));
+  registerEffect(effect$, (shouldOpen) => {
+    overlayService.changeOpen(shouldOpen);
+  });
 }
 
 /**
@@ -87,7 +89,9 @@ export function useOverlayFocus() {
     map((origin) => origin !== null),
   );
 
-  registerEffect(effect$, (shouldOpen) => overlayService.changeOpen(shouldOpen));
+  registerEffect(effect$, (shouldOpen) => {
+    overlayService.changeOpen(shouldOpen);
+  });
 }
 
 /**
@@ -120,7 +124,9 @@ export function useOverlayClick() {
 
   const effect$ = merge(click$, customPress$);
 
-  registerEffect(effect$, () => overlayService.changeOpen(true));
+  registerEffect(effect$, () => {
+    overlayService.changeOpen(true);
+  });
 }
 
 /**
@@ -157,7 +163,9 @@ export function useOverlayDismiss() {
     }),
   );
 
-  registerEffect(effect$, () => overlayService.changeOpen(false));
+  registerEffect(effect$, () => {
+    overlayService.changeOpen(false);
+  });
 }
 
 function isTargetOutsideElement(target: EventTarget | null, element: Element | null) {

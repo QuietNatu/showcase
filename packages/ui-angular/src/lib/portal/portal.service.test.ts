@@ -33,10 +33,14 @@ describe(NatuPortalService.name, () => {
           const template = this.template();
 
           if (template) {
-            untracked(() => this.portalService.attachTemplate(template));
+            untracked(() => {
+              this.portalService.attachTemplate(template);
+            });
 
             onCleanup(() => {
-              untracked(() => this.portalService.detach());
+              untracked(() => {
+                this.portalService.detach();
+              });
             });
           }
         });
@@ -61,16 +65,19 @@ describe(NatuPortalService.name, () => {
 
       private readonly portalService = inject(NatuPortalService);
 
-      // eslint-disable-next-line sonarjs/no-identical-functions
       constructor() {
         effect((onCleanup) => {
           const template = this.template();
 
           if (template) {
-            untracked(() => this.portalService.attachTemplate(template));
+            untracked(() => {
+              this.portalService.attachTemplate(template);
+            });
 
             onCleanup(() => {
-              untracked(() => this.portalService.detach());
+              untracked(() => {
+                this.portalService.detach();
+              });
             });
           }
         });
@@ -128,10 +135,14 @@ describe(NatuPortalService.name, () => {
       constructor() {
         effect((onCleanup) => {
           const component = this.component();
-          untracked(() => this.portalService.attachComponent(component));
+          untracked(() => {
+            this.portalService.attachComponent(component);
+          });
 
           onCleanup(() => {
-            untracked(() => this.portalService.detach());
+            untracked(() => {
+              this.portalService.detach();
+            });
           });
         });
       }

@@ -47,7 +47,9 @@ export function usePopover(options: NatuUseOverlayOptions) {
     useDismiss(context, { enabled }),
   ]);
 
-  const handleDismiss = useCallback(() => setIsOpen(false), [setIsOpen]);
+  const handleDismiss = useCallback(() => {
+    setIsOpen(false);
+  }, [setIsOpen]);
 
   return {
     isMounted,

@@ -27,6 +27,8 @@ import { Signal, effect, untracked } from '@angular/core';
 export function connectSignal<T>(signalValue: Signal<T>, callback: (value: T) => void) {
   effect(() => {
     const value = signalValue();
-    untracked(() => callback(value));
+    untracked(() => {
+      callback(value);
+    });
   });
 }

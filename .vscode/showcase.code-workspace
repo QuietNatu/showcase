@@ -21,12 +21,8 @@
       "path": "../packages/bundle-i18n",
     },
     {
-      "name": "📦 eslint-config-angular",
-      "path": "../packages/eslint-config-angular",
-    },
-    {
-      "name": "📦 eslint-config-react",
-      "path": "../packages/eslint-config-react",
+      "name": "📦 eslint-config",
+      "path": "../packages/eslint-config",
     },
     {
       "name": "📦 styles",
@@ -67,7 +63,6 @@
   ],
   "settings": {
     "terminal.integrated.cwd": "${workspaceFolder:🌱 root}",
-    "eslint.workingDirectories": ["../.."],
     "search.exclude": {
       "**/.angular": true,
       "**/coverage": true,

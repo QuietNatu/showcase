@@ -16,12 +16,12 @@
     }
   },
   "scripts": {
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint src --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "test": "vitest run --coverage",
     "test-watch": "vitest"
   },
   "devDependencies": {
-    "@natu/eslint-config-react": "workspace:*",
+    "@natu/eslint-config": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@vitest/coverage-v8": "2.0.5",
     "jsdom": "25.0.0",

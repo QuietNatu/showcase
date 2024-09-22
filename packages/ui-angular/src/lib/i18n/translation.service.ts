@@ -25,7 +25,9 @@ export class NatuTranslationService {
   }
 
   private registerEvents() {
-    const languageChanged = (language: string) => this.languageChangedSubject$.next(language);
+    const languageChanged = (language: string) => {
+      this.languageChangedSubject$.next(language);
+    };
 
     this.i18n.on('languageChanged', languageChanged);
 

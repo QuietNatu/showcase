@@ -12,7 +12,8 @@
     }
   },
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "lint": "eslint src --report-unused-disable-directives --no-warn-ignored --max-warnings 0"
   },
   "peerDependencies": {
     "vite": "5.4.2"
@@ -22,7 +23,7 @@
     "picomatch": "4.0.2"
   },
   "devDependencies": {
-    "@natu/eslint-config-react": "workspace:*",
+    "@natu/eslint-config": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@types/picomatch": "3.0.1",
     "tsup": "8.2.4",

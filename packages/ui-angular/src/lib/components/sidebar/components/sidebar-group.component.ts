@@ -91,6 +91,6 @@ export class NatuSidebarGroupComponent {
   private groupHasAnimation() {
     const groupListRef = this.groupListRef();
 
-    return groupListRef && Boolean(window.getComputedStyle(groupListRef?.nativeElement).transition);
+    return groupListRef && Boolean(window.getComputedStyle(groupListRef.nativeElement).transition);
   }
 }

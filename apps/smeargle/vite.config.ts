@@ -56,11 +56,12 @@ export default defineConfig(({ mode }) => {
       environment: 'jsdom',
       setupFiles: 'src/test/setup-tests.ts',
       coverage: {
-        // threshold
-        branches: 80,
-        functions: 80,
-        lines: 80,
-        statements: 80,
+        thresholds: {
+          branches: 80,
+          functions: 80,
+          lines: 80,
+          statements: 80,
+        },
 
         // config
         all: true,

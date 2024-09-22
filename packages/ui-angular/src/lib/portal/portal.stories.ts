@@ -23,8 +23,8 @@ import { NatuPortalService } from './portal.service';
   imports: [natuButtonImports],
 })
 class ButtonsComponent {
-  readonly attach = output<void>();
-  readonly detach = output<void>();
+  readonly attach = output();
+  readonly detach = output();
 }
 
 @Component({

@@ -101,9 +101,13 @@ export class NatuTooltipDirective implements OnDestroy {
   private registerManageVisibility() {
     effect(() => {
       if (this.overlayService.isMounted()) {
-        untracked(() => this.portalService.attachComponent(NatuTooltipComponent));
+        untracked(() => {
+          this.portalService.attachComponent(NatuTooltipComponent);
+        });
       } else {
-        untracked(() => this.portalService.detach());
+        untracked(() => {
+          this.portalService.detach();
+        });
       }
     });
   }

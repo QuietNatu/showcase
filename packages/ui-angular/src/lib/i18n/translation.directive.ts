@@ -53,7 +53,9 @@ export class NatuTranslationDirective<TKPrefix extends KeyPrefix<DefaultNamespac
       this.changeDetectorRef.detectChanges();
 
       onCleanup(() => {
-        untracked(() => viewRef.destroy());
+        untracked(() => {
+          viewRef.destroy();
+        });
 
         this.changeDetectorRef.detectChanges();
       });

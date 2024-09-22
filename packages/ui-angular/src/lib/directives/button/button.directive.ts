@@ -99,7 +99,6 @@ export class NatuButtonDirective {
     role: 'button',
     '[class.natu-button--active]': 'isActive()',
     '[attr.tabindex]': '0',
-    // eslint-disable-next-line sonarjs/no-duplicate-string
     '(click)': '!isDisabled() && natuButtonClick.emit($event)',
     '(keydown.enter)': '!isDisabled() && natuButtonClick.emit($event)',
     '(keydown.space)': '!isDisabled() && natuButtonClick.emit($event)',

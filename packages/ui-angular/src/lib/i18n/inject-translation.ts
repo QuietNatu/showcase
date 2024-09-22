@@ -51,7 +51,7 @@ function checkIsReady(translationService: NatuTranslationService) {
 
 function defaultTFunction(
   key: string | string[],
-  optionsOrDefaultValue: string | { defaultValue: string },
+  optionsOrDefaultValue: string | { defaultValue: string } | undefined,
 ): string {
   if (typeof optionsOrDefaultValue === 'string') {
     return optionsOrDefaultValue;

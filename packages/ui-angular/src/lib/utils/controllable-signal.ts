@@ -26,7 +26,6 @@ export function controllableSignal<T>(options: CreateControllableSignalOptions<T
   const uncontrolledValue$ = signal(finalValue);
   const valueChange$ = new Subject<T>();
 
-  // eslint-disable-next-line functional/no-let
   let hasDefaultValueBeenSet = false;
 
   effect(() => {
@@ -34,7 +33,9 @@ export function controllableSignal<T>(options: CreateControllableSignalOptions<T
 
     if (!hasDefaultValueBeenSet && defaultValue !== undefined) {
       hasDefaultValueBeenSet = true;
-      untracked(() => uncontrolledValue$.set(defaultValue));
+      untracked(() => {
+        uncontrolledValue$.set(defaultValue);
+      });
     }
   });
 
@@ -44,6 +45,7 @@ export function controllableSignal<T>(options: CreateControllableSignalOptions<T
     const controlledValue = controlledValue$();
     const uncontrolledValue = uncontrolledValue$();
 
+    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
     return controlledValue === undefined ? (uncontrolledValue as T) : controlledValue;
   });
 

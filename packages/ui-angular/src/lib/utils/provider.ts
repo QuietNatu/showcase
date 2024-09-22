@@ -4,7 +4,7 @@ type TokenProvider<T, U extends T> = {
   provide: InjectionToken<T>;
 } & (
   | { useValue: U }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/prefer-function-type
   | { useClass: { new (...args: any[]): U } }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   | { useFactory: (...args: any[]) => U }

@@ -132,7 +132,11 @@ export const Expanded: Story = {
 };
 
 export const Active: Story = {
-  decorators: [onStoryInitDecorator((injector) => injector.get(Router).navigate(['/culture']))],
+  decorators: [
+    onStoryInitDecorator(async (injector) => {
+      await injector.get(Router).navigate(['/culture']);
+    }),
+  ],
 };
 
 export const ActiveExpanded: Story = {

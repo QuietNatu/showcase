@@ -16,7 +16,7 @@ export interface VrtScenarioOptions {
    *
    * Each variant will result in a new screenshot.
    */
-  variants?: Array<Record<string, unknown>>;
+  variants?: Record<string, unknown>[];
 }
 
 export interface VrtScenario extends VrtScenarioOptions {

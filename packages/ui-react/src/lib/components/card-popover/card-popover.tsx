@@ -67,7 +67,9 @@ export function NatuCardPopoverContentHeader(props: NatuCardPopoverContentHeader
   useEffect(() => {
     setLabelId(id);
 
-    return () => setLabelId(undefined);
+    return () => {
+      setLabelId(undefined);
+    };
   }, [id, setLabelId]);
 
   return <NatuCardHeader {...props} size="small" id={id} />;
@@ -82,7 +84,9 @@ export function NatuCardPopoverContentBody(props: NatuCardPopoverContentBodyProp
   useEffect(() => {
     setDescriptionId(id);
 
-    return () => setDescriptionId(undefined);
+    return () => {
+      setDescriptionId(undefined);
+    };
   }, [id, setDescriptionId]);
 
   return <NatuCardBody {...props} id={id} />;

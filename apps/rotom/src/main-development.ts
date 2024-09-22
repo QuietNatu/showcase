@@ -4,5 +4,9 @@ import { appConfig } from './app/app.config';
 
 void import('./mocks/server/browser-development')
   .then(({ startWorker }) => startWorker())
-  // eslint-disable-next-line no-console
-  .then(() => bootstrapApplication(AppComponent, appConfig).catch(console.error));
+  .then(() =>
+    bootstrapApplication(AppComponent, appConfig).catch((error: unknown) => {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }),
+  );

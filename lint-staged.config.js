@@ -1,8 +1,11 @@
-/** @type {import("lint-staged").Config} */
+// TODO: remove child repos and enable eslint once https://github.com/eslint/eslint/issues/18385 is closed.
+
 export default {
-  '{apps,packages}/*/{src,e2e,vrt}/**/*': 'ls-lint',
-  '{apps,packages}/*/{src,e2e,vrt}/**/*.{js,jsx,ts,tsx}':
-    'eslint --cache --fix --report-unused-disable-directives --max-warnings 0',
-  '{apps,packages}/*/src/**/*.{css,scss}': 'stylelint --fix',
-  '{apps,packages}/**/*.{js,jsx,ts,tsx,json,css,scss,md}': 'prettier --write',
+  '*': 'ls-lint',
+  '*.{css,scss}': ['stylelint --fix', 'prettier --write'],
+  '*.{js,jsx,ts,tsx}': [
+    // 'eslint --cache --fix --report-unused-disable-directives --no-warn-ignored --max-warnings 0',
+    'prettier --write',
+  ],
+  '*.{json,css,scss,md}': 'prettier --write',
 };

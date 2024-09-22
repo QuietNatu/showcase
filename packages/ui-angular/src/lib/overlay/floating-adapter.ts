@@ -117,7 +117,9 @@ function startAutoUpdate(referenceElement: Element, floatingElement: HTMLElement
       observer.next();
     });
 
-    return () => cleanup();
+    return () => {
+      cleanup();
+    };
   });
 }
 

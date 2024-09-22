@@ -7,7 +7,7 @@ test('renders when provider exists', () => {
 
   vi.stubGlobal('__natu_config__' satisfies keyof typeof window, expected);
 
-  const { result } = renderHook(useAppConfig, {
+  const { result } = renderHook(() => useAppConfig(), {
     renderOptions: {
       wrapper: ({ children }) => <AppConfigProvider>{children}</AppConfigProvider>,
     },
@@ -21,7 +21,7 @@ test('throws error when provider does not exist', () => {
   vi.spyOn(console, 'error').mockImplementation(() => {});
 
   expect(() =>
-    renderHook(useAppConfig, {
+    renderHook(() => useAppConfig(), {
       providerOptions: { excludeAppConfig: true },
     }),
   ).toThrow('missing AppConfigContext provider');

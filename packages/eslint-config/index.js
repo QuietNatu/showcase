@@ -15,11 +15,11 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 // import angular from 'angular-eslint';
 
-/* TODO: replace main with exports in package.json */
 /* TODO: add "type": "module" to all missing package json */
 /* TODO: missing packages
   eslint-plugin-sonarjs
   eslint-plugin-storybook
+  eslint-plugin-rxjs
 */
 /* TODO: explore extra packages
   eslint-plugin-import / eslint-plugin-import-x
@@ -63,7 +63,6 @@ const baseConfig = tseslint.config(
     },
   },
   {
-    /* TODO: adjust this */
     ignores: [
       'node_modules/',
       'dist/',

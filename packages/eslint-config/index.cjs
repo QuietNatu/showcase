@@ -34,7 +34,6 @@ const baseConfig = tseslint.config(
     },
   },
   {
-    /* TODO: adjust this */
     ignores: [
       'node_modules/',
       'dist/',

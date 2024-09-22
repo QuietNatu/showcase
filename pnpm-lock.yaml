@@ -111,8 +111,8 @@ importers:
         specifier: 3.6.0
         version: 3.6.0
       i18next:
-        specifier: 23.14.0
-        version: 23.14.0
+        specifier: 23.15.1
+        version: 23.15.1
       i18next-browser-languagedetector:
         specifier: 8.0.0
         version: 8.0.0
@@ -292,8 +292,8 @@ importers:
         specifier: 3.6.0
         version: 3.6.0
       i18next:
-        specifier: 23.14.0
-        version: 23.14.0
+        specifier: 23.15.1
+        version: 23.15.1
       i18next-browser-languagedetector:
         specifier: 8.0.0
         version: 8.0.0
@@ -308,7 +308,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-i18next:
         specifier: 15.0.2
-        version: 15.0.2(i18next@23.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 15.0.2(i18next@23.15.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@faker-js/faker':
         specifier: 8.4.1
@@ -709,8 +709,8 @@ importers:
         specifier: 14.1.1
         version: 14.1.1
       i18next:
-        specifier: 23.14.0
-        version: 23.14.0
+        specifier: 23.15.1
+        version: 23.15.1
       jasmine-axe:
         specifier: 1.1.0
         version: 1.1.0
@@ -859,8 +859,8 @@ importers:
         specifier: 14.1.1
         version: 14.1.1
       i18next:
-        specifier: 23.14.0
-        version: 23.14.0
+        specifier: 23.15.1
+        version: 23.15.1
       jsdom:
         specifier: 25.0.0
         version: 25.0.0
@@ -875,7 +875,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-i18next:
         specifier: 15.0.2
-        version: 15.0.2(i18next@23.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 15.0.2(i18next@23.15.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       storybook:
         specifier: 8.2.9
         version: 8.2.9(@babel/preset-env@7.25.4(@babel/core@7.25.2))
@@ -7086,8 +7086,8 @@ packages:
   i18next-resources-to-backend@1.2.1:
     resolution: {integrity: sha512-okHbVA+HZ7n1/76MsfhPqDou0fptl2dAlhRDu2ideXloRRduzHsqDOznJBef+R3DFZnbvWoBW+KxJ7fnFjd6Yw==}
 
-  i18next@23.14.0:
-    resolution: {integrity: sha512-Y5GL4OdA8IU2geRrt2+Uc1iIhsjICdHZzT9tNwQ3TVqdNzgxHToGCKf/TPRP80vTCAP6svg2WbbJL+Gx5MFQVA==}
+  i18next@23.15.1:
+    resolution: {integrity: sha512-wB4abZ3uK7EWodYisHl/asf8UYEhrI/vj/8aoSsrj/ZDxj4/UXPOa1KvFt1Fq5hkUHquNqwFlDprmjZ8iySgYA==}
 
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -12414,7 +12414,7 @@ snapshots:
       glob: 10.4.5
       handlebars: 4.7.8
       html-entities: 2.5.2
-      i18next: 23.14.0
+      i18next: 23.15.1
       json5: 2.2.3
       lodash: 4.17.21
       loglevel: 1.9.2
@@ -18758,7 +18758,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.6
 
-  i18next@23.14.0:
+  i18next@23.15.1:
     dependencies:
       '@babel/runtime': 7.25.6
 
@@ -20803,11 +20803,11 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       react-is: 18.1.0
 
-  react-i18next@15.0.2(i18next@23.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-i18next@15.0.2(i18next@23.15.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.25.6
       html-parse-stringify: 3.0.1
-      i18next: 23.14.0
+      i18next: 23.15.1
       react: 18.3.1
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)

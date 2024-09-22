@@ -75,7 +75,7 @@
     "date-fns": "3.6.0",
     "eslint": "9.10.0",
     "http-server": "14.1.1",
-    "i18next": "23.14.0",
+    "i18next": "23.15.1",
     "jasmine-axe": "1.1.0",
     "jasmine-core": "5.2.0",
     "karma": "6.4.4",

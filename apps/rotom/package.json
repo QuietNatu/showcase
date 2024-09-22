@@ -55,7 +55,7 @@
     "@angular/compiler-cli": "18.2.5",
     "@compodoc/compodoc": "1.1.25",
     "@faker-js/faker": "8.4.1",
-    "@mswjs/data": "0.16.1",
+    "@mswjs/data": "0.16.2",
     "@natu/bundle-i18n": "workspace:*",
     "@natu/eslint-config": "workspace:*",
     "@natu/tsconfig": "workspace:*",

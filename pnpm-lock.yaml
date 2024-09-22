@@ -931,8 +931,8 @@ importers:
         specifier: 4.0.2
         version: 4.0.2
       vite:
-        specifier: 5.4.2
-        version: 5.4.2(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+        specifier: 5.4.6
+        version: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
     devDependencies:
       '@natu/eslint-config':
         specifier: workspace:*

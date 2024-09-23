@@ -59,6 +59,7 @@ jobs:
           package-type: 'container'
           token: ${{ secrets.GITHUB_TOKEN }}
           min-versions-to-keep: 2
+          delete-only-untagged-versions: 'true'
 
   test:
     runs-on: ubuntu-latest

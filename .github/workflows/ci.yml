@@ -17,7 +17,7 @@ env:
 
 jobs:
   build-devcontainer:
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    # if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -46,6 +46,14 @@ jobs:
           imageName: ghcr.io/${{ steps.lowercase-repository.outputs.repository }}/devcontainer
           cacheFrom: ghcr.io/${{ steps.lowercase-repository.outputs.repository }}/devcontainer
           push: always
+
+      - name: Delete outdated images
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: '${{ steps.lowercase-repository.outputs.repository }}/devcontainer'
+          package-type: 'container'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          min-versions-to-keep: 2
 
   test:
     runs-on: ubuntu-latest

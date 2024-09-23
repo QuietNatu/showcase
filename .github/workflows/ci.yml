@@ -50,7 +50,7 @@ jobs:
       - name: Delete outdated images
         uses: actions/delete-package-versions@v5
         with:
-          package-name: '${{ steps.lowercase-repository.outputs.repository }}/devcontainer'
+          package-name: 'showcase/devcontainer'
           package-type: 'container'
           token: ${{ secrets.GITHUB_TOKEN }}
           min-versions-to-keep: 2

@@ -7,7 +7,6 @@ import {
 import { NatuTooltipDirective, natuTooltipImports } from './tooltip.directive';
 import { natuButtonImports } from '../button/button.directive';
 import { NgTemplateOutlet } from '@angular/common';
-import { aliasedArgsToTemplate } from '../../test';
 
 const meta = {
   title: 'Components/Tooltip',
@@ -22,7 +21,7 @@ const meta = {
     isOpen: { control: 'boolean' },
   },
   render: (args) => {
-    const templateArgs = aliasedArgsToTemplate(args, 'natuTooltip');
+    const templateArgs = createTemplateArgs();
 
     return {
       props: args,
@@ -43,7 +42,7 @@ export const Default: Story = {};
 
 export const Nested: Story = {
   render: (args) => {
-    const templateArgs = aliasedArgsToTemplate(args, 'natuTooltip');
+    const templateArgs = createTemplateArgs();
 
     return {
       props: args,
@@ -69,7 +68,7 @@ export const Playground: Story = {
     componentWrapperDecorator((story) => `<div style="display: grid; gap: 10px">${story}</div>`),
   ],
   render: (args) => {
-    const templateArgs = aliasedArgsToTemplate(args, 'natuTooltip');
+    const templateArgs = createTemplateArgs();
 
     return {
       props: args,
@@ -115,3 +114,10 @@ export const Playground: Story = {
     };
   },
 };
+
+function createTemplateArgs() {
+  return `[natuTooltipDefaultIsOpen]="defaultIsOpen"
+        [natuTooltipIsOpen]="isOpen"
+        [natuTooltipIsDisabled]="isDisabled"
+        (natuTooltipIsOpenChange)="isOpenChange?.($event)"`;
+}

@@ -11,7 +11,6 @@ import {
 } from './popover.directive';
 import { natuButtonImports } from '../button/button.directive';
 import { NgTemplateOutlet } from '@angular/common';
-import { aliasedArgsToTemplate } from '../../test';
 
 const meta = {
   title: 'Components/Popover',
@@ -28,7 +27,7 @@ const meta = {
     isOpen: { control: 'boolean' },
   },
   render: (args) => {
-    const templateArgs = aliasedArgsToTemplate(args, 'natuPopover');
+    const templateArgs = createTemplateArgs();
 
     return {
       props: args,
@@ -54,7 +53,7 @@ export const Default: Story = {};
 
 export const Nested: Story = {
   render: (args) => {
-    const templateArgs = aliasedArgsToTemplate(args, 'natuPopover');
+    const templateArgs = createTemplateArgs();
 
     return {
       props: args,
@@ -79,7 +78,7 @@ export const Nested: Story = {
 
 export const WithCard: Story = {
   render: (args) => {
-    const templateArgs = aliasedArgsToTemplate(args, 'natuPopover');
+    const templateArgs = createTemplateArgs();
 
     return {
       props: args,
@@ -105,7 +104,7 @@ export const Playground: Story = {
     componentWrapperDecorator((story) => `<div style="display: grid; gap: 10px">${story}</div>`),
   ],
   render: (args) => {
-    const templateArgs = aliasedArgsToTemplate(args, 'natuPopover');
+    const templateArgs = createTemplateArgs();
 
     return {
       props: args,
@@ -158,3 +157,10 @@ export const Playground: Story = {
     };
   },
 };
+
+function createTemplateArgs() {
+  return `[natuPopoverIsDisabled]="isDisabled"
+        [natuPopoverDefaultIsOpen]="defaultIsOpen"
+        [natuPopoverIsOpen]="isOpen"
+        (natuPopoverIsOpenChange)="isOpenChange?.($event)"`;
+}

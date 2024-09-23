@@ -34,23 +34,28 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Repository to lowercase
-        id: lowercase-repository
+      - name: Repository variables
+        id: repository-variables
         run: |
-          echo "repository=${GITHUB_REPOSITORY@L}" >> $GITHUB_OUTPUT
+          echo "lowercase=${GITHUB_REPOSITORY@L}" >> $GITHUB_OUTPUT
+          echo "name=${GITHUB_REPOSITORY#*/}" >> $GITHUB_OUTPUT
+
+      - name: Repository name
+        id: lowercase-repository
+        run: echo "name=${GITHUB_REPOSITORY#*/}" >> $GITHUB_OUTPUT
 
       - name: Build dev container image
         uses: devcontainers/ci@v0.3
         with:
           configFile: ./.devcontainer/devcontainer-base.json
-          imageName: ghcr.io/${{ steps.lowercase-repository.outputs.repository }}/devcontainer
-          cacheFrom: ghcr.io/${{ steps.lowercase-repository.outputs.repository }}/devcontainer
+          imageName: ghcr.io/${{ steps.repository-variables.outputs.lowercase }}/devcontainer
+          cacheFrom: ghcr.io/${{ steps.repository-variables.outputs.lowercase }}/devcontainer
           push: always
 
       - name: Delete outdated images
         uses: actions/delete-package-versions@v5
         with:
-          package-name: 'showcase/devcontainer'
+          package-name: '${{ steps.repository-variables.outputs.name }}/devcontainer'
           package-type: 'container'
           token: ${{ secrets.GITHUB_TOKEN }}
           min-versions-to-keep: 2

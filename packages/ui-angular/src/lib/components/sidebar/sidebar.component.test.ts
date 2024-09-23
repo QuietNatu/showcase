@@ -1,4 +1,3 @@
-import { argsToTemplate } from '@storybook/angular';
 import { axe, render } from '../../test';
 import { NatuSidebarComponent, natuSidebarImports } from './sidebar.component';
 import { screen, within } from '@testing-library/angular';
@@ -108,11 +107,13 @@ async function setup(args: TestComponentArgs<NatuSidebarComponent> = {}) {
     isExpandedChange: isExpandedChangeSpy,
   };
 
-  const templateArgs = argsToTemplate(componentProperties);
-
   const view = await render(
     `
-      <natu-sidebar ${templateArgs}>
+      <natu-sidebar
+        [defaultIsExpanded]="defaultIsExpanded"
+        [isExpanded]="isExpanded"
+        (isExpandedChange)="isExpandedChange($event)"
+      >
         <natu-sidebar-header>Example header</natu-sidebar-header>
 
         <natu-sidebar-actions>

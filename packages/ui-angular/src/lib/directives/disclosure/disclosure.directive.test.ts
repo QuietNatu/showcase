@@ -1,5 +1,5 @@
 import { NatuDisclosureDirective, natuDisclosureImports } from './disclosure.directive';
-import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
+import { axe, render } from '../../test';
 import { screen, waitForElementToBeRemoved } from '@testing-library/angular';
 import { TestComponentArgs } from '../../test/types';
 
@@ -74,8 +74,11 @@ describe(NatuDisclosureDirective.name, () => {
 
     expect(await screen.findByRole('region')).toBeInTheDocument();
 
-    const componentProperties = aliasArgs({ isExpanded: false }, 'natuDisclosure');
-    await rerender({ componentProperties });
+    await rerender({
+      componentProperties: {
+        isExpanded: false,
+      } satisfies TestComponentArgs<NatuDisclosureDirective>,
+    });
 
     await waitForElementToBeRemoved(() => screen.queryByRole('region'));
 
@@ -88,16 +91,19 @@ async function setup(props: TestComponentArgs<NatuDisclosureDirective> = {}) {
   // eslint-disable-next-line jasmine/no-unsafe-spy
   const isExpandedChangeSpy = jasmine.createSpy();
 
-  const allProps = {
+  const componentProperties = {
     ...props,
     isExpandedChange: isExpandedChangeSpy,
   };
 
-  const componentProperties = aliasArgs(allProps, 'natuDisclosure');
-  const templateArgs = aliasedArgsToTemplate(allProps, 'natuDisclosure');
-
   const view = await render(
-    ` <div natuDisclosure ${templateArgs}>
+    ` <div
+        natuDisclosure
+        [natuDisclosureDefaultIsExpanded]="defaultIsExpanded"
+        [natuDisclosureIsExpanded]="isExpanded"
+        [natuDisclosureIsDisabled]="isDisabled"
+        (natuDisclosureIsExpandedChange)="isExpandedChange($event)"
+      >
         <button type="button" natuDisclosureTrigger>Example Trigger</button>
         <div natuDisclosureContent>Example Content</div>
       </div>`,

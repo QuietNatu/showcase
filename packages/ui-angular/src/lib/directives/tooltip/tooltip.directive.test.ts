@@ -1,6 +1,6 @@
 import { screen, waitForElementToBeRemoved } from '@testing-library/angular';
 import { NatuTooltipDirective, natuTooltipImports } from './tooltip.directive';
-import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
+import { axe, render } from '../../test';
 import { TestComponentArgs } from '../../test/types';
 
 describe(`${NatuTooltipDirective.name} accessibility`, () => {
@@ -155,8 +155,9 @@ describe(NatuTooltipDirective.name, () => {
 
     expect(await screen.findByRole('tooltip', { name: 'Example tooltip' })).toBeInTheDocument();
 
-    const componentProperties = aliasArgs({ isOpen: false }, 'natuTooltip');
-    await rerender({ componentProperties: componentProperties });
+    await rerender({
+      componentProperties: { isOpen: false } satisfies TestComponentArgs<NatuTooltipDirective>,
+    });
 
     await waitForElementToBeRemoved(screen.queryByRole('tooltip'));
 
@@ -177,17 +178,20 @@ async function setup(props: TestComponentArgs<NatuTooltipDirective> = {}) {
   // eslint-disable-next-line jasmine/no-unsafe-spy
   const isOpenChangeSpy = jasmine.createSpy();
 
-  const allProps = {
+  const componentProperties = {
     ...props,
     isOpenChange: isOpenChangeSpy,
   };
 
-  const componentProperties = aliasArgs(allProps, 'natuTooltip');
-  const templateArgs = aliasedArgsToTemplate(allProps, 'natuTooltip');
-
   const view = await render(
     `
-      <ng-container natuTooltip ${templateArgs}>
+      <ng-container
+        natuTooltip
+        [natuTooltipDefaultIsOpen]="defaultIsOpen"
+        [natuTooltipIsOpen]="isOpen"
+        [natuTooltipIsDisabled]="isDisabled"
+        (natuTooltipIsOpenChange)="isOpenChange($event)"
+      >
         <button type="button" natuTooltipTrigger>Trigger</button>
         <ng-template natuTooltipContent>Example tooltip</ng-template>
       </ng-container>
@@ -195,7 +199,7 @@ async function setup(props: TestComponentArgs<NatuTooltipDirective> = {}) {
     {
       renderOptions: {
         imports: [natuTooltipImports],
-        componentProperties: componentProperties,
+        componentProperties,
       },
     },
   );

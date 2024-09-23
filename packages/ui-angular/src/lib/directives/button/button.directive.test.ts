@@ -5,7 +5,6 @@ import {
   NatuButtonDirective,
   natuButtonImports,
 } from './button.directive';
-import { argsToTemplate } from '@storybook/angular';
 import { TestComponentArgs } from '../../test/types';
 
 describe(`${NatuButtonDirective.name} accessibility`, () => {
@@ -90,7 +89,7 @@ describe(NatuA11yButtonDirective.name, () => {
     };
 
     const view = await render(
-      `<span [natuButton] ${argsToTemplate(componentProperties)}>Button</span>`,
+      `<span natuButton [isDisabled]="isDisabled" (natuButtonClick)="natuButtonClick($event)">Button</span>`,
       {
         renderOptions: {
           imports: [natuButtonImports],

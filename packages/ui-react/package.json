@@ -41,7 +41,7 @@
     "@natu/tsconfig": "workspace:*",
     "@natu/utils": "workspace:*",
     "@natu/vrt": "workspace:*",
-    "@playwright/test": "1.47.1",
+    "@playwright/test": "1.47.2",
     "@radix-ui/react-collapsible": "1.1.0",
     "@radix-ui/react-slot": "1.1.0",
     "@react-aria/utils": "3.25.2",

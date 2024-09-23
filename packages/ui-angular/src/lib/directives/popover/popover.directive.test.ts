@@ -4,7 +4,7 @@ import {
   natuCardPopoverImports,
   natuPopoverImports,
 } from './popover.directive';
-import { aliasArgs, aliasedArgsToTemplate, axe, render } from '../../test';
+import { axe, render } from '../../test';
 import { TestComponentArgs } from '../../test/types';
 
 describe(`${NatuPopoverDirective.name} accessibility`, () => {
@@ -117,9 +117,9 @@ describe(NatuPopoverDirective.name, () => {
 
     expect(popover).toBeInTheDocument();
 
-    const componentProperties = aliasArgs({ isOpen: false }, 'natuPopover');
-
-    await rerender({ componentProperties: componentProperties });
+    await rerender({
+      componentProperties: { isOpen: false } satisfies TestComponentArgs<NatuPopoverDirective>,
+    });
 
     await waitForElementToBeRemoved(popover);
 
@@ -159,17 +159,21 @@ async function setup(props: TestComponentArgs<NatuPopoverDirective> = {}) {
   // eslint-disable-next-line jasmine/no-unsafe-spy
   const isOpenChangeSpy = jasmine.createSpy();
 
-  const allProps = {
+  const componentProperties = {
     ...props,
     isOpenChange: isOpenChangeSpy,
   };
 
-  const componentProperties = aliasArgs(allProps, 'natuPopover');
-  const templateArgs = aliasedArgsToTemplate(allProps, 'natuPopover');
-
   const view = await render(
     `
-      <ng-container natuPopover ${templateArgs} [natuPopoverAttributes]="{ 'aria-labelledby': 'popover-content-id' }">
+      <ng-container
+        natuPopover
+        [natuPopoverAttributes]="{ 'aria-labelledby': 'popover-content-id' }"
+        [natuPopoverIsDisabled]="isDisabled"
+        [natuPopoverDefaultIsOpen]="defaultIsOpen"
+        [natuPopoverIsOpen]="isOpen"
+        (natuPopoverIsOpenChange)="isOpenChange($event)"
+      >
         <button type="button" natuPopoverTrigger>Trigger</button>
 
         <div *natuPopoverContent id="popover-content-id">Example popover</div>
@@ -178,7 +182,7 @@ async function setup(props: TestComponentArgs<NatuPopoverDirective> = {}) {
     {
       renderOptions: {
         imports: [natuPopoverImports],
-        componentProperties: componentProperties,
+        componentProperties,
       },
     },
   );
@@ -190,17 +194,21 @@ async function setupCardPopover(props: TestComponentArgs<NatuPopoverDirective> =
   // eslint-disable-next-line jasmine/no-unsafe-spy
   const isOpenChangeSpy = jasmine.createSpy();
 
-  const allProps = {
+  const componentProperties = {
     ...props,
     isOpenChange: isOpenChangeSpy,
   };
 
-  const componentProperties = aliasArgs(allProps, 'natuPopover');
-  const templateArgs = aliasedArgsToTemplate(allProps, 'natuPopover');
-
   const view = await render(
     `
-      <ng-container natuPopover ${templateArgs} [natuPopoverHasEmbeddedContent]="true">
+      <ng-container
+        natuPopover
+        [natuPopoverHasEmbeddedContent]="true"
+        [natuPopoverIsDisabled]="isDisabled"
+        [natuPopoverDefaultIsOpen]="defaultIsOpen"
+        [natuPopoverIsOpen]="isOpen"
+        (natuPopoverIsOpenChange)="isOpenChange($event)"
+      >
         <button type="button" natuPopoverTrigger>Trigger</button>
 
         <natu-card *natuPopoverContent natuPopoverCard>
@@ -213,7 +221,7 @@ async function setupCardPopover(props: TestComponentArgs<NatuPopoverDirective> =
     {
       renderOptions: {
         imports: [natuCardPopoverImports],
-        componentProperties: componentProperties,
+        componentProperties,
       },
     },
   );

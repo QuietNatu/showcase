@@ -1,5 +1,5 @@
 import { screen } from '@testing-library/angular';
-import { aliasArgs, aliasedArgsToTemplate, render } from '../../test';
+import { render } from '../../test';
 import { NatuFocusRingDirective } from './focus-ring.directive';
 import { FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
 import { Subject } from 'rxjs';
@@ -40,16 +40,13 @@ describe(NatuFocusRingDirective.name, () => {
     const focusMonitorTrigger$ = new Subject<FocusOrigin>();
     focusMonitorSpy.monitor.and.returnValue(focusMonitorTrigger$);
 
-    const componentProperties = aliasArgs(props, 'natuFocusRing');
-    const templateArgs = aliasedArgsToTemplate(props, 'natuFocusRing');
-
     const view = await render(
-      `<button type="button" natuFocusRing ${templateArgs}>Button</button>`,
+      `<button type="button" natuFocusRing [natuFocusRingFocusVisibleClass]="focusVisibleClass">Button</button>`,
       {
         renderOptions: {
           imports: [NatuFocusRingDirective],
           providers: [{ provide: FocusMonitor, useValue: focusMonitorSpy }],
-          componentProperties,
+          componentProperties: props,
         },
       },
     );

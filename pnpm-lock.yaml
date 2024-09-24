@@ -507,8 +507,8 @@ importers:
         specifier: 7.0.2
         version: 7.0.2(eslint@9.10.0(jiti@1.21.6))(typescript@5.5.4)
       eslint-plugin-jasmine:
-        specifier: 4.2.1
-        version: 4.2.1
+        specifier: 4.2.2
+        version: 4.2.2
       eslint-plugin-jest-dom:
         specifier: 5.4.0
         version: 5.4.0(@testing-library/dom@10.4.0)(eslint@9.10.0(jiti@1.21.6))
@@ -6227,8 +6227,8 @@ packages:
       typescript:
         optional: true
 
-  eslint-plugin-jasmine@4.2.1:
-    resolution: {integrity: sha512-Vwecc66rjMgz2e9UtGScsUdo6D+SbfgPA4Kf0zdAl4+5IQMRL0mXd8973MaZuYYF89XpRjQEGl5TNmg2Bv+KcQ==}
+  eslint-plugin-jasmine@4.2.2:
+    resolution: {integrity: sha512-nALbewRk63uz28UGNhUTJyd6GofXxVNFpWFNAwr9ySc6kpSRIoO4suwZqIYz3cfJmCacilmjp7+1Ocjr7zRagA==}
     engines: {node: '>=8', npm: '>=6'}
 
   eslint-plugin-jest-dom@5.4.0:
@@ -17309,7 +17309,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-jasmine@4.2.1: {}
+  eslint-plugin-jasmine@4.2.2: {}
 
   eslint-plugin-jest-dom@5.4.0(@testing-library/dom@10.4.0)(eslint@9.10.0(jiti@1.21.6)):
     dependencies:

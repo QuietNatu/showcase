@@ -15,14 +15,16 @@ import { caretRightIcon } from '@natu/assets/svg/caret-right';
 import { dotsThreeVerticalIcon } from '@natu/assets/svg/dots-three-vertical';
 import { connectSignal } from '../../utils';
 import { NatuTranslationDirective } from '../../i18n';
+import { NatuOverlayDelayGroupDirective } from '../../overlay';
 
 @Component({
   selector: 'natu-sidebar',
   templateUrl: './sidebar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [SvgIconComponent, NatuTranslationDirective],
+  imports: [SvgIconComponent, NatuTranslationDirective, NatuOverlayDelayGroupDirective],
   providers: [NatuSidebarService],
+  hostDirectives: [NatuOverlayDelayGroupDirective],
   host: {
     class: 'natu-sidebar',
     '[class.natu-sidebar--expanded]': 'isSidebarExpanded()',

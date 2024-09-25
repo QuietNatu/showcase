@@ -10,7 +10,7 @@ import {
 import { NatuPopoverComponent } from './popover.component';
 import { NatuOverlayPlacement, NatuOverlayService } from '../../overlay';
 import { NatuPortalService } from '../../portal';
-import { useOverlayClick, useOverlayDismiss } from '../../overlay/overlay-interactions';
+import { useOverlayClick, useOverlayDismiss } from '../../overlay';
 import { NatuPopoverService } from './popover.service';
 import { NatuPopoverContentDirective } from './directives/popover-content.directive';
 import { NatuPopoverTriggerDirective } from './directives/popover-trigger.directive';

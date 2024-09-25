@@ -1,17 +1,20 @@
-<ng-content select="natu-sidebar-header" />
+<!-- TODO: delay; todo: not working if not in host directive? because of ng-content? https://github.com/angular/angular/issues/42649 -->
+<ng-container natuOverlayDelayGroup [natuOverlayDelayGroupDelay]="500">
+  <ng-content select="natu-sidebar-header" />
 
-<ng-content />
+  <ng-content />
 
-<div class="natu-sidebar__footer">
-  <ng-content select="natu-sidebar-secondary-actions" />
+  <div class="natu-sidebar__footer">
+    <ng-content select="natu-sidebar-secondary-actions" />
 
-  <button
-    *natuTranslation="let t; keyPrefix: 'ui.sidebar'"
-    type="button"
-    class="natu-sidebar__toggle-button"
-    (click)="sidebarService.toggleExpansion()"
-  >
-    <span class="natu-visually-hidden">{{ t(isSidebarExpanded() ? 'collapse' : 'expand') }}</span>
-    <svg-icon class="natu-sidebar__toggle-button-icon" key="caret-right" />
-  </button>
-</div>
+    <button
+      *natuTranslation="let t; keyPrefix: 'ui.sidebar'"
+      type="button"
+      class="natu-sidebar__toggle-button"
+      (click)="sidebarService.toggleExpansion()"
+    >
+      <span class="natu-visually-hidden">{{ t(isSidebarExpanded() ? 'collapse' : 'expand') }}</span>
+      <svg-icon class="natu-sidebar__toggle-button-icon" key="caret-right" />
+    </button>
+  </div>
+</ng-container>

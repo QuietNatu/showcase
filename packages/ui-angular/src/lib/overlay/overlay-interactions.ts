@@ -1,4 +1,4 @@
-import { assertInInjectionContext, inject } from '@angular/core';
+import { assertInInjectionContext, computed, inject, isSignal, Signal } from '@angular/core';
 import { NatuOverlayService } from './overlay.service';
 import {
   EMPTY,
@@ -16,9 +16,13 @@ import { DOCUMENT } from '@angular/common';
 import { NatuPortalService } from '../portal';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { registerEffect } from '../utils/rxjs';
+import { NatuOverlayDelayGroupService } from './overlay-delay-group.service';
+import { NatuDelayInput } from './overlay-types';
+import { normalizeOverlayDelay } from './overlay-utils';
+import { connectSignal } from '../utils';
 
 interface HoverOptions {
-  delay?: number;
+  delay?: NatuDelayInput | Signal<NatuDelayInput>;
 }
 
 /**
@@ -31,7 +35,11 @@ export function useOverlayHover(options: HoverOptions = {}) {
 
   const portalService = inject(NatuPortalService);
   const overlayService = inject(NatuOverlayService);
-  const delay = options.delay ?? 0;
+
+  const delay = computed(() => {
+    const coercedDelay = isSignal(options.delay) ? options.delay() : options.delay;
+    return normalizeOverlayDelay(coercedDelay);
+  });
 
   const referenceElement$ = toObservable(overlayService.referenceElement).pipe(filter(Boolean));
   const portalElement$ = toObservable(portalService.portalElement).pipe(filter(Boolean));
@@ -58,7 +66,10 @@ export function useOverlayHover(options: HoverOptions = {}) {
 
   const effect$ = merge(referenceEnter$, referenceLeave$, portalEnter$, portalLeave$).pipe(
     filter(() => !overlayService.isDisabled()),
-    switchMap((shouldOpen) => timer(delay).pipe(map(() => shouldOpen))),
+    switchMap((shouldOpen) => {
+      const currentDelay = shouldOpen ? delay().open : delay().close;
+      return timer(currentDelay).pipe(map(() => shouldOpen));
+    }),
   );
 
   registerEffect(effect$, (shouldOpen) => {
@@ -170,4 +181,39 @@ export function useOverlayDismiss() {
 
 function isTargetOutsideElement(target: EventTarget | null, element: Element | null) {
   return Boolean(target && target instanceof Element && element && !element.contains(target));
+}
+
+/**
+ * Syncs overlay with a parent delay group.
+ *
+ * Must be used in conjunction with {@link NatuOverlayDelayGroupService} and {@link NatuOverlayService}.
+ */
+export function useOverlayDelayGroup() {
+  assertInInjectionContext(useOverlayDelayGroup);
+
+  const overlayDelayGroupService = inject(NatuOverlayDelayGroupService, { optional: true });
+
+  if (!overlayDelayGroupService) {
+    return;
+  }
+
+  const overlayService = inject(NatuOverlayService);
+  const id = overlayService.floatingId;
+
+  connectSignal(overlayDelayGroupService.currentId, (currentId) => {
+    if (currentId !== id) {
+      // TODO: this triggers before animation duration has a chance to update
+      setTimeout(() => {
+        overlayService.changeOpen(false);
+      });
+    }
+  });
+
+  connectSignal(overlayService.isOpen, (isOpen) => {
+    if (isOpen) {
+      overlayDelayGroupService.setCurrentId(id);
+    } else if (overlayDelayGroupService.currentId() === id) {
+      overlayDelayGroupService.setCurrentId(null);
+    }
+  });
 }

@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuOverlayService } from '../../overlay';
-import { NatuOverlayArrowComponent } from '../../overlay/overlay-arrow.component';
+import { NatuOverlayArrowComponent } from '../../overlay';
 import { Side } from '@floating-ui/dom';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuPopoverService } from './popover.service';

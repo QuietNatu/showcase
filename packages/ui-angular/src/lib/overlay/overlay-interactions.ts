@@ -17,12 +17,12 @@ import { NatuPortalService } from '../portal';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { registerEffect } from '../utils/rxjs';
 import { NatuOverlayDelayGroupService } from './overlay-delay-group.service';
-import { NatuDelayInput } from './overlay-types';
-import { normalizeOverlayDelay } from './overlay-utils';
+import { NatuOverlayDelayInput } from './overlay-types';
 import { connectSignal } from '../utils';
+import { normalizeOverlayDelay } from './overlay-utils';
 
 interface HoverOptions {
-  delay?: NatuDelayInput | Signal<NatuDelayInput>;
+  delay?: NatuOverlayDelayInput | Signal<NatuOverlayDelayInput>;
 }
 
 /**
@@ -68,7 +68,7 @@ export function useOverlayHover(options: HoverOptions = {}) {
     filter(() => !overlayService.isDisabled()),
     switchMap((shouldOpen) => {
       const currentDelay = shouldOpen ? delay().open : delay().close;
-      return timer(currentDelay).pipe(map(() => shouldOpen));
+      return timer(currentDelay ?? 0).pipe(map(() => shouldOpen));
     }),
   );
 

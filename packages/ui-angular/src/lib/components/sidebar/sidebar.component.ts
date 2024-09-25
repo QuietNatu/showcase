@@ -22,7 +22,7 @@ import { NatuOverlayDelayGroupDirective } from '../../overlay';
   templateUrl: './sidebar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [SvgIconComponent, NatuTranslationDirective, NatuOverlayDelayGroupDirective],
+  imports: [SvgIconComponent, NatuTranslationDirective],
   providers: [NatuSidebarService],
   hostDirectives: [NatuOverlayDelayGroupDirective],
   host: {

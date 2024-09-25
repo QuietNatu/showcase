@@ -1,17 +1,17 @@
 import { computed, Injectable, Signal, signal } from '@angular/core';
-import { NatuDelay } from './overlay-types';
+import { NatuOverlayDelay, NatuOverlayDelayInput } from './overlay-types';
 import { normalizeOverlayDelay } from './overlay-utils';
 
 interface State {
-  delay: NatuDelay;
-  initialDelay: NatuDelay;
+  delay: NatuOverlayDelay;
+  initialDelay: NatuOverlayDelay;
   currentId: string | null;
   isInstantPhase: boolean;
 }
 
 /**
  * Manages a group of overlays that share a delay when opening or closing.
- *
+
  * After the first overlay opens, the subsequent overlays will open without a delay.
  */
 @Injectable()
@@ -19,7 +19,7 @@ export class NatuOverlayDelayGroupService {
   /** The id of the currently active overlay of the group. */
   readonly currentId: Signal<string | null>;
   /** The delays for opening and closing an overlay. */
-  readonly delay: Signal<NatuDelay>;
+  readonly delay: Signal<NatuOverlayDelay>;
   /** Phase where there is no delay when closing or opening overlays (when switching overlays). */
   readonly isInstantPhase: Signal<boolean>;
 
@@ -48,9 +48,9 @@ export class NatuOverlayDelayGroupService {
     });
   }
 
-  // TODO: to support child overlay delay only it needs to be moved to the hook?
-  setDelay(delay: number | Partial<NatuDelay> | null | undefined) {
-    const normalizedDelay: NatuDelay = normalizeOverlayDelay(delay);
+  /** Sets the delays that should be used by all the overlays in the group. */
+  setDelay(delay: NatuOverlayDelayInput | undefined) {
+    const normalizedDelay: NatuOverlayDelay = normalizeOverlayDelay(delay);
 
     this.state.update((state) => ({
       ...state,
@@ -70,6 +70,6 @@ function updateInstantPhase(currentId: string | null, state: State): boolean {
   }
 }
 
-function updateDelay(currentId: string | null, initialDelay: NatuDelay): NatuDelay {
+function updateDelay(currentId: string | null, initialDelay: NatuOverlayDelay): NatuOverlayDelay {
   return currentId === null ? initialDelay : { open: 1, close: initialDelay.close };
 }

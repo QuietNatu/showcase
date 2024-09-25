@@ -69,10 +69,12 @@ export class NatuTooltipDirective implements OnDestroy {
   constructor() {
     this.overlayService.setHasTransitions(true);
 
-    const delay =
-      this.overlayDelayGroupService?.delay ??
-      this.uiConfig?.tooltip?.hoverDelay ??
-      defaultHoverDelay;
+    const delay = computed(() => {
+      const groupDelay = this.overlayDelayGroupService?.delay();
+      const hoverDelay = this.uiConfig?.tooltip?.hoverDelay ?? defaultHoverDelay;
+
+      return { open: groupDelay?.open ?? hoverDelay, close: groupDelay?.close ?? hoverDelay };
+    });
 
     useOverlayHover({ delay });
     useOverlayFocus();

@@ -1,6 +1,7 @@
-import { Directive, effect, inject, input, untracked } from '@angular/core';
+import { Directive, inject, input } from '@angular/core';
 import { NatuOverlayDelayGroupService } from './overlay-delay-group.service';
-import { NatuDelayInput } from './overlay-types';
+import { NatuOverlayDelayInput } from './overlay-types';
+import { connectSignal } from '../utils';
 
 /* TODO: docs */
 @Directive({
@@ -9,27 +10,15 @@ import { NatuDelayInput } from './overlay-types';
   providers: [NatuOverlayDelayGroupService],
 })
 export class NatuOverlayDelayGroupDirective {
-  /* TODO: remove input and use tooltips */
-  readonly delay = input<NatuDelayInput>(undefined, {
-    alias: 'natuOverlayDelayGroupDelay',
-  });
+  readonly delay = input<NatuOverlayDelayInput>(null, { alias: 'natuOverlayDelayGroupDelay' });
 
   private readonly overlayDelayGroupService = inject(NatuOverlayDelayGroupService);
 
   constructor() {
     /* TODO: disable delay in tests. */
 
-    effect(() => {
-      // TODO: https://github.com/angular/angular/issues/42649
-      const delay = this.delay();
-      // eslint-disable-next-line no-console
-      console.log({ delay });
-
-      untracked(() => {
-        // TODO:
-        // this.overlayDelayGroupService.setDelay(delay);
-        this.overlayDelayGroupService.setDelay(500);
-      });
+    connectSignal(this.delay, (delay) => {
+      this.overlayDelayGroupService.setDelay(delay);
     });
   }
 }

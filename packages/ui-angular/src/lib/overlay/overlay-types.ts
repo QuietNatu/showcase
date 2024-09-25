@@ -1,6 +1,6 @@
-export interface NatuDelay {
-  open: number;
-  close: number;
+export interface NatuOverlayDelay {
+  open: number | null;
+  close: number | null;
 }
 
-export type NatuDelayInput = number | Partial<NatuDelay> | null | undefined;
+export type NatuOverlayDelayInput = number | Partial<NatuOverlayDelay> | null | undefined;

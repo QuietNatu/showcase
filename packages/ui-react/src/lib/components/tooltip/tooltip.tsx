@@ -3,6 +3,7 @@ import {
   FloatingArrow,
   FloatingPortal,
   Side,
+  useDelayGroup,
   useDismiss,
   useFocus,
   useHover,
@@ -15,8 +16,8 @@ import { Slot } from '@radix-ui/react-slot';
 import clsx from 'clsx';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuOverlayPlacement, NatuUseOverlayOptions, useOverlay } from '../../hooks/use-overlay';
-import { useNatuUiConfig } from '../../contexts/ui-config';
 import { createContext } from '../../utils';
+import { useTooltipDelay } from './use-tooltip-delay';
 
 export interface NatuTooltipProps {
   children?: ReactNode;
@@ -106,7 +107,6 @@ export const NatuTooltipContent = forwardRef<HTMLDivElement, NatuTooltipContentP
   },
 );
 
-const defaultHoverDelay = 500;
 const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 
 const sideTransforms: Record<Side, string> = {
@@ -117,14 +117,17 @@ const sideTransforms: Record<Side, string> = {
 };
 
 function useTooltip(options: NatuUseOverlayOptions) {
-  const { tooltip: tooltipConfig } = useNatuUiConfig();
-  const hoverDelay = tooltipConfig?.hoverDelay ?? defaultHoverDelay;
-
   const { context, refs, referenceRef, arrowRef, arrowHeight, arrowWidth, floatingStyles } =
     useOverlay(options);
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const { delay: groupDelay, currentId, isInstantPhase } = useDelayGroup(context);
+
+  const isCurrentId = currentId === context.floatingId;
   const { isMounted, styles } = useTransitionStyles(context, {
-    duration: animationDuration,
+    duration: isInstantPhase
+      ? { open: 0, close: isCurrentId ? animationDuration : 0 }
+      : animationDuration,
     initial: ({ side }) => ({
       opacity: 0,
       transform: sideTransforms[side],
@@ -132,9 +135,10 @@ function useTooltip(options: NatuUseOverlayOptions) {
   });
 
   const enabled = !options.isDisabled;
+  const hoverDelay = useTooltipDelay();
   const { getReferenceProps, getFloatingProps } = useInteractions([
     useRole(context, { role: 'tooltip', enabled }),
-    useHover(context, { move: false, delay: hoverDelay, enabled }),
+    useHover(context, { move: false, delay: groupDelay === 0 ? hoverDelay : groupDelay, enabled }),
     useFocus(context, { enabled }),
     useDismiss(context, { enabled }),
   ]);

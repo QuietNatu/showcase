@@ -1,6 +1,7 @@
 import { Decorator, componentWrapperDecorator } from '@storybook/angular';
 import { Directive, input } from '@angular/core';
 import { useStoryThemeProvider } from '@natu/ui-angular/stories';
+import { registerSignal } from '@natu/ui-angular';
 
 /**
  * Performs actions required to set up stories (like themes or i18n).

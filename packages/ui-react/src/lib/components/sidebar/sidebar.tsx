@@ -25,8 +25,8 @@ import * as Collapsible from '@radix-ui/react-collapsible';
 import { useControllableState } from '../../hooks';
 import { mergeProps, useFocusRing } from 'react-aria';
 import { useTranslation } from 'react-i18next';
-import { FloatingDelayGroup } from '@floating-ui/react';
 import { useTooltipDelay } from '../tooltip/use-tooltip-delay';
+import { NatuOverlayDelayGroup } from '../overlay/overlay-delay-group';
 
 export interface NatuSidebarProps extends UseSidebarOptions, ComponentPropsWithoutRef<'div'> {
   /**
@@ -152,8 +152,7 @@ export const NatuSidebar = forwardRef<HTMLDivElement, NatuSidebarProps>(
           props.className,
         )}
       >
-        {/* TODO: create wrapper for this? */}
-        <FloatingDelayGroup delay={tooltipDelay}>
+        <NatuOverlayDelayGroup delay={tooltipDelay}>
           <div className="natu-sidebar__header">{children}</div>
 
           {actions.length > 0 && (
@@ -185,7 +184,7 @@ export const NatuSidebar = forwardRef<HTMLDivElement, NatuSidebarProps>(
               </NatuIcon>
             </button>
           </div>
-        </FloatingDelayGroup>
+        </NatuOverlayDelayGroup>
       </div>
     );
   },

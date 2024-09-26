@@ -23,7 +23,7 @@ import { NATU_UI_CONFIG } from '../../core';
 import { NatuTooltipService } from './tooltip.service';
 import { NatuTooltipTriggerDirective } from './directives/tooltip-trigger.directive';
 import { NatuTooltipContentDirective } from './directives/tooltip-content.directive';
-import { connectSignal } from '../../utils';
+import { registerSignal } from '../../utils';
 import { outputFromObservable } from '@angular/core/rxjs-interop';
 
 const defaultHoverDelay = 500;
@@ -81,25 +81,25 @@ export class NatuTooltipDirective implements OnDestroy {
     useOverlayDismiss();
     useOverlayDelayGroup();
 
-    connectSignal(
+    registerSignal(
       computed(() => this.data?.placement() ?? this.placement() ?? null),
       (placement) => {
         this.overlayService.setPlacement(placement);
       },
     );
 
-    connectSignal(
+    registerSignal(
       computed(() => this.data?.isDisabled() ?? this.isDisabled()),
       (isDisabled) => {
         this.overlayService.setIsDisabled(isDisabled);
       },
     );
 
-    connectSignal(this.isOpen, (isOpen) => {
+    registerSignal(this.isOpen, (isOpen) => {
       this.overlayService.setIsOpen(isOpen ?? undefined);
     });
 
-    connectSignal(this.defaultIsOpen, (defaultIsOpen) => {
+    registerSignal(this.defaultIsOpen, (defaultIsOpen) => {
       this.overlayService.setDefaultIsOpen(defaultIsOpen ?? undefined);
     });
 

@@ -19,12 +19,12 @@ import { Signal, effect, untracked } from '@angular/core';
  * can be reduced to this:
  *
  * ```
- * connectSignal(this.isExpanded, (isExpanded) => {
+ * registerSignal(this.isExpanded, (isExpanded) => {
  *   this.sidebarService.setIsExpanded(isExpanded);
  * });
  * ```
  */
-export function connectSignal<T>(signalValue: Signal<T>, callback: (value: T) => void) {
+export function registerSignal<T>(signalValue: Signal<T>, callback: (value: T) => void) {
   effect(() => {
     const value = signalValue();
     untracked(() => {

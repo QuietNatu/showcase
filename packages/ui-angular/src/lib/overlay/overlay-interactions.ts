@@ -18,7 +18,7 @@ import { FocusMonitor } from '@angular/cdk/a11y';
 import { registerEffect } from '../utils/rxjs';
 import { NatuOverlayDelayGroupService } from './overlay-delay-group.service';
 import { NatuOverlayDelayInput } from './overlay-types';
-import { connectSignal } from '../utils';
+import { registerSignal } from '../utils';
 import { normalizeOverlayDelay } from './overlay-utils';
 
 interface HoverOptions {
@@ -200,16 +200,16 @@ export function useOverlayDelayGroup() {
   const overlayService = inject(NatuOverlayService);
   const id = overlayService.floatingId;
 
-  connectSignal(overlayDelayGroupService.currentId, (currentId) => {
+  registerSignal(overlayDelayGroupService.currentId, (currentId) => {
     if (currentId !== id) {
-      // TODO: this triggers before animation duration has a chance to update
+      // Wait for components with animations to update their duration
       setTimeout(() => {
         overlayService.changeOpen(false);
       });
     }
   });
 
-  connectSignal(overlayService.isOpen, (isOpen) => {
+  registerSignal(overlayService.isOpen, (isOpen) => {
     if (isOpen) {
       overlayDelayGroupService.setCurrentId(id);
     } else if (overlayDelayGroupService.currentId() === id) {

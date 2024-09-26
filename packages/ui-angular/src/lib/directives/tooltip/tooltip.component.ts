@@ -79,7 +79,7 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
   readonly isOpen;
   readonly context;
   readonly floatingStyle;
-  readonly transformation;
+  readonly transformation: Signal<string | null>;
 
   readonly animationDuration: Signal<{ open: number; close: number }>;
 
@@ -96,33 +96,14 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
     this.floatingId = this.overlayService.floatingId;
     this.arrowWidth = this.overlayService.arrowWidth;
     this.arrowHeight = this.overlayService.arrowHeight;
-
-    this.content = this.tooltipService.content;
-
     this.isOpen = this.overlayService.isOpen;
     this.context = this.overlayService.context;
     this.floatingStyle = this.overlayService.floatingStyle;
 
-    this.transformation = computed(() => {
-      const placement = this.overlayService.context()?.placement;
+    this.content = this.tooltipService.content;
 
-      if (!placement) {
-        return null;
-      }
-
-      const [side] = placement.split('-') as [Side];
-
-      return sideTransforms[side];
-    });
-
-    this.animationDuration = computed(() => {
-      if (this.overlayDelayGroupService?.isInstantPhase()) {
-        const isCurrentId = this.overlayDelayGroupService.currentId() === this.floatingId;
-        return { open: 0, close: isCurrentId ? animationDuration : 0 };
-      } else {
-        return { open: animationDuration, close: animationDuration };
-      }
-    });
+    this.transformation = this.getTransformation();
+    this.animationDuration = this.getAnimationDuration();
   }
 
   ngOnInit(): void {
@@ -135,5 +116,30 @@ export class NatuTooltipComponent implements OnInit, OnDestroy {
 
   handleFinishClose() {
     this.overlayService.unmount();
+  }
+
+  private getTransformation() {
+    return computed(() => {
+      const placement = this.overlayService.context()?.placement;
+
+      if (!placement) {
+        return null;
+      }
+
+      const [side] = placement.split('-') as [Side];
+
+      return sideTransforms[side];
+    });
+  }
+
+  private getAnimationDuration() {
+    return computed(() => {
+      if (this.overlayDelayGroupService?.isInstantPhase()) {
+        const isCurrentId = this.overlayDelayGroupService.currentId() === this.floatingId;
+        return { open: 0, close: isCurrentId ? animationDuration : 0 };
+      } else {
+        return { open: animationDuration, close: animationDuration };
+      }
+    });
   }
 }

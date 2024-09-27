@@ -182,12 +182,6 @@ test('does not show tooltip if disabled', async () => {
 });
 
 describe('with group delay', () => {
-  // eslint-disable-next-line vitest/no-hooks
-  beforeEach(() => {
-    vi.useFakeTimers();
-    workaroundTestingLibraryAdvanceTimers();
-  });
-
   afterEach(() => {
     vi.runOnlyPendingTimers();
     vi.useRealTimers();
@@ -242,6 +236,9 @@ async function setup(props: Partial<NatuTooltipProps> = {}) {
 }
 
 async function setupDelayGroup(props: Partial<NatuTooltipProps> = {}) {
+  vi.useFakeTimers();
+  workaroundTestingLibraryAdvanceTimers();
+
   const onOpenChangeSpy1 = vi.fn();
   const onOpenChangeSpy2 = vi.fn();
 

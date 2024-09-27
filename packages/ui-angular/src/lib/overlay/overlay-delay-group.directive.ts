@@ -1,4 +1,4 @@
-import { Directive, inject, input } from '@angular/core';
+import { Directive, inject, Injector, input } from '@angular/core';
 import { NatuOverlayDelayGroupService } from './overlay-delay-group.service';
 import { NatuOverlayDelayInput } from './overlay-types';
 import { registerSignal } from '../utils';
@@ -10,12 +10,16 @@ import { registerSignal } from '../utils';
  */
 @Directive({
   selector: '[natuOverlayDelayGroup]',
+  exportAs: 'natuOverlayDelayGroup',
   standalone: true,
   providers: [NatuOverlayDelayGroupService],
 })
 export class NatuOverlayDelayGroupDirective {
   /** The delays that should be used by all the overlays in the group. */
   readonly delay = input<NatuOverlayDelayInput>(null, { alias: 'natuOverlayDelayGroupDelay' });
+
+  /** Use this to pass directive providers to templates. */
+  readonly injector = inject(Injector);
 
   private readonly overlayDelayGroupService = inject(NatuOverlayDelayGroupService);
 

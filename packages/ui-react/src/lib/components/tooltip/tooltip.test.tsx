@@ -205,7 +205,7 @@ describe('with group delay', () => {
     expect(tooltip1).not.toBeInTheDocument();
     expect(tooltip2).toBeInTheDocument();
 
-    await userEvent.unhover(screen.getByRole('button', { name: 'Trigger 1' }));
+    await userEvent.unhover(screen.getByRole('button', { name: 'Trigger 2' }));
     await act(() => vi.advanceTimersByTime(10_000));
 
     await waitForElementToBeRemoved(tooltip2);

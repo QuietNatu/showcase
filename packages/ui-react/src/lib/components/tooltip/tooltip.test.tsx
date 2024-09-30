@@ -181,7 +181,7 @@ test('does not show tooltip if disabled', async () => {
   expect(onOpenChangeSpy).not.toHaveBeenCalled();
 });
 
-describe('with group delay', () => {
+describe('group delay', () => {
   afterEach(() => {
     vi.runOnlyPendingTimers();
     vi.useRealTimers();
@@ -197,7 +197,38 @@ describe('with group delay', () => {
 
     expect(tooltip1).toBeInTheDocument();
 
+    await userEvent.unhover(screen.getByRole('button', { name: 'Trigger 1' }));
     await userEvent.hover(screen.getByRole('button', { name: 'Trigger 2' }));
+
+    await waitForElementToBeRemoved(tooltip1);
+    const tooltip2 = await screen.findByRole('tooltip', { name: 'Example tooltip 2' });
+
+    expect(tooltip1).not.toBeInTheDocument();
+    expect(tooltip2).toBeInTheDocument();
+
+    await userEvent.unhover(screen.getByRole('button', { name: 'Trigger 2' }));
+    await act(() => vi.advanceTimersByTime(10_000));
+
+    await waitForElementToBeRemoved(tooltip2);
+
+    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
+    expect(onOpenChangeSpy1).toHaveBeenLastCalledWith(false);
+    expect(onOpenChangeSpy2).toHaveBeenLastCalledWith(false);
+  });
+
+  test('does not skip delay between tooltips when not in a group', async () => {
+    const { userEvent, onOpenChangeSpy1, onOpenChangeSpy2 } = await setupWithoutDelayGroup();
+
+    await userEvent.hover(screen.getByRole('button', { name: 'Trigger 1' }));
+    await act(() => vi.advanceTimersByTime(10_000));
+
+    const tooltip1 = await screen.findByRole('tooltip', { name: 'Example tooltip 1' });
+
+    expect(tooltip1).toBeInTheDocument();
+
+    await userEvent.unhover(screen.getByRole('button', { name: 'Trigger 1' }));
+    await userEvent.hover(screen.getByRole('button', { name: 'Trigger 2' }));
+    await act(() => vi.advanceTimersByTime(10_000));
 
     await waitForElementToBeRemoved(tooltip1);
     const tooltip2 = await screen.findByRole('tooltip', { name: 'Example tooltip 2' });
@@ -261,6 +292,43 @@ async function setupDelayGroup(props: Partial<NatuTooltipProps> = {}) {
         <NatuTooltipContent>Example tooltip 2</NatuTooltipContent>
       </NatuTooltip>
     </NatuOverlayDelayGroup>,
+    {
+      renderOptions: { wrapper: UiConfigProvider },
+      userEventOptions: { advanceTimers: vi.advanceTimersByTime },
+    },
+  );
+
+  await waitForAsyncActions();
+
+  return { ...view, onOpenChangeSpy1, onOpenChangeSpy2 };
+}
+
+async function setupWithoutDelayGroup(props: Partial<NatuTooltipProps> = {}) {
+  vi.useFakeTimers();
+  workaroundTestingLibraryAdvanceTimers();
+
+  const onOpenChangeSpy1 = vi.fn();
+  const onOpenChangeSpy2 = vi.fn();
+
+  const view = render(
+    /* big delay to make sure test fails when timers are not manually advanced */
+    <NatuUiConfigProvider value={{ tooltip: { hoverDelay: 10_000 } }}>
+      <NatuTooltip onOpenChange={onOpenChangeSpy1} {...props}>
+        <NatuTooltipTrigger>
+          <button type="button">Trigger 1</button>
+        </NatuTooltipTrigger>
+
+        <NatuTooltipContent>Example tooltip 1</NatuTooltipContent>
+      </NatuTooltip>
+
+      <NatuTooltip onOpenChange={onOpenChangeSpy2} {...props}>
+        <NatuTooltipTrigger>
+          <button type="button">Trigger 2</button>
+        </NatuTooltipTrigger>
+
+        <NatuTooltipContent>Example tooltip 2</NatuTooltipContent>
+      </NatuTooltip>
+    </NatuUiConfigProvider>,
     {
       renderOptions: { wrapper: UiConfigProvider },
       userEventOptions: { advanceTimers: vi.advanceTimersByTime },

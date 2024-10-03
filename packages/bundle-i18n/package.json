@@ -10,7 +10,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "lint": "eslint src --report-unused-disable-directives --no-warn-ignored --max-warnings 0"
+    "lint": "eslint --report-unused-disable-directives --no-warn-ignored --max-warnings 0"
   },
   "dependencies": {
     "@natu/utils": "workspace:*",

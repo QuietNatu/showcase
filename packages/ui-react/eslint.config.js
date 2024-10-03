@@ -7,6 +7,9 @@ export default tseslint.config(
   ...projectConfig.configs.vrt,
   ...projectConfig.configs.storybook,
   {
+    ignores: projectConfig.defaultIgnores,
+  },
+  {
     languageOptions: {
       parserOptions: {
         projectService: true,

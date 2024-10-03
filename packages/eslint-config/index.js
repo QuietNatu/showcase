@@ -62,32 +62,16 @@ const baseConfig = tseslint.config(
       'unused-imports/no-unused-imports': 'error',
     },
   },
-  {
-    ignores: [
-      'node_modules/',
-      'dist/',
-      'coverage/',
-      'public/',
-      'vite.config.ts',
-      'playwright.config.ts',
-      'eslint.config.js',
-      'commitlint.config.js',
-      'lint-staged.config.js',
-      'prettier.config.js',
-      'stylelint.config.js',
-      'postcss.config.js',
-    ],
-  },
 );
 
 const e2eConfig = tseslint.config({
   ...playwright.configs['flat/recommended'],
-  files: ['e2e'],
+  files: ['e2e/**/*.[jt]s?(x)'],
 });
 
 const vrtConfig = tseslint.config({
   ...playwright.configs['flat/recommended'],
-  files: ['vrt/**/*', 'src/**/*.vrt.ts'],
+  files: ['vrt/**/*.[jt]s?(x)', 'src/**/*.vrt.ts'],
   rules: {
     'playwright/expect-expect': 'off',
     'playwright/valid-title': 'off',
@@ -242,6 +226,26 @@ const reactConfig = tseslint.config(
 
 // add angular when this is solved -> https://github.com/angular-eslint/angular-eslint/issues/1859
 
+const defaultIgnores = [
+  'node_modules/',
+  'dist/',
+  'coverage/',
+  'public/',
+  'storybook-static/',
+  'vite.config.ts*',
+  'playwright.config.ts',
+  'eslint.config.js',
+  'commitlint.config.js',
+  'lint-staged.config.js',
+  'prettier.config.js',
+  'stylelint.config.js',
+  'postcss.config.js',
+  'tsup.config.ts',
+  'orval.config.ts',
+  '**/mockServiceWorker.js',
+  '**/.storybook/main.ts',
+];
+
 export default {
   configs: {
     base: baseConfig,
@@ -252,4 +256,5 @@ export default {
     react: reactConfig,
     // angular: angularConfig,
   },
+  defaultIgnores,
 };

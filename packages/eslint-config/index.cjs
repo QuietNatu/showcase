@@ -33,27 +33,11 @@ const baseConfig = tseslint.config(
       'unused-imports/no-unused-imports': 'error',
     },
   },
-  {
-    ignores: [
-      'node_modules/',
-      'dist/',
-      'coverage/',
-      'public/',
-      'vite.config.ts',
-      'playwright.config.ts',
-      'eslint.config.js',
-      'commitlint.config.js',
-      'lint-staged.config.js',
-      'prettier.config.js',
-      'stylelint.config.js',
-      'postcss.config.js',
-    ],
-  },
 );
 
 const e2eConfig = tseslint.config({
   ...playwright.configs['flat/recommended'],
-  files: ['e2e'],
+  files: ['e2e/**/*'],
 });
 
 const vrtConfig = tseslint.config(
@@ -178,6 +162,26 @@ const angularConfig = tseslint.config(
   },
 );
 
+const defaultIgnores = [
+  'node_modules/',
+  'dist/',
+  'coverage/',
+  'public/',
+  'storybook-static/',
+  'vite.config.ts*',
+  'playwright.config.ts',
+  'eslint.config.js',
+  'commitlint.config.js',
+  'lint-staged.config.js',
+  'prettier.config.js',
+  'stylelint.config.js',
+  'postcss.config.js',
+  'tsup.config.ts',
+  'orval.config.ts',
+  '**/mockServiceWorker.js',
+  '**/.storybook/main.ts',
+];
+
 module.exports = {
   configs: {
     base: baseConfig,
@@ -187,4 +191,5 @@ module.exports = {
     jasmine: jasmineConfig,
     angular: angularConfig,
   },
+  defaultIgnores,
 };

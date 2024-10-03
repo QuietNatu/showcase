@@ -9,7 +9,7 @@ import { registerEffect } from '@natu/ui-angular';
 export function storyConfigDecorator(): Decorator {
   return componentWrapperDecorator(
     (story) =>
-      `<ng-container natuStoryConfig [theme]="theme" [colorScheme]="colorScheme">${story}</ng-container>`,
+      `<ng-container appStoryConfig [theme]="theme" [colorScheme]="colorScheme">${story}</ng-container>`,
     ({ globals }) => ({
       theme: globals.theme as string,
       colorScheme: globals.colorScheme as string,
@@ -21,7 +21,7 @@ export function storyConfigDecorator(): Decorator {
  * Performs actions required to set up stories (like themes or i18n).
  */
 @Directive({
-  selector: '[natuStoryConfig]',
+  selector: '[appStoryConfig]',
   standalone: true,
 })
 export class StoryConfigDirective {

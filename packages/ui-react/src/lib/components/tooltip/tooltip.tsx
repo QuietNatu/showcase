@@ -20,22 +20,22 @@ import { createContext } from '../../utils';
 import { useTooltipDelay } from './use-tooltip-delay';
 
 export interface NatuTooltipProps {
-  children?: ReactNode;
+  readonly children?: ReactNode;
 
   /** Controlled open state. */
-  isOpen?: boolean;
+  readonly isOpen?: boolean;
 
   /** Default value for uncontrolled open state. */
-  defaultIsOpen?: boolean;
+  readonly defaultIsOpen?: boolean;
 
   /** Controlled open state handler. */
-  onOpenChange?: (isOpen: boolean) => void;
+  readonly onOpenChange?: (isOpen: boolean) => void;
 
   /** Where to place the tooltip relative to the reference element. */
-  placement?: NatuTooltipPlacement;
+  readonly placement?: NatuTooltipPlacement;
 
   /** Whether the tooltip should be disabled. */
-  isDisabled?: boolean;
+  readonly isDisabled?: boolean;
 }
 
 export type NatuTooltipTriggerProps = ComponentPropsWithoutRef<'div'>;

@@ -80,8 +80,8 @@ export const Playground: Story = {
 };
 
 interface PlaygroundButtonProps extends NatuPopoverProps {
-  row: number;
-  column: number;
+  readonly row: number;
+  readonly column: number;
 }
 
 function PlaygroundButton(props: PlaygroundButtonProps) {

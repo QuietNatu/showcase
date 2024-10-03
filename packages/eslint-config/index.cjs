@@ -7,6 +7,7 @@ const playwright = require('eslint-plugin-playwright');
 const jasmine = require('eslint-plugin-jasmine');
 const testingLibrary = require('eslint-plugin-testing-library');
 const angular = require('angular-eslint');
+const sonarjs = require('eslint-plugin-sonarjs');
 
 const compat = new FlatCompat();
 
@@ -16,6 +17,7 @@ const baseConfig = tseslint.config(
   ...tseslint.configs.stylisticTypeChecked,
   ...compat.extends('turbo'),
   /* eslint-plugin-functional only supports esm */
+  sonarjs.configs.recommended,
   {
     plugins: {
       'unused-imports': unusedImports,
@@ -30,6 +32,15 @@ const baseConfig = tseslint.config(
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
+      'sonarjs/deprecation': 'off',
+      'sonarjs/function-return-type': 'off',
+      'sonarjs/prefer-function-type': 'off',
+      'sonarjs/prefer-nullish-coalescing': 'off',
+      'sonarjs/no-nested-functions': 'off',
+      'sonarjs/no-selector-parameter': 'off',
+      'sonarjs/redundant-type-aliases': 'off',
+      'sonarjs/sonar-prefer-read-only-props': 'off',
+      'sonarjs/todo-tag': 'off',
       'unused-imports/no-unused-imports': 'error',
     },
   },
@@ -88,6 +99,7 @@ const jasmineConfig = tseslint.config(
     files: ['src/**/*.test.ts', 'src/**/test/**/*.ts'],
     rules: {
       '@typescript-eslint/restrict-template-expressions': 'off',
+      'sonarjs/no-identical-functions': 'off',
     },
   },
 );

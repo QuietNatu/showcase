@@ -13,11 +13,11 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
+import sonarjs from 'eslint-plugin-sonarjs';
 // import angular from 'angular-eslint';
 
 /* TODO: add "type": "module" to all missing package json */
 /* TODO: missing packages
-  eslint-plugin-sonarjs
   eslint-plugin-storybook
   eslint-plugin-rxjs
 */
@@ -35,6 +35,7 @@ const baseConfig = tseslint.config(
   ...compat.extends('turbo'),
   functional.configs.recommended,
   functional.configs.stylistic,
+  sonarjs.configs.recommended,
   {
     plugins: {
       'unused-imports': unusedImports,
@@ -59,6 +60,15 @@ const baseConfig = tseslint.config(
       'functional/no-mixed-types': 'off',
       'functional/prefer-immutable-types': 'off',
       'functional/prefer-tacit': 'off',
+      'sonarjs/deprecation': 'off',
+      'sonarjs/function-return-type': 'off',
+      'sonarjs/prefer-function-type': 'off',
+      'sonarjs/prefer-nullish-coalescing': 'off',
+      'sonarjs/no-nested-functions': 'off',
+      'sonarjs/no-selector-parameter': 'off',
+      'sonarjs/redundant-type-aliases': 'off',
+      'sonarjs/sonar-prefer-read-only-props': 'off',
+      'sonarjs/todo-tag': 'off',
       'unused-imports/no-unused-imports': 'error',
     },
   },
@@ -128,6 +138,7 @@ const vitestConfig = tseslint.config(
     files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
     rules: {
       '@typescript-eslint/restrict-template-expressions': 'off',
+      'sonarjs/no-identical-functions': 'off',
     },
   },
 );
@@ -220,6 +231,7 @@ const reactConfig = tseslint.config(
           reset: false,
         },
       ],
+      'react/prefer-read-only-props': 'error',
     },
   },
 );

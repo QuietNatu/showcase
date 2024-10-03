@@ -75,6 +75,6 @@ function wrapTest(
   return createTestWrapper([!props.excludeUiConfig && UiConfigWrapper, BaseWrapper]);
 }
 
-const UiConfigWrapper = (props: { children: ReactNode }) => (
+const UiConfigWrapper = (props: Readonly<{ children: ReactNode }>) => (
   <NatuUiConfigProvider {...props} value={{ tooltip: { hoverDelay: 0 } }} />
 );

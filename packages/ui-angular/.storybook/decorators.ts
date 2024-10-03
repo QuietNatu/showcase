@@ -1,7 +1,7 @@
 import { Decorator, componentWrapperDecorator } from '@storybook/angular';
 import { Directive, input } from '@angular/core';
 import { useStoryThemeProvider } from '../src/lib/stories/hooks';
-import { registerSignal } from '../src';
+import { registerEffect } from '../src';
 
 /**
  * Performs actions required to set up stories (like themes or i18n).
@@ -31,11 +31,11 @@ export class StoryConfigDirective {
   private readonly themeProvider = useStoryThemeProvider();
 
   constructor() {
-    registerSignal(this.theme, (theme) => {
+    registerEffect(this.theme, (theme) => {
       this.themeProvider.setTheme(theme);
     });
 
-    registerSignal(this.colorScheme, (colorScheme) => {
+    registerEffect(this.colorScheme, (colorScheme) => {
       this.themeProvider.setColorScheme(colorScheme);
     });
   }

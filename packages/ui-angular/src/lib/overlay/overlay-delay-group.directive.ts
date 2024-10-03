@@ -1,7 +1,7 @@
 import { Directive, inject, Injector, input } from '@angular/core';
 import { NatuOverlayDelayGroupService } from './overlay-delay-group.service';
 import { NatuOverlayDelayInput } from './overlay-types';
-import { registerSignal } from '../utils';
+import { registerEffect } from '../utils';
 
 /**
  * Provides data to a group of overlays that share a delay when opening or closing.
@@ -24,7 +24,7 @@ export class NatuOverlayDelayGroupDirective {
   private readonly overlayDelayGroupService = inject(NatuOverlayDelayGroupService);
 
   constructor() {
-    registerSignal(this.delay, (delay) => {
+    registerEffect(this.delay, (delay) => {
       this.overlayDelayGroupService.setDelay(delay);
     });
   }

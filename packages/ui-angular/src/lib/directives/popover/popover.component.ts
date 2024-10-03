@@ -18,7 +18,7 @@ import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuPopoverService } from './popover.service';
 import { natuCardImports } from '../../components';
 import { CdkTrapFocus } from '@angular/cdk/a11y';
-import { registerSignal } from '../../utils';
+import { registerEffect } from '../../utils';
 
 const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 const sideTransforms: Record<Side, string> = {
@@ -117,7 +117,7 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
 
   private registerSpreadExtraAttributes() {
     // Could be improved if this feature is added someday https://github.com/angular/angular/issues/14545
-    registerSignal(this.popoverService.attributes, (attributes) => {
+    registerEffect(this.popoverService.attributes, (attributes) => {
       Object.entries(attributes).forEach(([name, value]) => {
         this.renderer.setAttribute(this.elementRef.nativeElement, name, value);
       });

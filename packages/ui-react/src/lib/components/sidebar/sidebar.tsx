@@ -70,39 +70,39 @@ interface NatuSidebarGroupAction {
 type SidebarAction = SetOptional<NatuSidebarIndividualAction, 'icon'>;
 
 interface SidebarListProps {
-  activeAction: string | null;
-  isExpanded: boolean;
-  items: MergeExclusive<SidebarAction, NatuSidebarGroupAction>[];
+  readonly activeAction: string | null;
+  readonly isExpanded: boolean;
+  readonly items: MergeExclusive<SidebarAction, NatuSidebarGroupAction>[];
 }
 
 interface SidebarItemProps {
-  isActive: boolean;
-  isExpanded: boolean;
-  item: SetOptional<NatuSidebarIndividualAction, 'icon'>;
+  readonly isActive: boolean;
+  readonly isExpanded: boolean;
+  readonly item: SetOptional<NatuSidebarIndividualAction, 'icon'>;
 }
 
 interface SidebarGroupProps {
-  activeAction: string | null;
-  isExpanded: boolean;
-  group: NatuSidebarGroupAction;
+  readonly activeAction: string | null;
+  readonly isExpanded: boolean;
+  readonly group: NatuSidebarGroupAction;
 }
 
 interface CollapsedSidebarGroupProps {
-  activeAction: string | null;
-  group: NatuSidebarGroupAction;
+  readonly activeAction: string | null;
+  readonly group: NatuSidebarGroupAction;
 }
 
 interface ExpandedSidebarGroupProps {
-  activeAction: string | null;
-  group: NatuSidebarGroupAction;
+  readonly activeAction: string | null;
+  readonly group: NatuSidebarGroupAction;
 }
 
 interface SidebarIconProps {
-  children?: ReactNode;
+  readonly children?: ReactNode;
 }
 
 interface SidebarLabelProps {
-  children?: ReactNode;
+  readonly children?: ReactNode;
 }
 
 interface UseSidebarOptions {

@@ -2,11 +2,11 @@ import { FloatingDelayGroup } from '@floating-ui/react';
 import { ReactNode } from 'react';
 
 interface NatuOverlayDelayGroupProps {
-  children?: ReactNode;
+  readonly children?: ReactNode;
   /**
    * The delay to use for the group.
    */
-  delay: number | Partial<{ open: number; close: number }>;
+  readonly delay: number | Partial<{ open: number; close: number }>;
 }
 
 /**

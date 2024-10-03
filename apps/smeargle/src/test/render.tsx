@@ -82,10 +82,10 @@ function wrapTest(
   ]);
 }
 
-const AppConfigWrapper = (props: { children: ReactNode }) => (
+const AppConfigWrapper = (props: Readonly<{ children: ReactNode }>) => (
   <AppConfigContext.Provider value={appConfigMock} {...props} />
 );
 
-const UiConfigWrapper = (props: { children: ReactNode }) => (
+const UiConfigWrapper = (props: Readonly<{ children: ReactNode }>) => (
   <NatuUiConfigProvider {...props} value={{ tooltip: { hoverDelay: 0 } }} />
 );

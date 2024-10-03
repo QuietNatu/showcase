@@ -21,6 +21,11 @@ import { NatuPopoverCardBodyDirective } from './directives/popover-card-body.dir
 import { registerEffect } from '../../utils';
 import { outputFromObservable } from '@angular/core/rxjs-interop';
 
+/**
+ * Displays content on an overlay when an element is clicked.
+ *
+ * Contains all the parts of a popover.
+ */
 @Directive({
   selector: '[natuPopover]',
   standalone: true,

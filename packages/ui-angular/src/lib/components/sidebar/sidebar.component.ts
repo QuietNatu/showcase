@@ -17,6 +17,11 @@ import { registerEffect } from '../../utils';
 import { NatuTranslationDirective } from '../../i18n';
 import { NatuOverlayDelayGroupDirective } from '../../overlay';
 
+/**
+ * Displays a sidebar with navigation.
+ *
+ * Contains all the parts of a sidebar.
+ */
 @Component({
   selector: 'natu-sidebar',
   templateUrl: './sidebar.component.html',

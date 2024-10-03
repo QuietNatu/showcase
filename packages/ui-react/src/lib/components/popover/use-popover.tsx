@@ -20,6 +20,9 @@ const sideTransforms: Record<Side, string> = {
   right: 'translateX(-4px)',
 };
 
+/**
+ * Managers the popover state.
+ */
 export function usePopover(options: NatuUseOverlayOptions) {
   const {
     context,

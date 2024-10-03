@@ -2,6 +2,9 @@ import { Injectable, Signal, signal } from '@angular/core';
 import { controllableSignal } from '../../../utils';
 import { Observable } from 'rxjs';
 
+/**
+ * Manages the state of the sidebar.
+ */
 @Injectable()
 export class NatuSidebarService {
   readonly isExpanded: Signal<boolean>;

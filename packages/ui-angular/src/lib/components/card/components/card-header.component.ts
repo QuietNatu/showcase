@@ -10,6 +10,9 @@ import {
 
 type Size = 'small' | 'medium';
 
+/**
+ * The header of the card.
+ */
 @Component({
   selector: 'natu-card-header,[natu-card-header]',
   changeDetection: ChangeDetectionStrategy.OnPush,

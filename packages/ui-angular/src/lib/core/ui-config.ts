@@ -10,6 +10,9 @@ export interface NatuUiConfig {
 
 export const NATU_UI_CONFIG = new InjectionToken<NatuUiConfig>('NATU_UI_CONFIG');
 
+/**
+ * Provides a default configuration for ui dependencies.
+ */
 export function provideUiConfig(config: Partial<NatuUiConfig> = {}) {
   const adjustedConfig = {
     ...config,

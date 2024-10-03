@@ -1,6 +1,9 @@
 import { ElementRef, Injectable, TemplateRef, inject, signal } from '@angular/core';
 import { NatuOverlayService } from '../../overlay';
 
+/**
+ * Provides data to the popover overlay.
+ */
 @Injectable()
 export class NatuPopoverService {
   readonly attributes;

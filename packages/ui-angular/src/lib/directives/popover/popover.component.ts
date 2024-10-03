@@ -28,6 +28,9 @@ const sideTransforms: Record<Side, string> = {
   right: 'translateX(-4px)',
 };
 
+/**
+ * The content of the component that pops out when the popover is open.
+ */
 @Component({
   selector: 'natu-popover',
   templateUrl: './popover.component.html',

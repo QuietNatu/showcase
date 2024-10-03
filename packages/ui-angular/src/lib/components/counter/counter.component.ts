@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
+/**
+ * Displays a counter.
+ */
 @Component({
   selector: 'natu-counter',
   templateUrl: './counter.component.html',

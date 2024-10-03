@@ -1,5 +1,8 @@
 import { NatuOverlayDelay, NatuOverlayDelayInput } from './overlay-types';
 
+/**
+ * Transforms a given delay to a common format.
+ */
 export function normalizeOverlayDelay(delay: NatuOverlayDelayInput): NatuOverlayDelay {
   if (delay === null || delay === undefined) {
     return { open: null, close: null };

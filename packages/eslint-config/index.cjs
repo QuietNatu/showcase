@@ -8,6 +8,7 @@ const jasmine = require('eslint-plugin-jasmine');
 const testingLibrary = require('eslint-plugin-testing-library');
 const angular = require('angular-eslint');
 const sonarjs = require('eslint-plugin-sonarjs');
+const jsdoc = require('eslint-plugin-jsdoc');
 
 const compat = new FlatCompat();
 
@@ -17,6 +18,7 @@ const baseConfig = tseslint.config(
   ...tseslint.configs.stylisticTypeChecked,
   ...compat.extends('turbo'),
   /* eslint-plugin-functional only supports esm */
+  jsdoc.configs['flat/recommended-typescript'],
   sonarjs.configs.recommended,
   {
     plugins: {
@@ -32,6 +34,23 @@ const baseConfig = tseslint.config(
       '@typescript-eslint/no-unsafe-member-access': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
+      'jsdoc/require-jsdoc': [
+        'error',
+        {
+          publicOnly: true,
+          checkConstructors: false,
+          require: {
+            ArrowFunctionExpression: true,
+            ClassDeclaration: true,
+            ClassExpression: true,
+            FunctionDeclaration: true,
+            FunctionExpression: true,
+            MethodDefinition: false,
+          },
+        },
+      ],
+      'jsdoc/require-param': 'off',
+      'jsdoc/require-returns': 'off',
       'sonarjs/deprecation': 'off',
       'sonarjs/function-return-type': 'off',
       'sonarjs/prefer-function-type': 'off',

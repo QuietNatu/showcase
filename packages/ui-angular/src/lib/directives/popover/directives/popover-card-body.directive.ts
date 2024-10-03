@@ -1,6 +1,9 @@
 import { Directive, inject } from '@angular/core';
 import { NatuPopoverService } from '../popover.service';
 
+/**
+ * Integrates a card body into a popover.
+ */
 @Directive({
   selector: 'natu-card-body[natuPopoverCardBody],[natu-card-body][natuPopoverCardBody]',
   standalone: true,

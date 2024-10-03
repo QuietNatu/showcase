@@ -7,6 +7,9 @@ import { environment } from '@/environments/environment';
 import { APP_CONFIG, AppConfig } from '../tokens/config';
 import { getFallbackLanguage } from '@natu/utils';
 
+/**
+ * Sets up providers to enable internationalization in the app.
+ */
 export function provideAppI18n(): EnvironmentProviders {
   return makeEnvironmentProviders([
     { provide: NATU_I18N_INSTANCE, useValue: i18next },

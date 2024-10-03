@@ -1,6 +1,9 @@
 import { Directive, ElementRef, OnInit, inject } from '@angular/core';
 import { NatuPopoverService } from '../popover.service';
 
+/**
+ * The element that toggles the popover.
+ */
 @Directive({
   selector: '[natuPopoverTrigger]',
   standalone: true,

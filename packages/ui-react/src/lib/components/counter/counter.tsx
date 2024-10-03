@@ -1,5 +1,8 @@
 import { useState } from 'react';
 
+/**
+ * Displays a counter.
+ */
 export function NatuCounter() {
   const [count, setCount] = useState(0);
 

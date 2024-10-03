@@ -1,6 +1,5 @@
 /**
  * Picks a fallback language to use when the current language is not supported.
- *
  * @param language - language that is not supported
  * @param fallbackLanguages - possible fallback languages
  * @param finalLanguage - for when no fallback language was found

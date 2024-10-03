@@ -18,6 +18,11 @@ import { xIcon } from '@natu/assets/svg/x';
 import { natuButtonImports } from '../../directives';
 import { NatuTranslationDirective } from '../../i18n';
 
+/**
+ * Displays content that should be grouped together.
+ *
+ * Contains all the parts of a card.
+ */
 @Component({
   selector: 'natu-card,[natu-card]',
   changeDetection: ChangeDetectionStrategy.OnPush,

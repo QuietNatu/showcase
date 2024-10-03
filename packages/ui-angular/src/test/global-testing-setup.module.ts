@@ -6,6 +6,9 @@ const config: NatuUiConfig = {
   tooltip: { hoverDelay: 0 },
 };
 
+/**
+ * Sets up default providers for all tests.
+ */
 @NgModule({
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),

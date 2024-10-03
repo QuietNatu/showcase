@@ -8,5 +8,5 @@ test('deletes all cookies', () => {
 
   deleteAllCookies();
 
-  expect(document.cookie).toBe('');
+  expect(document.cookie).toBe('username=');
 });

@@ -1,7 +1,7 @@
 import { devices, type PlaywrightTestConfig } from '@playwright/test';
 
-const port = process.env['PORT'] ? Number(process.env['PORT']) : 6103;
-const isCi = process.env['CI'] && process.env['CI'] !== '0';
+const port = process.env.PORT ? Number(process.env.PORT) : 6103;
+const isCi = process.env.CI && process.env.CI !== '0';
 
 export default {
   testMatch: /.*\.vrt\.ts/,

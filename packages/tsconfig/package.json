@@ -3,5 +3,20 @@
   "private": true,
   "license": "MIT",
   "version": "0.0.0",
-  "sideEffects": false
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./tsconfig.angular.json": {
+      "default": "./tsconfig.angular.json"
+    },
+    "./tsconfig.vite-node.json": {
+      "default": "./tsconfig.vite-node.json"
+    },
+    "./tsconfig.vite-react.json": {
+      "default": "./tsconfig.vite-react.json"
+    },
+    "./tsconfig.vite.json": {
+      "default": "./tsconfig.vite.json"
+    }
+  }
 }

@@ -8,7 +8,7 @@ export default tseslint.config(
   ...projectConfig.configs.e2e,
   ...projectConfig.configs.storybook,
   {
-    ignores: ['src/api/'],
+    ignores: [...projectConfig.defaultIgnores, 'src/api/'],
   },
   {
     languageOptions: {

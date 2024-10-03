@@ -8,7 +8,7 @@ module.exports = tseslint.config(
   ...projectConfig.configs.vrt,
   ...projectConfig.configs.e2e,
   {
-    ignores: ['src/api/'],
+    ignores: [...projectConfig.defaultIgnores, 'src/api/'],
   },
   {
     languageOptions: {

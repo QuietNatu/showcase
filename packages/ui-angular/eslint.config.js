@@ -28,6 +28,9 @@ module.exports = tseslint.config(
     },
   },
   {
+    ignores: projectConfig.defaultIgnores,
+  },
+  {
     languageOptions: {
       parserOptions: {
         projectService: true,

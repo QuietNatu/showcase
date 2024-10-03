@@ -24,7 +24,7 @@
     "@natu/eslint-config": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@vitest/coverage-v8": "2.1.1",
-    "jsdom": "25.0.0",
+    "jsdom": "25.0.1",
     "typescript": "5.5.4",
     "vite": "5.4.6",
     "vitest": "2.1.1"

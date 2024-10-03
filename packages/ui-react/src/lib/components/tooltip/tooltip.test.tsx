@@ -11,7 +11,7 @@ import { NatuOverlayDelayGroup } from '../overlay/overlay-delay-group';
 const { Playground, ...tooltipStories } = composeStories(stories);
 const storyTestCases = Object.entries(tooltipStories);
 
-const UiConfigProvider = ({ children }: { children: ReactNode }) => (
+const UiConfigProvider = ({ children }: Readonly<{ children: ReactNode }>) => (
   <NatuUiConfigProvider value={{ tooltip: { hoverDelay: 0 } }}>{children}</NatuUiConfigProvider>
 );
 

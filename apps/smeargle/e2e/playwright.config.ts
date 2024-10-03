@@ -4,6 +4,7 @@ const port = process.env.PORT ? Number(process.env.PORT) : 6005;
 const isCi = process.env.CI && process.env.CI !== '0';
 
 export default {
+  // eslint-disable-next-line sonarjs/slow-regex
   testMatch: /.*\.test\.ts/,
   testDir: './tests',
   outputDir: 'results',

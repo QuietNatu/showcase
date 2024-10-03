@@ -11,22 +11,22 @@ import { NatuOverlayPlacement } from '../../hooks/use-overlay';
 import { PopoverProvider, usePopover, usePopoverContext } from './use-popover';
 
 export interface NatuPopoverProps {
-  children?: ReactNode;
+  readonly children?: ReactNode;
 
   /** Controlled open state. */
-  isOpen?: boolean;
+  readonly isOpen?: boolean;
 
   /** Default value for uncontrolled open state. */
-  defaultIsOpen?: boolean;
+  readonly defaultIsOpen?: boolean;
 
   /** Controlled open state handler. */
-  onOpenChange?: (isOpen: boolean) => void;
+  readonly onOpenChange?: (isOpen: boolean) => void;
 
   /** Where to place the popover relative to the reference element. */
-  placement?: NatuPopoverPlacement;
+  readonly placement?: NatuPopoverPlacement;
 
   /** Whether the popover should be disabled. */
-  isDisabled?: boolean;
+  readonly isDisabled?: boolean;
 }
 
 export type NatuPopoverTriggerProps = ComponentPropsWithoutRef<'div'>;

@@ -7,33 +7,33 @@ import { NatuIcon } from '../icon/icon';
 import { useTranslation } from 'react-i18next';
 
 export interface NatuCardProps extends ComponentPropsWithoutRef<'div'> {
-  children?: ReactNode;
+  readonly children?: ReactNode;
   /**
    * Whether the card is part of another component or not.
    * Will hide borders, box-shadows, etc if true.
    */
-  isEmbedded?: boolean;
+  readonly isEmbedded?: boolean;
 
   /** Whether to show the dismissable button or not. */
-  isDismissable?: boolean;
+  readonly isDismissable?: boolean;
 
-  onDismiss?: () => void;
+  readonly onDismiss?: () => void;
 }
 
 export interface NatuCardHeaderProps extends ComponentPropsWithoutRef<'div'> {
-  children?: ReactNode;
-  icon?: ReactNode;
-  size?: 'small' | 'medium';
+  readonly children?: ReactNode;
+  readonly icon?: ReactNode;
+  readonly size?: 'small' | 'medium';
 }
 
 export interface NatuCardBodyProps extends ComponentPropsWithoutRef<'div'> {
-  children?: ReactNode;
+  readonly children?: ReactNode;
 }
 
 export interface NatuCardFooterProps extends ComponentPropsWithoutRef<'div'> {
-  children?: ReactNode;
-  hasDivider?: boolean;
-  size?: 'small' | 'medium';
+  readonly children?: ReactNode;
+  readonly hasDivider?: boolean;
+  readonly size?: 'small' | 'medium';
 }
 
 export function NatuCard(props: NatuCardProps) {

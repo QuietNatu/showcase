@@ -99,8 +99,8 @@ export const Playground: Story = {
 };
 
 interface PlaygroundButtonProps extends NatuTooltipProps {
-  row: number;
-  column: number;
+  readonly row: number;
+  readonly column: number;
 }
 
 function PlaygroundButton(props: PlaygroundButtonProps) {

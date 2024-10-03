@@ -10,7 +10,7 @@ import { getFallbackLanguage } from '@natu/utils';
 /**
  * Manages i18n for the app.
  */
-export function AppI18nProvider(props: { children: ReactNode }) {
+export function AppI18nProvider(props: Readonly<{ children: ReactNode }>) {
   const appConfig = useAppConfig();
   const appConfigRef = useRef<AppConfig>();
 

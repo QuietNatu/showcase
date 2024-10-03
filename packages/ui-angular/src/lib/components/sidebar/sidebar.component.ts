@@ -13,7 +13,7 @@ import { SvgIconComponent, injectRegisterIcons } from '@ngneat/svg-icon';
 import { caretDownIcon } from '@natu/assets/svg/caret-down';
 import { caretRightIcon } from '@natu/assets/svg/caret-right';
 import { dotsThreeVerticalIcon } from '@natu/assets/svg/dots-three-vertical';
-import { registerSignal } from '../../utils';
+import { registerEffect } from '../../utils';
 import { NatuTranslationDirective } from '../../i18n';
 import { NatuOverlayDelayGroupDirective } from '../../overlay';
 
@@ -44,11 +44,11 @@ export class NatuSidebarComponent {
   constructor() {
     injectRegisterIcons([caretDownIcon, caretRightIcon, dotsThreeVerticalIcon]);
 
-    registerSignal(this.isExpanded, (isExpanded) => {
+    registerEffect(this.isExpanded, (isExpanded) => {
       this.sidebarService.setIsExpanded(isExpanded ?? undefined);
     });
 
-    registerSignal(this.defaultIsExpanded, (defaultIsExpanded) => {
+    registerEffect(this.defaultIsExpanded, (defaultIsExpanded) => {
       this.sidebarService.setDefaultIsExpanded(defaultIsExpanded ?? undefined);
     });
   }

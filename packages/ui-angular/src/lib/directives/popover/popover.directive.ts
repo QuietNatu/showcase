@@ -18,7 +18,7 @@ import { NatuPopoverCardDirective } from './directives/popover-card.directive';
 import { natuCardImports } from '../../components';
 import { NatuPopoverCardHeaderDirective } from './directives/popover-card-header.directive';
 import { NatuPopoverCardBodyDirective } from './directives/popover-card-body.directive';
-import { registerSignal } from '../../utils';
+import { registerEffect } from '../../utils';
 import { outputFromObservable } from '@angular/core/rxjs-interop';
 
 @Directive({
@@ -65,27 +65,27 @@ export class NatuPopoverDirective implements OnDestroy {
     useOverlayClick();
     useOverlayDismiss();
 
-    registerSignal(this.placement, (placement) => {
+    registerEffect(this.placement, (placement) => {
       this.overlayService.setPlacement(placement ?? null);
     });
 
-    registerSignal(this.isDisabled, (isDisabled) => {
+    registerEffect(this.isDisabled, (isDisabled) => {
       this.overlayService.setIsDisabled(isDisabled);
     });
 
-    registerSignal(this.isOpen, (isOpen) => {
+    registerEffect(this.isOpen, (isOpen) => {
       this.overlayService.setIsOpen(isOpen ?? undefined);
     });
 
-    registerSignal(this.defaultIsOpen, (defaultIsOpen) => {
+    registerEffect(this.defaultIsOpen, (defaultIsOpen) => {
       this.overlayService.setDefaultIsOpen(defaultIsOpen ?? undefined);
     });
 
-    registerSignal(this.attributes, (attributes) => {
+    registerEffect(this.attributes, (attributes) => {
       this.popoverService.setAttributes(attributes);
     });
 
-    registerSignal(this.hasEmbeddedContent, (hasEmbeddedContent) => {
+    registerEffect(this.hasEmbeddedContent, (hasEmbeddedContent) => {
       this.popoverService.setHasEmbeddedContent(hasEmbeddedContent);
     });
 

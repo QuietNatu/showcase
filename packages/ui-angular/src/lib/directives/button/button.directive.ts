@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { VariantProps, cva } from 'class-variance-authority';
 import { fromEvent } from 'rxjs';
-import { registerEffect } from '../../utils/rxjs';
+import { registerEffect } from '../../utils';
 import { NATU_FOCUS_RING_DATA, NatuFocusRingDirective } from '../focus-ring/focus-ring.directive';
 import { provideToken } from '../../utils';
 

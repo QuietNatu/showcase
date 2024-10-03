@@ -7,6 +7,8 @@ import {
 import { NatuTooltipDirective, natuTooltipImports } from './tooltip.directive';
 import { natuButtonImports } from '../button/button.directive';
 import { NgTemplateOutlet } from '@angular/common';
+import { NatuOverlayDelayGroupDirective } from '../../overlay';
+import { storyVariantsDecorator } from '../../stories';
 
 const meta = {
   title: 'Components/Tooltip',
@@ -15,7 +17,14 @@ const meta = {
     layout: 'centered',
   },
   decorators: [
-    moduleMetadata({ imports: [natuTooltipImports, natuButtonImports, NgTemplateOutlet] }),
+    moduleMetadata({
+      imports: [
+        natuTooltipImports,
+        natuButtonImports,
+        NgTemplateOutlet,
+        NatuOverlayDelayGroupDirective,
+      ],
+    }),
   ],
   argTypes: {
     isOpen: { control: 'boolean' },
@@ -63,6 +72,30 @@ export const Nested: Story = {
   },
 };
 
+export const DelayGroup: Story = {
+  decorators: [storyVariantsDecorator()],
+  render: (args) => {
+    const templateArgs = createTemplateArgs();
+
+    return {
+      props: args,
+      template: `
+        <ng-container natuOverlayDelayGroup [natuOverlayDelayGroupDelay]="500">
+          <ng-container natuTooltip ${templateArgs}>
+            <button type="button" natuButton natuTooltipTrigger>Show tooltip 1</button>
+            <ng-template natuTooltipContent>Tooltip text 1</ng-template>
+          </ng-container>
+
+          <ng-container natuTooltip ${templateArgs}>
+            <button type="button" natuButton natuTooltipTrigger>Show tooltip 2</button>
+            <ng-template natuTooltipContent>Tooltip text 2</ng-template>
+          </ng-container>
+        </ng-container>
+      `,
+    };
+  },
+};
+
 export const Playground: Story = {
   decorators: [
     componentWrapperDecorator((story) => `<div style="display: grid; gap: 10px">${story}</div>`),
@@ -73,21 +106,73 @@ export const Playground: Story = {
     return {
       props: args,
       template: `
-        <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 1, column: 2, placement: 'top-start' }" />
-        <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 1, column: 3, placement: 'top' }" />
-        <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 1, column: 4, placement: 'top-end' }" />
+        <ng-container natuOverlayDelayGroup [natuOverlayDelayGroupDelay]="500" #natuOverlayDelayGroup="natuOverlayDelayGroup">
+          <ng-template
+            [ngTemplateOutlet]="button"
+            [ngTemplateOutletContext]="{ row: 1, column: 2, placement: 'top-start' }"
+            [ngTemplateOutletInjector]="natuOverlayDelayGroup.injector"
+          />
+          <ng-template
+            [ngTemplateOutlet]="button"
+            [ngTemplateOutletContext]="{ row: 1, column: 3, placement: 'top' }"
+            [ngTemplateOutletInjector]="natuOverlayDelayGroup.injector"
+          />
+          <ng-template
+            [ngTemplateOutlet]="button"
+            [ngTemplateOutletContext]="{ row: 1, column: 4, placement: 'top-end' }"
+            [ngTemplateOutletInjector]="natuOverlayDelayGroup.injector"
+          />
 
-        <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 2, column: 1, placement: 'left-start' }" />
-        <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 3, column: 1, placement: 'left' }" />
-        <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 4, column: 1, placement: 'left-end' }" />
 
-        <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 2, column: 5, placement: 'right-start' }" />
-        <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 3, column: 5, placement: 'right' }" />
-        <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 4, column: 5, placement: 'right-end' }" />
+          <ng-template
+            [ngTemplateOutlet]="button"
+            [ngTemplateOutletContext]="{ row: 2, column: 1, placement: 'left-start' }"
+            [ngTemplateOutletInjector]="natuOverlayDelayGroup.injector"
+          />
+          <ng-template
+            [ngTemplateOutlet]="button"
+            [ngTemplateOutletContext]="{ row: 3, column: 1, placement: 'left' }"
+            [ngTemplateOutletInjector]="natuOverlayDelayGroup.injector"
+          />
+          <ng-template
+            [ngTemplateOutlet]="button"
+            [ngTemplateOutletContext]="{ row: 4, column: 1, placement: 'left-end' }"
+            [ngTemplateOutletInjector]="natuOverlayDelayGroup.injector"
+          />
 
-        <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 5, column: 2, placement: 'bottom-start' }" />
-        <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 5, column: 3, placement: 'bottom' }" />
-        <ng-template [ngTemplateOutlet]="button" [ngTemplateOutletContext]="{ row: 5, column: 4, placement: 'bottom-end' }" />
+
+          <ng-template
+            [ngTemplateOutlet]="button"
+            [ngTemplateOutletContext]="{ row: 2, column: 5, placement: 'right-start' }"
+            [ngTemplateOutletInjector]="natuOverlayDelayGroup.injector"
+          />
+          <ng-template
+            [ngTemplateOutlet]="button"
+            [ngTemplateOutletContext]="{ row: 3, column: 5, placement: 'right' }"
+            [ngTemplateOutletInjector]="natuOverlayDelayGroup.injector"
+          />
+          <ng-template
+            [ngTemplateOutlet]="button"
+            [ngTemplateOutletContext]="{ row: 4, column: 5, placement: 'right-end' }"
+            [ngTemplateOutletInjector]="natuOverlayDelayGroup.injector"
+          />
+
+          <ng-template
+            [ngTemplateOutlet]="button"
+            [ngTemplateOutletContext]="{ row: 5, column: 2, placement: 'bottom-start' }"
+            [ngTemplateOutletInjector]="natuOverlayDelayGroup.injector"
+          />
+          <ng-template
+            [ngTemplateOutlet]="button"
+            [ngTemplateOutletContext]="{ row: 5, column: 3, placement: 'bottom' }"
+            [ngTemplateOutletInjector]="natuOverlayDelayGroup.injector"
+          />
+          <ng-template
+            [ngTemplateOutlet]="button"
+            [ngTemplateOutletContext]="{ row: 5, column: 4, placement: 'bottom-end' }"
+            [ngTemplateOutletInjector]="natuOverlayDelayGroup.injector"
+          />
+        </ng-container>
 
         <ng-template #button let-row="row" let-column="column" let-placement="placement">
           <ng-container natuTooltip [natuTooltipPlacement]="placement" ${templateArgs}>

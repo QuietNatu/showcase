@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { NatuTooltip, NatuTooltipContent, NatuTooltipProps, NatuTooltipTrigger } from './tooltip';
 import { NatuButton } from '../button/button';
+import { NatuOverlayDelayGroup } from '../overlay/overlay-delay-group';
+import { storyVariantsDecorator } from '../../stories';
 
 const meta = {
   title: 'Components/Tooltip',
@@ -47,25 +49,52 @@ export const Nested: Story = {
   },
 };
 
+export const DelayGroup: Story = {
+  decorators: [storyVariantsDecorator()],
+  render: (args) => {
+    return (
+      <NatuOverlayDelayGroup delay={500}>
+        <NatuTooltip {...args}>
+          <NatuTooltipTrigger>
+            <NatuButton type="button">Show tooltip 1</NatuButton>
+          </NatuTooltipTrigger>
+
+          <NatuTooltipContent>Tooltip text 1</NatuTooltipContent>
+        </NatuTooltip>
+
+        <NatuTooltip {...args}>
+          <NatuTooltipTrigger>
+            <NatuButton type="button">Show tooltip 2</NatuButton>
+          </NatuTooltipTrigger>
+
+          <NatuTooltipContent>Tooltip text 2</NatuTooltipContent>
+        </NatuTooltip>
+      </NatuOverlayDelayGroup>
+    );
+  },
+};
+
 export const Playground: Story = {
   render: (args) => (
-    <div style={{ display: 'grid', gap: '10px' }}>
-      <PlaygroundButton {...args} row={1} column={2} placement="top-start" />
-      <PlaygroundButton {...args} row={1} column={3} placement="top" />
-      <PlaygroundButton {...args} row={1} column={4} placement="top-end" />
+    <NatuOverlayDelayGroup delay={500}>
+      <div style={{ display: 'grid', gap: '10px' }}>
+        <PlaygroundButton {...args} row={1} column={2} placement="top-start" />
+        <PlaygroundButton {...args} row={1} column={3} placement="top" />
+        <PlaygroundButton {...args} row={1} column={4} placement="top-end" />
 
-      <PlaygroundButton {...args} row={2} column={1} placement="left-start" />
-      <PlaygroundButton {...args} row={3} column={1} placement="left" />
-      <PlaygroundButton {...args} row={4} column={1} placement="left-end" />
+        <PlaygroundButton {...args} row={2} column={1} placement="left-start" />
+        <PlaygroundButton {...args} row={3} column={1} placement="left" />
+        <PlaygroundButton {...args} row={4} column={1} placement="left-end" />
 
-      <PlaygroundButton {...args} row={2} column={5} placement="right-start" />
-      <PlaygroundButton {...args} row={3} column={5} placement="right" />
-      <PlaygroundButton {...args} row={4} column={5} placement="right-end" />
+        <PlaygroundButton {...args} row={2} column={5} placement="right-start" />
+        <PlaygroundButton {...args} row={3} column={5} placement="right" />
+        <PlaygroundButton {...args} row={4} column={5} placement="right-end" />
 
-      <PlaygroundButton {...args} row={5} column={2} placement="bottom-start" />
-      <PlaygroundButton {...args} row={5} column={3} placement="bottom" />
-      <PlaygroundButton {...args} row={5} column={4} placement="bottom-end" />
-    </div>
+        <PlaygroundButton {...args} row={5} column={2} placement="bottom-start" />
+        <PlaygroundButton {...args} row={5} column={3} placement="bottom" />
+        <PlaygroundButton {...args} row={5} column={4} placement="bottom-end" />
+      </div>
+    </NatuOverlayDelayGroup>
   ),
 };
 

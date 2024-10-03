@@ -2,7 +2,7 @@ import { Directive, booleanAttribute, inject, input } from '@angular/core';
 import { NatuDisclosureService } from './disclosure.service';
 import { NatuDisclosureTriggerDirective } from './disclosure-trigger.directive';
 import { NatuDisclosureContentDirective } from './disclosure-content.directive';
-import { connectSignal } from '../../utils';
+import { registerSignal } from '../../utils';
 import { outputFromObservable } from '@angular/core/rxjs-interop';
 
 /**
@@ -38,15 +38,15 @@ export class NatuDisclosureDirective {
   });
 
   constructor() {
-    connectSignal(this.isExpanded, (isExpanded) => {
+    registerSignal(this.isExpanded, (isExpanded) => {
       this.disclosureService.setIsExpanded(isExpanded ?? undefined);
     });
 
-    connectSignal(this.defaultIsExpanded, (defaultIsExpanded) => {
+    registerSignal(this.defaultIsExpanded, (defaultIsExpanded) => {
       this.disclosureService.setDefaultIsExpanded(defaultIsExpanded ?? undefined);
     });
 
-    connectSignal(this.isDisabled, (isDisabled) => {
+    registerSignal(this.isDisabled, (isDisabled) => {
       this.disclosureService.isDisabled.set(isDisabled);
     });
   }

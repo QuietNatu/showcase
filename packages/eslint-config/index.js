@@ -110,6 +110,7 @@ const vitestConfig = tseslint.config(
     rules: {
       ...vitest.configs.recommended.rules,
       ...vitest.configs.all.rules,
+      'vitest/consistent-test-it': ['warn', { fn: 'test', withinDescribe: 'test' }],
       'vitest/prefer-expect-resolves': 'off',
       'vitest/prefer-expect-assertions': 'off',
       'vitest/prefer-to-be-falsy': 'off',
@@ -117,7 +118,7 @@ const vitestConfig = tseslint.config(
       'vitest/require-top-level-describe': 'off',
       'vitest/max-expects': 'off',
       'vitest/no-hooks': [
-        'error',
+        'warn',
         {
           allow: ['afterEach', 'afterAll'],
         },

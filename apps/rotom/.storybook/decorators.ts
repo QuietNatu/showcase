@@ -1,7 +1,7 @@
 import { Decorator, componentWrapperDecorator } from '@storybook/angular';
 import { Directive, input } from '@angular/core';
 import { useStoryThemeProvider } from '@natu/ui-angular/stories';
-import { connectSignal } from '@natu/ui-angular';
+import { registerSignal } from '@natu/ui-angular';
 
 /**
  * Performs actions required to set up stories (like themes or i18n).
@@ -11,8 +11,8 @@ export function storyConfigDecorator(): Decorator {
     (story) =>
       `<ng-container natuStoryConfig [theme]="theme" [colorScheme]="colorScheme">${story}</ng-container>`,
     ({ globals }) => ({
-      theme: globals['theme'] as string,
-      colorScheme: globals['colorScheme'] as string,
+      theme: globals.theme as string,
+      colorScheme: globals.colorScheme as string,
     }),
   );
 }
@@ -31,11 +31,11 @@ export class StoryConfigDirective {
   private readonly themeProvider = useStoryThemeProvider();
 
   constructor() {
-    connectSignal(this.theme, (theme) => {
+    registerSignal(this.theme, (theme) => {
       this.themeProvider.setTheme(theme);
     });
 
-    connectSignal(this.colorScheme, (colorScheme) => {
+    registerSignal(this.colorScheme, (colorScheme) => {
       this.themeProvider.setColorScheme(colorScheme);
     });
   }

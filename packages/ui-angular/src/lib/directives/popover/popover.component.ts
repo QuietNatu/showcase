@@ -12,13 +12,13 @@ import {
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuOverlayService } from '../../overlay';
-import { NatuOverlayArrowComponent } from '../../overlay/overlay-arrow.component';
+import { NatuOverlayArrowComponent } from '../../overlay';
 import { Side } from '@floating-ui/dom';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuPopoverService } from './popover.service';
 import { natuCardImports } from '../../components';
 import { CdkTrapFocus } from '@angular/cdk/a11y';
-import { connectSignal } from '../../utils';
+import { registerSignal } from '../../utils';
 
 const animationDuration = NATU_TIME_ANIMATION_STANDARD;
 const sideTransforms: Record<Side, string> = {
@@ -27,8 +27,6 @@ const sideTransforms: Record<Side, string> = {
   left: 'translateX(4px)',
   right: 'translateX(-4px)',
 };
-
-/* TODO: replace oninit and ondestroy */
 
 @Component({
   selector: 'natu-popover',
@@ -119,7 +117,7 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
 
   private registerSpreadExtraAttributes() {
     // Could be improved if this feature is added someday https://github.com/angular/angular/issues/14545
-    connectSignal(this.popoverService.attributes, (attributes) => {
+    registerSignal(this.popoverService.attributes, (attributes) => {
       Object.entries(attributes).forEach(([name, value]) => {
         this.renderer.setAttribute(this.elementRef.nativeElement, name, value);
       });

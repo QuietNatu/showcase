@@ -25,6 +25,8 @@ import * as Collapsible from '@radix-ui/react-collapsible';
 import { useControllableState } from '../../hooks';
 import { mergeProps, useFocusRing } from 'react-aria';
 import { useTranslation } from 'react-i18next';
+import { useTooltipDelay } from '../tooltip/use-tooltip-delay';
+import { NatuOverlayDelayGroup } from '../overlay/overlay-delay-group';
 
 export interface NatuSidebarProps extends UseSidebarOptions, ComponentPropsWithoutRef<'div'> {
   /**
@@ -133,6 +135,8 @@ export const NatuSidebar = forwardRef<HTMLDivElement, NatuSidebarProps>(
       onExpandedChange: onExpandedChange,
     });
 
+    const tooltipDelay = useTooltipDelay();
+
     const { t } = useTranslation(undefined, { keyPrefix: 'ui.sidebar' });
 
     return (
@@ -148,33 +152,39 @@ export const NatuSidebar = forwardRef<HTMLDivElement, NatuSidebarProps>(
           props.className,
         )}
       >
-        <div className="natu-sidebar__header">{children}</div>
+        <NatuOverlayDelayGroup delay={tooltipDelay}>
+          <div className="natu-sidebar__header">{children}</div>
 
-        {actions.length > 0 && (
-          <nav aria-label={t('section.main')}>
-            <SidebarList items={actions} isExpanded={isExpanded} activeAction={activeAction} />
-          </nav>
-        )}
-
-        <div className="natu-sidebar__footer">
-          {secondaryActions.length > 0 && (
-            <nav aria-label={t('section.secondary')}>
-              <SidebarList
-                items={secondaryActions}
-                isExpanded={isExpanded}
-                activeAction={activeAction}
-              />
+          {actions.length > 0 && (
+            <nav aria-label={t('section.main')}>
+              <SidebarList items={actions} isExpanded={isExpanded} activeAction={activeAction} />
             </nav>
           )}
 
-          <button type="button" className="natu-sidebar__toggle-button" onClick={onToggleExpansion}>
-            <span className="natu-visually-hidden">{t(isExpanded ? 'collapse' : 'expand')}</span>
+          <div className="natu-sidebar__footer">
+            {secondaryActions.length > 0 && (
+              <nav aria-label={t('section.secondary')}>
+                <SidebarList
+                  items={secondaryActions}
+                  isExpanded={isExpanded}
+                  activeAction={activeAction}
+                />
+              </nav>
+            )}
 
-            <NatuIcon className="natu-sidebar__toggle-button-icon" aria-hidden="true">
-              <CaretRightIcon />
-            </NatuIcon>
-          </button>
-        </div>
+            <button
+              type="button"
+              className="natu-sidebar__toggle-button"
+              onClick={onToggleExpansion}
+            >
+              <span className="natu-visually-hidden">{t(isExpanded ? 'collapse' : 'expand')}</span>
+
+              <NatuIcon className="natu-sidebar__toggle-button-icon" aria-hidden="true">
+                <CaretRightIcon />
+              </NatuIcon>
+            </button>
+          </div>
+        </NatuOverlayDelayGroup>
       </div>
     );
   },

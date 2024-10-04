@@ -3,6 +3,9 @@ import { controllableSignal } from '../../utils';
 import { Observable } from 'rxjs';
 import { createRandomUUID } from '@natu/utils';
 
+/**
+ * Manages the state of a disclosure
+ */
 @Injectable()
 export class NatuDisclosureService {
   readonly id = `disclosure-${createRandomUUID()}`;

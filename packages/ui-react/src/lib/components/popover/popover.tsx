@@ -38,6 +38,11 @@ export interface NatuPopoverContentProps extends ComponentPropsWithoutRef<'div'>
 
 export type NatuPopoverPlacement = NatuOverlayPlacement;
 
+/**
+ * Displays content on an overlay when an element is clicked.
+ *
+ * Contains all the parts of a popover.
+ */
 export function NatuPopover(props: NatuPopoverProps) {
   const popover = usePopover({
     isOpen: props.isOpen,
@@ -51,6 +56,9 @@ export function NatuPopover(props: NatuPopoverProps) {
   return <PopoverProvider value={popover}>{props.children}</PopoverProvider>;
 }
 
+/**
+ * The element that toggles the popover.
+ */
 export const NatuPopoverTrigger = forwardRef<HTMLElement, NatuPopoverTriggerProps>(
   function NatuPopoverTrigger(props, forwardedRef) {
     const popover = usePopoverContext();
@@ -64,6 +72,9 @@ export const NatuPopoverTrigger = forwardRef<HTMLElement, NatuPopoverTriggerProp
   },
 );
 
+/**
+ * The component that pops out when the popover is open.
+ */
 export const NatuPopoverContent = forwardRef<HTMLDivElement, NatuPopoverContentProps>(
   function NatuPopoverContent(props, forwardedRef) {
     const { hasEmbeddedContent, className, style, ...popoverProps } = props;

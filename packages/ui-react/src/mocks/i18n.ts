@@ -3,6 +3,9 @@ import { initReactI18next } from 'react-i18next';
 import { setDefaultOptions } from 'date-fns';
 import enGb from '../locales/en-GB/translation.json';
 
+/**
+ * Creates a mock i18n instance.
+ */
 export function mockI18n() {
   setDefaultOptions({ weekStartsOn: 1, firstWeekContainsDate: 4 });
 

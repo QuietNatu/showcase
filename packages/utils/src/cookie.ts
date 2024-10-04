@@ -1,3 +1,6 @@
+/**
+ * Clears the value of all cookies that are not `HttpOnly`.
+ */
 export function deleteAllCookies() {
   document.cookie.split(';').forEach((cookie) => {
     const equalsIndex = cookie.indexOf('=');

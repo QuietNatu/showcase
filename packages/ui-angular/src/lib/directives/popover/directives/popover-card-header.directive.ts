@@ -3,6 +3,9 @@ import { NATU_CARD_HEADER_DATA } from '../../../components';
 import { NatuPopoverService } from '../popover.service';
 import { provideToken } from '../../../utils';
 
+/**
+ * Integrates a card header into a popover.
+ */
 @Directive({
   selector: 'natu-card-header[natuPopoverCardHeader],[natu-card-header][natuPopoverCardHeader]',
   standalone: true,

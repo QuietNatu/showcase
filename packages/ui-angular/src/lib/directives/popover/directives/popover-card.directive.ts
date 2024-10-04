@@ -3,6 +3,9 @@ import { NatuPopoverService } from '../popover.service';
 import { NATU_CARD_DATA } from '../../../components';
 import { provideToken } from '../../../utils';
 
+/**
+ * Integrates a card component with a popover.
+ */
 @Directive({
   selector: 'natu-card[natuPopoverCard],[natu-card][natuPopoverCard]',
   standalone: true,

@@ -9,6 +9,9 @@ import {
 } from '@angular/core';
 import { NatuPortalService } from './portal.service';
 
+/**
+ * The component that displays the content that is portaled to a different part of the DOM.
+ */
 @Component({
   selector: 'natu-portal',
   template: `

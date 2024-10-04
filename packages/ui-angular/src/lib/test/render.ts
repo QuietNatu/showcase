@@ -22,16 +22,22 @@ interface ExtraRenderResult {
 }
 
 /**
- * Renders a elements and sets up userEvent
+ * Renders an element and sets up userEvent.
  */
 export async function render<ComponentType>(
   component: Type<ComponentType>,
   options?: RenderOptions<RenderComponentOptions<ComponentType>>,
 ): Promise<RenderResult<ComponentType, ComponentType> & ExtraRenderResult>;
+/**
+ * Renders a template and sets up userEvent.
+ */
 export async function render<WrapperType>(
   template: string,
   options?: RenderOptions<RenderTemplateOptions<WrapperType>>,
 ): Promise<RenderResult<WrapperType> & ExtraRenderResult>;
+/**
+ * Renders an element or a template and sets up userEvent.
+ */
 export async function render<ComponentType>(
   component: Type<ComponentType> | string,
   options:

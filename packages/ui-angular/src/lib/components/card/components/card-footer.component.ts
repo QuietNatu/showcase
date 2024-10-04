@@ -2,6 +2,9 @@ import { ChangeDetectionStrategy, Component, booleanAttribute, input } from '@an
 
 type Size = 'small' | 'medium';
 
+/**
+ * The footer of the card.
+ */
 @Component({
   selector: 'natu-card-footer,[natu-card-footer]',
   changeDetection: ChangeDetectionStrategy.OnPush,

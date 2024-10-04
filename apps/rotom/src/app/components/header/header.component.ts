@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NatuHeaderDirective } from '@natu/ui-angular';
 
+/**
+ * Displays the header of the app.
+ */
 @Component({
   selector: 'app-header',
   styleUrl: './header.component.scss',

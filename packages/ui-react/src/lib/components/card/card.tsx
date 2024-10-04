@@ -36,6 +36,11 @@ export interface NatuCardFooterProps extends ComponentPropsWithoutRef<'div'> {
   readonly size?: 'small' | 'medium';
 }
 
+/**
+ * Displays content that should be grouped together.
+ *
+ * Contains all the parts of a card.
+ */
 export function NatuCard(props: NatuCardProps) {
   const { className, isEmbedded, isDismissable, onDismiss, ...cardProps } = props;
 
@@ -67,6 +72,9 @@ export function NatuCard(props: NatuCardProps) {
   );
 }
 
+/**
+ * The header of the card.
+ */
 export function NatuCardHeader(props: NatuCardHeaderProps) {
   const { size = 'medium', className, icon, ...headerProps } = props;
 
@@ -81,6 +89,9 @@ export function NatuCardHeader(props: NatuCardHeaderProps) {
   );
 }
 
+/**
+ * The body of the card.
+ */
 export function NatuCardBody(props: NatuCardBodyProps) {
   const { className, ...bodyProps } = props;
   return (
@@ -90,6 +101,9 @@ export function NatuCardBody(props: NatuCardBodyProps) {
   );
 }
 
+/**
+ * The footer of the card.
+ */
 export function NatuCardFooter(props: NatuCardFooterProps) {
   const { hasDivider, size = 'medium', className, ...footerProps } = props;
 

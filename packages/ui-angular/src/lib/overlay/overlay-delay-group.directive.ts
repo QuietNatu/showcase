@@ -5,7 +5,6 @@ import { registerEffect } from '../utils';
 
 /**
  * Provides data to a group of overlays that share a delay when opening or closing.
-
  * After the first overlay opens, the subsequent overlays will open without a delay.
  */
 @Directive({

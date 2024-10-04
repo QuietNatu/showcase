@@ -28,6 +28,11 @@ import { outputFromObservable } from '@angular/core/rxjs-interop';
 
 const defaultHoverDelay = 500;
 
+/**
+ * Displays content on an overlay when an element is focused or hovered.
+ *
+ * Contains all the parts of a tooltip.
+ */
 @Directive({
   selector: '[natuTooltip]',
   standalone: true,

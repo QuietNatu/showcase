@@ -25,6 +25,9 @@ const sideTransforms: Record<Side, string> = {
   right: 'translateX(-4px)',
 };
 
+/**
+ * The content of the component that pops out when the tooltip is open.
+ */
 @Component({
   selector: 'natu-tooltip',
   template: `

@@ -33,10 +33,23 @@ const [CardPopoverProvider, useCardPopoverContext] = createContext<CardPopoverCo
   name: 'CardPopoverContext',
 });
 
+/**
+ * A {@link NatuPopover} that displays information in a {@link NatuCard}
+ *
+ * Contains all the parts of a card popover.
+ */
 export const NatuCardPopover = NatuPopover;
 
+/**
+ * The element that toggles the popover.
+ */
 export const NatuCardPopoverTrigger = NatuPopoverTrigger;
 
+/**
+ * The component that pops out when the popover is open.
+ *
+ * Contains all the parts of the card popover content.
+ */
 export const NatuCardPopoverContent = forwardRef<HTMLDivElement, NatuCardPopoverContentProps>(
   function NatuCardPopoverContent(props, forwardedRef) {
     const popover = usePopoverContext();
@@ -58,6 +71,9 @@ export const NatuCardPopoverContent = forwardRef<HTMLDivElement, NatuCardPopover
   },
 );
 
+/**
+ * The header of the card.
+ */
 export function NatuCardPopoverContentHeader(props: NatuCardPopoverContentHeaderProps) {
   const { setLabelId } = useCardPopoverContext();
 
@@ -75,6 +91,9 @@ export function NatuCardPopoverContentHeader(props: NatuCardPopoverContentHeader
   return <NatuCardHeader {...props} size="small" id={id} />;
 }
 
+/**
+ * The body of the card.
+ */
 export function NatuCardPopoverContentBody(props: NatuCardPopoverContentBodyProps) {
   const { setDescriptionId } = useCardPopoverContext();
 

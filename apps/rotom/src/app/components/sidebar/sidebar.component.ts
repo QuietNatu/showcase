@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { natuSidebarImports } from '@natu/ui-angular';
 
+/**
+ * Displays the sidebar of the app.
+ */
 @Component({
   selector: 'app-sidebar',
   styleUrl: './sidebar.component.scss',

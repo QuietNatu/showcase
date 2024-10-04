@@ -1,5 +1,8 @@
 import { Directive } from '@angular/core';
 
+/**
+ * Displays a header.
+ */
 @Directive({
   selector: 'header[natuHeader]',
   standalone: true,

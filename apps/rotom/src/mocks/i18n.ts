@@ -3,6 +3,9 @@ import { setDefaultOptions } from 'date-fns';
 import enGb from '../locales/bundle/en-GB/translation.json';
 import { appConfigMock } from './config';
 
+/**
+ * Creates a mock i18n instance.
+ */
 export function mockI18n() {
   const { weekStartsOn, firstWeekContainsDate } = appConfigMock.date;
 

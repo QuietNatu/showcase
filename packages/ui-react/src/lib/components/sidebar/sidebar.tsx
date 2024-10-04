@@ -53,7 +53,6 @@ interface NatuSidebarIndividualAction {
   label: ReactNode;
   /**
    * Render props to customize the item element. Item should be an either an anchor for links or a button for actions.
-   *
    * @example
    * { render: (children) => <a href="/">{children}</a> }
    */

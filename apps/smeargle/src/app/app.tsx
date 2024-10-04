@@ -5,6 +5,9 @@ import '../styles/styles.scss';
 import styles from './app.module.scss';
 import { useTranslation } from 'react-i18next';
 
+/**
+ * Renders the whole app.
+ */
 export function App() {
   const { t } = useTranslation();
 

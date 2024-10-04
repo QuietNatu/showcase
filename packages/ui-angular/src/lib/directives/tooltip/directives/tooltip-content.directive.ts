@@ -1,6 +1,9 @@
 import { Directive, OnInit, TemplateRef, inject } from '@angular/core';
 import { NatuTooltipService } from '../tooltip.service';
 
+/**
+ * The content of the component that pops out when the tooltip is open.
+ */
 @Directive({
   selector: '[natuTooltipContent]',
   standalone: true,

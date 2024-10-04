@@ -9,6 +9,9 @@ import { NatuTranslationDirective } from '@natu/ui-angular';
 
 /* TODO: why are non headless tests not running in dev container */
 
+/**
+ * Renders the whole app.
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

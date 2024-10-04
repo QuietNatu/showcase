@@ -14,6 +14,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import sonarjs from 'eslint-plugin-sonarjs';
+import jsdoc from 'eslint-plugin-jsdoc';
 // import angular from 'angular-eslint';
 
 /* TODO: add "type": "module" to all missing package json */
@@ -22,8 +23,7 @@ import sonarjs from 'eslint-plugin-sonarjs';
   eslint-plugin-rxjs
 */
 /* TODO: explore extra packages
-  eslint-plugin-import / eslint-plugin-import-x
-  eslint-plugin-jsdoc
+  eslint-plugin-import
 */
 
 const compat = new FlatCompat();
@@ -35,6 +35,7 @@ const baseConfig = tseslint.config(
   ...compat.extends('turbo'),
   functional.configs.recommended,
   functional.configs.stylistic,
+  jsdoc.configs['flat/recommended-typescript'],
   sonarjs.configs.recommended,
   {
     plugins: {
@@ -60,6 +61,23 @@ const baseConfig = tseslint.config(
       'functional/no-mixed-types': 'off',
       'functional/prefer-immutable-types': 'off',
       'functional/prefer-tacit': 'off',
+      'jsdoc/require-jsdoc': [
+        'error',
+        {
+          publicOnly: true,
+          checkConstructors: false,
+          require: {
+            ArrowFunctionExpression: true,
+            ClassDeclaration: true,
+            ClassExpression: true,
+            FunctionDeclaration: true,
+            FunctionExpression: true,
+            MethodDefinition: false,
+          },
+        },
+      ],
+      'jsdoc/require-param': 'off',
+      'jsdoc/require-returns': 'off',
       'sonarjs/deprecation': 'off',
       'sonarjs/function-return-type': 'off',
       'sonarjs/prefer-function-type': 'off',

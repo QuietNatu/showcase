@@ -20,7 +20,6 @@ export interface InjectTranslationResult {
 
 /**
  * Provides a reactive translation function with applied defaults.
- *
  * @param options - options that will modify the translation function instance
  * @param options.keyPrefix - prefix that will be applied to all translations
  * @returns the translation function

@@ -40,6 +40,9 @@ const buttonVariants = cva('natu-button', {
 
 export type NatuButtonVariants = VariantProps<typeof buttonVariants>;
 
+/**
+ * Displays a button.
+ */
 @Directive({
   selector: '[natuButton]',
   standalone: true,
@@ -92,6 +95,9 @@ export class NatuButtonDirective {
   }
 }
 
+/**
+ * Transforms an HTML element into an accessible button.
+ */
 @Directive({
   selector: '[natuButton]:not(button)',
   standalone: true,

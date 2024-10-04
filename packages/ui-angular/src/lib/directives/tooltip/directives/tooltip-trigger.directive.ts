@@ -1,6 +1,9 @@
 import { Directive, ElementRef, OnInit, inject } from '@angular/core';
 import { NatuTooltipService } from '../tooltip.service';
 
+/**
+ * The element that toggles the tooltip.
+ */
 @Directive({
   selector: '[natuTooltipTrigger]',
   standalone: true,

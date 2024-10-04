@@ -46,6 +46,11 @@ const [TooltipProvider, useTooltipContext] = createContext<ReturnType<typeof use
   name: 'TooltipContext',
 });
 
+/**
+ * Displays content on an overlay when an element is focused or hovered.
+ *
+ * Contains all the parts of a tooltip.
+ */
 export function NatuTooltip(props: NatuTooltipProps) {
   const tooltip = useTooltip({
     isOpen: props.isOpen,
@@ -59,6 +64,9 @@ export function NatuTooltip(props: NatuTooltipProps) {
   return <TooltipProvider value={tooltip}>{props.children}</TooltipProvider>;
 }
 
+/**
+ * The element that toggles the tooltip.
+ */
 export const NatuTooltipTrigger = forwardRef<HTMLElement, NatuTooltipTriggerProps>(
   function NatuTooltipTrigger(props, forwardedRef) {
     const tooltip = useTooltipContext();
@@ -72,6 +80,9 @@ export const NatuTooltipTrigger = forwardRef<HTMLElement, NatuTooltipTriggerProp
   },
 );
 
+/**
+ * The component that pops out when the tooltip is open.
+ */
 export const NatuTooltipContent = forwardRef<HTMLDivElement, NatuTooltipContentProps>(
   function NatuPopoverContent(props: NatuTooltipContentProps, forwardedRef) {
     const { className, style, ...tooltipProps } = props;

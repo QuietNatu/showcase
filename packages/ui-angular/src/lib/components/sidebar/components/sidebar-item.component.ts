@@ -25,6 +25,9 @@ import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
 import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popover.service';
 import { provideToken } from '../../../utils';
 
+/**
+ * A navigation link or action on the sidebar.
+ */
 @Component({
   selector: '[natu-sidebar-item]',
   template: `

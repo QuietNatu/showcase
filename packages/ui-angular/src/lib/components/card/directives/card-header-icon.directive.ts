@@ -1,5 +1,8 @@
 import { Directive } from '@angular/core';
 
+/**
+ * The icon for the card header.
+ */
 @Directive({
   selector: '[natuCardHeaderIcon]',
   standalone: true,

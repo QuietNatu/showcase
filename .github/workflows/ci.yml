@@ -49,15 +49,15 @@ jobs:
           pnpm i --frozen-lockfile --loglevel warn
           pnpm exec playwright install --with-deps chromium
 
-      - name: lighthouse mobile audit
+      - name: Perform lighthouse mobile audit
         run: pnpm lighthouse-mobile
-        # env:
-        #   LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
-      - name: lighthouse desktop audit
+      - name: Perform lighthouse desktop audit
         run: pnpm lighthouse-desktop
-        # env:
-        #   LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
   build-devcontainer:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'

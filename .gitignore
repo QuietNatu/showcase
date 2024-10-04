@@ -49,3 +49,4 @@ packages/styles/ts/tokens
 apps/*/src/api
 bundle-analysis.html
 **/locales/bundle
+**/.lighthouseci

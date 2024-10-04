@@ -34,15 +34,15 @@ export interface NatuSidebarProps extends UseSidebarOptions, ComponentPropsWitho
    *
    * Should be used to place most links and actions of the app.
    */
-  actions?: NatuSidebarAction[];
+  readonly actions?: NatuSidebarAction[];
   /**
    * Actions to be placed in the secondary navigation bar of the sidebar.
    *
    * It's purpose should be mainly for less important actions or external links to the app.
    */
-  secondaryActions?: NatuSidebarAction[];
+  readonly secondaryActions?: NatuSidebarAction[];
   /** Action that is currently active (ex: current active link) */
-  activeAction?: string | null;
+  readonly activeAction?: string | null;
 }
 
 export type NatuSidebarAction = NatuSidebarIndividualAction | NatuSidebarGroupAction;
@@ -106,13 +106,13 @@ interface SidebarLabelProps {
 
 interface UseSidebarOptions {
   /** Controlled expanded state. */
-  isExpanded?: boolean;
+  readonly isExpanded?: boolean;
 
   /** Default value for uncontrolled expanded state. */
-  defaultIsExpanded?: boolean;
+  readonly defaultIsExpanded?: boolean;
 
   /** Controlled expanded state handler. */
-  onExpandedChange?: (isOpen: boolean) => void;
+  readonly onExpandedChange?: (isOpen: boolean) => void;
 }
 
 export const NatuSidebar = forwardRef<HTMLDivElement, NatuSidebarProps>(

@@ -76,11 +76,13 @@
     },
     "lighthouse-mobile": {
       "dependsOn": ["build"],
-      "outputs": [".lighthouseci"]
+      "outputs": [".lighthouseci"],
+      "env": ["LHCI_GITHUB_APP_TOKEN"]
     },
     "lighthouse-desktop": {
       "dependsOn": ["build"],
-      "outputs": [".lighthouseci"]
+      "outputs": [".lighthouseci"],
+      "env": ["LHCI_GITHUB_APP_TOKEN"]
     }
   }
 }

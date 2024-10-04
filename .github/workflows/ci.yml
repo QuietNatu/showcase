@@ -17,8 +17,7 @@ env:
 
 jobs:
   lighthouse:
-    # TODO: if pull request? or change the checkout ref
-    name: Lighthouse CI
+    # TODO: if pull request? or change the checkout ref. can it be run always?
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code

@@ -3,6 +3,9 @@ import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuTranslationDirective } from '../../../i18n';
 
+/**
+ * Secondary area where navigation links or actions are displayed.
+ */
 @Component({
   selector: 'natu-sidebar-secondary-actions',
   template: `

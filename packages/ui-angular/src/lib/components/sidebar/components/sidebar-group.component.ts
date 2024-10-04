@@ -24,6 +24,9 @@ import { NatuSidebarIconDirective } from '../directives/sidebar-icon.directive';
 import { NatuSidebarLabelDirective } from '../directives/sidebar-label.directive';
 import { NatuSidebarGroupPopoverContentComponent } from './sidebar-group-popover-content.component';
 
+/**
+ * Displays a group of sidebar items.
+ */
 @Component({
   selector: 'natu-sidebar-group',
   templateUrl: './sidebar-group.component.html',

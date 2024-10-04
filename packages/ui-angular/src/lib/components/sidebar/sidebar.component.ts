@@ -18,7 +18,7 @@ import { NatuTranslationDirective } from '../../i18n';
 import { NatuOverlayDelayGroupDirective } from '../../overlay';
 
 /**
- * Displays a sidebar with navigation.
+ * Displays a sidebar with navigation and actions.
  *
  * Contains all the parts of a sidebar.
  */

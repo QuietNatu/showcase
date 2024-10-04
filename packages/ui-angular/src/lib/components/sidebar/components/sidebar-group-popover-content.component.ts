@@ -9,6 +9,9 @@ import {
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popover.service';
 
+/**
+ * Displays sidebar items in a popover
+ */
 @Component({
   selector: 'natu-sidebar-group-popover-content',
   changeDetection: ChangeDetectionStrategy.OnPush,

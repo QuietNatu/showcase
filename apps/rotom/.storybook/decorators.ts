@@ -30,9 +30,6 @@ export class StoryConfigDirective {
 
   private readonly themeProvider = useStoryThemeProvider();
 
-  /**
-   *
-   */
   constructor() {
     registerEffect(this.theme, (theme) => {
       this.themeProvider.setTheme(theme);

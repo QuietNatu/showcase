@@ -357,7 +357,7 @@ importers:
         version: 8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)(typescript@5.5.4)
       '@storybook/react-vite':
         specifier: 8.3.2
-        version: 8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@2.79.1)(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
+        version: 8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@2.79.1)(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
       '@storybook/test':
         specifier: 8.3.2
         version: 8.3.2(storybook@8.3.2)
@@ -378,7 +378,7 @@ importers:
         version: 18.3.0
       '@vitejs/plugin-react-swc':
         specifier: 3.7.0
-        version: 3.7.0(@swc/helpers@0.5.13)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
+        version: 3.7.0(@swc/helpers@0.5.13)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
       '@vitest/coverage-v8':
         specifier: 2.1.1
         version: 2.1.1(vitest@2.1.1(@types/node@22.5.4)(jsdom@25.0.1)(less@4.2.0)(msw@2.4.9(typescript@5.5.4))(sass@1.78.0)(terser@5.31.6))
@@ -422,17 +422,17 @@ importers:
         specifier: 5.5.4
         version: 5.5.4
       vite:
-        specifier: 5.4.6
-        version: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+        specifier: 5.4.8
+        version: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
       vite-plugin-pwa:
         specifier: 0.20.5
-        version: 0.20.5(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0)
+        version: 0.20.5(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0)
       vite-plugin-svgr:
         specifier: 4.2.0
-        version: 4.2.0(rollup@2.79.1)(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
+        version: 4.2.0(rollup@2.79.1)(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
       vite-tsconfig-paths:
         specifier: 5.0.1
-        version: 5.0.1(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
+        version: 5.0.1(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
       vitest:
         specifier: 2.1.1
         version: 2.1.1(@types/node@22.5.4)(jsdom@25.0.1)(less@4.2.0)(msw@2.4.9(typescript@5.5.4))(sass@1.78.0)(terser@5.31.6)
@@ -572,8 +572,8 @@ importers:
         specifier: 5.5.4
         version: 5.5.4
       vite:
-        specifier: 5.4.6
-        version: 5.4.6(@types/node@20.16.5)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+        specifier: 5.4.8
+        version: 5.4.8(@types/node@20.16.5)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
 
   packages/tsconfig: {}
 
@@ -818,7 +818,7 @@ importers:
         version: 8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)(typescript@5.5.4)
       '@storybook/react-vite':
         specifier: 8.3.2
-        version: 8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.22.4)(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
+        version: 8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.22.4)(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
       '@storybook/test':
         specifier: 8.3.2
         version: 8.3.2(storybook@8.3.2)
@@ -842,7 +842,7 @@ importers:
         version: 18.3.0
       '@vitejs/plugin-react-swc':
         specifier: 3.7.0
-        version: 3.7.0(@swc/helpers@0.5.13)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
+        version: 3.7.0(@swc/helpers@0.5.13)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
       '@vitest/coverage-v8':
         specifier: 2.1.1
         version: 2.1.1(vitest@2.1.1(@types/node@22.5.4)(jsdom@25.0.1)(less@4.2.0)(msw@2.4.9(typescript@5.5.4))(sass@1.78.0)(terser@5.31.6))
@@ -892,11 +892,11 @@ importers:
         specifier: 5.5.4
         version: 5.5.4
       vite:
-        specifier: 5.4.6
-        version: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+        specifier: 5.4.8
+        version: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
       vite-plugin-svgr:
         specifier: 4.2.0
-        version: 4.2.0(rollup@4.22.4)(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
+        version: 4.2.0(rollup@4.22.4)(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
       vitest:
         specifier: 2.1.1
         version: 2.1.1(@types/node@22.5.4)(jsdom@25.0.1)(less@4.2.0)(msw@2.4.9(typescript@5.5.4))(sass@1.78.0)(terser@5.31.6)
@@ -922,8 +922,8 @@ importers:
         specifier: 5.5.4
         version: 5.5.4
       vite:
-        specifier: 5.4.6
-        version: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+        specifier: 5.4.8
+        version: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
       vitest:
         specifier: 2.1.1
         version: 2.1.1(@types/node@22.5.4)(jsdom@25.0.1)(less@4.2.0)(msw@2.4.9(typescript@5.5.4))(sass@1.78.0)(terser@5.31.6)
@@ -937,8 +937,8 @@ importers:
         specifier: 4.0.2
         version: 4.0.2
       vite:
-        specifier: 5.4.6
-        version: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+        specifier: 5.4.8
+        version: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
     devDependencies:
       '@natu/eslint-config':
         specifier: workspace:*
@@ -10504,6 +10504,37 @@ packages:
       terser:
         optional: true
 
+  vite@5.4.8:
+    resolution: {integrity: sha512-FqrItQ4DT1NC4zCUqMB4c4AZORMKIa0m8/URVCZ77OZ/QSNeJ54bU1vrFADbDsuwfIPcgknRkmqakQcgnL4GiQ==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      sass-embedded: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+
   vitest-axe@0.1.0:
     resolution: {integrity: sha512-jvtXxeQPg8R/2ANTY8QicA5pvvdRP4F0FsVUAHANJ46YCDASie/cuhlSzu0DGcLmZvGBSBNsNuK3HqfaeknyvA==}
     peerDependencies:
@@ -13225,13 +13256,13 @@ snapshots:
 
   '@istanbuljs/schema@0.1.3': {}
 
-  '@joshwooding/vite-plugin-react-docgen-typescript@0.3.1(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))':
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.3.1(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))':
     dependencies:
       glob: 7.2.3
       glob-promise: 4.2.2(glob@7.2.3)
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@5.5.4)
-      vite: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vite: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
     optionalDependencies:
       typescript: 5.5.4
 
@@ -15193,7 +15224,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/builder-vite@8.3.2(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))':
+  '@storybook/builder-vite@8.3.2(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))':
     dependencies:
       '@storybook/csf-plugin': 8.3.2(storybook@8.3.2)(webpack-sources@3.2.3)
       '@types/find-cache-dir': 3.2.1
@@ -15205,7 +15236,7 @@ snapshots:
       magic-string: 0.30.11
       storybook: 8.3.2
       ts-dedent: 2.2.0
-      vite: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vite: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
     optionalDependencies:
       typescript: 5.5.4
     transitivePeerDependencies:
@@ -15361,11 +15392,11 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       storybook: 8.3.2
 
-  '@storybook/react-vite@8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@2.79.1)(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))':
+  '@storybook/react-vite@8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@2.79.1)(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))':
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.1(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.1(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
       '@rollup/pluginutils': 5.1.0(rollup@2.79.1)
-      '@storybook/builder-vite': 8.3.2(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
+      '@storybook/builder-vite': 8.3.2(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
       '@storybook/react': 8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)(typescript@5.5.4)
       find-up: 5.0.0
       magic-string: 0.30.11
@@ -15375,7 +15406,7 @@ snapshots:
       resolve: 1.22.8
       storybook: 8.3.2
       tsconfig-paths: 4.2.0
-      vite: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vite: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - '@storybook/test'
@@ -15385,11 +15416,11 @@ snapshots:
       - vite-plugin-glimmerx
       - webpack-sources
 
-  '@storybook/react-vite@8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.22.4)(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))':
+  '@storybook/react-vite@8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.22.4)(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))':
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.1(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.3.1(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
       '@rollup/pluginutils': 5.1.0(rollup@4.22.4)
-      '@storybook/builder-vite': 8.3.2(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
+      '@storybook/builder-vite': 8.3.2(storybook@8.3.2)(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
       '@storybook/react': 8.3.2(@storybook/test@8.3.2(storybook@8.3.2))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.2)(typescript@5.5.4)
       find-up: 5.0.0
       magic-string: 0.30.11
@@ -15399,7 +15430,7 @@ snapshots:
       resolve: 1.22.8
       storybook: 8.3.2
       tsconfig-paths: 4.2.0
-      vite: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vite: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - '@storybook/test'
@@ -16150,10 +16181,10 @@ snapshots:
     dependencies:
       vite: 5.4.6(@types/node@20.16.5)(less@4.2.0)(sass@1.77.6)(terser@5.31.6)
 
-  '@vitejs/plugin-react-swc@3.7.0(@swc/helpers@0.5.13)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))':
+  '@vitejs/plugin-react-swc@3.7.0(@swc/helpers@0.5.13)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))':
     dependencies:
       '@swc/core': 1.7.23(@swc/helpers@0.5.13)
-      vite: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vite: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
     transitivePeerDependencies:
       - '@swc/helpers'
 
@@ -16197,14 +16228,14 @@ snapshots:
       chai: 5.1.1
       tinyrainbow: 1.2.0
 
-  '@vitest/mocker@2.1.1(@vitest/spy@2.1.1)(msw@2.4.9(typescript@5.5.4))(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))':
+  '@vitest/mocker@2.1.1(@vitest/spy@2.1.1)(msw@2.4.9(typescript@5.5.4))(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))':
     dependencies:
       '@vitest/spy': 2.1.1
       estree-walker: 3.0.3
       magic-string: 0.30.11
     optionalDependencies:
       msw: 2.4.9(typescript@5.5.4)
-      vite: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vite: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
 
   '@vitest/pretty-format@2.0.5':
     dependencies:
@@ -20792,7 +20823,7 @@ snapshots:
     dependencies:
       nanoid: 3.3.7
       picocolors: 1.1.0
-      source-map-js: 1.2.0
+      source-map-js: 1.2.1
 
   prelude-ls@1.2.1: {}
 
@@ -22569,7 +22600,7 @@ snapshots:
       cac: 6.7.14
       debug: 4.3.7
       pathe: 1.1.2
-      vite: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vite: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -22581,46 +22612,46 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-pwa@0.20.5(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0):
+  vite-plugin-pwa@0.20.5(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))(workbox-build@7.1.1(@types/babel__core@7.20.5))(workbox-window@7.1.0):
     dependencies:
       debug: 4.3.7
       pretty-bytes: 6.1.1
       tinyglobby: 0.2.5
-      vite: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vite: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
       workbox-build: 7.1.1(@types/babel__core@7.20.5)
       workbox-window: 7.1.0
     transitivePeerDependencies:
       - supports-color
 
-  vite-plugin-svgr@4.2.0(rollup@2.79.1)(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)):
+  vite-plugin-svgr@4.2.0(rollup@2.79.1)(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)):
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@2.79.1)
       '@svgr/core': 8.1.0(typescript@5.5.4)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.5.4))
-      vite: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vite: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
 
-  vite-plugin-svgr@4.2.0(rollup@4.22.4)(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)):
+  vite-plugin-svgr@4.2.0(rollup@4.22.4)(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)):
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@4.22.4)
       '@svgr/core': 8.1.0(typescript@5.5.4)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.5.4))
-      vite: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vite: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
 
-  vite-tsconfig-paths@5.0.1(typescript@5.5.4)(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)):
+  vite-tsconfig-paths@5.0.1(typescript@5.5.4)(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)):
     dependencies:
       debug: 4.3.7
       globrex: 0.1.2
       tsconfck: 3.1.3(typescript@5.5.4)
     optionalDependencies:
-      vite: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vite: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -22637,11 +22668,11 @@ snapshots:
       sass: 1.77.6
       terser: 5.31.6
 
-  vite@5.4.6(@types/node@20.16.5)(less@4.2.0)(sass@1.78.0)(terser@5.31.6):
+  vite@5.4.8(@types/node@20.16.5)(less@4.2.0)(sass@1.78.0)(terser@5.31.6):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.45
-      rollup: 4.21.2
+      rollup: 4.22.4
     optionalDependencies:
       '@types/node': 20.16.5
       fsevents: 2.3.3
@@ -22649,11 +22680,11 @@ snapshots:
       sass: 1.78.0
       terser: 5.31.6
 
-  vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6):
+  vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.45
-      rollup: 4.21.2
+      rollup: 4.22.4
     optionalDependencies:
       '@types/node': 22.5.4
       fsevents: 2.3.3
@@ -22674,7 +22705,7 @@ snapshots:
   vitest@2.1.1(@types/node@22.5.4)(jsdom@25.0.1)(less@4.2.0)(msw@2.4.9(typescript@5.5.4))(sass@1.78.0)(terser@5.31.6):
     dependencies:
       '@vitest/expect': 2.1.1
-      '@vitest/mocker': 2.1.1(@vitest/spy@2.1.1)(msw@2.4.9(typescript@5.5.4))(vite@5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
+      '@vitest/mocker': 2.1.1(@vitest/spy@2.1.1)(msw@2.4.9(typescript@5.5.4))(vite@5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6))
       '@vitest/pretty-format': 2.1.1
       '@vitest/runner': 2.1.1
       '@vitest/snapshot': 2.1.1
@@ -22689,7 +22720,7 @@ snapshots:
       tinyexec: 0.3.0
       tinypool: 1.0.1
       tinyrainbow: 1.2.0
-      vite: 5.4.6(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
+      vite: 5.4.8(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
       vite-node: 2.1.1(@types/node@22.5.4)(less@4.2.0)(sass@1.78.0)(terser@5.31.6)
       why-is-node-running: 2.3.0
     optionalDependencies:

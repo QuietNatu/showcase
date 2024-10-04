@@ -33,7 +33,7 @@ export type NatuPopoverTriggerProps = ComponentPropsWithoutRef<'div'>;
 
 export interface NatuPopoverContentProps extends ComponentPropsWithoutRef<'div'> {
   /** Whether the popover has embedded content (like Card) and thus should not be styled. */
-  hasEmbeddedContent?: boolean;
+  readonly hasEmbeddedContent?: boolean;
 }
 
 export type NatuPopoverPlacement = NatuOverlayPlacement;

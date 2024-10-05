@@ -199,6 +199,8 @@ const defaultIgnores = [
   'coverage/',
   'public/',
   'storybook-static/',
+  '.lighthouseci/',
+  'lighthouse-reports/',
   'vite.config.ts*',
   'playwright.config.ts',
   'eslint.config.js',

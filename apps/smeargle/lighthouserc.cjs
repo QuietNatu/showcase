@@ -4,13 +4,13 @@ module.exports = {
   ci: {
     collect: {
       chromePath: chromium.executablePath(),
-      startServerCommand: 'pnpm preview',
-      startServerReadyPattern: 'Local',
-      startServerReadyTimeout: 20_000,
+      staticDistDir: 'dist',
+      isSinglePageApplication: true,
       url: ['http://localhost:6009/'],
     },
     upload: {
-      target: 'temporary-public-storage',
+      target: 'filesystem',
+      outputDir: 'lighthouse-reports/mobile',
     },
   },
 };

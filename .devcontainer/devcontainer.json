@@ -18,7 +18,6 @@
         "christian-kohler.path-intellisense",
         "mrmlnc.vscode-json5",
         "github.vscode-github-actions",
-        "eamodio.gitlens",
         "clinyong.vscode-css-modules",
         "redhat.vscode-yaml"
       ]

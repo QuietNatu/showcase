@@ -30,8 +30,8 @@
     "vrt-show-report": "turbo run vrt-show-report --parallel",
     "e2e": "turbo run e2e --continue",
     "build-api": "turbo run build-api",
-    "lighthouse-mobile": "turbo run lighthouse-mobile",
-    "lighthouse-desktop": "turbo run lighthouse-desktop"
+    "lighthouse-mobile": "turbo run lighthouse-mobile --concurrency=1",
+    "lighthouse-desktop": "turbo run lighthouse-desktop --concurrency=1"
   },
   "devDependencies": {
     "@commitlint/cli": "19.5.0",

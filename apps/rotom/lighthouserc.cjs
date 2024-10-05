@@ -4,7 +4,7 @@ module.exports = {
   ci: {
     collect: {
       chromePath: chromium.executablePath(),
-      staticDistDir: 'dist',
+      staticDistDir: 'dist/browser',
       isSinglePageApplication: true,
       url: ['http://localhost/'],
     },

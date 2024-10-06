@@ -12,5 +12,13 @@ module.exports = {
       target: 'filesystem',
       outputDir: 'lighthouse-reports/mobile',
     },
+    assert: {
+      preset: 'lighthouse:recommended',
+      assertions: {
+        'render-blocking-resources': ['error', { maxLength: 2 }],
+        'unsized-images': 'off',
+        'unused-javascript': 'off',
+      },
+    },
   },
 };

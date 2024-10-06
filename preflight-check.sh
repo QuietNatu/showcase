@@ -14,6 +14,8 @@ pnpm run lint
 pnpm run test
 pnpm run build
 pnpm run vrt
+pnpm run lighthouse-mobile
+pnpm run lighthouse-desktop
 pnpm run e2e
 
 echo -e "\n${GREEN}preflight-check success"

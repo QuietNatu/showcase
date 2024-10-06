@@ -75,11 +75,11 @@
       "outputs": ["src/api/**", "src/locales/bundle/**"]
     },
     "lighthouse-mobile": {
-      "dependsOn": ["build"],
+      "dependsOn": ["^build", "build"],
       "outputs": [".lighthouseci/**", "lighthouse-reports/mobile/**"]
     },
     "lighthouse-desktop": {
-      "dependsOn": ["build"],
+      "dependsOn": ["^build", "build"],
       "outputs": [".lighthouseci/**", "lighthouse-reports/desktop/**"]
     }
   }

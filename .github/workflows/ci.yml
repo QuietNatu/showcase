@@ -173,10 +173,6 @@ jobs:
           pnpm i --frozen-lockfile --loglevel warn
           pnpm exec playwright install --with-deps chromium
 
-      # TODO: remove
-      - name: Build
-        run: pnpm build --force
-
       - name: Perform lighthouse mobile audit
         run: pnpm lighthouse-mobile
 

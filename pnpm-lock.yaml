@@ -151,7 +151,7 @@ importers:
         specifier: 9.0.3
         version: 9.0.3
       '@lhci/cli':
-        specifier: ^0.14.0
+        specifier: 0.14.0
         version: 0.14.0(encoding@0.1.13)
       '@mswjs/data':
         specifier: 0.16.2
@@ -317,7 +317,7 @@ importers:
         specifier: 9.0.3
         version: 9.0.3
       '@lhci/cli':
-        specifier: ^0.14.0
+        specifier: 0.14.0
         version: 0.14.0(encoding@0.1.13)
       '@mswjs/data':
         specifier: 0.16.2
@@ -21057,7 +21057,7 @@ snapshots:
       lodash: 4.17.21
       lookup-closest-locale: 6.2.0
       metaviewport-parser: 0.3.0
-      open: 8.4.0
+      open: 8.4.2
       parse-cache-control: 1.0.1
       puppeteer-core: 22.15.0
       robots-parser: 3.0.1

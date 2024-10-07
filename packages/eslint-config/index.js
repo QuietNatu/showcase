@@ -262,6 +262,8 @@ const defaultIgnores = [
   'coverage/',
   'public/',
   'storybook-static/',
+  '.lighthouseci/',
+  'lighthouse-reports/',
   'vite.config.ts*',
   'playwright.config.ts',
   'eslint.config.js',
@@ -272,6 +274,7 @@ const defaultIgnores = [
   'postcss.config.js',
   'tsup.config.ts',
   'orval.config.ts',
+  'lighthouserc.*js',
   '**/mockServiceWorker.js',
   '**/.storybook/main.ts',
 ];

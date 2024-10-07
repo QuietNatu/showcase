@@ -21,7 +21,9 @@
     "e2e": "cross-env VITE_E2E=true playwright test --config e2e/playwright.config.ts",
     "build-dependencies": "pnpm build-api && pnpm build-i18n",
     "build-api": "orval --config ./orval.config.ts",
-    "build-i18n": "bundle-i18n --source src/locales/original --destination src/locales/bundle --filename translation"
+    "build-i18n": "bundle-i18n --source src/locales/original --destination src/locales/bundle --filename translation",
+    "lighthouse-mobile": "lhci autorun",
+    "lighthouse-desktop": "lhci autorun --collect.settings.preset=desktop --upload.outputDir=lighthouse-reports/desktop"
   },
   "dependencies": {
     "@natu/assets": "workspace:*",
@@ -40,6 +42,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "9.0.3",
+    "@lhci/cli": "^0.14.0",
     "@mswjs/data": "0.16.2",
     "@natu/bundle-i18n": "workspace:*",
     "@natu/eslint-config": "workspace:*",

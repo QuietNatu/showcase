@@ -1,7 +1,5 @@
 name: CI
 
-# In the future check if Devcontainers should be used to all run the pipeline
-
 on:
   workflow_dispatch:
   push:
@@ -144,6 +142,49 @@ jobs:
           path: |
             apps/*/vrt/report
             packages/*/vrt/report
+          retention-days: 1
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Cache Turbo
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.TURBO_CACHE_DIR }}
+          key: turbo-${{ runner.os }}-${{ github.job }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ runner.os }}-${{ github.job }}
+
+      - name: Use pnpm
+        uses: pnpm/action-setup@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        # change to pnpm ci once it is implemented
+        run: |
+          pnpm i --frozen-lockfile --loglevel warn
+          pnpm exec playwright install --with-deps chromium
+
+      - name: Perform lighthouse mobile audit
+        run: pnpm lighthouse-mobile
+
+      - name: Perform lighthouse desktop audit
+        run: pnpm lighthouse-desktop
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        if: success() || failure()
+        with:
+          name: lighthouse-report
+          path: apps/*/lighthouse-reports
           retention-days: 1
 
   e2e:

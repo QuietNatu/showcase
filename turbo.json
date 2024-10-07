@@ -73,6 +73,14 @@
     },
     "@natu/smeargle#build-dependencies": {
       "outputs": ["src/api/**", "src/locales/bundle/**"]
+    },
+    "lighthouse-mobile": {
+      "dependsOn": ["^build", "build"],
+      "outputs": [".lighthouseci/**", "lighthouse-reports/mobile/**"]
+    },
+    "lighthouse-desktop": {
+      "dependsOn": ["^build", "build"],
+      "outputs": [".lighthouseci/**", "lighthouse-reports/desktop/**"]
     }
   }
 }

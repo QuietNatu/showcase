@@ -799,8 +799,8 @@ importers:
         specifier: 1.1.0
         version: 1.1.0(@types/react@18.3.8)(react@18.3.1)
       '@react-aria/utils':
-        specifier: 3.25.2
-        version: 3.25.2(react@18.3.1)
+        specifier: 3.25.3
+        version: 3.25.3(react@18.3.1)
       '@storybook/addon-a11y':
         specifier: 8.3.4
         version: 8.3.4(storybook@8.3.4)
@@ -3624,11 +3624,6 @@ packages:
 
   '@react-aria/tooltip@3.7.8':
     resolution: {integrity: sha512-dlWfS3w8E6dw5Xoist4cVX2GQE5oh3VQr88dRyLto7BAPLFrp3I+8c9mZCVUobLS/f5QcQzLkqw750s4ENCyiw==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
-
-  '@react-aria/utils@3.25.2':
-    resolution: {integrity: sha512-GdIvG8GBJJZygB4L2QJP1Gabyn2mjFsha73I2wSe+o4DYeGWoJiMZRM06PyTIxLH4S7Sn7eVDtsSBfkc2VY/NA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
 
@@ -15408,15 +15403,6 @@ snapshots:
       '@swc/helpers': 0.5.13
       react: 18.3.1
 
-  '@react-aria/utils@3.25.2(react@18.3.1)':
-    dependencies:
-      '@react-aria/ssr': 3.9.6(react@18.3.1)
-      '@react-stately/utils': 3.10.4(react@18.3.1)
-      '@react-types/shared': 3.25.0(react@18.3.1)
-      '@swc/helpers': 0.5.13
-      clsx: 2.1.1
-      react: 18.3.1
-
   '@react-aria/utils@3.25.3(react@18.3.1)':
     dependencies:
       '@react-aria/ssr': 3.9.6(react@18.3.1)
@@ -22455,7 +22441,7 @@ snapshots:
       '@react-aria/tag': 3.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-aria/textfield': 3.14.9(react@18.3.1)
       '@react-aria/tooltip': 3.7.8(react@18.3.1)
-      '@react-aria/utils': 3.25.2(react@18.3.1)
+      '@react-aria/utils': 3.25.3(react@18.3.1)
       '@react-aria/visually-hidden': 3.8.16(react@18.3.1)
       '@react-types/shared': 3.25.0(react@18.3.1)
       react: 18.3.1

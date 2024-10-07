@@ -32,8 +32,8 @@ jobs:
           restore-keys: |
             turbo-${{ runner.os }}-${{ github.job }}
 
-      - name: Use pnpm
-        uses: pnpm/action-setup@v3
+      - name: Enable corepack
+        run: corepack enable
 
       - name: Use Node.js
         uses: actions/setup-node@v4

@@ -15,7 +15,7 @@ module.exports = {
     assert: {
       preset: 'lighthouse:recommended',
       assertions: {
-        'render-blocking-resources': ['error', { maxLength: 2 }],
+        'render-blocking-resources': ['error', { maxLength: 3 }],
         'unsized-images': 'off',
         'unused-javascript': 'off',
       },

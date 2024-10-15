@@ -47,7 +47,13 @@ module.exports = function (config) {
     },
     reporters: ['spec'],
     port: 5384,
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadlessNoSandbox'],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox'],
+      },
+    },
     restartOnFileChange: true,
     singleRun: true,
   });

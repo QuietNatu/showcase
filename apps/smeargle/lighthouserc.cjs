@@ -7,6 +7,9 @@ module.exports = {
       staticDistDir: 'dist',
       isSinglePageApplication: true,
       url: ['http://localhost/'],
+      settings: {
+        chromeFlags: '--no-sandbox',
+      },
     },
     upload: {
       target: 'filesystem',

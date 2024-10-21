@@ -34,7 +34,7 @@
     "vrt-show-report": "playwright show-report vrt/report --port 6014"
   },
   "devDependencies": {
-    "@floating-ui/react": "0.26.24",
+    "@floating-ui/react": "0.26.25",
     "@natu/assets": "workspace:*",
     "@natu/eslint-config": "workspace:*",
     "@natu/styles": "workspace:*",

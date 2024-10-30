@@ -14,8 +14,11 @@ pnpm run lint
 pnpm run test
 pnpm run build
 pnpm run vrt
-pnpm run lighthouse-mobile
-pnpm run lighthouse-desktop
+# it seems there is some conflict with lighthouse when running without a filter and turbo has bugs when using concurrency=1
+pnpm run lighthouse-mobile --filter @natu/rotom
+pnpm run lighthouse-mobile --filter @natu/smeargle
+pnpm run lighthouse-desktop --filter @natu/rotom
+pnpm run lighthouse-desktop --filter @natu/smeargle
 pnpm run e2e
 
 echo -e "\n${GREEN}preflight-check success"

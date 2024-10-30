@@ -18,7 +18,8 @@
   "scripts": {
     "lint": "eslint --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "test": "vitest run --coverage",
-    "test-watch": "vitest"
+    "test-watch": "vitest",
+    "eslint-inspector": "pnpm dlx @eslint/config-inspector@latest"
   },
   "devDependencies": {
     "@natu/eslint-config": "workspace:*",

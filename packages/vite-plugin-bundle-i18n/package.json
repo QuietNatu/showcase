@@ -13,7 +13,8 @@
   },
   "scripts": {
     "build": "tsup",
-    "lint": "eslint --report-unused-disable-directives --no-warn-ignored --max-warnings 0"
+    "lint": "eslint --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
+    "eslint-inspector": "pnpm dlx @eslint/config-inspector@latest"
   },
   "peerDependencies": {
     "vite": "5.4.10"

@@ -15,12 +15,12 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import sonarjs from 'eslint-plugin-sonarjs';
 import jsdoc from 'eslint-plugin-jsdoc';
-// import angular from 'angular-eslint';
+import jasmine from 'eslint-plugin-jasmine';
+import angular from 'angular-eslint';
 
 /* TODO: add "type": "module" to all missing package json */
 /* TODO: missing packages
   eslint-plugin-storybook
-  eslint-plugin-rxjs
 */
 /* TODO: explore extra packages
   eslint-plugin-import
@@ -161,6 +161,38 @@ const vitestConfig = tseslint.config(
   },
 );
 
+const jasmineConfig = tseslint.config(
+  {
+    files: ['src/**/*.test.ts', 'src/**/test/**/*.ts'],
+    plugins: {
+      jasmine: {
+        rules: jasmine.rules,
+      },
+    },
+    rules: {
+      ...jasmine.configs.recommended.rules,
+    },
+  },
+  {
+    files: ['src/**/*.test.ts', 'src/**/test/**/*.ts'],
+    plugins: {
+      'testing-library': fixupPluginRules({
+        rules: testingLibrary.rules,
+      }),
+    },
+    rules: {
+      ...testingLibrary.configs['flat/angular'].rules,
+    },
+  },
+  {
+    files: ['src/**/*.test.ts', 'src/**/test/**/*.ts'],
+    rules: {
+      '@typescript-eslint/restrict-template-expressions': 'off',
+      'sonarjs/no-identical-functions': 'off',
+    },
+  },
+);
+
 const reactConfig = tseslint.config(
   ...baseConfig,
   {
@@ -254,7 +286,76 @@ const reactConfig = tseslint.config(
   },
 );
 
-// add angular when this is solved -> https://github.com/angular-eslint/angular-eslint/issues/1859
+const angularConfig = tseslint.config(
+  {
+    files: ['**/*.ts'],
+    extends: [...baseConfig, ...angular.configs.tsRecommended],
+    processor: angular.processInlineTemplates,
+    rules: {
+      '@typescript-eslint/no-extraneous-class': 'off',
+      '@typescript-eslint/no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: '@testing-library/angular',
+              importNames: ['render'],
+              message: 'use our test helpers.',
+            },
+            {
+              name: '@testing-library/user-event',
+              message: 'use our test helpers.',
+            },
+            {
+              name: 'jasmine-axe',
+              importNames: ['axe'],
+              message: 'use our axe wrapper.',
+            },
+            {
+              name: 'date-fns',
+              importNames: ['format', 'parse'],
+              message: 'use our i18n library.',
+            },
+          ],
+          patterns: [
+            {
+              group: [
+                '**/environments/*',
+                '!**/environments/environment',
+                '!**/environments/environment-types',
+              ],
+              message: 'import environments/environment',
+            },
+          ],
+        },
+      ],
+      '@angular-eslint/directive-selector': [
+        'error',
+        {
+          type: 'attribute',
+          prefix: 'app',
+          style: 'camelCase',
+        },
+      ],
+      '@angular-eslint/component-selector': [
+        'error',
+        {
+          type: ['attribute', 'element'],
+          prefix: 'app',
+          style: 'kebab-case',
+        },
+      ],
+      '@angular-eslint/prefer-on-push-component-change-detection': 'error',
+      '@angular-eslint/prefer-standalone': 'error',
+      'functional/no-classes': 'off',
+    },
+  },
+  {
+    files: ['**/*.html'],
+    extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
+    rules: {},
+  },
+);
 
 const defaultIgnores = [
   'node_modules/',
@@ -286,8 +387,9 @@ export default {
     vrt: vrtConfig,
     storybook: storybookConfig,
     vitest: vitestConfig,
+    jasmine: jasmineConfig,
     react: reactConfig,
-    // angular: angularConfig,
+    angular: angularConfig,
   },
   defaultIgnores,
 };

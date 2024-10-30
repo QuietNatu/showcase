@@ -569,8 +569,8 @@ importers:
         specifier: 20.16.13
         version: 20.16.13
       style-dictionary:
-        specifier: 4.1.2
-        version: 4.1.2
+        specifier: 4.1.4
+        version: 4.1.4
       tsx:
         specifier: 4.19.1
         version: 4.19.1
@@ -10766,8 +10766,8 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
 
-  style-dictionary@4.1.2:
-    resolution: {integrity: sha512-ZQz+Qs38jq0Qb7IOKuj2Rnm81AziQJDV1E2/TnnKpfLajWKr3VAf8xfrFT1gA3+pHmx+M2bfabDTuMUJYJM2Lg==}
+  style-dictionary@4.1.4:
+    resolution: {integrity: sha512-JCfF5/my6yTBp8qtcxdEY1JwR3JDq9fyosoJ+mpl/jMVZ0zVNsseIDJA/xMmm0P3GwuryHkwJwBMkm99HlXhfQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -24726,7 +24726,7 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  style-dictionary@4.1.2:
+  style-dictionary@4.1.4:
     dependencies:
       '@bundled-es-modules/deepmerge': 4.3.1
       '@bundled-es-modules/glob': 10.4.2

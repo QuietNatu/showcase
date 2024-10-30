@@ -3,6 +3,7 @@
   "private": true,
   "license": "MIT",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "npm-run-all --parallel dev-bundle-i18n dev-ng",
     "dev-ng": "ng dev",

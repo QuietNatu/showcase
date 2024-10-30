@@ -1,5 +1,5 @@
 /** @type {import("stylelint").Config} */
-module.exports = {
+export default {
   extends: ['stylelint-config-standard-scss', 'stylelint-config-css-modules'],
   plugins: ['stylelint-scss', 'stylelint-order'],
   ignoreFiles: ['./node_modules/**', '**/*.js', '**/*.ts', '**/*.jsx', '**/*.tsx'],

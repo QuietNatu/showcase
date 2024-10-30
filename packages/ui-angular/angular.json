@@ -38,7 +38,7 @@
             "assets": [],
             "styles": [],
             "scripts": [],
-            "karmaConfig": "karma.config.js",
+            "karmaConfig": "karma.config.cjs",
             "include": ["**/*.test.ts"],
             "codeCoverageExclude": ["src/mocks/**/*", "src/lib/test/**/*"]
           }

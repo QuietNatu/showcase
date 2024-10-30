@@ -1,7 +1,6 @@
 import globals from 'globals';
 import eslint from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
-import { fixupPluginRules } from '@eslint/compat';
 import tseslint from 'typescript-eslint';
 import functional from 'eslint-plugin-functional';
 import unusedImports from 'eslint-plugin-unused-imports';
@@ -200,7 +199,7 @@ const reactConfig = tseslint.config(
   {
     files: ['**/*.[jt]s?(x)'],
     plugins: {
-      'react-hooks': fixupPluginRules(reactHooks),
+      'react-hooks': reactHooks,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,

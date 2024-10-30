@@ -23,7 +23,8 @@
     "build-api": "orval --config ./orval.config.ts",
     "build-i18n": "bundle-i18n --source src/locales/original --destination src/locales/bundle --filename translation",
     "lighthouse-mobile": "lhci autorun",
-    "lighthouse-desktop": "lhci autorun --collect.settings.preset=desktop --upload.outputDir=lighthouse-reports/desktop"
+    "lighthouse-desktop": "lhci autorun --collect.settings.preset=desktop --upload.outputDir=lighthouse-reports/desktop",
+    "eslint-inspector": "pnpm dlx @eslint/config-inspector@latest"
   },
   "dependencies": {
     "@natu/assets": "workspace:*",

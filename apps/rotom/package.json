@@ -57,7 +57,7 @@
     "@angular/cli": "18.2.10",
     "@angular/compiler-cli": "18.2.9",
     "@compodoc/compodoc": "1.1.26",
-    "@faker-js/faker": "9.0.3",
+    "@faker-js/faker": "9.1.0",
     "@lhci/cli": "0.14.0",
     "@mswjs/data": "0.16.2",
     "@natu/bundle-i18n": "workspace:*",

@@ -1,7 +1,7 @@
 export default {
   '*': 'ls-lint --config ../../.ls-lint.yml',
   '*.{css,scss}': [
-    'stylelint --fix --config ../../stylelint.config.cjs',
+    'stylelint --fix --config ../../stylelint.config.js',
     'prettier --write --config ../../prettier.config.js',
   ],
   '*.{js,jsx,ts,tsx}': [

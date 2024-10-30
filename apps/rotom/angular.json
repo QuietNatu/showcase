@@ -106,7 +106,7 @@
             ],
             "styles": ["src/styles/styles.scss"],
             "scripts": [],
-            "karmaConfig": "karma.config.js",
+            "karmaConfig": "karma.config.cjs",
             "include": ["**/*.test.ts"],
             "codeCoverageExclude": [
               "src/mocks/**/*",

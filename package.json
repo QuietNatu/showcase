@@ -19,7 +19,7 @@
     "lint-prettier": "prettier --check {apps,packages}/*/{src,e2e,vrt}/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
     "lint-lslint": "ls-lint",
     "lint-stylelint": "stylelint {apps,packages}/*/src/**/*.{css,scss}",
-    "lint-depcruise": "depcruise apps packages --config .dependency-cruiser.cjs",
+    "lint-depcruise": "depcruise apps packages --config .dependency-cruiser.js",
     "test": "turbo run test",
     "test-watch": "turbo run test-watch --parallel",
     "analyse": "turbo run analyse",

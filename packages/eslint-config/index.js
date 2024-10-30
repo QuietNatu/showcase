@@ -18,7 +18,6 @@ import jsdoc from 'eslint-plugin-jsdoc';
 import jasmine from 'eslint-plugin-jasmine';
 import angular from 'angular-eslint';
 
-/* TODO: add "type": "module" to all missing package json */
 /* TODO: missing packages
   eslint-plugin-storybook
 */
@@ -142,15 +141,8 @@ const vitestConfig = tseslint.config(
     files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
   },
   {
+    ...testingLibrary.configs['flat/react'],
     files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
-    plugins: {
-      'testing-library': fixupPluginRules({
-        rules: testingLibrary.rules,
-      }),
-    },
-    rules: {
-      ...testingLibrary.configs['flat/react'].rules,
-    },
   },
   {
     files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
@@ -174,15 +166,8 @@ const jasmineConfig = tseslint.config(
     },
   },
   {
+    ...testingLibrary.configs['flat/angular'],
     files: ['src/**/*.test.ts', 'src/**/test/**/*.ts'],
-    plugins: {
-      'testing-library': fixupPluginRules({
-        rules: testingLibrary.rules,
-      }),
-    },
-    rules: {
-      ...testingLibrary.configs['flat/angular'].rules,
-    },
   },
   {
     files: ['src/**/*.test.ts', 'src/**/test/**/*.ts'],

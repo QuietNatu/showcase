@@ -26,6 +26,7 @@ export function controllableSignal<T>(options: CreateControllableSignalOptions<T
   const uncontrolledValue$ = signal(finalValue);
   const valueChange$ = new Subject<T>();
 
+  // eslint-disable-next-line functional/no-let
   let hasDefaultValueBeenSet = false;
 
   effect(() => {

@@ -1,7 +1,7 @@
-const tseslint = require('typescript-eslint');
-const projectConfig = require('@natu/eslint-config');
+import tseslint from 'typescript-eslint';
+import projectConfig from '@natu/eslint-config';
 
-module.exports = tseslint.config(
+export default tseslint.config(
   ...projectConfig.configs.angular,
   ...projectConfig.configs.jasmine,
   ...projectConfig.configs.storybook,
@@ -14,7 +14,7 @@ module.exports = tseslint.config(
     languageOptions: {
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: __dirname,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
   },

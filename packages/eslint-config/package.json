@@ -7,8 +7,6 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./index.js",
-      "require": "./index.cjs",
       "default": "./index.js"
     }
   },
@@ -16,7 +14,7 @@
     "@eslint/compat": "1.2.1",
     "@eslint/eslintrc": "3.1.0",
     "@vitest/eslint-plugin": "1.1.7",
-    "angular-eslint": "18.3.1",
+    "angular-eslint": "18.4.0",
     "eslint": "9.10.0",
     "eslint-config-turbo": "2.2.3",
     "eslint-plugin-functional": "7.0.2",

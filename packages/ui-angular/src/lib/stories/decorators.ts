@@ -22,9 +22,11 @@ export function onStoryInitDecorator<TArgs>(
     const story = storyFn();
 
     if (!story.applicationConfig) {
+      // eslint-disable-next-line functional/immutable-data
       story.applicationConfig = { providers: [] };
     }
 
+    // eslint-disable-next-line functional/immutable-data
     story.applicationConfig.providers.unshift({
       provide: APP_INITIALIZER,
       useFactory: (injector: Injector) => () => callback(injector),

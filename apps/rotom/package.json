@@ -93,7 +93,7 @@
     "karma-jasmine": "5.1.0",
     "karma-spec-reporter": "0.0.36",
     "msw": "2.4.9",
-    "npm-run-all2": "6.2.6",
+    "npm-run-all2": "7.0.1",
     "orval": "7.2.0",
     "prettier": "3.3.3",
     "source-map-explorer": "2.5.3",

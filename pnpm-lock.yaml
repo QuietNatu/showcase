@@ -522,8 +522,8 @@ importers:
         specifier: 6.10.2
         version: 6.10.2(eslint@9.13.0(jiti@1.21.6))
       eslint-plugin-playwright:
-        specifier: 1.6.2
-        version: 1.6.2(eslint@9.13.0(jiti@1.21.6))
+        specifier: 1.8.3
+        version: 1.8.3(eslint@9.13.0(jiti@1.21.6))
       eslint-plugin-react:
         specifier: 7.37.2
         version: 7.37.2(eslint@9.13.0(jiti@1.21.6))
@@ -7229,8 +7229,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
 
-  eslint-plugin-playwright@1.6.2:
-    resolution: {integrity: sha512-mraN4Em3b5jLt01q7qWPyLg0Q5v3KAWfJSlEWwldyUXoa7DSPrBR4k6B6LROLqipsG8ndkwWMdjl1Ffdh15tag==}
+  eslint-plugin-playwright@1.8.3:
+    resolution: {integrity: sha512-h87JPFHkz8a6oPhn8GRGGhSQoAJjx0AkOv1jME6NoMk2FpEsfvfJJNaQDxLSqSALkCr0IJXPGTnp6SIRVu5Nqg==}
     engines: {node: '>=16.6.0'}
     peerDependencies:
       eslint: '>=8.40.0'
@@ -20565,7 +20565,7 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-playwright@1.6.2(eslint@9.13.0(jiti@1.21.6)):
+  eslint-plugin-playwright@1.8.3(eslint@9.13.0(jiti@1.21.6)):
     dependencies:
       eslint: 9.13.0(jiti@1.21.6)
       globals: 13.24.0

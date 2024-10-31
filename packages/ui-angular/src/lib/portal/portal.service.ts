@@ -32,6 +32,8 @@ export class NatuPortalService {
   readonly portalElement;
 
   private readonly document = inject(DOCUMENT);
+  // TODO: this can be removed once Angular 19 is released. https://github.com/angular/components/blob/main/CHANGELOG.md#1900-next5-astatine-armor-2024-09-20
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
   private readonly componentFactoryResolver = inject(ComponentFactoryResolver);
   private readonly applicationRef = inject(ApplicationRef);
   private readonly injector = inject(Injector);

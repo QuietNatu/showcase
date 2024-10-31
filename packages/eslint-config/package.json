@@ -16,7 +16,7 @@
     "angular-eslint": "18.4.0",
     "eslint": "9.13.0",
     "eslint-config-turbo": "2.2.3",
-    "eslint-plugin-functional": "7.0.2",
+    "eslint-plugin-functional": "7.1.0",
     "eslint-plugin-jasmine": "4.2.2",
     "eslint-plugin-jest-dom": "5.4.0",
     "eslint-plugin-jsdoc": "50.3.1",

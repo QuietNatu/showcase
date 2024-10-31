@@ -310,8 +310,8 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: 15.0.2
-        version: 15.0.2(i18next@23.16.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 15.1.0
+        version: 15.1.0(i18next@23.16.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@faker-js/faker':
         specifier: 9.1.0
@@ -883,8 +883,8 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       react-i18next:
-        specifier: 15.0.2
-        version: 15.0.2(i18next@23.16.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 15.1.0
+        version: 15.1.0(i18next@23.16.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       storybook:
         specifier: 8.3.6
         version: 8.3.6
@@ -9956,8 +9956,8 @@ packages:
       react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
       react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
 
-  react-i18next@15.0.2:
-    resolution: {integrity: sha512-z0W3/RES9Idv3MmJUcf0mDNeeMOUXe+xoL0kPfQPbDoZHmni/XsIoq5zgT2MCFUiau283GuBUK578uD/mkAbLQ==}
+  react-i18next@15.1.0:
+    resolution: {integrity: sha512-zj3nJynMnZsy2gPZiOTC7XctCY5eQGqT3tcKMmfJWC9FMvgd+960w/adq61j8iPzpwmsXejqID9qC3Mqu1Xu2Q==}
     peerDependencies:
       i18next: '>= 23.2.3'
       react: '>= 16.8.0'
@@ -23759,9 +23759,9 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       react-is: 18.1.0
 
-  react-i18next@15.0.2(i18next@23.16.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-i18next@15.1.0(i18next@23.16.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@babel/runtime': 7.25.7
+      '@babel/runtime': 7.26.0
       html-parse-stringify: 3.0.1
       i18next: 23.16.4
       react: 18.3.1
@@ -23850,7 +23850,7 @@ snapshots:
 
   regenerator-transform@0.15.2:
     dependencies:
-      '@babel/runtime': 7.25.7
+      '@babel/runtime': 7.26.0
 
   regex-parser@2.3.0: {}
 

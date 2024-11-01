@@ -95,7 +95,7 @@
     "msw": "2.4.9",
     "npm-run-all2": "7.0.1",
     "orval": "7.2.0",
-    "playwright-bdd": "^7.5.0",
+    "playwright-bdd": "7.5.0",
     "prettier": "3.3.3",
     "source-map-explorer": "2.5.3",
     "storybook": "8.3.6",

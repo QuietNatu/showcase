@@ -74,5 +74,6 @@ ignore:
   - apps/*/vrt/playwright.config.ts
   - packages/*/vrt/playwright.config.ts
   - apps/*/e2e/results
-  - '**/*/@types'
   - packages/utils/src/node/locales-test-fixtures
+  - '**/*/@types'
+  - '**/*/.features-gen'

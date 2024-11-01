@@ -93,6 +93,9 @@ const baseConfig = tseslint.config(
 const e2eConfig = tseslint.config({
   ...playwright.configs['flat/recommended'],
   files: ['e2e/**/*.[jt]s?(x)'],
+  rules: {
+    'playwright/no-standalone-expect': 'off',
+  },
 });
 
 const vrtConfig = tseslint.config({

@@ -22,7 +22,7 @@
   "devDependencies": {
     "@natu/eslint-config": "workspace:*",
     "@natu/tsconfig": "workspace:*",
-    "@types/node": "20.17.3",
+    "@types/node": "22.8.4",
     "tsup": "8.3.5",
     "typescript": "5.5.4"
   }

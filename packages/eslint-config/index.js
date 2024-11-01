@@ -352,6 +352,7 @@ const defaultIgnores = [
   'storybook-static/',
   '.lighthouseci/',
   'lighthouse-reports/',
+  'e2e/.features-gen/',
   'vite.config.ts*',
   'playwright.config.ts',
   'eslint.config.js',

@@ -27,17 +27,23 @@
     "eslint-inspector": "pnpm dlx @eslint/config-inspector@latest"
   },
   "dependencies": {
+    "@floating-ui/react": "0.26.25",
     "@natu/assets": "workspace:*",
     "@natu/styles": "workspace:*",
     "@natu/ui-react": "workspace:*",
     "@natu/utils": "workspace:*",
+    "@radix-ui/react-collapsible": "1.1.1",
+    "@radix-ui/react-slot": "1.1.0",
+    "@react-aria/utils": "3.25.3",
     "axios": "1.7.7",
+    "class-variance-authority": "0.7.0",
     "clsx": "2.1.1",
     "date-fns": "4.1.0",
     "i18next": "23.16.4",
     "i18next-browser-languagedetector": "8.0.0",
     "i18next-resources-to-backend": "1.2.1",
     "react": "18.3.1",
+    "react-aria": "3.35.1",
     "react-dom": "18.3.1",
     "react-i18next": "15.1.0"
   },

@@ -68,6 +68,9 @@ importers:
       '@angular/animations':
         specifier: 18.2.9
         version: 18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10))
+      '@angular/cdk':
+        specifier: 18.2.10
+        version: 18.2.10(@angular/common@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
       '@angular/common':
         specifier: 18.2.9
         version: 18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
@@ -92,6 +95,9 @@ importers:
       '@angular/service-worker':
         specifier: 18.2.9
         version: 18.2.9(@angular/common@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10))
+      '@floating-ui/dom':
+        specifier: 1.6.11
+        version: 1.6.11
       '@natu/assets':
         specifier: workspace:*
         version: link:../../packages/assets
@@ -107,6 +113,9 @@ importers:
       '@ngneat/svg-icon':
         specifier: 7.1.6
         version: 7.1.6(@angular/common@18.2.9(@angular/core@18.2.9(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))
+      class-variance-authority:
+        specifier: 0.7.0
+        version: 0.7.0
       date-fns:
         specifier: 4.1.0
         version: 4.1.0
@@ -270,12 +279,18 @@ importers:
       storybook:
         specifier: 8.3.6
         version: 8.3.6
+      type-fest:
+        specifier: 4.26.1
+        version: 4.26.1
       typescript:
         specifier: 5.5.4
         version: 5.5.4
 
   apps/smeargle:
     dependencies:
+      '@floating-ui/react':
+        specifier: 0.26.25
+        version: 0.26.25(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@natu/assets':
         specifier: workspace:*
         version: link:../../packages/assets
@@ -288,9 +303,21 @@ importers:
       '@natu/utils':
         specifier: workspace:*
         version: link:../../packages/utils
+      '@radix-ui/react-collapsible':
+        specifier: 1.1.1
+        version: 1.1.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@radix-ui/react-slot':
+        specifier: 1.1.0
+        version: 1.1.0(@types/react@18.3.12)(react@18.3.1)
+      '@react-aria/utils':
+        specifier: 3.25.3
+        version: 3.25.3(react@18.3.1)
       axios:
         specifier: 1.7.7
         version: 1.7.7
+      class-variance-authority:
+        specifier: 0.7.0
+        version: 0.7.0
       clsx:
         specifier: 2.1.1
         version: 2.1.1
@@ -309,6 +336,9 @@ importers:
       react:
         specifier: 18.3.1
         version: 18.3.1
+      react-aria:
+        specifier: 3.35.1
+        version: 3.35.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dom:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)

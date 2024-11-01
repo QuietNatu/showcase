@@ -51,3 +51,4 @@ bundle-analysis.html
 **/locales/bundle
 **/.lighthouseci
 **/lighthouse-reports
+**/.features-gen

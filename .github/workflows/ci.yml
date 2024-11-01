@@ -234,5 +234,5 @@ jobs:
         if: failure()
         with:
           name: e2e-report-${{ matrix.browser }}
-          path: apps/*/e2e/results
+          path: apps/*/e2e/report
           retention-days: 1

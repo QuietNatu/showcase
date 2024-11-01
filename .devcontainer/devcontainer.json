@@ -19,7 +19,8 @@
         "mrmlnc.vscode-json5",
         "github.vscode-github-actions",
         "clinyong.vscode-css-modules",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "alexkrechik.cucumberautocomplete"
       ]
     }
   },

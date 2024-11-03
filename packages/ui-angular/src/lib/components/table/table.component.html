@@ -1,12 +1,18 @@
-<table>
+<!-- TODO: next: virtual scroll -->
+
+<table [style]="columnSizeVariables()" [style.width]="table.getTotalSize()">
   <thead>
     @for (headerGroup of table.getHeaderGroups(); track headerGroup.id) {
       <tr>
         @for (header of headerGroup.headers; track header.id) {
-          @if (!header.isPlaceholder) {
-            @let isSorted = header.column.getIsSorted();
+          @let isSorted = header.column.getIsSorted();
+          @let handleResize = header.getResizeHandler();
 
-            <th [attr.aria-sort]="isSorted ? ariaSortDictionary[isSorted] : null">
+          <th
+            [attr.aria-sort]="isSorted ? ariaSortDictionary[isSorted] : null"
+            [style.width]="'calc(var(--header-' + header.id + '-size) * 1px)'"
+          >
+            @if (!header.isPlaceholder) {
               <button type="button" (click)="header.column.toggleSorting()">
                 <ng-template
                   [flexRender]="header.column.columnDef.header"
@@ -24,8 +30,16 @@
                   <span>🔽</span>
                 }
               </button>
-            </th>
-          }
+            }
+
+            <div
+              class="resizer"
+              [class.resizer--resizing]="header.column.getIsResizing()"
+              (dblclick)="header.column.resetSize()"
+              (mousedown)="handleResize($event)"
+              (touchstart)="handleResize($event)"
+            ></div>
+          </th>
         }
       </tr>
     }

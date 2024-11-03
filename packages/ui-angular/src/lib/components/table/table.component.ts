@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   input,
   model,
   TemplateRef,
@@ -59,6 +60,7 @@ const defaultData: Person[] = [
 @Component({
   selector: 'natu-table',
   templateUrl: './table.component.html',
+  styleUrl: './table.component.scss', // TODO: remove
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [FlexRenderDirective],
@@ -117,6 +119,11 @@ export class NatuTableComponent {
   protected readonly table = createAngularTable(() => ({
     data: this.data(),
     columns: this.columns(),
+    /* TODO: */
+    defaultColumn: {
+      minSize: 60,
+      maxSize: 800,
+    },
     state: {
       sorting: this.sorting(),
       pagination: this.pagination(),
@@ -127,6 +134,7 @@ export class NatuTableComponent {
     manualFiltering: true,
     manualPagination: true,
     enableSortingRemoval: false,
+    columnResizeMode: 'onChange',
 
     onPaginationChange: (updaterOrValue) => {
       if (typeof updaterOrValue === 'function') {
@@ -144,4 +152,27 @@ export class NatuTableComponent {
     },
     // TODO: on filter change needed?
   }));
+
+  /** Css variables to optimize column sizing. */
+  protected columnSizeVariables = this.getColumnSizeVariables();
+
+  private getColumnSizeVariables() {
+    const columnSizingInfo = computed(() => this.table().getState().columnSizingInfo);
+    const columnSizing = computed(() => this.table().getState().columnSizing);
+
+    return computed(() => {
+      // Recompute everytime these values change
+      columnSizingInfo();
+      columnSizing();
+
+      return this.table.getFlatHeaders().reduce<Record<string, number>>((style, header) => {
+        // eslint-disable-next-line functional/immutable-data
+        style[`--header-${header.id}-size`] = header.getSize();
+        // eslint-disable-next-line functional/immutable-data
+        style[`--col-${header.column.id}-size`] = header.column.getSize();
+
+        return style;
+      }, {});
+    });
+  }
 }

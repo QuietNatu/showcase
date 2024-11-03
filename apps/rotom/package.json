@@ -45,6 +45,7 @@
     "@natu/ui-angular": "workspace:*",
     "@natu/utils": "workspace:*",
     "@ngneat/svg-icon": "7.1.6",
+    "@tanstack/angular-table": "^8.20.5",
     "class-variance-authority": "0.7.0",
     "date-fns": "4.1.0",
     "i18next": "23.16.4",

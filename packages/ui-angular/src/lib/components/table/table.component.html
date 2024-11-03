@@ -1,0 +1,74 @@
+<table>
+  <thead>
+    @for (headerGroup of table.getHeaderGroups(); track headerGroup.id) {
+      <tr>
+        @for (header of headerGroup.headers; track header.id) {
+          @if (!header.isPlaceholder) {
+            @let isSorted = header.column.getIsSorted();
+
+            <th [attr.aria-sort]="isSorted ? ariaSortDictionary[isSorted] : null">
+              <button type="button" (click)="header.column.toggleSorting()">
+                <ng-template
+                  [flexRender]="header.column.columnDef.header"
+                  [flexRenderProps]="header.getContext()"
+                  let-header
+                >
+                  {{ header }}
+                </ng-template>
+
+                <!-- TODO: icons  -->
+                @if (isSorted === 'asc') {
+                  <span>🔼</span>
+                }
+                @if (isSorted === 'desc') {
+                  <span>🔽</span>
+                }
+              </button>
+            </th>
+          }
+        }
+      </tr>
+    }
+  </thead>
+
+  <tbody>
+    @for (row of table.getRowModel().rows; track row.id) {
+      <tr>
+        @for (cell of row.getVisibleCells(); track cell.id) {
+          <td>
+            <ng-template
+              [flexRender]="cell.column.columnDef.cell"
+              [flexRenderProps]="cell.getContext()"
+              let-cell
+            >
+              {{ cell }}
+            </ng-template>
+          </td>
+        }
+      </tr>
+    }
+  </tbody>
+
+  <tfoot>
+    @for (footerGroup of table.getFooterGroups(); track footerGroup.id) {
+      <tr>
+        @for (footer of footerGroup.headers; track footer.id) {
+          <th>
+            <ng-template
+              [flexRender]="footer.column.columnDef.footer"
+              [flexRenderProps]="footer.getContext()"
+              let-footer
+            >
+              {{ footer }}
+            </ng-template>
+          </th>
+        }
+      </tr>
+    }
+  </tfoot>
+</table>
+<!-- TODO pagination -->
+
+<ng-template #lastNameCell let-context>
+  <i>{{ context.getValue() }}</i>
+</ng-template>

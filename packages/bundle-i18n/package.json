@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@natu/utils": "workspace:*",
-    "@parcel/watcher": "2.4.1",
+    "@parcel/watcher": "2.5.0",
     "commander": "12.1.0",
     "picocolors": "1.1.1"
   },

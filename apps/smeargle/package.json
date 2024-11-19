@@ -27,7 +27,7 @@
     "eslint-inspector": "pnpm dlx @eslint/config-inspector@latest"
   },
   "dependencies": {
-    "@floating-ui/react": "0.26.27",
+    "@floating-ui/react": "0.26.28",
     "@natu/assets": "workspace:*",
     "@natu/styles": "workspace:*",
     "@natu/ui-react": "workspace:*",

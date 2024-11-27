@@ -6,6 +6,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { environment } from '@/environments/environment';
 import { APP_CONFIG, AppConfig } from '../tokens/config';
 import { getFallbackLanguage } from '@natu/utils';
+import { setDefaultOptions } from 'date-fns';
 
 /**
  * Sets up providers to enable internationalization in the app.
@@ -19,6 +20,11 @@ export function provideAppI18n(): EnvironmentProviders {
 
 function initI18n(appConfig: AppConfig) {
   return () => {
+    setDefaultOptions({
+      weekStartsOn: appConfig.date.weekStartsOn,
+      firstWeekContainsDate: appConfig.date.firstWeekContainsDate,
+    });
+
     i18next.on('languageChanged', updateDocumentLanguage);
 
     return i18next

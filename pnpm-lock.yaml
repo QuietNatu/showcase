@@ -310,8 +310,8 @@ importers:
         specifier: 1.1.0
         version: 1.1.0(@types/react@18.3.12)(react@18.3.1)
       '@react-aria/utils':
-        specifier: 3.25.3
-        version: 3.25.3(react@18.3.1)
+        specifier: 3.26.0
+        version: 3.26.0(react@18.3.1)
       axios:
         specifier: 1.7.7
         version: 1.7.7
@@ -832,8 +832,8 @@ importers:
         specifier: 1.1.0
         version: 1.1.0(@types/react@18.3.12)(react@18.3.1)
       '@react-aria/utils':
-        specifier: 3.25.3
-        version: 3.25.3(react@18.3.1)
+        specifier: 3.26.0
+        version: 3.26.0(react@18.3.1)
       '@storybook/addon-a11y':
         specifier: 8.4.5
         version: 8.4.5(storybook@8.4.5(prettier@3.3.3))
@@ -3783,11 +3783,6 @@ packages:
     resolution: {integrity: sha512-Udi3XOnrF/SYIz72jw9bgB74MG/yCOzF5pozHj2FH2HiJlchYv/b6rHByV/77IZemdlkmL/uugrv/7raPLSlnw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-
-  '@react-aria/utils@3.25.3':
-    resolution: {integrity: sha512-PR5H/2vaD8fSq0H/UB9inNbc8KDcVmW6fYAfSWkkn+OAdhTTMVKqXXrZuZBWyFfSD5Ze7VN6acr4hrOQm2bmrA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0
 
   '@react-aria/utils@3.26.0':
     resolution: {integrity: sha512-LkZouGSjjQ0rEqo4XJosS4L3YC/zzQkfRM3KoqK6fUOmUJ9t0jQ09WjiF+uOoG9u+p30AVg3TrZRUWmoTS+koQ==}
@@ -16173,15 +16168,6 @@ snapshots:
       '@swc/helpers': 0.5.15
       react: 18.3.1
 
-  '@react-aria/utils@3.25.3(react@18.3.1)':
-    dependencies:
-      '@react-aria/ssr': 3.9.7(react@18.3.1)
-      '@react-stately/utils': 3.10.5(react@18.3.1)
-      '@react-types/shared': 3.26.0(react@18.3.1)
-      '@swc/helpers': 0.5.15
-      clsx: 2.1.1
-      react: 18.3.1
-
   '@react-aria/utils@3.26.0(react@18.3.1)':
     dependencies:
       '@react-aria/ssr': 3.9.7(react@18.3.1)
@@ -23255,7 +23241,7 @@ snapshots:
       '@react-aria/tag': 3.4.8(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-aria/textfield': 3.15.0(react@18.3.1)
       '@react-aria/tooltip': 3.7.10(react@18.3.1)
-      '@react-aria/utils': 3.25.3(react@18.3.1)
+      '@react-aria/utils': 3.26.0(react@18.3.1)
       '@react-aria/visually-hidden': 3.8.18(react@18.3.1)
       '@react-types/shared': 3.26.0(react@18.3.1)
       react: 18.3.1

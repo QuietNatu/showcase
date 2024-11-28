@@ -140,16 +140,16 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 18.2.12
-        version: 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(@angular/service-worker@18.2.12(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(@types/node@22.9.3)(chokidar@4.0.1)(html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.24.0)))(karma@6.4.4)(ng-packagr@18.2.1(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(tslib@2.7.0)(typescript@5.5.4))(typescript@5.5.4)
+        version: 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(@angular/service-worker@18.2.12(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(@types/node@22.9.3)(chokidar@3.6.0)(html-webpack-plugin@5.6.3(webpack@5.96.1))(karma@6.4.4)(ng-packagr@18.2.1(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(tslib@2.7.0)(typescript@5.5.4))(typescript@5.5.4)
       '@angular-eslint/builder':
         specifier: 18.3.1
         version: 18.3.1(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4)
       '@angular-eslint/schematics':
         specifier: 18.3.1
-        version: 18.3.1(@angular-devkit/core@18.2.12(chokidar@4.0.1))(@angular-devkit/schematics@18.2.12(chokidar@4.0.1))(@typescript-eslint/utils@8.16.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4))(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4)
+        version: 18.3.1(@angular-devkit/core@18.2.12(chokidar@3.6.0))(@angular-devkit/schematics@18.2.12(chokidar@3.6.0))(@typescript-eslint/utils@8.16.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4))(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4)
       '@angular/cli':
         specifier: 18.2.12
-        version: 18.2.12(chokidar@4.0.1)
+        version: 18.2.12(chokidar@3.6.0)
       '@angular/compiler-cli':
         specifier: 18.2.12
         version: 18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4)
@@ -197,7 +197,7 @@ importers:
         version: 8.4.5(react@18.3.1)(storybook@8.4.5(prettier@3.3.3))
       '@storybook/angular':
         specifier: 8.4.5
-        version: 8.4.5(p5o6zahjky3fziq2342ek6aqam)
+        version: 8.4.5(3ou35q7nefj4wsr7sovfcpecfm)
       '@storybook/blocks':
         specifier: 8.4.5
         version: 8.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.5(prettier@3.3.3))
@@ -569,6 +569,9 @@ importers:
       eslint-plugin-sonarjs:
         specifier: 2.0.4
         version: 2.0.4(@typescript-eslint/parser@8.16.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4))(eslint@9.13.0(jiti@1.21.6))
+      eslint-plugin-storybook:
+        specifier: ^0.11.1
+        version: 0.11.1(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4)
       eslint-plugin-testing-library:
         specifier: 7.0.0
         version: 7.0.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4)
@@ -617,13 +620,13 @@ importers:
     devDependencies:
       '@angular-devkit/build-angular':
         specifier: 18.2.12
-        version: 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(@angular/service-worker@18.2.12(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(@types/node@22.9.3)(chokidar@3.6.0)(html-webpack-plugin@5.6.3(webpack@5.96.1))(karma@6.4.4)(ng-packagr@18.2.1(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(tslib@2.7.0)(typescript@5.5.4))(typescript@5.5.4)
+        version: 18.2.12(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(@angular/service-worker@18.2.12(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(@types/node@22.9.3)(chokidar@4.0.1)(html-webpack-plugin@5.6.3(webpack@5.96.1(esbuild@0.24.0)))(karma@6.4.4)(ng-packagr@18.2.1(@angular/compiler-cli@18.2.12(@angular/compiler@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10)))(typescript@5.5.4))(tslib@2.7.0)(typescript@5.5.4))(typescript@5.5.4)
       '@angular-eslint/builder':
         specifier: 18.3.1
         version: 18.3.1(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4)
       '@angular-eslint/schematics':
         specifier: 18.3.1
-        version: 18.3.1(@angular-devkit/core@18.2.12(chokidar@3.6.0))(@angular-devkit/schematics@18.2.12(chokidar@3.6.0))(@typescript-eslint/utils@8.16.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4))(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4)
+        version: 18.3.1(@angular-devkit/core@18.2.12(chokidar@4.0.1))(@angular-devkit/schematics@18.2.12(chokidar@4.0.1))(@typescript-eslint/utils@8.16.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4))(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4)
       '@angular/animations':
         specifier: 18.2.12
         version: 18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))
@@ -632,7 +635,7 @@ importers:
         version: 18.2.14(@angular/common@18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
       '@angular/cli':
         specifier: 18.2.12
-        version: 18.2.12(chokidar@3.6.0)
+        version: 18.2.12(chokidar@4.0.1)
       '@angular/common':
         specifier: 18.2.12
         version: 18.2.12(@angular/core@18.2.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
@@ -704,7 +707,7 @@ importers:
         version: 8.4.5(react@18.3.1)(storybook@8.4.5(prettier@3.3.3))
       '@storybook/angular':
         specifier: 8.4.5
-        version: 8.4.5(3ou35q7nefj4wsr7sovfcpecfm)
+        version: 8.4.5(p5o6zahjky3fziq2342ek6aqam)
       '@storybook/blocks':
         specifier: 8.4.5
         version: 8.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.5(prettier@3.3.3))
@@ -3102,6 +3105,7 @@ packages:
 
   '@ls-lint/ls-lint@2.2.3':
     resolution: {integrity: sha512-ekM12jNm/7O2I/hsRv9HvYkRdfrHpiV1epVuI2NP+eTIcEgdIdKkKCs9KgQydu/8R5YXTov9aHdOgplmCHLupw==}
+    cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -6879,6 +6883,12 @@ packages:
     resolution: {integrity: sha512-XVVAB/t0WSgHitHNajIcIDmviCO8kB9VSsrjy+4WUEVM3eieY9SDHEtCDaOMTjj6XMtcAr8BFDXCFaP005s+tg==}
     peerDependencies:
       eslint: ^8.0.0 || ^9.0.0
+
+  eslint-plugin-storybook@0.11.1:
+    resolution: {integrity: sha512-yGKpAYkBm/Q2hZg476vRUAvd9lAccjjSvzU5nYy3BSQbKTPy7uopx7JEpwk2vSuw4weTMZzWF64z9/gp/K5RCg==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      eslint: '>=6'
 
   eslint-plugin-testing-library@7.0.0:
     resolution: {integrity: sha512-Bwrn5Qi08Lf5Huv4ZGDNYxwkFLAyGQIPB9lC0ALlojymP32aKsSxWnccP1NvIcI5vMhkENg4Y5Td/Q9/tLYmGQ==}
@@ -20177,6 +20187,16 @@ snapshots:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
+
+  eslint-plugin-storybook@0.11.1(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4):
+    dependencies:
+      '@storybook/csf': 0.1.11
+      '@typescript-eslint/utils': 8.16.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4)
+      eslint: 9.13.0(jiti@1.21.6)
+      ts-dedent: 2.2.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   eslint-plugin-testing-library@7.0.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4):
     dependencies:

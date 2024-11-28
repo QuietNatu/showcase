@@ -16,10 +16,8 @@ import sonarjs from 'eslint-plugin-sonarjs';
 import jsdoc from 'eslint-plugin-jsdoc';
 import jasmine from 'eslint-plugin-jasmine';
 import angular from 'angular-eslint';
+import storybook from 'eslint-plugin-storybook';
 
-/* TODO: missing packages
-  eslint-plugin-storybook
-*/
 /* TODO: explore extra packages
   eslint-plugin-import
 */
@@ -105,7 +103,7 @@ const vrtConfig = tseslint.config({
   },
 });
 
-const storybookConfig = tseslint.config({
+const storybookConfig = tseslint.config(...storybook.configs['flat/recommended'], {
   files: ['src/**/*.stories.[jt]s?(x)'],
   rules: {
     '@typescript-eslint/restrict-template-expressions': 'off',
@@ -364,6 +362,7 @@ const defaultIgnores = [
   'lighthouserc.*js',
   '**/mockServiceWorker.js',
   '**/.storybook/main.ts',
+  '!**/.storybook',
 ];
 
 export default {

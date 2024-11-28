@@ -527,9 +527,6 @@ importers:
 
   packages/eslint-config:
     dependencies:
-      '@eslint/eslintrc':
-        specifier: 3.2.0
-        version: 3.2.0
       '@vitest/eslint-plugin':
         specifier: 1.1.10
         version: 1.1.10(@typescript-eslint/utils@8.16.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4))(eslint@9.13.0(jiti@1.21.6))(typescript@5.5.4)(vitest@2.1.5(@types/node@22.9.3)(jsdom@25.0.1)(less@4.2.0)(msw@2.4.9(typescript@5.5.4))(sass@1.81.0)(terser@5.36.0))
@@ -3105,7 +3102,6 @@ packages:
 
   '@ls-lint/ls-lint@2.2.3':
     resolution: {integrity: sha512-ekM12jNm/7O2I/hsRv9HvYkRdfrHpiV1epVuI2NP+eTIcEgdIdKkKCs9KgQydu/8R5YXTov9aHdOgplmCHLupw==}
-    cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true
 

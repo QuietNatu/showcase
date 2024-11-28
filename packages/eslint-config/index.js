@@ -1,7 +1,7 @@
 import globals from 'globals';
 import eslint from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
 import tseslint from 'typescript-eslint';
+import turboConfig from 'eslint-config-turbo/flat';
 import functional from 'eslint-plugin-functional';
 import unusedImports from 'eslint-plugin-unused-imports';
 import playwright from 'eslint-plugin-playwright';
@@ -24,13 +24,11 @@ import angular from 'angular-eslint';
   eslint-plugin-import
 */
 
-const compat = new FlatCompat();
-
 const baseConfig = tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
-  ...compat.extends('turbo'),
+  ...turboConfig,
   functional.configs.recommended,
   functional.configs.stylistic,
   jsdoc.configs['flat/recommended-typescript'],

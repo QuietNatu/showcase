@@ -34,8 +34,8 @@
     "lighthouse-desktop": "turbo run lighthouse-desktop"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.5.0",
-    "@commitlint/config-conventional": "19.5.0",
+    "@commitlint/cli": "19.6.0",
+    "@commitlint/config-conventional": "19.6.0",
     "@ls-lint/ls-lint": "2.2.3",
     "@playwright/test": "1.48.2",
     "dependency-cruiser": "16.6.0",

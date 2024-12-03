@@ -7,7 +7,7 @@
       // bad workarounds check README...
       "@natu/assets": ["../assets/angular"],
       "@natu/assets/*": ["../assets/angular/*"],
-      "@natu/utils": ["../utils/src"],
-    },
-  },
+      "@natu/utils": ["../utils/src"]
+    }
+  }
 }

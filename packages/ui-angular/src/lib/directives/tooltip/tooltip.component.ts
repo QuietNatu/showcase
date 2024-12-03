@@ -53,7 +53,6 @@ const sideTransforms: Record<Side, string> = {
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [NgTemplateOutlet, NatuOverlayArrowComponent],
   host: {
     role: 'tooltip',

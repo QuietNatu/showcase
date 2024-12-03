@@ -35,7 +35,6 @@ const sideTransforms: Record<Side, string> = {
   selector: 'natu-popover',
   templateUrl: './popover.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [NgTemplateOutlet, NatuOverlayArrowComponent, natuCardImports, CdkTrapFocus],
   host: {
     role: 'dialog',

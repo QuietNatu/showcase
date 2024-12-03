@@ -48,7 +48,6 @@ import { provideToken } from '../../../utils';
     </ng-template>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [NgTemplateOutlet, natuTooltipImports],
   providers: [
     provideToken({

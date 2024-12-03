@@ -329,7 +329,6 @@ const angularConfig = tseslint.config(
         },
       ],
       '@angular-eslint/prefer-on-push-component-change-detection': 'error',
-      '@angular-eslint/prefer-standalone': 'error',
       'functional/no-classes': 'off',
     },
   },

@@ -19,7 +19,6 @@ import { NatuPortalService } from './portal.service';
     <button type="button" natuButton (click)="detach.emit()">Detach</button>
   </div>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [natuButtonImports],
 })
 class ButtonsComponent {
@@ -37,7 +36,6 @@ class ButtonsComponent {
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ButtonsComponent, NatuPortalDirective],
 })
 class DefaultComponent {
@@ -54,7 +52,6 @@ class DefaultComponent {
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ButtonsComponent, NatuPortalDirective],
 })
 class NestedComponent {
@@ -69,7 +66,6 @@ class NestedComponent {
     <ng-template #portalTemplate><div>Example content</div></ng-template>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ButtonsComponent],
   providers: [NatuPortalService],
 })
@@ -99,7 +95,6 @@ class ServiceComponentExampleComponent {}
   selector: 'natu-service-component',
   template: `<natu-buttons (attach)="attach()" (detach)="detach()" />`,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [ButtonsComponent],
   providers: [NatuPortalService],
 })

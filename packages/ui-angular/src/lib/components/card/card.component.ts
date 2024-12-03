@@ -26,7 +26,6 @@ import { NatuTranslationDirective } from '../../i18n';
 @Component({
   selector: 'natu-card,[natu-card]',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [natuButtonImports, SvgIconComponent, NatuTranslationDirective],
   template: `
     <ng-content select="natu-card-header,[natu-card-header]" />

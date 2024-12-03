@@ -50,7 +50,6 @@ describe(NatuPortalService.name, () => {
     @Component({
       selector: 'natu-test-nested-template',
       changeDetection: ChangeDetectionStrategy.OnPush,
-      standalone: true,
       imports: [TestTemplateComponent],
       providers: [NatuPortalService],
       template: `
@@ -196,7 +195,6 @@ describe(NatuPortalService.name, () => {
       @Component({
         selector: 'natu-test-content',
         changeDetection: ChangeDetectionStrategy.OnPush,
-        standalone: true,
         imports: [TestComponentComponent],
         template: `
           <div>Example content</div>

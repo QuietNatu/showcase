@@ -31,7 +31,6 @@ import { NatuSidebarGroupPopoverContentComponent } from './sidebar-group-popover
   selector: 'natu-sidebar-group',
   templateUrl: './sidebar-group.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [
     NatuSidebarItemComponent,
     NatuSidebarIconDirective,

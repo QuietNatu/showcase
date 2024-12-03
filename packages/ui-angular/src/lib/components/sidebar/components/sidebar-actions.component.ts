@@ -20,7 +20,6 @@ import { NatuTranslationDirective } from '../../../i18n';
     </nav>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [NgTemplateOutlet, NatuTranslationDirective],
   host: {
     class: 'natu-sidebar__body',

@@ -7,8 +7,6 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
   selector: 'natu-counter',
   templateUrl: './counter.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [],
 })
 export class NatuCounterComponent {
   readonly count = signal(0);

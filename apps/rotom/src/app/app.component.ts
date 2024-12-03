@@ -13,10 +13,10 @@ import { NatuTranslationDirective } from '@natu/ui-angular';
  * Renders the whole app.
  */
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [CounterComponent, HeaderComponent, SidebarComponent, NatuTranslationDirective]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CounterComponent, HeaderComponent, SidebarComponent, NatuTranslationDirective],
 })
 export class AppComponent {}

@@ -8,7 +8,7 @@ interface UseControllableStateOptions<T> {
   defaultValue?: T;
 
   /** Final value for uncontrolled state when value and defaultValue are not provided */
-  finalValue?: T;
+  finalValue: T;
 
   /** Controlled state onChange handler */
   onChange?: (value: T) => void;
@@ -30,7 +30,7 @@ export function useControllableState<T>(
   );
 
   const isUncontrolled = value === undefined;
-  const currentValue = isUncontrolled ? (uncontrolledValue as T) : (value as T);
+  const currentValue = isUncontrolled ? uncontrolledValue : (value as T);
 
   const handleChange = (action: SetStateAction<T>) => {
     const nextValue = getStateActionValue(currentValue, action);

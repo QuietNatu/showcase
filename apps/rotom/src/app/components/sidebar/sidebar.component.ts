@@ -8,7 +8,6 @@ import { natuSidebarImports } from '@natu/ui-angular';
   selector: 'app-sidebar',
   styleUrl: './sidebar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [natuSidebarImports],
   template: `<natu-sidebar class="sidebar"></natu-sidebar>`,
 })

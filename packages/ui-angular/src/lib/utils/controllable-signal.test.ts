@@ -50,6 +50,7 @@ describe(controllableSignal.name, () => {
       controllableSignal<string>({
         value: signal(undefined),
         defaultValue: signal('default-value'),
+        finalValue: 'final-value',
       }),
     );
 
@@ -70,7 +71,7 @@ describe(controllableSignal.name, () => {
     const onChangeSpy = jasmine.createSpy();
 
     const { value, change, isControlled, valueChange$ } = TestBed.runInInjectionContext(() =>
-      controllableSignal<string>({ value: signal('controlled-value') }),
+      controllableSignal<string>({ value: signal('controlled-value'), finalValue: 'final-value' }),
     );
 
     valueChange$.subscribe(onChangeSpy);

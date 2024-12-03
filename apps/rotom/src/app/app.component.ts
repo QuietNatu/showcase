@@ -17,7 +17,6 @@ import { NatuTranslationDirective } from '@natu/ui-angular';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [CounterComponent, HeaderComponent, SidebarComponent, NatuTranslationDirective],
 })
 export class AppComponent {}

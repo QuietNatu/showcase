@@ -4,6 +4,7 @@ import { axe, render } from '../../test';
 import { TestComponentArgs } from '../../test/types';
 import { NatuOverlayDelayGroupDirective } from '../../overlay';
 import { provideUiConfig } from '../../core';
+import { fakeAsync, tick } from '@angular/core/testing';
 
 describe(`${NatuTooltipDirective.name} accessibility`, () => {
   const scenarios = [
@@ -176,15 +177,11 @@ describe(NatuTooltipDirective.name, () => {
   });
 
   describe('with group delay', () => {
-    afterEach(() => {
-      jasmine.clock().uninstall();
-    });
-
-    it('shows and hides tooltip with delay but skips delay between tooltips', async () => {
+    it('shows and hides tooltip with delay but skips delay between tooltips', fakeAsync(async () => {
       const { userEvent, isOpenChangeSpy1, isOpenChangeSpy2 } = await setupDelayGroup();
 
       await userEvent.hover(screen.getByRole('button', { name: 'Trigger 1' }));
-      jasmine.clock().tick(10_000);
+      tick(10_000);
 
       const tooltip1 = await screen.findByRole('tooltip', { name: 'Example tooltip 1' });
 
@@ -192,7 +189,6 @@ describe(NatuTooltipDirective.name, () => {
 
       await userEvent.unhover(screen.getByRole('button', { name: 'Trigger 1' }));
       await userEvent.hover(screen.getByRole('button', { name: 'Trigger 2' }));
-      jasmine.clock().tick(10_000); // BUG: should not be needed but no alternative seems to work. Change this once Angular finally updates it's test runner.
 
       await waitForElementToBeRemoved(tooltip1);
       const tooltip2 = await screen.findByRole('tooltip', { name: 'Example tooltip 2' });
@@ -201,20 +197,20 @@ describe(NatuTooltipDirective.name, () => {
       expect(tooltip2).toBeInTheDocument();
 
       await userEvent.unhover(screen.getByRole('button', { name: 'Trigger 2' }));
-      jasmine.clock().tick(10_000);
+      tick(10_000);
 
       await waitForElementToBeRemoved(tooltip2);
 
       expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
       expect(isOpenChangeSpy1.calls.mostRecent().args).toEqual([false]);
       expect(isOpenChangeSpy2.calls.mostRecent().args).toEqual([false]);
-    });
+    }));
 
-    it('does not skip delay between tooltips when not in a group', async () => {
+    it('does not skip delay between tooltips when not in a group', fakeAsync(async () => {
       const { userEvent, isOpenChangeSpy1, isOpenChangeSpy2 } = await setupWithoutDelayGroup();
 
       await userEvent.hover(screen.getByRole('button', { name: 'Trigger 1' }));
-      jasmine.clock().tick(10_000);
+      tick(10_000);
 
       const tooltip1 = await screen.findByRole('tooltip', { name: 'Example tooltip 1' });
 
@@ -222,7 +218,7 @@ describe(NatuTooltipDirective.name, () => {
 
       await userEvent.unhover(screen.getByRole('button', { name: 'Trigger 1' }));
       await userEvent.hover(screen.getByRole('button', { name: 'Trigger 2' }));
-      jasmine.clock().tick(10_000);
+      tick(10_000);
 
       await waitForElementToBeRemoved(tooltip1);
       const tooltip2 = await screen.findByRole('tooltip', { name: 'Example tooltip 2' });
@@ -231,14 +227,14 @@ describe(NatuTooltipDirective.name, () => {
       expect(tooltip2).toBeInTheDocument();
 
       await userEvent.unhover(screen.getByRole('button', { name: 'Trigger 2' }));
-      jasmine.clock().tick(10_000);
+      tick(10_000);
 
       await waitForElementToBeRemoved(tooltip2);
 
       expect(screen.queryByRole('tooltip')).not.toBeInTheDocument();
       expect(isOpenChangeSpy1.calls.mostRecent().args).toEqual([false]);
       expect(isOpenChangeSpy2.calls.mostRecent().args).toEqual([false]);
-    });
+    }));
   });
 });
 
@@ -276,8 +272,6 @@ async function setup(props: TestComponentArgs<NatuTooltipDirective> = {}) {
 }
 
 async function setupDelayGroup(props: TestComponentArgs<NatuTooltipDirective> = {}) {
-  jasmine.clock().install();
-
   // eslint-disable-next-line jasmine/no-unsafe-spy
   const isOpenChangeSpy1 = jasmine.createSpy();
   // eslint-disable-next-line jasmine/no-unsafe-spy
@@ -325,7 +319,7 @@ async function setupDelayGroup(props: TestComponentArgs<NatuTooltipDirective> = 
       },
       userEventOptions: {
         advanceTimers: (ms) => {
-          jasmine.clock().tick(ms);
+          tick(ms);
         },
       },
     },
@@ -335,8 +329,6 @@ async function setupDelayGroup(props: TestComponentArgs<NatuTooltipDirective> = 
 }
 
 async function setupWithoutDelayGroup(props: TestComponentArgs<NatuTooltipDirective> = {}) {
-  jasmine.clock().install();
-
   // eslint-disable-next-line jasmine/no-unsafe-spy
   const isOpenChangeSpy1 = jasmine.createSpy();
   // eslint-disable-next-line jasmine/no-unsafe-spy
@@ -381,7 +373,7 @@ async function setupWithoutDelayGroup(props: TestComponentArgs<NatuTooltipDirect
       },
       userEventOptions: {
         advanceTimers: (ms) => {
-          jasmine.clock().tick(ms);
+          tick(ms);
         },
       },
     },

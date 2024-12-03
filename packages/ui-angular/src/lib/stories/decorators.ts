@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, Injector } from '@angular/core';
+import { Injector, inject, provideAppInitializer } from '@angular/core';
 import { Decorator, componentWrapperDecorator } from '@storybook/angular';
 
 /**
@@ -27,12 +27,9 @@ export function onStoryInitDecorator<TArgs>(
     }
 
     // eslint-disable-next-line functional/immutable-data
-    story.applicationConfig.providers.unshift({
-      provide: APP_INITIALIZER,
-      useFactory: (injector: Injector) => () => callback(injector),
-      multi: true,
-      deps: [Injector],
-    });
+    story.applicationConfig.providers.unshift(
+      provideAppInitializer(() => callback(inject(Injector))),
+    );
 
     return story;
   };

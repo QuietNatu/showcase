@@ -15,7 +15,6 @@ import { NatuSidebarGroupPopoverService } from '../services/sidebar-group-popove
 @Component({
   selector: 'natu-sidebar-group-popover-content',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [NgTemplateOutlet],
   providers: [NatuSidebarGroupPopoverService],
   template: `

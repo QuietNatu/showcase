@@ -19,7 +19,6 @@ import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core
 @Component({
   selector: 'natu-sidebar-story',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [natuSidebarImports, RouterLink, RouterLinkActive, SvgIconComponent],
   template: `
     <natu-sidebar [defaultIsExpanded]="defaultIsExpanded()">

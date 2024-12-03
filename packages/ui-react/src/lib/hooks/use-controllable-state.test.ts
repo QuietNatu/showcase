@@ -43,6 +43,7 @@ test('supports uncontrolled state', () => {
   const { result } = renderHook(() =>
     useControllableState({
       defaultValue: 'default-value',
+      finalValue: 'final-value',
       onChange: onChangeSpy,
     }),
   );
@@ -67,6 +68,7 @@ test('supports controlled state', () => {
   const { result } = renderHook(() =>
     useControllableState({
       value: 'controlled-value',
+      finalValue: 'final-value',
       onChange: onChangeSpy,
     }),
   );

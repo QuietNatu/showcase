@@ -25,7 +25,6 @@ import { NatuPortalService } from './portal.service';
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
   imports: [NgTemplateOutlet, NgComponentOutlet],
 })
 export class NatuPortalComponent {

@@ -1,6 +1,6 @@
 import { NatuDisclosureDirective, natuDisclosureImports } from './disclosure.directive';
 import { axe, render } from '../../test';
-import { screen, waitForElementToBeRemoved } from '@testing-library/angular';
+import { screen } from '@testing-library/angular';
 import { TestComponentArgs } from '../../test/types';
 
 describe(`${NatuDisclosureDirective.name} accessibility`, () => {
@@ -79,8 +79,6 @@ describe(NatuDisclosureDirective.name, () => {
         isExpanded: false,
       } satisfies TestComponentArgs<NatuDisclosureDirective>,
     });
-
-    await waitForElementToBeRemoved(() => screen.queryByRole('region'));
 
     expect(screen.queryByRole('region')).not.toBeInTheDocument();
     expect(isExpandedChangeSpy).not.toHaveBeenCalled();

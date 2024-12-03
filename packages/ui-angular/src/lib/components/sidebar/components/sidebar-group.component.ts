@@ -10,7 +10,6 @@ import {
   viewChild,
 } from '@angular/core';
 import { NatuSidebarItemDirective } from '../directives/sidebar-item.directive';
-import { NatuSidebarItemComponent } from './sidebar-item.component';
 import { SvgIconComponent } from '@ngneat/svg-icon';
 import { NatuSidebarService } from '../services/sidebar.service';
 import {
@@ -32,9 +31,6 @@ import { NatuSidebarGroupPopoverContentComponent } from './sidebar-group-popover
   templateUrl: './sidebar-group.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    NatuSidebarItemComponent,
-    NatuSidebarIconDirective,
-    NatuSidebarLabelDirective,
     NatuFocusRingDirective,
     SvgIconComponent,
     natuDisclosureImports,

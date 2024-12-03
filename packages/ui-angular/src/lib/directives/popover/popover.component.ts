@@ -7,13 +7,15 @@ import {
   OnDestroy,
   OnInit,
   Renderer2,
+  Signal,
+  TemplateRef,
   computed,
   inject,
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { NatuOverlayService } from '../../overlay';
 import { NatuOverlayArrowComponent } from '../../overlay';
-import { Side } from '@floating-ui/dom';
+import { ComputePositionReturn, Side } from '@floating-ui/dom';
 import { NATU_TIME_ANIMATION_STANDARD } from '@natu/styles';
 import { NatuPopoverService } from './popover.service';
 import { natuCardImports } from '../../components';
@@ -57,18 +59,18 @@ const sideTransforms: Record<Side, string> = {
   ],
 })
 export class NatuPopoverComponent implements OnInit, OnDestroy {
-  readonly floatingId;
-  readonly arrowWidth;
-  readonly arrowHeight;
+  readonly floatingId: string;
+  readonly arrowWidth: number;
+  readonly arrowHeight: number;
 
-  readonly labelId;
-  readonly descriptionId;
-  readonly hasEmbeddedContent;
-  readonly content;
-  readonly isOpen;
-  readonly context;
-  readonly floatingStyle;
-  readonly transformation;
+  readonly labelId: Signal<string | null>;
+  readonly descriptionId: Signal<string | null>;
+  readonly hasEmbeddedContent: Signal<boolean>;
+  readonly content: Signal<TemplateRef<unknown> | null>;
+  readonly isOpen: Signal<boolean>;
+  readonly context: Signal<ComputePositionReturn | null>;
+  readonly floatingStyle: Signal<Partial<CSSStyleDeclaration> | null>;
+  readonly transformation: Signal<string | null>;
 
   readonly injector = inject(Injector);
 
@@ -113,7 +115,7 @@ export class NatuPopoverComponent implements OnInit, OnDestroy {
     this.overlayService.setFloatingElement(null);
   }
 
-  handleFinishClose() {
+  protected handleFinishClose() {
     this.overlayService.unmount();
   }
 

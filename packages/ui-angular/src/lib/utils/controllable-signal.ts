@@ -1,6 +1,8 @@
 import { Signal, computed, effect, signal, untracked } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
+/* TODO: replace this with linkedsignal */
+
 interface CreateControllableSignalOptions<T> {
   /** Value for controlled state */
   value: Signal<T | undefined>;

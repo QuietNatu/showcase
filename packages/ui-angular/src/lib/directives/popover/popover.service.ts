@@ -1,4 +1,12 @@
-import { ElementRef, Injectable, TemplateRef, inject, signal } from '@angular/core';
+import {
+  ElementRef,
+  Injectable,
+  Signal,
+  TemplateRef,
+  computed,
+  inject,
+  signal,
+} from '@angular/core';
 import { NatuOverlayService } from '../../overlay';
 
 /**
@@ -6,14 +14,14 @@ import { NatuOverlayService } from '../../overlay';
  */
 @Injectable()
 export class NatuPopoverService {
-  readonly attributes;
-  readonly content;
-  readonly hasEmbeddedContent;
-  readonly labelId;
-  readonly descriptionId;
+  readonly attributes: Signal<Record<string, string>>;
+  readonly content: Signal<TemplateRef<unknown> | null>;
+  readonly hasEmbeddedContent: Signal<boolean>;
+  readonly labelId: Signal<string | null>;
+  readonly descriptionId: Signal<string | null>;
 
-  readonly floatingId;
-  readonly isMounted;
+  readonly floatingId: string;
+  readonly isMounted: Signal<boolean>;
 
   private readonly attributesSignal = signal<Record<string, string>>({});
   private readonly contentSignal = signal<TemplateRef<unknown> | null>(null);
@@ -24,11 +32,11 @@ export class NatuPopoverService {
   private readonly overlayService = inject(NatuOverlayService);
 
   constructor() {
-    this.attributes = this.attributesSignal.asReadonly();
+    this.attributes = this.getAttributes();
     this.content = this.contentSignal.asReadonly();
     this.hasEmbeddedContent = this.hasEmbeddedContentSignal.asReadonly();
-    this.labelId = this.labelIdSignal.asReadonly();
-    this.descriptionId = this.descriptionIdSignal.asReadonly();
+    this.labelId = this.getLabelId();
+    this.descriptionId = this.getDescriptionId();
 
     this.floatingId = this.overlayService.floatingId;
     this.isMounted = this.overlayService.isMounted;
@@ -60,5 +68,32 @@ export class NatuPopoverService {
 
   dismiss() {
     this.overlayService.changeOpen(false);
+  }
+
+  private getAttributes() {
+    return computed(() => {
+      // Remove attributes that will conflict with existing code
+      const {
+        // eslint-disable-next-line sonarjs/sonar-no-unused-vars
+        'aria-labelledby': labelledby,
+        // eslint-disable-next-line sonarjs/sonar-no-unused-vars
+        'aria-describedby': describedby,
+        ...attributes
+      } = this.attributesSignal();
+
+      return attributes;
+    });
+  }
+
+  private getLabelId() {
+    return computed(
+      () => this.labelIdSignal() ?? this.attributesSignal()['aria-labelledby'] ?? null,
+    );
+  }
+
+  private getDescriptionId() {
+    return computed(
+      () => this.descriptionIdSignal() ?? this.attributesSignal()['aria-describedby'] ?? null,
+    );
   }
 }

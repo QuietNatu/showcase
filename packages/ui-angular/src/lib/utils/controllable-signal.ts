@@ -1,7 +1,5 @@
-import { Signal, computed, effect, signal, untracked } from '@angular/core';
+import { Signal, computed, linkedSignal } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-
-/* TODO: replace this with linkedsignal */
 
 interface CreateControllableSignalOptions<T> {
   /** Value for controlled state */
@@ -11,7 +9,7 @@ interface CreateControllableSignalOptions<T> {
   defaultValue?: Signal<T | undefined>;
 
   /** Final value for uncontrolled state when value and defaultValue are not provided */
-  finalValue?: T;
+  finalValue: T;
 }
 
 /**
@@ -23,44 +21,37 @@ export function controllableSignal<T>(options: CreateControllableSignalOptions<T
   valueChange$: Observable<T>;
   isControlled: Signal<boolean>;
 } {
-  const { value: controlledValue$, defaultValue: defaultValue$, finalValue } = options;
+  const { value: controlledValue, defaultValue, finalValue } = options;
 
-  const uncontrolledValue$ = signal(finalValue);
-  const valueChange$ = new Subject<T>();
+  const valueSignal = linkedSignal<T | undefined, T | undefined>({
+    source: controlledValue,
+    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+    computation: (value, previous) => (value === undefined ? previous?.value : value),
+  });
 
-  // eslint-disable-next-line functional/no-let
-  let hasDefaultValueBeenSet = false;
+  const value = computed<T>(() => {
+    const currentValue = valueSignal();
 
-  effect(() => {
-    const defaultValue = defaultValue$?.();
-
-    if (!hasDefaultValueBeenSet && defaultValue !== undefined) {
-      hasDefaultValueBeenSet = true;
-      untracked(() => {
-        uncontrolledValue$.set(defaultValue);
-      });
+    if (currentValue !== undefined) {
+      return currentValue;
+    } else {
+      const currentDefaultValue = defaultValue?.();
+      // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+      return currentDefaultValue === undefined ? finalValue : currentDefaultValue;
     }
   });
 
-  const isControlled$ = computed(() => controlledValue$() !== undefined);
+  const valueChange$ = new Subject<T>();
 
-  const value$ = computed(() => {
-    const controlledValue = controlledValue$();
-    const uncontrolledValue = uncontrolledValue$();
-
-    // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-    return controlledValue === undefined ? (uncontrolledValue as T) : controlledValue;
-  });
+  const isControlled = computed(() => controlledValue() !== undefined);
 
   const change = (value: T) => {
-    const isControlled = isControlled$();
-
-    if (!isControlled) {
-      uncontrolledValue$.set(value);
+    if (!isControlled()) {
+      valueSignal.set(value);
     }
 
     valueChange$.next(value);
   };
 
-  return { value: value$, change, valueChange$, isControlled: isControlled$ };
+  return { value, change, valueChange$, isControlled: isControlled };
 }

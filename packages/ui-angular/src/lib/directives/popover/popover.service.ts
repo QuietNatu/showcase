@@ -74,9 +74,7 @@ export class NatuPopoverService {
     return computed(() => {
       // Remove attributes that will conflict with existing code
       const {
-        // eslint-disable-next-line sonarjs/sonar-no-unused-vars
         'aria-labelledby': labelledby,
-        // eslint-disable-next-line sonarjs/sonar-no-unused-vars
         'aria-describedby': describedby,
         ...attributes
       } = this.attributesSignal();

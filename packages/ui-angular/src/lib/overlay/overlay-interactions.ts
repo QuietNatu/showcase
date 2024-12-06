@@ -202,7 +202,7 @@ export function useOverlayDelayGroup() {
   registerEffect(overlayDelayGroupService.currentId, (currentId) => {
     if (currentId !== id && overlayService.isOpen()) {
       // Wait for components with animations to update their duration
-      setTimeout(() => {
+      void Promise.resolve().then(() => {
         overlayService.changeOpen(false);
       });
     }

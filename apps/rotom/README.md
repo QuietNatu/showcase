@@ -28,6 +28,7 @@ Ideally if a library already exists it should be used. But in this case, angular
 - https://github.com/angular/angular/issues/12627
 - https://github.com/angular/angular/issues/28731
 - https://github.com/angular/components/issues/10113
+- https://github.com/angular/angular/issues/19119
 
 ### Karma Jasmine HTML Reporter interferes with tests
 

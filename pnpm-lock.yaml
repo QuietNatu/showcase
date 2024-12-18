@@ -21,8 +21,8 @@ importers:
         specifier: 2.2.3
         version: 2.2.3
       '@playwright/test':
-        specifier: 1.49.0
-        version: 1.49.0
+        specifier: 1.49.1
+        version: 1.49.1
       dependency-cruiser:
         specifier: 16.6.0
         version: 16.6.0
@@ -172,8 +172,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/vrt
       '@playwright/test':
-        specifier: 1.49.0
-        version: 1.49.0
+        specifier: 1.49.1
+        version: 1.49.1
       '@storybook/addon-a11y':
         specifier: 8.4.7
         version: 8.4.7(storybook@8.4.7(prettier@3.3.3))
@@ -263,7 +263,7 @@ importers:
         version: 7.3.0(encoding@0.1.13)(openapi-types@12.1.3)(typescript@5.5.4)
       playwright-bdd:
         specifier: 7.5.0
-        version: 7.5.0(@cucumber/message-streams@4.0.1(@cucumber/messages@26.0.1))(@playwright/test@1.49.0)
+        version: 7.5.0(@cucumber/message-streams@4.0.1(@cucumber/messages@26.0.1))(@playwright/test@1.49.1)
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -365,8 +365,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/vrt
       '@playwright/test':
-        specifier: 1.49.0
-        version: 1.49.0
+        specifier: 1.49.1
+        version: 1.49.1
       '@storybook/addon-a11y':
         specifier: 8.4.7
         version: 8.4.7(storybook@8.4.7(prettier@3.3.3))
@@ -441,7 +441,7 @@ importers:
         version: 7.3.0(encoding@0.1.13)(openapi-types@12.1.3)(typescript@5.5.4)
       playwright-bdd:
         specifier: 7.5.0
-        version: 7.5.0(@cucumber/message-streams@4.0.1(@cucumber/messages@26.0.1))(@playwright/test@1.49.0)
+        version: 7.5.0(@cucumber/message-streams@4.0.1(@cucumber/messages@26.0.1))(@playwright/test@1.49.1)
       prettier:
         specifier: 3.3.3
         version: 3.3.3
@@ -676,8 +676,8 @@ importers:
         specifier: 7.1.6
         version: 7.1.6(@angular/common@19.0.3(@angular/core@19.0.3(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))
       '@playwright/test':
-        specifier: 1.49.0
-        version: 1.49.0
+        specifier: 1.49.1
+        version: 1.49.1
       '@storybook/addon-a11y':
         specifier: 8.4.7
         version: 8.4.7(storybook@8.4.7(prettier@3.3.3))
@@ -811,8 +811,8 @@ importers:
         specifier: workspace:*
         version: link:../vrt
       '@playwright/test':
-        specifier: 1.49.0
-        version: 1.49.0
+        specifier: 1.49.1
+        version: 1.49.1
       '@radix-ui/react-collapsible':
         specifier: 1.1.1
         version: 1.1.1(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -992,8 +992,8 @@ importers:
         specifier: workspace:*
         version: link:../tsconfig
       '@playwright/test':
-        specifier: 1.49.0
-        version: 1.49.0
+        specifier: 1.49.1
+        version: 1.49.1
       typescript:
         specifier: 5.5.4
         version: 5.5.4
@@ -3214,8 +3214,8 @@ packages:
     resolution: {integrity: sha512-cq8o4cWH0ibXh9VGi5P20Tu9XF/0fFXl9EUinr9QfTM7a7p0oTA4iJRCQWppXR1Pg8dSM0UCItCkPwsk9qWWYA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.49.0':
-    resolution: {integrity: sha512-DMulbwQURa8rNIQrf94+jPJQ4FmOVdpE5ZppRNvWVjvhC+6sOeo28r8MgIpQRYouXRtt/FCCXU7zn20jnHR4Qw==}
+  '@playwright/test@1.49.1':
+    resolution: {integrity: sha512-Ky+BVzPz8pL6PQxHqNRW1k3mIyv933LML7HktS8uik0bUXNCdPhoS/kLihiO1tMf/egaJb4IutXd7UywvXEW+g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -8875,13 +8875,13 @@ packages:
     peerDependencies:
       '@playwright/test': '>=1.35'
 
-  playwright-core@1.49.0:
-    resolution: {integrity: sha512-R+3KKTQF3npy5GTiKH/T+kdhoJfJojjHESR1YEWhYuEKRVfVaxH3+4+GvXE5xyCngCxhxnykk0Vlah9v8fs3jA==}
+  playwright-core@1.49.1:
+    resolution: {integrity: sha512-BzmpVcs4kE2CH15rWfzpjzVGhWERJfmnXmniSyKeRZUs9Ws65m+RGIi7mjJK/euCegfn3i7jvqWeWyHe9y3Vgg==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.49.0:
-    resolution: {integrity: sha512-eKpmys0UFDnfNb3vfsf8Vx2LEOtflgRebl0Im2eQQnYMA4Aqd+Zw8bEOB+7ZKvN76901mRnqdsiOGKxzVTbi7A==}
+  playwright@1.49.1:
+    resolution: {integrity: sha512-VYL8zLoNTBxVOrJBbDuRgDWa3i+mfQgDTrL8Ah9QXZ7ax4Dsj0MSq5bYgytRnDVVe+njoKnfsYkH3HzqVj5UZA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -14245,9 +14245,9 @@ snapshots:
 
   '@pkgr/core@0.1.1': {}
 
-  '@playwright/test@1.49.0':
+  '@playwright/test@1.49.1':
     dependencies:
-      playwright: 1.49.0
+      playwright: 1.49.1
 
   '@puppeteer/browsers@2.3.0':
     dependencies:
@@ -21359,7 +21359,7 @@ snapshots:
     dependencies:
       find-up: 6.3.0
 
-  playwright-bdd@7.5.0(@cucumber/message-streams@4.0.1(@cucumber/messages@26.0.1))(@playwright/test@1.49.0):
+  playwright-bdd@7.5.0(@cucumber/message-streams@4.0.1(@cucumber/messages@26.0.1))(@playwright/test@1.49.1):
     dependencies:
       '@cucumber/cucumber-expressions': 17.1.0
       '@cucumber/gherkin': 29.0.0
@@ -21368,7 +21368,7 @@ snapshots:
       '@cucumber/html-formatter': 21.7.0(@cucumber/messages@26.0.1)
       '@cucumber/messages': 26.0.1
       '@cucumber/tag-expressions': 6.1.0
-      '@playwright/test': 1.49.0
+      '@playwright/test': 1.49.1
       cli-table3: 0.6.5
       commander: 12.1.0
       fast-glob: 3.3.2
@@ -21377,11 +21377,11 @@ snapshots:
     transitivePeerDependencies:
       - '@cucumber/message-streams'
 
-  playwright-core@1.49.0: {}
+  playwright-core@1.49.1: {}
 
-  playwright@1.49.0:
+  playwright@1.49.1:
     dependencies:
-      playwright-core: 1.49.0
+      playwright-core: 1.49.1
     optionalDependencies:
       fsevents: 2.3.2
 

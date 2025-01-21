@@ -29,7 +29,7 @@ const rotation: Record<Side, string> = {
   template: `
     <svg
       #arrow
-      aria-hidden
+      aria-hidden="true"
       [attr.width]="width"
       [attr.height]="width"
       [attr.viewBox]="viewBox"

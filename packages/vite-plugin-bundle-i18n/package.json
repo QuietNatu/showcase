@@ -27,7 +27,7 @@
     "@natu/eslint-config": "workspace:*",
     "@natu/tsconfig": "workspace:*",
     "@types/picomatch": "3.0.2",
-    "tsup": "8.3.5",
+    "tsup": "8.3.6",
     "typescript": "5.5.4"
   }
 }

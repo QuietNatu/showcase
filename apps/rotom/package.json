@@ -95,7 +95,7 @@
     "karma-spec-reporter": "0.0.36",
     "msw": "2.4.9",
     "npm-run-all2": "7.0.2",
-    "orval": "7.3.0",
+    "orval": "7.5.0",
     "playwright-bdd": "7.5.0",
     "prettier": "3.4.2",
     "source-map-explorer": "2.5.3",

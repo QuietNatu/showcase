@@ -1,7 +1,0 @@
-{
-  duration: {
-    entrance: { value: 'cubic-bezier(0, 0, 0.2, 1)' },
-    exit: { value: 'cubic-bezier(0.4, 0.15, 1, 1)' },
-    standard: { value: 'cubic-bezier(0.4, 0.15, 0.2, 1)' },
-  },
-}

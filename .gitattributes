@@ -1,2 +1,0 @@
-* text=auto eol=lf
-**/vrt/screenshots/**/*.png filter=lfs diff=lfs merge=lfs -text

@@ -1,7 +1,0 @@
-{
-  "outputPath": "./angular/svg",
-  "srcPath": "./svg",
-  "svgoConfig": {
-    "plugins": ["removeDimensions", "cleanupAttrs"]
-  }
-}

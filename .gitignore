@@ -1,1 +1,6 @@
+# Editors
+.vscode
+
+# Misc
 node_modules
+.turbo

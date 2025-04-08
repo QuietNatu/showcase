@@ -12,10 +12,12 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "format": "prettier . --write",
-    "lint": "turbo run lint"
+    "lint": "pnpm ls-lint && turbo run lint",
+    "lint:lslint": "ls-lint"
   },
   "devDependencies": {
-    "prettier": "^3.5.3",
+    "@ls-lint/ls-lint": "2.3.0",
+    "prettier": "3.5.3",
     "turbo": "2.5.0"
   }
 }

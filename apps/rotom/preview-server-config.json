@@ -1,0 +1,4 @@
+{
+  "port": 6101,
+  "server": { "baseDir": "./dist/browser" }
+}

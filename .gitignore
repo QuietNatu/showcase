@@ -1,6 +1,10 @@
 # Editors
-.vscode
+.vscode/*
+!.vscode/extensions.json
 
 # Misc
-node_modules
+.angular
 .turbo
+coverage
+dist
+node_modules

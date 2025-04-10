@@ -11,6 +11,9 @@ importers:
       '@ls-lint/ls-lint':
         specifier: 2.3.0
         version: 2.3.0
+      '@natu/browserslist-config-shared':
+        specifier: workspace:^
+        version: link:packages/browserslist-config-shared
       prettier:
         specifier: 3.5.3
         version: 3.5.3
@@ -90,6 +93,9 @@ importers:
       '@angular/compiler-cli':
         specifier: ^19.2.0
         version: 19.2.6(@angular/compiler@19.2.6)(typescript@5.7.2)
+      '@natu/browserslist-config-shared':
+        specifier: workspace:^
+        version: link:../../packages/browserslist-config-shared
       '@types/jasmine':
         specifier: ~5.1.0
         version: 5.1.7
@@ -130,6 +136,9 @@ importers:
       '@eslint/js':
         specifier: 9.21.0
         version: 9.21.0
+      '@natu/browserslist-config-shared':
+        specifier: workspace:^
+        version: link:../../packages/browserslist-config-shared
       '@types/react':
         specifier: 19.1.0
         version: 19.1.0
@@ -139,6 +148,9 @@ importers:
       '@vitejs/plugin-react-swc':
         specifier: 3.8.1
         version: 3.8.1(vite@6.2.5(@types/node@22.14.0)(jiti@1.21.7)(less@4.2.2)(sass@1.85.0)(terser@5.39.0))
+      browserslist-to-esbuild:
+        specifier: ^2.1.1
+        version: 2.1.1(browserslist@4.24.4)
       eslint:
         specifier: 9.21.0
         version: 9.21.0(jiti@1.21.7)
@@ -160,6 +172,8 @@ importers:
       vite:
         specifier: 6.2.5
         version: 6.2.5(@types/node@22.14.0)(jiti@1.21.7)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)
+
+  packages/browserslist-config-shared: {}
 
 packages:
 
@@ -2484,6 +2498,13 @@ packages:
     resolution: {integrity: sha512-NiM38O6XU84+MN+gzspVmXV2fTOoe+jBqIBx3IBdhZrdeURr6ZgznJr/p+hQ+KzkKEiGH/GcC4SQFSL0jV49bg==}
     engines: {node: '>= 8.0.0'}
     hasBin: true
+
+  browserslist-to-esbuild@2.1.1:
+    resolution: {integrity: sha512-KN+mty6C3e9AN8Z5dI1xeN15ExcRNeISoC3g7V0Kax/MMF9MSoYA2G7lkTTcVUFntiEjkpI0HNgqJC1NjdyNUw==}
+    engines: {node: '>=18'}
+    hasBin: true
+    peerDependencies:
+      browserslist: '*'
 
   browserslist@4.24.4:
     resolution: {integrity: sha512-KDi1Ny1gSePi1vm0q4oxSF8b4DR44GF4BbmS2YdhPLOEqd8pDviZOGH/GsmRwoWJ2+5Lr085X7naowMwKHDG1A==}
@@ -7841,6 +7862,11 @@ snapshots:
       - debug
       - supports-color
       - utf-8-validate
+
+  browserslist-to-esbuild@2.1.1(browserslist@4.24.4):
+    dependencies:
+      browserslist: 4.24.4
+      meow: 13.2.0
 
   browserslist@4.24.4:
     dependencies:

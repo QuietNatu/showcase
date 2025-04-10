@@ -1,2 +1,1 @@
 extends @natu/browserslist-config-shared/browser
-extends @natu/browserslist-config-shared/node

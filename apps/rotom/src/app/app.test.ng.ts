@@ -1,6 +1,6 @@
 import { render } from '@testing-library/angular';
 import { page } from '@vitest/browser/context';
-import { App } from './app.component';
+import { App } from './app.ng';
 
 describe(App.name, () => {
   it('should show recipes', async () => {

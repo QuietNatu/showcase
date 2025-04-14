@@ -21,7 +21,10 @@ export default defineConfig(({ mode }) => {
       restoreMocks: true,
       unstubEnvs: true,
       unstubGlobals: true,
-      include: ['src/**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+      include: [
+        'src/**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
+        'src/**/*.test.ng.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
+      ],
       setupFiles: ['src/test/setup-tests.ts'],
       coverage: {
         thresholds: {

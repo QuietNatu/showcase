@@ -22,7 +22,7 @@ export class RecipeList {
 @Component({
   selector: 'app-root',
   imports: [RecipeList],
-  templateUrl: './app.component.html',
+  templateUrl: './app.ng.html',
 })
 export class App {
   protected readonly recipes = signal<Recipe[]>([

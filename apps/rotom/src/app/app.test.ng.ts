@@ -3,7 +3,7 @@ import { page } from '@vitest/browser/context';
 import { App } from './app.ng';
 
 describe(App.name, () => {
-  it('should show recipes', async () => {
+  test('shows recipes', async () => {
     await render(App);
 
     const recipeNames = page

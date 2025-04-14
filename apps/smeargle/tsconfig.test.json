@@ -1,0 +1,10 @@
+{
+  "extends": "@natu/tsconfig/tsconfig.vite-react.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.test.tsbuildinfo",
+    "baseUrl": ".",
+    "types": ["vitest/globals", "@vitest/browser/providers/playwright"]
+  },
+  "include": ["src/**/*.test.ts", "src/**/*.test.tsx", "src/**/*.d.ts"],
+  "files": ["src/test/setup-tests.ts"]
+}

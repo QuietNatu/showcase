@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "baseUrl": ".",
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals", "@vitest/browser/providers/playwright"]
   },
   "include": ["src/**/*.test.ts", "src/**/*.test.ng.ts", "src/**/*.d.ts"],
   "files": ["src/test/setup-tests.ts"]

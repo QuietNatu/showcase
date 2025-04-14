@@ -37,7 +37,7 @@ export default defineConfig(({ mode }) => {
         // config
         all: true, // Note: this does not work. Currently angular plugin has a bug where untested files are missing
         provider: 'istanbul', // TODO: use v8 once the angular integration is fixed
-        include: ['src/**/*.{html,ts,tsx}'],
+        include: ['src/**/*.{html,js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
         exclude: ['**/*.test.*', '**/*.stories.*', '**/*.vrt.*', 'src/test'],
         reporter: ['lcov', 'text-summary'],
       },

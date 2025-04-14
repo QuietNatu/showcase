@@ -1,0 +1,10 @@
+{
+  "extends": "@natu/tsconfig/tsconfig.angular.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "baseUrl": ".",
+    "types": ["vitest/globals"]
+  },
+  "include": ["src/**/*.test.ts", "src/**/*.test.ng.ts", "src/**/*.d.ts"],
+  "files": ["src/test/setup-tests.ts"]
+}

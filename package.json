@@ -14,7 +14,9 @@
     "format": "prettier . --write",
     "lint": "turbo run lint && pnpm lint:ls-lint && pnpm lint:stylelint",
     "lint:lslint": "ls-lint",
-    "lint:stylelint": "stylelint '{apps,packages}/*/src/**/*.{css,scss}'"
+    "lint:stylelint": "stylelint '{apps,packages}/*/src/**/*.{css,scss}'",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch"
   },
   "devDependencies": {
     "@ls-lint/ls-lint": "2.3.0",

@@ -11,7 +11,16 @@
       "persistent": true
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^build", "^lint"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": ["coverage/**"],
+      "env": ["PLAYWRIGHT_BROWSERS_PATH"]
+    },
+    "test:watch": {
+      "cache": false,
+      "persistent": true
     }
   }
 }

@@ -1,9 +1,7 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
-  "extends": "@natu/tsconfig/tsconfig.angular.json",
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
-    "baseUrl": "."
-  }
+    "outDir": "./dist/out-tsc"
+  },
+  "files": [],
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.test.json" }]
 }

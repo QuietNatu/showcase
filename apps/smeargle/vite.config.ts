@@ -56,6 +56,9 @@ export default defineConfig(({ mode }) => {
       },
 
       browser: {
+        api: {
+          port: 6002,
+        },
         enabled: true,
         headless: !isDebugMode,
         provider: 'playwright',

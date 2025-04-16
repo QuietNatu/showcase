@@ -9,7 +9,7 @@
     "dev": "vite",
     "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6003",
     "storybook:build": "storybook build",
     "test": "vitest run --coverage",
     "test:watch": "cross-env TEST_DEBUG=1 vitest"

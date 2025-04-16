@@ -1,4 +1,4 @@
-import App from './app';
+import { App } from './app';
 import { page } from '@vitest/browser/context';
 import { render } from 'vitest-browser-react';
 

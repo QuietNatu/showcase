@@ -1,4 +1,4 @@
-// Setup tests here
+import '@natu/axe/vitest/extend-expect';
 
 import { beforeAll } from 'vitest';
 import { setProjectAnnotations } from '@storybook/react';

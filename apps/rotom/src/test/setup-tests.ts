@@ -1,4 +1,5 @@
 import '@analogjs/vitest-angular/setup-zone';
+import '@natu/axe/vitest/extend-expect';
 
 import {
   BrowserDynamicTestingModule,

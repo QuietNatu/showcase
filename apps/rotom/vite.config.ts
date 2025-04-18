@@ -15,6 +15,10 @@ export default defineConfig(({ mode }) => {
       }),
     ],
 
+    optimizeDeps: {
+      include: ['@natu/axe/src/**/*.ts'], // TODO: recheck this after tsconfig paths
+    },
+
     test: {
       globals: true,
       css: false,

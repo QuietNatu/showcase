@@ -1,16 +1,21 @@
 import { render } from '@testing-library/angular';
 import { page } from '@vitest/browser/context';
 import { App } from './app';
+import { axe } from '@natu/axe/vitest';
 
-describe(App.name, () => {
-  test('shows recipes', async () => {
-    await render(App);
+test('has no accessibility violations', async () => {
+  const { container } = await render(App);
 
-    const recipeNames = page
-      .getByRole('article')
-      .elements()
-      .map((el) => el.textContent);
+  expect(await axe(container)).toHaveNoViolations();
+});
 
-    expect(recipeNames).toEqual(['Burger', 'Babaganoush']);
-  });
+test('shows recipes', async () => {
+  await render(App);
+
+  const recipeNames = page
+    .getByRole('article')
+    .elements()
+    .map((el) => el.textContent);
+
+  expect(recipeNames).toEqual(['Burger', 'Babaganoush']);
 });

@@ -15,7 +15,10 @@ const isDevMode = process.env.NODE_ENV === 'development';
 
 const config: StorybookConfig & StorybookConfigVite = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  addons: [getAbsolutePath('@storybook/addon-essentials')],
+  addons: [
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@storybook/addon-a11y'),
+  ],
   framework: {
     name: getAbsolutePath('@storybook/angular'),
     options: {},
@@ -39,9 +42,12 @@ const config: StorybookConfig & StorybookConfigVite = {
           '@storybook/angular',
           '@storybook/angular/dist/client/index.js',
           '@angular/compiler',
+          '@storybook/addon-a11y',
           '@storybook/addon-docs/angular',
           '@storybook/blocks',
+          '@storybook/test',
           'tslib',
+          '@natu/axe', // TODO: recheck this after tsconfig paths
         ],
       },
       plugins: [

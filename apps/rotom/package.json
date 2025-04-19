@@ -7,7 +7,7 @@
   "scripts": {
     "build": "ng build",
     "dev": "ng dev",
-    "lint": "eslint --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
+    "lint": "eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "preview": "lite-server -c preview-server-config.json",
     "test": "ng test --coverage",
     "test:watch": "cross-env TEST_DEBUG=1 ng test --watch",
@@ -38,8 +38,10 @@
     "@compodoc/compodoc": "1.1.26",
     "@natu/axe": "workspace:^",
     "@natu/browserslist-config-shared": "workspace:^",
+    "@natu/eslint-config-shared": "workspace:^",
     "@natu/tsconfig": "workspace:^",
     "@storybook/addon-a11y": "^8.6.12",
+    "@storybook/addon-docs": "^8.6.12",
     "@storybook/addon-essentials": "8.6.12",
     "@storybook/angular": "8.6.12",
     "@storybook/blocks": "8.6.12",
@@ -51,10 +53,12 @@
     "@vitest/browser": "^3.1.1",
     "@vitest/coverage-istanbul": "^3.1.1",
     "cross-env": "^7.0.3",
+    "eslint": "9.25.0",
     "lite-server": "^2.6.1",
     "playwright": "^1.51.1",
     "storybook": "8.6.12",
     "typescript": "5.8.3",
+    "typescript-eslint": "8.30.1",
     "vite": "6.2.5",
     "vitest": "^3.1.1"
   }

@@ -12,7 +12,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "format": "prettier . --write",
-    "lint": "pnpm run lint:prettier && pnpm lint:lslint && pnpm lint:stylelint && turbo run lint",
+    "lint": "turbo run lint && pnpm run lint:prettier && pnpm lint:lslint && pnpm lint:stylelint",
     "lint:eslint": "turbo run lint",
     "lint:lslint": "ls-lint",
     "lint:prettier": "prettier . --check",

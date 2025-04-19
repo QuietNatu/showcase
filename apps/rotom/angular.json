@@ -77,6 +77,12 @@
         },
         "test": {
           "builder": "@analogjs/vitest-angular:test"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
         }
       }
     }
@@ -84,6 +90,6 @@
   "cli": {
     "analytics": false,
     "packageManager": "pnpm",
-    "schematicCollections": []
+    "schematicCollections": ["angular-eslint"]
   }
 }

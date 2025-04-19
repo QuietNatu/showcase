@@ -1,12 +1,14 @@
-import { Component, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 
-type Recipe = {
+interface Recipe {
   id: string;
   name: string;
-};
+}
 
+/** Renders a recipe list. */
 @Component({
   selector: 'app-recipe-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @for (recipe of recipes(); track recipe.id) {
       <article>{{ recipe.name }}</article>
@@ -19,9 +21,11 @@ export class RecipeList {
   readonly recipes = input.required<Recipe[]>();
 }
 
+/** Renders the whole app. */
 @Component({
   selector: 'app-root',
   imports: [RecipeList],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.html',
 })
 export class App {

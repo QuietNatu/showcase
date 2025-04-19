@@ -10,7 +10,7 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
-import { globalIgnores } from 'eslint/config';
+import angular from 'angular-eslint';
 
 /*
   TODO: use import { defineConfig } from 'eslint/config'; once tslint is ready for it
@@ -18,29 +18,32 @@ import { globalIgnores } from 'eslint/config';
         and then check if typescript-eslint can be removed from peer-dependencies
 */
 
+// TODO: recheck rules and libraries
+
+const defaultIgnores = [
+  'node_modules/',
+  'dist/',
+  'coverage/',
+  'public/',
+  '.storybook/main.ts',
+  'storybook-static/',
+  '.lighthouseci/',
+  'lighthouse-reports/',
+  'e2e/.features-gen/',
+  'vite.config.ts',
+  'playwright.config.ts',
+  'eslint.config.js',
+  'commitlint.config.js',
+  'lint-staged.config.js',
+  'prettier.config.js',
+  'stylelint.config.js',
+  'postcss.config.js',
+  'tsup.config.ts',
+  'orval.config.ts',
+  'lighthouserc.*js',
+];
+
 const baseConfig = tseslint.config(
-  globalIgnores([
-    'node_modules/',
-    'dist/',
-    'coverage/',
-    'public/',
-    '.storybook/main.ts',
-    'storybook-static/',
-    '.lighthouseci/',
-    'lighthouse-reports/',
-    'e2e/.features-gen/',
-    'vite.config.ts*',
-    'playwright.config.ts',
-    'eslint.config.js',
-    'commitlint.config.js',
-    'lint-staged.config.js',
-    'prettier.config.js',
-    'stylelint.config.js',
-    'postcss.config.js',
-    'tsup.config.ts',
-    'orval.config.ts',
-    'lighthouserc.*js',
-  ]),
   js.configs.recommended,
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
@@ -110,6 +113,42 @@ const baseConfig = tseslint.config(
   },
 );
 
+const angularConfig = tseslint.config(
+  {
+    files: ['**/*.ts'],
+    extends: [...baseConfig, ...angular.configs.tsRecommended],
+    processor: angular.processInlineTemplates,
+    rules: {
+      '@angular-eslint/component-class-suffix': 'off',
+      '@angular-eslint/directive-selector': [
+        'error',
+        {
+          type: 'attribute',
+          prefix: 'app',
+          style: 'camelCase',
+        },
+      ],
+      '@angular-eslint/component-selector': [
+        'error',
+        {
+          type: 'element',
+          prefix: 'app',
+          style: 'kebab-case',
+        },
+      ],
+      '@angular-eslint/prefer-on-push-component-change-detection': 'error',
+      '@angular-eslint/prefer-standalone': 'error',
+      '@typescript-eslint/no-extraneous-class': 'off',
+      'functional/no-classes': 'off',
+    },
+  },
+  {
+    files: ['**/*.html'],
+    extends: [...angular.configs.templateRecommended, ...angular.configs.templateAccessibility],
+    rules: {},
+  },
+);
+
 const reactConfig = tseslint.config(
   ...baseConfig,
   // @ts-ignore
@@ -135,7 +174,9 @@ const reactConfig = tseslint.config(
 
 export default {
   configs: {
+    angular: angularConfig,
     base: baseConfig,
     react: reactConfig,
   },
+  defaultIgnores,
 };

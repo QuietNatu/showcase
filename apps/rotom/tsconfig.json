@@ -3,5 +3,9 @@
     "outDir": "./dist/out-tsc"
   },
   "files": [],
-  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.test.json" }]
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.lint.json" },
+    { "path": "./tsconfig.test.json" }
+  ]
 }

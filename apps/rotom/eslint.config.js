@@ -6,7 +6,7 @@ import { globalIgnores } from 'eslint/config';
 
 export default tseslint.config(
   globalIgnores(shared.defaultIgnores),
-  ...shared.configs.react,
+  ...shared.configs.angular,
   // ...shared.configs.vitest,
   // ...shared.configs.vrt,
   // ...shared.configs.storybook,

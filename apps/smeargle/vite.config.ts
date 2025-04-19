@@ -64,6 +64,7 @@ export default defineConfig(({ mode }) => {
         provider: 'playwright',
         // https://vitest.dev/guide/browser/playwright
         instances: [{ browser: 'chromium' }],
+        screenshotFailures: false,
       },
 
       reporters: ['default'],

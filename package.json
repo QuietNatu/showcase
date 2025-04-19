@@ -4,7 +4,7 @@
   "license": "MIT",
   "version": "0.0.0",
   "type": "module",
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.8.1+sha512.c50088ba998c67b8ca8c99df8a5e02fd2ae2e2b29aaf238feaa9e124248d3f48f9fb6db2424949ff901cffbb5e0f0cc1ad6aedb602cd29450751d11c35023677",
   "engines": {
     "node": "22.x"
   },
@@ -12,8 +12,10 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "format": "prettier . --write",
-    "lint": "turbo run lint && pnpm lint:ls-lint && pnpm lint:stylelint",
+    "lint": "pnpm run lint:prettier && pnpm lint:lslint && pnpm lint:stylelint && turbo run lint",
+    "lint:eslint": "turbo run lint",
     "lint:lslint": "ls-lint",
+    "lint:prettier": "prettier . --check",
     "lint:stylelint": "stylelint '{apps,packages}/*/src/**/*.{css,scss}'",
     "storybook": "turbo run storybook",
     "storybook:build": "turbo run storybook:build",
@@ -23,6 +25,7 @@
   "devDependencies": {
     "@ls-lint/ls-lint": "2.3.0",
     "@natu/browserslist-config-shared": "workspace:^",
+    "playwright": "^1.51.1",
     "prettier": "3.5.3",
     "stylelint": "^16.18.0",
     "stylelint-config-css-modules": "^4.4.0",

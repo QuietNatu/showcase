@@ -19,3 +19,4 @@ ls:
 ignore:
   - .git
   - node_modules
+  - '**/@types'

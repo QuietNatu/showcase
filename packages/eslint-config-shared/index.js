@@ -14,6 +14,7 @@ import angular from 'angular-eslint';
 import storybook from 'eslint-plugin-storybook';
 import vitest from '@vitest/eslint-plugin';
 import jestDom from 'eslint-plugin-jest-dom';
+import playwright from 'eslint-plugin-playwright';
 
 /*
   TODO: use import { defineConfig } from 'eslint/config'; once tslint is ready for it
@@ -212,6 +213,16 @@ const vitestConfig = tseslint.config(
   },
 );
 
+const vrtConfig = tseslint.config({
+  ...playwright.configs['flat/recommended'],
+  files: ['vrt/**/*.ts', 'src/**/*.vrt.ts'],
+  rules: {
+    ...playwright.configs['flat/recommended'].rules,
+    'playwright/expect-expect': 'off',
+    'playwright/valid-title': 'off',
+  },
+});
+
 export default {
   configs: {
     angular: angularConfig,
@@ -219,6 +230,7 @@ export default {
     react: reactConfig,
     storybook: storybookConfig,
     vitest: vitestConfig,
+    vrt: vrtConfig,
   },
   defaultIgnores,
 };

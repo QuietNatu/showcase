@@ -15,6 +15,8 @@ import storybook from 'eslint-plugin-storybook';
 import vitest from '@vitest/eslint-plugin';
 import jestDom from 'eslint-plugin-jest-dom';
 import playwright from 'eslint-plugin-playwright';
+import unicorn from 'eslint-plugin-unicorn';
+import prettier from 'eslint-config-prettier/flat';
 
 /*
   TODO: use import { defineConfig } from 'eslint/config'; once tslint is ready for it
@@ -59,6 +61,7 @@ const baseConfig = tseslint.config(
   functional.configs.stylistic,
   jsdoc.configs['flat/recommended-typescript'],
   sonarjs.configs.recommended,
+  unicorn.configs.recommended,
   {
     plugins: {
       'unused-imports': unusedImports,
@@ -111,6 +114,14 @@ const baseConfig = tseslint.config(
       'sonarjs/no-unused-vars': 'off',
       'sonarjs/redundant-type-aliases': 'off',
       'sonarjs/todo-tag': 'off',
+      'unicorn/filename-case': 'off',
+      'unicorn/prefer-query-selector': 'off',
+      'unicorn/prefer-top-level-await': 'off',
+      'unicorn/prevent-abbreviations': 'off',
+      'unicorn/no-array-reduce': 'off',
+      'unicorn/no-nested-ternary': 'off',
+      'unicorn/no-null': 'off',
+      'unicorn/no-useless-undefined': 'off',
       'unused-imports/no-unused-imports': 'error',
     },
   },
@@ -223,6 +234,8 @@ const vrtConfig = tseslint.config({
   },
 });
 
+const prettierConfig = tseslint.config(prettier);
+
 export default {
   configs: {
     angular: angularConfig,
@@ -231,6 +244,8 @@ export default {
     storybook: storybookConfig,
     vitest: vitestConfig,
     vrt: vrtConfig,
+    /** Should be placed after all the other configs and rules */
+    prettier: prettierConfig,
   },
   defaultIgnores,
 };

@@ -10,6 +10,7 @@ export default tseslint.config(
   ...shared.configs.storybook,
   ...shared.configs.vitest,
   ...shared.configs.vrt,
+  ...shared.configs.prettier,
   {
     languageOptions: {
       parserOptions: {

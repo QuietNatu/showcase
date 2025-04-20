@@ -11,6 +11,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import angular from 'angular-eslint';
+import storybook from 'eslint-plugin-storybook';
 
 /*
   TODO: use import { defineConfig } from 'eslint/config'; once tslint is ready for it
@@ -25,6 +26,7 @@ const defaultIgnores = [
   'dist/',
   'coverage/',
   'public/',
+  '!.storybook',
   '.storybook/main.ts',
   'storybook-static/',
   '.lighthouseci/',
@@ -137,6 +139,7 @@ const angularConfig = tseslint.config(
         },
       ],
       '@angular-eslint/prefer-on-push-component-change-detection': 'error',
+      '@angular-eslint/prefer-signals': 'error',
       '@angular-eslint/prefer-standalone': 'error',
       '@typescript-eslint/no-extraneous-class': 'off',
       'functional/no-classes': 'off',
@@ -172,11 +175,19 @@ const reactConfig = tseslint.config(
   },
 );
 
+const storybookConfig = tseslint.config(...storybook.configs['flat/recommended'], {
+  files: ['src/**/*.stories.[jt]s?(x)'],
+  rules: {
+    '@typescript-eslint/restrict-template-expressions': 'off',
+  },
+});
+
 export default {
   configs: {
     angular: angularConfig,
     base: baseConfig,
     react: reactConfig,
+    storybook: storybookConfig,
   },
   defaultIgnores,
 };

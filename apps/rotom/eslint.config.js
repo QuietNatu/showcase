@@ -9,7 +9,7 @@ export default tseslint.config(
   ...shared.configs.angular,
   // ...shared.configs.vitest,
   // ...shared.configs.vrt,
-  // ...shared.configs.storybook,
+  ...shared.configs.storybook,
   {
     languageOptions: {
       parserOptions: {

@@ -7,9 +7,9 @@ import { globalIgnores } from 'eslint/config';
 export default tseslint.config(
   globalIgnores(shared.defaultIgnores),
   ...shared.configs.angular,
-  // ...shared.configs.vitest,
-  // ...shared.configs.vrt,
   ...shared.configs.storybook,
+  ...shared.configs.vitest,
+  // ...shared.configs.vrt,
   {
     languageOptions: {
       parserOptions: {

@@ -17,5 +17,5 @@ test('shows recipes', async () => {
     .elements()
     .map((el) => el.textContent);
 
-  expect(recipeNames).toEqual(['Burger', 'Babaganoush']);
+  expect(recipeNames).toStrictEqual(['Burger', 'Babaganoush']);
 });

@@ -12,6 +12,8 @@ import reactRefresh from 'eslint-plugin-react-refresh';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import angular from 'angular-eslint';
 import storybook from 'eslint-plugin-storybook';
+import vitest from '@vitest/eslint-plugin';
+import jestDom from 'eslint-plugin-jest-dom';
 
 /*
   TODO: use import { defineConfig } from 'eslint/config'; once tslint is ready for it
@@ -46,11 +48,9 @@ const defaultIgnores = [
 ];
 
 const baseConfig = tseslint.config(
+  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
+  { languageOptions: { globals: globals.browser } },
   js.configs.recommended,
-  {
-    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-    languageOptions: { globals: globals.browser },
-  },
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   ...turboConfig,
@@ -182,12 +182,43 @@ const storybookConfig = tseslint.config(...storybook.configs['flat/recommended']
   },
 });
 
+const vitestConfig = tseslint.config(
+  {
+    files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
+    plugins: {
+      vitest,
+    },
+    rules: {
+      ...vitest.configs.all.rules,
+      'vitest/consistent-test-it': ['warn', { fn: 'test', withinDescribe: 'test' }],
+      'vitest/prefer-expect-resolves': 'off',
+      'vitest/prefer-expect-assertions': 'off',
+      'vitest/prefer-to-be-falsy': 'off',
+      'vitest/prefer-to-be-truthy': 'off',
+      'vitest/require-top-level-describe': 'off',
+      'vitest/max-expects': 'off',
+      'vitest/no-hooks': 'off',
+    },
+  },
+  {
+    ...jestDom.configs['flat/recommended'], // vitest browser assertions are based on jest-dom
+    files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
+  },
+  {
+    files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
+    rules: {
+      '@typescript-eslint/restrict-template-expressions': 'off',
+    },
+  },
+);
+
 export default {
   configs: {
     angular: angularConfig,
     base: baseConfig,
     react: reactConfig,
     storybook: storybookConfig,
+    vitest: vitestConfig,
   },
   defaultIgnores,
 };

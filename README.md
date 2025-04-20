@@ -37,6 +37,7 @@ To set up the project you have to:
 - To run unit tests, use `pnpm test`.
 - To run visual regression tests, use `pnpm vrt`.
 - To run end-to-end tests, use `pnpm e2e`.
+- To inpect eslint configuration, use `pnpm dlx @eslint/config-inspector@latest` in the same directory where `eslint.cofing.js` is located.
 
 ## 💻 Supported browsers
 

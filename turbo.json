@@ -10,8 +10,12 @@
       "cache": false,
       "persistent": true
     },
+    "format": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
     "lint": {
-      "dependsOn": ["^build", "^lint"]
+      "dependsOn": ["^build"]
     },
     "storybook": {
       "dependsOn": ["^build"],

@@ -11,8 +11,10 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "format": "prettier . --write",
-    "lint": "turbo run lint && pnpm run lint:prettier && pnpm lint:lslint && pnpm lint:stylelint",
+    "format": "turbo run format && pnpm run format:stylelint && pnpm run format:prettier",
+    "format:prettier": "prettier . --write",
+    "format:stylelint": "stylelint --fix '{apps,packages}/*/src/**/*.{css,scss}'",
+    "lint": "turbo run lint && pnpm lint:lslint && pnpm lint:stylelint && pnpm run lint:prettier",
     "lint:eslint": "turbo run lint",
     "lint:lslint": "ls-lint",
     "lint:prettier": "prettier . --check",

@@ -7,6 +7,7 @@
   "scripts": {
     "build": "ng build",
     "dev": "ng dev",
+    "format": "eslint . --fix --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "lint": "eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "preview": "lite-server -c preview-server-config.json",
     "test": "ng test --coverage",

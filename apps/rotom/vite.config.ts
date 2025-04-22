@@ -15,6 +15,10 @@ export default defineConfig(({ mode }) => {
       }),
     ],
 
+    preview: {
+      port: 6101,
+    },
+
     optimizeDeps: {
       include: ['@natu/axe/src/**/*.ts'], // TODO: recheck this after tsconfig paths
     },

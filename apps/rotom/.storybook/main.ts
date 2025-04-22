@@ -36,6 +36,8 @@ const config: StorybookConfig & StorybookConfigVite = {
     const { mergeConfig } = await import('vite');
     const { default: angular } = await import('@analogjs/vite-plugin-angular');
 
+    // TODO: storybook:build not working
+
     return mergeConfig(config, {
       optimizeDeps: {
         include: [

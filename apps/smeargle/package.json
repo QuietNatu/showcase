@@ -12,6 +12,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6003",
     "storybook:build": "storybook build",
+    "storybook:preview": "vite preview --port 6003 --outDir ./storybook-static",
     "test": "vitest run --coverage",
     "test:watch": "cross-env TEST_DEBUG=1 vitest"
   },

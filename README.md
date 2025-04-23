@@ -13,6 +13,7 @@ A project to practice and showcase what I have learned.
   - [🧱 Project structure](#-project-structure)
   - [🔧 Technical decisions](#-technical-decisions)
     - [SPA runtime configuration](#spa-runtime-configuration)
+    - [Library exports](#library-exports)
   - [💭 Thoughts](#-thoughts)
     - [Component libraries](#component-libraries)
     - [Visual Regression Tests (VRT)](#visual-regression-tests-vrt)
@@ -74,6 +75,31 @@ Typically, configuration files or environment variables are used to modify the b
 To avoid rebundling or rebuilding, the SPAs in this repository use runtime configuration files named `config.js`.
 These files are then imported via a script present in the `index.html` of each app, before the app itself renders.
 These files can then be replaced, for example, with [Kubernetes ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/), thus allowing for an app to be configured without recreating the container image.
+
+### Library exports
+
+In the past, it was common to provide all exports of a library through a single index file that acted as an entry point for the library. However, this approach was not ideal because when a file imported a library, it would import all the modules provided by that library's entry point. This forced bundlers to analyze those modules and tree-shake any unused code. Without proper tree-shaking, bundlers would produce unnecessarily large bundles containing unused code.
+
+To address this issue, large libraries should avoid exporting all modules through a single main entry point. Instead, they should provide multiple entry points for their exports. This can be achieved by specifying the package exports in the `package.json` file as follows:
+
+```json
+// package.json
+"exports": {
+  // Main entrypoint (import "my-lib")
+  ".": {
+    "default": "./src/lib/index.js"
+  },
+  // Secondary entrypoint (import "my-lib/utils")
+  "./utils": {
+    "default": "./src/lib/utils/index.js"
+  },
+  // Secondary entrypoint per component (import "my-lib/components/button" / import "my-lib/components/table")
+  "./components/*": {
+    "default": "./src/lib/components/*/index.js"
+  },
+},
+
+```
 
 ## 💭 Thoughts
 

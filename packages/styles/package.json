@@ -27,7 +27,7 @@
     "@natu/tsconfig": "workspace:*",
     "@types/node": "22.9.3",
     "style-dictionary": "4.1.4",
-    "tsx": "4.19.2",
+    "tsx": "4.19.4",
     "typescript": "5.5.4",
     "vite": "6.0.11"
   }

@@ -8,7 +8,6 @@ import jsdoc from 'eslint-plugin-jsdoc';
 import sonarjs from 'eslint-plugin-sonarjs';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import reactCompiler from 'eslint-plugin-react-compiler';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import angular from 'angular-eslint';
@@ -171,7 +170,6 @@ const reactConfig = tseslint.config(
   react.configs.flat.recommended,
   react.configs.flat['jsx-runtime'],
   reactHooks.configs['recommended-latest'],
-  reactCompiler.configs.recommended,
   reactRefresh.configs.vite,
   jsxA11y.flatConfigs.recommended,
   {

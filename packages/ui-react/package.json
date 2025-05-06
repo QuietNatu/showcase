@@ -21,6 +21,10 @@
     "test": "vitest run --coverage",
     "test:watch": "cross-env TEST_DEBUG=1 vitest"
   },
+  "peerDependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
     "@natu/axe": "workspace:^",
@@ -50,9 +54,5 @@
     "vite": "^6.3.1",
     "vitest": "^3.1.1",
     "vitest-browser-react": "^0.1.1"
-  },
-  "peerDependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
   }
 }

@@ -1,0 +1,13 @@
+{
+  "extends": "@natu/tsconfig/tsconfig.angular.json",
+  "compilerOptions": {
+    "types": [],
+    // Only needed because Angular does not support importing uncompiled libraries
+    "paths": {
+      "@natu/axe": ["../../packages/axe/src/index.ts"],
+      "@natu/axe/vitest": ["../../packages/axe/src/vitest/index.ts"],
+      "@natu/axe/vitest/extend-expect": ["../../packages/axe/src/vitest/extend-expect.ts"],
+      "@natu/ui-angular/components/*": ["../../packages/ui-angular/src/lib/components/*"]
+    }
+  }
+}

@@ -2,4 +2,5 @@ pnpm-lock.yaml
 .gitignore
 .husky
 .prettierignore
+.browserslistrc
 **/*.sh

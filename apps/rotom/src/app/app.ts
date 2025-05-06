@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
+import { ExampleCounter } from '@natu/ui-angular/components/example-counter';
 
 interface Recipe {
   id: string;
@@ -24,7 +25,7 @@ export class RecipeList {
 /** Renders the whole app. */
 @Component({
   selector: 'app-root',
-  imports: [RecipeList],
+  imports: [RecipeList, ExampleCounter],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.html',
 })

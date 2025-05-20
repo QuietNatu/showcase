@@ -1,54 +1,23 @@
 import type { Preview } from '@storybook/react';
-import '../src/styles/styles.scss';
-import { storyThemeDecorator } from '../src/lib/stories/decorators';
-import { storyA11yConfig } from '../src/lib/stories';
-import { mockI18n } from '../src/mocks/i18n';
+import { A11yParameters } from '@storybook/addon-a11y';
+import { axeRules } from '@natu/axe';
 
 const preview: Preview = {
-  tags: ['autodocs'],
   parameters: {
+    a11y: { config: { rules: axeRules } } satisfies A11yParameters['a11y'],
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
     },
-    a11y: storyA11yConfig,
     options: {
       storySort: {
         method: 'alphabetical',
       },
     },
   },
-  globalTypes: {
-    theme: {
-      description: 'The visual theme of the story',
-      defaultValue: 'smeargle',
-      toolbar: {
-        dynamicTitle: true,
-        icon: 'paintbrush',
-        items: [
-          { value: 'ninjask', title: 'Ninjask' },
-          { value: 'rotom', title: 'Rotom' },
-          { value: 'smeargle', title: 'Smeargle' },
-        ],
-      },
-    },
-    colorScheme: {
-      description: 'The color scheme of the story',
-      defaultValue: 'light',
-      toolbar: {
-        dynamicTitle: true,
-        icon: 'starhollow',
-        items: [
-          { value: 'light', title: 'Light' },
-          { value: 'dark', title: 'Dark' },
-        ],
-      },
-    },
-  },
-  loaders: [mockI18n],
-  decorators: [storyThemeDecorator()],
+  tags: ['autodocs'],
 };
 
 export default preview;

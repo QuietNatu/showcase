@@ -1,11 +1,16 @@
+// @ts-check
+
 import tseslint from 'typescript-eslint';
-import projectConfig from '@natu/eslint-config';
+import shared from '@natu/eslint-config-shared';
+import { globalIgnores } from 'eslint/config';
 
 export default tseslint.config(
-  ...projectConfig.configs.angular,
-  ...projectConfig.configs.jasmine,
-  ...projectConfig.configs.vrt,
-  ...projectConfig.configs.storybook,
+  globalIgnores(shared.defaultIgnores),
+  ...shared.configs.angular,
+  ...shared.configs.storybook,
+  ...shared.configs.vitest,
+  ...shared.configs.vrt,
+  ...shared.configs.prettier,
   {
     files: ['**/*.ts'],
     rules: {
@@ -26,9 +31,6 @@ export default tseslint.config(
         },
       ],
     },
-  },
-  {
-    ignores: projectConfig.defaultIgnores,
   },
   {
     languageOptions: {

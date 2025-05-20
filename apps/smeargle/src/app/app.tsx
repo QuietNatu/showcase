@@ -1,27 +1,28 @@
-import { Counter } from './components/counter/counter';
-import { Header } from './components/header/header';
-import { Sidebar } from './components/sidebar/sidebar';
-import '../styles/styles.scss';
-import styles from './app.module.scss';
-import { useTranslation } from 'react-i18next';
+import reactLogo from '../assets/react.svg';
+import viteLogo from '/vite.svg';
+import { ExampleCounter } from '@natu/ui-react/components/example-counter';
 
-/**
- * Renders the whole app.
- */
+/** Renders the whole app. */
 export function App() {
-  const { t } = useTranslation();
-
   return (
-    <div className={styles.root}>
-      <Header className={styles.header} />
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank" rel="noreferrer">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank" rel="noreferrer">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <ExampleCounter />
 
-      <Sidebar className={styles.sidebar} />
-
-      <main className={styles.main}>
-        <div>{t('features.app.homepage.description')}</div>
-
-        <Counter />
-      </main>
-    </div>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+    </>
   );
 }

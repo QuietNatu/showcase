@@ -1,37 +1,15 @@
 /// <reference types="vitest" />
 
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import tsconfigPaths from 'vite-tsconfig-paths';
-import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
-import svgr from 'vite-plugin-svgr';
-import bundleI18n from '@natu/vite-plugin-bundle-i18n';
 
-// https://vitejs.dev/config/
+// https://vite.dev/config/
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd());
-  const isE2e = env.VITE_E2E === 'true';
+  const isDebugMode = Boolean(process.env['TEST_DEBUG']);
 
   return {
-    plugins: [
-      react(),
-      tsconfigPaths(),
-      svgr({
-        svgrOptions: {
-          ref: true,
-          svgoConfig: {
-            plugins: ['removeDimensions', 'cleanupAttrs'],
-          },
-        },
-      }),
-      VitePWA(isE2e ? { injectRegister: null } : pwaOptions),
-      bundleI18n({
-        source: 'src/locales/original',
-        devDestination: 'src/locales/bundle',
-        filename: 'translation',
-      }),
-    ],
+    plugins: [react()],
 
     build: {
       target: browserslistToEsbuild(),
@@ -43,7 +21,7 @@ export default defineConfig(({ mode }) => {
     },
 
     preview: {
-      port: 6009,
+      port: 6001,
     },
 
     test: {
@@ -52,9 +30,8 @@ export default defineConfig(({ mode }) => {
       restoreMocks: true,
       unstubEnvs: true,
       unstubGlobals: true,
-      include: ['src/**/*.test.*'],
-      environment: 'jsdom',
-      setupFiles: 'src/test/setup-tests.ts',
+      include: ['src/**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+      setupFiles: ['src/test/setup-tests.ts'],
       coverage: {
         thresholds: {
           branches: 80,
@@ -66,45 +43,31 @@ export default defineConfig(({ mode }) => {
         // config
         all: true,
         provider: 'v8',
-        include: ['src/**/*.{ts,tsx}'],
+        include: ['src/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
         exclude: [
           '**/*.test.*',
           '**/*.stories.*',
           '**/*.vrt.*',
           'src/test',
-          'src/mocks',
-          'src/@types',
           'src/main.tsx',
-          'src/service-worker.ts',
-          'src/api',
-          'src/vrt',
-          'src/app/core/contexts/i18n/i18n-context.tsx',
+          'src/@types',
         ],
         reporter: ['lcov', 'text-summary'],
       },
+
+      browser: {
+        api: {
+          port: 6002,
+        },
+        enabled: true,
+        headless: !isDebugMode,
+        provider: 'playwright',
+        // https://vitest.dev/guide/browser/playwright
+        instances: [{ browser: 'chromium' }],
+        screenshotFailures: false,
+      },
+
+      reporters: ['default'],
     },
   };
 });
-
-const pwaOptions: Partial<VitePWAOptions> = {
-  includeAssets: ['favicon.ico', 'favicon.svg', 'apple-touch-icon.png'],
-  manifest: {
-    name: 'Smeargle',
-    short_name: 'Smeargle',
-    theme_color: '#1976d2',
-    background_color: '#fafafa',
-    display: 'standalone',
-    icons: [
-      {
-        src: 'icon-192x192.png',
-        sizes: '192x192',
-        type: 'image/png',
-      },
-      {
-        src: 'icon-512x512.png',
-        sizes: '512x512',
-        type: 'image/png',
-      },
-    ],
-  },
-};

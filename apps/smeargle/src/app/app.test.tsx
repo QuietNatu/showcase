@@ -1,18 +1,23 @@
-import { composeStories } from '@storybook/react';
+import { App } from './app';
+import { page } from '@vitest/browser/context';
+import { render } from 'vitest-browser-react';
+
 import * as stories from './app.stories';
-import { axe } from '@natu/ui-react/test';
-import { renderStory } from '@/test/render';
+import { composeStories } from '@storybook/react';
+import { axe } from '@natu/axe/vitest';
 
-const storyTestCases = Object.entries(composeStories(stories));
+const { Default } = composeStories(stories);
 
-test.each(storyTestCases)('renders %s story', (_, Story) => {
-  const { container } = renderStory(<Story />);
+test('has no accessibility violations', async () => {
+  const { container } = render(<Default />);
 
-  expect(container).toBeInTheDocument();
+  expect(await axe(container)).toHaveNoViolations();
 });
 
-test.each(storyTestCases)('%s has no accessibility violations', async (_, Story) => {
-  const { baseElement } = renderStory(<Story />);
+test('increments counter', async () => {
+  render(<App />);
 
-  expect(await axe(baseElement)).toHaveNoViolations();
+  await page.getByRole('button', { name: 'count is 0' }).click();
+
+  await expect.element(page.getByRole('button', { name: 'count is 1' })).toBeInTheDocument();
 });

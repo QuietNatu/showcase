@@ -1,0 +1,15 @@
+{
+  "name": "@natu/browserslist-config-shared",
+  "private": true,
+  "license": "MIT",
+  "version": "0.0.0",
+  "sideEffects": false,
+  "exports": {
+    "./browser": {
+      "default": "./browser.js"
+    },
+    "./node": {
+      "default": "./node.js"
+    }
+  }
+}

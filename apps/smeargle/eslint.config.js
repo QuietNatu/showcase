@@ -1,15 +1,16 @@
+// @ts-check
+
 import tseslint from 'typescript-eslint';
-import projectConfig from '@natu/eslint-config';
+import shared from '@natu/eslint-config-shared';
+import { globalIgnores } from 'eslint/config';
 
 export default tseslint.config(
-  ...projectConfig.configs.react,
-  ...projectConfig.configs.vitest,
-  ...projectConfig.configs.vrt,
-  ...projectConfig.configs.e2e,
-  ...projectConfig.configs.storybook,
-  {
-    ignores: [...projectConfig.defaultIgnores, 'src/api/'],
-  },
+  globalIgnores(shared.defaultIgnores),
+  ...shared.configs.react,
+  ...shared.configs.storybook,
+  ...shared.configs.vitest,
+  ...shared.configs.vrt,
+  ...shared.configs.prettier,
   {
     languageOptions: {
       parserOptions: {

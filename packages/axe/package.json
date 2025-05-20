@@ -1,0 +1,28 @@
+{
+  "name": "@natu/axe",
+  "private": true,
+  "license": "MIT",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./vitest": {
+      "default": "./src/vitest/index.ts"
+    },
+    "./vitest/extend-expect": {
+      "default": "./src/vitest/extend-expect.ts"
+    }
+  },
+  "dependencies": {
+    "axe-core": "^4.10.3",
+    "jest-axe": "^10.0.0"
+  },
+  "devDependencies": {
+    "@natu/tsconfig": "workspace:^",
+    "typescript": "5.8.3",
+    "vitest": "^3.1.1"
+  }
+}

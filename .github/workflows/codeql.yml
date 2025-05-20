@@ -1,4 +1,4 @@
-name: "CodeQL"
+name: 'CodeQL'
 
 on:
   workflow_dispatch:
@@ -24,27 +24,27 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - language: javascript-typescript
-    
+          - language: javascript-typescript
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-  
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
           build-mode: none
           queries: security-extended
-          config: |   
+          config: |
             paths:
               - apps/*/src
               - packages/*/src
             paths-ignore:
               - '**/test/**/*'
               - '**/*.test.*'
-  
+
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
         with:
-          category: "/language:${{matrix.language}}"  
+          category: '/language:${{matrix.language}}'

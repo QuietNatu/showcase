@@ -1,5 +1,0 @@
-@use 'sass:meta';
-
-@layer natu-normalize {
-  @include meta.load-css('modern-normalize/modern-normalize.css');
-}

@@ -4,64 +4,47 @@
   "license": "MIT",
   "version": "0.0.0",
   "type": "module",
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@10.8.1+sha512.c50088ba998c67b8ca8c99df8a5e02fd2ae2e2b29aaf238feaa9e124248d3f48f9fb6db2424949ff901cffbb5e0f0cc1ad6aedb602cd29450751d11c35023677",
   "engines": {
-    "node": "22.x",
-    "pnpm": "9.x"
+    "node": "22.x"
   },
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "prepare": "husky",
-    "dev": "turbo run dev --parallel",
     "build": "turbo run build",
-    "preview": "turbo run preview --parallel",
-    "lint": "pnpm lint-lslint && pnpm lint-prettier && pnpm lint-stylelint && pnpm lint-depcruise && turbo run lint",
-    "lint-prettier": "prettier --check {apps,packages}/*/{src,e2e,vrt}/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
-    "lint-prettier-fix": "prettier --write {apps,packages}/*/{src,e2e,vrt}/**/*.{js,jsx,ts,tsx,json,css,scss,md}",
-    "lint-lslint": "ls-lint",
-    "lint-stylelint": "stylelint {apps,packages}/*/src/**/*.{css,scss}",
-    "lint-depcruise": "depcruise apps packages --config .dependency-cruiser.js",
+    "dev": "turbo run dev",
+    "format": "turbo run format && pnpm run format:stylelint && pnpm run format:prettier",
+    "format:prettier": "prettier . --write",
+    "format:stylelint": "stylelint --fix '{apps,packages}/*/src/**/*.{css,scss}'",
+    "lint": "turbo run lint && pnpm lint:lslint && pnpm lint:stylelint && pnpm run lint:prettier",
+    "lint:eslint": "turbo run lint",
+    "lint:lslint": "ls-lint",
+    "lint:prettier": "prettier . --check",
+    "lint:stylelint": "stylelint '{apps,packages}/*/src/**/*.{css,scss}'",
+    "prepare": "husky",
+    "renovate:validate": "renovate-config-validator renovate.json",
+    "storybook": "turbo run storybook",
+    "storybook:build": "turbo run storybook:build",
     "test": "turbo run test",
-    "test-watch": "turbo run test-watch --parallel",
-    "analyse": "turbo run analyse",
-    "storybook": "turbo run storybook --parallel",
-    "build-storybook": "turbo run build-storybook",
-    "vrt": "turbo run vrt --continue",
-    "vrt-update": "turbo run vrt-update",
-    "vrt-show-report": "turbo run vrt-show-report --parallel",
-    "e2e": "turbo run e2e --continue",
-    "build-api": "turbo run build-api",
-    "lighthouse-mobile": "turbo run lighthouse-mobile",
-    "lighthouse-desktop": "turbo run lighthouse-desktop"
+    "test:watch": "turbo run test:watch"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.6.1",
-    "@commitlint/config-conventional": "19.6.0",
-    "@ls-lint/ls-lint": "2.2.3",
-    "@playwright/test": "1.49.1",
-    "dependency-cruiser": "16.6.0",
-    "eslint": "9.16.0",
-    "husky": "9.1.7",
-    "lint-staged": "15.2.10",
-    "msw": "2.4.9",
-    "prettier": "3.4.2",
-    "stylelint": "16.15.0",
-    "stylelint-config-css-modules": "4.4.0",
-    "stylelint-config-standard-scss": "13.1.0",
-    "stylelint-order": "6.0.4",
-    "stylelint-scss": "6.10.1",
-    "turbo": "2.3.4",
-    "vitest": "2.1.9"
-  },
-  "msw": {
-    "workerDirectory": [
-      "apps/rotom/public",
-      "apps/smeargle/public"
-    ]
-  },
-  "pnpm": {
-    "overrides": {
-      "@testing-library/dom": "10.4.0"
-    }
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@ls-lint/ls-lint": "2.3.0",
+    "@natu/browserslist-config-shared": "workspace:^",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
+    "playwright": "^1.51.1",
+    "prettier": "3.5.3",
+    "renovate": "^40.19.2",
+    "stylelint": "^16.18.0",
+    "stylelint-config-css-modules": "^4.4.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
+    "stylelint-no-unsupported-browser-features": "^8.0.4",
+    "stylelint-order": "^6.0.4",
+    "stylelint-plugin-logical-css": "^1.2.3",
+    "stylelint-scss": "^6.11.1",
+    "turbo": "2.5.0",
+    "vitest": "^3.1.1"
   }
 }

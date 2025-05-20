@@ -1,15 +1,15 @@
-import { Meta, StoryObj } from '@storybook/angular';
-import { AppComponent } from './app.component';
+import type { Meta, StoryObj } from '@storybook/angular';
+import { App } from './app';
 
 const meta = {
   title: 'App',
-  component: AppComponent,
+  component: App,
   parameters: {
     layout: 'fullscreen',
   },
-} satisfies Meta<AppComponent>;
+} satisfies Meta<typeof App>;
 
 export default meta;
-type Story = StoryObj<AppComponent>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};

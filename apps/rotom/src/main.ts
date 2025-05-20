@@ -1,8 +1,8 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app.component';
 import { appConfig } from './app/app.config';
+import { App } from './app/app';
 
-bootstrapApplication(AppComponent, appConfig).catch((error: unknown) => {
-  // eslint-disable-next-line no-console
+bootstrapApplication(App, appConfig).catch((error: unknown) => {
+  // eslint-disable-next-line no-console -- should stay for now
   console.error(error);
 });

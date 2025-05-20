@@ -1,18 +1,11 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "@natu/tsconfig/tsconfig.angular.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/dist",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-
-      // bad workarounds check README...
-      "@natu/assets": ["../../packages/assets/angular"],
-      "@natu/assets/*": ["../../packages/assets/angular/*"],
-      "@natu/ui-angular": ["../../packages/ui-angular/src"],
-      "@natu/ui-angular/*": ["../../packages/ui-angular/src/lib/*"],
-      "@natu/utils": ["../../packages/utils/src"]
-    }
-  }
+    "outDir": "./dist/out-tsc"
+  },
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.lint.json" },
+    { "path": "./tsconfig.test.json" }
+  ]
 }

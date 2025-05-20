@@ -2,53 +2,67 @@
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import svgr from 'vite-plugin-svgr';
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [
-    react(),
-    svgr({
-      svgrOptions: {
-        ref: true,
-        svgoConfig: {
-          plugins: ['removeDimensions', 'cleanupAttrs'],
+// https://vite.dev/config/
+export default defineConfig(({ mode }) => {
+  const isDebugMode = Boolean(process.env['TEST_DEBUG']);
+
+  return {
+    plugins: [react()],
+
+    test: {
+      globals: true,
+      css: false,
+      restoreMocks: true,
+      unstubEnvs: true,
+      unstubGlobals: true,
+      include: ['src/**/*.test.*'],
+      setupFiles: 'src/test/setup-tests.ts',
+      coverage: {
+        thresholds: {
+          branches: 80,
+          functions: 80,
+          lines: 80,
+          statements: 80,
         },
-      },
-    }),
-  ],
 
-  test: {
-    globals: true,
-    css: false,
-    restoreMocks: true,
-    unstubEnvs: true,
-    unstubGlobals: true,
-    include: ['src/**/*.test.*'],
-    environment: 'jsdom',
-    setupFiles: 'src/test/setup-tests.ts',
-    coverage: {
-      thresholds: {
-        branches: 80,
-        functions: 80,
-        lines: 80,
-        statements: 80,
+        // config
+        all: true,
+        provider: 'v8',
+        include: ['src/**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+        exclude: [
+          '**/*.test.*',
+          '**/*.stories.*',
+          '**/*.vrt.*',
+          '**/index.*',
+          'src/lib/test',
+          'src/main.tsx',
+          'src/@types',
+          'src/lib/test',
+          'src/@types',
+          'src/lib/stories',
+        ],
+        setupFiles: ['src/test/setup-tests.ts'],
+        reporter: ['lcov', 'text-summary'],
       },
 
-      // config
-      provider: 'v8',
-      include: ['src/lib/**/*.{ts,tsx}'],
-      exclude: [
-        '**/*.test.*',
-        '**/*.stories.*',
-        '**/*.vrt.*',
-        '**/index.*',
-        'src/lib/test',
-        'src/@types',
-        'src/lib/stories',
-        'src/lib/vrt',
-      ],
-      reporter: ['lcov', 'text-summary'],
+      browser: {
+        api: {
+          port: 6012,
+        },
+        enabled: true,
+        headless: !isDebugMode,
+        provider: 'playwright',
+        // https://vitest.dev/guide/browser/playwright
+        instances: [{ browser: 'chromium' }],
+        screenshotFailures: false,
+      },
+
+      reporters: ['default'],
     },
-  },
+
+    define: {
+      'import.meta.vitest': mode !== 'production',
+    },
+  };
 });

@@ -1,6 +1,7 @@
 # Editors
 .vscode/*
 !.vscode/extensions.json
+!.vscode/*.code-workspace
 
 # Misc
 .angular

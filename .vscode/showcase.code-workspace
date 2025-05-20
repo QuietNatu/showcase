@@ -1,0 +1,55 @@
+{
+  "folders": [
+    {
+      "name": "🌱 root",
+      "path": "..",
+    },
+    {
+      "name": "🚀 rotom",
+      "path": "../apps/rotom",
+    },
+    {
+      "name": "🚀 smeargle",
+      "path": "../apps/smeargle",
+    },
+    {
+      "name": "📦 axe",
+      "path": "../packages/axe",
+    },
+    {
+      "name": "📦 browserslist-config-shared",
+      "path": "../packages/browserslist-config-shared",
+    },
+    {
+      "name": "📦 eslint-config-shared",
+      "path": "../packages/eslint-config-shared",
+    },
+    {
+      "name": "📦 tsconfig",
+      "path": "../packages/tsconfig",
+    },
+    {
+      "name": "📦 ui-angular",
+      "path": "../packages/ui-angular",
+    },
+    {
+      "name": "📦 ui-react",
+      "path": "../packages/ui-react",
+    },
+  ],
+  "settings": {
+    "terminal.integrated.cwd": "${workspaceFolder:🌱 root}",
+    "search.exclude": {
+      "**/.angular": true,
+      "**/coverage": true,
+      "**/dist": true,
+      "**/storybook-static": true,
+      "**/vrt/report": true,
+      "**/.turbo": true,
+      "**/documentation.json": true,
+      "**/node_modules": true,
+      "**/.lighthouseci": true,
+      "**/lighthouse-reports": true,
+    },
+  },
+}

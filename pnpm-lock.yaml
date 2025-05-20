@@ -10,7 +10,7 @@ importers:
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.8.0
-        version: 19.8.0(@types/node@22.14.1)(typescript@5.8.3)
+        version: 19.8.0(@types/node@22.15.20)(typescript@5.8.3)
       '@commitlint/config-conventional':
         specifier: ^19.8.0
         version: 19.8.0
@@ -64,7 +64,7 @@ importers:
         version: 2.5.0
       vitest:
         specifier: ^3.1.1
-        version: 3.1.1(@types/node@22.14.1)(@vitest/browser@3.1.1)(@vitest/ui@3.1.1)(jiti@2.4.2)(jsdom@26.0.0)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1)
+        version: 3.1.1(@types/node@22.15.20)(@vitest/browser@3.1.1)(@vitest/ui@3.1.1)(jiti@2.4.2)(jsdom@26.0.0)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1)
 
   apps/rotom:
     dependencies:
@@ -107,13 +107,13 @@ importers:
     devDependencies:
       '@analogjs/vite-plugin-angular':
         specifier: ^1.15.1
-        version: 1.15.1(@angular-devkit/build-angular@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(@angular/build@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(jiti@2.4.2)(karma@6.4.4)(less@4.2.2)(postcss@8.5.3)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1))
+        version: 1.15.1(@angular-devkit/build-angular@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0(esbuild@0.25.2)))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(@angular/build@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(jiti@2.4.2)(karma@6.4.4)(less@4.2.2)(postcss@8.5.3)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1))
       '@analogjs/vitest-angular':
         specifier: ^1.15.1
-        version: 1.15.1(@analogjs/vite-plugin-angular@1.15.1(@angular-devkit/build-angular@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(@angular/build@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(jiti@2.4.2)(karma@6.4.4)(less@4.2.2)(postcss@8.5.3)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1)))(@angular-devkit/architect@0.1902.7(chokidar@4.0.3))(vitest@3.1.1)
+        version: 1.15.1(@analogjs/vite-plugin-angular@1.15.1(@angular-devkit/build-angular@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0(esbuild@0.25.2)))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(@angular/build@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(jiti@2.4.2)(karma@6.4.4)(less@4.2.2)(postcss@8.5.3)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1)))(@angular-devkit/architect@0.1902.7(chokidar@4.0.3))(vitest@3.1.1)
       '@angular-devkit/build-angular':
         specifier: ^19.2.7
-        version: 19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)
+        version: 19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0(esbuild@0.25.2)))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)
       '@angular/cli':
         specifier: ^19.2.7
         version: 19.2.7(@types/node@22.14.1)(chokidar@4.0.3)
@@ -140,13 +140,13 @@ importers:
         version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-docs':
         specifier: ^8.6.12
-        version: 8.6.12(@types/react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
+        version: 8.6.12(@types/react@18.3.20)(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-essentials':
         specifier: 8.6.12
-        version: 8.6.12(@types/react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
+        version: 8.6.12(@types/react@18.3.20)(storybook@8.6.12(prettier@3.5.3))
       '@storybook/angular':
         specifier: 8.6.12
-        version: 8.6.12(a58f13dd2095c4bc41e596327e134dc1)
+        version: 8.6.12(8f5b0a9b75c3316a70279928f8b820e5)
       '@storybook/blocks':
         specifier: 8.6.12
         version: 8.6.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
@@ -310,7 +310,7 @@ importers:
         version: 5.8.3
       vitest:
         specifier: ^3.1.1
-        version: 3.1.1(@types/node@22.14.1)(@vitest/browser@3.1.1)(@vitest/ui@3.1.1)(jiti@2.4.2)(jsdom@26.0.0)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1)
+        version: 3.1.1(@types/node@22.15.20)(@vitest/browser@3.1.1)(@vitest/ui@3.1.1)(jiti@2.4.2)(jsdom@26.0.0)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1)
 
   packages/browserslist-config-shared: {}
 
@@ -323,8 +323,8 @@ importers:
         specifier: workspace:^
         version: link:../tsconfig
       '@vitest/eslint-plugin':
-        specifier: ^1.1.43
-        version: 1.1.43(@typescript-eslint/utils@8.30.1(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.3)(vitest@3.1.1)
+        specifier: ^1.2.0
+        version: 1.2.0(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.3)(vitest@3.1.1)
       angular-eslint:
         specifier: ^19.3.0
         version: 19.3.0(chokidar@4.0.3)(eslint@9.25.0(jiti@2.4.2))(typescript-eslint@8.30.1(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.3))(typescript@5.8.3)
@@ -393,13 +393,13 @@ importers:
     devDependencies:
       '@analogjs/vite-plugin-angular':
         specifier: ^1.15.1
-        version: 1.15.1(@angular-devkit/build-angular@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0(esbuild@0.25.2)))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(@angular/build@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(jiti@2.4.2)(karma@6.4.4)(less@4.2.2)(postcss@8.5.3)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1))
+        version: 1.15.1(@angular-devkit/build-angular@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(@angular/build@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(jiti@2.4.2)(karma@6.4.4)(less@4.2.2)(postcss@8.5.3)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1))
       '@analogjs/vitest-angular':
         specifier: ^1.15.1
-        version: 1.15.1(@analogjs/vite-plugin-angular@1.15.1(@angular-devkit/build-angular@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0(esbuild@0.25.2)))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(@angular/build@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(jiti@2.4.2)(karma@6.4.4)(less@4.2.2)(postcss@8.5.3)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1)))(@angular-devkit/architect@0.1902.7(chokidar@4.0.3))(vitest@3.1.1)
+        version: 1.15.1(@analogjs/vite-plugin-angular@1.15.1(@angular-devkit/build-angular@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1))(@angular/build@19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(jiti@2.4.2)(karma@6.4.4)(less@4.2.2)(postcss@8.5.3)(terser@5.39.0)(typescript@5.8.3)(yaml@2.7.1)))(@angular-devkit/architect@0.1902.7(chokidar@4.0.3))(vitest@3.1.1)
       '@angular-devkit/build-angular':
         specifier: ^19.2.7
-        version: 19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0(esbuild@0.25.2)))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)
+        version: 19.2.7(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)
       '@angular/cdk':
         specifier: ^19.2.9
         version: 19.2.9(@angular/common@19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
@@ -450,13 +450,13 @@ importers:
         version: 8.6.12(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-docs':
         specifier: ^8.6.12
-        version: 8.6.12(@types/react@18.3.20)(storybook@8.6.12(prettier@3.5.3))
+        version: 8.6.12(@types/react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
       '@storybook/addon-essentials':
         specifier: 8.6.12
-        version: 8.6.12(@types/react@18.3.20)(storybook@8.6.12(prettier@3.5.3))
+        version: 8.6.12(@types/react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
       '@storybook/angular':
         specifier: 8.6.12
-        version: 8.6.12(8f5b0a9b75c3316a70279928f8b820e5)
+        version: 8.6.12(a58f13dd2095c4bc41e596327e134dc1)
       '@storybook/blocks':
         specifier: 8.6.12
         version: 8.6.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.12(prettier@3.5.3))
@@ -4044,10 +4044,9 @@ packages:
       '@vitest/browser':
         optional: true
 
-  '@vitest/eslint-plugin@1.1.43':
-    resolution: {integrity: sha512-OLoUMO67Yg+kr7E6SjF5+Qvl2f6uNJ7ImQYnXT8WgnPiZE41ZQBsnzn70jehXrhFVadphHs2smk+yl0TFKLV5Q==}
+  '@vitest/eslint-plugin@1.2.0':
+    resolution: {integrity: sha512-6vn3QDy+ysqHGkbH9fU9uyWptqNc638dgPy0uAlh/XpniTBp+0WeVlXGW74zqggex/CwYOhK8t5GVo/FH3NMPw==}
     peerDependencies:
-      '@typescript-eslint/utils': '>= 8.24.0'
       eslint: '>= 8.57.0'
       typescript: '>= 5.0.0'
       vitest: '*'
@@ -12571,11 +12570,11 @@ snapshots:
   '@colors/colors@1.5.0':
     optional: true
 
-  '@commitlint/cli@19.8.0(@types/node@22.14.1)(typescript@5.8.3)':
+  '@commitlint/cli@19.8.0(@types/node@22.15.20)(typescript@5.8.3)':
     dependencies:
       '@commitlint/format': 19.8.0
       '@commitlint/lint': 19.8.0
-      '@commitlint/load': 19.8.0(@types/node@22.14.1)(typescript@5.8.3)
+      '@commitlint/load': 19.8.0(@types/node@22.15.20)(typescript@5.8.3)
       '@commitlint/read': 19.8.0
       '@commitlint/types': 19.8.0
       tinyexec: 0.3.2
@@ -12622,7 +12621,7 @@ snapshots:
       '@commitlint/rules': 19.8.0
       '@commitlint/types': 19.8.0
 
-  '@commitlint/load@19.8.0(@types/node@22.14.1)(typescript@5.8.3)':
+  '@commitlint/load@19.8.0(@types/node@22.15.20)(typescript@5.8.3)':
     dependencies:
       '@commitlint/config-validator': 19.8.0
       '@commitlint/execute-rule': 19.8.0
@@ -12630,7 +12629,7 @@ snapshots:
       '@commitlint/types': 19.8.0
       chalk: 5.4.1
       cosmiconfig: 9.0.0(typescript@5.8.3)
-      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.14.1)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3)
+      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.15.20)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -15064,7 +15063,6 @@ snapshots:
   '@types/node@22.15.20':
     dependencies:
       undici-types: 6.21.0
-    optional: true
 
   '@types/normalize-package-data@2.4.4': {}
 
@@ -15336,17 +15334,19 @@ snapshots:
       tinyrainbow: 2.0.0
       vitest: 3.1.1(@types/node@22.14.1)(@vitest/browser@3.1.1)(@vitest/ui@3.1.1)(jiti@2.4.2)(jsdom@26.0.0)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1)
     optionalDependencies:
-      '@vitest/browser': 3.1.1(playwright@1.51.1)(vite@6.3.2(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(vitest@3.1.1)
+      '@vitest/browser': 3.1.1(playwright@1.51.1)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(vitest@3.1.1)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/eslint-plugin@1.1.43(@typescript-eslint/utils@8.30.1(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.3))(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.3)(vitest@3.1.1)':
+  '@vitest/eslint-plugin@1.2.0(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.3)(vitest@3.1.1)':
     dependencies:
       '@typescript-eslint/utils': 8.30.1(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.3)
       eslint: 9.25.0(jiti@2.4.2)
     optionalDependencies:
       typescript: 5.8.3
       vitest: 3.1.1(@types/node@22.15.20)(@vitest/browser@3.1.1)(@vitest/ui@3.1.1)(jiti@2.4.2)(jsdom@26.0.0)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1)
+    transitivePeerDependencies:
+      - supports-color
 
   '@vitest/expect@2.0.5':
     dependencies:
@@ -15385,7 +15385,6 @@ snapshots:
       magic-string: 0.30.17
     optionalDependencies:
       vite: 6.3.2(@types/node@22.15.20)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1)
-    optional: true
 
   '@vitest/pretty-format@2.0.5':
     dependencies:
@@ -16425,9 +16424,9 @@ snapshots:
       object-assign: 4.1.1
       vary: 1.1.2
 
-  cosmiconfig-typescript-loader@6.1.0(@types/node@22.14.1)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3):
+  cosmiconfig-typescript-loader@6.1.0(@types/node@22.15.20)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3):
     dependencies:
-      '@types/node': 22.14.1
+      '@types/node': 22.15.20
       cosmiconfig: 9.0.0(typescript@5.8.3)
       jiti: 2.4.2
       typescript: 5.8.3
@@ -21914,7 +21913,6 @@ snapshots:
       - terser
       - tsx
       - yaml
-    optional: true
 
   vite-tsconfig-paths@5.1.4(typescript@5.8.3)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1)):
     dependencies:
@@ -21988,11 +21986,10 @@ snapshots:
       sass: 1.85.0
       terser: 5.39.0
       yaml: 2.7.1
-    optional: true
 
   vitest-browser-react@0.1.1(@types/react-dom@19.1.1(@types/react@19.1.0))(@types/react@19.1.0)(@vitest/browser@3.1.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(vitest@3.1.1):
     dependencies:
-      '@vitest/browser': 3.1.1(playwright@1.51.1)(vite@6.3.2(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(vitest@3.1.1)
+      '@vitest/browser': 3.1.1(playwright@1.51.1)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(vitest@3.1.1)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
       vitest: 3.1.1(@types/node@22.14.1)(@vitest/browser@3.1.1)(@vitest/ui@3.1.1)(jiti@2.4.2)(jsdom@26.0.0)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1)
@@ -22024,7 +22021,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.14.1
-      '@vitest/browser': 3.1.1(playwright@1.51.1)(vite@6.3.2(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(vitest@3.1.1)
+      '@vitest/browser': 3.1.1(playwright@1.51.1)(vite@6.2.7(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(vitest@3.1.1)
       '@vitest/ui': 3.1.1(vitest@3.1.1)
       jsdom: 26.0.0
     transitivePeerDependencies:
@@ -22081,7 +22078,6 @@ snapshots:
       - terser
       - tsx
       - yaml
-    optional: true
 
   void-elements@2.0.1:
     optional: true

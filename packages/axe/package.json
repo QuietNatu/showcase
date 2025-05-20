@@ -17,12 +17,12 @@
     }
   },
   "dependencies": {
-    "axe-core": "^4.10.3",
-    "jest-axe": "^10.0.0"
+    "axe-core": "4.10.3",
+    "jest-axe": "10.0.0"
   },
   "devDependencies": {
     "@natu/tsconfig": "workspace:^",
     "typescript": "5.8.3",
-    "vitest": "^3.1.1"
+    "vitest": "3.1.1"
   }
 }

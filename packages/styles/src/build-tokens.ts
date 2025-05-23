@@ -3,14 +3,21 @@ import StyleDictionary, { Config } from 'style-dictionary';
 import { formats, transforms } from 'style-dictionary/enums';
 import pc from 'picocolors';
 
+const prefix = 'natu';
 const themes = ['rotom', 'rotom-dark', 'smeargle', 'smeargle-dark'];
 
 function createThemeConfig(theme: string): Config {
   return {
-    source: [`tokens/themes/${theme}/*.json`, 'tokens/globals/**/*.json'],
+    source: [`src/tokens/themes/${theme}/*.json`, 'src/tokens/globals/**/*.json'],
     platforms: {
       web: {
-        transforms: [transforms.nameKebab, transforms.timeSeconds, transforms.sizePxToRem],
+        prefix,
+        transforms: [
+          transforms.nameKebab,
+          transforms.typographyCssShorthand,
+          transforms.timeSeconds,
+          transforms.sizePxToRem,
+        ],
         buildPath: 'dist/tokens/',
         files: [
           {

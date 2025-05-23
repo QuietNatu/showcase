@@ -10,9 +10,9 @@
   },
   "scripts": {
     "build": "rimraf dist && pnpm build:tokens && pnpm build:stylesheets && pnpm build:assets",
-    "build:assets": "copyfiles ./assets/**/* ./dist",
-    "build:stylesheets": "copyfiles ./stylesheets/**/* ./dist",
-    "build:tokens": "tsx ./build-tokens.ts",
+    "build:assets": "copyfiles --up 1 ./src/assets/**/* ./dist",
+    "build:stylesheets": "copyfiles --up 1 ./src/stylesheets/**/* ./dist",
+    "build:tokens": "tsx ./src/build-tokens.ts",
     "storybook": "storybook dev -p 6013",
     "storybook:build": "storybook build",
     "storybook:preview": "vite preview --port 6013 --outDir ./storybook-static"

@@ -1,0 +1,25 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "heading": {
+        "$value": "Montserrat, Helvetica, Arial, sans-serif"
+      },
+      "base": {
+        "$value": "system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'"
+      }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "base": {
+        "$value": "400"
+      },
+      "medium": {
+        "$value": "500"
+      },
+      "strong": {
+        "$value": "600"
+      }
+    }
+  }
+}

@@ -25,6 +25,10 @@
       "path": "../packages/eslint-config-shared",
     },
     {
+      "name": "🎨 styles",
+      "path": "../packages/styles",
+    },
+    {
       "name": "📦 tsconfig",
       "path": "../packages/tsconfig",
     },

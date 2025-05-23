@@ -1,0 +1,40 @@
+{
+  "asset": {
+    "font": {
+      "roboto": {
+        "name": {
+          "value": "Roboto"
+        },
+        "style": {
+          "value": "normal"
+        },
+        "weight": {
+          "value": "400"
+        },
+        "woff": {
+          "value": "fonts/roboto-V20-latin-regular.woff"
+        },
+        "woff2": {
+          "value": "fonts/roboto-V20-latin-regular.woff2"
+        }
+      },
+      "roboto-italic": {
+        "name": {
+          "value": "Roboto"
+        },
+        "style": {
+          "value": "italic"
+        },
+        "weight": {
+          "value": "400"
+        },
+        "woff": {
+          "value": "fonts/roboto-V20-latin-italic.woff"
+        },
+        "woff2": {
+          "value": "fonts/roboto-V20-latin-italic.woff2"
+        }
+      }
+    }
+  }
+}

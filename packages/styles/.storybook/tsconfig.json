@@ -1,0 +1,8 @@
+{
+  "extends": "@natu/tsconfig/tsconfig.vite-react.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["../stories/**/*.stories.*", "../stories/typography.tsx"],
+  "files": ["./preview.ts"]
+}

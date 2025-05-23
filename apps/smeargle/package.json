@@ -17,6 +17,7 @@
     "test:watch": "cross-env TEST_DEBUG=1 vitest"
   },
   "dependencies": {
+    "@natu/styles": "workspace:^",
     "@natu/ui-react": "workspace:^",
     "react": "19.1.0",
     "react-dom": "19.1.0"

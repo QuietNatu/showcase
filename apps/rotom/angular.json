@@ -31,7 +31,7 @@
             ],
             "styles": [
               "src/styles/styles.scss",
-              "./node_modules/@natu/styles/dist/tokens/font.scss"
+              "./node_modules/@natu/styles/dist/stylesheets/fonts.scss"
             ],
             "scripts": []
           },

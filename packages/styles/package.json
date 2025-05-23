@@ -9,7 +9,10 @@
     "./*": "./dist/*"
   },
   "scripts": {
-    "build": "tsx ./build-tokens.ts",
+    "build": "rimraf dist && pnpm build:tokens && pnpm build:stylesheets && pnpm build:assets",
+    "build:assets": "copyfiles ./assets/**/* ./dist",
+    "build:stylesheets": "copyfiles ./stylesheets/**/* ./dist",
+    "build:tokens": "tsx ./build-tokens.ts",
     "storybook": "storybook dev -p 6013",
     "storybook:build": "storybook build",
     "storybook:preview": "vite preview --port 6013 --outDir ./storybook-static"
@@ -28,10 +31,12 @@
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
     "@vitejs/plugin-react-swc": "3.8.1",
+    "copyfiles": "^2.4.1",
     "eslint": "9.25.0",
     "picocolors": "^1.1.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "rimraf": "^6.0.1",
     "storybook": "8.6.12",
     "style-dictionary": "^5.0.0",
     "tsx": "^4.19.4",

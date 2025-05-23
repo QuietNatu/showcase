@@ -27,8 +27,8 @@
     "test:watch": "turbo run test:watch"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.8.0",
-    "@commitlint/config-conventional": "19.8.0",
+    "@commitlint/cli": "19.8.1",
+    "@commitlint/config-conventional": "19.8.1",
     "@ls-lint/ls-lint": "2.3.0",
     "@natu/browserslist-config-shared": "workspace:^",
     "husky": "9.1.7",

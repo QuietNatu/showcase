@@ -69,8 +69,8 @@ importers:
   apps/rotom:
     dependencies:
       '@angular/cdk':
-        specifier: 19.2.9
-        version: 19.2.9(@angular/common@19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
+        specifier: 19.2.17
+        version: 19.2.17(@angular/common@19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
       '@angular/common':
         specifier: 19.2.6
         version: 19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
@@ -401,8 +401,8 @@ importers:
         specifier: 19.2.13
         version: 19.2.13(@angular/compiler-cli@19.2.6(@angular/compiler@19.2.6)(typescript@5.8.3))(@angular/compiler@19.2.6)(@types/node@22.14.1)(chokidar@4.0.3)(html-webpack-plugin@5.6.3(webpack@5.98.0))(jiti@2.4.2)(karma@6.4.4)(typescript@5.8.3)(vite@6.3.5(@types/node@22.14.1)(jiti@2.4.2)(less@4.2.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)
       '@angular/cdk':
-        specifier: 19.2.9
-        version: 19.2.9(@angular/common@19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
+        specifier: 19.2.17
+        version: 19.2.17(@angular/common@19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
       '@angular/cli':
         specifier: 19.2.13
         version: 19.2.13(@types/node@22.14.1)(chokidar@4.0.3)
@@ -829,8 +829,8 @@ packages:
       tailwindcss:
         optional: true
 
-  '@angular/cdk@19.2.9':
-    resolution: {integrity: sha512-4If3BjWQPwW/xqRUCL7Mx0dHS0SuZY7Tq/Ocf7liwYTYCmSv8Ew7NqaiPA4RS3FnyUJcZW/UAd231uWI/ZHChg==}
+  '@angular/cdk@19.2.17':
+    resolution: {integrity: sha512-3jG33S+5+kqymCRwQlcSEWlY5rYwkKxe0onln+NXxT0/kteR02vWvv1+Li4/QqSr5JvsGHEhAFsZaR9QtOzbdA==}
     peerDependencies:
       '@angular/common': ^19.0.0 || ^20.0.0
       '@angular/core': ^19.0.0 || ^20.0.0
@@ -10507,7 +10507,7 @@ snapshots:
       - yaml
     optional: true
 
-  '@angular/cdk@19.2.9(@angular/common@19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)':
+  '@angular/cdk@19.2.17(@angular/common@19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2))(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)':
     dependencies:
       '@angular/common': 19.2.6(@angular/core@19.2.6(rxjs@7.8.2)(zone.js@0.15.0))(rxjs@7.8.2)
       '@angular/core': 19.2.6(rxjs@7.8.2)(zone.js@0.15.0)

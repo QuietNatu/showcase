@@ -1,7 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 function Component() {
-  return <div>Hello</div>;
+  return (
+    <div data-theme="smeargle" className="natu-body-1">
+      Hello
+    </div>
+  );
 }
 
 const meta = {

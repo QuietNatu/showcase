@@ -1,0 +1,8 @@
+@use './utils/variables';
+@use './fonts';
+@use './typography';
+
+@layer natu {
+  @include fonts.styles;
+  @include typography.styles;
+}

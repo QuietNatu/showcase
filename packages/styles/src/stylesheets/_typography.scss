@@ -1,0 +1,32 @@
+@use 'sass:list';
+@use './utils/variables';
+
+@mixin -fluid($name) {
+  .#{$name} {
+    @each $breakpoint, $value in variables.$breakpoints {
+      $index: list.index(variables.$breakpoints, $breakpoint $value);
+
+      @if $index == 1 {
+        font: var(--#{name}-#{$breakpoint}-font);
+      } @else {
+        @media (width <= #{$value}px) {
+          font: var(--#{name}-#{$breakpoint}-font);
+        }
+      }
+    }
+  }
+}
+
+@mixin styles {
+  @layer typography {
+    .#{variables.$prefix}-body-1 {
+      font: var(--#{variables.$prefix}-body-1-font);
+    }
+
+    .#{variables.$prefix}-body-2 {
+      font: var(--#{variables.$prefix}-body-2-font);
+    }
+
+    @include -fluid($name: #{variables.$prefix}-fluid-heading-1);
+  }
+}

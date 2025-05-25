@@ -13,6 +13,7 @@
     "mrmlnc.vscode-json5",
     "clinyong.vscode-css-modules",
     "redhat.vscode-yaml",
-    "webben.browserslist"
+    "webben.browserslist",
+    "unifiedjs.vscode-mdx"
   ]
 }

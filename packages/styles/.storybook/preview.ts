@@ -1,3 +1,5 @@
+import './styles.scss';
+
 import type { Preview } from '@storybook/react';
 import { A11yParameters } from '@storybook/addon-a11y';
 import { axeRules } from '@natu/axe';
@@ -18,5 +20,8 @@ const preview: Preview = {
     },
   },
 };
+
+// TODO: change port
+// TODO: fonts not being loaded
 
 export default preview;

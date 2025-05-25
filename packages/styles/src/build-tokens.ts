@@ -21,7 +21,7 @@ function createThemeConfig(theme: string): Config {
         buildPath: 'dist/tokens/',
         files: [
           {
-            destination: `${theme}.scss`,
+            destination: `_${theme}.scss`,
             format: formats.cssVariables,
             options: {
               formatting: {
@@ -40,6 +40,7 @@ function createThemeConfig(theme: string): Config {
 async function buildStyleSheets(config: Config) {
   const styleDictionary = new StyleDictionary(config);
 
+  await styleDictionary.cleanAllPlatforms();
   await styleDictionary.buildAllPlatforms();
 }
 

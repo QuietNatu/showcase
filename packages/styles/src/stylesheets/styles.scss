@@ -1,8 +1,10 @@
 @use './utils/variables';
+@use './normalize';
 @use './fonts';
 @use './typography';
 
-@layer natu {
+@layer #{variables.$prefix} {
+  @include normalize.styles;
   @include fonts.styles;
   @include typography.styles;
 }

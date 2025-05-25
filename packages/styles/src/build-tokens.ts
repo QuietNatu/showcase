@@ -12,12 +12,7 @@ function createThemeConfig(theme: string): Config {
     platforms: {
       web: {
         prefix,
-        transforms: [
-          transforms.nameKebab,
-          transforms.typographyCssShorthand,
-          transforms.timeSeconds,
-          transforms.sizePxToRem,
-        ],
+        transforms: [transforms.nameKebab, transforms.timeSeconds, transforms.sizePxToRem],
         buildPath: 'dist/tokens/',
         files: [
           {

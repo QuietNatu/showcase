@@ -135,6 +135,9 @@ importers:
       '@natu/eslint-config-shared':
         specifier: workspace:^
         version: link:../../packages/eslint-config-shared
+      '@natu/stories':
+        specifier: workspace:^
+        version: link:../../packages/stories
       '@natu/tsconfig':
         specifier: workspace:^
         version: link:../../packages/tsconfig
@@ -226,6 +229,9 @@ importers:
       '@natu/eslint-config-shared':
         specifier: workspace:^
         version: link:../../packages/eslint-config-shared
+      '@natu/stories':
+        specifier: workspace:^
+        version: link:../../packages/stories
       '@natu/tsconfig':
         specifier: workspace:^
         version: link:../../packages/tsconfig
@@ -393,6 +399,33 @@ importers:
         specifier: 8.30.1
         version: 8.30.1(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.3)
 
+  packages/stories:
+    devDependencies:
+      '@natu/eslint-config-shared':
+        specifier: workspace:^
+        version: link:../eslint-config-shared
+      '@natu/tsconfig':
+        specifier: workspace:^
+        version: link:../tsconfig
+      '@storybook/types':
+        specifier: ^8.6.14
+        version: 8.6.14(storybook@8.6.12(prettier@3.5.3))
+      '@types/node':
+        specifier: 22.14.1
+        version: 22.14.1
+      eslint:
+        specifier: 9.25.0
+        version: 9.25.0(jiti@2.4.2)
+      storybook:
+        specifier: 8.6.12
+        version: 8.6.12(prettier@3.5.3)
+      typescript:
+        specifier: 5.8.3
+        version: 5.8.3
+      typescript-eslint:
+        specifier: 8.30.1
+        version: 8.30.1(eslint@9.25.0(jiti@2.4.2))(typescript@5.8.3)
+
   packages/styles:
     dependencies:
       modern-normalize:
@@ -405,6 +438,9 @@ importers:
       '@natu/eslint-config-shared':
         specifier: workspace:^
         version: link:../eslint-config-shared
+      '@natu/stories':
+        specifier: workspace:^
+        version: link:../stories
       '@natu/tsconfig':
         specifier: workspace:^
         version: link:../tsconfig
@@ -524,6 +560,12 @@ importers:
       '@natu/eslint-config-shared':
         specifier: workspace:^
         version: link:../eslint-config-shared
+      '@natu/stories':
+        specifier: workspace:^
+        version: link:../stories
+      '@natu/styles':
+        specifier: workspace:^
+        version: link:../styles
       '@natu/tsconfig':
         specifier: workspace:^
         version: link:../tsconfig
@@ -611,6 +653,12 @@ importers:
       '@natu/eslint-config-shared':
         specifier: workspace:^
         version: link:../eslint-config-shared
+      '@natu/stories':
+        specifier: workspace:^
+        version: link:../stories
+      '@natu/styles':
+        specifier: workspace:^
+        version: link:../styles
       '@natu/tsconfig':
         specifier: workspace:^
         version: link:../tsconfig
@@ -3712,6 +3760,11 @@ packages:
 
   '@storybook/theming@8.6.12':
     resolution: {integrity: sha512-6VjZg8HJ2Op7+KV7ihJpYrDnFtd9D1jrQnUS8LckcpuBXrIEbaut5+34ObY8ssQnSqkk2GwIZBBBQYQBCVvkOw==}
+    peerDependencies:
+      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+
+  '@storybook/types@8.6.14':
+    resolution: {integrity: sha512-33kzHZa7h6/EygeLZDcm1PNRTlybokz8dzAh2JYjpETf77pG8jhPmEfrI2oHSAdgNeK7A3OMcGA/EwEN7EJdzw==}
     peerDependencies:
       storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
@@ -15114,6 +15167,10 @@ snapshots:
       storybook: 8.6.12(prettier@3.5.3)
 
   '@storybook/theming@8.6.12(storybook@8.6.12(prettier@3.5.3))':
+    dependencies:
+      storybook: 8.6.12(prettier@3.5.3)
+
+  '@storybook/types@8.6.14(storybook@8.6.12(prettier@3.5.3))':
     dependencies:
       storybook: 8.6.12(prettier@3.5.3)
 

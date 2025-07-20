@@ -26,6 +26,7 @@
     "@natu/axe": "workspace:^",
     "@natu/browserslist-config-shared": "workspace:^",
     "@natu/eslint-config-shared": "workspace:^",
+    "@natu/stories": "workspace:^",
     "@natu/tsconfig": "workspace:^",
     "@storybook/addon-a11y": "8.6.12",
     "@storybook/addon-essentials": "8.6.12",

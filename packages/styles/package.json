@@ -12,13 +12,18 @@
   },
   "scripts": {
     "build": "tsx ./src/build-tokens.ts",
+    "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "storybook": "storybook dev -p 6013",
     "storybook:build": "storybook build",
     "storybook:preview": "vite preview --port 6013 --outDir ./storybook-static"
   },
+  "dependencies": {
+    "modern-normalize": "^3.0.1"
+  },
   "devDependencies": {
     "@natu/axe": "workspace:^",
     "@natu/eslint-config-shared": "workspace:^",
+    "@natu/stories": "workspace:^",
     "@natu/tsconfig": "workspace:^",
     "@storybook/addon-a11y": "8.6.12",
     "@storybook/addon-essentials": "8.6.12",
@@ -40,8 +45,5 @@
     "typescript": "5.8.3",
     "typescript-eslint": "8.30.1",
     "vite": "^6.3.1"
-  },
-  "dependencies": {
-    "modern-normalize": "^3.0.1"
   }
 }

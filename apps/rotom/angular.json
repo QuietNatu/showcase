@@ -29,10 +29,10 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles/styles.scss",
-              "./node_modules/@natu/styles/src/stylesheets/styles.scss"
-            ],
+            "styles": ["./src/styles/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["node_modules"]
+            },
             "scripts": []
           },
           "configurations": {

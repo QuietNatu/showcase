@@ -2,7 +2,7 @@ import { ExampleCounter } from './example-counter';
 import { page } from '@vitest/browser/context';
 import { render } from 'vitest-browser-react';
 import * as stories from './example-counter.stories';
-import { composeStories } from '@storybook/react';
+import { composeStories } from '@storybook/react-vite';
 import { axe } from '@natu/axe/vitest';
 
 const { Default } = composeStories(stories);

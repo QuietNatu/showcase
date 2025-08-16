@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:js-app"],
+  "extends": ["config:best-practices", "config:js-app", ":pinAllExceptPeerDependencies"],
   "schedule": ["before 5am every weekday"],
   "timezone": "Europe/London",
   "configMigration": true,

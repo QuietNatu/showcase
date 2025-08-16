@@ -38,7 +38,7 @@
     "@storybook/react": "8.6.12",
     "@storybook/react-vite": "8.6.12",
     "@storybook/test": "8.6.12",
-    "@types/node": "22.14.1",
+    "@types/node": "22.17.1",
     "@types/react": "19.1.5",
     "@types/react-dom": "19.1.5",
     "@vitejs/plugin-react-swc": "3.8.1",

@@ -64,7 +64,7 @@
     "@storybook/test": "8.6.12",
     "@testing-library/angular": "17.3.7",
     "@testing-library/dom": "10.4.0",
-    "@types/node": "22.14.1",
+    "@types/node": "22.17.1",
     "@vitest/browser": "3.1.1",
     "@vitest/coverage-istanbul": "3.1.1",
     "cross-env": "7.0.3",

@@ -1,4 +1,3 @@
-import 'zone.js';
 import '../src/styles/styles.scss';
 
 import { applicationConfig, type Preview } from '@storybook/angular';

@@ -1,5 +1,4 @@
 import './styles.scss';
-import 'zone.js';
 
 import { applicationConfig, type Preview } from '@storybook/angular';
 import { setCompodocJson } from '@storybook/addon-docs/angular';

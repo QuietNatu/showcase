@@ -29,7 +29,10 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles/styles.scss"],
+            "styles": ["./src/styles/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["node_modules"]
+            },
             "scripts": []
           },
           "configurations": {

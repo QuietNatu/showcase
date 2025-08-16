@@ -1,0 +1,31 @@
+import './styles.scss';
+
+import type { Preview } from '@storybook/react';
+import { A11yParameters } from '@storybook/addon-a11y';
+import { axeRules } from '@natu/axe';
+import { createThemeGlobalType, withTheme } from '@natu/stories';
+
+const preview: Preview = {
+  parameters: {
+    a11y: { config: { rules: axeRules } } satisfies A11yParameters['a11y'],
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/i,
+      },
+    },
+    options: {
+      storySort: {
+        method: 'alphabetical',
+      },
+    },
+  },
+  globalTypes: {
+    theme: createThemeGlobalType('smeargle'),
+  },
+  decorators: [withTheme()],
+};
+
+// TODO: change port
+
+export default preview;

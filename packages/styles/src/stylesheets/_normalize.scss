@@ -1,0 +1,7 @@
+@use 'sass:meta';
+
+@mixin styles {
+  @layer normalize {
+    @include meta.load-css('modern-normalize/modern-normalize.css');
+  }
+}

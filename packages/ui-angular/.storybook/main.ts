@@ -1,3 +1,4 @@
+// TODO: update to match https://analogjs.org/docs/integrations/storybook
 import type { StorybookConfig } from '@storybook/angular';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
 

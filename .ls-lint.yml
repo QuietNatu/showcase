@@ -13,7 +13,7 @@ ls:
     .*.tsx: kebab-case
     .json: kebab-case
     .css: kebab-case
-    .scss: kebab-case
+    .scss: regex:_?[a-z]+(?:-[a-z]+)* #kebab-case + optional starting underscore
     .*.scss: kebab-case
 
 ignore:

@@ -1,0 +1,115 @@
+{
+  "heading": {
+    "1": {
+      "fontFamily": { "$value": "{font.family.heading}" },
+      "fontSize": { "$value": "{font.size.9}" },
+      "fontWeight": { "$value": "{font.weight.light}" },
+      "letterSpacing": { "$value": "0" },
+      "lineHeight": { "$value": "1.199" }
+    },
+
+    "2": {
+      "fontFamily": { "$value": "{font.family.heading}" },
+      "fontSize": { "$value": "{font.size.7}" },
+      "fontWeight": { "$value": "{font.weight.regular}" },
+      "letterSpacing": { "$value": "0" },
+      "lineHeight": { "$value": "1.25" }
+    }
+  },
+
+  "body": {
+    "1": {
+      "fontFamily": { "$value": "{font.family.regular}" },
+      "fontSize": { "$value": "{font.size.3}" },
+      "fontWeight": { "$value": "{font.weight.regular}" },
+      "letterSpacing": { "$value": "0" },
+      "lineHeight": { "$value": "{spacing.7}" }
+    },
+
+    "2": {
+      "fontFamily": { "$value": "{font.family.regular}" },
+      "fontSize": { "$value": "{font.size.2}" },
+      "fontWeight": { "$value": "{font.weight.regular}" },
+      "letterSpacing": { "$value": "0" },
+      "lineHeight": { "$value": "{spacing.6}" }
+    }
+  },
+
+  "fluid": {
+    "heading-1": {
+      "xs": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.7}" },
+        "fontWeight": { "$value": "{font.weight.strong}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.25" }
+      },
+      "sm": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.8}" },
+        "fontWeight": { "$value": "{font.weight.strong}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.22" }
+      },
+      "md": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.9}" },
+        "fontWeight": { "$value": "{font.weight.strong}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.19" }
+      },
+      "lg": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.10}" },
+        "fontWeight": { "$value": "{font.weight.strong}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.17" }
+      },
+      "xl": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.12}" },
+        "fontWeight": { "$value": "{font.weight.strong}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.17" }
+      }
+    },
+
+    "heading-2": {
+      "xs": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.6}" },
+        "fontWeight": { "$value": "{font.weight.regular}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.28572" }
+      },
+      "sm": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.6}" },
+        "fontWeight": { "$value": "{font.weight.regular}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.28572" }
+      },
+      "md": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.6}" },
+        "fontWeight": { "$value": "{font.weight.regular}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.28572" }
+      },
+      "lg": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.7}" },
+        "fontWeight": { "$value": "{font.weight.regular}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.25" }
+      },
+      "xl": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.7}" },
+        "fontWeight": { "$value": "{font.weight.regular}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.25" }
+      }
+    }
+  }
+}

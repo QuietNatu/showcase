@@ -3,6 +3,7 @@ import '../src/styles/styles.scss';
 import type { Preview } from '@storybook/react';
 import { A11yParameters } from '@storybook/addon-a11y';
 import { axeRules } from '@natu/axe';
+import { createThemeGlobalType, withTheme } from '@natu/stories';
 
 const preview: Preview = {
   parameters: {
@@ -20,6 +21,10 @@ const preview: Preview = {
     },
   },
   tags: ['autodocs'],
+  globalTypes: {
+    theme: createThemeGlobalType('smeargle'),
+  },
+  decorators: [withTheme()],
 };
 
 export default preview;

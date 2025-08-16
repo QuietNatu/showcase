@@ -6,7 +6,7 @@
         "$value": "Montserrat, Helvetica, Arial, sans-serif"
       },
       "regular": {
-        "$value": "system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'"
+        "$value": "-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, Adwaita Sans, Cantarell, Ubuntu, roboto, noto, helvetica, arial, sans-serif"
       }
     },
     "size": {

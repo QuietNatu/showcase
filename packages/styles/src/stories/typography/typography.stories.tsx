@@ -34,3 +34,28 @@ export const Fluid: Story = {
     </>
   ),
 };
+
+export const Weights: Story = {
+  render: () => (
+    <>
+      <p
+        className="natu-heading-1"
+        style={{ fontWeight: 'var(--natu-font-weight-light)', margin: 'var(--natu-spacing-4) 0' }}
+      >
+        Light
+      </p>
+      <p
+        className="natu-heading-1"
+        style={{ fontWeight: 'var(--natu-font-weight-regular)', margin: 'var(--natu-spacing-4) 0' }}
+      >
+        Regular
+      </p>
+      <p
+        className="natu-heading-1"
+        style={{ fontWeight: 'var(--natu-font-weight-strong)', margin: 'var(--natu-spacing-4) 0' }}
+      >
+        Strong
+      </p>
+    </>
+  ),
+};

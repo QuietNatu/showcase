@@ -7,4 +7,12 @@ export default {
   semi: true,
   bracketSpacing: true,
   endOfLine: 'auto',
+  overrides: [
+    {
+      files: ['apps/rotom/src/**/*.html', 'packages/ui-angular/src/**/*.html'],
+      options: {
+        parser: 'angular',
+      },
+    },
+  ],
 };

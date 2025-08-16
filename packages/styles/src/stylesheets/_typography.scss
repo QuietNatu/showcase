@@ -23,7 +23,7 @@
       @if $index == 1 {
         @include -properties(#{$name}-#{$breakpoint});
       } @else {
-        @media (width >= #{$value}px) {
+        @media (width > #{$value}px) {
           @include -properties(#{$name}-#{$breakpoint});
         }
       }

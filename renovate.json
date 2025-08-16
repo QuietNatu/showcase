@@ -6,7 +6,7 @@
   "configMigration": true,
   "prConcurrentLimit": 2,
   "platformAutomerge": true,
-  "baseBranches": ["main"],
+  "baseBranchPatterns": ["main"],
   "internalChecksFilter": "strict",
   "labels": ["dependencies"],
   "npm": {

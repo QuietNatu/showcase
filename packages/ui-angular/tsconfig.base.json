@@ -6,7 +6,8 @@
     "paths": {
       "@natu/axe": ["../../packages/axe/src/index.ts"],
       "@natu/axe/vitest": ["../../packages/axe/src/vitest/index.ts"],
-      "@natu/axe/vitest/extend-expect": ["../../packages/axe/src/vitest/extend-expect.ts"]
+      "@natu/axe/vitest/extend-expect": ["../../packages/axe/src/vitest/extend-expect.ts"],
+      "@natu/stories": ["../../packages/stories/src/index.ts"]
     }
   }
 }

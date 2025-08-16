@@ -4,3 +4,4 @@ pnpm-lock.yaml
 .prettierignore
 .browserslistrc
 **/*.sh
+packages/styles/src/assets

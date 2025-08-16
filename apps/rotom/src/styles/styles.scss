@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+@forward '@natu/styles/dist/tokens/rotom';
+@forward '@natu/styles/dist/tokens/rotom-dark';
+@forward '@natu/styles/dist/tokens/smeargle';
+@forward '@natu/styles/dist/tokens/smeargle-dark';
+@forward '@natu/styles/src/stylesheets/styles';

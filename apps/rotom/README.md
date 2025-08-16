@@ -50,3 +50,13 @@ A downside of this is that every time you make a change to a library, you have t
 As a workaround, you can use `tsconfig` paths to redirect imports to the library and import the components as if they were not part of a library.
 The downside of this is that the library won't be added to `package.json`, unlike the rest of the libraries that are not part of the monorepo.
 This makes it so that the apps that use the library need to know the directory of the library and makes it harder to adapt the app if the library is moved from the monorepo to a separate repository. Another downside is that imports will not auto-complete correctly.
+
+### Angular + SCSS does not use package.json exports to resolve imports
+
+While this is supported when using React or Vite, Angular currently fails to resolve an external SCSS file imported via the path specified in the package's package.json "exports" field.
+
+So, in Angular, instead of:
+`@forward '@natu/styles/stylesheets/styles';`
+
+You have to use the actual path to the file:
+`@forward '@natu/styles/src/stylesheets/styles';`

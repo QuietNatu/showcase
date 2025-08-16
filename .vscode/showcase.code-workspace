@@ -25,6 +25,14 @@
       "path": "../packages/eslint-config-shared",
     },
     {
+      "name": "🎨 stories",
+      "path": "../packages/stories",
+    },
+    {
+      "name": "🎨 styles",
+      "path": "../packages/styles",
+    },
+    {
       "name": "📦 tsconfig",
       "path": "../packages/tsconfig",
     },

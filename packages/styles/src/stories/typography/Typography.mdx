@@ -1,0 +1,40 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import * as stories from './typography.stories';
+
+# Typography
+
+## Fonts
+
+There are two types of fonts used throughout the application:
+
+- **Headings:** Use [Montserrat](https://fonts.google.com/specimen/Montserrat) to add some styling to the page.
+- **Body Text:** Uses the [system font stack](https://systemfontstack.com/) for familiarity and cross-platform performance.
+
+## Headings
+
+Two types of headings are provided for different scenarios:
+
+### 1. Regular Headings
+
+These are fixed in size and do not change based on the viewport. They allow for a higher density of information.
+
+These are the default heading type, prioritizing space efficiency. Use them in most scenarios.
+
+<Canvas of={stories.Headings} />
+
+### 2. Fluid Headings
+
+These adapt based on the size of the viewport, making them more prominent on larger viewports.
+
+Use them to grab the user's attention, for example, on product pages, landing pages, or when onboarding users.
+
+<Canvas of={stories.Fluid} />
+
+## Body Text
+
+<Canvas of={stories.Body} />
+
+## Weights
+
+<Canvas of={stories.Weights} />

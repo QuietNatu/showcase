@@ -1,6 +1,6 @@
 import './styles.scss';
 
-import { applicationConfig, type Preview } from '@storybook/angular';
+import { applicationConfig, Decorator, type Preview } from '@analogjs/storybook-angular';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from './documentation.json';
 import { A11yParameters } from '@storybook/addon-a11y';
@@ -11,7 +11,7 @@ setCompodocJson(docJson);
 
 const preview: Preview = {
   parameters: {
-    a11y: { config: { rules: axeRules } } satisfies A11yParameters['a11y'],
+    a11y: { config: { rules: axeRules } } satisfies A11yParameters,
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -28,7 +28,7 @@ const preview: Preview = {
   globalTypes: {
     theme: createThemeGlobalType('rotom'),
   },
-  decorators: [applicationConfig({ providers: [] }), withTheme()],
+  decorators: [applicationConfig({ providers: [] }), withTheme() as Decorator],
 };
 
 export default preview;

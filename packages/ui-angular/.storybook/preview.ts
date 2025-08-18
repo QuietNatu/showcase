@@ -1,6 +1,6 @@
 import './styles.scss';
 
-import { applicationConfig, Decorator, type Preview } from '@analogjs/storybook-angular';
+import { applicationConfig, type Preview } from '@analogjs/storybook-angular';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from './documentation.json';
 import { A11yParameters } from '@storybook/addon-a11y';
@@ -28,7 +28,7 @@ const preview: Preview = {
   globalTypes: {
     theme: createThemeGlobalType('rotom'),
   },
-  decorators: [applicationConfig({ providers: [] }), withTheme() as Decorator],
+  decorators: [applicationConfig({ providers: [] }), withTheme()],
 };
 
 export default preview;

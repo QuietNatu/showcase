@@ -389,9 +389,6 @@ importers:
       '@natu/tsconfig':
         specifier: workspace:^
         version: link:../tsconfig
-      '@storybook/types':
-        specifier: ^8.6.14
-        version: 8.6.14(storybook@8.6.12(prettier@3.6.2))
       '@types/node':
         specifier: 22.17.1
         version: 22.17.1
@@ -399,8 +396,8 @@ importers:
         specifier: 9.25.0
         version: 9.25.0(jiti@2.5.1)
       storybook:
-        specifier: 8.6.12
-        version: 8.6.12(prettier@3.6.2)
+        specifier: 9.1.2
+        version: 9.1.2(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@22.17.1)(jiti@2.5.1)(less@4.3.0)(sass@1.89.2)(terser@5.43.1)(tsx@4.20.4)(yaml@2.8.1))
       typescript:
         specifier: 5.8.3
         version: 5.8.3
@@ -3686,14 +3683,6 @@ packages:
     peerDependencies:
       storybook: ^9.1.2
 
-  '@storybook/core@8.6.12':
-    resolution: {integrity: sha512-t+ZuDzAlsXKa6tLxNZT81gEAt4GNwsKP/Id2wluhmUWD/lwYW0uum1JiPUuanw8xD6TdakCW/7ULZc7aQUBLCQ==}
-    peerDependencies:
-      prettier: ^2 || ^3
-    peerDependenciesMeta:
-      prettier:
-        optional: true
-
   '@storybook/csf-plugin@9.1.2':
     resolution: {integrity: sha512-bfMh6r+RieBLPWtqqYN70le2uTE4JzOYPMYSCagHykUti3uM/1vRFaZNkZtUsRy5GwEzE5jLdDXioG1lOEeT2Q==}
     peerDependencies:
@@ -3736,16 +3725,6 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
-
-  '@storybook/theming@8.6.12':
-    resolution: {integrity: sha512-6VjZg8HJ2Op7+KV7ihJpYrDnFtd9D1jrQnUS8LckcpuBXrIEbaut5+34ObY8ssQnSqkk2GwIZBBBQYQBCVvkOw==}
-    peerDependencies:
-      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-
-  '@storybook/types@8.6.14':
-    resolution: {integrity: sha512-33kzHZa7h6/EygeLZDcm1PNRTlybokz8dzAh2JYjpETf77pG8jhPmEfrI2oHSAdgNeK7A3OMcGA/EwEN7EJdzw==}
-    peerDependencies:
-      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
   '@swc/core-darwin-arm64@1.13.3':
     resolution: {integrity: sha512-ux0Ws4pSpBTqbDS9GlVP354MekB1DwYlbxXU3VhnDr4GBcCOimpocx62x7cFJkSpEBF8bmX8+/TTCGKh4PbyXw==}
@@ -4743,9 +4722,6 @@ packages:
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
-
-  browser-assert@1.2.1:
-    resolution: {integrity: sha512-nfulgvOR6S4gt9UKCeGJOuSGBPGiFT6oQ/2UBnvTY/5aQ1PnksW72fhZkM30DzoRRv2WpwZf1vHHEr3mtuXIWQ==}
 
   browserslist-to-esbuild@2.1.1:
     resolution: {integrity: sha512-KN+mty6C3e9AN8Z5dI1xeN15ExcRNeISoC3g7V0Kax/MMF9MSoYA2G7lkTTcVUFntiEjkpI0HNgqJC1NjdyNUw==}
@@ -8924,15 +8900,6 @@ packages:
   stop-iteration-iterator@1.1.0:
     resolution: {integrity: sha512-eLoXW/DHyl62zxY4SCaIgnRhuMr6ri4juEYARS8E6sCEqzKpOiE521Ucofdx+KnDZl5xmvGYaaKCk5FEOxJCoQ==}
     engines: {node: '>= 0.4'}
-
-  storybook@8.6.12:
-    resolution: {integrity: sha512-Z/nWYEHBTLK1ZBtAWdhxC0l5zf7ioJ7G4+zYqtTdYeb67gTnxNj80gehf8o8QY9L2zA2+eyMRGLC2V5fI7Z3Tw==}
-    hasBin: true
-    peerDependencies:
-      prettier: ^2 || ^3
-    peerDependenciesMeta:
-      prettier:
-        optional: true
 
   storybook@9.1.2:
     resolution: {integrity: sha512-TYcq7WmgfVCAQge/KueGkVlM/+g33sQcmbATlC3X6y/g2FEeSSLGrb6E6d3iemht8oio+aY6ld3YOdAnMwx45Q==}
@@ -14690,27 +14657,6 @@ snapshots:
       storybook: 9.1.2(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@22.17.1)(jiti@2.5.1)(less@4.3.0)(sass@1.89.2)(terser@5.43.1)(tsx@4.20.4)(yaml@2.8.1))
       ts-dedent: 2.2.0
 
-  '@storybook/core@8.6.12(prettier@3.6.2)(storybook@8.6.12(prettier@3.6.2))':
-    dependencies:
-      '@storybook/theming': 8.6.12(storybook@8.6.12(prettier@3.6.2))
-      better-opn: 3.0.2
-      browser-assert: 1.2.1
-      esbuild: 0.25.9
-      esbuild-register: 3.6.0(esbuild@0.25.9)
-      jsdoc-type-pratt-parser: 4.8.0
-      process: 0.11.10
-      recast: 0.23.11
-      semver: 7.7.2
-      util: 0.12.5
-      ws: 8.18.3
-    optionalDependencies:
-      prettier: 3.6.2
-    transitivePeerDependencies:
-      - bufferutil
-      - storybook
-      - supports-color
-      - utf-8-validate
-
   '@storybook/csf-plugin@9.1.2(storybook@9.1.2(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@22.17.1)(jiti@2.5.1)(less@4.3.0)(sass@1.89.2)(terser@5.43.1)(tsx@4.20.4)(yaml@2.8.1)))':
     dependencies:
       storybook: 9.1.2(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@22.17.1)(jiti@2.5.1)(less@4.3.0)(sass@1.89.2)(terser@5.43.1)(tsx@4.20.4)(yaml@2.8.1))
@@ -14758,14 +14704,6 @@ snapshots:
       storybook: 9.1.2(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@22.17.1)(jiti@2.5.1)(less@4.3.0)(sass@1.89.2)(terser@5.43.1)(tsx@4.20.4)(yaml@2.8.1))
     optionalDependencies:
       typescript: 5.8.3
-
-  '@storybook/theming@8.6.12(storybook@8.6.12(prettier@3.6.2))':
-    dependencies:
-      storybook: 8.6.12(prettier@3.6.2)
-
-  '@storybook/types@8.6.14(storybook@8.6.12(prettier@3.6.2))':
-    dependencies:
-      storybook: 8.6.12(prettier@3.6.2)
 
   '@swc/core-darwin-arm64@1.13.3':
     optional: true
@@ -16019,8 +15957,6 @@ snapshots:
   braces@3.0.3:
     dependencies:
       fill-range: 7.1.1
-
-  browser-assert@1.2.1: {}
 
   browserslist-to-esbuild@2.1.1(browserslist@4.25.2):
     dependencies:
@@ -21060,16 +20996,6 @@ snapshots:
     dependencies:
       es-errors: 1.3.0
       internal-slot: 1.1.0
-
-  storybook@8.6.12(prettier@3.6.2):
-    dependencies:
-      '@storybook/core': 8.6.12(prettier@3.6.2)(storybook@8.6.12(prettier@3.6.2))
-    optionalDependencies:
-      prettier: 3.6.2
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
 
   storybook@9.1.2(@testing-library/dom@10.4.0)(prettier@3.6.2)(vite@7.1.2(@types/node@22.17.1)(jiti@2.5.1)(less@4.3.0)(sass@1.89.2)(terser@5.43.1)(tsx@4.20.4)(yaml@2.8.1)):
     dependencies:

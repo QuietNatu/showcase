@@ -1,6 +1,6 @@
 import '../src/styles/styles.scss';
 
-import type { Decorator, Preview } from '@storybook/react-vite';
+import type { Preview } from '@storybook/react-vite';
 import { A11yParameters } from '@storybook/addon-a11y';
 import { axeRules } from '@natu/axe';
 import { createThemeGlobalType, withTheme } from '@natu/stories';
@@ -24,7 +24,7 @@ const preview: Preview = {
   globalTypes: {
     theme: createThemeGlobalType('smeargle'),
   },
-  decorators: [withTheme() as Decorator],
+  decorators: [withTheme()],
 };
 
 export default preview;

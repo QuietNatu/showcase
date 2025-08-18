@@ -24,8 +24,6 @@ import prettier from 'eslint-config-prettier/flat';
         and then check if typescript-eslint can be removed from peer-dependencies
 */
 
-// TODO: recheck rules and libraries
-
 const defaultIgnores = [
   'node_modules/',
   'dist/',

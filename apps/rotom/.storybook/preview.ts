@@ -5,7 +5,7 @@ import docJson from './documentation.json';
 import { A11yParameters } from '@storybook/addon-a11y';
 import { axeRules } from '@natu/axe';
 import { createThemeGlobalType, withTheme } from '@natu/stories';
-import { applicationConfig, type Preview, type Decorator } from '@analogjs/storybook-angular';
+import { applicationConfig, type Preview } from '@analogjs/storybook-angular';
 import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 setCompodocJson(docJson);
@@ -29,10 +29,7 @@ const preview: Preview = {
   globalTypes: {
     theme: createThemeGlobalType('rotom'),
   },
-  decorators: [
-    applicationConfig({ providers: [provideNoopAnimations()] }),
-    withTheme() as Decorator,
-  ],
+  decorators: [applicationConfig({ providers: [provideNoopAnimations()] }), withTheme()],
 };
 
 export default preview;

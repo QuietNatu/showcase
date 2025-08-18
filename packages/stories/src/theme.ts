@@ -1,4 +1,4 @@
-import type { DecoratorFunction, GlobalTypes } from '@storybook/types';
+import type { DecoratorFunction, GlobalTypes } from 'storybook/internal/types';
 
 const themes = [
   { value: 'rotom', title: 'Rotom' },

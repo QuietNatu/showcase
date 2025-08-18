@@ -33,7 +33,7 @@
   },
   "peerDependencies": {
     "eslint": "9.33.0",
-    "typescript-eslint": "8.30.1"
+    "typescript-eslint": "8.39.1"
   },
   "devDependencies": {
     "@types/eslint-plugin-jsx-a11y": "6.10.0",

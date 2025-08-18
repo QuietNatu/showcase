@@ -33,8 +33,8 @@ importers:
         specifier: 3.6.2
         version: 3.6.2
       renovate:
-        specifier: 41.69.1
-        version: 41.69.1(encoding@0.1.13)(typanion@3.14.0)
+        specifier: 41.73.4
+        version: 41.73.4(encoding@0.1.13)(typanion@3.14.0)
       stylelint:
         specifier: 16.23.1
         version: 16.23.1(typescript@5.8.3)
@@ -8438,8 +8438,8 @@ packages:
   renderkid@3.0.0:
     resolution: {integrity: sha512-q/7VIQA8lmM1hF+jn+sFSPWGlMkSAeNYcPLmDQx2zzuiDfaLrOmumR8iaUKlenFgh0XRPIUeSPlH3A+AW3Z5pg==}
 
-  renovate@41.69.1:
-    resolution: {integrity: sha512-/RQzJFvaUEfQgnUq1ng8TrKaBaO64wdq8WarCryklZL3jVU9fBsf6MLPd4naHBRz1Svs9ql39AzZWU2a/dqj0g==}
+  renovate@41.73.4:
+    resolution: {integrity: sha512-62sV1zuTMX2sqeNF5y4c9YiSj1Bui1IT1zz42VyH35IfQgOgs+DOeweO0rtRxGuQZYnduX3X0SrB/QAqD1Phog==}
     engines: {node: ^22.13.0, pnpm: ^10.0.0}
     hasBin: true
 
@@ -13466,8 +13466,8 @@ snapshots:
       express-rate-limit: 7.5.1(express@5.1.0)
       pkce-challenge: 5.0.0
       raw-body: 3.0.0
-      zod: 3.25.75
-      zod-to-json-schema: 3.24.6(zod@3.25.75)
+      zod: 3.25.76
+      zod-to-json-schema: 3.24.6(zod@3.25.76)
     transitivePeerDependencies:
       - supports-color
 
@@ -20306,7 +20306,7 @@ snapshots:
       lodash: 4.17.21
       strip-ansi: 6.0.1
 
-  renovate@41.69.1(encoding@0.1.13)(typanion@3.14.0):
+  renovate@41.73.4(encoding@0.1.13)(typanion@3.14.0):
     dependencies:
       '@aws-sdk/client-codecommit': 3.858.0
       '@aws-sdk/client-ec2': 3.858.0
@@ -22407,9 +22407,9 @@ snapshots:
 
   yoctocolors-cjs@2.1.2: {}
 
-  zod-to-json-schema@3.24.6(zod@3.25.75):
+  zod-to-json-schema@3.24.6(zod@3.25.76):
     dependencies:
-      zod: 3.25.75
+      zod: 3.25.76
 
   zod@3.25.75: {}
 

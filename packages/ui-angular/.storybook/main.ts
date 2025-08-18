@@ -1,6 +1,7 @@
-// TODO: update to match https://analogjs.org/docs/integrations/storybook
-import type { StorybookConfig } from '@storybook/angular';
+import type { StorybookConfig } from '@analogjs/storybook-angular';
 import type { StorybookConfigVite } from '@storybook/builder-vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import { mergeConfig } from 'vite';
 
 import { join, dirname } from 'path';
 
@@ -16,46 +17,17 @@ const isDevMode = process.env.NODE_ENV === 'development';
 
 const config: StorybookConfig & StorybookConfigVite = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  addons: [
-    getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@storybook/addon-a11y'),
-  ],
+  addons: [getAbsolutePath('@storybook/addon-a11y'), getAbsolutePath('@storybook/addon-docs')],
   framework: {
-    name: getAbsolutePath('@storybook/angular'),
+    name: getAbsolutePath('@analogjs/storybook-angular'),
     options: {},
   },
-  core: {
-    builder: {
-      name: '@storybook/builder-vite',
-      options: {
-        viteConfigPath: undefined,
-      },
-    },
-  },
-
   viteFinal: async (config) => {
-    const { mergeConfig } = await import('vite');
-    const { default: angular } = await import('@analogjs/vite-plugin-angular');
-
     return mergeConfig(config, {
-      optimizeDeps: {
-        include: [
-          '@storybook/angular',
-          '@storybook/angular/dist/client/index.js',
-          '@angular/compiler',
-          '@storybook/addon-a11y',
-          '@storybook/addon-docs/angular',
-          '@storybook/blocks',
-          '@storybook/test',
-          'tslib',
-        ],
-      },
-      plugins: [
-        angular({ jit: !isDevMode, liveReload: isDevMode, tsconfig: './.storybook/tsconfig.json' }),
-      ],
+      plugins: [tsconfigPaths({ configNames: ['tsconfig.json'] })],
       define: {
         STORYBOOK_ANGULAR_OPTIONS: JSON.stringify({
-          experimentalZoneless: false,
+          experimentalZoneless: true,
         }),
       },
     });

@@ -1,3 +1,4 @@
+import { expect, test } from 'vitest';
 import { ExampleCounter } from './example-counter';
 import { render } from '@testing-library/angular';
 import { page } from '@vitest/browser/context';

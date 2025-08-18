@@ -1,9 +1,10 @@
+import { test, expect } from 'vitest';
 import { App } from './app';
 import { page } from '@vitest/browser/context';
 import { render } from 'vitest-browser-react';
 
 import * as stories from './app.stories';
-import { composeStories } from '@storybook/react';
+import { composeStories } from '@storybook/react-vite';
 import { axe } from '@natu/axe/vitest';
 
 const { Default } = composeStories(stories);

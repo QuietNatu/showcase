@@ -1,16 +1,13 @@
-import '@analogjs/vitest-angular/setup-zone';
+import { beforeAll } from 'vitest';
 import '@natu/axe/vitest/extend-expect';
 
-import {
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting,
-} from '@angular/platform-browser-dynamic/testing';
+import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
 import { getTestBed } from '@angular/core/testing';
 import { GlobalTestingModule } from './global-testing-module';
 
 beforeAll(() => {
   getTestBed().initTestEnvironment(
-    [BrowserDynamicTestingModule, GlobalTestingModule],
-    platformBrowserDynamicTesting(),
+    [BrowserTestingModule, GlobalTestingModule],
+    platformBrowserTesting(),
   );
 });

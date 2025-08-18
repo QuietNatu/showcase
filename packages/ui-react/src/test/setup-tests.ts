@@ -1,3 +1,4 @@
+import { beforeAll } from 'vitest';
 import '@natu/axe/vitest/extend-expect';
 
 import { setProjectAnnotations } from '@storybook/react-vite';

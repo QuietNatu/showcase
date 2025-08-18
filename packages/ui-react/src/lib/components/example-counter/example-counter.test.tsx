@@ -1,3 +1,4 @@
+import { test, expect } from 'vitest';
 import { ExampleCounter } from './example-counter';
 import { page } from '@vitest/browser/context';
 import { render } from 'vitest-browser-react';

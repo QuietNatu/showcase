@@ -133,7 +133,6 @@ const angularConfig = tseslint.config(
     extends: [...baseConfig, ...angular.configs.tsRecommended],
     processor: angular.processInlineTemplates,
     rules: {
-      '@angular-eslint/component-class-suffix': 'off',
       '@angular-eslint/directive-selector': [
         'error',
         {

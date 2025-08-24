@@ -6,7 +6,6 @@ import { A11yParameters } from '@storybook/addon-a11y';
 import { axeRules } from '@natu/axe';
 import { createThemeGlobalType, withTheme } from '@natu/stories';
 import { applicationConfig, type Preview } from '@analogjs/storybook-angular';
-import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 setCompodocJson(docJson);
 
@@ -29,7 +28,7 @@ const preview: Preview = {
   globalTypes: {
     theme: createThemeGlobalType('rotom'),
   },
-  decorators: [applicationConfig({ providers: [provideNoopAnimations()] }), withTheme()],
+  decorators: [applicationConfig({ providers: [] }), withTheme()],
 };
 
 export default preview;

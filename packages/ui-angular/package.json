@@ -29,8 +29,8 @@
     "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@analogjs/storybook-angular": "1.20.0-beta.4",
-    "@analogjs/vite-plugin-angular": "1.20.0-beta.4",
+    "@analogjs/storybook-angular": "1.20.1",
+    "@analogjs/vite-plugin-angular": "1.20.1",
     "@angular/animations": "20.2.0",
     "@angular/build": "20.2.0",
     "@angular/cdk": "20.2.0",

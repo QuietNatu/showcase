@@ -33,8 +33,8 @@ importers:
         specifier: 3.6.2
         version: 3.6.2
       renovate:
-        specifier: 41.82.1
-        version: 41.82.1(encoding@0.1.13)(typanion@3.14.0)
+        specifier: 41.82.3
+        version: 41.82.3(encoding@0.1.13)(typanion@3.14.0)
       stylelint:
         specifier: 16.23.1
         version: 16.23.1(typescript@5.9.2)
@@ -8251,8 +8251,8 @@ packages:
   renderkid@3.0.0:
     resolution: {integrity: sha512-q/7VIQA8lmM1hF+jn+sFSPWGlMkSAeNYcPLmDQx2zzuiDfaLrOmumR8iaUKlenFgh0XRPIUeSPlH3A+AW3Z5pg==}
 
-  renovate@41.82.1:
-    resolution: {integrity: sha512-x825jE9Cw6iuovnTHSxvIoATvqmSf6R8b6gDHMN11PAiujQ4K6YKa52FYfqokB+rbg9k/JewfljBs0gOS+8Kww==}
+  renovate@41.82.3:
+    resolution: {integrity: sha512-iOf9oblatjelV7WSd2UKvGmaCWtVQbNFdmcRpZffdeRMPsi3t7jfuh+AJ9SWG/48CZbsCUJ4wZBr5tZTqhlfVg==}
     engines: {node: ^22.13.0, pnpm: ^10.0.0}
     hasBin: true
 
@@ -19977,7 +19977,7 @@ snapshots:
       lodash: 4.17.21
       strip-ansi: 6.0.1
 
-  renovate@41.82.1(encoding@0.1.13)(typanion@3.14.0):
+  renovate@41.82.3(encoding@0.1.13)(typanion@3.14.0):
     dependencies:
       '@aws-sdk/client-codecommit': 3.858.0
       '@aws-sdk/client-ec2': 3.858.0

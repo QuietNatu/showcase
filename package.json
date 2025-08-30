@@ -18,7 +18,7 @@
     "lint:eslint": "turbo run lint",
     "lint:lslint": "ls-lint",
     "lint:prettier": "prettier . --check",
-    "lint:stylelint": "stylelint '{apps,packages}/*/src/**/*.{css,scss}'",
+    "lint:stylelint": "stylelint '{apps,packages}/*/src/**/*.{css,scss}' 'packages/styles/dist/**/*.{css,scss}'",
     "prepare": "husky",
     "renovate:validate": "renovate-config-validator renovate.json",
     "storybook": "turbo run storybook",

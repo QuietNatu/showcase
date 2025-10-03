@@ -42,7 +42,7 @@
     "@angular/forms": "20.2.1",
     "@angular/platform-browser": "20.2.1",
     "@angular/router": "20.2.1",
-    "@compodoc/compodoc": "1.1.26",
+    "@compodoc/compodoc": "1.1.30",
     "@natu/axe": "workspace:^",
     "@natu/browserslist-config-shared": "workspace:^",
     "@natu/eslint-config-shared": "workspace:^",

@@ -1,0 +1,8 @@
+@mixin styles {
+  @layer base {
+    ul,
+    ol {
+      list-style-type: none;
+    }
+  }
+}

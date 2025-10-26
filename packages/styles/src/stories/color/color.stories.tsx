@@ -8,12 +8,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const GreyPalette: Story = {
-  render: () => <Palette colors={createShades('grey')} />,
-};
-
 export const BrandPalette: Story = {
   render: () => <Palette colors={createShades('brand')} />,
+};
+
+export const GreyPalette: Story = {
+  render: () => <Palette colors={createShades('grey')} />,
 };
 
 export const ErrorPalette: Story = {

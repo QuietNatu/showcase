@@ -2,6 +2,20 @@
   "color": {
     "$type": "color",
 
+    "brand": {
+      "05": { "$value": "oklch(96% 0.03 149deg)" },
+      "10": { "$value": "oklch(92% 0.06 149deg)" },
+      "20": { "$value": "oklch(88% 0.09 149deg)" },
+      "30": { "$value": "oklch(80% 0.13 149deg)" },
+      "40": { "$value": "oklch(70% 0.16 149deg)" },
+      "50": { "$value": "oklch(60% 0.18 149deg)" },
+      "60": { "$value": "oklch(47% 0.15 149deg)" },
+      "70": { "$value": "oklch(37% 0.12 149deg)" },
+      "80": { "$value": "oklch(28% 0.09 149deg)" },
+      "90": { "$value": "oklch(20% 0.06 149deg)" },
+      "95": { "$value": "oklch(14% 0.04 149deg)" }
+    },
+
     "white": { "$value": "{color.grey.05}" },
     "black": { "$value": "{color.grey.95}" },
 
@@ -33,20 +47,6 @@
       "95": { "$value": "oklch(20% 0.05 230deg)" }
     },
 
-    "green": {
-      "05": { "$value": "oklch(96% 0.03 149deg)" },
-      "10": { "$value": "oklch(92% 0.06 149deg)" },
-      "20": { "$value": "oklch(88% 0.09 149deg)" },
-      "30": { "$value": "oklch(80% 0.13 149deg)" },
-      "40": { "$value": "oklch(70% 0.16 149deg)" },
-      "50": { "$value": "oklch(60% 0.18 149deg)" },
-      "60": { "$value": "oklch(47% 0.15 149deg)" },
-      "70": { "$value": "oklch(37% 0.12 149deg)" },
-      "80": { "$value": "oklch(28% 0.09 149deg)" },
-      "90": { "$value": "oklch(20% 0.06 149deg)" },
-      "95": { "$value": "oklch(14% 0.04 149deg)" }
-    },
-
     "red": {
       "05": { "$value": "oklch(97% 0.03 25deg)" },
       "10": { "$value": "oklch(94% 0.07 25deg)" },
@@ -73,20 +73,6 @@
       "80": { "$value": "oklch(50% 0.12 75deg)" },
       "90": { "$value": "oklch(33% 0.09 75deg)" },
       "95": { "$value": "oklch(25% 0.05 75deg)" }
-    },
-
-    "brand": {
-      "05": { "$value": "{color.green.05}" },
-      "10": { "$value": "{color.green.10}" },
-      "20": { "$value": "{color.green.20}" },
-      "30": { "$value": "{color.green.30}" },
-      "40": { "$value": "{color.green.40}" },
-      "50": { "$value": "{color.green.50}" },
-      "60": { "$value": "{color.green.60}" },
-      "70": { "$value": "{color.green.70}" },
-      "80": { "$value": "{color.green.80}" },
-      "90": { "$value": "{color.green.90}" },
-      "95": { "$value": "{color.green.95}" }
     },
 
     "error": {

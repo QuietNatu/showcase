@@ -113,6 +113,7 @@ const baseConfig = tseslint.config(
       'sonarjs/redundant-type-aliases': 'off',
       'sonarjs/todo-tag': 'off',
       'unicorn/filename-case': 'off',
+      'unicorn/prefer-dom-node-dataset': 'off',
       'unicorn/prefer-query-selector': 'off',
       'unicorn/prefer-top-level-await': 'off',
       'unicorn/prevent-abbreviations': 'off',

@@ -1,6 +1,9 @@
 {
   "extends": ["//"],
   "tasks": {
+    "test": {
+      "dependsOn": ["build"]
+    },
     "storybook": {
       "dependsOn": ["build"]
     },

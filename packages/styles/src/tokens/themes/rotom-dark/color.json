@@ -1,0 +1,127 @@
+{
+  "color": {
+    "$type": "color",
+
+    "brand": {
+      "05": { "$value": "oklch(98% 0.03 38)" },
+      "10": { "$value": "oklch(96% 0.05 38)" },
+      "20": { "$value": "oklch(91% 0.09 38)" },
+      "30": { "$value": "oklch(84% 0.13 38)" },
+      "40": { "$value": "oklch(77% 0.16 38)" },
+      "50": { "$value": "oklch(72% 0.17 38)" },
+      "60": { "$value": "oklch(63% 0.16 38)" },
+      "70": { "$value": "oklch(53% 0.13 38)" },
+      "80": { "$value": "oklch(43% 0.10 38)" },
+      "90": { "$value": "oklch(33% 0.07 38)" },
+      "95": { "$value": "oklch(23% 0.05 38)" }
+    },
+
+    "white": {
+      "$description": "Based on the brand color, to help reduce eye strain",
+      "$value": "oklch(98% 0.005 40)"
+    },
+    "black": {
+      "$description": "Based on the brand color, to help reduce eye strain",
+      "$value": "oklch(10% 0.02 40)"
+    },
+
+    "grey": {
+      "$description": "Based on the brand color, to help reduce eye strain",
+      "05": { "$value": "oklch(97% 0.009 38)" },
+      "10": { "$value": "oklch(92% 0.009 38)" },
+      "20": { "$value": "oklch(85% 0.009 38)" },
+      "30": { "$value": "oklch(78% 0.009 38)" },
+      "40": { "$value": "oklch(72% 0.009 38)" },
+      "50": { "$value": "oklch(71% 0.009 38)" },
+      "60": { "$value": "oklch(61% 0.009 38)" },
+      "70": { "$value": "oklch(51% 0.009 38)" },
+      "80": { "$value": "oklch(41% 0.009 38)" },
+      "90": { "$value": "oklch(31% 0.009 38)" },
+      "95": { "$value": "oklch(21% 0.009 38)" }
+    },
+
+    "blue": {
+      "05": { "$value": "oklch(98% 0.05 240)" },
+      "10": { "$value": "oklch(95% 0.08 240)" },
+      "20": { "$value": "oklch(89% 0.12 240)" },
+      "30": { "$value": "oklch(82% 0.17 240)" },
+      "40": { "$value": "oklch(75% 0.20 240)" },
+      "50": { "$value": "oklch(71% 0.21 240)" },
+      "60": { "$value": "oklch(61% 0.19 240)" },
+      "70": { "$value": "oklch(51% 0.16 240)" },
+      "80": { "$value": "oklch(41% 0.12 240)" },
+      "90": { "$value": "oklch(31% 0.09 240)" },
+      "95": { "$value": "oklch(21% 0.06 240)" }
+    },
+
+    "red": {
+      "05": { "$value": "oklch(98% 0.04 25)" },
+      "10": { "$value": "oklch(95% 0.07 25)" },
+      "20": { "$value": "oklch(89% 0.11 25)" },
+      "30": { "$value": "oklch(82% 0.15 25)" },
+      "40": { "$value": "oklch(76% 0.18 25)" },
+      "50": { "$value": "oklch(72% 0.20 25)" },
+      "60": { "$value": "oklch(62% 0.18 25)" },
+      "70": { "$value": "oklch(52% 0.15 25)" },
+      "80": { "$value": "oklch(42% 0.11 25)" },
+      "90": { "$value": "oklch(32% 0.08 25)" },
+      "95": { "$value": "oklch(22% 0.05 25)" }
+    },
+
+    "yellow": {
+      "05": { "$value": "oklch(98% 0.06 95)" },
+      "10": { "$value": "oklch(95% 0.09 95)" },
+      "20": { "$value": "oklch(89% 0.13 95)" },
+      "30": { "$value": "oklch(82% 0.17 95)" },
+      "40": { "$value": "oklch(76% 0.19 95)" },
+      "50": { "$value": "oklch(72% 0.20 95)" },
+      "60": { "$value": "oklch(63% 0.18 95)" },
+      "70": { "$value": "oklch(53% 0.15 95)" },
+      "80": { "$value": "oklch(43% 0.11 95)" },
+      "90": { "$value": "oklch(33% 0.08 95)" },
+      "95": { "$value": "oklch(23% 0.06 95)" }
+    },
+
+    "error": {
+      "05": { "$value": "{color.red.05}" },
+      "10": { "$value": "{color.red.10}" },
+      "20": { "$value": "{color.red.20}" },
+      "30": { "$value": "{color.red.30}" },
+      "40": { "$value": "{color.red.40}" },
+      "50": { "$value": "{color.red.50}" },
+      "60": { "$value": "{color.red.60}" },
+      "70": { "$value": "{color.red.70}" },
+      "80": { "$value": "{color.red.80}" },
+      "90": { "$value": "{color.red.90}" },
+      "95": { "$value": "{color.red.95}" }
+    },
+
+    "warning": {
+      "05": { "$value": "{color.yellow.05}" },
+      "10": { "$value": "{color.yellow.10}" },
+      "20": { "$value": "{color.yellow.20}" },
+      "30": { "$value": "{color.yellow.30}" },
+      "40": { "$value": "{color.yellow.40}" },
+      "50": { "$value": "{color.yellow.50}" },
+      "60": { "$value": "{color.yellow.60}" },
+      "70": { "$value": "{color.yellow.70}" },
+      "80": { "$value": "{color.yellow.80}" },
+      "90": { "$value": "{color.yellow.90}" },
+      "95": { "$value": "{color.yellow.95}" }
+    },
+
+    "info": {
+      "05": { "$value": "{color.blue.05}" },
+      "10": { "$value": "{color.blue.10}" },
+      "20": { "$value": "{color.blue.20}" },
+      "30": { "$value": "{color.blue.30}" },
+      "40": { "$value": "{color.blue.40}" },
+      "50": { "$value": "{color.blue.50}" },
+      "60": { "$value": "{color.blue.60}" },
+      "70": { "$value": "{color.blue.70}" },
+      "80": { "$value": "{color.blue.80}" },
+      "90": { "$value": "{color.blue.90}" },
+      "95": { "$value": "{color.blue.95}" }
+    }
+  }
+}

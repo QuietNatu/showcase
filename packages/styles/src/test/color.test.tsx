@@ -6,7 +6,6 @@ import '../../dist/tokens/_smeargle-dark.scss';
 import Color from 'colorjs.io';
 
 const prefix = 'natu';
-const wcagMininumContrast = 7;
 const themeAttribute = 'data-theme';
 const palette = ['brand', 'grey', 'blue', 'red', 'yellow'];
 
@@ -35,14 +34,20 @@ describe.each(themes)('$name', (theme) => {
     document.documentElement.setAttribute(themeAttribute, theme.name);
   });
 
-  test.each(palette)('"%s" colors meet WCAG minimum contrast requirements', (colorName) => {
-    const style = globalThis.getComputedStyle(document.documentElement);
+  test.each(palette)(
+    '"%s" main colors meet WCAG minimum contrast of 7:1 with text color',
+    (colorName) => {
+      const wcagMininumContrast = 7;
+      const style = globalThis.getComputedStyle(document.documentElement);
 
-    const textColor = new Color(style.getPropertyValue(`--${theme.textColor}`));
-    const backgroundColor = new Color(style.getPropertyValue(`--${prefix}-color-${colorName}-50`));
+      const textColor = new Color(style.getPropertyValue(`--${theme.textColor}`));
+      const backgroundColor = new Color(
+        style.getPropertyValue(`--${prefix}-color-${colorName}-50`),
+      );
 
-    expect(textColor.contrastWCAG21(backgroundColor)).toBeGreaterThanOrEqual(wcagMininumContrast);
-  });
+      expect(textColor.contrastWCAG21(backgroundColor)).toBeGreaterThanOrEqual(wcagMininumContrast);
+    },
+  );
 
   test('colors are in sRGB gamut', () => {
     const style = globalThis.getComputedStyle(document.documentElement);

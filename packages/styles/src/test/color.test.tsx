@@ -22,6 +22,10 @@ const themes = [
     name: 'smeargle',
     textColor: `${prefix}-color-white`,
   },
+  {
+    name: 'smeargle-dark',
+    textColor: `${prefix}-color-black`,
+  },
 ];
 
 beforeEach(() => {

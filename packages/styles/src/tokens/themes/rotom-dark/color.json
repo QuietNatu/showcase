@@ -18,11 +18,11 @@
 
     "white": {
       "$description": "Based on the brand color, to help reduce eye strain",
-      "$value": "oklch(98% 0.005 40)"
+      "$value": "oklch(98% 0.005 40deg)"
     },
     "black": {
       "$description": "Based on the brand color, to help reduce eye strain",
-      "$value": "oklch(10% 0.02 40)"
+      "$value": "oklch(10% 0.020 40deg)"
     },
 
     "grey": {

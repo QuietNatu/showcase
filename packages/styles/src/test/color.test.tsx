@@ -26,6 +26,7 @@ const themes = [
 
 beforeEach(() => {
   // TODO: add rule no eslint disable except with explanation
+  // TODO: 11 shades of colors is probably too much
   document.documentElement.removeAttribute(themeAttribute);
 });
 
@@ -35,7 +36,7 @@ describe.each(themes)('$name', (theme) => {
   });
 
   test.each(palette)(
-    '"%s" main colors meet WCAG minimum contrast of 7:1 with text color',
+    '"%s" main color meets WCAG minimum contrast of 7:1 with text color',
     (colorName) => {
       const wcagMininumContrast = 7;
       const style = globalThis.getComputedStyle(document.documentElement);
@@ -55,10 +56,25 @@ describe.each(themes)('$name', (theme) => {
     const result = Array.from({ length: style.length })
       .map((_, index) => style[index])
       .filter((name): name is string => Boolean(name?.startsWith(`--${prefix}-color-`)))
-      .map((name) => [name, new Color(style.getPropertyValue(name)).inGamut('srgb')]);
+      .map((name) => {
+        const color = new Color(style.getPropertyValue(name));
+        return color.inGamut('srgb')
+          ? null
+          : { name, maxChroma: getMaxChromaForGamut(color, 'srgb') };
+      })
+      .filter(Boolean);
 
-    const expected = result.map(([name]) => [name, true]);
-
-    expect(Object.fromEntries(result)).toStrictEqual(Object.fromEntries(expected));
+    expect(result).toStrictEqual([]);
   });
 });
+
+/** Lowers chroma until color is in the target gamut */
+function getMaxChromaForGamut(color: Color, gamut: string): number {
+  if (color.inGamut(gamut)) {
+    return Number(color.c as unknown);
+  }
+
+  const adjustedChroma = (1000 * color.c - 1) / 1000;
+
+  return getMaxChromaForGamut(new Color(`oklch(${color.l} ${adjustedChroma} ${color.h})`), gamut);
+}

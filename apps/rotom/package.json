@@ -38,7 +38,7 @@
     "@angular/build": "20.2.0",
     "@angular/cli": "20.2.0",
     "@angular/compiler-cli": "20.2.1",
-    "@compodoc/compodoc": "1.1.30",
+    "@compodoc/compodoc": "1.1.32",
     "@natu/axe": "workspace:^",
     "@natu/browserslist-config-shared": "workspace:^",
     "@natu/eslint-config-shared": "workspace:^",

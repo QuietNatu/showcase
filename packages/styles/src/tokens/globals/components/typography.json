@@ -80,21 +80,21 @@
         "fontSize": { "$value": "{font.size.6}" },
         "fontWeight": { "$value": "{font.weight.regular}" },
         "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.28572" }
+        "lineHeight": { "$value": "1.2857" }
       },
       "sm": {
         "fontFamily": { "$value": "{font.family.heading}" },
         "fontSize": { "$value": "{font.size.6}" },
         "fontWeight": { "$value": "{font.weight.regular}" },
         "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.28572" }
+        "lineHeight": { "$value": "1.2857" }
       },
       "md": {
         "fontFamily": { "$value": "{font.family.heading}" },
         "fontSize": { "$value": "{font.size.6}" },
         "fontWeight": { "$value": "{font.weight.regular}" },
         "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.28572" }
+        "lineHeight": { "$value": "1.2857" }
       },
       "lg": {
         "fontFamily": { "$value": "{font.family.heading}" },

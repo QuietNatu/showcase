@@ -1,0 +1,52 @@
+@use 'sass:list';
+@use './variables';
+
+@mixin -properties($name) {
+  font-family: var(--#{$name}-font-family);
+  font-size: var(--#{$name}-font-size);
+  font-weight: var(--#{$name}-font-weight);
+  letter-spacing: var(--#{$name}-letter-spacing);
+  line-height: var(--#{$name}-line-height);
+}
+
+@mixin -fixed($name) {
+  @include -properties(#{$name});
+}
+
+@mixin -fluid($name) {
+  @each $breakpoint, $value in variables.$breakpoints {
+    $index: list.index(variables.$breakpoints, $breakpoint $value);
+
+    @if $index == 1 {
+      @include -properties(#{$name}-#{$breakpoint});
+    } @else {
+      @media (width > #{$value}px) {
+        @include -properties(#{$name}-#{$breakpoint});
+      }
+    }
+  }
+}
+
+@mixin heading-1 {
+  @include -fixed($name: #{variables.$prefix}-heading-1);
+}
+
+@mixin heading-2 {
+  @include -fixed($name: #{variables.$prefix}-heading-2);
+}
+
+@mixin body-1 {
+  @include -fixed($name: #{variables.$prefix}-body-1);
+}
+
+@mixin body-2 {
+  @include -fixed($name: #{variables.$prefix}-body-2);
+}
+
+@mixin fluid-heading-1 {
+  @include -fluid($name: #{variables.$prefix}-fluid-heading-1);
+}
+
+@mixin fluid-heading-2 {
+  @include -fluid($name: #{variables.$prefix}-fluid-heading-2);
+}

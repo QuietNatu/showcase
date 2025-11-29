@@ -1,0 +1,16 @@
+@use './utils/text';
+
+@mixin styles {
+  @layer base {
+    body {
+      @include text.body-1;
+
+      background-color: var(--natu-color-background-primary);
+    }
+
+    ul,
+    ol {
+      list-style-type: none;
+    }
+  }
+}

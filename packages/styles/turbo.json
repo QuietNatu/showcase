@@ -1,0 +1,14 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "test": {
+      "dependsOn": ["build"]
+    },
+    "storybook": {
+      "dependsOn": ["build"]
+    },
+    "storybook:build": {
+      "dependsOn": ["build"]
+    }
+  }
+}

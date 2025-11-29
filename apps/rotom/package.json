@@ -32,9 +32,9 @@
     "tslib": "2.8.1"
   },
   "devDependencies": {
-    "@analogjs/storybook-angular": "1.20.1",
-    "@analogjs/vite-plugin-angular": "1.20.1",
-    "@analogjs/vitest-angular": "1.20.1",
+    "@analogjs/storybook-angular": "1.22.5",
+    "@analogjs/vite-plugin-angular": "1.22.5",
+    "@analogjs/vitest-angular": "1.22.5",
     "@angular/build": "20.2.0",
     "@angular/cli": "20.2.0",
     "@angular/compiler-cli": "20.2.1",

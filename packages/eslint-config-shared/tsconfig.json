@@ -4,7 +4,8 @@
     "checkJs": true,
     "target": "ESNext",
     "lib": ["ESNext"],
-    "module": "ESNext"
+    "module": "ESNext",
+    "types": ["./types.d.ts"]
   },
-  "files": ["index.js"]
+  "files": ["index.js", "types.d.ts"]
 }

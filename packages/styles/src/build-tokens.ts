@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import StyleDictionary, { Config } from 'style-dictionary';
 import { formats, transforms } from 'style-dictionary/enums';
 import pc from 'picocolors';
@@ -39,10 +38,11 @@ async function buildStyleSheets(config: Config) {
   await styleDictionary.buildAllPlatforms();
 }
 
+/* eslint-disable no-console -- logs should go here */
 async function buildAllStyleSheets() {
   console.log('Build started...');
 
-  // eslint-disable-next-line functional/no-loop-statements
+  // eslint-disable-next-line functional/no-loop-statements -- for loop is used so the next build waits for previous
   for (const theme of themes) {
     console.log('\n==============================================');
     console.log(`\nProcessing: [${theme}]`);
@@ -53,5 +53,6 @@ async function buildAllStyleSheets() {
   console.log('\n==============================================');
   console.log(pc.green('\nBuild completed!'));
 }
+/* eslint-enable no-console */
 
 void buildAllStyleSheets();

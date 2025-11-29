@@ -17,6 +17,7 @@ import jestDom from 'eslint-plugin-jest-dom';
 import playwright from 'eslint-plugin-playwright';
 import unicorn from 'eslint-plugin-unicorn';
 import prettier from 'eslint-config-prettier/flat';
+import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 
 /*
   TODO: use import { defineConfig } from 'eslint/config'; once tslint is ready for it
@@ -58,6 +59,7 @@ const baseConfig = tseslint.config(
   functional.configs.recommended,
   functional.configs.stylistic,
   jsdoc.configs['flat/recommended-typescript'],
+  comments.recommended,
   sonarjs.configs.recommended,
   unicorn.configs.recommended,
   {
@@ -68,6 +70,10 @@ const baseConfig = tseslint.config(
   {
     rules: {
       'no-console': 'warn',
+      '@eslint-community/eslint-comments/require-description': [
+        'error',
+        { ignore: ['eslint-enable'] },
+      ],
       '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
       '@typescript-eslint/no-non-null-assertion': 'warn',
       '@typescript-eslint/no-unsafe-member-access': 'off',

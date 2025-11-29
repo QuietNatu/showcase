@@ -26,6 +26,4 @@ const preview: Preview = {
   decorators: [withTheme()],
 };
 
-// TODO: change port
-
 export default preview;

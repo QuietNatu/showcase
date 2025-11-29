@@ -30,10 +30,10 @@ export function createThemeGlobalType(
  */
 export function withTheme(): DecoratorFunction {
   return (storyFn, context) => {
-    // eslint-disable-next-line functional/immutable-data
+    // eslint-disable-next-line functional/immutable-data -- mutating dataset is allowed
     document.documentElement.dataset.theme = context.globals.theme as string;
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return -- this is storybook's api
     return storyFn();
   };
 }

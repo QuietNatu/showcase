@@ -29,7 +29,6 @@ const themes = [
 ];
 
 beforeEach(() => {
-  // TODO: add rule no eslint disable except with explanation
   // TODO: 11 shades of colors is probably too much
   document.documentElement.removeAttribute(themeAttribute);
 });

@@ -19,6 +19,7 @@ import unicorn from 'eslint-plugin-unicorn';
 import prettier from 'eslint-config-prettier/flat';
 import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import security from 'eslint-plugin-security';
+import promise from 'eslint-plugin-promise';
 
 /*
   TODO: use import { defineConfig } from 'eslint/config'; once tslint is ready for it
@@ -61,6 +62,7 @@ const baseConfig = tseslint.config(
   functional.configs.stylistic,
   jsdoc.configs['flat/recommended-typescript'],
   comments.recommended,
+  promise.configs['flat/recommended'],
   security.configs.recommended,
   sonarjs.configs.recommended,
   unicorn.configs.recommended,

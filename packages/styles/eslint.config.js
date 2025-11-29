@@ -8,6 +8,7 @@ export default tseslint.config(
   globalIgnores(shared.defaultIgnores),
   ...shared.configs.react,
   ...shared.configs.storybook,
+  ...shared.configs.vitest,
   ...shared.configs.prettier,
   {
     languageOptions: {

@@ -3,3 +3,8 @@
 @forward '../dist/tokens/smeargle';
 @forward '../dist/tokens/smeargle-dark';
 @forward '../src/stylesheets/styles';
+@use '../src/stylesheets/utils/text';
+
+body {
+  @include text.body-2;
+}

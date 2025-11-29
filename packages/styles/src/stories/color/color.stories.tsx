@@ -28,6 +28,41 @@ export const InfoPalette: Story = {
   render: () => <Palette colors={createShades('info')} />,
 };
 
+export const Text: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '20px' }}>
+      <div
+        style={{
+          border: '1px solid black',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '10px',
+          height: '60px',
+          background: `var(--natu-color-background-primary)`,
+          color: 'var(--natu-color-text-primary)',
+        }}
+      >
+        Primary text with primary background
+      </div>
+      <div
+        style={{
+          border: '1px solid black',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '10px',
+          height: '60px',
+          background: `var(--natu-color-brand-50)`,
+          color: 'var(--natu-color-text-on-color)',
+        }}
+      >
+        On color text with brand background
+      </div>
+    </div>
+  ),
+};
+
 function Palette({ colors }: Readonly<{ colors: { color: string; label: string }[] }>) {
   return (
     <ul style={{ display: 'flex' }}>
@@ -49,7 +84,6 @@ function Palette({ colors }: Readonly<{ colors: { color: string; label: string }
               width: '60px',
               height: '60px',
               background: `var(--natu-color-${color})`,
-              color: `contrast-color(var(--natu-color-${color}))`,
             }}
           ></div>
         </li>

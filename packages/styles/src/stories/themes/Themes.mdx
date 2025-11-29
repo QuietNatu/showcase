@@ -7,4 +7,14 @@ Several themes that change the visual style of the application are provided and 
 To use a theme, simply import its stylesheet and apply the corresponding `data-theme` HTML attribute to an element in the document.
 This makes it possible to use several themes at once in the same app, which can be useful, for example, to apply the inverse color scheme to some components.
 
-\<TBD\>
+Themes do not include both light and dark color schemes. This is because light and dark color schemes can use similar colors but with adjusments in saturation to better fit a given color scheme.
+These color schemes are instead split into different stylesheets that can optionally be included.
+
+**Note:** If an application requires multiple themes, they should not all be imported within a single file, as doing so increases bundle size and negatively impacts performance metrics. This is mostly relevant for public-facing applications where performance optimization is critical. In these cases, dynamically importing stylesheets could lead to better performance.
+
+Available themes:
+
+- Rotom
+- Rotom Dark
+- Smeargle Dark
+- Smeargle Dark

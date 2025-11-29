@@ -122,6 +122,15 @@
       "80": { "$value": "{color.blue.80}" },
       "90": { "$value": "{color.blue.90}" },
       "95": { "$value": "{color.blue.95}" }
+    },
+
+    "text": {
+      "primary": { "$value": "{color.white}" },
+      "on-color": { "$value": "{color.black}" }
+    },
+
+    "background": {
+      "primary": { "$value": "{color.black}" }
     }
   }
 }

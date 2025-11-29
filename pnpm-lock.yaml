@@ -172,8 +172,8 @@ importers:
         specifier: 3.2.4
         version: 3.2.4(vitest@3.2.4)
       cross-env:
-        specifier: 10.0.0
-        version: 10.0.0
+        specifier: 10.1.0
+        version: 10.1.0
       eslint:
         specifier: 9.33.0
         version: 9.33.0(jiti@2.5.1)
@@ -260,8 +260,8 @@ importers:
         specifier: 2.1.1
         version: 2.1.1(browserslist@4.28.0)
       cross-env:
-        specifier: 10.0.0
-        version: 10.0.0
+        specifier: 10.1.0
+        version: 10.1.0
       eslint:
         specifier: 9.33.0
         version: 9.33.0(jiti@2.5.1)
@@ -597,8 +597,8 @@ importers:
         specifier: 3.2.4
         version: 3.2.4(vitest@3.2.4)
       cross-env:
-        specifier: 10.0.0
-        version: 10.0.0
+        specifier: 10.1.0
+        version: 10.1.0
       eslint:
         specifier: 9.33.0
         version: 9.33.0(jiti@2.5.1)
@@ -678,8 +678,8 @@ importers:
         specifier: 3.2.4
         version: 3.2.4(@vitest/browser@3.2.4)(vitest@3.2.4)
       cross-env:
-        specifier: 10.0.0
-        version: 10.0.0
+        specifier: 10.1.0
+        version: 10.1.0
       eslint:
         specifier: 9.33.0
         version: 9.33.0(jiti@2.5.1)
@@ -5132,8 +5132,8 @@ packages:
     resolution: {integrity: sha512-CqpqV5bCei+jmKyIw2Wihz+npXDuSkeExWCItEn5hlpD8+QFMXUU2YW5W3Vh/hFxWwzWhguoGXm5gl1os+L2Hw==}
     hasBin: true
 
-  cross-env@10.0.0:
-    resolution: {integrity: sha512-aU8qlEK/nHYtVuN4p7UQgAwVljzMg8hB4YK5ThRqD2l/ziSnryncPNn7bMLt5cFYsKVKBh8HqLqyCoTupEUu7Q==}
+  cross-env@10.1.0:
+    resolution: {integrity: sha512-GsYosgnACZTADcmEyJctkJIoqAhHjttw7RsFrVoJNXbsWWqaq6Ym+7kZjq6mS45O0jij6vtiReppKQEtqWy6Dw==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -16635,7 +16635,7 @@ snapshots:
 
   cronstrue@3.2.0: {}
 
-  cross-env@10.0.0:
+  cross-env@10.1.0:
     dependencies:
       '@epic-web/invariant': 1.0.0
       cross-spawn: 7.0.6

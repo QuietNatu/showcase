@@ -17,6 +17,9 @@ import jestDom from 'eslint-plugin-jest-dom';
 import playwright from 'eslint-plugin-playwright';
 import unicorn from 'eslint-plugin-unicorn';
 import prettier from 'eslint-config-prettier/flat';
+import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
+import security from 'eslint-plugin-security';
+import promise from 'eslint-plugin-promise';
 
 /*
   TODO: use import { defineConfig } from 'eslint/config'; once tslint is ready for it
@@ -58,6 +61,9 @@ const baseConfig = tseslint.config(
   functional.configs.recommended,
   functional.configs.stylistic,
   jsdoc.configs['flat/recommended-typescript'],
+  comments.recommended,
+  promise.configs['flat/recommended'],
+  security.configs.recommended,
   sonarjs.configs.recommended,
   unicorn.configs.recommended,
   {
@@ -68,6 +74,10 @@ const baseConfig = tseslint.config(
   {
     rules: {
       'no-console': 'warn',
+      '@eslint-community/eslint-comments/require-description': [
+        'error',
+        { ignore: ['eslint-enable'] },
+      ],
       '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
       '@typescript-eslint/no-non-null-assertion': 'warn',
       '@typescript-eslint/no-unsafe-member-access': 'off',
@@ -189,6 +199,7 @@ const storybookConfig = tseslint.config(...storybook.configs['flat/recommended']
   files: ['src/**/*.stories.[jt]s?(x)'],
   rules: {
     '@typescript-eslint/restrict-template-expressions': 'off',
+    'security/detect-object-injection': 'off',
   },
 });
 
@@ -200,9 +211,11 @@ const vitestConfig = tseslint.config(
     },
     rules: {
       ...vitest.configs.all.rules,
+      'security/detect-object-injection': 'off',
       'vitest/consistent-test-it': ['warn', { fn: 'test', withinDescribe: 'test' }],
       'vitest/prefer-expect-resolves': 'off',
       'vitest/prefer-expect-assertions': 'off',
+      'vitest/prefer-importing-vitest-globals': 'off',
       'vitest/prefer-to-be-falsy': 'off',
       'vitest/prefer-to-be-truthy': 'off',
       'vitest/require-top-level-describe': 'off',
@@ -229,6 +242,7 @@ const vrtConfig = tseslint.config({
     ...playwright.configs['flat/recommended'].rules,
     'playwright/expect-expect': 'off',
     'playwright/valid-title': 'off',
+    'security/detect-object-injection': 'off',
   },
 });
 

@@ -13,9 +13,9 @@
   "scripts": {
     "build": "tsx ./src/build-tokens.ts",
     "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
-    "storybook": "storybook dev -p 6013",
+    "storybook": "storybook dev -p 6900",
     "storybook:build": "storybook build",
-    "storybook:preview": "vite preview --port 6013 --outDir ./storybook-static",
+    "storybook:preview": "vite preview --port 6900 --outDir ./storybook-static",
     "test": "vitest run"
   },
   "dependencies": {

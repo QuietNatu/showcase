@@ -1,3 +1,4 @@
+import { beforeEach, expect, test } from 'vitest';
 import '../../dist/tokens/_rotom.scss';
 import '../../dist/tokens/_rotom-dark.scss';
 import '../../dist/tokens/_smeargle.scss';
@@ -29,7 +30,6 @@ const themes = [
 ];
 
 beforeEach(() => {
-  // TODO: add rule no eslint disable except with explanation
   // TODO: 11 shades of colors is probably too much
   document.documentElement.removeAttribute(themeAttribute);
 });

@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "4.5.0",
-    "@eslint/js": "9.33.0",
+    "@eslint/js": "9.39.1",
     "@natu/tsconfig": "workspace:^",
     "@vitest/eslint-plugin": "1.5.0",
     "angular-eslint": "20.7.0",
@@ -35,13 +35,13 @@
     "globals": "16.5.0"
   },
   "peerDependencies": {
-    "eslint": "9.33.0",
+    "eslint": "9.39.1",
     "typescript-eslint": "8.48.0"
   },
   "devDependencies": {
     "@types/eslint-plugin-jsx-a11y": "6.10.1",
     "@types/eslint-plugin-security": "3.0.0",
-    "eslint": "9.33.0",
+    "eslint": "9.39.1",
     "typescript": "5.9.3",
     "typescript-eslint": "8.48.0"
   }

@@ -1,12 +1,12 @@
 /// <reference types="vitest" />
 
 import { defineConfig } from 'vite';
-
+import { playwright } from '@vitest/browser-playwright';
 import angular from '@analogjs/vite-plugin-angular';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig(({ mode }) => {
-  const isDebugMode = Boolean(process.env['TEST_DEBUG']);
+  const isDebugMode = Boolean(process.env.TEST_DEBUG);
 
   return {
     plugins: [
@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => {
       restoreMocks: true,
       unstubEnvs: true,
       unstubGlobals: true,
-      include: ['src/**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+      include: ['src/**/*.test.{js,jsx,ts,tsx}'],
       setupFiles: ['src/test/setup-tests.ts'],
       coverage: {
         thresholds: {
@@ -39,9 +39,8 @@ export default defineConfig(({ mode }) => {
         },
 
         // config
-        all: true, // Note: this does not work. Currently angular plugin has a bug where untested files are missing
-        provider: 'istanbul', // TODO: use v8 once the angular integration is fixed
-        include: ['src/**/*.{html,js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+        provider: 'v8',
+        include: ['src/**/*.{html,js,jsx,ts,tsx}'],
         exclude: [
           '**/*.test.*',
           '**/*.stories.*',
@@ -60,7 +59,7 @@ export default defineConfig(({ mode }) => {
         },
         enabled: true,
         headless: !isDebugMode,
-        provider: 'playwright',
+        provider: playwright(),
         // https://vitest.dev/guide/browser/playwright
         instances: [{ browser: 'chromium' }],
         screenshotFailures: false,

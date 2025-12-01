@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest';
 import { App } from './app';
-import { page } from '@vitest/browser/context';
+import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 
 import * as stories from './app.stories';

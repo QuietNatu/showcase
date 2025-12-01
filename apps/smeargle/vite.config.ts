@@ -2,11 +2,12 @@
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
+import { playwright } from '@vitest/browser-playwright';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
-  const isDebugMode = Boolean(process.env['TEST_DEBUG']);
+  const isDebugMode = Boolean(process.env.TEST_DEBUG);
 
   return {
     plugins: [react()],
@@ -30,7 +31,7 @@ export default defineConfig(({ mode }) => {
       restoreMocks: true,
       unstubEnvs: true,
       unstubGlobals: true,
-      include: ['src/**/*.test.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+      include: ['src/**/*.test.{js,jsx,ts,tsx}'],
       setupFiles: ['src/test/setup-tests.ts'],
       coverage: {
         thresholds: {
@@ -41,9 +42,8 @@ export default defineConfig(({ mode }) => {
         },
 
         // config
-        all: true,
         provider: 'v8',
-        include: ['src/**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+        include: ['src/**/*.{js,jsx,ts,tsx}'],
         exclude: [
           '**/*.test.*',
           '**/*.stories.*',
@@ -61,7 +61,7 @@ export default defineConfig(({ mode }) => {
         },
         enabled: true,
         headless: !isDebugMode,
-        provider: 'playwright',
+        provider: playwright(),
         // https://vitest.dev/guide/browser/playwright
         instances: [{ browser: 'chromium' }],
         screenshotFailures: false,

@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest';
 import { render } from '@testing-library/angular';
-import { page } from '@vitest/browser/context';
+import { page } from 'vitest/browser';
 import { App } from './app';
 import { axe } from '@natu/axe/vitest';
 

@@ -38,8 +38,6 @@ const defaultIgnores = [
   '.lighthouseci/',
   'lighthouse-reports/',
   'e2e/.features-gen/',
-  'vite.config.ts',
-  'playwright.config.ts',
   'eslint.config.js',
   'commitlint.config.js',
   'lint-staged.config.js',

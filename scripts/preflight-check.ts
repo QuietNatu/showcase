@@ -12,8 +12,6 @@ function run(command: string) {
 }
 
 try {
-  console.error(styleText('red', 'preflight-check failed'));
-
   // change to pnpm ci once it is implemented
   run('pnpm i --frozen-lockfile');
   run('pnpm exec playwright install');

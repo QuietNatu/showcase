@@ -29,7 +29,7 @@ try {
   // pnpm run e2e
 
   console.log('\n' + styleText('green', 'preflight-check success'));
-} catch (err) {
+} catch {
   console.error(styleText('red', 'preflight-check failed'));
   process.exit(1);
 }

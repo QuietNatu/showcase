@@ -6,7 +6,7 @@
   "type": "module",
   "packageManager": "pnpm@10.15.0+sha512.486ebc259d3e999a4e8691ce03b5cac4a71cbeca39372a9b762cb500cfdf0873e2cb16abe3d951b1ee2cf012503f027b98b6584e4df22524e0c7450d9ec7aa7b",
   "engines": {
-    "node": "22.x"
+    "node": ">=22.21.1"
   },
   "scripts": {
     "build": "turbo run build",
@@ -19,6 +19,7 @@
     "lint:lslint": "ls-lint",
     "lint:prettier": "prettier . --check",
     "lint:stylelint": "stylelint '{apps,packages}/*/src/**/*.{css,scss}' 'packages/styles/dist/**/*.{css,scss}'",
+    "preflight-check": "node scripts/preflight-check.ts",
     "prepare": "husky",
     "renovate:validate": "pnpm dlx --package=renovate -- renovate-config-validator",
     "storybook": "turbo run storybook",
@@ -31,6 +32,8 @@
     "@commitlint/config-conventional": "20.0.0",
     "@ls-lint/ls-lint": "2.3.1",
     "@natu/browserslist-config-shared": "workspace:^",
+    "@natu/tsconfig": "workspace:*",
+    "@types/node": "22.19.1",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
     "playwright": "1.57.0",

@@ -39,7 +39,7 @@ To set up the project you have to:
 - To run visual regression tests, use `pnpm vrt`.
 - To run end-to-end tests, use `pnpm e2e`.
 - To inpect eslint configuration, use `pnpm dlx @eslint/config-inspector@latest` in the same directory where `eslint.config.js` is located.
-- To make sure code builds on the pipeline, run, in a bash compatible terminal, `sh scripts/preflight-check`.
+- To make sure code builds on the pipeline, run, `pnpm preflight-check`.
 - To validate the Renovate configuration, run: `pnpm renovate:validate`.
 
 ## 💻 Supported browsers

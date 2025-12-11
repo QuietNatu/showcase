@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest';
 import { App } from './app';
-import { page } from '@vitest/browser/context';
+import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
 
 import * as stories from './app.stories';
@@ -10,13 +10,13 @@ import { axe } from '@natu/axe/vitest';
 const { Default } = composeStories(stories);
 
 test('has no accessibility violations', async () => {
-  const { container } = render(<Default />);
+  const { container } = await render(<Default />);
 
   expect(await axe(container)).toHaveNoViolations();
 });
 
 test('increments counter', async () => {
-  render(<App />);
+  await render(<App />);
 
   await page.getByRole('button', { name: 'count is 0' }).click();
 

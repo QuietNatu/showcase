@@ -19,8 +19,8 @@
   "dependencies": {
     "@natu/styles": "workspace:^",
     "@natu/ui-react": "workspace:^",
-    "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@natu/axe": "workspace:^",

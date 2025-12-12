@@ -46,7 +46,7 @@
     "stylelint-no-unsupported-browser-features": "8.0.5",
     "stylelint-order": "7.0.0",
     "stylelint-plugin-logical-css": "1.2.3",
-    "stylelint-scss": "6.12.1",
+    "stylelint-scss": "6.13.0",
     "turbo": "2.6.3",
     "vitest": "4.0.15"
   }

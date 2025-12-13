@@ -24,6 +24,9 @@ const config: StorybookConfig & StorybookConfigVite = {
           experimentalZoneless: true,
         }),
       },
+      resolve: {
+        alias: { 'zone.js': fileURLToPath(import.meta.resolve('./empty-zone.ts')) },
+      },
     });
   },
 };

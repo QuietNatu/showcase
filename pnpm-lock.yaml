@@ -382,6 +382,9 @@ importers:
       globals:
         specifier: 16.5.0
         version: 16.5.0
+      typescript-eslint:
+        specifier: 8.49.0
+        version: 8.49.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
     devDependencies:
       '@types/eslint-plugin-jsx-a11y':
         specifier: 6.10.1
@@ -395,9 +398,6 @@ importers:
       typescript:
         specifier: 5.9.3
         version: 5.9.3
-      typescript-eslint:
-        specifier: 8.49.0
-        version: 8.49.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
 
   packages/stories:
     devDependencies:

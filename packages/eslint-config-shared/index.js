@@ -1,3 +1,4 @@
+import { defineConfig } from 'eslint/config';
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -21,12 +22,6 @@ import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import security from 'eslint-plugin-security';
 import promise from 'eslint-plugin-promise';
 
-/*
-  TODO: use import { defineConfig } from 'eslint/config'; once tslint is ready for it
-        check how eslint configures projects now https://eslint.org/docs/latest/use/getting-started
-        and then check if typescript-eslint can be removed from peer-dependencies
-*/
-
 const defaultIgnores = [
   'node_modules/',
   'dist/',
@@ -49,19 +44,19 @@ const defaultIgnores = [
   'lighthouserc.*js',
 ];
 
-const baseConfig = tseslint.config(
+const baseConfig = defineConfig(
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
   { languageOptions: { globals: globals.browser } },
   js.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   ...turboConfig,
-  functional.configs.recommended,
-  functional.configs.stylistic,
+  /** @type {import('eslint/config').Config} */ (functional.configs.recommended),
+  /** @type {import('eslint/config').Config} */ (functional.configs.stylistic),
   jsdoc({ config: 'flat/recommended-typescript' }),
   comments.recommended,
   promise.configs['flat/recommended'],
-  security.configs.recommended,
+  /** @type {import('eslint/config').Config} */ (security.configs.recommended),
   sonarjs.configs.recommended,
   unicorn.configs.recommended,
   {
@@ -135,7 +130,7 @@ const baseConfig = tseslint.config(
   },
 );
 
-const angularConfig = tseslint.config(
+const angularConfig = defineConfig(
   {
     files: ['**/*.ts'],
     extends: [...baseConfig, ...angular.configs.tsRecommended],
@@ -171,11 +166,10 @@ const angularConfig = tseslint.config(
   },
 );
 
-const reactConfig = tseslint.config(
+const reactConfig = defineConfig(
   ...baseConfig,
-  // @ts-ignore
-  react.configs.flat.recommended,
-  react.configs.flat['jsx-runtime'],
+  /** @type {import('eslint/config').Config} */ (react.configs.flat.recommended),
+  /** @type {import('eslint/config').Config} */ (react.configs.flat['jsx-runtime']),
   reactHooks.configs.flat.recommended,
   reactRefresh.configs.vite,
   jsxA11y.flatConfigs.recommended,
@@ -194,15 +188,19 @@ const reactConfig = tseslint.config(
   },
 );
 
-const storybookConfig = tseslint.config(...storybook.configs['flat/recommended'], {
-  files: ['src/**/*.stories.[jt]s?(x)'],
-  rules: {
-    '@typescript-eslint/restrict-template-expressions': 'off',
-    'security/detect-object-injection': 'off',
+const storybookConfig = defineConfig(
+  // @ts-ignore
+  ...storybook.configs['flat/recommended'],
+  {
+    files: ['src/**/*.stories.[jt]s?(x)'],
+    rules: {
+      '@typescript-eslint/restrict-template-expressions': 'off',
+      'security/detect-object-injection': 'off',
+    },
   },
-});
+);
 
-const vitestConfig = tseslint.config(
+const vitestConfig = defineConfig(
   {
     files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
     plugins: {
@@ -234,7 +232,7 @@ const vitestConfig = tseslint.config(
   },
 );
 
-const vrtConfig = tseslint.config({
+const vrtConfig = defineConfig({
   ...playwright.configs['flat/recommended'],
   files: ['vrt/**/*.ts', 'src/**/*.vrt.ts'],
   rules: {
@@ -245,7 +243,7 @@ const vrtConfig = tseslint.config({
   },
 });
 
-const prettierConfig = tseslint.config(prettier);
+const prettierConfig = defineConfig(prettier);
 
 export default {
   configs: {

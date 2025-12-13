@@ -1,10 +1,10 @@
 // @ts-check
 
-import tseslint from 'typescript-eslint';
+import { defineConfig } from 'eslint/config';
 import shared from '@natu/eslint-config-shared';
 import { globalIgnores } from 'eslint/config';
 
-export default tseslint.config(
+export default defineConfig(
   globalIgnores(shared.defaultIgnores),
   ...shared.configs.angular,
   ...shared.configs.storybook,

@@ -1,9 +1,9 @@
-import { NgModule, provideZonelessChangeDetection } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 /**
  * Sets up default providers for all tests.
  */
 @NgModule({
-  providers: [provideZonelessChangeDetection()],
+  providers: [],
 })
 export class GlobalTestingModule {}

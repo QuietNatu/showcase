@@ -7,5 +7,5 @@
   },
   "exclude": ["../src/test.ts", "../src/**/*.test.ts"],
   "include": ["../src/**/*.stories.*"],
-  "files": ["./preview.ts", "./typings.d.ts"]
+  "files": ["./preview.ts", "./typings.d.ts", "./empty-zone.ts"]
 }

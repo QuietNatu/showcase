@@ -4,7 +4,7 @@ import tseslint from 'typescript-eslint';
 import turboConfig from 'eslint-config-turbo/flat';
 import functional from 'eslint-plugin-functional';
 import unusedImports from 'eslint-plugin-unused-imports';
-import jsdoc from 'eslint-plugin-jsdoc';
+import { jsdoc } from 'eslint-plugin-jsdoc';
 import sonarjs from 'eslint-plugin-sonarjs';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
@@ -58,7 +58,7 @@ const baseConfig = tseslint.config(
   ...turboConfig,
   functional.configs.recommended,
   functional.configs.stylistic,
-  jsdoc.configs['flat/recommended-typescript'],
+  jsdoc({ config: 'flat/recommended-typescript' }),
   comments.recommended,
   promise.configs['flat/recommended'],
   security.configs.recommended,
@@ -120,6 +120,7 @@ const baseConfig = tseslint.config(
       'sonarjs/no-unused-vars': 'off',
       'sonarjs/redundant-type-aliases': 'off',
       'sonarjs/todo-tag': 'off',
+      'unicorn/consistent-function-scoping': 'off',
       'unicorn/filename-case': 'off',
       'unicorn/prefer-dom-node-dataset': 'off',
       'unicorn/prefer-query-selector': 'off',
@@ -175,7 +176,7 @@ const reactConfig = tseslint.config(
   // @ts-ignore
   react.configs.flat.recommended,
   react.configs.flat['jsx-runtime'],
-  reactHooks.configs['recommended-latest'],
+  reactHooks.configs.flat.recommended,
   reactRefresh.configs.vite,
   jsxA11y.flatConfigs.recommended,
   {

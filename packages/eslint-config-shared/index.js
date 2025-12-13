@@ -189,8 +189,7 @@ const reactConfig = defineConfig(
 );
 
 const storybookConfig = defineConfig(
-  // @ts-ignore
-  ...storybook.configs['flat/recommended'],
+  .../** @type {import('eslint/config').Config[]} */ (storybook.configs['flat/recommended']),
   {
     files: ['src/**/*.stories.[jt]s?(x)'],
     rules: {

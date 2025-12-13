@@ -19,7 +19,6 @@
           "options": {
             "outputPath": "dist",
             "browser": "src/main.ts",
-            "polyfills": [],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [

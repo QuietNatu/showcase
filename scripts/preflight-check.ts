@@ -20,10 +20,10 @@ try {
   run('pnpm run build');
   // pnpm run vrt
   // // it seems there is some conflict with lighthouse when running without a filter and turbo has bugs when using concurrency=1
-  // pnpm run lighthouse-mobile --filter @natu/rotom
-  // pnpm run lighthouse-mobile --filter @natu/smeargle
-  // pnpm run lighthouse-desktop --filter @natu/rotom
-  // pnpm run lighthouse-desktop --filter @natu/smeargle
+  // pnpm run lighthouse-mobile --filter rotom
+  // pnpm run lighthouse-mobile --filter smeargle
+  // pnpm run lighthouse-desktop --filter rotom
+  // pnpm run lighthouse-desktop --filter smeargle
   // pnpm run e2e
 
   console.log('\n' + styleText('green', 'preflight-check success'));

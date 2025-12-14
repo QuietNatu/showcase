@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc -b && vite build",
+    "build:api": "orval --config ./orval.config.ts",
     "dev": "vite",
     "format": "eslint . --fix --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
@@ -19,10 +20,13 @@
   "dependencies": {
     "@natu/styles": "workspace:^",
     "@natu/ui-react": "workspace:^",
+    "axios": "^1.13.2",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
     "@natu/axe": "workspace:^",
     "@natu/browserslist-config-shared": "workspace:^",
     "@natu/eslint-config-shared": "workspace:^",
@@ -41,6 +45,8 @@
     "cross-env": "10.1.0",
     "eslint": "9.39.1",
     "globals": "16.5.0",
+    "msw": "^2.12.4",
+    "orval": "^7.17.0",
     "playwright": "1.57.0",
     "storybook": "10.1.7",
     "typescript": "5.9.3",

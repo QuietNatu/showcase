@@ -1,54 +1,18 @@
 import { defineConfig } from 'orval';
+import { commonApiOptions, commonZodOptions } from '@natu/orval';
 
 export default defineConfig({
   api: {
+    ...commonApiOptions,
     input: '../api/openapi.yaml',
     output: {
-      clean: true,
+      ...commonApiOptions.output,
       client: 'axios-functions',
-      target: './src/gen/api/endpoints',
-      schemas: './src/gen/api/models',
-      mode: 'tags-split',
-      namingConvention: 'kebab-case',
-      indexFiles: false,
-      mock: {
-        type: 'msw',
-        delay: false,
-        useExamples: false,
-      },
-      override: {
-        components: {
-          schemas: {
-            suffix: 'Dto',
-          },
-          responses: {
-            suffix: 'Response',
-          },
-          parameters: {
-            suffix: 'Params',
-          },
-          requestBodies: {
-            suffix: 'Bodies',
-          },
-        },
-      },
-    },
-    hooks: {
-      afterAllFilesWrite: 'prettier --write',
     },
   },
 
   apiZod: {
+    ...commonZodOptions,
     input: '../api/openapi.yaml',
-    output: {
-      client: 'zod',
-      fileExtension: '.zod.ts',
-      target: './src/gen/api/endpoints',
-      mode: 'tags-split',
-      namingConvention: 'kebab-case',
-    },
-    hooks: {
-      afterAllFilesWrite: 'prettier --write',
-    },
   },
 });

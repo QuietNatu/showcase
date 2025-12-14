@@ -5,6 +5,10 @@
       "path": "..",
     },
     {
+      "name": "🔌 api",
+      "path": "../apps/api",
+    },
+    {
       "name": "🚀 rotom",
       "path": "../apps/rotom",
     },

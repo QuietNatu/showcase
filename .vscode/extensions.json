@@ -14,6 +14,7 @@
     "clinyong.vscode-css-modules",
     "redhat.vscode-yaml",
     "webben.browserslist",
-    "unifiedjs.vscode-mdx"
+    "unifiedjs.vscode-mdx",
+    "42Crunch.vscode-openapi"
   ]
 }

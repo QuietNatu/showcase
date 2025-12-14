@@ -5,7 +5,7 @@ export default defineConfig({
     input: '../api/openapi.yaml',
     output: {
       clean: true,
-      client: 'axios-functions',
+      client: 'angular',
       target: './src/gen/api/endpoints',
       schemas: './src/gen/api/models',
       mode: 'tags-split',

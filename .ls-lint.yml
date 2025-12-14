@@ -20,3 +20,4 @@ ignore:
   - .git
   - node_modules
   - '**/@types'
+  - '**/gen'

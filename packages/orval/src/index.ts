@@ -1,10 +1,13 @@
 import { Options } from 'orval';
+import { zodOperationNameTransformer } from './zod-transformer';
+
+const targetPath = './src/gen/api';
 
 export const commonApiOptions = {
   output: {
     clean: true,
-    target: './src/gen/api/endpoints',
-    schemas: './src/gen/api/models',
+    target: `${targetPath}/endpoints`,
+    schemas: `${targetPath}/models`,
     mode: 'tags-split',
     namingConvention: 'kebab-case',
     indexFiles: false,
@@ -28,10 +31,8 @@ export const commonApiOptions = {
           suffix: 'Bodies',
         },
       },
+      useTypeOverInterfaces: true,
     },
-  },
-  hooks: {
-    afterAllFilesWrite: 'prettier --write',
   },
 } satisfies Partial<Options>;
 
@@ -39,11 +40,17 @@ export const commonZodOptions = {
   output: {
     client: 'zod',
     fileExtension: '.zod.ts',
-    target: './src/gen/api/endpoints',
+    target: `${targetPath}/endpoints`,
     mode: 'tags-split',
     namingConvention: 'kebab-case',
+    override: {
+      transformer: zodOperationNameTransformer,
+    },
   },
   hooks: {
-    afterAllFilesWrite: 'prettier --write',
+    afterAllFilesWrite: {
+      command: `prettier --write ${targetPath}`,
+      injectGeneratedDirsAndFiles: false,
+    },
   },
 } satisfies Partial<Options>;

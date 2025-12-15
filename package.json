@@ -37,6 +37,7 @@
     "@types/node": "24.10.3",
     "husky": "9.1.7",
     "lint-staged": "16.2.7",
+    "msw": "^2.12.4",
     "playwright": "1.57.0",
     "prettier": "3.7.4",
     "stylelint": "16.26.1",
@@ -50,5 +51,11 @@
     "stylelint-scss": "6.13.0",
     "turbo": "2.6.3",
     "vitest": "4.0.15"
+  },
+  "msw": {
+    "workerDirectory": [
+      "apps/rotom/public",
+      "apps/smeargle/public"
+    ]
   }
 }

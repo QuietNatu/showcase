@@ -5,6 +5,10 @@
       "path": "..",
     },
     {
+      "name": "🔌 api",
+      "path": "../apps/api",
+    },
+    {
       "name": "🚀 rotom",
       "path": "../apps/rotom",
     },
@@ -23,6 +27,10 @@
     {
       "name": "📦 eslint-config-shared",
       "path": "../packages/eslint-config-shared",
+    },
+    {
+      "name": "📦 orval",
+      "path": "../packages/orval",
     },
     {
       "name": "🎨 stories",

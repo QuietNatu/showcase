@@ -14,3 +14,4 @@ storybook-static
 **/.storybook/documentation.json
 __screenshots__
 .eslintcache
+**/gen

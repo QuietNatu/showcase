@@ -27,6 +27,7 @@ const defaultIgnores = [
   'dist/',
   'coverage/',
   'public/',
+  'src/gen/',
   '!.storybook',
   '.storybook/main.ts',
   'storybook-static/',

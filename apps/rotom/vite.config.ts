@@ -45,6 +45,7 @@ export default defineConfig(({ mode }) => {
           '**/*.test.*',
           '**/*.stories.*',
           '**/*.vrt.*',
+          'src/gen',
           'src/test',
           'src/main.ts',
           'src/app/app.config.ts',

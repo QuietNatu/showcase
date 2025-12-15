@@ -1,0 +1,82 @@
+openapi: 3.1.1
+
+info:
+  title: Showcase API
+  description: API to be used by the showcase apps. Manages an e-commerce store as well as any auxiliary tasks required to achieve this purpose.
+  version: 0.0.0
+
+servers:
+  - url: http://localhost:7000/api
+    description: Local server.
+
+tags:
+  - name: products
+    description: Operations related to managing and retrieving product information in the store.
+
+  - name: cart
+    description: Operations for managing the shopping cart, including adding, updating, and removing items.
+
+  - name: orders
+    description: Operations for creating, viewing, and managing customer orders.
+
+  - name: checkout
+    description: Operations related to the checkout process, including payment and order confirmation.
+
+paths:
+  /products:
+    get:
+      summary: Gets products.
+      tags:
+        - products
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+
+  /products/{productSlug}:
+    get:
+      summary: Gets a product by it's slug.
+      tags:
+        - products
+
+      parameters:
+        - in: path
+          name: productSlug
+          schema:
+            type: string
+          required: true
+
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+
+        '400':
+          description: Bad request
+
+        '404':
+          description: Not found
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          format: uuid
+          type: string
+        slug:
+          description: User-friendly identifier for URLs
+          type: string
+
+      required:
+        - id
+        - slug

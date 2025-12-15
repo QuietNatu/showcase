@@ -1,0 +1,21 @@
+{
+  "name": "@natu/orval",
+  "private": true,
+  "license": "MIT",
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    }
+  },
+  "peerDependencies": {
+    "orval": "^7.17.0"
+  },
+  "devDependencies": {
+    "@natu/tsconfig": "workspace:^",
+    "orval": "^7.17.0",
+    "typescript": "5.9.3"
+  }
+}

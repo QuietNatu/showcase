@@ -1,4 +1,4 @@
-/// <reference types="vitest" />
+/// <reference types="vitest/config" />
 
 import { defineConfig } from 'vite';
 import { playwright } from '@vitest/browser-playwright';
@@ -23,7 +23,7 @@ export default defineConfig(({ mode }) => {
     },
 
     test: {
-      globals: true,
+      globals: true, // TODO: set to false once Analog supports it
       css: false,
       restoreMocks: true,
       unstubEnvs: true,
@@ -46,8 +46,10 @@ export default defineConfig(({ mode }) => {
           '**/*.stories.*',
           '**/*.vrt.*',
           'src/gen',
+          'src/mocks',
           'src/test',
           'src/main.ts',
+          'src/index.html',
           'src/app/app.config.ts',
           'src/app/app.routes.ts',
         ],

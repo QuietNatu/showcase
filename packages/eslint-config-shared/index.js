@@ -28,6 +28,7 @@ const defaultIgnores = [
   'coverage/',
   'public/',
   'src/gen/',
+  '.angular/',
   '!.storybook',
   '.storybook/main.ts',
   'storybook-static/',

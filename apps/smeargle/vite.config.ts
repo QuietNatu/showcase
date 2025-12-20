@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
     },
 
     test: {
-      globals: true,
+      globals: false,
       css: false,
       restoreMocks: true,
       unstubEnvs: true,
@@ -50,6 +50,7 @@ export default defineConfig(({ mode }) => {
           '**/*.vrt.*',
           'src/@types',
           'src/gen',
+          'src/mocks',
           'src/test',
           'src/main.tsx',
         ],

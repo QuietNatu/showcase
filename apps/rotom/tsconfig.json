@@ -4,6 +4,7 @@
   },
   "files": [],
   "references": [
+    { "path": "./tsconfig.app-development.json" },
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.lint.json" },
     { "path": "./tsconfig.test.json" },

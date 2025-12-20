@@ -1,4 +1,4 @@
-/// <reference types="vitest" />
+/// <reference types="vitest/config" />
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
 
     test: {
-      globals: true,
+      globals: false,
       css: false,
       restoreMocks: true,
       unstubEnvs: true,

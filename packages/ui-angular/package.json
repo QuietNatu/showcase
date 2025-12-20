@@ -7,6 +7,7 @@
   "sideEffects": false,
   "exports": {
     "./components/*": {
+      "types": "./src/lib/components/*/index.ts",
       "default": "./src/lib/components/*/index.ts"
     }
   },

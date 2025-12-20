@@ -41,6 +41,7 @@
     "@angular/compiler-cli": "21.0.5",
     "@compodoc/compodoc": "1.1.32",
     "@faker-js/faker": "10.1.0",
+    "@msw/data": "^1.1.2",
     "@natu/axe": "workspace:^",
     "@natu/browserslist-config-shared": "workspace:^",
     "@natu/eslint-config-shared": "workspace:^",

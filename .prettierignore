@@ -3,5 +3,6 @@ pnpm-lock.yaml
 .husky
 .prettierignore
 .browserslistrc
+.env*
 **/*.sh
 packages/styles/src/assets

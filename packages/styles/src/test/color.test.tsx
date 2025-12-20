@@ -1,4 +1,4 @@
-import { beforeEach, expect, test } from 'vitest';
+import { beforeEach, describe, expect, test } from 'vitest';
 import '../../dist/tokens/_rotom.scss';
 import '../../dist/tokens/_rotom-dark.scss';
 import '../../dist/tokens/_smeargle.scss';

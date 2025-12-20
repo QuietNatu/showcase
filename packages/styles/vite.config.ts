@@ -9,7 +9,7 @@ export default defineConfig(() => {
     plugins: [react()],
 
     test: {
-      globals: true,
+      globals: false,
       css: true,
       restoreMocks: true,
       unstubEnvs: true,

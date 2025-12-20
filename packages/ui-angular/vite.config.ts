@@ -23,7 +23,7 @@ export default defineConfig(({ mode }) => {
     },
 
     test: {
-      globals: true,
+      globals: true, // TODO: set to false once Analog supports it
       css: false,
       restoreMocks: true,
       unstubEnvs: true,

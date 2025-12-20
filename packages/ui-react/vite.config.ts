@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
 
     test: {
-      globals: true,
+      globals: false,
       css: false,
       restoreMocks: true,
       unstubEnvs: true,

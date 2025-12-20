@@ -26,7 +26,7 @@ export default defineConfig(({ mode }) => {
     },
 
     test: {
-      globals: true,
+      globals: false,
       css: false,
       restoreMocks: true,
       unstubEnvs: true,

@@ -48,6 +48,7 @@ export default defineConfig(({ mode }) => {
           'src/gen',
           'src/test',
           'src/main.ts',
+          'src/index.html',
           'src/app/app.config.ts',
           'src/app/app.routes.ts',
         ],

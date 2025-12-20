@@ -50,6 +50,7 @@ export default defineConfig(({ mode }) => {
           '**/*.vrt.*',
           'src/@types',
           'src/gen',
+          'src/mocks',
           'src/test',
           'src/main.tsx',
         ],

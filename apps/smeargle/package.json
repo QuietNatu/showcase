@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "10.1.0",
-    "@msw/data": "^1.1.2",
+    "@msw/data": "1.1.2",
     "@natu/axe": "workspace:^",
     "@natu/browserslist-config-shared": "workspace:^",
     "@natu/eslint-config-shared": "workspace:^",

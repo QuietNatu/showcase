@@ -7,8 +7,6 @@ import { mockWorker } from '../mocks/api/browser';
 
 const project = setProjectAnnotations([projectAnnotations]);
 
-// TODO: https://storybook.js.org/docs/writing-tests/integrations/vitest-addon
-
 beforeAll(async () => {
   project.beforeAll();
 

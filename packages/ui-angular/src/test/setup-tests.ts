@@ -1,13 +1,8 @@
 import { beforeAll } from 'vitest';
 import '@natu/axe/vitest/extend-expect';
 
-import { BrowserTestingModule, platformBrowserTesting } from '@angular/platform-browser/testing';
-import { getTestBed } from '@angular/core/testing';
-import { GlobalTestingModule } from './global-testing-module';
+import { setupTestBed } from '@analogjs/vitest-angular/setup-testbed';
 
 beforeAll(() => {
-  getTestBed().initTestEnvironment(
-    [BrowserTestingModule, GlobalTestingModule],
-    platformBrowserTesting(),
-  );
+  setupTestBed({ browserMode: true });
 });

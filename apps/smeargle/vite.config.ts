@@ -4,13 +4,23 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { playwright } from '@vitest/browser-playwright';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
+import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const isDebugMode = Boolean(process.env.TEST_DEBUG);
 
   return {
-    plugins: [react()],
+    plugins: [
+      tanstackStart({
+        srcDirectory: './src/app',
+        router: {
+          routesDirectory: './routes',
+          generatedRouteTree: './routeTree.gen.ts',
+        },
+      }),
+      react(),
+    ],
 
     build: {
       target: browserslistToEsbuild(),

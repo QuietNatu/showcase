@@ -44,6 +44,7 @@ const defaultIgnores = [
   'tsup.config.ts',
   'orval.config.ts',
   'lighthouserc.*js',
+  '**/routeTree.gen.ts',
 ];
 
 const baseConfig = defineConfig(

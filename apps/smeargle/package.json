@@ -11,6 +11,7 @@
     "format": "eslint . --fix --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "preview": "vite preview",
+    "start": "node .output/server/index.mjs",
     "storybook": "storybook dev -p 6003",
     "storybook:build": "storybook build",
     "storybook:preview": "vite preview --port 6003 --outDir ./storybook-static",
@@ -20,6 +21,8 @@
   "dependencies": {
     "@natu/styles": "workspace:^",
     "@natu/ui-react": "workspace:^",
+    "@tanstack/react-router": "^1.142.11",
+    "@tanstack/react-start": "^1.142.11",
     "axios": "1.13.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",

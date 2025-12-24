@@ -1,5 +1,6 @@
 import { Outlet, createRootRoute, HeadContent, Scripts } from '@tanstack/react-router';
 import appCss from '../../styles/styles.scss?url';
+import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
 export const Route = createRootRoute({
   head: () => ({
@@ -26,7 +27,10 @@ function RootLayout() {
         <HeadContent />
       </head>
       <body>
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
+        <TanStackRouterDevtools />
         <Scripts />
       </body>
     </html>

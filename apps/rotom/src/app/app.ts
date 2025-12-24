@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 import { ExampleCounter } from '@natu/ui-angular/components/example-counter';
 
-interface Recipe {
+type Recipe = {
   id: string;
   name: string;
-}
+};
 
 /** Renders a recipe list. */
 @Component({

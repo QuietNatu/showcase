@@ -1,6 +1,6 @@
-export interface Environment {
+export type Environment = {
   /** Whether request mocks should be used */
   enableMocking?: boolean;
   isProd?: boolean;
   isDev?: boolean;
-}
+};

@@ -6,6 +6,7 @@
 # Misc
 .angular
 .turbo
+.tanstack
 coverage
 dist
 node_modules

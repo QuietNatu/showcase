@@ -9,6 +9,10 @@
     "./components/*": {
       "types": "./src/lib/components/*/index.ts",
       "default": "./src/lib/components/*/index.ts"
+    },
+    "./utils/context": {
+      "types": "./src/lib/utils/context.ts",
+      "default": "./src/lib/utils/context.ts"
     }
   },
   "scripts": {
@@ -20,11 +24,13 @@
     "test:watch": "cross-env TEST_DEBUG=1 vitest"
   },
   "peerDependencies": {
+    "@base-ui/react": "^1.0.0",
     "@natu/styles": "workspace:^",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "@base-ui/react": "^1.0.0",
     "@eslint/js": "9.39.2",
     "@natu/axe": "workspace:^",
     "@natu/eslint-config-shared": "workspace:^",

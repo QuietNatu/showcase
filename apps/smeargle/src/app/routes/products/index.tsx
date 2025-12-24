@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { ProductGrid } from './-route/components/product-grid/product-grid';
+import { ProductGrid } from './-components/product-grid/product-grid';
 
 export const Route = createFileRoute('/products/')({
   component: RouteComponent,

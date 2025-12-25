@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
-  "globalEnv": ["CI", "VITE_ENABLE_MOCKING"],
+  "globalEnv": ["CI", "VITE_ENABLE_MOCKING", "STORYBOOK"],
   "tasks": {
     "build": {
       "dependsOn": ["^build", "build:api"],

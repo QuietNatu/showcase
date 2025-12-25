@@ -12,10 +12,14 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 export default defineConfig(({ mode }) => {
   const isDebugMode = Boolean(process.env.TEST_DEBUG);
 
+  const isTest = mode === 'test';
+  const isStorybook = process.env.STORYBOOK === 'true';
+
   return {
     plugins: [
-      // Tanstack breaks coverage if plugin is active
-      mode !== 'test' &&
+      // Tanstack plugin causes issues with other tools (ex: breaks test coverage report)
+      !isTest &&
+        !isStorybook &&
         tanstackStart({
           srcDirectory: './src/app',
           router: {
@@ -32,7 +36,7 @@ export default defineConfig(({ mode }) => {
     },
 
     server: {
-      open: mode !== 'test',
+      open: !isTest,
       port: 6001,
     },
 

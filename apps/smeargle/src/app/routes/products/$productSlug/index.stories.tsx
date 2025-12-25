@@ -4,7 +4,7 @@ import { MockRouter } from '../../../../mocks/router';
 
 const meta = {
   title: 'Routes/Products/Details',
-  component: () => <MockRouter initialEntries={['/products/example-product']} />,
+  component: () => <MockRouter initialEntry="/products/example-product" />,
   parameters: {
     layout: 'fullscreen',
   },

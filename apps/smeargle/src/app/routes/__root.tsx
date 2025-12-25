@@ -26,10 +26,12 @@ function RootLayout() {
       <head>
         <HeadContent />
       </head>
+
       <body>
         <main>
           <Outlet />
         </main>
+
         <TanStackRouterDevtools />
         <Scripts />
       </body>

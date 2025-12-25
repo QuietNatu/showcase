@@ -12,8 +12,8 @@ import { routeTree as appRouteTree } from '../app/routeTree.gen';
 type MockRouteOptions = { path: string } & FileBaseRouteOptions<unknown>;
 
 type Props = Readonly<{
-  /** Initial entries of the history. Controls current shown route. */
-  initialEntries: string[];
+  /** Initial entry of the history. Controls current shown route. */
+  initialEntry: string;
   /** Creates a custom routeTree. Useful for testing components that rely on router data. */
   route?: MockRouteOptions;
 }>;
@@ -26,13 +26,13 @@ type Props = Readonly<{
  * Supports either using the app routeTree for testing index routes or using a custom route for testing components that rely on router data.
  */
 export function MockRouter(props: Props) {
-  const { initialEntries, route } = props;
+  const { initialEntry, route } = props;
 
   const routeTree = route ? createRouteTree(route) : appRouteTree;
 
   const router = createRouter({
     defaultPendingMs: 0,
-    history: createMemoryHistory({ initialEntries }),
+    history: createMemoryHistory({ initialEntries: [initialEntry] }),
     routeTree,
   });
 

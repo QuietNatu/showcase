@@ -3,6 +3,8 @@ import { render } from 'vitest-browser-react';
 import { MockRouter } from '../../mocks/router';
 import { page } from 'vitest/browser';
 
+// TODO: allow running in NODE env
+
 test('renders', async () => {
   await render(<MockRouter initialEntry="/" />);
 

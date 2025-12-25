@@ -6,20 +6,24 @@ import { playwright } from '@vitest/browser-playwright';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 
+// TODO: remove testdebug and replace with ui?
+
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const isDebugMode = Boolean(process.env.TEST_DEBUG);
 
   return {
     plugins: [
-      tanstackStart({
-        srcDirectory: './src/app',
-        router: {
-          generatedRouteTree: './routeTree.gen.ts',
-          routeFileIgnorePattern: '.stories.tsx',
-          routesDirectory: './routes',
-        },
-      }),
+      // Tanstack breaks coverage if plugin is active
+      mode !== 'test' &&
+        tanstackStart({
+          srcDirectory: './src/app',
+          router: {
+            generatedRouteTree: './routeTree.gen.ts',
+            routeFileIgnorePattern: '.(stories|test).tsx',
+            routesDirectory: './routes',
+          },
+        }),
       react(),
     ],
 
@@ -64,6 +68,8 @@ export default defineConfig(({ mode }) => {
           'src/mocks',
           'src/test',
           'src/main.tsx',
+          'src/app/router.tsx',
+          'src/app/routeTree.gen.ts',
         ],
         reporter: ['lcov', 'text-summary'],
       },

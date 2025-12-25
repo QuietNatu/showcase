@@ -21,6 +21,7 @@ import prettier from 'eslint-config-prettier/flat';
 import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import security from 'eslint-plugin-security';
 import promise from 'eslint-plugin-promise';
+import tanstackRouter from '@tanstack/eslint-plugin-router';
 
 const defaultIgnores = [
   'node_modules/',
@@ -177,6 +178,7 @@ const reactConfig = defineConfig(
   reactHooks.configs.flat.recommended,
   reactRefresh.configs.vite,
   jsxA11y.flatConfigs.recommended,
+  ...tanstackRouter.configs['flat/recommended'],
   {
     rules: {
       'react/button-has-type': [

@@ -381,6 +381,9 @@ importers:
       '@natu/tsconfig':
         specifier: workspace:^
         version: link:../tsconfig
+      '@tanstack/eslint-plugin-router':
+        specifier: ^1.141.0
+        version: 1.141.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       '@vitest/eslint-plugin':
         specifier: 1.5.2
         version: 1.5.2(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)(vitest@4.0.16)
@@ -3671,6 +3674,11 @@ packages:
     engines: {node: '>=12'}
     peerDependencies:
       vite: '>=6.0.0 || >=7.0.0'
+
+  '@tanstack/eslint-plugin-router@1.141.0':
+    resolution: {integrity: sha512-E5QSLvoS8By2UajtUE64CNp22LVyzdqNyR/ponVV+yxONWHC3IzDUUHKBnPxW1yVwRT88qQoJYV0RJL6noW25A==}
+    peerDependencies:
+      eslint: ^8.57.0 || ^9.0.0
 
   '@tanstack/history@1.141.0':
     resolution: {integrity: sha512-LS54XNyxyTs5m/pl1lkwlg7uZM3lvsv2FIIV1rsJgnfwVCnI+n4ZGZ2CcjNT13BPu/3hPP+iHmliBSscJxW5FQ==}
@@ -12582,6 +12590,14 @@ snapshots:
       vite: 7.3.0(@types/node@24.10.4)(jiti@2.6.1)(less@4.4.2)(sass@1.93.2)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
+
+  '@tanstack/eslint-plugin-router@1.141.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)':
+    dependencies:
+      '@typescript-eslint/utils': 8.50.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+      eslint: 9.39.2(jiti@2.6.1)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   '@tanstack/history@1.141.0': {}
 

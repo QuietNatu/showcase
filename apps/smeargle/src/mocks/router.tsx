@@ -4,10 +4,10 @@ import {
   createRoute,
   createRouter,
   FileBaseRouteOptions,
-  Outlet,
   RouterProvider,
 } from '@tanstack/react-router';
 import { routeTree as appRouteTree } from '../app/routeTree.gen';
+import { RootContentLayout } from '../app/routes/-components/root-content-layout';
 
 type MockRouteOptions = { path: string } & FileBaseRouteOptions<unknown>;
 
@@ -28,7 +28,11 @@ type Props = Readonly<{
 export function MockRouter(props: Props) {
   const { initialEntry, route } = props;
 
-  const routeTree = route ? createRouteTree(route) : appRouteTree;
+  const routeTree = route
+    ? createRouteTree(route)
+    : appRouteTree
+        // Use only the content inside the body as tests and storybook already add `<html>` and `<body>` tags.
+        .update({ component: RootContentLayout });
 
   const router = createRouter({
     defaultPendingMs: 0,
@@ -41,7 +45,7 @@ export function MockRouter(props: Props) {
 
 function createRouteTree(routeOptions: MockRouteOptions) {
   const rootRoute = createRootRoute({
-    component: Outlet,
+    component: RootContentLayout,
   });
 
   const route = createRoute({

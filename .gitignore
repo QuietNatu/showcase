@@ -1,3 +1,7 @@
+# OS
+
+.DS_store
+
 # Editors
 .vscode/*
 !.vscode/extensions.json

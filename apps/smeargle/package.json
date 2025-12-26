@@ -54,7 +54,6 @@
     "globals": "16.5.0",
     "msw": "2.12.4",
     "orval": "7.17.0",
-    "playwright": "1.57.0",
     "storybook": "10.1.10",
     "typescript": "5.9.3",
     "typescript-eslint": "8.50.0",

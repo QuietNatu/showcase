@@ -23,6 +23,7 @@
     "preflight-check": "node scripts/preflight-check.ts",
     "prepare": "husky",
     "renovate:validate": "pnpm dlx --package=renovate -- renovate-config-validator",
+    "start": "turbo run start",
     "storybook": "turbo run storybook",
     "storybook:build": "turbo run storybook:build",
     "test": "turbo run test",

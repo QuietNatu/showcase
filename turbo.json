@@ -28,6 +28,11 @@
       "cache": false,
       "persistent": true
     },
+    "start": {
+      "dependsOn": ["build"],
+      "cache": false,
+      "persistent": true
+    },
     "storybook": {
       "dependsOn": ["^build", "build:api"],
       "cache": false,

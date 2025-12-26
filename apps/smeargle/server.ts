@@ -2,7 +2,7 @@ import express from 'express';
 
 import { toNodeHandler } from 'srvx/node';
 
-const port = Number.parseInt(process.env.PORT ?? '3000');
+const port = Number.parseInt(process.env.PORT ?? '6010');
 
 // eslint-disable-next-line sonarjs/x-powered-by -- TODO: use 'helmet' to address security issues when dealing with hosting (import helmet from 'helmet';)
 const app = express();

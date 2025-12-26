@@ -1,8 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 
 // TODO: port numbers
-const port = 6003;
-const reportPort = 6004;
+const port = 6004;
+const reportPort = 6005;
 const isCi = process.env.CI && process.env.CI !== '0';
 
 export default defineConfig({

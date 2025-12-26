@@ -6,8 +6,6 @@ import { playwright } from '@vitest/browser-playwright';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 
-// TODO: remove testdebug and replace with ui?
-
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const isTest = mode === 'test';

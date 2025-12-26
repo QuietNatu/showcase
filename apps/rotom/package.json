@@ -45,7 +45,7 @@
     "@natu/axe": "workspace:^",
     "@natu/browserslist-config-shared": "workspace:^",
     "@natu/eslint-config-shared": "workspace:^",
-    "@natu/orval": "workspace:*",
+    "@natu/orval": "workspace:^",
     "@natu/stories": "workspace:^",
     "@natu/tsconfig": "workspace:^",
     "@playwright/test": "^1.57.0",

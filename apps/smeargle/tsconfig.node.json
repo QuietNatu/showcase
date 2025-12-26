@@ -3,5 +3,6 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo"
   },
-  "include": ["vite.config.ts"]
+  "files": ["vite.config.ts", "server.ts"],
+  "include": ["tests/**/playwright.config.ts"]
 }

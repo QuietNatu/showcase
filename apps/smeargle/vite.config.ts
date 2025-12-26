@@ -1,4 +1,4 @@
-/// <reference types="vitest" />
+/// <reference types="vitest/config" />
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
@@ -10,24 +10,19 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
-  const isDebugMode = Boolean(process.env.TEST_DEBUG);
-
   const isTest = mode === 'test';
   const isStorybook = process.env.STORYBOOK === 'true';
 
   return {
     plugins: [
-      // Tanstack plugin causes issues with other tools (ex: breaks test coverage report)
-      !isTest &&
-        !isStorybook &&
-        tanstackStart({
-          srcDirectory: './src/app',
-          router: {
-            generatedRouteTree: './routeTree.gen.ts',
-            routeFileIgnorePattern: '.(stories|test).tsx',
-            routesDirectory: './routes',
-          },
-        }),
+      tanstackStart({
+        srcDirectory: './src/app',
+        router: {
+          generatedRouteTree: './routeTree.gen.ts',
+          routeFileIgnorePattern: '.(stories|test).tsx',
+          routesDirectory: './routes',
+        },
+      }),
       react(),
     ],
 
@@ -50,8 +45,7 @@ export default defineConfig(({ mode }) => {
       restoreMocks: true,
       unstubEnvs: true,
       unstubGlobals: true,
-      include: ['src/**/*.test.{js,jsx,ts,tsx}'],
-      setupFiles: ['src/test/setup-tests.ts'],
+      reporters: ['default'],
       coverage: {
         thresholds: {
           branches: 80,
@@ -78,19 +72,36 @@ export default defineConfig(({ mode }) => {
         reporter: ['lcov', 'text-summary'],
       },
 
-      browser: {
-        api: {
-          port: 6002,
-        },
-        enabled: true,
-        headless: !isDebugMode,
-        provider: playwright(),
-        // https://vitest.dev/guide/browser/playwright
-        instances: [{ browser: 'chromium' }],
-        screenshotFailures: false,
-      },
+      projects: [
+        {
+          extends: true,
+          test: {
+            include: ['src/**/*.test.{js,jsx,ts,tsx}'],
+            exclude: ['**/*.node.test.{js,jsx,ts,tsx}'],
+            setupFiles: ['src/test/setup-tests.ts'],
 
-      reporters: ['default'],
+            browser: {
+              api: {
+                port: 6002,
+              },
+              enabled: true,
+              headless: true,
+              provider: playwright(),
+              // https://vitest.dev/guide/browser/playwright
+              instances: [{ browser: 'chromium' }],
+              screenshotFailures: false,
+            },
+          },
+        },
+        {
+          extends: true,
+          test: {
+            include: ['src/**/*.node.test.{js,jsx,ts,tsx}'],
+            setupFiles: ['src/test/setup-node-tests.ts'],
+            environment: 'node',
+          },
+        },
+      ],
     },
   };
 });

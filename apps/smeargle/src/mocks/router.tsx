@@ -18,6 +18,7 @@ type Props = Readonly<{
   route?: MockRouteOptions;
 }>;
 
+// TODO: is testing index files worth? Won't server functions have to be mocked?
 // TODO: using the real router will likely lead to issues, for example with protected routes or with loaders. This should be re-evaluated in the future.
 
 /**

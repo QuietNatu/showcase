@@ -222,6 +222,7 @@ const vitestConfig = defineConfig(
       'vitest/prefer-to-be-truthy': 'off',
       'vitest/require-top-level-describe': 'off',
       'vitest/max-expects': 'off',
+      'vitest/no-focused-tests': ['error', { fixable: false }],
       'vitest/no-hooks': 'off',
     },
   },

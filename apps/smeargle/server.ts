@@ -1,18 +1,18 @@
 import express from 'express';
-import helmet from 'helmet';
+
 import { toNodeHandler } from 'srvx/node';
 
 const port = Number.parseInt(process.env.PORT ?? '3000');
 
+// eslint-disable-next-line sonarjs/x-powered-by -- TODO: use 'helmet' to address security issues when dealing with hosting (import helmet from 'helmet';)
 const app = express();
 
-// @ts-expect-error -- server import has no types
+// @ts-expect-error -- js import has no types
 const { default: handler } = (await import('./dist/server/server.js')) as {
   default: { fetch: typeof fetch };
 };
 const nodeHandler = toNodeHandler(handler.fetch);
 
-app.use(helmet()); // TODO:
 app.use(express.static('dist/client'));
 app.use(async (req, res, next) => {
   try {

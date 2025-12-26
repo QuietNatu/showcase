@@ -27,7 +27,6 @@
     "@tanstack/react-start": "^1.142.11",
     "axios": "1.13.2",
     "express": "^5.2.1",
-    "helmet": "^8.1.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "srvx": "^0.9.8",

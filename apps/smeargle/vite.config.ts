@@ -11,7 +11,6 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const isTest = mode === 'test';
-  const isStorybook = process.env.STORYBOOK === 'true';
 
   return {
     plugins: [

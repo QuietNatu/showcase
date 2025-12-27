@@ -9,6 +9,13 @@ export default defineConfig({
       ...commonApiOptions.output,
       client: 'axios-functions',
       baseUrl: '/api',
+      override: {
+        ...commonApiOptions.output.override,
+        mutator: {
+          path: './src/api/mutator/custom-client.ts',
+          name: 'customClient',
+        },
+      },
     },
   },
 

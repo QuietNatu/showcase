@@ -4,8 +4,7 @@ import { createServerFn } from '@tanstack/react-start';
 import { getProducts } from '../../../gen/api/endpoints/products/products';
 
 const getProductsFn = createServerFn().handler(async () => {
-  // TODO: BASE URL
-  const response = await getProducts({ baseURL: 'http://localhost:6010' });
+  const response = await getProducts();
   return response.data;
 });
 

@@ -4,8 +4,6 @@
 
 A Single-page application in React
 
-TODO: Add Gotcha for frameworks lacking proper testing tools
-
 ## 🤡 Gotchas
 
 ### Testing with server-side rendering (SSR) frameworks

@@ -16,7 +16,8 @@
     "storybook:build": "storybook build",
     "storybook:preview": "vite preview --port 6003 --outDir ./storybook-static",
     "test": "vitest run --coverage",
-    "test:watch": "vitest --browser.headless=false"
+    "test:watch": "vitest --browser.headless=false",
+    "test:system": "playwright test --config tests/system/playwright.config.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",

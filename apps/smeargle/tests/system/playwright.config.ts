@@ -1,13 +1,15 @@
 import { defineConfig, devices } from '@playwright/test';
+import { getAppPort } from './src/utils/config';
 
-// TODO: port numbers
-const port = 6004;
+const port = getAppPort();
 const reportPort = 6005;
 const isCi = process.env.CI && process.env.CI !== '0';
 
 export default defineConfig({
   testDir: 'src',
   outputDir: 'results',
+  globalSetup: './global-setup.ts',
+  globalTeardown: './global-teardown.ts',
   forbidOnly: !!isCi,
   retries: 0,
   maxFailures: 0,
@@ -20,11 +22,6 @@ export default defineConfig({
     screenshot: 'off',
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
-  },
-  webServer: {
-    command: `pnpm start --port ${port}`,
-    port,
-    reuseExistingServer: !isCi,
   },
   projects: [
     {

@@ -17,6 +17,8 @@ node_modules
 *storybook.log
 storybook-static
 **/.storybook/documentation.json
+**/tests/**/report
+**/tests/**/results
 __screenshots__
 .eslintcache
 **/gen

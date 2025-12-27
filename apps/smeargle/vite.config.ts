@@ -62,6 +62,7 @@ export default defineConfig(({ mode }) => {
           'src/gen',
           'src/mocks',
           'src/test',
+          'src/server',
           'src/main.tsx',
           'src/app/router.tsx',
           'src/app/routeTree.gen.ts',

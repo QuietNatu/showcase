@@ -1,8 +1,8 @@
 // This script is meant to run directly with Node. Node now supports running directly TS files that use erasable syntax only.
 // To ensure only erasable types are used, set erasableSyntaxOnly tsconfig option to true.
 
-import { execSync } from 'child_process';
-import { styleText } from 'util';
+import { execSync } from 'node:child_process';
+import { styleText } from 'node:util';
 
 process.env.FORCE_COLOR = '1';
 process.env.CI = '1';

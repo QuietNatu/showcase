@@ -8,6 +8,7 @@ export default defineConfig({
     output: {
       ...commonApiOptions.output,
       client: 'axios-functions',
+      baseUrl: '/api',
     },
   },
 

@@ -5,9 +5,7 @@ type Options = {
   port?: number;
 };
 
-/**
- *
- */
+/** Serves pre-built application for production. */
 export async function startServer(options: Options) {
   // eslint-disable-next-line sonarjs/x-powered-by -- TODO: use 'helmet' to address security issues when dealing with hosting (import helmet from 'helmet';)
   const app = express();
@@ -34,7 +32,6 @@ export async function startServer(options: Options) {
 
     server.close(() => {
       console.log('Server closed');
-
       process.exit(0);
     });
 

@@ -3,6 +3,7 @@ import { ProductGrid } from './-components/product-grid/product-grid';
 import { createServerFn } from '@tanstack/react-start';
 import { getProducts } from '../../../gen/api/endpoints/products/products';
 
+// TODO improve
 const getProductsFn = createServerFn().handler(async () => {
   const response = await getProducts();
   return response.data;

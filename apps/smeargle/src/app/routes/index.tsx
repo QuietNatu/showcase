@@ -1,15 +1,10 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
+import { HomePage } from '../../pages/home/home-page';
 
 export const Route = createFileRoute('/')({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  return (
-    <>
-      <h1>Showcase</h1>
-
-      <Link to="/products">Go to products</Link>
-    </>
-  );
+  return <HomePage />;
 }

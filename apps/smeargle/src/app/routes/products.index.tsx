@@ -1,7 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { ProductGrid } from '../../../features/products/product-list/components/product-grid/product-grid';
 import { createServerFn } from '@tanstack/react-start';
-import { getProducts } from '../../../gen/api/endpoints/products/products';
+import { getProducts } from '../../gen/api/endpoints/products/products';
+import { ProductListPage } from '../../pages/products/list/product-list-page';
 
 // TODO improve
 const getProductsFn = createServerFn().handler(async () => {
@@ -14,15 +14,10 @@ export const Route = createFileRoute('/products/')({
   loader: () => getProductsFn(),
 });
 
+// TODO: forbid imports from app to other places
+
 function RouteComponent() {
   const products = Route.useLoaderData();
 
-  console.log({ products });
-
-  return (
-    <>
-      <h1>Products</h1>
-      <ProductGrid />
-    </>
-  );
+  return <ProductListPage products={products} />;
 }

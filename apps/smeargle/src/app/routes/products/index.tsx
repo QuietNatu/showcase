@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { ProductGrid } from './-components/product-grid/product-grid';
+import { ProductGrid } from '../../../features/products/product-list/components/product-grid/product-grid';
 import { createServerFn } from '@tanstack/react-start';
 import { getProducts } from '../../../gen/api/endpoints/products/products';
 

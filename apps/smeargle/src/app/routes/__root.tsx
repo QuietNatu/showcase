@@ -1,7 +1,7 @@
-import { createRootRoute, HeadContent, Scripts } from '@tanstack/react-router';
+import { createRootRoute, HeadContent, Outlet, Scripts } from '@tanstack/react-router';
 import appCss from '../../styles/styles.scss?url';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
-import { RootContentLayout } from './-components/root-content-layout';
+import { AppLayout } from '../../features/app/app-layout';
 
 export const Route = createRootRoute({
   head: () => ({
@@ -21,6 +21,8 @@ export const Route = createRootRoute({
   component: RootLayout,
 });
 
+// TODO: explain content isolation from framework code.
+
 function RootLayout() {
   return (
     <html lang="en">
@@ -29,7 +31,9 @@ function RootLayout() {
       </head>
 
       <body>
-        <RootContentLayout />
+        <AppLayout>
+          <Outlet />
+        </AppLayout>
 
         <TanStackRouterDevtools />
         <Scripts />

@@ -5,8 +5,6 @@ import { getProductListProducts } from '../../pages/product-list/api/products';
 export const Route = createFileRoute('/products/')({
   component: RouteComponent,
   loader: () => getProductListProducts(),
-  pendingComponent: () => <>Loading...</>, // TODO
-
   // TODO: error
 });
 

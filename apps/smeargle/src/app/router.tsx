@@ -8,6 +8,7 @@ export function getRouter() {
   const router = createRouter({
     routeTree,
     scrollRestoration: true,
+    defaultPendingMs: 0,
   });
 
   return router;

@@ -23,6 +23,8 @@ import security from 'eslint-plugin-security';
 import promise from 'eslint-plugin-promise';
 import tanstackRouter from '@tanstack/eslint-plugin-router';
 
+// TODO: look up https://www.npmjs.com/package/eslint-plugin-project-structure/v/3.14.1
+
 const defaultIgnores = [
   'node_modules/',
   'dist/',

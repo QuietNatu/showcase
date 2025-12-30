@@ -5,7 +5,7 @@
   },
   "files": ["vite.config.ts"],
   "include": [
-    "src/server",
+    "src/app/server",
     "scripts/**/*.ts",
     "tests/*/playwright.config.ts",
     "tests/*/global-setup.ts",

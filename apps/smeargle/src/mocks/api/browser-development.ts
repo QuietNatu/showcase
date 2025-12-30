@@ -1,8 +1,9 @@
 import { seedMockDatabase } from './seeds/seeds';
-import { mockWorker } from './browser';
+import { developmentHandlers } from './handlers/handlers';
+import { setupWorker } from 'msw/browser';
 
 /** Starts the mock service worker with pre-seeded mock data. */
 export async function startMockWorker() {
   await seedMockDatabase();
-  return mockWorker.start({ onUnhandledRequest: 'error' });
+  return setupWorker(...developmentHandlers).start({ onUnhandledRequest: 'error' });
 }

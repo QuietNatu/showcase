@@ -1,17 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { createServerFn } from '@tanstack/react-start';
-import { getProducts } from '../../gen/api/endpoints/products/products';
-import { ProductListPage } from '../../pages/products/list/product-list-page';
-
-// TODO improve
-const getProductsFn = createServerFn().handler(async () => {
-  const response = await getProducts();
-  return response.data;
-});
+import { ProductListPage } from '../../pages/product-list/product-list-page';
+import { getProductListProducts } from '../../pages/product-list/api/products';
 
 export const Route = createFileRoute('/products/')({
   component: RouteComponent,
-  loader: () => getProductsFn(),
+  loader: () => getProductListProducts(),
+  pendingComponent: () => <>Loading...</>, // TODO
+
+  // TODO: error
 });
 
 // TODO: forbid imports from app to other places

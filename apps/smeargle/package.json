@@ -11,7 +11,7 @@
     "format": "eslint . --fix --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "preview": "vite preview",
-    "start": "node scripts/start-server.ts",
+    "start": "node src/app/server/start-server.ts",
     "storybook": "storybook dev -p 6003",
     "storybook:build": "storybook build",
     "storybook:preview": "vite preview --port 6003 --outDir ./storybook-static",

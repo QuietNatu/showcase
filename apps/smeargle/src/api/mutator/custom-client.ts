@@ -1,9 +1,12 @@
-import { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { apiClient } from '../client';
+import { AxiosResponse } from 'axios';
+import { apiClient, ApiClientGeneratorOptions, ApiClientOptions } from '../client';
 
 /**
  * TODO:
  */
-export const customClient = <T>(config: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
-  return apiClient(config);
+export const customClient = <T>(
+  config: ApiClientGeneratorOptions,
+  options?: ApiClientOptions,
+): Promise<AxiosResponse<T>> => {
+  return apiClient({ ...config, ...options });
 };

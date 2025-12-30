@@ -1,5 +1,7 @@
 import { Link } from '@tanstack/react-router';
 
+// TODO: explain pages and routes split?
+
 /**
  * TODO
  */

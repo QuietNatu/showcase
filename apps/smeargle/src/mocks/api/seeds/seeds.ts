@@ -1,5 +1,5 @@
 import { mockDatabase } from '../database/database';
-import { createProductMock } from '../mocks/product-mocks';
+import { createProductMock } from '../factories/product-factory';
 
 /**
  * Seeds mock database with some predefined information.

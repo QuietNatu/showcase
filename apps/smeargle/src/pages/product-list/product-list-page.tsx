@@ -1,4 +1,4 @@
-import { ProductDto } from '../../../gen/api/models/product-dto';
+import { ProductDto } from '../../gen/api/models/product-dto';
 import { ProductGrid } from './ui/product-grid/product-grid';
 
 type Props = Readonly<{

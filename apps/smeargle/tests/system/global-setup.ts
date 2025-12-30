@@ -1,6 +1,6 @@
 import { getAppPort } from './src/utils/config';
 import { mockServer } from '../../src/mocks/api/server';
-import { startServer } from '../../src/server/start-server';
+import { createServerApp } from '../../src/app/server/create-app';
 
 /** Sets up server side mocking and starts the application */
 async function globalSetup() {
@@ -12,7 +12,7 @@ async function globalSetup() {
   // but that has the downside of being harder to change data on a per test basis.
   // This should be re-addressed once MSW supports cross-process interception https://github.com/mswjs/msw/pull/1617
   // Or when Tanstack Start improves testing tools...
-  await startServer({ port: getAppPort() });
+  await createServerApp({ port: getAppPort() });
 }
 
 export default globalSetup;

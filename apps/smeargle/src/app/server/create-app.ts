@@ -6,7 +6,7 @@ type Options = {
 };
 
 /** Serves pre-built application for production. */
-export async function startServer(options: Options) {
+export async function createServerApp(options: Options) {
   // eslint-disable-next-line sonarjs/x-powered-by -- TODO: use 'helmet' to address security issues when dealing with hosting (import helmet from 'helmet';)
   const app = express();
 
@@ -49,7 +49,7 @@ export async function startServer(options: Options) {
 
 async function getFetchHandler() {
   // @ts-expect-error -- js import has no types
-  const { default: handler } = (await import('../../dist/server/server.js')) as {
+  const { default: handler } = (await import('../../../dist/server/server.js')) as {
     default: { fetch: typeof fetch };
   };
 

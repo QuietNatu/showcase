@@ -1,17 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { MockRouter } from '../../../mocks/router';
-import { ProductListPage } from './product-list-page';
-import { AppLayout } from '../../../app/layouts/app-layout';
-
-// TODO: App layout here or not?
+import { MockRouter } from '../../mocks/router';
+import { ProductListingPage } from './product-listing-page';
+import { AppLayout } from '../../app/layouts/app-layout';
 
 const meta = {
   title: 'Pages/Products/List',
   component: () => (
     <MockRouter>
       <AppLayout>
-        <ProductListPage products={[]} />
+        <ProductListingPage products={[]} />
       </AppLayout>
     </MockRouter>
   ),

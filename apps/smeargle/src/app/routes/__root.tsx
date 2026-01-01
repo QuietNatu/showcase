@@ -21,8 +21,6 @@ export const Route = createRootRoute({
   component: RootLayout,
 });
 
-// TODO: explain content isolation from framework code.
-
 function RootLayout() {
   return (
     <html lang="en">

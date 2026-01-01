@@ -1,6 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-// TODO: avoid using axios types directly?
 // TODO: logging
 
 export type ApiClientOptions = {
@@ -14,7 +13,5 @@ export type ApiClientGeneratorOptions = ApiClientOptions & {
   baseURL?: AxiosRequestConfig['baseURL'];
 };
 
-// TODO: move gen code inside api? https://feature-sliced.design/docs/guides/examples/api-requests
-
-// TODO:
+/** Preconfigured api client. Should only be used server-side as to not leak secrets. */
 export const apiClient = axios.create({ baseURL: process.env.API_BASE_URL });

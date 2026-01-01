@@ -8,15 +8,19 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
-  // eslint-disable-next-line functional/immutable-data -- TODO
-  Object.assign(process.env, loadEnv(mode, process.cwd(), ''));
-
   const isTest = mode === 'test';
+  const isStorybook = process.env.STORYBOOK === 'true';
+
+  if (isTest) {
+    // eslint-disable-next-line functional/immutable-data -- needed while tanstack plugin is disabled
+    Object.assign(process.env, loadEnv(mode, process.cwd(), ''));
+  }
 
   return {
     plugins: [
-      // TODO: storybook
+      // Tanstack plugin should be enabled once it does not cause coverage issues or break server functions in tests
       !isTest &&
+        !isStorybook &&
         tanstackStart({
           srcDirectory: './src/app',
           router: {

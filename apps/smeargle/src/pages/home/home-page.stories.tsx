@@ -4,8 +4,6 @@ import { MockRouter } from '../../mocks/router';
 import { HomePage } from './home-page';
 import { AppLayout } from '../../app/layouts/app-layout';
 
-// TODO: App layout here or not?
-
 const meta = {
   title: 'Pages/Home',
   component: () => (

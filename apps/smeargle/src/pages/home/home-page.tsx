@@ -1,10 +1,6 @@
 import { Link } from '@tanstack/react-router';
 
-// TODO: explain pages and routes split?
-
-/**
- * TODO
- */
+/** The home page of the app. */
 export function HomePage() {
   return (
     <>

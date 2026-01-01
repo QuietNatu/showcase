@@ -9,8 +9,6 @@ import {
 } from '@tanstack/react-router';
 import { ReactNode } from 'react';
 
-// TODO: router is async. What to do in tests?
-
 type Props = Readonly<{
   /**
    * Initial entry of the history. Controls current shown route.

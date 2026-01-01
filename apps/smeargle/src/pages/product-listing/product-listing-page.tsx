@@ -5,10 +5,8 @@ type Props = Readonly<{
   products: ProductDto[];
 }>;
 
-/**
- *
- */
-export function ProductListPage(props: Props) {
+/** Primary way for users to navigate and search for products. */
+export function ProductListingPage(props: Props) {
   const { products } = props;
 
   return (

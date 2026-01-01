@@ -37,7 +37,7 @@ const defaultIgnores = [
   'storybook-static/',
   '.lighthouseci/',
   'lighthouse-reports/',
-  'e2e/.features-gen/',
+  'tests/*/report',
   'eslint.config.js',
   'commitlint.config.js',
   'lint-staged.config.js',
@@ -47,7 +47,7 @@ const defaultIgnores = [
   'tsup.config.ts',
   'orval.config.ts',
   'lighthouserc.*js',
-  '**/routeTree.gen.ts',
+  '**/*.gen.ts',
 ];
 
 const baseConfig = defineConfig(

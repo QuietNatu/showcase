@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => {
         tanstackStart({
           srcDirectory: './src/app',
           router: {
-            generatedRouteTree: './routeTree.gen.ts',
+            generatedRouteTree: './route-tree.gen.ts',
             routeFileIgnorePattern: '.(stories|test).tsx',
             routesDirectory: './routes',
           },
@@ -81,7 +81,7 @@ export default defineConfig(({ mode }) => {
           'src/app/server',
           'src/app/entrypoints',
           'src/app/router.tsx',
-          'src/app/routeTree.gen.ts',
+          'src/app/route-tree.gen.ts',
           'src/main.tsx',
         ],
         reporter: ['lcov', 'text-summary'],

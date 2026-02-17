@@ -1,6 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { createServerFn } from '@tanstack/react-start';
 import { ProductListingPage } from '../../pages/product-listing/product-listing-page';
-import { loadProductListPageData } from '../../pages/product-listing/api/data';
+import { getProductListPageData } from '../../pages/product-listing/api/data.server';
+
+const loadProductListPageData = createServerFn().handler(() => getProductListPageData());
 
 export const Route = createFileRoute('/products/')({
   component: RouteComponent,
@@ -12,3 +15,5 @@ function RouteComponent() {
 
   return <ProductListingPage products={products} />;
 }
+
+// TODO: eslint is not type-checking correctly

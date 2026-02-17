@@ -1,23 +1,23 @@
+import { ProductDto } from '../../../../gen/api/models/product-dto';
 import { ProductCard } from '../product-card/product-card';
+
+type Props = Readonly<{
+  products: ProductDto[];
+}>;
 
 /**
  * TODO
  */
-export function ProductGrid() {
+export function ProductGrid(props: Props) {
+  const { products } = props;
+
   return (
     <ul>
-      <li>
-        <ProductCard slug="product_1" />
-      </li>
-      <li>
-        <ProductCard slug="product_2" />
-      </li>
-      <li>
-        <ProductCard slug="product_3" />
-      </li>
-      <li>
-        <ProductCard slug="product_4" />
-      </li>
+      {products.map((product) => (
+        <li key={product.id}>
+          <ProductCard slug={product.slug} />
+        </li>
+      ))}
     </ul>
   );
 }

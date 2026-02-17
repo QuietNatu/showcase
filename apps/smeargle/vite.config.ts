@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react-swc';
 import { playwright } from '@vitest/browser-playwright';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
 import { tanstackStart } from '@tanstack/react-start/plugin/vite';
+import { serverOnly } from './plugins/server-only';
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -36,6 +37,7 @@ export default defineConfig(({ mode }) => {
           },
         }),
       react(),
+      serverOnly(),
     ],
 
     build: {
@@ -87,12 +89,13 @@ export default defineConfig(({ mode }) => {
         reporter: ['lcov', 'text-summary'],
       },
 
+      // TODO: move to separate vitest file
       projects: [
         {
           extends: true,
           test: {
             include: ['src/**/*.test.{js,jsx,ts,tsx}'],
-            exclude: ['**/*.node.test.{js,jsx,ts,tsx}'],
+            exclude: ['**/*.server.test.{js,jsx,ts,tsx}'],
             setupFiles: ['src/test/setup-tests.ts'],
 
             browser: {
@@ -111,7 +114,7 @@ export default defineConfig(({ mode }) => {
         {
           extends: true,
           test: {
-            include: ['src/**/*.node.test.{js,jsx,ts,tsx}'],
+            include: ['src/**/*.server.test.{js,jsx,ts,tsx}'],
             setupFiles: ['src/test/setup-node-tests.ts'],
             environment: 'node',
           },

@@ -12,8 +12,8 @@ export function ProductListingPage(props: Props) {
   return (
     <>
       <h1>Products</h1>
-      <div>{products.length}</div>
-      <ProductGrid />
+      <div>Product count: {products.length}</div>
+      <ProductGrid products={products} />
     </>
   );
 }

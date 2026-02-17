@@ -1,8 +1,9 @@
 import '@natu/axe/vitest/extend-expect';
-import './global-mocks/tanstack-start-node';
 
 import { afterAll, afterEach, beforeAll } from 'vitest';
 import { mockServer } from '../mocks/api/server';
+
+// TODO: seed faker
 
 beforeAll(() => {
   mockServer.listen({ onUnhandledRequest: 'warn' });

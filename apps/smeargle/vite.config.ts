@@ -115,7 +115,7 @@ export default defineConfig(({ mode }) => {
           extends: true,
           test: {
             include: ['src/**/*.server.test.{js,jsx,ts,tsx}'],
-            setupFiles: ['src/test/setup-node-tests.ts'],
+            setupFiles: ['src/test/setup-server-tests.ts'],
             environment: 'node',
           },
         },

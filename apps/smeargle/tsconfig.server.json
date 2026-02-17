@@ -1,11 +1,12 @@
 {
   "extends": "@natu/tsconfig/tsconfig.vite-node.json",
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo"
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.server.tsbuildinfo"
   },
   "files": ["vite.config.ts"],
   "include": [
     "src/app/server",
+    "src/**/*.server.ts",
     "scripts/**/*.ts",
     "plugins/**/*.ts",
     "tests/*/playwright.config.ts",

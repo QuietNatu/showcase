@@ -12,8 +12,8 @@ export default defineConfig({
       override: {
         ...commonApiOptions.output.override,
         mutator: {
-          path: './src/api/mutator/custom-client.ts',
-          name: 'customClient',
+          path: './src/shared/api/lib/mutator.ts',
+          name: 'apiClientMutator',
         },
       },
     },

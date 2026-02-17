@@ -1,5 +1,5 @@
 import { Collection } from '@msw/data';
-import { getProductsProductSlugSchemaResponse } from '../../../gen/api/endpoints/products/products.zod';
+import { getProductsProductSlugSchemaResponse } from '../../../shared/api/gen/endpoints/products/products.zod';
 
 const products = new Collection({
   schema: getProductsProductSlugSchemaResponse,

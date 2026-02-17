@@ -1,5 +1,5 @@
-import { getProducts } from '../../../gen/api/endpoints/products/products';
-import { ProductDto } from '../../../gen/api/models/product-dto';
+import { getProducts } from '../../../shared/api/gen/endpoints/products/products';
+import { ProductDto } from '../../../shared/api/gen/models/product-dto';
 import { Either } from '../../../shared/lib/data-types';
 
 /** Gets the list of products */

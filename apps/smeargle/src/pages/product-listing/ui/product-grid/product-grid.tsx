@@ -1,4 +1,4 @@
-import { ProductDto } from '../../../../gen/api/models/product-dto';
+import { ProductDto } from '../../../../shared/api/gen/models/product-dto';
 import { ProductCard } from '../product-card/product-card';
 
 type Props = Readonly<{

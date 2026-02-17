@@ -1,13 +1,23 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { createServerFn } from '@tanstack/react-start';
 import { ProductListingPage } from '../../pages/product-listing/product-listing-page';
-import { getProductListPageData } from '../../pages/product-listing/api/data.server';
+import { getProductListingPageData } from '../../pages/product-listing/api/data.server';
+import { Either } from '../../shared/lib/data-types';
 
-const loadProductListPageData = createServerFn().handler(() => getProductListPageData());
+const loadProductListingPageData = createServerFn().handler(async () => {
+  const data = await getProductListingPageData();
+
+  if (Either.isLeft(data)) {
+    // Show error component
+    throw new Error('Failed to load product listing page data');
+  }
+
+  return data.right;
+});
 
 export const Route = createFileRoute('/products/')({
   component: RouteComponent,
-  loader: () => loadProductListPageData(),
+  loader: () => loadProductListingPageData(),
 });
 
 function RouteComponent() {

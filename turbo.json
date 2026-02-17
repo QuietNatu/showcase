@@ -9,7 +9,7 @@
     },
     "build:api": {
       "inputs": ["orval.config.ts", "../../apps/api/openapi.yaml"],
-      "outputs": ["src/gen/api/**"]
+      "outputs": ["src/shared/api/gen/**"]
     },
     "dev": {
       "dependsOn": ["^build", "build:api"],

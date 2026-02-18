@@ -1,7 +1,5 @@
 import type { Plugin } from 'vite';
 
-// TODO: document this in readme
-
 /**
  * Vite plugin that prevents server code from being imported in the client.
  *

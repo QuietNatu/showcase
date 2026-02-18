@@ -26,6 +26,7 @@ import tanstackRouter from '@tanstack/eslint-plugin-router';
 // TODO: look up https://www.npmjs.com/package/eslint-plugin-project-structure/v/3.14.1
 
 // TODO: use extends instead of multiple objects
+// TODO: sort imports
 
 const defaultIgnores = [
   'node_modules/',

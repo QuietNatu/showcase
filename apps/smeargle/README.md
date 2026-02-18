@@ -2,7 +2,17 @@
 
 > Smeargle, the Painter Pokémon. Colored fluids ooze from their tails, which they use to mark their territory and to express themselves.
 
-A Single-page application in React
+An eshop built with React. As this application is customer oriented, it has a strong focus on SSR and SEO.
+
+## 📐 Architecture
+
+### Full-stack framework
+
+This app uses [Tanstack Start](https://tanstack.com/start/latest) as a full-stack framework to manage the Server-side Rendering and Backend for Frontend aspect of it. It is organized as follows:
+
+- Tanstack Start specific code must be isolated from remaining code and can only be imported inside `src/app`.
+- Tanstack Start code will not be unit tested. System / E2E tests will cover it. This means that this code should not have any business logic itself and should function only as a wrapper to augment the rest of the code with framework features.
+- Server only code must be inside files suffixed with `.server.ts`. A custom plugin is used to prevent these files from being imported in the client.
 
 ## 🤡 Gotchas
 

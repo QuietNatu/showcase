@@ -18,6 +18,9 @@ export default defineConfig(({ mode }) => {
       include: ['src/**/*.test.{js,jsx,ts,tsx}'],
       setupFiles: 'src/test/setup-tests.ts',
       reporters: ['default'],
+      sequence: {
+        shuffle: true,
+      },
       coverage: {
         thresholds: {
           branches: 80,

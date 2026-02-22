@@ -60,6 +60,9 @@ export default defineConfig(({ mode }) => {
       unstubEnvs: true,
       unstubGlobals: true,
       reporters: ['default'],
+      sequence: {
+        shuffle: true,
+      },
       coverage: {
         thresholds: {
           branches: 80,

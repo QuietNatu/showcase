@@ -4,7 +4,7 @@ import { MockRouter } from '../../mocks/router';
 import { page } from 'vitest/browser';
 import { HomePage } from './home-page';
 
-test('renders', async () => {
+test('renders content', async () => {
   await render(
     <MockRouter>
       <HomePage />

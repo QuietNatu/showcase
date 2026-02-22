@@ -1,13 +1,33 @@
-import { test } from 'vitest';
-import { expect } from '@playwright/test';
+import { describe, expect, test } from 'vitest';
 import { mockDatabase } from '../../../mocks/api/database/database';
 import { createProductMock } from '../../../mocks/api/factories/product-factory';
-import { getProductListPageData } from './data.server';
+import { getProductListingPageData } from './data.server';
+import { Either } from '../../../shared/lib/data-types';
+import { mockServer } from '../../../mocks/api/server';
+import { HttpResponse } from 'msw';
+import { getGetProductsMockHandler } from '../../../shared/api/gen/endpoints/products/products.msw';
 
-test('example', async () => {
-  await mockDatabase.products.createMany(3, () => createProductMock());
+describe('when all data loads successfully', () => {
+  test('returns correct data', async () => {
+    await mockDatabase.products.createMany(3, () => createProductMock());
 
-  const { products } = await getProductListPageData();
+    const result = await getProductListingPageData();
 
-  expect(products).toHaveLength(3);
+    expect.assert(Either.isRight(result));
+    expect(result.right.products).toHaveLength(3);
+  });
+});
+
+describe('when products fail to load', () => {
+  test('returns error', async () => {
+    mockServer.use(
+      getGetProductsMockHandler(() => {
+        throw HttpResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+      }),
+    );
+    const result = await getProductListingPageData();
+
+    expect.assert(Either.isLeft(result));
+    expect(result.left).toStrictEqual(new Error('Failed to get product listing page data'));
+  });
 });

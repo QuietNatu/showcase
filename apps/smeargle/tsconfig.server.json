@@ -11,6 +11,7 @@
     "plugins/**/*.ts",
     "tests/*/playwright.config.ts",
     "tests/*/global-setup.ts",
-    "tests/*/global-teardown.ts"
+    "tests/*/global-teardown.ts",
+    "src/shared/api/lib/mutator.ts"
   ]
 }

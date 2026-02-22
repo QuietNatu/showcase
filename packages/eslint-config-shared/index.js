@@ -33,7 +33,7 @@ const defaultIgnores = [
   'dist/',
   'coverage/',
   'public/',
-  'src/gen/',
+  'src/**/gen/',
   '.angular/',
   '!.storybook',
   '.storybook/main.ts',
@@ -238,7 +238,9 @@ const vitestConfig = defineConfig(
   {
     files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
     rules: {
+      '@typescript-eslint/only-throw-error': 'off',
       '@typescript-eslint/restrict-template-expressions': 'off',
+      'functional/no-throw-statements': 'off',
     },
   },
 );

@@ -1,15 +1,18 @@
 import { defineConfig, devices } from '@playwright/test';
 import { getAppPort } from './src/utils/config';
+import dotenv from '@dotenvx/dotenvx';
+import path from 'node:path';
 
 const port = getAppPort();
 const reportPort = 6005;
 const isCi = process.env.CI && process.env.CI !== '0';
 
+// TODO: mockDatabase does not work. need to use mock api
+dotenv.config({ path: path.resolve(import.meta.dirname, '../../.env') });
+
 export default defineConfig({
   testDir: 'src',
   outputDir: 'results',
-  globalSetup: './global-setup.ts',
-  globalTeardown: './global-teardown.ts',
   forbidOnly: !!isCi,
   retries: 0,
   maxFailures: 0,

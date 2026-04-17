@@ -56,6 +56,11 @@
       "dependsOn": ["^build", "build:api"],
       "cache": false,
       "persistent": true
+    },
+    "test:integration": {
+      "dependsOn": ["build"],
+      "outputs": ["tests/integration/report/**"],
+      "env": ["PLAYWRIGHT_BROWSERS_PATH", "TEST_DEBUG"]
     }
   }
 }

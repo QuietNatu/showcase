@@ -17,7 +17,7 @@
     "storybook:preview": "vite preview --port 6003 --outDir ./storybook-static",
     "test": "vitest run --coverage",
     "test:watch": "vitest --browser.headless=false",
-    "test:system": "playwright test --config tests/system/playwright.config.ts"
+    "test:integration": "playwright test --config tests/integration/playwright.config.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",
@@ -35,6 +35,7 @@
     "zod": "4.2.1"
   },
   "devDependencies": {
+    "@dotenvx/dotenvx": "^1.52.0",
     "@faker-js/faker": "10.1.0",
     "@msw/data": "1.1.2",
     "@natu/axe": "workspace:^",

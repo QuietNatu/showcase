@@ -27,7 +27,8 @@
     "storybook": "turbo run storybook",
     "storybook:build": "turbo run storybook:build",
     "test": "turbo run test",
-    "test:watch": "turbo run test:watch"
+    "test:watch": "turbo run test:watch",
+    "test:integration": "turbo run test:integration"
   },
   "devDependencies": {
     "@commitlint/cli": "20.2.0",

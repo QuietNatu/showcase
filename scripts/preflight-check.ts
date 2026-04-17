@@ -18,7 +18,7 @@ try {
   run('pnpm run lint');
   run('pnpm run test');
   run('pnpm run build');
-  // pnpm run vrt
+  // pnpm run test:vrt
   // // it seems there is some conflict with lighthouse when running without a filter and turbo has bugs when using concurrency=1
   // pnpm run lighthouse-mobile --filter rotom
   // pnpm run lighthouse-mobile --filter smeargle

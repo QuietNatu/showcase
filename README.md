@@ -36,7 +36,7 @@ To set up the project you have to:
 - To run Storybook, use `pnpm storybook`.
 - To run all code linters, use `pnpm lint`.
 - To run unit tests, use `pnpm test`.
-- To run visual regression tests, use `pnpm vrt`.
+- To run visual regression tests, use `pnpm test:vrt`.
 - To run end-to-end tests, use `pnpm e2e`.
 - To inpect eslint configuration, use `pnpm dlx @eslint/config-inspector@latest` in the same directory where `eslint.config.js` is located.
 - To make sure code builds on the pipeline, run, `pnpm preflight-check`.

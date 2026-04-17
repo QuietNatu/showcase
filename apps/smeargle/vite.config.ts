@@ -29,6 +29,9 @@ export default defineConfig(({ mode }) => {
             routeFileIgnorePattern: '.(stories|test).tsx',
             routesDirectory: './routes',
           },
+          start: {
+            entry: 'entrypoints/start.ts',
+          },
           client: {
             entry: 'entrypoints/client.ts',
           },

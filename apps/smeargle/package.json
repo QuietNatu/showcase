@@ -35,7 +35,6 @@
     "zod": "4.2.1"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "^1.52.0",
     "@faker-js/faker": "10.1.0",
     "@msw/data": "1.1.2",
     "@natu/axe": "workspace:^",

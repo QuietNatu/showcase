@@ -1,5 +1,5 @@
 import { ProductDto } from '../../../shared/api/gen/models/product-dto';
-import { Either } from '../../../shared/lib/data-types';
+import { Either } from '../../../shared/lib/fp';
 import { getProductListingPageProducts } from './get-products.server';
 
 /** Gets data needed by the product list page */

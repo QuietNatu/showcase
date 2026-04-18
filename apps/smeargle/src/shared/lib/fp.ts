@@ -12,3 +12,5 @@ export const Either = {
   mapBoth: _Either.mapBoth,
   all: _Either.all,
 };
+
+export { pipe } from 'effect';

@@ -1,35 +1,111 @@
-import axios, { AxiosRequestConfig } from 'axios';
-import { getTestData } from '../test-context';
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, isAxiosError } from 'axios';
+import { getApiTestData } from './api-test-context.server';
+import { Either, pipe } from '../lib/fp';
+import { ClientRequest } from 'node:http';
 
 // TODO: logging
 
 export type ApiClientOptions = {
-  baseURL?: AxiosRequestConfig['baseURL'];
-  headers?: AxiosRequestConfig['headers'];
+  baseURL?: string;
+  headers?: Record<string, string | string[] | number | boolean | null | undefined>;
 };
 
 /** Options that can be used with dynamic method */
 export type ApiClientMethodOptions = ApiClientOptions & {
-  url?: AxiosRequestConfig['url'];
+  url?: string;
   method?: AxiosRequestConfig['method'];
 };
+
+export type ApiClientResponse<T> = {
+  data: T;
+  status: number;
+  statusText: string;
+  request?: ClientRequest;
+};
+
+export type ApiClientError = {
+  response?: { data: unknown; status: number; statusText: string };
+  request?: ClientRequest;
+  message?: string;
+  error: unknown;
+};
+
+export type ApiClientResult<T> = Either<ApiClientResponse<T>, ApiClientError>;
 
 const client = axios.create({ baseURL: process.env.API_BASE_URL });
 
 /** Preconfigured api client. Should only be used server-side as to not leak secrets. */
 export const apiClient = {
-  method: <T>(config: ApiClientMethodOptions) => client<T>(withTestHeaders(config)),
-  get: (url: string, options: ApiClientOptions) => client.get(url, withTestHeaders(options)),
-  post: <T>(url: string, data: T, options: ApiClientOptions) =>
-    client.post<T>(url, data, withTestHeaders(options)),
-  put: <T>(url: string, data: T, options: ApiClientOptions) =>
-    client.put<T>(url, data, withTestHeaders(options)),
-  patch: <T>(url: string, data: T, options: ApiClientOptions) =>
-    client.patch<T>(url, data, withTestHeaders(options)),
+  method: <T>(options: ApiClientMethodOptions) =>
+    withMiddleware<T>(options, (config) => client(config)),
+
+  get: <T>(url: string, options?: ApiClientOptions) =>
+    withMiddleware<T>(options, (config) => client.get(url, config)),
+
+  delete: (url: string, options?: ApiClientOptions) =>
+    withMiddleware(options, (config) => client.delete(url, config)),
+
+  post: <T>(url: string, data: unknown, options?: ApiClientOptions) =>
+    withMiddleware<T>(options, (config) => client.post(url, data, config)),
+
+  put: <T>(url: string, data: unknown, options?: ApiClientOptions) =>
+    withMiddleware<T>(options, (config) => client.put(url, data, config)),
+
+  patch: <T>(url: string, data: unknown, options?: ApiClientOptions) =>
+    withMiddleware<T>(options, (config) => client.patch(url, data, config)),
 };
 
-// TODO:
-function withTestHeaders(config: AxiosRequestConfig) {
-  const testId = getTestData()?.testId;
-  return axios.mergeConfig(config, { headers: { 'test-id': testId } });
+async function withMiddleware<T>(
+  config: ApiClientOptions | undefined,
+  createRequest: (config: ApiClientOptions) => Promise<AxiosResponse<T>>,
+) {
+  return withResponseHandling(() => pipe(config ?? {}, withTestHeaders, createRequest));
+}
+
+// TODO: Use MSW for INT tests. To be decided: create endpoint to populate mocks or use test scenarios?
+
+// TODO: test
+/** Adds test headers to requests */
+function withTestHeaders(config: ApiClientOptions) {
+  const testId = getApiTestData()?.testId;
+  return testId ? { ...config, headers: { ...config.headers, 'test-id': testId } } : config;
+}
+
+/**
+ * Transforms result of request as to not expose implementation details
+ * and also prevents errors from throwing, forcing them to be handled.
+ */
+async function withResponseHandling<T>(
+  performRequest: () => Promise<AxiosResponse<T>>,
+): Promise<ApiClientResult<T>> {
+  try {
+    const response = await performRequest();
+    return Either.right(transformAxiosResponse(response));
+  } catch (error) {
+    return isAxiosError(error) ? Either.left(transformAxiosError(error)) : Either.left({ error });
+  }
+}
+
+function transformAxiosResponse<T>(response: AxiosResponse<T>): ApiClientResponse<T> {
+  return {
+    data: response.data,
+    status: response.status,
+    statusText: response.statusText,
+    request: response.request as ClientRequest, // In Node, Axios uses ClientRequest
+  };
+}
+
+function transformAxiosError(error: AxiosError): ApiClientError {
+  return {
+    response: error.response
+      ? {
+          data: error.response.data,
+          status: error.response.status,
+          statusText: error.response.statusText,
+        }
+      : undefined,
+    request: error.request as ClientRequest, // In Node, Axios uses ClientRequest
+    message: error.message,
+    error,
+  };
 }

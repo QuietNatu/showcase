@@ -3,7 +3,7 @@ import { mockDatabase } from '../../../../src/mocks/api/database/database';
 import { createProductMock } from '../../../../src/mocks/api/factories/product-factory';
 
 test('has heading', async ({ page }) => {
-  await page.setExtraHTTPHeaders({ 'test-id': 'exampe-id' });
+  await page.setExtraHTTPHeaders({ 'test-id': 'example-id' });
 
   await mockDatabase.products.createMany(3, () => createProductMock());
 

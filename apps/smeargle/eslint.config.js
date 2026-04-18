@@ -7,11 +7,15 @@ import { globalIgnores } from 'eslint/config';
 const restrictedImports = [
   {
     name: '@tanstack/react-start',
-    message: 'This package may only be imported from within src/app.',
+    message: 'This package may only be imported from within src/app',
   },
   {
     name: 'effect',
     message: 'This package may only be imported from within src/shared/lib',
+  },
+  {
+    name: 'axios',
+    message: 'Use "apiClient" instead',
   },
 ];
 
@@ -36,6 +40,15 @@ const restrictImports = defineConfig(
       'no-restricted-imports': [
         'error',
         { paths: restrictedImports.filter(({ name }) => name !== 'effect') },
+      ],
+    },
+  },
+  {
+    files: ['src/shared/api/**/*.{js,ts,jsx,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        { paths: restrictedImports.filter(({ name }) => name !== 'axios') },
       ],
     },
   },

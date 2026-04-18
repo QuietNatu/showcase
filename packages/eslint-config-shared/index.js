@@ -131,6 +131,7 @@ const baseConfig = defineConfig(
       'unicorn/prefer-query-selector': 'off',
       'unicorn/prefer-top-level-await': 'off',
       'unicorn/prevent-abbreviations': 'off',
+      'unicorns/no-array-callback-reference': 'off', // Produces false positives with functional programming utils (ex: Either.map)
       'unicorn/no-array-reduce': 'off',
       'unicorn/no-nested-ternary': 'off',
       'unicorn/no-null': 'off',

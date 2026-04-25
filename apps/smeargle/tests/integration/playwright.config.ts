@@ -1,12 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
-import { getAppPort } from './src/utils/config';
 
-const port = getAppPort();
+const port = Number.parseInt(process.env.PORT ?? '6004');
+const mockServerPort = 6006;
 const reportPort = 6005;
 const isCi = process.env.CI && process.env.CI !== '0';
 
 export default defineConfig({
-  testDir: 'src',
+  testDir: 'src/tests',
   outputDir: 'results',
   forbidOnly: Boolean(isCi),
   retries: 0,
@@ -29,9 +29,18 @@ export default defineConfig({
   ],
   webServer: [
     {
+      command: 'pnpm test:integration:start-mocks',
+      env: {
+        PORT: mockServerPort.toString(),
+      },
+      port: mockServerPort,
+      reuseExistingServer: !isCi,
+    },
+    {
       command: 'pnpm start',
       env: {
         PORT: port.toString(),
+        TEST_API_BASE_URL: `http://localhost:${mockServerPort}/`,
       },
       port,
       reuseExistingServer: !isCi,

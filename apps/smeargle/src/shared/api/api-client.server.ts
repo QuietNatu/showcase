@@ -59,16 +59,20 @@ async function withMiddleware<T>(
   config: ApiClientOptions | undefined,
   createRequest: (config: ApiClientOptions) => Promise<AxiosResponse<T>>,
 ) {
-  return withResponseHandling(() => pipe(config ?? {}, withTestHeaders, createRequest));
+  return withResponseHandling(() => pipe(config ?? {}, withTestConfig, createRequest));
 }
 
-// TODO: Use MSW for INT tests. To be decided: create endpoint to populate mocks or use test scenarios?
-
 // TODO: test
-/** Adds test headers to requests */
-function withTestHeaders(config: ApiClientOptions) {
+/** Adds test config to requests */
+function withTestConfig(config: ApiClientOptions): ApiClientOptions {
   const testId = getApiTestData()?.testId;
-  return testId ? { ...config, headers: { ...config.headers, 'test-id': testId } } : config;
+  return testId
+    ? {
+        ...config,
+        baseURL: process.env.TEST_API_BASE_URL,
+        headers: { ...config.headers, 'test-id': testId },
+      }
+    : config;
 }
 
 /**

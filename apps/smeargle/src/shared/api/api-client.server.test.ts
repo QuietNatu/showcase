@@ -5,6 +5,7 @@ import { runWithApiTestContext } from './api-test-context.server';
 import { mockServer } from '../../mocks/api/server';
 import { http, HttpResponse } from 'msw';
 import { ClientRequest } from 'node:http';
+import { AppRequestHeader } from '../config/headers';
 
 // TODO: remaining handlers
 
@@ -15,12 +16,13 @@ describe('test headers', () => {
 
   describe('when test data is available', () => {
     test('adds test headers to request', async () => {
-      const testId = 'example-id';
+      const scenarioId = 'example-id';
 
-      const result = await runWithApiTestContext({ testId }, () => apiClient.get('/example'));
+      const result = await runWithApiTestContext({ scenarioId }, () => apiClient.get('/example'));
 
       expect.assert(Either.isRight(result));
-      expect(result.right.request?.getHeader('test-id')).toBe(testId);
+      expect(result.right.request?.getHeader(AppRequestHeader.TestScenarioId)).toBe(scenarioId);
+      // TODO: base url
     });
   });
 
@@ -30,7 +32,8 @@ describe('test headers', () => {
 
       expect.assert(Either.isRight(result));
       expect.assert(result.right.request !== undefined);
-      expect(result.right.request.getHeader('test-id')).toBeUndefined();
+      expect(result.right.request.getHeader(AppRequestHeader.TestScenarioId)).toBeUndefined();
+      // TODO: base url
     });
   });
 });

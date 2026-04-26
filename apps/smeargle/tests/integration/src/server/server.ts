@@ -1,10 +1,19 @@
-import { createServer } from '@mswjs/http-middleware';
-import { getGetProductsMockHandler } from '../../../../src/shared/api/gen/endpoints/products/products.msw';
+import './setup-faker'; // Must be imported first to setup faker before being used
+
+import express, { RequestHandler } from 'express';
+import { createMiddleware } from '@mswjs/http-middleware';
+import { logResquests, logUnhandledRequests } from './middleware';
+import { handlers } from './handlers/handlers';
 
 const port = process.env.PORT ?? 6006;
-const httpServer = createServer(getGetProductsMockHandler([{ id: '1', slug: 'product_1' }]));
 
-httpServer.listen(port, () => {
-  // eslint-disable-next-line no-console -- server log
-  console.log(`Mock server is running on http://localhost:${port}`);
-});
+const middleware = createMiddleware(...handlers) as unknown as RequestHandler;
+
+express()
+  .use(logResquests)
+  .use(middleware)
+  .use(logUnhandledRequests)
+  .listen(port, () => {
+    // eslint-disable-next-line no-console -- server log
+    console.log(`Mock server is running on http://localhost:${port}`);
+  });

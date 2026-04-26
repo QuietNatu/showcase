@@ -2,6 +2,7 @@ import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, isAxiosError } fr
 import { getApiTestData } from './api-test-context.server';
 import { Either, pipe } from '../lib/fp';
 import { ClientRequest } from 'node:http';
+import { AppRequestHeader } from '../config/headers';
 
 // TODO: logging
 
@@ -65,12 +66,12 @@ async function withMiddleware<T>(
 // TODO: test
 /** Adds test config to requests */
 function withTestConfig(config: ApiClientOptions): ApiClientOptions {
-  const testId = getApiTestData()?.testId;
-  return testId
+  const scenarioId = getApiTestData()?.scenarioId;
+  return scenarioId
     ? {
         ...config,
         baseURL: process.env.TEST_API_BASE_URL,
-        headers: { ...config.headers, 'test-id': testId },
+        headers: { ...config.headers, [AppRequestHeader.TestScenarioId]: scenarioId },
       }
     : config;
 }

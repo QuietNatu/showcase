@@ -1,4 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
+import { AppRequestHeader } from '../../src/shared/config/headers';
+import { Scenario } from './src/configs/scenarios';
 
 const port = Number.parseInt(process.env.PORT ?? '6004');
 const mockServerPort = 6006;
@@ -20,6 +22,9 @@ export default defineConfig({
     screenshot: 'off',
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
+    extraHTTPHeaders: {
+      [AppRequestHeader.TestScenarioId]: Scenario.Default,
+    },
   },
   projects: [
     {

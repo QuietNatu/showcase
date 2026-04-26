@@ -1,7 +1,7 @@
 import { AsyncLocalStorage } from 'node:async_hooks';
 
 type TestContextData = {
-  testId?: string;
+  scenarioId?: string;
 };
 
 const apiTestContext = new AsyncLocalStorage<TestContextData>();

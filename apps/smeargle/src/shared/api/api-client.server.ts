@@ -13,7 +13,8 @@ export type ApiClientOptions = {
 
 /** Options that can be used with dynamic method */
 export type ApiClientMethodOptions = ApiClientOptions & {
-  url?: string;
+  url: string;
+  data?: AxiosRequestConfig['data'];
   method?: AxiosRequestConfig['method'];
 };
 

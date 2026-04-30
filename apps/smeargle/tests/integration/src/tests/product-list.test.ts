@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { Scenario } from '../configs/scenarios';
-import { setTestScenario } from './utils/page-utils';
+import { setTestScenario } from './utils/page';
 
 test('shows page content', async ({ page }) => {
   await page.goto('/products');

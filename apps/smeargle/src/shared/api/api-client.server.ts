@@ -66,12 +66,12 @@ async function withMiddleware<T>(
 
 /** Adds test config to requests */
 function withTestConfig(config: ApiClientOptions): ApiClientOptions {
-  const scenarioId = getApiTestData()?.scenarioId;
-  return scenarioId
+  const testScenariosHeader = getApiTestData()?.testScenariosHeader;
+  return testScenariosHeader
     ? {
         ...config,
         baseURL: process.env.TEST_API_BASE_URL,
-        headers: { ...config.headers, [AppRequestHeader.TestScenarioId]: scenarioId },
+        headers: { ...config.headers, [AppRequestHeader.TestScenarios]: testScenariosHeader },
       }
     : config;
 }

@@ -9,8 +9,8 @@ if (import.meta.env.VITE_ENABLE_MOCKING === 'true') {
 
 export default createServerEntry({
   fetch(request) {
-    const testId = request.headers.get(AppRequestHeader.TestScenarioId) ?? undefined;
+    const testScenariosHeader = request.headers.get(AppRequestHeader.TestScenarios) ?? undefined;
 
-    return runWithApiTestContext({ scenarioId: testId }, () => handler.fetch(request));
+    return runWithApiTestContext({ testScenariosHeader }, () => handler.fetch(request));
   },
 });

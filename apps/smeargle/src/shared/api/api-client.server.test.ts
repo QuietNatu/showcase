@@ -41,20 +41,22 @@ describe.each([
     });
 
     describe('when test data is available', () => {
-      const scenarioId = 'example-id';
+      const testScenariosHeader = ['example-id-1', 'example-id-2'].join(',');
 
       test('adds test header to request', async () => {
-        const result = await runWithApiTestContext({ scenarioId }, () =>
+        const result = await runWithApiTestContext({ testScenariosHeader }, () =>
           doRequest({ headers: { 'Custom-Header': 'value' } }),
         );
 
         expect.assert(Either.isRight(result));
         expect(result.right.request?.getHeader('Custom-Header')).toBe('value');
-        expect(result.right.request?.getHeader(AppRequestHeader.TestScenarioId)).toBe(scenarioId);
+        expect(result.right.request?.getHeader(AppRequestHeader.TestScenarios)).toBe(
+          testScenariosHeader,
+        );
       });
 
       test('modifies request base url', async () => {
-        const [result1, result2] = await runWithApiTestContext({ scenarioId }, () =>
+        const [result1, result2] = await runWithApiTestContext({ testScenariosHeader }, () =>
           Promise.all([doRequest(), doRequest({ baseURL: 'https://api.com' })]),
         );
 
@@ -72,7 +74,7 @@ describe.each([
         expect.assert(Either.isRight(result));
         expect.assert(result.right.request !== undefined);
         expect(result.right.request.getHeader('Custom-Header')).toBe('value');
-        expect(result.right.request.getHeader(AppRequestHeader.TestScenarioId)).toBeUndefined();
+        expect(result.right.request.getHeader(AppRequestHeader.TestScenarios)).toBeUndefined();
       });
 
       test('does NOT modify request base url', async () => {

@@ -23,7 +23,7 @@ export default defineConfig({
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
     extraHTTPHeaders: {
-      [AppRequestHeader.TestScenarioId]: Scenario.Default,
+      [AppRequestHeader.TestScenarios]: Scenario.Default,
     },
   },
   projects: [

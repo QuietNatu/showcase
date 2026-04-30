@@ -14,7 +14,47 @@ This app uses [Tanstack Start](https://tanstack.com/start/latest) as a full-stac
 - Tanstack Start code will not be unit tested. Integration / E2E tests will cover it. This means that this code should not have any business logic itself and should function only as a wrapper to augment the rest of the code with framework features.
 - Server only code must be inside files suffixed with `.server.ts`. A custom plugin is used to prevent these files from being imported in the client.
 
-// TODO: types of tests
+### 🧪 Testing
+
+This app has several kinds of tests:
+
+#### General tests
+
+- To run these tests, use `pnpm test`.
+- Tests are inside the `src` folder and contain `.test.` in the file name.
+- Test reports are inside the `coverage` folder.
+
+This app uses [Vitest](https://vitest.dev/) for general testing purposes. These test specific pieces of code like functions or components.
+
+#### Integration Tests
+
+- To run these tests, use `pnpm test:integration`.
+- Tests are inside the `tests/integration/src/tests` folder.
+- Mock server is inside the `tests/integration/src/server` folder.
+- Test reports are inside the `tests/report` folder.
+
+This app uses [Playwright](https://playwright.dev/) for integration testing. These tests involve testing the whole app, mocking only it's boundaries. In this case it involves interacting with both the client-side and server-side of the app by simulating user interactions via a browser, and redirecting requests to a mock server.
+
+To support this redirection, no special builds of the app are required. Instead the app's server contains a middleware that listens to the request's headers. If a test header is present, and the `TEST_API_BASE_URL`environment variable is defined, all requests done by the server will be redirected and the test header will be added to the requests.
+
+```mermaid
+flowchart TD
+    User[Real User] --> | has no test header | Browser
+    Playwright[Automated Playwright Test] --> | sets the test header | Browser
+    Browser --> | sends headers | Frontend[Front-end Server]
+    Frontend --> | if test header is not set | Backend[Back-end Server]
+    Frontend --> | if test header is set | Mock[Mock Server];
+```
+
+The value of the test header is a comma separated string that represents a list of scenario ids. These scenario ids are used by the mock server to modify the response data. This way, multiple requests can be performed by multiple tests, in parallel, without causing conflicts.
+
+#### Visual Regression tests
+
+TODO: Once tests are configured
+
+#### End-to-end tests
+
+TODO: Once tests are configured
 
 ## 🤡 Gotchas
 

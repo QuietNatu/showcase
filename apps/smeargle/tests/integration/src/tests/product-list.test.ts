@@ -2,10 +2,7 @@ import { test, expect } from '@playwright/test';
 import { Scenario } from '../configs/scenarios';
 import { setTestScenario } from './utils/page-utils';
 
-// TODO: improve test naming?
-// TODO: explain default test scenario in docs and how mock server works overall
-
-test('has heading', async ({ page }) => {
+test('shows page content', async ({ page }) => {
   await page.goto('/products');
 
   await expect(page.getByRole('heading', { name: 'Products' })).toBeVisible();

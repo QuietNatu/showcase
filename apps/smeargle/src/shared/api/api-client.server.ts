@@ -64,7 +64,6 @@ async function withMiddleware<T>(
   return withResponseHandling(() => pipe(config ?? {}, withTestConfig, createRequest));
 }
 
-// TODO: test
 /** Adds test config to requests */
 function withTestConfig(config: ApiClientOptions): ApiClientOptions {
   const scenarioId = getApiTestData()?.scenarioId;

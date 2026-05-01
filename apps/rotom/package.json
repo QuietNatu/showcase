@@ -62,10 +62,11 @@
     "cross-env": "10.1.0",
     "eslint": "9.39.2",
     "msw": "2.13.6",
-    "orval": "7.17.0",
+    "orval": "7.17.2",
+    "playwright": "1.57.0",
     "storybook": "10.1.10",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.50.0",
+    "typescript-eslint": "8.50.1",
     "vite": "7.3.0",
     "vite-tsconfig-paths": "6.0.3",
     "vitest": "4.0.16"

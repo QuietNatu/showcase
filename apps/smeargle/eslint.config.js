@@ -59,6 +59,7 @@ export default defineConfig(
   ...shared.configs.react,
   ...shared.configs.storybook,
   ...shared.configs.vitest,
+  ...shared.configs.playwright,
   ...shared.configs.vrt,
   ...restrictImports,
   ...shared.configs.prettier,

@@ -246,6 +246,18 @@ const vitestConfig = defineConfig(
   },
 );
 
+const playwrightConfig = defineConfig({
+  ...playwright.configs['flat/recommended'],
+  files: ['tests/**/*.ts'],
+  rules: {
+    ...playwright.configs['flat/recommended'].rules,
+    '@typescript-eslint/only-throw-error': 'off',
+    'functional/no-throw-statements': 'off',
+    'playwright/expect-expect': 'off',
+    'playwright/valid-title': 'off',
+  },
+});
+
 const vrtConfig = defineConfig({
   ...playwright.configs['flat/recommended'],
   files: ['vrt/**/*.ts', 'src/**/*.vrt.ts'],
@@ -266,6 +278,7 @@ export default {
     react: reactConfig,
     storybook: storybookConfig,
     vitest: vitestConfig,
+    playwright: playwrightConfig,
     vrt: vrtConfig,
     /** Should be placed after all the other configs and rules */
     prettier: prettierConfig,

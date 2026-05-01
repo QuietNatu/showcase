@@ -1,8 +1,8 @@
 import { createDatabase } from '../../../../../src/mocks/api/database/database';
 import { createProductMock } from '../../../../../src/mocks/api/factories/product-factory';
 
-const standardDatabase = createDatabase();
+const defaultDatabase = createDatabase();
 
-await standardDatabase.products.createMany(3, () => createProductMock());
+await defaultDatabase.products.createMany(3, () => createProductMock());
 
-export { standardDatabase };
+export { defaultDatabase };

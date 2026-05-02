@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/eslint-plugin-jsx-a11y": "6.10.1",
-    "@types/eslint-plugin-security": "3.0.0",
+    "@types/eslint-plugin-security": "3.0.1",
     "eslint": "9.39.2",
     "typescript": "5.9.3"
   }

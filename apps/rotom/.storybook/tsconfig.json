@@ -1,11 +1,12 @@
 {
   "extends": "../tsconfig.app.json",
   "compilerOptions": {
+    "rootDir": "../..",
     "types": ["node"],
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true
   },
   "exclude": ["../src/test.ts", "../src/**/*.test.ts"],
   "include": ["../src/**/*.stories.*"],
-  "files": ["./preview.ts", "./typings.d.ts", "./empty-zone.ts"]
+  "files": ["./preview.ts", "./typings.d.ts"]
 }

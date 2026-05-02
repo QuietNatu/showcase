@@ -3,6 +3,10 @@
   "compilerOptions": {
     "types": ["node"]
   },
-  "include": ["../src/stories/**/*.stories.*", "../src/stories/typography.tsx"],
+  "include": [
+    "../src/@types/**/*.ts",
+    "../src/stories/**/*.stories.*",
+    "../src/stories/typography.tsx"
+  ],
   "files": ["./preview.ts"]
 }

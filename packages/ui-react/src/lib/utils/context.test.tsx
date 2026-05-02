@@ -15,7 +15,5 @@ test('renders when provider exists', async () => {
 test('does not render', async () => {
   const [, useTest] = createRequiredContext<string>({ name: 'TestContext' });
 
-  await expect(() => renderHook(() => useTest())).rejects.toThrowError(
-    'missing TestContext provider',
-  );
+  await expect(() => renderHook(() => useTest())).rejects.toThrow('missing TestContext provider');
 });

@@ -57,8 +57,8 @@ importers:
         specifier: 1.3.4
         version: 1.3.4(stylelint@16.26.1(typescript@5.9.3))
       stylelint-no-unsupported-browser-features:
-        specifier: 8.0.5
-        version: 8.0.5(stylelint@16.26.1(typescript@5.9.3))
+        specifier: 8.1.1
+        version: 8.1.1(stylelint@16.26.1(typescript@5.9.3))
       stylelint-order:
         specifier: 7.0.1
         version: 7.0.1(stylelint@16.26.1(typescript@5.9.3))
@@ -8731,11 +8731,11 @@ packages:
     peerDependencies:
       stylelint: ^14.0.0 || ^15.0.0 || ^16.0.0
 
-  stylelint-no-unsupported-browser-features@8.0.5:
-    resolution: {integrity: sha512-fCfV7C6q9PM/fb3oYERoxqiWEqDQf1S2NfKLy8tv1tiIhilFQ3zlw7AunE4kZHbGh6bD67SEiU0UwvJyNnvyKQ==}
+  stylelint-no-unsupported-browser-features@8.1.1:
+    resolution: {integrity: sha512-sLEe6NUFoWL2vGt6IKKllQEKfKgVxmvTBFs1JVMHKKLWzxtWAXaqSxJvH+j0URM4vLQQqzC/wXc9Kp3XBNKdBw==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
-      stylelint: ^16.0.2
+      stylelint: '>=16.0.2'
 
   stylelint-order@7.0.1:
     resolution: {integrity: sha512-GWPei1zBVDDjxM+/BmcSCiOcHNd8rSqW6FUZtqQGlTRpD0Z5nSzspzWD8rtKif5KPdzUG68DApKEV/y/I9VbTw==}
@@ -15311,7 +15311,7 @@ snapshots:
   doiuse@6.0.6:
     dependencies:
       browserslist: 4.28.1
-      caniuse-lite: 1.0.30001761
+      caniuse-lite: 1.0.30001791
       css-tokenize: 1.0.1
       duplexify: 4.1.3
       multimatch: 5.0.0
@@ -19148,7 +19148,7 @@ snapshots:
       colorjs.io: 0.4.5
       stylelint: 16.26.1(typescript@5.9.3)
 
-  stylelint-no-unsupported-browser-features@8.0.5(stylelint@16.26.1(typescript@5.9.3)):
+  stylelint-no-unsupported-browser-features@8.1.1(stylelint@16.26.1(typescript@5.9.3)):
     dependencies:
       browserslist: 4.28.1
       doiuse: 6.0.6

@@ -38,7 +38,7 @@
     "@vitejs/plugin-react-swc": "4.2.2",
     "colorjs.io": "0.5.2",
     "eslint": "9.39.2",
-    "happy-dom": "20.0.11",
+    "happy-dom": "20.8.9",
     "picocolors": "1.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",

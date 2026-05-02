@@ -20,7 +20,7 @@
     }
   },
   "dependencies": {
-    "axe-core": "4.11.0",
+    "axe-core": "4.11.4",
     "jest-axe": "10.0.0"
   },
   "devDependencies": {

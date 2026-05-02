@@ -62,6 +62,12 @@ export default defineConfig(
   ...shared.configs.playwright,
   ...shared.configs.vrt,
   ...restrictImports,
+  {
+    files: ['src/app/routes/**/*.{js,ts,jsx,tsx}'],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
   ...shared.configs.prettier,
   {
     languageOptions: {

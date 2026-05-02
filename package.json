@@ -38,7 +38,7 @@
     "@natu/tsconfig": "workspace:^",
     "@types/node": "24.12.2",
     "husky": "9.1.7",
-    "lint-staged": "16.2.7",
+    "lint-staged": "16.4.0",
     "msw": "2.13.6",
     "playwright": "1.57.0",
     "prettier": "3.8.3",

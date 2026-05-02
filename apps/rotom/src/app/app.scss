@@ -1,13 +1,13 @@
 :host {
-  --bright-blue: oklch(51.01% 0.274 263.83deg);
-  --electric-violet: oklch(53.18% 0.28 296.97deg);
-  --french-violet: oklch(47.66% 0.246 305.88deg);
-  --vivid-pink: oklch(69.02% 0.277 332.77deg);
-  --hot-red: oklch(61.42% 0.238 15.34deg);
-  --orange-red: oklch(63.32% 0.24 31.68deg);
-  --gray-900: oklch(19.37% 0.006 300.98deg);
-  --gray-700: oklch(36.98% 0.014 302.71deg);
-  --gray-400: oklch(70.9% 0.015 304.04deg);
+  --bright-blue: oklch(0.5101 0.274 263.83);
+  --electric-violet: oklch(0.5318 0.28 296.97);
+  --french-violet: oklch(0.4766 0.246 305.88);
+  --vivid-pink: oklch(0.6902 0.277 332.77);
+  --hot-red: oklch(0.6142 0.238 15.34);
+  --orange-red: oklch(0.6332 0.24 31.68);
+  --gray-900: oklch(0.1937 0.006 300.98);
+  --gray-700: oklch(0.3698 0.014 302.71);
+  --gray-400: oklch(0.709 0.015 304.04);
   --red-to-pink-to-purple-vertical-gradient: linear-gradient(
     180deg,
     var(--orange-red) 0%,

@@ -30,7 +30,7 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@base-ui/react": "1.0.0",
+    "@base-ui/react": "1.4.1",
     "@eslint/js": "9.39.4",
     "@natu/axe": "workspace:^",
     "@natu/eslint-config-shared": "workspace:^",

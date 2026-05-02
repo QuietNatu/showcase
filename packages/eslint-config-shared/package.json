@@ -19,7 +19,7 @@
     "angular-eslint": "21.1.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-config-turbo": "2.6.3",
-    "eslint-plugin-functional": "9.0.2",
+    "eslint-plugin-functional": "9.0.4",
     "eslint-plugin-jest-dom": "5.5.0",
     "eslint-plugin-jsdoc": "61.7.1",
     "eslint-plugin-jsx-a11y": "6.10.2",

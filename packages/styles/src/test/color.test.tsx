@@ -74,11 +74,13 @@ describe.each(themes)('$name', (theme) => {
 
 /** Lowers chroma until color is in the target gamut */
 function getMaxChromaForGamut(color: Color, gamut: string): number {
+  const chroma = color.c ?? 0;
+
   if (color.inGamut(gamut)) {
-    return Number(color.c as unknown);
+    return chroma;
   }
 
-  const adjustedChroma = (1000 * color.c - 1) / 1000;
+  const adjustedChroma = (1000 * chroma - 1) / 1000;
 
   return getMaxChromaForGamut(new Color(`oklch(${color.l} ${adjustedChroma} ${color.h})`), gamut);
 }

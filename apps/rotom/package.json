@@ -48,7 +48,7 @@
     "@natu/orval": "workspace:^",
     "@natu/stories": "workspace:^",
     "@natu/tsconfig": "workspace:^",
-    "@playwright/test": "^1.57.0",
+    "@playwright/test": "1.57.0",
     "@storybook/addon-a11y": "10.1.10",
     "@storybook/addon-docs": "10.1.10",
     "@storybook/angular": "10.1.10",

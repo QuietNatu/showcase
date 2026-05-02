@@ -63,6 +63,7 @@ export default defineConfig(
   ...shared.configs.vrt,
   ...restrictImports,
   {
+    // Routes are not pure react components as they can be server rendered.
     files: ['src/app/routes/**/*.{js,ts,jsx,tsx}'],
     rules: {
       'react-refresh/only-export-components': 'off',

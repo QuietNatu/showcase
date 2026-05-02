@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@natu/tsconfig": "workspace:^",
-    "orval": "7.17.2",
+    "orval": "7.21.0",
     "typescript": "5.9.3"
   }
 }

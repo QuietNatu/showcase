@@ -473,8 +473,8 @@ importers:
         specifier: 6.10.1
         version: 6.10.1(jiti@2.6.1)
       '@types/eslint-plugin-security':
-        specifier: 3.0.0
-        version: 3.0.0
+        specifier: 3.0.1
+        version: 3.0.1
       eslint:
         specifier: 9.39.2
         version: 9.39.2(jiti@2.6.1)
@@ -4123,8 +4123,8 @@ packages:
   '@types/eslint-plugin-jsx-a11y@6.10.1':
     resolution: {integrity: sha512-5RtuPVe0xz8BAhrkn2oww6Uw885atf962Q4fqZo48QdO3EQA7oCEDSXa6optgJ1ZMds3HD9ITK5bfm4AWuoXFQ==}
 
-  '@types/eslint-plugin-security@3.0.0':
-    resolution: {integrity: sha512-CpJ7dhqhfURdYHAlaQM4vfl75lDYnGl5+EZKoO/fW0hEREZa9+EBn1g10XLDM6n5yJSuTAPn5afkM4vNzhlyFQ==}
+  '@types/eslint-plugin-security@3.0.1':
+    resolution: {integrity: sha512-z+v78aGgONHyq7mMaXgzG+10HonH0HBubSLDbTXdNGyCLtM3c29MdDc9hQzHO9pDan4WYHWdULVOJyzszqDuqg==}
 
   '@types/eslint-scope@3.7.7':
     resolution: {integrity: sha512-MzMFlSLBqNF2gcHWO0G1vP/YQyfvrxZ0bF+u7mzUdZ1/xK4A4sru+nraZz5i3iEIk1l1uyicaDVTB4QbbEkAYg==}
@@ -13608,7 +13608,7 @@ snapshots:
       - jiti
       - supports-color
 
-  '@types/eslint-plugin-security@3.0.0':
+  '@types/eslint-plugin-security@3.0.1':
     dependencies:
       '@types/eslint': 9.6.1
 

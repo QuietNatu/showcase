@@ -261,8 +261,8 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(react@19.2.3)
       srvx:
-        specifier: ^0.9.8
-        version: 0.9.8
+        specifier: ^0.11.0
+        version: 0.11.15
       zod:
         specifier: 4.2.1
         version: 4.2.1
@@ -8509,8 +8509,8 @@ packages:
     engines: {node: '>=20.16.0'}
     hasBin: true
 
-  srvx@0.9.8:
-    resolution: {integrity: sha512-RZaxTKJEE/14HYn8COLuUOJAt0U55N9l1Xf6jj+T0GoA01EUH1Xz5JtSUOI+EHn+AEgPCVn7gk6jHJffrr06fQ==}
+  srvx@0.11.15:
+    resolution: {integrity: sha512-iXsux0UcOjdvs0LCMa2Ws3WwcDUozA3JN3BquNXkaFPP7TpRqgunKdEgoZ/uwb1J6xaYHfxtz9Twlh6yzwM6Tg==}
     engines: {node: '>=20.16.0'}
     hasBin: true
 
@@ -18854,7 +18854,7 @@ snapshots:
 
   srvx@0.10.1: {}
 
-  srvx@0.9.8: {}
+  srvx@0.11.15: {}
 
   ssri@12.0.0:
     dependencies:

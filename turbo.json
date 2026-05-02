@@ -1,7 +1,14 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
-  "globalEnv": ["CI", "VITE_ENABLE_MOCKING"],
+  "globalEnv": [
+    "CI",
+    "PORT",
+    "STORYBOOK",
+    "API_BASE_URL",
+    "TEST_API_BASE_URL",
+    "VITE_ENABLE_MOCKING"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build", "build:api"],
@@ -9,7 +16,7 @@
     },
     "build:api": {
       "inputs": ["orval.config.ts", "../../apps/api/openapi.yaml"],
-      "outputs": ["src/gen/api/**"]
+      "outputs": ["src/shared/api/gen/**"]
     },
     "dev": {
       "dependsOn": ["^build", "build:api"],
@@ -24,6 +31,11 @@
       "dependsOn": ["^build", "build:api"]
     },
     "preview": {
+      "dependsOn": ["build"],
+      "cache": false,
+      "persistent": true
+    },
+    "start": {
       "dependsOn": ["build"],
       "cache": false,
       "persistent": true
@@ -51,6 +63,11 @@
       "dependsOn": ["^build", "build:api"],
       "cache": false,
       "persistent": true
+    },
+    "test:integration": {
+      "dependsOn": ["build"],
+      "outputs": ["tests/integration/report/**"],
+      "env": ["PLAYWRIGHT_BROWSERS_PATH", "TEST_DEBUG"]
     }
   }
 }

@@ -1,8 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/spec",
-    "types": ["@vitest/browser-playwright"]
+    "outDir": "./out-tsc/spec"
   },
   "include": ["src/**/*.test.ts", "src/**/*.d.ts", "src/test/**/*.ts"]
 }

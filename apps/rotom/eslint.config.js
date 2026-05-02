@@ -9,6 +9,7 @@ export default defineConfig(
   ...shared.configs.angular,
   ...shared.configs.storybook,
   ...shared.configs.vitest,
+  ...shared.configs.playwright,
   ...shared.configs.vrt,
   ...shared.configs.prettier,
   {

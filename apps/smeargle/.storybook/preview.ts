@@ -1,4 +1,4 @@
-import '../src/styles/styles.scss';
+import '../src/app/styles/styles.scss';
 
 import type { Preview } from '@storybook/react-vite';
 import { A11yParameters } from '@storybook/addon-a11y';

@@ -30,6 +30,10 @@ export default defineConfig(({ mode }) => {
       unstubGlobals: true,
       include: ['src/**/*.test.{js,jsx,ts,tsx}'],
       setupFiles: ['src/test/setup-tests.ts'],
+      sequence: {
+        shuffle: true,
+      },
+      reporters: ['default'],
       coverage: {
         thresholds: {
           branches: 80,
@@ -67,8 +71,6 @@ export default defineConfig(({ mode }) => {
         instances: [{ browser: 'chromium' }],
         screenshotFailures: false,
       },
-
-      reporters: ['default'],
     },
 
     define: {

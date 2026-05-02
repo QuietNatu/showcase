@@ -1,22 +1,11 @@
-import { afterAll, afterEach, beforeAll } from 'vitest';
+import { faker } from '@faker-js/faker';
 import '@natu/axe/vitest/extend-expect';
+import { beforeAll, beforeEach } from 'vitest';
 
-import { setProjectAnnotations } from '@storybook/react-vite';
-import * as projectAnnotations from '../../.storybook/preview';
-import { mockWorker } from '../mocks/api/browser';
-
-const project = setProjectAnnotations([projectAnnotations]);
-
-beforeAll(async () => {
-  project.beforeAll();
-
-  await mockWorker.start({ onUnhandledRequest: 'warn' });
+beforeAll(() => {
+  faker.seed(42);
 });
 
-afterEach(() => {
-  mockWorker.resetHandlers();
-});
-
-afterAll(() => {
-  mockWorker.stop();
+beforeEach(() => {
+  faker.seed(42);
 });

@@ -21,20 +21,26 @@ import prettier from 'eslint-config-prettier/flat';
 import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import security from 'eslint-plugin-security';
 import promise from 'eslint-plugin-promise';
+import tanstackRouter from '@tanstack/eslint-plugin-router';
+
+// TODO: look up https://www.npmjs.com/package/eslint-plugin-project-structure/v/3.14.1
+
+// TODO: use extends instead of multiple objects
+// TODO: sort imports
 
 const defaultIgnores = [
   'node_modules/',
   'dist/',
   'coverage/',
   'public/',
-  'src/gen/',
+  'src/**/gen/',
   '.angular/',
   '!.storybook',
   '.storybook/main.ts',
   'storybook-static/',
   '.lighthouseci/',
   'lighthouse-reports/',
-  'e2e/.features-gen/',
+  'tests/*/report',
   'eslint.config.js',
   'commitlint.config.js',
   'lint-staged.config.js',
@@ -44,6 +50,7 @@ const defaultIgnores = [
   'tsup.config.ts',
   'orval.config.ts',
   'lighthouserc.*js',
+  '**/*.gen.ts',
 ];
 
 const baseConfig = defineConfig(
@@ -73,6 +80,7 @@ const baseConfig = defineConfig(
         'error',
         { ignore: ['eslint-enable'] },
       ],
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
       '@typescript-eslint/no-non-null-assertion': 'warn',
       '@typescript-eslint/no-unsafe-member-access': 'off',
@@ -123,6 +131,7 @@ const baseConfig = defineConfig(
       'unicorn/prefer-query-selector': 'off',
       'unicorn/prefer-top-level-await': 'off',
       'unicorn/prevent-abbreviations': 'off',
+      'unicorns/no-array-callback-reference': 'off', // Produces false positives with functional programming utils (ex: Either.map)
       'unicorn/no-array-reduce': 'off',
       'unicorn/no-nested-ternary': 'off',
       'unicorn/no-null': 'off',
@@ -175,6 +184,7 @@ const reactConfig = defineConfig(
   reactHooks.configs.flat.recommended,
   reactRefresh.configs.vite,
   jsxA11y.flatConfigs.recommended,
+  ...tanstackRouter.configs['flat/recommended'],
   {
     rules: {
       'react/button-has-type': [
@@ -218,6 +228,7 @@ const vitestConfig = defineConfig(
       'vitest/prefer-to-be-truthy': 'off',
       'vitest/require-top-level-describe': 'off',
       'vitest/max-expects': 'off',
+      'vitest/no-focused-tests': ['error', { fixable: false }],
       'vitest/no-hooks': 'off',
     },
   },
@@ -228,10 +239,24 @@ const vitestConfig = defineConfig(
   {
     files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
     rules: {
+      '@typescript-eslint/only-throw-error': 'off',
       '@typescript-eslint/restrict-template-expressions': 'off',
+      'functional/no-throw-statements': 'off',
     },
   },
 );
+
+const playwrightConfig = defineConfig({
+  ...playwright.configs['flat/recommended'],
+  files: ['tests/**/*.ts'],
+  rules: {
+    ...playwright.configs['flat/recommended'].rules,
+    '@typescript-eslint/only-throw-error': 'off',
+    'functional/no-throw-statements': 'off',
+    'playwright/expect-expect': 'off',
+    'playwright/valid-title': 'off',
+  },
+});
 
 const vrtConfig = defineConfig({
   ...playwright.configs['flat/recommended'],
@@ -253,6 +278,7 @@ export default {
     react: reactConfig,
     storybook: storybookConfig,
     vitest: vitestConfig,
+    playwright: playwrightConfig,
     vrt: vrtConfig,
     /** Should be placed after all the other configs and rules */
     prettier: prettierConfig,

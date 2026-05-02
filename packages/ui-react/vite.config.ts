@@ -6,8 +6,6 @@ import { playwright } from '@vitest/browser-playwright';
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
-  const isDebugMode = Boolean(process.env.TEST_DEBUG);
-
   return {
     plugins: [react()],
 
@@ -19,6 +17,10 @@ export default defineConfig(({ mode }) => {
       unstubGlobals: true,
       include: ['src/**/*.test.{js,jsx,ts,tsx}'],
       setupFiles: 'src/test/setup-tests.ts',
+      reporters: ['default'],
+      sequence: {
+        shuffle: true,
+      },
       coverage: {
         thresholds: {
           branches: 80,
@@ -51,18 +53,12 @@ export default defineConfig(({ mode }) => {
           port: 6012,
         },
         enabled: true,
-        headless: !isDebugMode,
+        headless: true,
         provider: playwright(),
         // https://vitest.dev/guide/browser/playwright
         instances: [{ browser: 'chromium' }],
         screenshotFailures: false,
       },
-
-      reporters: ['default'],
-    },
-
-    define: {
-      'import.meta.vitest': mode !== 'production',
     },
   };
 });

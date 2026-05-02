@@ -1,7 +1,7 @@
 import { Options } from 'orval';
 import { zodOperationNameTransformer } from './zod-transformer';
 
-const targetPath = './src/gen/api';
+const targetPath = './src/shared/api/gen';
 
 export const commonApiOptions = {
   output: {

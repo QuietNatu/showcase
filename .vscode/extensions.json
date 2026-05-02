@@ -15,6 +15,7 @@
     "redhat.vscode-yaml",
     "webben.browserslist",
     "unifiedjs.vscode-mdx",
-    "42Crunch.vscode-openapi"
+    "42Crunch.vscode-openapi",
+    "bierner.markdown-mermaid"
   ]
 }

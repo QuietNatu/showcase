@@ -66,6 +66,7 @@
       "**/node_modules": true,
       "**/.lighthouseci": true,
       "**/lighthouse-reports": true,
+      "**/.tanstack": true,
     },
   },
 }

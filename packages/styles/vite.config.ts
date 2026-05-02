@@ -18,6 +18,9 @@ export default defineConfig(() => {
       setupFiles: [],
       environment: 'happy-dom',
       reporters: ['default'],
+      sequence: {
+        shuffle: true,
+      },
     },
   };
 });

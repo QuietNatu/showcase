@@ -21,3 +21,4 @@ ignore:
   - node_modules
   - '**/@types'
   - '**/gen'
+  - 'apps/smeargle/src/app/routes/__root.tsx'

@@ -1,5 +1,4 @@
 import { ProductDto } from '../../shared/api/gen/models/product-dto';
-import { ProductGrid } from './ui/product-grid/product-grid';
 
 type Props = Readonly<{
   products: ProductDto[];
@@ -13,7 +12,6 @@ export function ProductListingPage(props: Props) {
     <>
       <h1>Products</h1>
       <div>Product count: {products.length}</div>
-      <ProductGrid products={products} />
     </>
   );
 }

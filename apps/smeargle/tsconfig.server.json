@@ -5,6 +5,7 @@
   },
   "files": ["vite.config.ts"],
   "include": [
+    "src/**/*.d.ts",
     "src/app/server",
     "src/**/*.server.ts",
     "scripts/**/*.ts",

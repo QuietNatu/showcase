@@ -39,7 +39,7 @@
     "@angular/build": "21.0.4",
     "@angular/cli": "21.0.4",
     "@angular/compiler-cli": "21.0.6",
-    "@compodoc/compodoc": "1.1.32",
+    "@compodoc/compodoc": "1.2.1",
     "@faker-js/faker": "10.4.0",
     "@msw/data": "1.1.5",
     "@natu/axe": "workspace:^",

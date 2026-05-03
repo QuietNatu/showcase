@@ -3,7 +3,6 @@
 import { defineConfig } from 'vite';
 import { playwright } from '@vitest/browser-playwright';
 import angular from '@analogjs/vite-plugin-angular';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig(({ mode }) => {
   const isDebugMode = Boolean(process.env.TEST_DEBUG);
@@ -14,12 +13,15 @@ export default defineConfig(({ mode }) => {
         jit: false,
         tsconfig: './tsconfig.test.json',
       }),
-      // Only needed because Angular does not support importing uncompiled libraries
-      tsconfigPaths({ configNames: ['tsconfig.test.json'] }),
     ],
 
     preview: {
       port: 6101,
+    },
+
+    resolve: {
+      // Only needed because Angular does not support importing uncompiled libraries
+      tsconfigPaths: true,
     },
 
     test: {
@@ -44,7 +46,7 @@ export default defineConfig(({ mode }) => {
 
         // config
         provider: 'v8',
-        include: ['src/**/*.{html,js,jsx,ts,tsx}'],
+        include: ['src/**/*.{js,jsx,ts,tsx}'],
         exclude: ['**/*.test.*', '**/*.stories.*', '**/*.vrt.*', 'src/test'],
         reporter: ['lcov', 'text-summary'],
       },

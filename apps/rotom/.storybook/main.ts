@@ -1,8 +1,6 @@
 import type { StorybookConfig } from '@analogjs/storybook-angular';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import tsconfigPaths from 'vite-tsconfig-paths';
-import { mergeConfig } from 'vite';
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -18,11 +16,6 @@ const config: StorybookConfig = {
   framework: {
     name: getAbsolutePath('@analogjs/storybook-angular'),
     options: {},
-  },
-  viteFinal: async (config) => {
-    return mergeConfig(config, {
-      plugins: [tsconfigPaths({ configNames: ['tsconfig.json'] })],
-    });
   },
 };
 

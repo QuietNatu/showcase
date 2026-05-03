@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest';
-import { render } from '@testing-library/angular';
+import { render } from '@testing-library/angular/zoneless';
 import { page } from 'vitest/browser';
 import { App } from './app';
 import { axe } from '@natu/axe/vitest';

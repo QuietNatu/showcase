@@ -26,8 +26,8 @@
   "peerDependencies": {
     "@base-ui/react": "^1.0.0",
     "@natu/styles": "workspace:^",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react": "19.2.5",
+    "react-dom": "19.2.5"
   },
   "devDependencies": {
     "@base-ui/react": "1.4.1",
@@ -42,7 +42,7 @@
     "@storybook/addon-docs": "10.3.6",
     "@storybook/react-vite": "10.3.6",
     "@types/node": "24.12.2",
-    "@types/react": "19.2.7",
+    "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react-swc": "4.2.2",
     "@vitest/browser-playwright": "4.0.16",
@@ -50,8 +50,8 @@
     "cross-env": "10.1.0",
     "eslint": "9.39.4",
     "globals": "17.5.0",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "react": "19.2.5",
+    "react-dom": "19.2.5",
     "storybook": "10.3.6",
     "typescript": "5.9.3",
     "typescript-eslint": "8.59.1",

@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 import { ExampleCounter } from './example-counter';
-import { render } from '@testing-library/angular';
+import { render } from '@testing-library/angular/zoneless';
 import { page } from 'vitest/browser';
 import { axe } from '@natu/axe/vitest';
 

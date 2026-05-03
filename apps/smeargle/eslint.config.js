@@ -4,6 +4,7 @@ import { defineConfig } from 'eslint/config';
 import shared from '@natu/eslint-config-shared';
 import { globalIgnores } from 'eslint/config';
 
+// TODO: improve this
 const restrictedImports = [
   {
     name: '@tanstack/react-start',

@@ -1,7 +1,8 @@
-import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, isAxiosError } from 'axios';
+import type { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { isAxiosError } from 'axios';
 import { getApiTestData } from './api-test-context.server';
 import { Either, pipe } from '../lib/fp';
-import { ClientRequest } from 'node:http';
+import type { ClientRequest } from 'node:http';
 import { AppRequestHeader } from '../config/headers';
 
 // TODO: logging

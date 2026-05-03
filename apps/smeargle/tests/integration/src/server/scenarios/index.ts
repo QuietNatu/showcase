@@ -1,4 +1,4 @@
-import { Scenario } from '../../configs/scenarios';
+import type { Scenario } from '../../configs/scenarios';
 import { defaultDatabase } from './default-scenario';
 
 /** Picks the database based on the provided scenarios. */

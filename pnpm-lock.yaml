@@ -118,19 +118,19 @@ importers:
     devDependencies:
       '@analogjs/storybook-angular':
         specifier: 2.5.0
-        version: 2.5.0(@analogjs/vite-plugin-angular@2.5.0(6405fd8646f71ca27d1660161f085b48))(@storybook/angular@10.3.6(4982a729299bd818466ce081ecf62d07))(esbuild@0.27.3)(rollup@4.54.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(webpack@5.104.1(esbuild@0.27.3))
+        version: 2.5.0(@analogjs/vite-plugin-angular@2.5.0(979362902d28c7b5ecbd3f341a8f217b))(@storybook/angular@10.3.6(17db97bbbf8641f818ddd7d9e4a5f7ff))(esbuild@0.27.3)(rollup@4.54.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(webpack@5.105.2(esbuild@0.27.3))
       '@analogjs/vite-plugin-angular':
         specifier: 2.5.0
-        version: 2.5.0(6405fd8646f71ca27d1660161f085b48)
+        version: 2.5.0(979362902d28c7b5ecbd3f341a8f217b)
       '@analogjs/vitest-angular':
         specifier: 2.5.0
-        version: 2.5.0(@analogjs/vite-plugin-angular@2.5.0(6405fd8646f71ca27d1660161f085b48))(@angular-devkit/architect@0.2102.9(chokidar@5.0.0))(@angular-devkit/schematics@21.2.9(chokidar@5.0.0))(vitest@4.0.16)
+        version: 2.5.0(@analogjs/vite-plugin-angular@2.5.0(979362902d28c7b5ecbd3f341a8f217b))(@angular-devkit/architect@0.2102.9(chokidar@5.0.0))(@angular-devkit/schematics@21.2.9(chokidar@5.0.0))(vitest@4.0.16)
       '@angular-devkit/architect':
         specifier: 0.2102.9
         version: 0.2102.9(chokidar@5.0.0)
       '@angular-devkit/build-angular':
         specifier: 21.2.9
-        version: 21.2.9(@angular/compiler-cli@21.2.11(@angular/compiler@21.2.11)(typescript@5.9.3))(@angular/compiler@21.2.11)(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(@angular/platform-browser@21.2.11(@angular/animations@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@emnapi/core@1.7.1)(@emnapi/runtime@1.7.1)(@types/node@24.12.2)(chokidar@5.0.0)(html-webpack-plugin@5.6.5(webpack@5.104.1(esbuild@0.27.3)))(jiti@2.6.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@4.0.16)(yaml@2.8.2)
+        version: 21.2.9(@angular/compiler-cli@21.2.11(@angular/compiler@21.2.11)(typescript@5.9.3))(@angular/compiler@21.2.11)(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(@angular/platform-browser@21.2.11(@angular/animations@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@emnapi/core@1.7.1)(@emnapi/runtime@1.7.1)(@types/node@24.12.2)(chokidar@5.0.0)(html-webpack-plugin@5.6.5(webpack@5.105.2(esbuild@0.27.3)))(jiti@2.6.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@4.0.16)(yaml@2.8.2)
       '@angular-devkit/core':
         specifier: 21.2.9
         version: 21.2.9(chokidar@5.0.0)
@@ -184,13 +184,13 @@ importers:
         version: 10.3.6(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       '@storybook/addon-docs':
         specifier: 10.3.6
-        version: 10.3.6(@types/react@19.2.14)(esbuild@0.27.3)(rollup@4.54.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(webpack@5.104.1(esbuild@0.27.3))
+        version: 10.3.6(@types/react@19.2.14)(esbuild@0.27.3)(rollup@4.54.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(webpack@5.105.2(esbuild@0.27.3))
       '@storybook/angular':
         specifier: 10.3.6
-        version: 10.3.6(4982a729299bd818466ce081ecf62d07)
+        version: 10.3.6(17db97bbbf8641f818ddd7d9e4a5f7ff)
       '@storybook/builder-vite':
         specifier: 10.3.6
-        version: 10.3.6(esbuild@0.27.3)(rollup@4.54.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(webpack@5.104.1(esbuild@0.27.3))
+        version: 10.3.6(esbuild@0.27.3)(rollup@4.54.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(webpack@5.105.2(esbuild@0.27.3))
       '@testing-library/angular':
         specifier: 18.1.1
         version: 18.1.1(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(@angular/platform-browser@21.2.11(@angular/animations@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@angular/router@21.2.11(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(@angular/platform-browser@21.2.11(@angular/animations@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(rxjs@7.8.2))(@testing-library/dom@10.4.1)
@@ -624,19 +624,19 @@ importers:
     devDependencies:
       '@analogjs/storybook-angular':
         specifier: 2.5.0
-        version: 2.5.0(@analogjs/vite-plugin-angular@2.5.0(979362902d28c7b5ecbd3f341a8f217b))(@storybook/angular@10.3.6(17db97bbbf8641f818ddd7d9e4a5f7ff))(esbuild@0.27.3)(rollup@4.54.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(webpack@5.105.2(esbuild@0.27.3))
+        version: 2.5.0(@analogjs/vite-plugin-angular@2.5.0(6405fd8646f71ca27d1660161f085b48))(@storybook/angular@10.3.6(4982a729299bd818466ce081ecf62d07))(esbuild@0.27.3)(rollup@4.54.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(webpack@5.104.1(esbuild@0.27.3))
       '@analogjs/vite-plugin-angular':
         specifier: 2.5.0
-        version: 2.5.0(979362902d28c7b5ecbd3f341a8f217b)
+        version: 2.5.0(6405fd8646f71ca27d1660161f085b48)
       '@analogjs/vitest-angular':
         specifier: 2.5.0
-        version: 2.5.0(@analogjs/vite-plugin-angular@2.5.0(979362902d28c7b5ecbd3f341a8f217b))(@angular-devkit/architect@0.2102.9(chokidar@5.0.0))(@angular-devkit/schematics@21.2.9(chokidar@5.0.0))(vitest@4.0.16)
+        version: 2.5.0(@analogjs/vite-plugin-angular@2.5.0(6405fd8646f71ca27d1660161f085b48))(@angular-devkit/architect@0.2102.9(chokidar@5.0.0))(@angular-devkit/schematics@21.2.9(chokidar@5.0.0))(vitest@4.0.16)
       '@angular-devkit/architect':
         specifier: 0.2102.9
         version: 0.2102.9(chokidar@5.0.0)
       '@angular-devkit/build-angular':
         specifier: 21.2.9
-        version: 21.2.9(@angular/compiler-cli@21.2.11(@angular/compiler@21.2.11)(typescript@5.9.3))(@angular/compiler@21.2.11)(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(@angular/platform-browser@21.2.11(@angular/animations@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@emnapi/core@1.7.1)(@emnapi/runtime@1.7.1)(@types/node@24.12.2)(chokidar@5.0.0)(html-webpack-plugin@5.6.5(webpack@5.105.2(esbuild@0.27.3)))(jiti@2.6.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@4.0.16)(yaml@2.8.2)
+        version: 21.2.9(@angular/compiler-cli@21.2.11(@angular/compiler@21.2.11)(typescript@5.9.3))(@angular/compiler@21.2.11)(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(@angular/platform-browser@21.2.11(@angular/animations@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@emnapi/core@1.7.1)(@emnapi/runtime@1.7.1)(@types/node@24.12.2)(chokidar@5.0.0)(html-webpack-plugin@5.6.5(webpack@5.104.1(esbuild@0.27.3)))(jiti@2.6.1)(tsx@4.21.0)(typescript@5.9.3)(vitest@4.0.16)(yaml@2.8.2)
       '@angular-devkit/core':
         specifier: 21.2.9
         version: 21.2.9(chokidar@5.0.0)
@@ -705,13 +705,13 @@ importers:
         version: 10.3.6(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       '@storybook/addon-docs':
         specifier: 10.3.6
-        version: 10.3.6(@types/react@19.2.14)(esbuild@0.27.3)(rollup@4.54.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(webpack@5.105.2(esbuild@0.27.3))
+        version: 10.3.6(@types/react@19.2.14)(esbuild@0.27.3)(rollup@4.54.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(webpack@5.104.1(esbuild@0.27.3))
       '@storybook/angular':
         specifier: 10.3.6
-        version: 10.3.6(17db97bbbf8641f818ddd7d9e4a5f7ff)
+        version: 10.3.6(4982a729299bd818466ce081ecf62d07)
       '@storybook/builder-vite':
         specifier: 10.3.6
-        version: 10.3.6(esbuild@0.27.3)(rollup@4.54.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(webpack@5.105.2(esbuild@0.27.3))
+        version: 10.3.6(esbuild@0.27.3)(rollup@4.54.0)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.8.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@7.3.2(@types/node@24.12.2)(jiti@2.6.1)(less@4.4.2)(sass@1.97.3)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(webpack@5.104.1(esbuild@0.27.3))
       '@testing-library/angular':
         specifier: 18.1.1
         version: 18.1.1(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(@angular/platform-browser@21.2.11(@angular/animations@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@angular/router@21.2.11(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(@angular/platform-browser@21.2.11(@angular/animations@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(@angular/common@21.2.11(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.11(@angular/compiler@21.2.11)(rxjs@7.8.2)))(rxjs@7.8.2))(@testing-library/dom@10.4.1)

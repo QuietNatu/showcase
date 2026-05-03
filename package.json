@@ -20,6 +20,7 @@
     "lint:lslint": "ls-lint",
     "lint:prettier": "prettier . --check",
     "lint:stylelint": "stylelint '{apps,packages}/*/src/**/*.{css,scss}' 'packages/styles/dist/**/*.{css,scss}'",
+    "postinstall": "npx msw init",
     "preflight-check": "node scripts/preflight-check.ts",
     "prepare": "husky",
     "renovate:validate": "pnpm dlx --package=renovate -- renovate-config-validator",

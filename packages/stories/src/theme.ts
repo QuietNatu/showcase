@@ -20,7 +20,7 @@ export function createThemeGlobalType(
     toolbar: {
       dynamicTitle: true,
       icon: 'paintbrush',
-      items: themes,
+      items: [...themes],
     },
   };
 }

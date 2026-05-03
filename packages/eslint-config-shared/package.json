@@ -30,7 +30,7 @@
     "eslint-plugin-react-refresh": "0.5.2",
     "eslint-plugin-security": "3.0.1",
     "eslint-plugin-sonarjs": "3.0.7",
-    "eslint-plugin-storybook": "10.1.10",
+    "eslint-plugin-storybook": "10.3.6",
     "eslint-plugin-unicorn": "62.0.0",
     "eslint-plugin-unused-imports": "4.4.1",
     "globals": "17.5.0",

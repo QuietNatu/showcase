@@ -60,7 +60,7 @@
     "eslint": "9.39.4",
     "express": "5.2.1",
     "globals": "17.5.0",
-    "msw": "2.12.4",
+    "msw": "2.14.2",
     "orval": "7.21.0",
     "playwright": "1.59.1",
     "storybook": "10.3.6",

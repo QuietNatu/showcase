@@ -12,11 +12,11 @@
     }
   },
   "peerDependencies": {
-    "orval": "^7.17.0"
+    "orval": "^7.17.0 || ^8.0.0"
   },
   "devDependencies": {
     "@natu/tsconfig": "workspace:^",
-    "orval": "7.21.0",
+    "orval": "8.9.0",
     "typescript": "5.9.3"
   }
 }

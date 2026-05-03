@@ -1,5 +1,5 @@
 import { AppRequestHeader } from '../../../../src/shared/config/headers';
-import { Scenario } from '../configs/scenarios';
+import type { Scenario } from '../configs/scenarios';
 
 const SCENARIO_SEPARATOR = ',';
 

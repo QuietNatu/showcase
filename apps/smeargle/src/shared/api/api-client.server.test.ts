@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from 'vitest';
-import { apiClient, ApiClientOptions } from './api-client.server';
+import type { ApiClientOptions } from './api-client.server';
+import { apiClient } from './api-client.server';
 import { Either } from '../lib/fp';
 import { runWithApiTestContext } from './api-test-context.server';
 import { mockServer } from '../../mocks/api/server';

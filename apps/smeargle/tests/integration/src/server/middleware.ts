@@ -1,5 +1,5 @@
 import { styleText } from 'node:util';
-import { RequestHandler } from 'express';
+import type { RequestHandler } from 'express';
 
 /** Logs all requests made to the server. */
 export const logResquests: RequestHandler = (request, response, next) => {

@@ -1,4 +1,5 @@
-import { useContext as useReactContext, createContext as createReactContext, Context } from 'react';
+import type { Context } from 'react';
+import { useContext as useReactContext, createContext as createReactContext } from 'react';
 
 type Options = {
   /** An unique name for the context */

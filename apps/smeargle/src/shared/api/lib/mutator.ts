@@ -1,9 +1,9 @@
-import {
-  apiClient,
+import type {
   ApiClientMethodOptions,
   ApiClientOptions,
   ApiClientResult,
 } from '../api-client.server';
+import { apiClient } from '../api-client.server';
 
 /** Api client to be used by code generation tools */
 export const apiClientMutator = <T>(

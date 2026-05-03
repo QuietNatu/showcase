@@ -1,11 +1,9 @@
 import { Collection } from '@msw/data';
-import { getProductsProductSlugSchemaResponse } from '../../../shared/api/gen/endpoints/products/products.zod';
+import { ProductDto } from '../../../shared/api/gen/models/product-dto.zod';
 
 /** Creates a new, empty database. */
 export function createDatabase() {
-  const products = new Collection({
-    schema: getProductsProductSlugSchemaResponse,
-  });
+  const products = new Collection({ schema: ProductDto });
 
   return {
     products,

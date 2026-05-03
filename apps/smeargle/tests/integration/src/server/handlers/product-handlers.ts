@@ -1,4 +1,5 @@
-import { HttpResponse, RequestHandler } from 'msw';
+import type { RequestHandler } from 'msw';
+import { HttpResponse } from 'msw';
 import { getGetProductsMockHandler } from '../../../../../src/shared/api/gen/endpoints/products/products.msw';
 import { ProductScenario } from '../../configs/scenarios';
 import { getScenarioDatabase } from '../scenarios';

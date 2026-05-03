@@ -1,13 +1,13 @@
+import type { RouteComponent } from '@tanstack/react-router';
 import {
   createMemoryHistory,
   createRootRoute,
   createRoute,
   createRouter,
   Outlet,
-  RouteComponent,
   RouterProvider,
 } from '@tanstack/react-router';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 type Props = Readonly<{
   /**

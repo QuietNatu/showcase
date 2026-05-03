@@ -1,4 +1,4 @@
-import { ProductDto } from '../../../shared/api/gen/models/product-dto';
+import type { ProductDto } from '../../../shared/api/gen/models/product-dto.zod';
 import { Either } from '../../../shared/lib/fp';
 import { getProductListingPageProducts } from './get-products.server';
 

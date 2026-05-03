@@ -65,7 +65,7 @@
     "@vitest/coverage-v8": "4.0.16",
     "cross-env": "10.1.0",
     "eslint": "9.39.4",
-    "msw": "2.13.6",
+    "msw": "2.14.2",
     "orval": "7.21.0",
     "playwright": "1.59.1",
     "storybook": "10.3.6",

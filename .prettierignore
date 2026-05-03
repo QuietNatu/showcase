@@ -7,3 +7,4 @@ pnpm-lock.yaml
 **/*.sh
 packages/styles/src/assets
 **/*.gen.*
+**/mockServiceWorker.js

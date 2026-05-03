@@ -46,7 +46,7 @@ export default defineConfig(({ mode }) => {
 
         // config
         provider: 'v8',
-        include: ['src/**/*.{html,js,jsx,ts,tsx}'],
+        include: ['src/**/*.{js,jsx,ts,tsx}'],
         exclude: ['**/*.test.*', '**/*.stories.*', '**/*.vrt.*', 'src/test'],
         reporter: ['lcov', 'text-summary'],
       },

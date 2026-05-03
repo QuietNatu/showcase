@@ -4,6 +4,6 @@
     "types": ["node"]
   },
   "exclude": ["../src/test.ts", "../src/**/*.test.ts"],
-  "include": ["../src/**/*.stories.*"],
+  "include": ["../src/**/*.stories.*", "../src/@types/**/*.ts"],
   "files": ["./preview.ts"]
 }

@@ -1,5 +1,5 @@
-import { Page } from '@playwright/test';
-import { Scenario } from '../../configs/scenarios';
+import type { Page } from '@playwright/test';
+import type { Scenario } from '../../configs/scenarios';
 import { AppRequestHeader } from '../../../../../src/shared/config/headers';
 import { createTestScenariosHeader } from '../../utils/test-scenario';
 

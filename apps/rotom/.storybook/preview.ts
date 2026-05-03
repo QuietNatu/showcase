@@ -2,7 +2,7 @@ import '../src/styles/styles.scss';
 
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from './documentation.json';
-import { A11yParameters } from '@storybook/addon-a11y';
+import type { A11yParameters } from '@storybook/addon-a11y';
 import { axeRules } from '@natu/axe';
 import { createThemeGlobalType, withTheme } from '@natu/stories';
 import { applicationConfig, type Preview } from '@analogjs/storybook-angular';

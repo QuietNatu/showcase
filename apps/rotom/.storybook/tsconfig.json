@@ -1,7 +1,7 @@
 {
   "extends": "../tsconfig.app.json",
   "compilerOptions": {
-    "rootDir": "../..",
+    "rootDir": "../../..",
     "types": ["node"],
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true

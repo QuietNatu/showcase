@@ -1,4 +1,5 @@
-import StyleDictionary, { Config } from 'style-dictionary';
+import type { Config } from 'style-dictionary';
+import StyleDictionary from 'style-dictionary';
 import { formats, transforms } from 'style-dictionary/enums';
 import pc from 'picocolors';
 

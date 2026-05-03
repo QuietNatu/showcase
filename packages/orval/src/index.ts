@@ -7,7 +7,10 @@ export const commonApiOptions = {
   output: {
     clean: true,
     target: `${targetPath}/endpoints`,
-    schemas: `${targetPath}/models`,
+    schemas: {
+      path: `${targetPath}/models`,
+      type: 'zod',
+    },
     mode: 'tags-split',
     namingConvention: 'kebab-case',
     indexFiles: false,

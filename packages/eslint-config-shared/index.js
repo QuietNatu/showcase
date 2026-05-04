@@ -129,13 +129,16 @@ const baseConfig = defineConfig({
   },
   languageOptions: {
     globals: globals.browser,
+    parserOptions: {
+      projectService: true,
+    },
   },
 });
 
 const angularConfig = defineConfig(
   {
     files: ['**/*.ts'],
-    extends: [...baseConfig, ...angular.configs.tsRecommended],
+    extends: [angular.configs.tsRecommended],
     processor: angular.processInlineTemplates,
     rules: {
       '@angular-eslint/directive-selector': [
@@ -168,7 +171,7 @@ const angularConfig = defineConfig(
   },
 );
 
-const reactConfig = defineConfig(...baseConfig, {
+const reactConfig = defineConfig({
   files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
   extends: [
     /** @type {import('eslint/config').Config} */ (react.configs.flat.recommended),

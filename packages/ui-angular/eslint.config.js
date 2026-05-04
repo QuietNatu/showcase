@@ -23,6 +23,7 @@ const restrictImports = defineConfig({
 
 export default defineConfig(
   globalIgnores(shared.defaultIgnores),
+  ...shared.configs.base,
   ...shared.configs.angular,
   ...shared.configs.storybook,
   ...shared.configs.vitest,
@@ -48,14 +49,6 @@ export default defineConfig(
           style: 'kebab-case',
         },
       ],
-    },
-  },
-  {
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
     },
   },
 );

@@ -23,8 +23,6 @@ import security from 'eslint-plugin-security';
 import promise from 'eslint-plugin-promise';
 import tanstackRouter from '@tanstack/eslint-plugin-router';
 
-// TODO: look up https://www.npmjs.com/package/eslint-plugin-project-structure/v/3.14.1
-
 // TODO: use extends instead of multiple objects
 // TODO: sort imports
 
@@ -53,94 +51,86 @@ const defaultIgnores = [
   '**/*.gen.ts',
 ];
 
-const baseConfig = defineConfig(
-  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
-  { languageOptions: { globals: globals.browser } },
-  js.configs.recommended,
-  ...tseslint.configs.strictTypeChecked,
-  ...tseslint.configs.stylisticTypeChecked,
-  ...turboConfig,
-  /** @type {import('eslint/config').Config} */ (functional.configs.recommended),
-  /** @type {import('eslint/config').Config} */ (functional.configs.stylistic),
-  jsdoc({ config: 'flat/recommended-typescript' }),
-  comments.recommended,
-  promise.configs['flat/recommended'],
-  /** @type {import('eslint/config').Config} */ (security.configs.recommended),
-  sonarjs.configs.recommended,
-  unicorn.configs.recommended,
-  {
-    plugins: {
-      'unused-imports': unusedImports,
-    },
+const baseConfig = defineConfig({
+  files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+  extends: [
+    js.configs.recommended,
+    tseslint.configs.strictTypeChecked,
+    tseslint.configs.stylisticTypeChecked,
+    turboConfig,
+    functional.configs.recommended,
+    functional.configs.stylistic,
+    jsdoc({ config: 'flat/recommended-typescript' }),
+    comments.recommended,
+    promise.configs['flat/recommended'],
+    /** @type {import('eslint/config').Config} */ (security.configs.recommended),
+    // @ts-ignore
+    sonarjs.configs.recommended,
+    unicorn.configs.unopinionated,
+  ],
+  plugins: {
+    'unused-imports': unusedImports,
   },
-  {
-    rules: {
-      'no-console': 'warn',
-      '@eslint-community/eslint-comments/require-description': [
-        'error',
-        { ignore: ['eslint-enable'] },
-      ],
-      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-      '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
-      '@typescript-eslint/no-non-null-assertion': 'warn',
-      '@typescript-eslint/no-unsafe-member-access': 'off',
-      '@typescript-eslint/no-unused-vars': 'off',
-      '@typescript-eslint/prefer-readonly': 'error',
-      '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
-      '@typescript-eslint/switch-exhaustiveness-check': 'error',
-      'functional/functional-parameters': [
-        'error',
-        { allowRestParameter: true, enforceParameterCount: false },
-      ],
-      'functional/no-expression-statements': 'off',
-      'functional/no-conditional-statements': 'off',
-      'functional/no-return-void': 'off',
-      'functional/no-mixed-types': 'off',
-      'functional/prefer-immutable-types': 'off',
-      'functional/prefer-tacit': 'off',
-      'jsdoc/require-jsdoc': [
-        'error',
-        {
-          publicOnly: true,
-          checkConstructors: false,
-          require: {
-            ArrowFunctionExpression: true,
-            ClassDeclaration: true,
-            ClassExpression: true,
-            FunctionDeclaration: true,
-            FunctionExpression: true,
-            MethodDefinition: false,
-          },
+  rules: {
+    'no-console': 'warn',
+    '@eslint-community/eslint-comments/require-description': [
+      'error',
+      { ignore: ['eslint-enable'] },
+    ],
+    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+    '@typescript-eslint/consistent-type-imports': 'error',
+    '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
+    '@typescript-eslint/no-non-null-assertion': 'warn',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/prefer-readonly': 'error',
+    '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
+    '@typescript-eslint/switch-exhaustiveness-check': 'error',
+    'functional/functional-parameters': [
+      'error',
+      { allowRestParameter: true, enforceParameterCount: false },
+    ],
+    'functional/no-expression-statements': 'off',
+    'functional/no-conditional-statements': 'off',
+    'functional/no-return-void': 'off',
+    'functional/no-mixed-types': 'off',
+    'functional/prefer-immutable-types': 'off',
+    'functional/prefer-tacit': 'off',
+    'jsdoc/require-jsdoc': [
+      'error',
+      {
+        publicOnly: true,
+        checkConstructors: false,
+        require: {
+          ArrowFunctionExpression: true,
+          ClassDeclaration: true,
+          ClassExpression: true,
+          FunctionDeclaration: true,
+          FunctionExpression: true,
+          MethodDefinition: false,
         },
-      ],
-      'jsdoc/require-param': 'off',
-      'jsdoc/require-returns': 'off',
-      'sonarjs/deprecation': 'off',
-      'sonarjs/function-return-type': 'off',
-      'sonarjs/prefer-function-type': 'off',
-      'sonarjs/prefer-nullish-coalescing': 'off',
-      'sonarjs/prefer-read-only-props': 'off',
-      'sonarjs/no-nested-functions': 'off',
-      'sonarjs/no-selector-parameter': 'off',
-      'sonarjs/no-unused-vars': 'off',
-      'sonarjs/redundant-type-aliases': 'off',
-      'sonarjs/todo-tag': 'off',
-      'unicorn/consistent-function-scoping': 'off',
-      'unicorn/filename-case': 'off',
-      'unicorn/prefer-dom-node-dataset': 'off',
-      'unicorn/prefer-query-selector': 'off',
-      'unicorn/prefer-top-level-await': 'off',
-      'unicorn/prevent-abbreviations': 'off',
-      'unicorns/no-array-callback-reference': 'off', // Produces false positives with functional programming utils (ex: Either.map)
-      'unicorn/no-array-reduce': 'off',
-      'unicorn/no-nested-ternary': 'off',
-      'unicorn/no-null': 'off',
-      'unicorn/no-useless-undefined': 'off',
-      'unused-imports/no-unused-imports': 'error',
-    },
+      },
+    ],
+    'jsdoc/require-param': 'off',
+    'jsdoc/require-returns': 'off',
+    'sonarjs/deprecation': 'off',
+    'sonarjs/function-return-type': 'off',
+    'sonarjs/prefer-function-type': 'off',
+    'sonarjs/prefer-nullish-coalescing': 'off',
+    'sonarjs/prefer-read-only-props': 'off',
+    'sonarjs/no-nested-functions': 'off',
+    'sonarjs/no-selector-parameter': 'off',
+    'sonarjs/no-unused-vars': 'off',
+    'sonarjs/redundant-type-aliases': 'off',
+    'sonarjs/todo-tag': 'off',
+    'unicorn/prefer-top-level-await': 'off',
+    'unicorn/no-useless-undefined': 'off',
+    'unused-imports/no-unused-imports': 'error',
   },
-);
+  languageOptions: {
+    globals: globals.browser,
+  },
+});
 
 const angularConfig = defineConfig(
   {
@@ -178,31 +168,36 @@ const angularConfig = defineConfig(
   },
 );
 
-const reactConfig = defineConfig(
-  ...baseConfig,
-  /** @type {import('eslint/config').Config} */ (react.configs.flat.recommended),
-  /** @type {import('eslint/config').Config} */ (react.configs.flat['jsx-runtime']),
-  reactHooks.configs.flat.recommended,
-  reactRefresh.configs.vite,
-  jsxA11y.flatConfigs.recommended,
-  ...tanstackRouter.configs['flat/recommended'],
-  {
-    rules: {
-      'react/button-has-type': [
-        'error',
-        {
-          button: true,
-          submit: true,
-          reset: false,
-        },
-      ],
-      'react/prefer-read-only-props': 'error',
-    },
+const reactConfig = defineConfig(...baseConfig, {
+  files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+  extends: [
+    /** @type {import('eslint/config').Config} */ (react.configs.flat.recommended),
+    /** @type {import('eslint/config').Config} */ (react.configs.flat['jsx-runtime']),
+    reactHooks.configs.flat.recommended,
+    reactRefresh.configs.vite,
+    jsxA11y.flatConfigs.recommended,
+    tanstackRouter.configs['flat/recommended'],
+  ],
+  rules: {
+    'react/button-has-type': [
+      'error',
+      {
+        button: true,
+        submit: true,
+        reset: false,
+      },
+    ],
+    'react/prefer-read-only-props': 'error',
   },
-);
+});
 
 const storybookConfig = defineConfig(
-  .../** @type {import('eslint/config').Config[]} */ (storybook.configs['flat/recommended']),
+  {
+    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    extends: [
+      /** @type {import('eslint/config').Config[]} */ (storybook.configs['flat/recommended']),
+    ],
+  },
   {
     files: ['src/**/*.stories.[jt]s?(x)'],
     rules: {
@@ -212,58 +207,44 @@ const storybookConfig = defineConfig(
   },
 );
 
-const vitestConfig = defineConfig(
-  {
-    files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
-    plugins: {
-      vitest,
-    },
-    rules: {
-      ...vitest.configs.all.rules,
-      'security/detect-object-injection': 'off',
-      'vitest/consistent-test-it': ['warn', { fn: 'test', withinDescribe: 'test' }],
-      'vitest/prefer-expect-resolves': 'off',
-      'vitest/prefer-expect-assertions': 'off',
-      'vitest/prefer-importing-vitest-globals': 'off',
-      'vitest/prefer-to-be-falsy': 'off',
-      'vitest/prefer-to-be-truthy': 'off',
-      'vitest/require-top-level-describe': 'off',
-      'vitest/max-expects': 'off',
-      'vitest/no-focused-tests': ['error', { fixable: false }],
-      'vitest/no-hooks': 'off',
-    },
+const vitestConfig = defineConfig({
+  files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
+  extends: [jestDom.configs['flat/recommended']],
+  plugins: {
+    vitest,
   },
-  {
-    ...jestDom.configs['flat/recommended'], // vitest browser assertions are based on jest-dom
-    files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
+  rules: {
+    ...vitest.configs.all.rules,
+    '@typescript-eslint/only-throw-error': 'off',
+    '@typescript-eslint/restrict-template-expressions': 'off',
+    'functional/no-throw-statements': 'off',
+    'security/detect-object-injection': 'off',
+    'vitest/consistent-test-it': ['warn', { fn: 'test', withinDescribe: 'test' }],
+    'vitest/prefer-expect-resolves': 'off',
+    'vitest/prefer-expect-assertions': 'off',
+    'vitest/prefer-importing-vitest-globals': 'off',
+    'vitest/prefer-to-be-falsy': 'off',
+    'vitest/prefer-to-be-truthy': 'off',
+    'vitest/require-top-level-describe': 'off',
+    'vitest/max-expects': 'off',
+    'vitest/no-focused-tests': ['error', { fixable: false }],
+    'vitest/no-hooks': 'off',
   },
-  {
-    files: ['src/**/*.test.[jt]s?(x)', 'src/**/test/**/*.[jt]s?(x)'],
-    rules: {
-      '@typescript-eslint/only-throw-error': 'off',
-      '@typescript-eslint/restrict-template-expressions': 'off',
-      'functional/no-throw-statements': 'off',
-    },
-  },
-);
+});
 
 const playwrightConfig = defineConfig({
-  ...playwright.configs['flat/recommended'],
   files: ['tests/**/*.ts'],
+  extends: [playwright.configs['flat/recommended']],
   rules: {
-    ...playwright.configs['flat/recommended'].rules,
     '@typescript-eslint/only-throw-error': 'off',
     'functional/no-throw-statements': 'off',
-    'playwright/expect-expect': 'off',
-    'playwright/valid-title': 'off',
   },
 });
 
 const vrtConfig = defineConfig({
-  ...playwright.configs['flat/recommended'],
   files: ['vrt/**/*.ts', 'src/**/*.vrt.ts'],
+  extends: [playwright.configs['flat/recommended']],
   rules: {
-    ...playwright.configs['flat/recommended'].rules,
     'playwright/expect-expect': 'off',
     'playwright/valid-title': 'off',
     'security/detect-object-injection': 'off',

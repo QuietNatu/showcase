@@ -1,4 +1,5 @@
 import { setupServer } from 'msw/node';
+
 import { developmentHandlers } from './handlers/handlers';
 import { seedMockDatabase } from './seeds/seeds';
 

@@ -1,5 +1,6 @@
 import { expect, test } from 'vitest';
 import { renderHook } from 'vitest-browser-react';
+
 import { createRequiredContext } from './context';
 
 test('renders when provider exists', async () => {

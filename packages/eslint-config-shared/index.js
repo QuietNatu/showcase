@@ -22,9 +22,7 @@ import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import security from 'eslint-plugin-security';
 import promise from 'eslint-plugin-promise';
 import tanstackRouter from '@tanstack/eslint-plugin-router';
-
-// TODO: use extends instead of multiple objects
-// TODO: sort imports
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
 
 const defaultIgnores = [
   'node_modules/',
@@ -69,6 +67,7 @@ const baseConfig = defineConfig({
     unicorn.configs.unopinionated,
   ],
   plugins: {
+    'simple-import-sort': simpleImportSort,
     'unused-imports': unusedImports,
   },
   rules: {
@@ -113,6 +112,29 @@ const baseConfig = defineConfig({
     ],
     'jsdoc/require-param': 'off',
     'jsdoc/require-returns': 'off',
+    'simple-import-sort/imports': [
+      'error',
+      {
+        groups: [
+          // Side effect imports
+          ['^\\u0000'],
+          // Node.js builtins prefixed with `node:`
+          ['^node:'],
+          // Packages
+          // Internal monorepo packages
+          ['^@natu/'],
+          // Things that start with a letter (or digit or underscore), or `@` followed by a letter
+          ['^@?\\w'],
+          // Absolute imports and other imports such as Vue-style `@/foo`
+          // Anything not matched in another group
+          ['^'],
+          // Relative imports
+          // Anything that starts with a dot
+          ['^\\.'],
+        ],
+      },
+    ],
+    'simple-import-sort/exports': 'error',
     'sonarjs/deprecation': 'off',
     'sonarjs/function-return-type': 'off',
     'sonarjs/prefer-function-type': 'off',

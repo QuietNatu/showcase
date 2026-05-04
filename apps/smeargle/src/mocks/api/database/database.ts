@@ -1,4 +1,5 @@
 import { Collection } from '@msw/data';
+
 import { ProductDto } from '../../../shared/api/gen/models/product-dto.zod';
 
 /** Creates a new, empty database. */

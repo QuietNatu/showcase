@@ -1,7 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { createServerFn } from '@tanstack/react-start';
-import { ProductListingPage } from '../../pages/product-listing/product-listing-page';
+
 import { getProductListingPageData } from '../../pages/product-listing/api/data.server';
+import { ProductListingPage } from '../../pages/product-listing/product-listing-page';
 import { Either } from '../../shared/lib/fp';
 
 const loadProductListingPageData = createServerFn().handler(async () => {

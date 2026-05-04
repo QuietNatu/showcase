@@ -1,9 +1,10 @@
 import './styles.scss';
 
-import type { Preview } from '@storybook/react-vite';
-import type { A11yParameters } from '@storybook/addon-a11y';
 import { axeRules } from '@natu/axe';
 import { createThemeGlobalType, withTheme } from '@natu/stories';
+
+import type { A11yParameters } from '@storybook/addon-a11y';
+import type { Preview } from '@storybook/react-vite';
 
 const preview: Preview = {
   parameters: {

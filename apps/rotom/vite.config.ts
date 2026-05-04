@@ -1,8 +1,8 @@
 /// <reference types="vitest/config" />
 
-import { defineConfig } from 'vite';
-import { playwright } from '@vitest/browser-playwright';
 import angular from '@analogjs/vite-plugin-angular';
+import { playwright } from '@vitest/browser-playwright';
+import { defineConfig } from 'vite';
 
 export default defineConfig(({ mode }) => {
   const isDebugMode = Boolean(process.env.TEST_DEBUG);

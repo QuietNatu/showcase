@@ -1,7 +1,8 @@
 import { expect, test } from 'vitest';
-import { render } from 'vitest-browser-react';
-import { MockRouter } from '../../mocks/router';
 import { page } from 'vitest/browser';
+import { render } from 'vitest-browser-react';
+
+import { MockRouter } from '../../mocks/router';
 import { HomePage } from './home-page';
 
 test('renders content', async () => {

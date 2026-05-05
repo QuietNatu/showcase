@@ -7,7 +7,8 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "default": "./index.js"
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
     }
   },
   "dependencies": {

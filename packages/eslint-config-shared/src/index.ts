@@ -1,4 +1,6 @@
-import { defineConfig } from 'eslint/config';
+/// <reference path="./types.d.ts" />
+
+import { Config, defineConfig } from 'eslint/config';
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -23,6 +25,7 @@ import security from 'eslint-plugin-security';
 import promise from 'eslint-plugin-promise';
 import tanstackRouter from '@tanstack/eslint-plugin-router';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import { buildRestrictedPatterns } from './restricted-imports';
 
 const defaultIgnores = [
   'node_modules/',
@@ -61,9 +64,8 @@ const baseConfig = defineConfig({
     jsdoc({ config: 'flat/recommended-typescript' }),
     comments.recommended,
     promise.configs['flat/recommended'],
-    /** @type {import('eslint/config').Config} */ (security.configs.recommended),
-    // @ts-ignore
-    sonarjs.configs.recommended,
+    security.configs.recommended as Config,
+    sonarjs.configs?.recommended as Config,
     unicorn.configs.unopinionated,
   ],
   plugins: {
@@ -151,9 +153,6 @@ const baseConfig = defineConfig({
   },
   languageOptions: {
     globals: globals.browser,
-    parserOptions: {
-      projectService: true,
-    },
   },
 });
 
@@ -196,8 +195,8 @@ const angularConfig = defineConfig(
 const reactConfig = defineConfig({
   files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
   extends: [
-    /** @type {import('eslint/config').Config} */ (react.configs.flat.recommended),
-    /** @type {import('eslint/config').Config} */ (react.configs.flat['jsx-runtime']),
+    react.configs.flat.recommended as Config,
+    react.configs.flat['jsx-runtime'] as Config,
     reactHooks.configs.flat.recommended,
     reactRefresh.configs.vite,
     jsxA11y.flatConfigs.recommended,
@@ -219,9 +218,7 @@ const reactConfig = defineConfig({
 const storybookConfig = defineConfig(
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-    extends: [
-      /** @type {import('eslint/config').Config[]} */ (storybook.configs['flat/recommended']),
-    ],
+    extends: [storybook.configs['flat/recommended'] as Config],
   },
   {
     files: ['src/**/*.stories.[jt]s?(x)'],
@@ -291,4 +288,7 @@ export default {
     prettier: prettierConfig,
   },
   defaultIgnores,
+  utils: {
+    buildRestrictedPatterns,
+  },
 };

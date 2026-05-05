@@ -1,7 +1,6 @@
-// @ts-check
+import shared from '@natu/eslint-config-shared';
 
 import { defineConfig } from 'eslint/config';
-import shared from '@natu/eslint-config-shared';
 import { globalIgnores } from 'eslint/config';
 
 // TODO: improve this
@@ -63,7 +62,14 @@ export default defineConfig(
   ...shared.configs.vitest,
   ...shared.configs.playwright,
   ...shared.configs.vrt,
-  ...restrictImports,
+  {
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        { patterns: [...shared.utils.buildRestrictedPatterns('smeargle')] },
+      ],
+    },
+  },
   {
     // Routes are not pure react components as they can be server rendered.
     files: ['src/app/routes/**/*.{js,ts,jsx,tsx}'],
@@ -72,4 +78,12 @@ export default defineConfig(
     },
   },
   ...shared.configs.prettier,
+  {
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
 );

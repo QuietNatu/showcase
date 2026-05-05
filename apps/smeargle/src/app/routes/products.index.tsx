@@ -26,5 +26,3 @@ function RouteComponent() {
 
   return <ProductListingPage products={products} />;
 }
-
-// TODO: eslint is not type-checking correctly

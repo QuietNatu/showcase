@@ -39,12 +39,12 @@
     "typescript-eslint": "8.59.1"
   },
   "peerDependencies": {
-    "eslint": "10.2.1"
+    "eslint": "10.3.0"
   },
   "devDependencies": {
     "@types/eslint-plugin-jsx-a11y": "6.10.1",
     "@types/eslint-plugin-security": "3.0.1",
-    "eslint": "10.2.1",
+    "eslint": "10.3.0",
     "typescript": "6.0.3"
   }
 }

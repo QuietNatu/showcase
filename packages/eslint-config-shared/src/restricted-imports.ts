@@ -1,3 +1,5 @@
+import { ValidNoRestrictedImportPatternOptions } from 'eslint/rules';
+
 const internalPackages = [
   '@natu/axe',
   '@natu/browserslist-config-shared',
@@ -53,7 +55,10 @@ const packageLayers: Array<InternalPackage | InternalPackage[]> = [
 // Not needed for now as pnpm already acts as a safeguard to prevent using subpackages without adding to the package.json
 const customRules: CustomRule[] = [];
 
-const createRestrictedPackageRegex = (packageName: string) => `^${packageName}(/.*)?$`;
+/** Creates regex to restrict imports of a package and any submodule */
+function createRestrictedPackageRegex(packageName: string) {
+  return `^${packageName}(/.*)?$`;
+}
 
 /**
  * Controls where packages can be imported for all packages in the monorepo.
@@ -64,9 +69,9 @@ const createRestrictedPackageRegex = (packageName: string) => `^${packageName}(/
  * @param packageName - The package for which restricted import patterns are generated.
  * @returns A list of restriction patterns
  */
-export const buildRestrictedPatterns = (
+export function buildRestrictedPatterns(
   packageName: InternalPackage,
-): Array<{ regex: string; message: string }> => {
+): ValidNoRestrictedImportPatternOptions[] {
   const layerIndex = packageLayers.findIndex((layer) =>
     typeof layer === 'string'
       ? layer === packageName
@@ -91,4 +96,4 @@ export const buildRestrictedPatterns = (
     );
 
   return [...restrictedLayerPackages, ...customRestrictedPackages];
-};
+}

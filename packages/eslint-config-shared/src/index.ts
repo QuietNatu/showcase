@@ -74,10 +74,12 @@ const baseConfig = defineConfig({
   },
   rules: {
     'no-console': 'warn',
+
     '@eslint-community/eslint-comments/require-description': [
       'error',
       { ignore: ['eslint-enable'] },
     ],
+
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
@@ -87,6 +89,7 @@ const baseConfig = defineConfig({
     '@typescript-eslint/prefer-readonly': 'error',
     '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
+
     'functional/functional-parameters': [
       'error',
       { allowRestParameter: true, enforceParameterCount: false },
@@ -97,6 +100,7 @@ const baseConfig = defineConfig({
     'functional/no-mixed-types': 'off',
     'functional/prefer-immutable-types': 'off',
     'functional/prefer-tacit': 'off',
+
     'jsdoc/require-jsdoc': [
       'error',
       {
@@ -114,6 +118,7 @@ const baseConfig = defineConfig({
     ],
     'jsdoc/require-param': 'off',
     'jsdoc/require-returns': 'off',
+
     'simple-import-sort/imports': [
       'error',
       {
@@ -137,6 +142,7 @@ const baseConfig = defineConfig({
       },
     ],
     'simple-import-sort/exports': 'error',
+
     'sonarjs/deprecation': 'off',
     'sonarjs/function-return-type': 'off',
     'sonarjs/prefer-function-type': 'off',
@@ -147,8 +153,10 @@ const baseConfig = defineConfig({
     'sonarjs/no-unused-vars': 'off',
     'sonarjs/redundant-type-aliases': 'off',
     'sonarjs/todo-tag': 'off',
+
     'unicorn/prefer-top-level-await': 'off',
     'unicorn/no-useless-undefined': 'off',
+
     'unused-imports/no-unused-imports': 'error',
   },
   languageOptions: {

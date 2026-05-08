@@ -3,6 +3,17 @@ import shared from '@natu/eslint-config-shared';
 import { defineConfig } from 'eslint/config';
 import { globalIgnores } from 'eslint/config';
 
+const restrictedImportsConfig = defineConfig({
+  rules: {
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: [...shared.utils.buildRestrictedPatterns('rotom')],
+      },
+    ],
+  },
+});
+
 export default defineConfig(
   globalIgnores(shared.defaultIgnores),
   ...shared.configs.base,
@@ -11,22 +22,7 @@ export default defineConfig(
   ...shared.configs.vitest,
   ...shared.configs.playwright,
   ...shared.configs.vrt,
-  {
-    rules: {
-      'no-restricted-imports': [
-        'error',
-        {
-          paths: [
-            {
-              name: '@testing-library/angular',
-              message: 'Use @testing-library/angular/zoneless instead',
-            },
-          ],
-          patterns: [...shared.utils.buildRestrictedPatterns('rotom')],
-        },
-      ],
-    },
-  },
+  ...restrictedImportsConfig,
   ...shared.configs.prettier,
   {
     languageOptions: {

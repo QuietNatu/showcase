@@ -1,4 +1,6 @@
-import { defineConfig } from 'eslint/config';
+/// <reference path="./types.d.ts" />
+
+import { Config, defineConfig } from 'eslint/config';
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
@@ -22,9 +24,8 @@ import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import security from 'eslint-plugin-security';
 import promise from 'eslint-plugin-promise';
 import tanstackRouter from '@tanstack/eslint-plugin-router';
-
-// TODO: use extends instead of multiple objects
-// TODO: sort imports
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import { buildRestrictedPatterns } from './restricted-imports';
 
 const defaultIgnores = [
   'node_modules/',
@@ -63,20 +64,22 @@ const baseConfig = defineConfig({
     jsdoc({ config: 'flat/recommended-typescript' }),
     comments.recommended,
     promise.configs['flat/recommended'],
-    /** @type {import('eslint/config').Config} */ (security.configs.recommended),
-    // @ts-ignore
-    sonarjs.configs.recommended,
+    security.configs.recommended as Config,
+    sonarjs.configs?.recommended as Config,
     unicorn.configs.unopinionated,
   ],
   plugins: {
+    'simple-import-sort': simpleImportSort,
     'unused-imports': unusedImports,
   },
   rules: {
     'no-console': 'warn',
+
     '@eslint-community/eslint-comments/require-description': [
       'error',
       { ignore: ['eslint-enable'] },
     ],
+
     '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
@@ -86,6 +89,7 @@ const baseConfig = defineConfig({
     '@typescript-eslint/prefer-readonly': 'error',
     '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
     '@typescript-eslint/switch-exhaustiveness-check': 'error',
+
     'functional/functional-parameters': [
       'error',
       { allowRestParameter: true, enforceParameterCount: false },
@@ -96,6 +100,7 @@ const baseConfig = defineConfig({
     'functional/no-mixed-types': 'off',
     'functional/prefer-immutable-types': 'off',
     'functional/prefer-tacit': 'off',
+
     'jsdoc/require-jsdoc': [
       'error',
       {
@@ -113,6 +118,31 @@ const baseConfig = defineConfig({
     ],
     'jsdoc/require-param': 'off',
     'jsdoc/require-returns': 'off',
+
+    'simple-import-sort/imports': [
+      'error',
+      {
+        groups: [
+          // Side effect imports
+          ['^\\u0000'],
+          // Node.js builtins prefixed with `node:`
+          ['^node:'],
+          // Packages
+          // Internal monorepo packages
+          ['^@natu/'],
+          // Things that start with a letter (or digit or underscore), or `@` followed by a letter
+          ['^@?\\w'],
+          // Absolute imports and other imports such as Vue-style `@/foo`
+          // Anything not matched in another group
+          ['^'],
+          // Relative imports
+          // Anything that starts with a dot
+          ['^\\.'],
+        ],
+      },
+    ],
+    'simple-import-sort/exports': 'error',
+
     'sonarjs/deprecation': 'off',
     'sonarjs/function-return-type': 'off',
     'sonarjs/prefer-function-type': 'off',
@@ -123,15 +153,14 @@ const baseConfig = defineConfig({
     'sonarjs/no-unused-vars': 'off',
     'sonarjs/redundant-type-aliases': 'off',
     'sonarjs/todo-tag': 'off',
+
     'unicorn/prefer-top-level-await': 'off',
     'unicorn/no-useless-undefined': 'off',
+
     'unused-imports/no-unused-imports': 'error',
   },
   languageOptions: {
     globals: globals.browser,
-    parserOptions: {
-      projectService: true,
-    },
   },
 });
 
@@ -174,8 +203,8 @@ const angularConfig = defineConfig(
 const reactConfig = defineConfig({
   files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
   extends: [
-    /** @type {import('eslint/config').Config} */ (react.configs.flat.recommended),
-    /** @type {import('eslint/config').Config} */ (react.configs.flat['jsx-runtime']),
+    react.configs.flat.recommended as Config,
+    react.configs.flat['jsx-runtime'] as Config,
     reactHooks.configs.flat.recommended,
     reactRefresh.configs.vite,
     jsxA11y.flatConfigs.recommended,
@@ -197,9 +226,7 @@ const reactConfig = defineConfig({
 const storybookConfig = defineConfig(
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-    extends: [
-      /** @type {import('eslint/config').Config[]} */ (storybook.configs['flat/recommended']),
-    ],
+    extends: [storybook.configs['flat/recommended'] as Config],
   },
   {
     files: ['src/**/*.stories.[jt]s?(x)'],
@@ -269,4 +296,7 @@ export default {
     prettier: prettierConfig,
   },
   defaultIgnores,
+  utils: {
+    buildRestrictedPatterns,
+  },
 };

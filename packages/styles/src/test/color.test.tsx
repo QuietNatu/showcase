@@ -1,10 +1,10 @@
-import { beforeEach, describe, expect, test } from 'vitest';
 import '../../dist/tokens/_rotom.scss';
 import '../../dist/tokens/_rotom-dark.scss';
 import '../../dist/tokens/_smeargle.scss';
 import '../../dist/tokens/_smeargle-dark.scss';
 
 import Color from 'colorjs.io';
+import { beforeEach, describe, expect, test } from 'vitest';
 
 const prefix = 'natu';
 const themeAttribute = 'data-theme';

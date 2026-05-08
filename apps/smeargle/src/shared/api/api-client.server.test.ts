@@ -1,12 +1,14 @@
+import { ClientRequest } from 'node:http';
+
+import { http, HttpResponse } from 'msw';
 import { beforeEach, describe, expect, test, vi } from 'vitest';
+
+import { mockServer } from '../../mocks/api/server';
+import { AppRequestHeader } from '../config/headers';
+import { Either } from '../lib/fp';
 import type { ApiClientOptions } from './api-client.server';
 import { apiClient } from './api-client.server';
-import { Either } from '../lib/fp';
 import { runWithApiTestContext } from './api-test-context.server';
-import { mockServer } from '../../mocks/api/server';
-import { http, HttpResponse } from 'msw';
-import { ClientRequest } from 'node:http';
-import { AppRequestHeader } from '../config/headers';
 
 describe.each([
   {

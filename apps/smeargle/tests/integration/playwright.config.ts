@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+
 import { AppRequestHeader } from '../../src/shared/config/headers';
 import { Scenario } from './src/configs/scenarios';
 

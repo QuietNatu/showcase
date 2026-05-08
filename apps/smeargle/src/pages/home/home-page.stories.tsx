@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
+import { AppLayout } from '../../app/layouts/app-layout';
 import { MockRouter } from '../../mocks/router';
 import { HomePage } from './home-page';
-import { AppLayout } from '../../app/layouts/app-layout';
 
 const meta = {
   title: 'Pages/Home',

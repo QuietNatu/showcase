@@ -1,8 +1,10 @@
-import { test, expect } from 'vitest';
-import { render } from '@testing-library/angular/zoneless';
-import { page } from 'vitest/browser';
-import { App } from './app';
 import { axe } from '@natu/axe/vitest';
+
+import { render } from '@testing-library/angular/zoneless';
+import { expect, test } from 'vitest';
+import { page } from 'vitest/browser';
+
+import { App } from './app';
 
 test('has no accessibility violations', async () => {
   const { container } = await render(App);

@@ -1,7 +1,7 @@
+import pc from 'picocolors';
 import type { Config } from 'style-dictionary';
 import StyleDictionary from 'style-dictionary';
 import { formats, transforms } from 'style-dictionary/enums';
-import pc from 'picocolors';
 
 const prefix = 'natu';
 const themes = ['rotom', 'rotom-dark', 'smeargle', 'smeargle-dark'];

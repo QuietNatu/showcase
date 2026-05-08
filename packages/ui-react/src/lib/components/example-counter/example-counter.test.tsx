@@ -1,8 +1,10 @@
-import { test, expect } from 'vitest';
-import { ExampleCounter } from './example-counter';
+import { axe } from '@natu/axe/vitest';
+
+import { expect, test } from 'vitest';
 import { page } from 'vitest/browser';
 import { render } from 'vitest-browser-react';
-import { axe } from '@natu/axe/vitest';
+
+import { ExampleCounter } from './example-counter';
 
 test('has no accessibility violations', async () => {
   const { container } = await render(<ExampleCounter />);

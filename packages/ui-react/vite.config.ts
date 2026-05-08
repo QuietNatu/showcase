@@ -1,8 +1,8 @@
 /// <reference types="vitest/config" />
 
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { playwright } from '@vitest/browser-playwright';
+import { defineConfig } from 'vite';
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {

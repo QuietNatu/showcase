@@ -1,9 +1,10 @@
 import type { RequestHandler } from 'msw';
 import { HttpResponse } from 'msw';
+
 import { getGetProductsMockHandler } from '../../../../../src/shared/api/gen/endpoints/products/products.msw';
 import { ProductScenario } from '../../configs/scenarios';
-import { getScenarioDatabase } from '../scenarios';
 import { getTestScenariosHeader } from '../../utils/test-scenario';
+import { getScenarioDatabase } from '../scenarios';
 
 export const productHandlers: RequestHandler[] = [
   getGetProductsMockHandler(({ request }) => {

@@ -42,7 +42,7 @@ jobs:
       - name: Install dependencies
         # change to pnpm ci once it is implemented
         run: |
-          pnpm i --frozen-lockfile --loglevel warn
+          pnpm ci
           pnpm exec playwright install --with-deps chromium
 
       - name: Lint files
@@ -88,9 +88,8 @@ jobs:
   #         cache: 'pnpm'
 
   #     - name: Install dependencies
-  #       # change to pnpm ci once it is implemented
   #       run: |
-  #         pnpm i --frozen-lockfile --loglevel warn
+  #         pnpm ci
   #         pnpm exec playwright install --with-deps ${{ env.VRT_BROWSER }}
 
   #     - name: Run tests
@@ -130,9 +129,8 @@ jobs:
   #         cache: 'pnpm'
 
   #     - name: Install dependencies
-  #       # change to pnpm ci once it is implemented
   #       run: |
-  #         pnpm i --frozen-lockfile --loglevel warn
+  #         pnpm ci
   #         pnpm exec playwright install --with-deps chromium
 
   #     - name: Perform lighthouse mobile audit
@@ -181,7 +179,7 @@ jobs:
   #     - name: Install dependencies
   #       # change to pnpm ci once it is implemented
   #       run: |
-  #         pnpm i --frozen-lockfile --loglevel warn
+  #         pnpm ci
   #         pnpm exec playwright install --with-deps ${{ matrix.browser }}
 
   #     - name: Build

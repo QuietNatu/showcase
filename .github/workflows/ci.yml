@@ -40,7 +40,6 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        # change to pnpm ci once it is implemented
         run: |
           pnpm ci
           pnpm exec playwright install --with-deps chromium
@@ -177,7 +176,6 @@ jobs:
   #         cache: 'pnpm'
 
   #     - name: Install dependencies
-  #       # change to pnpm ci once it is implemented
   #       run: |
   #         pnpm ci
   #         pnpm exec playwright install --with-deps ${{ matrix.browser }}

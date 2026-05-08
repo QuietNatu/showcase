@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
+
 import { ExampleCounter } from './example-counter';
 
 const meta = {

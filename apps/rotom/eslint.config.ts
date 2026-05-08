@@ -1,21 +1,14 @@
-// @ts-check
+import shared from '@natu/eslint-config-shared';
 
 import { defineConfig } from 'eslint/config';
-import shared from '@natu/eslint-config-shared';
 import { globalIgnores } from 'eslint/config';
 
-// TODO: improve this
-const restrictImports = defineConfig({
+const restrictedImportsConfig = defineConfig({
   rules: {
     'no-restricted-imports': [
       'error',
       {
-        paths: [
-          {
-            name: '@testing-library/angular',
-            message: 'Use @testing-library/angular/zoneless instead',
-          },
-        ],
+        patterns: [...shared.utils.buildRestrictedPatterns('rotom')],
       },
     ],
   },
@@ -29,6 +22,14 @@ export default defineConfig(
   ...shared.configs.vitest,
   ...shared.configs.playwright,
   ...shared.configs.vrt,
-  ...restrictImports,
+  ...restrictedImportsConfig,
   ...shared.configs.prettier,
+  {
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
+  },
 );

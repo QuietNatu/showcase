@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@analogjs/storybook-angular';
+
 import { App } from './app';
 
 const meta = {

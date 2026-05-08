@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 import { ExampleCounter } from '@natu/ui-angular/components/example-counter';
+
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 
 type Recipe = {
   id: string;

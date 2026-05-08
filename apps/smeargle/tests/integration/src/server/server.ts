@@ -1,9 +1,10 @@
 import './setup-faker'; // Must be imported first to setup faker before being used
 
-import express from 'express';
 import { createMiddleware } from '@mswjs/http-middleware';
-import { logResquests, logUnhandledRequests } from './middleware';
+import express from 'express';
+
 import { handlers } from './handlers';
+import { logResquests, logUnhandledRequests } from './middleware';
 
 const port = process.env.PORT ?? 6006;
 

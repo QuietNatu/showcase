@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
 import { ExampleCounter } from './example-counter';
 
 const meta = {

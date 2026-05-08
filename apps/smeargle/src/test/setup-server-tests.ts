@@ -1,8 +1,9 @@
 import '@natu/axe/vitest/extend-expect';
 
-import { afterAll, afterEach, beforeAll } from 'vitest';
-import { mockServer } from '../mocks/api/server';
 import { faker } from '@faker-js/faker';
+import { afterAll, afterEach, beforeAll } from 'vitest';
+
+import { mockServer } from '../mocks/api/server';
 
 beforeAll(() => {
   faker.seed(21);

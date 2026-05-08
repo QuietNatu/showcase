@@ -1,9 +1,10 @@
 import { expect, test } from 'vitest';
-import { render } from 'vitest-browser-react';
-import { MockRouter } from '../../mocks/router';
 import { page } from 'vitest/browser';
-import { ProductListingPage } from './product-listing-page';
+import { render } from 'vitest-browser-react';
+
 import { createProductMock } from '../../mocks/api/factories/product-factory';
+import { MockRouter } from '../../mocks/router';
+import { ProductListingPage } from './product-listing-page';
 
 test('renders content', async () => {
   const products = Array.from({ length: 3 }, () => createProductMock());

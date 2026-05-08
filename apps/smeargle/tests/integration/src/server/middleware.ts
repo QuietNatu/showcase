@@ -1,4 +1,5 @@
 import { styleText } from 'node:util';
+
 import type { RequestHandler } from 'express';
 
 /** Logs all requests made to the server. */

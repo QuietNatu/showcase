@@ -1,6 +1,7 @@
 import { delay, http } from 'msw';
-import { mockDatabase } from '../database/database';
+
 import { getGetProductsMockHandler } from '../../../shared/api/gen/endpoints/products/products.msw';
+import { mockDatabase } from '../database/database';
 
 export const handlers = [
   getGetProductsMockHandler(() => {

@@ -1,11 +1,12 @@
+import { HttpResponse } from 'msw';
 import { describe, expect, test } from 'vitest';
+
 import { mockDatabase } from '../../../mocks/api/database/database';
 import { createProductMock } from '../../../mocks/api/factories/product-factory';
-import { getProductListingPageData } from './data.server';
-import { Either } from '../../../shared/lib/fp';
 import { mockServer } from '../../../mocks/api/server';
-import { HttpResponse } from 'msw';
 import { getGetProductsMockHandler } from '../../../shared/api/gen/endpoints/products/products.msw';
+import { Either } from '../../../shared/lib/fp';
+import { getProductListingPageData } from './data.server';
 
 describe('when all data loads successfully', () => {
   test('returns correct data', async () => {

@@ -3,7 +3,6 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "../..",
     "outDir": "./out-tsc/lib"
   },
   "include": ["src"],

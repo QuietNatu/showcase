@@ -12,8 +12,7 @@ function run(command: string) {
 }
 
 try {
-  // change to pnpm ci once it is implemented
-  run('pnpm i --frozen-lockfile');
+  run('pnpm ci');
   run('pnpm exec playwright install');
   run('pnpm run lint');
   run('pnpm run test');

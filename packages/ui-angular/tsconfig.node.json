@@ -3,5 +3,5 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo"
   },
-  "files": ["vite.config.ts", "./eslint.config.ts"]
+  "files": ["vitest.config.ts", "./eslint.config.ts"]
 }

@@ -4,8 +4,6 @@ import { defineConfig } from 'vitest/config';
 
 import viteConfig from './vite.config';
 
-// TODO: [vite:react-swc] We recommend switching to `@vitejs/plugin-react` for improved performance as no swc plugins are used. More information at https://vite.dev/rolldown
-
 export default defineConfig((configEnv) => {
   // eslint-disable-next-line functional/immutable-data -- needed while tanstack plugin is disabled
   Object.assign(process.env, loadEnv(configEnv.mode, process.cwd(), ''));

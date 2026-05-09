@@ -3,8 +3,6 @@ import shared from '@natu/eslint-config-shared';
 import { defineConfig } from 'eslint/config';
 import { globalIgnores } from 'eslint/config';
 
-// TODO: use https://www.npmjs.com/package/vitest-browser-angular
-
 const restrictedImportsConfig = defineConfig({
   rules: {
     'no-restricted-imports': [

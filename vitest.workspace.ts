@@ -1,4 +1,7 @@
-import { defineWorkspace } from 'vitest/config';
+import { defineConfig } from 'vitest/config';
 
-// TODO: fix this once VSCODE vitest extension supports vitest v4
-export default defineWorkspace(['apps/**/vite.config.ts', 'packages/**/vite.config.ts']);
+export default defineConfig({
+  test: {
+    projects: ['apps/**/vitest.config.ts', 'packages/**/vitest.config.ts'],
+  },
+});

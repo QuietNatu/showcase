@@ -76,7 +76,11 @@ components:
         slug:
           description: User-friendly identifier for URLs
           type: string
+        name:
+          description: Localized name of the product
+          type: string
 
       required:
         - id
         - slug
+        - name

@@ -26,5 +26,9 @@
     .#{#{variables.$prefix}-fluid-heading-2} {
       @include text.fluid-heading-2;
     }
+
+    .#{#{variables.$prefix}-fluid-heading-3} {
+      @include text.fluid-heading-3;
+    }
   }
 }

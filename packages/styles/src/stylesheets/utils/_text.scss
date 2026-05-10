@@ -50,3 +50,7 @@
 @mixin fluid-heading-2 {
   @include -fluid($name: #{variables.$prefix}-fluid-heading-2);
 }
+
+@mixin fluid-heading-3 {
+  @include -fluid($name: #{variables.$prefix}-fluid-heading-3);
+}

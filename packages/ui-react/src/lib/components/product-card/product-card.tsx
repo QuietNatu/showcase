@@ -1,7 +1,11 @@
-import { ComponentProps, useId } from 'react';
-import { createRequiredContext } from '@natu/ui-react/utils/context';
-import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
+import { useRender } from '@base-ui/react/use-render';
+import clsx from 'clsx';
+import type { ComponentProps } from 'react';
+import { useId } from 'react';
+
+import { createRequiredContext } from '../../utils/context';
+import styles from './product-card.module.scss';
 
 type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
@@ -23,11 +27,15 @@ const [ProductCardIdContext, useProductCardId] = createRequiredContext<string>({
  * To add other interactable elements to the card (buttons, popovers, etc) use {@link NatuProductCardInteractable}.
  */
 export function NatuProductCardRoot(props: RootProps) {
+  const { className, ...otherProps } = props;
+
   const id = useId();
 
   return (
     <ProductCardIdContext value={id}>
-      <article {...props}>{props.children}</article>
+      <article {...otherProps} className={clsx(className, styles.card)}>
+        {props.children}
+      </article>
     </ProductCardIdContext>
   );
 }
@@ -37,30 +45,41 @@ export function NatuProductCardRoot(props: RootProps) {
  * Renders an `<a>` element.
  */
 export function NatuProductCardLink(props: LinkProps) {
-  const { render, ...otherProps } = props;
+  const { render, className, ...otherProps } = props;
 
   const id = useProductCardId();
 
   return useRender({
     defaultTagName: 'a',
     render,
-    props: mergeProps<'a'>({ 'aria-labelledby': `${id}-heading` }, otherProps),
+    props: mergeProps<'a'>(
+      {
+        'aria-labelledby': `${id}-heading`,
+        className: clsx(className, styles.link),
+      },
+      otherProps,
+    ),
   });
 }
+
+// TODO: image
 
 /**
  * A heading for the product card.
  * Renders a `<h3>` element.
  */
 export function NatuProductCardHeading(props: HeadingProps) {
-  const { render, ...otherProps } = props;
+  const { render, className, ...otherProps } = props;
 
   const id = useProductCardId();
 
   return useRender({
     defaultTagName: 'h3',
     render,
-    props: mergeProps<HeadingTag>({ id: `${id}-heading` }, otherProps),
+    props: mergeProps<HeadingTag>(
+      { id: `${id}-heading`, className: clsx(className, styles.heading) },
+      otherProps,
+    ),
   });
 }
 
@@ -69,11 +88,11 @@ export function NatuProductCardHeading(props: HeadingProps) {
  * Renders a `<span>` element.
  */
 export function NatuProductCardInteractable(props: InteractableProps) {
-  const { render, ...otherProps } = props;
+  const { render, className, ...otherProps } = props;
 
   return useRender({
     defaultTagName: 'span',
     render,
-    props: mergeProps<'span'>({ className: '' }, otherProps),
+    props: mergeProps<'span'>({ className: clsx(className, styles.interactable) }, otherProps),
   });
 }

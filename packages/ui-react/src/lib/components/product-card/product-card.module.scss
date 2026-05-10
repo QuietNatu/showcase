@@ -1,0 +1,27 @@
+@use '@natu/styles/stylesheets/utils/text';
+
+$-link-z-index: 1;
+$-interactable-z-index: 2; // Must be higher than link's z-index to not be covered by it
+
+// TODO: color agnostic vars
+
+.card {
+  border: 1px solid var(--natu-color-grey-30);
+  border-radius: 6px; // TODO var
+  position: relative;
+}
+
+.heading {
+  @include text.fluid-heading-3;
+}
+
+.link {
+  inset: 0;
+  position: absolute;
+  z-index: $-link-z-index;
+}
+
+.interactable {
+  position: relative;
+  z-index: $-interactable-z-index;
+}

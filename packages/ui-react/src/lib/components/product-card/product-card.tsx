@@ -10,6 +10,9 @@ import styles from './product-card.module.scss';
 type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type RootProps = ComponentProps<'article'>;
+type MediaProps = ComponentProps<'div'>;
+type ImageProps = useRender.ComponentProps<'img'>;
+type BodyProps = ComponentProps<'div'>;
 type LinkProps = useRender.ComponentProps<'a'>;
 type HeadingProps = useRender.ComponentProps<HeadingTag>;
 type InteractableProps = useRender.ComponentProps<'span'>;
@@ -41,6 +44,37 @@ export function NatuProductCardRoot(props: RootProps) {
 }
 
 /**
+ * TODO
+ */
+export function NatuProductCardMedia(props: MediaProps) {
+  const { className, ...otherProps } = props;
+
+  return <div {...otherProps} className={clsx(className, styles.media)} />;
+}
+
+/**
+ * TODO
+ */
+export function NatuProductCardImage(props: ImageProps) {
+  const { render, className, ...otherProps } = props;
+
+  return useRender({
+    defaultTagName: 'img',
+    render,
+    props: mergeProps<'img'>({ className: clsx(className, styles.image) }, otherProps),
+  });
+}
+
+/**
+ * TODO
+ */
+export function NatuProductCardBody(props: BodyProps) {
+  const { className, ...otherProps } = props;
+
+  return <div {...otherProps} className={clsx(className, styles.body)} />;
+}
+
+/**
  * A link to the product.
  * Renders an `<a>` element.
  */
@@ -61,8 +95,6 @@ export function NatuProductCardLink(props: LinkProps) {
     ),
   });
 }
-
-// TODO: image
 
 /**
  * A heading for the product card.

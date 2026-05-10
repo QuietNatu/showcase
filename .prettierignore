@@ -1,9 +1,12 @@
 pnpm-lock.yaml
 .gitignore
+.gitattributes
 .husky
 .prettierignore
 .browserslistrc
 .env*
+*.jpg
+*.png
 **/*.sh
 packages/styles/src/assets
 **/*.gen.*

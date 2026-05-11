@@ -5,19 +5,22 @@ import { MockRouter } from '../../mocks/router';
 import { ProductDetailPage } from './product-detail-page';
 
 const meta = {
-  title: 'Pages/Products/Detail',
-  component: () => (
-    <MockRouter>
-      <AppLayout>
-        <ProductDetailPage />
-      </AppLayout>
-    </MockRouter>
-  ),
+  title: 'Pages/Product Detail',
+  component: ProductDetailPage,
   parameters: {
     layout: 'fullscreen',
   },
   tags: ['!autodocs'],
-} satisfies Meta;
+  decorators: [
+    (Story) => (
+      <MockRouter>
+        <AppLayout>
+          <Story />
+        </AppLayout>
+      </MockRouter>
+    ),
+  ],
+} satisfies Meta<typeof ProductDetailPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

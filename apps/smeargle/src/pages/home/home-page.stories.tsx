@@ -6,18 +6,21 @@ import { HomePage } from './home-page';
 
 const meta = {
   title: 'Pages/Home',
-  component: () => (
-    <MockRouter>
-      <AppLayout>
-        <HomePage />
-      </AppLayout>
-    </MockRouter>
-  ),
+  component: HomePage,
   parameters: {
     layout: 'fullscreen',
   },
   tags: ['!autodocs'],
-} satisfies Meta;
+  decorators: [
+    (Story) => (
+      <MockRouter>
+        <AppLayout>
+          <Story />
+        </AppLayout>
+      </MockRouter>
+    ),
+  ],
+} satisfies Meta<typeof HomePage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

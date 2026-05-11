@@ -57,7 +57,7 @@ export const WithButtons: Story = {
         />
       </NatuProductCard.Media>
 
-      <NatuProductCard.Body>
+      <NatuProductCard.Body style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
         <NatuProductCard.Heading>Heading</NatuProductCard.Heading>
 
         <div style={{ display: 'flex', gap: '6px', justifyContent: 'center' }}>

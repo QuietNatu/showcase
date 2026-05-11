@@ -2,27 +2,23 @@ import { mergeProps } from '@base-ui/react/merge-props';
 import { useRender } from '@base-ui/react/use-render';
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
-import { useId } from 'react';
 
-import { createRequiredContext } from '../../utils/context';
+import { NatuHeadlessProductCardInteractable } from './headless-product-card';
+import { NatuHeadlessProductCardHeading } from './headless-product-card';
+import { NatuHeadlessProductCardLink } from './headless-product-card';
+import { NatuHeadlessProductCardRoot } from './headless-product-card';
 import styles from './product-card.module.scss';
 
-type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-
-type RootProps = ComponentProps<'article'>;
+type RootProps = ComponentProps<typeof NatuHeadlessProductCardRoot>;
 type MediaProps = ComponentProps<'div'>;
 type ImageProps = useRender.ComponentProps<'img'>;
 type BodyProps = ComponentProps<'div'>;
-type LinkProps = useRender.ComponentProps<'a'>;
-type HeadingProps = useRender.ComponentProps<HeadingTag>;
-type InteractableProps = useRender.ComponentProps<'span'>;
-
-const [ProductCardIdContext, useProductCardId] = createRequiredContext<string>({
-  name: 'ProductCardIdContext',
-});
+type HeadingProps = ComponentProps<typeof NatuHeadlessProductCardHeading>;
+type LinkProps = ComponentProps<typeof NatuHeadlessProductCardLink>;
+type InteractableProps = ComponentProps<typeof NatuHeadlessProductCardInteractable>;
 
 /**
- * Groups all parts of the ProductCard.
+ * Groups all parts of the product card.
  * Renders an `<article>` element.
  *
  * A product card shows a teaser of a product and provides a link to it.
@@ -32,19 +28,12 @@ const [ProductCardIdContext, useProductCardId] = createRequiredContext<string>({
 export function NatuProductCardRoot(props: RootProps) {
   const { className, ...otherProps } = props;
 
-  const id = useId();
-
-  return (
-    <ProductCardIdContext value={id}>
-      <article {...otherProps} className={clsx(className, styles.card)}>
-        {props.children}
-      </article>
-    </ProductCardIdContext>
-  );
+  return <NatuHeadlessProductCardRoot {...otherProps} className={clsx(className, styles.card)} />;
 }
 
 /**
- * TODO
+ * The visual area of the product card.
+ * This is where most visual elements (images, badges) that are meant to grab the users' attention should be placed.
  */
 export function NatuProductCardMedia(props: MediaProps) {
   const { className, ...otherProps } = props;
@@ -53,7 +42,8 @@ export function NatuProductCardMedia(props: MediaProps) {
 }
 
 /**
- * TODO
+ * The teaser image of the product card.
+ * Renders a `img` element.
  */
 export function NatuProductCardImage(props: ImageProps) {
   const { render, className, ...otherProps } = props;
@@ -66,7 +56,8 @@ export function NatuProductCardImage(props: ImageProps) {
 }
 
 /**
- * TODO
+ * The body of the product card.
+ * This is where most of the product's copy (name, description, price) is placed.
  */
 export function NatuProductCardBody(props: BodyProps) {
   const { className, ...otherProps } = props;
@@ -75,44 +66,23 @@ export function NatuProductCardBody(props: BodyProps) {
 }
 
 /**
- * A link to the product.
- * Renders an `<a>` element.
- */
-export function NatuProductCardLink(props: LinkProps) {
-  const { render, className, ...otherProps } = props;
-
-  const id = useProductCardId();
-
-  return useRender({
-    defaultTagName: 'a',
-    render,
-    props: mergeProps<'a'>(
-      {
-        'aria-labelledby': `${id}-heading`,
-        className: clsx(className, styles.link),
-      },
-      otherProps,
-    ),
-  });
-}
-
-/**
  * A heading for the product card.
  * Renders a `<h3>` element.
  */
 export function NatuProductCardHeading(props: HeadingProps) {
-  const { render, className, ...otherProps } = props;
+  const { className, ...otherProps } = props;
 
-  const id = useProductCardId();
+  return (
+    <NatuHeadlessProductCardHeading {...otherProps} className={clsx(className, styles.heading)} />
+  );
+}
 
-  return useRender({
-    defaultTagName: 'h3',
-    render,
-    props: mergeProps<HeadingTag>(
-      { id: `${id}-heading`, className: clsx(className, styles.heading) },
-      otherProps,
-    ),
-  });
+/**
+ * A link to the product.
+ * Renders an `<a>` element.
+ */
+export function NatuProductCardLink(props: LinkProps) {
+  return <NatuHeadlessProductCardLink {...props} />;
 }
 
 /**
@@ -120,11 +90,5 @@ export function NatuProductCardHeading(props: HeadingProps) {
  * Renders a `<span>` element.
  */
 export function NatuProductCardInteractable(props: InteractableProps) {
-  const { render, className, ...otherProps } = props;
-
-  return useRender({
-    defaultTagName: 'span',
-    render,
-    props: mergeProps<'span'>({ className: clsx(className, styles.interactable) }, otherProps),
-  });
+  return <NatuHeadlessProductCardInteractable {...props} />;
 }

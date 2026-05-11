@@ -6,41 +6,30 @@ $-link-z-index: 1;
 $-interactable-z-index: 2; // Must be higher than link's z-index to not be covered by it
 
 // TODO: color agnostic vars
-// TODO: this is mixing headless styles with presentational styles
 
 .card {
   border: 1px solid var(--natu-color-grey-30);
   border-radius: $-card-border-radius;
-  position: relative;
 }
 
 .media {
+  display: flex;
   position: relative;
+}
+
+.image {
+  block-size: 100%;
+  border-start-end-radius: $-card-border-radius;
+  border-start-start-radius: $-card-border-radius;
+  inline-size: 100%;
 }
 
 .body {
   padding: var(--natu-spacing-3) var(--natu-spacing-2);
 }
 
-.image {
-  block-size: 100%;
-  border-radius: $-card-border-radius;
-  inline-size: 100%;
-}
-
 .heading {
   @include text.fluid-heading-3;
 
   margin: 0;
-}
-
-.link {
-  inset: 0;
-  position: absolute;
-  z-index: $-link-z-index;
-}
-
-.interactable {
-  position: relative;
-  z-index: $-interactable-z-index;
 }

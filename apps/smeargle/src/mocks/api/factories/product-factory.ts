@@ -5,7 +5,7 @@ import type { ProductDto } from '../../../shared/api/gen/models/product-dto.zod'
 import type { MockFactory } from './types';
 
 /** Creates a product using mock data. All props can be overriden. */
-export const createProductMock: MockFactory<ProductDto> = (override = {}) => {
+export const createMockProduct: MockFactory<ProductDto> = (override = {}) => {
   const name = faker.commerce.productName();
 
   return getGetProductsProductSlugResponseMock({

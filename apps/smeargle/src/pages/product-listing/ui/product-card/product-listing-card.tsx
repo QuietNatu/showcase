@@ -5,7 +5,7 @@ import { Link } from '@tanstack/react-router';
 import styles from './product-listing-card.module.scss';
 
 type Props = Readonly<{
-  imageSrc: string;
+  imageUrl: string;
   name: string;
   slug: string;
   onAddToCart: () => void;
@@ -15,7 +15,7 @@ type Props = Readonly<{
  * TODO
  */
 export function ProductListingCard(props: Props) {
-  const { slug, name, imageSrc, onAddToCart } = props;
+  const { slug, name, imageUrl, onAddToCart } = props;
 
   return (
     <NatuProductCard.Root>
@@ -24,7 +24,7 @@ export function ProductListingCard(props: Props) {
       />
 
       <NatuProductCard.Media>
-        <NatuProductCard.Image src={imageSrc} className={styles.image} />
+        <NatuProductCard.Image src={imageUrl} className={styles.image} />
       </NatuProductCard.Media>
 
       <NatuProductCard.Body className={styles.body}>

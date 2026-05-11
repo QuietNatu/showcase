@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
 import { createMockProduct } from '../../../../mocks/api/factories/product-factory';
-import productImageSrc from '../../../../mocks/assets/product-image.jpg';
 import { MockRouter } from '../../../../mocks/router';
 import { ProductListingCard } from './product-listing-card';
 
@@ -21,7 +20,7 @@ const meta = {
     ),
   ],
   args: {
-    imageSrc: productImageSrc,
+    imageUrl: product.imageUrl,
     name: product.name,
     slug: product.slug,
     onAddToCart: fn(),

@@ -18,7 +18,7 @@ export function ProductListingGrid(props: Props) {
           <ProductListingCard
             slug={product.slug}
             name={product.name}
-            imageSrc="" // TODO
+            imageUrl={product.imageUrl}
             onAddToCart={() => {
               // TODO
             }}

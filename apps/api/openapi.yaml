@@ -79,8 +79,14 @@ components:
         name:
           description: Localized name of the product
           type: string
+        # Move this to variants once they exist
+        imageUrl:
+          description: Url of the image in it's original size
+          type: string
+          format: uri
 
       required:
         - id
         - slug
         - name
+        - imageUrl

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import productImageSrc from '../../../mocks/assets/product-image.jpg';
+import productImageUrl from '../../../mocks/assets/product-image.jpg';
 import { NatuProductCard } from '.';
 
 const meta = {
@@ -33,7 +33,7 @@ export const Basic: Story = {
 
       <NatuProductCard.Media>
         <NatuProductCard.Image
-          src={productImageSrc}
+          src={productImageUrl}
           style={{ aspectRatio: '1 / 1', objectFit: 'cover' }}
         />
       </NatuProductCard.Media>
@@ -52,7 +52,7 @@ export const WithButtons: Story = {
 
       <NatuProductCard.Media>
         <NatuProductCard.Image
-          src={productImageSrc}
+          src={productImageUrl}
           style={{ aspectRatio: '1 / 1', objectFit: 'cover' }}
         />
       </NatuProductCard.Media>

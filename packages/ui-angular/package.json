@@ -75,6 +75,6 @@
     "typescript-eslint": "8.59.2",
     "vite": "8.0.10",
     "vitest": "4.1.5",
-    "vitest-browser-angular": "^0.4.0"
+    "vitest-browser-angular": "0.4.0"
   }
 }

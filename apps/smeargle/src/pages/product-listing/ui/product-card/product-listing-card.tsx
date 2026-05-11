@@ -2,31 +2,41 @@ import { NatuProductCard } from '@natu/ui-react/components/product-card';
 
 import { Link } from '@tanstack/react-router';
 
+import styles from './product-listing-card.module.scss';
+
 type Props = Readonly<{
-  slug: string;
+  imageSrc: string;
   name: string;
-  onAddToWishlist: () => void;
+  slug: string;
+  onAddToCart: () => void;
 }>;
 
 /**
  * TODO
  */
 export function ProductListingCard(props: Props) {
-  const { slug, name, onAddToWishlist } = props;
+  const { slug, name, imageSrc, onAddToCart } = props;
 
   return (
     <NatuProductCard.Root>
       <NatuProductCard.Link
         render={<Link to="/products/$productSlug" params={{ productSlug: slug }} />}
       />
-      <NatuProductCard.Heading>{name}</NatuProductCard.Heading>
-      <NatuProductCard.Interactable
-        render={
-          <button type="button" onClick={onAddToWishlist}>
-            Add to Wishlist
-          </button>
-        }
-      />
+
+      <NatuProductCard.Media>
+        <NatuProductCard.Image src={imageSrc} className={styles.image} />
+      </NatuProductCard.Media>
+
+      <NatuProductCard.Body className={styles.body}>
+        <NatuProductCard.Heading>{name}</NatuProductCard.Heading>
+        <NatuProductCard.Interactable
+          render={
+            <button type="button" onClick={onAddToCart}>
+              Add to Cart
+            </button>
+          }
+        />
+      </NatuProductCard.Body>
     </NatuProductCard.Root>
   );
 }

@@ -18,7 +18,8 @@ export function ProductListingGrid(props: Props) {
           <ProductListingCard
             slug={product.slug}
             name={product.name}
-            onAddToWishlist={() => {
+            imageSrc="" // TODO
+            onAddToCart={() => {
               // TODO
             }}
           />

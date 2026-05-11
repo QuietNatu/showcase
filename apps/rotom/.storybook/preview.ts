@@ -4,6 +4,7 @@ import { axeRules } from '@natu/axe';
 import { createThemeGlobalType, withTheme } from '@natu/stories';
 
 import { applicationConfig, type Preview } from '@analogjs/storybook-angular';
+import { faker } from '@faker-js/faker';
 import type { A11yParameters } from '@storybook/addon-a11y';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 
@@ -29,6 +30,9 @@ const preview: Preview = {
   tags: ['autodocs'],
   globalTypes: {
     theme: createThemeGlobalType('rotom'),
+  },
+  beforeEach: () => {
+    faker.seed(84);
   },
   decorators: [applicationConfig({ providers: [] }), withTheme()],
 };

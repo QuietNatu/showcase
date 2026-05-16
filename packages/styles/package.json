@@ -8,8 +8,24 @@
   "exports": {
     "./package.json": "./package.json",
     "./assets/*": "./src/assets/*",
-    "./stylesheets/*": "./src/stylesheets/*",
-    "./*": "./dist/*"
+    "./stylesheets/styles": {
+      "sass": "./src/stylesheets/styles.scss"
+    },
+    "./stylesheets/utils": {
+      "sass": "./src/stylesheets/utils/_index.scss"
+    },
+    "./stylesheets/tokens/rotom-dark": {
+      "sass": "./dist/tokens/_rotom-dark.scss"
+    },
+    "./stylesheets/tokens/rotom": {
+      "sass": "./dist/tokens/_rotom.scss"
+    },
+    "./stylesheets/tokens/smeargle-dark": {
+      "sass": "./dist/tokens/_smeargle-dark.scss"
+    },
+    "./stylesheets/tokens/smeargle": {
+      "sass": "./dist/tokens/_smeargle.scss"
+    }
   },
   "scripts": {
     "build": "tsx ./src/build-tokens.ts",

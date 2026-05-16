@@ -54,6 +54,7 @@
     "globals": "17.6.0",
     "react": "19.2.5",
     "react-dom": "19.2.5",
+    "sass-embedded": "^1.99.0",
     "storybook": "10.3.6",
     "typescript": "6.0.3",
     "typescript-eslint": "8.59.1",

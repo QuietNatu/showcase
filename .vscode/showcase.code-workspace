@@ -69,5 +69,6 @@
       "**/lighthouse-reports": true,
       "**/.tanstack": true,
     },
+    "somesass.scss.completion.suggestFromUseOnly": true,
   },
 }

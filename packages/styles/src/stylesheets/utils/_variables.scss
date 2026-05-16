@@ -1,8 +1,16 @@
 $prefix: 'natu';
+
+// TODO: add ui helper to view current breakpoint
+// Change breakpoints to CSS vars once media queries support it
+$breakpoint-xs: 320px;
+$breakpoint-sm: 672px;
+$breakpoint-md: 1056px;
+$breakpoint-lg: 1312px;
+$breakpoint-xl: 1584px;
 $breakpoints: (
-  'xs': 320,
-  'sm': 672,
-  'md': 1056,
-  'lg': 1312,
-  'xl': 1584,
+  'xs': $breakpoint-xs,
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+  'xl': $breakpoint-xl,
 );

@@ -28,9 +28,6 @@
               }
             ],
             "styles": ["./src/styles/styles.scss"],
-            "stylePreprocessorOptions": {
-              "includePaths": ["node_modules"]
-            },
             "scripts": []
           },
           "configurations": {

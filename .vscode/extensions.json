@@ -4,7 +4,6 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "stylelint.vscode-stylelint",
-    "mrmlnc.vscode-scss",
     "vitest.explorer",
     "ms-playwright.playwright",
     "Angular.ng-template",
@@ -16,6 +15,7 @@
     "webben.browserslist",
     "unifiedjs.vscode-mdx",
     "42Crunch.vscode-openapi",
-    "bierner.markdown-mermaid"
+    "bierner.markdown-mermaid",
+    "somewhatstationery.some-sass"
   ]
 }

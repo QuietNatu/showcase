@@ -1,5 +1,3 @@
-@use '@natu/styles/stylesheets/utils/text';
-
 $-link-z-index: 1;
 $-interactable-z-index: 2; // Must be higher than link's z-index to not be covered by it
 

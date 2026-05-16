@@ -1,8 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { AppLayout } from '../../app/layouts/app-layout';
+import { createMockProduct } from '../../mocks/api/factories/product-factory';
 import { MockRouter } from '../../mocks/router';
 import { ProductListingPage } from './product-listing-page';
+
+const products = Array.from({ length: 5 }, createMockProduct);
 
 const meta = {
   title: 'Pages/Product Listing',
@@ -21,7 +24,7 @@ const meta = {
     ),
   ],
   args: {
-    products: [],
+    products,
   },
 } satisfies Meta<typeof ProductListingPage>;
 

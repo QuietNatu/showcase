@@ -2,7 +2,7 @@ import { HttpResponse } from 'msw';
 import { describe, expect, test } from 'vitest';
 
 import { mockDatabase } from '../../../mocks/api/database/database';
-import { createProductMock } from '../../../mocks/api/factories/product-factory';
+import { createMockProduct } from '../../../mocks/api/factories/product-factory';
 import { mockServer } from '../../../mocks/api/server';
 import { getGetProductsMockHandler } from '../../../shared/api/gen/endpoints/products/products.msw';
 import { Either } from '../../../shared/lib/fp';
@@ -10,7 +10,7 @@ import { getProductListingPageProducts } from './get-products.server';
 
 describe('when products load successfully', () => {
   test('returns correct number of products', async () => {
-    await mockDatabase.products.createMany(3, () => createProductMock());
+    await mockDatabase.products.createMany(3, () => createMockProduct());
 
     const result = await getProductListingPageProducts();
 

@@ -83,7 +83,7 @@ components:
         imageUrl:
           description: Url of the image in it's original size
           type: string
-          format: uri
+          format: uri-reference
 
       required:
         - id

@@ -16,6 +16,7 @@
     "unifiedjs.vscode-mdx",
     "42Crunch.vscode-openapi",
     "bierner.markdown-mermaid",
-    "somewhatstationery.some-sass"
+    "somewhatstationery.some-sass",
+    "vunguyentuan.vscode-css-variables"
   ]
 }

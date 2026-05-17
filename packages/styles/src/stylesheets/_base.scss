@@ -1,9 +1,9 @@
-@use './utils/text';
+@use 'utils';
 
 @mixin styles {
   @layer base {
     body {
-      @include text.body-1;
+      @include utils.text-body-1;
 
       background-color: var(--natu-color-background-primary);
     }

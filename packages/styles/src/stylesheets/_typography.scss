@@ -1,34 +1,33 @@
-@use './utils/variables';
-@use './utils/text';
+@use 'utils';
 
 @mixin styles {
   @layer typography {
-    .#{#{variables.$prefix}-heading-1} {
-      @include text.heading-1;
+    .#{#{utils.$prefix}-heading-1} {
+      @include utils.text-heading-1;
     }
 
-    .#{#{variables.$prefix}-heading-2} {
-      @include text.heading-2;
+    .#{#{utils.$prefix}-heading-2} {
+      @include utils.text-heading-2;
     }
 
-    .#{#{variables.$prefix}-body-1} {
-      @include text.body-1;
+    .#{#{utils.$prefix}-body-1} {
+      @include utils.text-body-1;
     }
 
-    .#{#{variables.$prefix}-body-2} {
-      @include text.body-2;
+    .#{#{utils.$prefix}-body-2} {
+      @include utils.text-body-2;
     }
 
-    .#{#{variables.$prefix}-fluid-heading-1} {
-      @include text.fluid-heading-1;
+    .#{#{utils.$prefix}-fluid-heading-1} {
+      @include utils.text-fluid-heading-1;
     }
 
-    .#{#{variables.$prefix}-fluid-heading-2} {
-      @include text.fluid-heading-2;
+    .#{#{utils.$prefix}-fluid-heading-2} {
+      @include utils.text-fluid-heading-2;
     }
 
-    .#{#{variables.$prefix}-fluid-heading-3} {
-      @include text.fluid-heading-3;
+    .#{#{utils.$prefix}-fluid-heading-3} {
+      @include utils.text-fluid-heading-3;
     }
   }
 }

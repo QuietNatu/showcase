@@ -29,7 +29,7 @@ $-interactable-z-index: 2; // Must be higher than link's z-index to not be cover
 }
 
 .heading {
-  @include utils.fluid-heading-3;
+  @include utils.text-fluid-heading-3;
 
   margin: 0;
 }

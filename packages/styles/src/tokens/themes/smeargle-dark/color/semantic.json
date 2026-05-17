@@ -1,0 +1,14 @@
+{
+  "color": {
+    "$type": "color",
+
+    "text": {
+      "primary": { "$value": "{color.white}" },
+      "on-color": { "$value": "{color.black}" }
+    },
+
+    "background": {
+      "primary": { "$value": "{color.black}" }
+    }
+  }
+}

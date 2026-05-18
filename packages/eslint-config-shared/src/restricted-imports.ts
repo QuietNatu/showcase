@@ -1,6 +1,7 @@
 import { ValidNoRestrictedImportPatternOptions } from 'eslint/rules';
 
 const internalPackages = [
+  '@natu/api-contracts',
   '@natu/axe',
   '@natu/browserslist-config-shared',
   '@natu/eslint-config-shared',
@@ -10,7 +11,6 @@ const internalPackages = [
   '@natu/tsconfig',
   '@natu/ui-angular',
   '@natu/ui-react',
-  'api',
   'rotom',
   'smeargle',
 ] as const;
@@ -43,12 +43,11 @@ const packageLayers: Array<InternalPackage | InternalPackage[]> = [
   '@natu/browserslist-config-shared',
   '@natu/stories',
   // Specialized utils
-  ['@natu/axe', '@natu/orval'],
+  ['@natu/axe', '@natu/orval', '@natu/api-contracts'],
   // UI utils
   '@natu/styles',
   ['@natu/ui-angular', '@natu/ui-react'],
   // Apps
-  'api',
   ['rotom', 'smeargle'],
 ];
 

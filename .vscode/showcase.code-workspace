@@ -1,20 +1,16 @@
 {
   "folders": [
     {
-      "name": "🌱 root",
-      "path": "..",
-    },
-    {
-      "name": "🔌 api",
-      "path": "../apps/api",
-    },
-    {
       "name": "🚀 rotom",
       "path": "../apps/rotom",
     },
     {
       "name": "🚀 smeargle",
       "path": "../apps/smeargle",
+    },
+    {
+      "name": "🔌 api-contracts",
+      "path": "../packages/api-contracts",
     },
     {
       "name": "📦 axe",
@@ -51,6 +47,10 @@
     {
       "name": "📦 ui-react",
       "path": "../packages/ui-react",
+    },
+    {
+      "name": "🌱 root",
+      "path": "..",
     },
   ],
   "settings": {

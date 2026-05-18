@@ -1,9 +1,12 @@
 {
-  "name": "api",
+  "name": "@natu/api-contracts",
   "private": true,
   "license": "MIT",
   "version": "0.0.0",
   "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
   "scripts": {},
   "dependencies": {},
   "devDependencies": {}

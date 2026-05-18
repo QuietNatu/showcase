@@ -1,10 +1,11 @@
 import { defineConfig } from 'orval';
 import { commonApiOptions, commonZodOptions } from '@natu/orval';
+import { openApiPath } from '@natu/api-contracts';
 
 export default defineConfig({
   api: {
     ...commonApiOptions,
-    input: '../api/openapi.yaml',
+    input: openApiPath,
     output: {
       ...commonApiOptions.output,
       client: 'angular',
@@ -13,6 +14,6 @@ export default defineConfig({
 
   apiZod: {
     ...commonZodOptions,
-    input: '../api/openapi.yaml',
+    input: openApiPath,
   },
 });

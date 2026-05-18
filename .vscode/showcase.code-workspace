@@ -1,6 +1,10 @@
 {
   "folders": [
     {
+      "name": "🌱 root", // For some reason, if this is not at the top, it breaks somesass extension
+      "path": "..",
+    },
+    {
       "name": "🚀 rotom",
       "path": "../apps/rotom",
     },
@@ -48,10 +52,6 @@
       "name": "📦 ui-react",
       "path": "../packages/ui-react",
     },
-    {
-      "name": "🌱 root",
-      "path": "..",
-    },
   ],
   "settings": {
     "terminal.integrated.cwd": "${workspaceFolder:🌱 root}",
@@ -72,7 +72,7 @@
 
     "somesass.scss.completion.suggestFromUseOnly": true,
 
-    // Replaces @builtin css language features
+    // Replaces "vscode.css-language-features"
     "somesass.css.codeAction.enabled": true,
     "somesass.css.colors.enabled": true,
     "somesass.css.completion.enabled": true,
@@ -89,7 +89,7 @@
     "somesass.css.signatureHelp.enabled": true,
     "somesass.css.workspaceSymbol.enabled": true,
 
-    // Replaces @builtin css language features
+    // Replaces "vscode.css-language-features"
     "somesass.scss.codeAction.enabled": true,
     "somesass.scss.colors.enabled": true,
     "somesass.scss.colors.includeFromCurrentDocument": true,

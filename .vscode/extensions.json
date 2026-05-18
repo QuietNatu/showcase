@@ -17,5 +17,6 @@
     "somewhatstationery.some-sass",
     "vunguyentuan.vscode-css-variables",
     "vivaxy.vscode-conventional-commits"
-  ]
+  ],
+  "unwantedRecommendations": ["vscode.css-language-features"]
 }

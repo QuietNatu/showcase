@@ -2,6 +2,13 @@
 
 @mixin styles {
   @layer base {
+    :root {
+      // TODO: remove prefix to allow better tooling? Or compile?
+      @each $breakpoint, $value in utils.$breakpoints {
+        --#{utils.$prefix}-breakpoint-#{$breakpoint}: #{$value};
+      }
+    }
+
     body {
       @include utils.text-body-1;
 

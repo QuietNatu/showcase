@@ -28,6 +28,7 @@ export default {
     'order/properties-alphabetical-order': true,
     'plugin/declaration-block-no-ignored-properties': true,
     'plugin/no-unsupported-browser-features': [true, { ignore: ['css-nesting', 'css-when-else'] }],
+    'scss/double-slash-comment-empty-line-before': null,
     'value-keyword-case': ['lower', { ignoreProperties: ['/--natu-font-family-.+/'] }],
   },
 };

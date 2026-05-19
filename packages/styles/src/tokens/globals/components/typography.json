@@ -37,12 +37,19 @@
 
   "fluid": {
     "heading-1": {
-      "xs": {
+      "initial": {
         "fontFamily": { "$value": "{font.family.heading}" },
         "fontSize": { "$value": "{font.size.8}" },
         "fontWeight": { "$value": "{font.weight.strong}" },
         "letterSpacing": { "$value": "0" },
         "lineHeight": { "$value": "1.25" }
+      },
+      "xs": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.9}" },
+        "fontWeight": { "$value": "{font.weight.strong}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.22" }
       },
       "sm": {
         "fontFamily": { "$value": "{font.family.heading}" },
@@ -75,6 +82,13 @@
     },
 
     "heading-2": {
+      "initial": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.7}" },
+        "fontWeight": { "$value": "{font.weight.regular}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.2857" }
+      },
       "xs": {
         "fontFamily": { "$value": "{font.family.heading}" },
         "fontSize": { "$value": "{font.size.7}" },
@@ -113,6 +127,13 @@
     },
 
     "heading-3": {
+      "initial": {
+        "fontFamily": { "$value": "{font.family.heading}" },
+        "fontSize": { "$value": "{font.size.5}" },
+        "fontWeight": { "$value": "{font.weight.regular}" },
+        "letterSpacing": { "$value": "0" },
+        "lineHeight": { "$value": "1.4" }
+      },
       "xs": {
         "fontFamily": { "$value": "{font.family.heading}" },
         "fontSize": { "$value": "{font.size.5}" },

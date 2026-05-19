@@ -8,3 +8,29 @@
 body {
   @include utils.text-body-2;
 }
+
+.story-table {
+  border-collapse: collapse;
+
+  & tr {
+    background-color: white;
+    color: black;
+
+    &:nth-child(even) {
+      background-color: whitesmoke;
+    }
+  }
+
+  & th {
+    background-color: black;
+    color: white;
+    padding-block: var(--natu-spacing-4);
+    text-align: start;
+  }
+
+  & td,
+  & th {
+    border: 1px solid lightgrey;
+    padding: var(--natu-spacing-3);
+  }
+}

@@ -1,0 +1,16 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as stories from './variables.stories';
+
+<Meta of={stories} />
+
+# Variables
+
+Glossary of generic variables available for use.
+
+## Breakpoints
+
+Breakpoints are available via CSS variables or SCSS variables.
+While CSS variables should be preferred, SCSS variables are also provided
+until browsers support using CSS variables in media queries.
+
+<Canvas of={stories.Breakpoints} />

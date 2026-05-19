@@ -1,13 +1,24 @@
+@use 'functions';
+
 $prefix: 'natu';
 
 // TODO: add ui helper to view current breakpoint
+// TODO: explain in storybook
 // Change breakpoints to CSS vars once media queries support it
-$breakpoint-xs: 320px;
-$breakpoint-sm: 672px;
-$breakpoint-md: 1056px;
-$breakpoint-lg: 1312px;
-$breakpoint-xl: 1584px;
+/// Phones (portrait)
+$breakpoint-initial: functions.rem(0px);
+/// Phones (landscape)
+$breakpoint-xs: functions.rem(520px);
+/// Tablets (portrait)
+$breakpoint-sm: functions.rem(768px);
+/// Tablets (landscape)
+$breakpoint-md: functions.rem(1024px);
+/// Laptops
+$breakpoint-lg: functions.rem(1280px);
+/// Desktops
+$breakpoint-xl: functions.rem(1640px);
 $breakpoints: (
+  'initial': $breakpoint-initial,
   'xs': $breakpoint-xs,
   'sm': $breakpoint-sm,
   'md': $breakpoint-md,

@@ -127,7 +127,7 @@
     "CSSNavigation.activeCSSFileExtensions": ["css", "scss"],
     "CSSNavigation.disableOwnCSSVariableCompletion": true,
     "CSSNavigation.enableClassNameDefinitionDiagnostic": true,
-    "CSSNavigation.enableClassNameReferenceDiagnostic": true,
+    "CSSNavigation.enableClassNameReferenceDiagnostic": false,
     "CSSNavigation.enableCSSVariableColorPreview": false,
     "CSSNavigation.searchAcrossWorkspaceFolders": true,
     "CSSNavigation.alwaysIncludeGlobPatterns": ["packages/styles/dist/**/*"],

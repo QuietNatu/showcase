@@ -16,7 +16,8 @@
     "bierner.markdown-mermaid",
     "somewhatstationery.some-sass",
     "vunguyentuan.vscode-css-variables",
-    "vivaxy.vscode-conventional-commits"
+    "vivaxy.vscode-conventional-commits",
+    "pucelle.vscode-css-navigation"
   ],
   "unwantedRecommendations": ["vscode.css-language-features"]
 }

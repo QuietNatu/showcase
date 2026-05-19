@@ -111,7 +111,7 @@
     "somesass.scss.signatureHelp.enabled": true,
     "somesass.scss.workspaceSymbol.enabled": true,
 
-    "cssVariables.lookupFiles": ["packages/styles/**/*.css", "packages/styles/**/*.scss"],
+    "cssVariables.lookupFiles": ["packages/styles/dist/**/*.css", "packages/styles/dist/**/*.scss"],
     "cssVariables.blacklistFolders": [
       "**/.git",
       "**/.svn",
@@ -123,5 +123,14 @@
       "**/tmp",
       "**/tests",
     ],
+
+    "CSSNavigation.activeCSSFileExtensions": ["css", "scss"],
+    "CSSNavigation.disableOwnCSSVariableCompletion": true,
+    "CSSNavigation.enableClassNameDefinitionDiagnostic": true,
+    "CSSNavigation.enableClassNameReferenceDiagnostic": true,
+    "CSSNavigation.enableCSSVariableColorPreview": false,
+    "CSSNavigation.searchAcrossWorkspaceFolders": true,
+    "CSSNavigation.alwaysIncludeGlobPatterns": ["packages/styles/dist/**/*"],
+    "CSSNavigation.excludeGlobPatterns": ["**/*"],
   },
 }

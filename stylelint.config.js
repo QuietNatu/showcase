@@ -13,7 +13,7 @@ export default {
     'stylelint-config-css-modules',
     'stylelint-plugin-logical-css/configs/recommended',
   ],
-  ignoreFiles: ['./node_modules/**', '**/*.js', '**/*.ts', '**/*.jsx', '**/*.tsx'],
+  ignoreFiles: ['**/node_modules/**', '**/dist/**', '**/*.js', '**/*.ts', '**/*.jsx', '**/*.tsx'],
   rules: {
     'alpha-value-notation': 'number',
     'color-no-hex': true,

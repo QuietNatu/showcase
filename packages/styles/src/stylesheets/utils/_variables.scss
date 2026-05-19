@@ -1,9 +1,6 @@
 @use 'functions';
 
-$prefix: 'natu';
-
 // TODO: add ui helper to view current breakpoint
-// TODO: explain in storybook
 // Change breakpoints to CSS vars once media queries support it
 /// Phones (portrait)
 $breakpoint-initial: functions.rem(0px);

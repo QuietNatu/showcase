@@ -2,31 +2,31 @@
 
 @mixin styles {
   @layer typography {
-    .#{#{utils.$prefix}-heading-1} {
+    .natu-heading-1 {
       @include utils.text-heading-1;
     }
 
-    .#{#{utils.$prefix}-heading-2} {
+    .natu-heading-2 {
       @include utils.text-heading-2;
     }
 
-    .#{#{utils.$prefix}-body-1} {
+    .natu-body-1 {
       @include utils.text-body-1;
     }
 
-    .#{#{utils.$prefix}-body-2} {
+    .natu-body-2 {
       @include utils.text-body-2;
     }
 
-    .#{#{utils.$prefix}-fluid-heading-1} {
+    .natu-fluid-heading-1 {
       @include utils.text-fluid-heading-1;
     }
 
-    .#{#{utils.$prefix}-fluid-heading-2} {
+    .natu-fluid-heading-2 {
       @include utils.text-fluid-heading-2;
     }
 
-    .#{#{utils.$prefix}-fluid-heading-3} {
+    .natu-fluid-heading-3 {
       @include utils.text-fluid-heading-3;
     }
   }

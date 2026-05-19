@@ -28,29 +28,29 @@
 }
 
 @mixin heading-1 {
-  @include -fixed($name: #{variables.$prefix}-heading-1);
+  @include -fixed($name: natu-heading-1);
 }
 
 @mixin heading-2 {
-  @include -fixed($name: #{variables.$prefix}-heading-2);
+  @include -fixed($name: natu-heading-2);
 }
 
 @mixin body-1 {
-  @include -fixed($name: #{variables.$prefix}-body-1);
+  @include -fixed($name: natu-body-1);
 }
 
 @mixin body-2 {
-  @include -fixed($name: #{variables.$prefix}-body-2);
+  @include -fixed($name: natu-body-2);
 }
 
 @mixin fluid-heading-1 {
-  @include -fluid($name: #{variables.$prefix}-fluid-heading-1);
+  @include -fluid($name: natu-fluid-heading-1);
 }
 
 @mixin fluid-heading-2 {
-  @include -fluid($name: #{variables.$prefix}-fluid-heading-2);
+  @include -fluid($name: natu-fluid-heading-2);
 }
 
 @mixin fluid-heading-3 {
-  @include -fluid($name: #{variables.$prefix}-fluid-heading-3);
+  @include -fluid($name: natu-fluid-heading-3);
 }

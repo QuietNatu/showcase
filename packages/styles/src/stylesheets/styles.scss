@@ -4,8 +4,7 @@
 @use 'typography';
 @use 'base';
 
-/* stylelint-disable-next-line layer-name-pattern -- false positive due to variable */
-@layer #{utils.$prefix} {
+@layer natu {
   @include normalize.styles;
   @include fonts.styles;
   @include typography.styles;

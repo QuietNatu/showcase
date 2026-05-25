@@ -9,6 +9,8 @@ export function getRouter() {
     scrollRestoration: true,
     defaultPendingMs: 0,
     // Should be improved later
+    defaultNotFoundComponent: () => <>Not Found</>,
+    // Should be improved later
     defaultPendingComponent: () => <>Loading...</>,
     // Should be improved later
     defaultErrorComponent: ({ error, reset }) => (

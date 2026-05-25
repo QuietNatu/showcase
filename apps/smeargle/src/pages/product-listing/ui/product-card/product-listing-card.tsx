@@ -29,6 +29,10 @@ export function ProductListingCard(props: Props) {
 
       <NatuProductCard.Body className={styles.body}>
         <NatuProductCard.Heading>{name}</NatuProductCard.Heading>
+
+        {/* TODO */}
+        <p className={styles.price}>30,99 €</p>
+
         <NatuProductCard.Interactable
           render={
             <button type="button" onClick={onAddToCart}>

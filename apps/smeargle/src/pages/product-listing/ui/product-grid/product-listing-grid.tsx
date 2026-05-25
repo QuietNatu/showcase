@@ -1,5 +1,6 @@
 import type { ProductDto } from '../../../../shared/api/gen/models/product-dto.zod';
 import { ProductListingCard } from '../product-card/product-listing-card';
+import styles from './product-listing-grid.module.scss';
 
 type Props = Readonly<{
   products: ProductDto[];
@@ -12,7 +13,7 @@ export function ProductListingGrid(props: Props) {
   const { products } = props;
 
   return (
-    <ul>
+    <ul className={styles.grid}>
       {products.map((product) => (
         <li key={product.id}>
           <ProductListingCard

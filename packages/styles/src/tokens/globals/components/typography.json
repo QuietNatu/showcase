@@ -39,7 +39,7 @@
 
       "font-size": {
         "min": { "$value": "{font.size.8}" },
-        "value": { "$value": "{font.size.8} + 2cqi" },
+        "value": { "$value": "{font.size.6} + 2cqi" },
         "max": { "$value": "{font.size.13}" }
       }
     },

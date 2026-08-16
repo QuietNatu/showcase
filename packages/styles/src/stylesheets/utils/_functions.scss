@@ -13,7 +13,7 @@
 /// @param {Number} $value - Preferred value that while respecting min and max.
 /// @param {Number} $max - Largest possible value
 /// @param {Number} $interval - Rounding interval
-/// @return {String} -
+/// @return {String} - scalable value
 @function fluid($min, $value, $max, $interval) {
   $size: clamp($min, $value, $max);
 

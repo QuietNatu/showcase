@@ -8,6 +8,10 @@
       }
     }
 
+    *:focus-visible {
+      @include utils.outline;
+    }
+
     body {
       @include utils.text-body-1;
 

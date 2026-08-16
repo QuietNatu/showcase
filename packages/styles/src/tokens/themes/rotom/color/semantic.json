@@ -9,6 +9,7 @@
 
     "background": {
       "primary": { "$value": "{color.white}" }
-    }
+    },
+    "outline": { "$value": "{color.info.30}" }
   }
 }

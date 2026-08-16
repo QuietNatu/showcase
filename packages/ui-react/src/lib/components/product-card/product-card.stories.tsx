@@ -40,6 +40,12 @@ export const Basic: Story = {
 
       <NatuProductCard.Body>
         <NatuProductCard.Heading>Heading</NatuProductCard.Heading>
+
+        <p style={{ margin: 0 }}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta ex quis
+          egestas maximus. In hac habitasse platea dictumst. Etiam pretium rhoncus nibh, quis
+          scelerisque massa commodo eu.
+        </p>
       </NatuProductCard.Body>
     </NatuProductCard.Root>
   ),
@@ -59,6 +65,12 @@ export const WithButtons: Story = {
 
       <NatuProductCard.Body style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
         <NatuProductCard.Heading>Heading</NatuProductCard.Heading>
+
+        <p style={{ margin: 0 }}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta ex quis
+          egestas maximus. In hac habitasse platea dictumst. Etiam pretium rhoncus nibh, quis
+          scelerisque massa commodo eu.
+        </p>
 
         <div style={{ display: 'flex', gap: '6px', justifyContent: 'center' }}>
           <NatuProductCard.Interactable

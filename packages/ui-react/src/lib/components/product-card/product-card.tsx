@@ -82,7 +82,9 @@ export function NatuProductCardHeading(props: HeadingProps) {
  * Renders an `<a>` element.
  */
 export function NatuProductCardLink(props: LinkProps) {
-  return <NatuHeadlessProductCardLink {...props} />;
+  const { className, ...otherProps } = props;
+
+  return <NatuHeadlessProductCardLink {...otherProps} className={clsx(className, styles.link)} />;
 }
 
 /**

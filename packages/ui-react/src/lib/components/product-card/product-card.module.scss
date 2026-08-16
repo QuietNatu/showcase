@@ -2,14 +2,24 @@
 
 $-card-border-radius: 6px; // TODO var
 
-$-link-z-index: 1;
-$-interactable-z-index: 2; // Must be higher than link's z-index to not be covered by it
-
 // TODO: color agnostic vars
 
 .card {
+  border-radius: $-card-border-radius;
+}
+
+.link {
   border: 1px solid var(--natu-color-grey-30);
   border-radius: $-card-border-radius;
+
+  &:hover:not(:focus-visible) {
+    border-color: var(--natu-color-black);
+    border-width: 2px;
+  }
+
+  &:focus-visible {
+    @include utils.outline;
+  }
 }
 
 .media {
@@ -25,7 +35,7 @@ $-interactable-z-index: 2; // Must be higher than link's z-index to not be cover
 }
 
 .body {
-  padding: var(--natu-spacing-3) var(--natu-spacing-2);
+  padding: var(--natu-spacing-3) var(--natu-spacing-3);
 }
 
 .heading {

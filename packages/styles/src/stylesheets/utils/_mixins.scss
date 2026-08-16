@@ -1,0 +1,4 @@
+/// Styles the focus outline of an element
+@mixin outline {
+  outline: 2px solid var(--natu-color-outline);
+}

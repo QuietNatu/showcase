@@ -1,19 +1,17 @@
 @use 'pkg:@natu/styles/stylesheets/utils';
 
-$-card-border-radius: 6px; // TODO var
-
-// TODO: color agnostic vars
+$-card-border-radius: var(--natu-radius-md);
 
 .card {
   border-radius: $-card-border-radius;
 }
 
 .link {
-  border: 1px solid var(--natu-color-grey-30);
+  border: 1px solid var(--natu-color-border-default);
   border-radius: $-card-border-radius;
 
   &:hover:not(:focus-visible) {
-    border-color: var(--natu-color-black);
+    border-color: var(--natu-color-border-hover);
     border-width: 2px;
   }
 

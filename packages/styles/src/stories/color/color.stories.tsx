@@ -39,7 +39,7 @@ export const Text: Story = {
           justifyContent: 'center',
           padding: '10px',
           height: '60px',
-          background: `var(--natu-color-background-primary)`,
+          background: `var(--natu-color-surface-primary)`,
           color: 'var(--natu-color-text-primary)',
         }}
       >

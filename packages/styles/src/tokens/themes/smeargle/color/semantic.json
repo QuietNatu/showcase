@@ -2,14 +2,20 @@
   "color": {
     "$type": "color",
 
+    "border": {
+      "default": { "$value": "{color.grey.30}" },
+      "hover": { "$value": "{color.grey.80}" }
+    },
+
+    "focus": { "$value": "{color.info.30}" },
+
+    "surface": {
+      "primary": { "$value": "{color.white}" }
+    },
+
     "text": {
       "primary": { "$value": "{color.black}" },
       "on-color": { "$value": "{color.white}" }
-    },
-
-    "background": {
-      "primary": { "$value": "{color.white}" }
-    },
-    "outline": { "$value": "{color.info.30}" }
+    }
   }
 }

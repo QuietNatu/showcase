@@ -2,6 +2,7 @@
   "font": {
     "family": {
       "$type": "fontFamily",
+
       "heading": {
         "$value": "Montserrat, Helvetica, Arial, sans-serif"
       },
@@ -9,6 +10,7 @@
         "$value": "-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, Adwaita Sans, Cantarell, Ubuntu, roboto, noto, helvetica, arial, sans-serif"
       }
     },
+
     "size": {
       "$type": "dimension",
 
@@ -30,8 +32,10 @@
       "16": { "$value": { "value": 84, "unit": "px" } },
       "17": { "$value": { "value": 92, "unit": "px" } }
     },
+
     "weight": {
       "$type": "fontWeight",
+
       "light": {
         "$value": "300"
       },

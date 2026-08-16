@@ -7,7 +7,7 @@ type Props = Readonly<{
 }>;
 
 /**
- * TODO
+ * Shows a list with a summary view of each product
  */
 export function ProductListingGrid(props: Props) {
   const { products } = props;
@@ -17,6 +17,7 @@ export function ProductListingGrid(props: Props) {
       {products.map((product) => (
         <li key={product.id}>
           <ProductListingCard
+            className={styles.item}
             slug={product.slug}
             name={product.name}
             imageUrl={product.imageUrl}

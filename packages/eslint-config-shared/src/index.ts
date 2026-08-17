@@ -247,6 +247,7 @@ const vitestConfig = defineConfig({
     ...vitest.configs.all.rules,
     '@typescript-eslint/only-throw-error': 'off',
     '@typescript-eslint/restrict-template-expressions': 'off',
+    'functional/no-loop-statements': 'off',
     'functional/no-throw-statements': 'off',
     'security/detect-object-injection': 'off',
     'vitest/consistent-test-it': ['warn', { fn: 'test', withinDescribe: 'test' }],
@@ -295,7 +296,7 @@ export default {
     /** Should be placed after all the other configs and rules */
     prettier: prettierConfig,
   },
-  defaultIgnores,
+  defaultIgnores, // TODO: globalIgnores now stacks so no need for export
   utils: {
     buildRestrictedPatterns,
   },

@@ -13,7 +13,7 @@ export function ProductListingPage(props: Props) {
     <>
       <h1>Products</h1>
       <div>Product count: {products.length}</div>
-
+      {/* TODO: add explanation when no products were found */}
       <ProductListingGrid products={products} />
     </>
   );

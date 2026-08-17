@@ -31,18 +31,19 @@ export function ProductListingCard(props: Props) {
       />
 
       <NatuProductCard.Media>
-        <NatuProductCard.Image src={imageUrl} className={styles.image} />
+        <NatuProductCard.Image alt={name} src={imageUrl} className={styles.image} />
       </NatuProductCard.Media>
 
       <NatuProductCard.Body className={styles.body}>
-        <NatuProductCard.Heading>{name}</NatuProductCard.Heading>
+        <NatuProductCard.Heading render={<h2>{name}</h2>} />
 
         {/* TODO */}
         <p className={styles.price}>30,99 €</p>
 
         <NatuProductCard.Interactable
           render={
-            <button type="button" onClick={onAddToCart}>
+            //  TODO: remove hardcoded style once button styles are implemented
+            <button type="button" onClick={onAddToCart} style={{ height: '24px' }}>
               Add to Cart
             </button>
           }

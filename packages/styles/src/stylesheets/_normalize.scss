@@ -2,6 +2,6 @@
 
 @mixin styles {
   @layer normalize {
-    @include meta.load-css('modern-normalize/modern-normalize.css');
+    @include meta.load-css('pkg:modern-normalize/modern-normalize.css');
   }
 }

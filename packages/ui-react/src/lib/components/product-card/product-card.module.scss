@@ -1,0 +1,43 @@
+@use 'pkg:@natu/styles/stylesheets/utils';
+
+$-card-border-radius: var(--natu-radius-md);
+
+.card {
+  border-radius: $-card-border-radius;
+}
+
+.link {
+  border: 1px solid var(--natu-color-border-default);
+  border-radius: $-card-border-radius;
+
+  &:hover:not(:focus-visible) {
+    border-color: var(--natu-color-border-hover);
+    border-width: 2px;
+  }
+
+  &:focus-visible {
+    @include utils.outline;
+  }
+}
+
+.media {
+  display: flex;
+  position: relative;
+}
+
+.image {
+  block-size: 100%;
+  border-start-end-radius: $-card-border-radius;
+  border-start-start-radius: $-card-border-radius;
+  inline-size: 100%;
+}
+
+.body {
+  padding: var(--natu-spacing-3) var(--natu-spacing-3);
+}
+
+.heading {
+  @include utils.text-fluid-heading-3;
+
+  margin: 0;
+}

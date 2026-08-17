@@ -8,6 +8,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// TODO: heading 3
 export const Headings: Story = {
   render: () => (
     <>
@@ -26,11 +27,13 @@ export const Body: Story = {
   ),
 };
 
+// TODO: explain that heading 1 and 2 are for layout headings and heading 3 is for component or layout headings
 export const Fluid: Story = {
   render: () => (
     <>
       <h1 className="natu-fluid-heading-1">Fluid Heading 1</h1>
       <h2 className="natu-fluid-heading-2">Fluid Heading 2</h2>
+      <h3 className="natu-fluid-heading-3">Fluid Heading 3</h3>
     </>
   ),
 };

@@ -1,0 +1,17 @@
+$-link-z-index: 1;
+$-interactable-z-index: 2; // Must be higher than link's z-index to not be covered by it
+
+.card {
+  position: relative;
+}
+
+.link {
+  inset: 0;
+  position: absolute;
+  z-index: $-link-z-index;
+}
+
+.interactable {
+  position: relative;
+  z-index: $-interactable-z-index;
+}

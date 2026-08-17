@@ -1,5 +1,6 @@
 import angular from '@analogjs/vite-plugin-angular';
 import { playwright } from '@vitest/browser-playwright';
+import { NodePackageImporter } from 'sass-embedded';
 import { defineConfig } from 'vitest/config';
 
 const isDebugMode = Boolean(process.env.TEST_DEBUG);
@@ -11,6 +12,14 @@ export default defineConfig({
       tsconfig: './tsconfig.test.json',
     }),
   ],
+
+  css: {
+    preprocessorOptions: {
+      scss: {
+        importers: [new NodePackageImporter()],
+      },
+    },
+  },
 
   preview: {
     port: 6101,

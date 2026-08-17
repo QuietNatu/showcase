@@ -1,16 +1,29 @@
-@use './utils/text';
+@use 'utils';
 
 @mixin styles {
   @layer base {
-    body {
-      @include text.body-1;
+    :root {
+      @each $breakpoint, $value in utils.$breakpoints {
+        --natu-breakpoint-#{$breakpoint}: #{$value};
+      }
+    }
 
-      background-color: var(--natu-color-background-primary);
+    *:focus-visible {
+      @include utils.outline;
+    }
+
+    body {
+      @include utils.text-body-1;
+
+      background-color: var(--natu-color-surface-primary);
+      color: var(--natu-color-text-primary);
     }
 
     ul,
     ol {
       list-style-type: none;
+      margin: 0;
+      padding: 0;
     }
   }
 }

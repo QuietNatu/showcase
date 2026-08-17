@@ -1,114 +1,70 @@
 {
   "heading": {
     "1": {
-      "fontFamily": { "$value": "{font.family.heading}" },
-      "fontSize": { "$value": "{font.size.9}" },
-      "fontWeight": { "$value": "{font.weight.light}" },
-      "letterSpacing": { "$value": "0" },
-      "lineHeight": { "$value": "1.199" }
+      "font-family": { "$value": "{font.family.heading}" },
+      "font-size": { "$value": "{font.size.10}" },
+      "font-weight": { "$value": "{font.weight.light}" },
+      "line-height": { "$value": "1.2" }
     },
 
     "2": {
-      "fontFamily": { "$value": "{font.family.heading}" },
-      "fontSize": { "$value": "{font.size.7}" },
-      "fontWeight": { "$value": "{font.weight.regular}" },
-      "letterSpacing": { "$value": "0" },
-      "lineHeight": { "$value": "1.25" }
+      "font-family": { "$value": "{font.family.heading}" },
+      "font-size": { "$value": "{font.size.8}" },
+      "font-weight": { "$value": "{font.weight.regular}" },
+      "line-height": { "$value": "1.3" }
     }
   },
 
   "body": {
     "1": {
-      "fontFamily": { "$value": "{font.family.regular}" },
-      "fontSize": { "$value": "{font.size.3}" },
-      "fontWeight": { "$value": "{font.weight.regular}" },
-      "letterSpacing": { "$value": "0" },
-      "lineHeight": { "$value": "{spacing.7}" }
+      "font-family": { "$value": "{font.family.regular}" },
+      "font-size": { "$value": "{font.size.3}" },
+      "font-weight": { "$value": "{font.weight.regular}" },
+      "line-height": { "$value": "{spacing.7}" }
     },
 
     "2": {
-      "fontFamily": { "$value": "{font.family.regular}" },
-      "fontSize": { "$value": "{font.size.2}" },
-      "fontWeight": { "$value": "{font.weight.regular}" },
-      "letterSpacing": { "$value": "0" },
-      "lineHeight": { "$value": "{spacing.6}" }
+      "font-family": { "$value": "{font.family.regular}" },
+      "font-size": { "$value": "{font.size.2}" },
+      "font-weight": { "$value": "{font.weight.regular}" },
+      "line-height": { "$value": "{spacing.6}" }
     }
   },
 
   "fluid": {
     "heading-1": {
-      "xs": {
-        "fontFamily": { "$value": "{font.family.heading}" },
-        "fontSize": { "$value": "{font.size.7}" },
-        "fontWeight": { "$value": "{font.weight.strong}" },
-        "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.25" }
-      },
-      "sm": {
-        "fontFamily": { "$value": "{font.family.heading}" },
-        "fontSize": { "$value": "{font.size.8}" },
-        "fontWeight": { "$value": "{font.weight.strong}" },
-        "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.22" }
-      },
-      "md": {
-        "fontFamily": { "$value": "{font.family.heading}" },
-        "fontSize": { "$value": "{font.size.9}" },
-        "fontWeight": { "$value": "{font.weight.strong}" },
-        "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.19" }
-      },
-      "lg": {
-        "fontFamily": { "$value": "{font.family.heading}" },
-        "fontSize": { "$value": "{font.size.10}" },
-        "fontWeight": { "$value": "{font.weight.strong}" },
-        "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.17" }
-      },
-      "xl": {
-        "fontFamily": { "$value": "{font.family.heading}" },
-        "fontSize": { "$value": "{font.size.12}" },
-        "fontWeight": { "$value": "{font.weight.strong}" },
-        "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.17" }
+      "font-family": { "$value": "{font.family.heading}" },
+      "font-weight": { "$value": "{font.weight.strong}" },
+      "line-height": { "$value": "1.2" },
+
+      "font-size": {
+        "min": { "$value": "{font.size.8}" },
+        "value": { "$value": "{font.size.6} + 2cqi" },
+        "max": { "$value": "{font.size.13}" }
       }
     },
 
     "heading-2": {
-      "xs": {
-        "fontFamily": { "$value": "{font.family.heading}" },
-        "fontSize": { "$value": "{font.size.6}" },
-        "fontWeight": { "$value": "{font.weight.regular}" },
-        "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.2857" }
-      },
-      "sm": {
-        "fontFamily": { "$value": "{font.family.heading}" },
-        "fontSize": { "$value": "{font.size.6}" },
-        "fontWeight": { "$value": "{font.weight.regular}" },
-        "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.2857" }
-      },
-      "md": {
-        "fontFamily": { "$value": "{font.family.heading}" },
-        "fontSize": { "$value": "{font.size.6}" },
-        "fontWeight": { "$value": "{font.weight.regular}" },
-        "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.2857" }
-      },
-      "lg": {
-        "fontFamily": { "$value": "{font.family.heading}" },
-        "fontSize": { "$value": "{font.size.7}" },
-        "fontWeight": { "$value": "{font.weight.regular}" },
-        "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.25" }
-      },
-      "xl": {
-        "fontFamily": { "$value": "{font.family.heading}" },
-        "fontSize": { "$value": "{font.size.7}" },
-        "fontWeight": { "$value": "{font.weight.regular}" },
-        "letterSpacing": { "$value": "0" },
-        "lineHeight": { "$value": "1.25" }
+      "font-family": { "$value": "{font.family.heading}" },
+      "font-weight": { "$value": "{font.weight.regular}" },
+      "line-height": { "$value": "1.3" },
+
+      "font-size": {
+        "min": { "$value": "{font.size.7}" },
+        "value": { "$value": "{font.size.6} + 1cqi" },
+        "max": { "$value": "{font.size.8}" }
+      }
+    },
+
+    "heading-3": {
+      "font-family": { "$value": "{font.family.heading}" },
+      "font-weight": { "$value": "{font.weight.regular}" },
+      "line-height": { "$value": "1.4" },
+
+      "font-size": {
+        "min": { "$value": "{font.size.5}" },
+        "value": { "$value": "{font.size.4} + 1cqi" },
+        "max": { "$value": "{font.size.6}" }
       }
     }
   }

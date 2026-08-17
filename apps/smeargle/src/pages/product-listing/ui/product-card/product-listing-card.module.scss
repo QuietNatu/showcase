@@ -1,0 +1,14 @@
+.image {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--natu-spacing-2);
+}
+
+.price {
+  margin: 0;
+}

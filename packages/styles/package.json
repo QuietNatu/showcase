@@ -8,11 +8,29 @@
   "exports": {
     "./package.json": "./package.json",
     "./assets/*": "./src/assets/*",
-    "./stylesheets/*": "./src/stylesheets/*",
-    "./*": "./dist/*"
+    "./stylesheets/utils": {
+      "sass": "./src/stylesheets/utils/_index.scss"
+    },
+    "./stylesheets/styles": {
+      "sass": "./dist/stylesheets/styles.scss"
+    },
+    "./stylesheets/tokens/rotom-dark": {
+      "sass": "./dist/tokens/_rotom-dark.scss"
+    },
+    "./stylesheets/tokens/rotom": {
+      "sass": "./dist/tokens/_rotom.scss"
+    },
+    "./stylesheets/tokens/smeargle-dark": {
+      "sass": "./dist/tokens/_smeargle-dark.scss"
+    },
+    "./stylesheets/tokens/smeargle": {
+      "sass": "./dist/tokens/_smeargle.scss"
+    }
   },
   "scripts": {
-    "build": "tsx ./src/build-tokens.ts",
+    "build": "pnpm build:tokens && pnpm build:stylesheets",
+    "build:tokens": "tsx ./src/build-tokens.ts",
+    "build:stylesheets": "sass --pkg-importer=node ./src/stylesheets/styles.scss ./dist/stylesheets/styles.scss",
     "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "storybook": "storybook dev -p 6900",
     "storybook:build": "storybook build",
@@ -40,6 +58,7 @@
     "picocolors": "1.1.1",
     "react": "19.2.5",
     "react-dom": "19.2.5",
+    "sass-embedded": "^1.99.0",
     "storybook": "10.3.6",
     "style-dictionary": "5.4.0",
     "tsx": "4.21.0",

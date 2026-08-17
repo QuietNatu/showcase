@@ -1,12 +1,8 @@
 {
   "folders": [
     {
-      "name": "🌱 root",
+      "name": "🌱 root", // For some reason, if this is not at the top, it breaks somesass extension
       "path": "..",
-    },
-    {
-      "name": "🔌 api",
-      "path": "../apps/api",
     },
     {
       "name": "🚀 rotom",
@@ -15,6 +11,10 @@
     {
       "name": "🚀 smeargle",
       "path": "../apps/smeargle",
+    },
+    {
+      "name": "🔌 api-contracts",
+      "path": "../packages/api-contracts",
     },
     {
       "name": "📦 axe",
@@ -55,6 +55,7 @@
   ],
   "settings": {
     "terminal.integrated.cwd": "${workspaceFolder:🌱 root}",
+    "js/ts.preferences.importModuleSpecifier": "project-relative",
     "search.exclude": {
       "**/.angular": true,
       "**/coverage": true,
@@ -68,5 +69,68 @@
       "**/lighthouse-reports": true,
       "**/.tanstack": true,
     },
+
+    "somesass.scss.completion.suggestFromUseOnly": true,
+
+    // Replaces "vscode.css-language-features"
+    "somesass.css.codeAction.enabled": true,
+    "somesass.css.colors.enabled": true,
+    "somesass.css.completion.enabled": true,
+    "somesass.css.definition.enabled": true,
+    "somesass.css.diagnostics.enabled": true,
+    "somesass.css.documentSymbols.enabled": true,
+    "somesass.css.foldingRanges.enabled": true,
+    "somesass.css.highlights.enabled": true,
+    "somesass.css.hover.enabled": true,
+    "somesass.css.links.enabled": true,
+    "somesass.css.references.enabled": true,
+    "somesass.css.rename.enabled": true,
+    "somesass.css.selectionRanges.enabled": true,
+    "somesass.css.signatureHelp.enabled": true,
+    "somesass.css.workspaceSymbol.enabled": true,
+
+    // Replaces "vscode.css-language-features"
+    "somesass.scss.codeAction.enabled": true,
+    "somesass.scss.colors.enabled": true,
+    "somesass.scss.colors.includeFromCurrentDocument": true,
+    "somesass.scss.completion.enabled": true,
+    "somesass.scss.completion.css": true,
+    "somesass.scss.completion.includeFromCurrentDocument": true,
+    "somesass.scss.definition.enabled": true,
+    "somesass.scss.diagnostics.enabled": true,
+    "somesass.scss.diagnostics.lint.enabled": true,
+    "somesass.scss.documentSymbols.enabled": true,
+    "somesass.scss.foldingRanges.enabled": true,
+    "somesass.scss.highlights.enabled": true,
+    "somesass.scss.hover.enabled": true,
+    "somesass.scss.hover.documentation": true,
+    "somesass.scss.links.enabled": true,
+    "somesass.scss.references.enabled": true,
+    "somesass.scss.rename.enabled": true,
+    "somesass.scss.selectionRanges.enabled": true,
+    "somesass.scss.signatureHelp.enabled": true,
+    "somesass.scss.workspaceSymbol.enabled": true,
+
+    "cssVariables.lookupFiles": ["packages/styles/dist/**/*.css", "packages/styles/dist/**/*.scss"],
+    "cssVariables.blacklistFolders": [
+      "**/.git",
+      "**/.svn",
+      "**/.hg",
+      "**/CVS",
+      "**/.DS_Store",
+      "**/node_modules",
+      "**/bower_components",
+      "**/tmp",
+      "**/tests",
+    ],
+
+    "CSSNavigation.activeCSSFileExtensions": ["css", "scss"],
+    "CSSNavigation.disableOwnCSSVariableCompletion": true,
+    "CSSNavigation.enableClassNameDefinitionDiagnostic": true,
+    "CSSNavigation.enableClassNameReferenceDiagnostic": false,
+    "CSSNavigation.enableCSSVariableColorPreview": false,
+    "CSSNavigation.searchAcrossWorkspaceFolders": true,
+    "CSSNavigation.alwaysIncludeGlobPatterns": ["packages/styles/dist/**/*"],
+    "CSSNavigation.excludeGlobPatterns": ["**/*"],
   },
 }

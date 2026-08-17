@@ -76,7 +76,17 @@ components:
         slug:
           description: User-friendly identifier for URLs
           type: string
+        name:
+          description: Localized name of the product
+          type: string
+        # Move follwing props to variants once they exist
+        imageUrl:
+          description: Url of the image in it's original size
+          type: string
+          format: uri-reference
 
       required:
         - id
         - slug
+        - name
+        - imageUrl

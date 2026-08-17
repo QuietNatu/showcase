@@ -1,0 +1,12 @@
+@use 'pkg:@natu/styles/stylesheets/utils';
+
+.main {
+  margin: auto;
+  max-inline-size: utils.$breakpoint-xl;
+  padding-inline: utils.fluid(
+    $min: var(--natu-spacing-5),
+    $value: calc(var(--natu-spacing-4) + 1cqi),
+    $max: var(--natu-spacing-9),
+    $interval: 2px
+  );
+}

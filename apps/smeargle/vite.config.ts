@@ -1,6 +1,7 @@
 import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 import react from '@vitejs/plugin-react';
 import browserslistToEsbuild from 'browserslist-to-esbuild';
+import { NodePackageImporter } from 'sass-embedded';
 import { defineConfig } from 'vite';
 
 import { serverOnly } from './plugins/server-only';
@@ -35,6 +36,14 @@ export default defineConfig(({ mode }) => {
       react(),
       serverOnly(),
     ],
+
+    css: {
+      preprocessorOptions: {
+        scss: {
+          importers: [new NodePackageImporter()],
+        },
+      },
+    },
 
     build: {
       target: browserslistToEsbuild(),

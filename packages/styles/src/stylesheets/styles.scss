@@ -1,11 +1,10 @@
-@use './utils/variables';
-@use './normalize';
-@use './fonts';
-@use './typography';
-@use './base';
+@use 'utils';
+@use 'normalize';
+@use 'fonts';
+@use 'typography';
+@use 'base';
 
-/* stylelint-disable-next-line layer-name-pattern -- false positive due to variable */
-@layer #{variables.$prefix} {
+@layer natu {
   @include normalize.styles;
   @include fonts.styles;
   @include typography.styles;

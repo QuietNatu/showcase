@@ -1,0 +1,21 @@
+@use 'sass:math';
+
+/// Helper to make it easier to use rem units while still thinking in pixels
+/// @param {Number} $value - value in px
+/// @return {Number} - value in rem
+@function rem($value) {
+  @return math.div($value, 16px) * 1rem;
+}
+
+/// Allows to create a value that scales with the width of the container.
+/// This value is rounded down to an integer to prevent awkward decimal sizes.
+/// @param {Number} $min - Smallest possible value
+/// @param {Number} $value - Preferred value that while respecting min and max.
+/// @param {Number} $max - Largest possible value
+/// @param {Number} $interval - Rounding interval
+/// @return {String} - scalable value
+@function fluid($min, $value, $max, $interval) {
+  $size: clamp($min, $value, $max);
+
+  @return round(down, $size, $interval);
+}

@@ -29,7 +29,8 @@ function RootLayout() {
         <HeadContent />
       </head>
 
-      <body>
+      {/* TODO: auto theme */}
+      <body data-theme="smeargle">
         <AppLayout>
           <Outlet />
         </AppLayout>

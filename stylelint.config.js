@@ -13,7 +13,7 @@ export default {
     'stylelint-config-css-modules',
     'stylelint-plugin-logical-css/configs/recommended',
   ],
-  ignoreFiles: ['./node_modules/**', '**/*.js', '**/*.ts', '**/*.jsx', '**/*.tsx'],
+  ignoreFiles: ['**/node_modules/**', '**/dist/**', '**/*.js', '**/*.ts', '**/*.jsx', '**/*.tsx'],
   rules: {
     'alpha-value-notation': 'number',
     'color-no-hex': true,
@@ -28,6 +28,7 @@ export default {
     'order/properties-alphabetical-order': true,
     'plugin/declaration-block-no-ignored-properties': true,
     'plugin/no-unsupported-browser-features': [true, { ignore: ['css-nesting', 'css-when-else'] }],
+    'scss/double-slash-comment-empty-line-before': null,
     'value-keyword-case': ['lower', { ignoreProperties: ['/--natu-font-family-.+/'] }],
   },
 };

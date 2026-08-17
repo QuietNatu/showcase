@@ -1,8 +1,4 @@
-@forward '../../node_modules/@natu/styles/dist/tokens/rotom';
-@forward '../../node_modules/@natu/styles/dist/tokens/rotom-dark';
-@forward '../../node_modules/@natu/styles/dist/tokens/smeargle';
-@forward '../../node_modules/@natu/styles/dist/tokens/smeargle-dark';
-@forward '../../node_modules/@natu/styles/src//stylesheets/styles';
-
-// TODO: vite imports differ from angular
-// TODO: wait for analog storybook fix
+@forward 'pkg:@natu/styles/stylesheets/tokens/rotom';
+@forward 'pkg:@natu/styles/stylesheets/tokens/rotom-dark';
+@forward 'pkg:@natu/styles/stylesheets/tokens/smeargle';
+@forward 'pkg:@natu/styles/stylesheets/tokens/smeargle-dark';

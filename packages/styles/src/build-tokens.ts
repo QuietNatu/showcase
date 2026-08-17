@@ -8,7 +8,7 @@ const themes = ['rotom', 'rotom-dark', 'smeargle', 'smeargle-dark'];
 
 function createThemeConfig(theme: string): Config {
   return {
-    source: [`src/tokens/themes/${theme}/*.json`, 'src/tokens/globals/**/*.json'],
+    source: [`src/tokens/themes/${theme}/**/*.json`, 'src/tokens/globals/**/*.json'],
     platforms: {
       web: {
         prefix,

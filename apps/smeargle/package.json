@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@base-ui/react": "1.4.1",
+    "@natu/api-contracts": "workspace:*",
     "@natu/styles": "workspace:^",
     "@natu/ui-react": "workspace:^",
     "@tanstack/react-router": "1.169.1",
@@ -63,6 +64,7 @@
     "msw": "2.14.3",
     "orval": "8.9.1",
     "playwright": "1.59.1",
+    "sass-embedded": "^1.99.0",
     "storybook": "10.3.6",
     "tsx": "4.21.0",
     "typescript": "6.0.3",

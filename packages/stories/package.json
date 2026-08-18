@@ -17,10 +17,10 @@
   "devDependencies": {
     "@natu/eslint-config-shared": "workspace:^",
     "@natu/tsconfig": "workspace:^",
-    "@types/node": "24.12.2",
-    "eslint": "10.3.0",
-    "storybook": "10.3.6",
-    "typescript": "6.0.3",
-    "typescript-eslint": "8.59.2"
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "storybook": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
   }
 }

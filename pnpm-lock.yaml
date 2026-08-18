@@ -154,8 +154,8 @@ importers:
         specifier: 1.2.1
         version: 1.2.1(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0)(keycharm@0.4.0)(typescript@6.0.3)(vis-data@8.0.3(uuid@11.1.0)(vis-util@6.0.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0)))(vis-util@6.0.0(@egjs/hammerjs@2.0.17)(component-emitter@2.0.0))
       '@faker-js/faker':
-        specifier: 10.4.0
-        version: 10.4.0
+        specifier: 10.6.0
+        version: 10.6.0
       '@msw/data':
         specifier: 1.1.7
         version: 1.1.7
@@ -212,7 +212,7 @@ importers:
         version: 2.14.3(@types/node@24.12.2)(typescript@6.0.3)
       orval:
         specifier: 8.9.1
-        version: 8.9.1(@faker-js/faker@10.4.0)(prettier@3.9.6)(typescript@6.0.3)
+        version: 8.9.1(@faker-js/faker@10.6.0)(prettier@3.9.6)(typescript@6.0.3)
       playwright:
         specifier: 1.59.1
         version: 1.59.1
@@ -281,8 +281,8 @@ importers:
         version: 4.4.3
     devDependencies:
       '@faker-js/faker':
-        specifier: 10.4.0
-        version: 10.4.0
+        specifier: 10.6.0
+        version: 10.6.0
       '@msw/data':
         specifier: 1.1.7
         version: 1.1.7
@@ -360,7 +360,7 @@ importers:
         version: 2.14.3(@types/node@24.12.2)(typescript@6.0.3)
       orval:
         specifier: 8.9.1
-        version: 8.9.1(@faker-js/faker@10.4.0)(prettier@3.9.6)(typescript@6.0.3)
+        version: 8.9.1(@faker-js/faker@10.6.0)(prettier@3.9.6)(typescript@6.0.3)
       playwright:
         specifier: 1.59.1
         version: 1.59.1
@@ -510,7 +510,7 @@ importers:
         version: link:../tsconfig
       orval:
         specifier: 8.9.1
-        version: 8.9.1(@faker-js/faker@10.4.0)(prettier@3.9.6)(typescript@6.0.3)
+        version: 8.9.1(@faker-js/faker@10.6.0)(prettier@3.9.6)(typescript@6.0.3)
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -2374,8 +2374,8 @@ packages:
     resolution: {integrity: sha512-rZAP3aVgB9ds9KOeUSL+zZ21hPmo8dh6fnIFwRQj5EAZl9gzR7wxYbYXYysAM8CTqGmUGyp2S4kUdV17MnGuWQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@faker-js/faker@10.4.0':
-    resolution: {integrity: sha512-sDBWI3yLy8EcDzgobvJTWq1MJYzAkQdpjXuPukga9wXonhpMRvd1Izuo2Qgwey2OiEoRIBr35RMU9HJRoOHzpw==}
+  '@faker-js/faker@10.6.0':
+    resolution: {integrity: sha512-3RQHgEtvL1Frl/d1cSreo7qhJ3Gk1OdNUai/CtZ8G+wYeRQnJih3s9xJ9/kgYekPQRdwgh0HXRPqMlzWGwivIQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || ^23.5.0 || >=24.0.0, npm: '>=10'}
 
   '@floating-ui/core@1.7.5':
@@ -12199,7 +12199,7 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
-  '@faker-js/faker@10.4.0': {}
+  '@faker-js/faker@10.6.0': {}
 
   '@floating-ui/core@1.7.5':
     dependencies:
@@ -12867,23 +12867,23 @@ snapshots:
 
   '@open-draft/until@2.1.0': {}
 
-  '@orval/angular@8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)':
+  '@orval/angular@8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)':
     dependencies:
-      '@orval/core': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
+      '@orval/core': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
     transitivePeerDependencies:
       - '@faker-js/faker'
       - supports-color
       - typescript
 
-  '@orval/axios@8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)':
+  '@orval/axios@8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)':
     dependencies:
-      '@orval/core': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
+      '@orval/core': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
     transitivePeerDependencies:
       - '@faker-js/faker'
       - supports-color
       - typescript
 
-  '@orval/core@8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)':
+  '@orval/core@8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)':
     dependencies:
       '@scalar/openapi-types': 0.8.0
       acorn: 8.16.0
@@ -12897,24 +12897,24 @@ snapshots:
       remeda: 2.34.0
       typedoc: 0.28.19(typescript@6.0.3)
     optionalDependencies:
-      '@faker-js/faker': 10.4.0
+      '@faker-js/faker': 10.6.0
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@orval/fetch@8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)':
+  '@orval/fetch@8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)':
     dependencies:
-      '@orval/core': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
+      '@orval/core': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
       '@scalar/openapi-types': 0.8.0
     transitivePeerDependencies:
       - '@faker-js/faker'
       - supports-color
       - typescript
 
-  '@orval/hono@8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)':
+  '@orval/hono@8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)':
     dependencies:
-      '@orval/core': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/zod': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
+      '@orval/core': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/zod': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
       fs-extra: 11.3.4
       remeda: 2.34.0
     transitivePeerDependencies:
@@ -12922,56 +12922,56 @@ snapshots:
       - supports-color
       - typescript
 
-  '@orval/mcp@8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)':
+  '@orval/mcp@8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)':
     dependencies:
-      '@orval/core': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/fetch': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/zod': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
+      '@orval/core': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/fetch': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/zod': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
     transitivePeerDependencies:
       - '@faker-js/faker'
       - supports-color
       - typescript
 
-  '@orval/mock@8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)':
+  '@orval/mock@8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)':
     dependencies:
-      '@orval/core': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
+      '@orval/core': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
       remeda: 2.34.0
     transitivePeerDependencies:
       - '@faker-js/faker'
       - supports-color
       - typescript
 
-  '@orval/query@8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)':
+  '@orval/query@8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)':
     dependencies:
-      '@orval/core': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/fetch': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
+      '@orval/core': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/fetch': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
       remeda: 2.34.0
     transitivePeerDependencies:
       - '@faker-js/faker'
       - supports-color
       - typescript
 
-  '@orval/solid-start@8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)':
+  '@orval/solid-start@8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)':
     dependencies:
-      '@orval/core': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
+      '@orval/core': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
       '@scalar/openapi-types': 0.8.0
     transitivePeerDependencies:
       - '@faker-js/faker'
       - supports-color
       - typescript
 
-  '@orval/swr@8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)':
+  '@orval/swr@8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)':
     dependencies:
-      '@orval/core': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/fetch': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
+      '@orval/core': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/fetch': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
     transitivePeerDependencies:
       - '@faker-js/faker'
       - supports-color
       - typescript
 
-  '@orval/zod@8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)':
+  '@orval/zod@8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)':
     dependencies:
-      '@orval/core': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
+      '@orval/core': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
       remeda: 2.34.0
     transitivePeerDependencies:
       - '@faker-js/faker'
@@ -18098,20 +18098,20 @@ snapshots:
   ordered-binary@1.6.1:
     optional: true
 
-  orval@8.9.1(@faker-js/faker@10.4.0)(prettier@3.9.6)(typescript@6.0.3):
+  orval@8.9.1(@faker-js/faker@10.6.0)(prettier@3.9.6)(typescript@6.0.3):
     dependencies:
       '@commander-js/extra-typings': 14.0.0(commander@14.0.3)
-      '@orval/angular': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/axios': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/core': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/fetch': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/hono': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/mcp': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/mock': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/query': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/solid-start': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/swr': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
-      '@orval/zod': 8.9.1(@faker-js/faker@10.4.0)(typescript@6.0.3)
+      '@orval/angular': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/axios': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/core': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/fetch': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/hono': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/mcp': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/mock': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/query': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/solid-start': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/swr': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
+      '@orval/zod': 8.9.1(@faker-js/faker@10.6.0)(typescript@6.0.3)
       '@scalar/json-magic': 0.12.11
       '@scalar/openapi-parser': 0.25.12
       '@scalar/openapi-types': 0.8.0

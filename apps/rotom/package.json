@@ -45,7 +45,7 @@
     "@angular/compiler-cli": "21.2.11",
     "@angular/platform-browser-dynamic": "21.2.11",
     "@compodoc/compodoc": "1.2.1",
-    "@faker-js/faker": "10.4.0",
+    "@faker-js/faker": "10.6.0",
     "@msw/data": "1.1.7",
     "@natu/axe": "workspace:^",
     "@natu/browserslist-config-shared": "workspace:^",

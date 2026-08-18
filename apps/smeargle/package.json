@@ -64,7 +64,7 @@
     "msw": "2.14.3",
     "orval": "8.9.1",
     "playwright": "1.59.1",
-    "sass-embedded": "^1.99.0",
+    "sass-embedded": "1.99.0",
     "storybook": "10.3.6",
     "tsx": "4.21.0",
     "typescript": "6.0.3",

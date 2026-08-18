@@ -1,7 +1,6 @@
 packages:
   - apps/*
   - packages/*
-
 allowBuilds:
   '@compodoc/compodoc': false
   '@parcel/watcher': false
@@ -10,7 +9,6 @@ allowBuilds:
   lmdb: false
   msgpackr-extract: false
   msw: false
-
 catalogMode: strict
 catalogPrune: true
 catalog:

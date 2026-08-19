@@ -9,6 +9,9 @@
   "baseBranchPatterns": ["main"],
   "internalChecksFilter": "strict",
   "labels": ["dependencies"],
+  "toolSettings": {
+    "nodeMaxMemory": 2384
+  },
   "npm": {
     "minimumReleaseAge": "3 days"
   },

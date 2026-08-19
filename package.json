@@ -23,7 +23,7 @@
     "postinstall": "npx msw init",
     "preflight-check": "node scripts/preflight-check.ts",
     "prepare": "husky",
-    "renovate:validate": "pnpm dlx --package=renovate -- renovate-config-validator",
+    "renovate:validate": "pnpm dlx --package=renovate --package=re2 -- renovate-config-validator --strict",
     "start": "turbo run start",
     "storybook": "turbo run storybook",
     "storybook:build": "turbo run storybook:build",

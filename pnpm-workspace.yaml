@@ -54,8 +54,8 @@ catalog:
   '@types/eslint-plugin-security': 3.0.1
   '@types/express': 5.0.6
   '@types/node': 24.12.2
-  '@types/react': 19.2.14
-  '@types/react-dom': 19.2.3
+  '@types/react': 19.2.18
+  '@types/react-dom': 19.2.4
   '@vitejs/plugin-react': 6.0.1
   '@vitest/browser-playwright': 4.1.5
   '@vitest/coverage-v8': 4.1.5
@@ -98,8 +98,8 @@ catalog:
   picocolors: 1.1.1
   playwright: 1.59.1
   prettier: 3.9.6
-  react: 19.2.5
-  react-dom: 19.2.5
+  react: 19.2.8
+  react-dom: 19.2.8
   rxjs: 7.8.2
   sass-embedded: 1.99.0
   srvx: 0.11.15

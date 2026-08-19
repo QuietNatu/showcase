@@ -298,8 +298,8 @@ catalogs:
       specifier: 3.0.0
       version: 3.0.0
     stylelint-gamut:
-      specifier: 2.0.0
-      version: 2.0.0
+      specifier: 2.0.1
+      version: 2.0.1
     stylelint-no-unsupported-browser-features:
       specifier: 8.1.1
       version: 8.1.1
@@ -394,7 +394,7 @@ importers:
         version: 3.0.0(stylelint@17.11.0(supports-color@10.2.2)(typescript@6.0.3))
       stylelint-gamut:
         specifier: 'catalog:'
-        version: 2.0.0(stylelint@17.11.0(supports-color@10.2.2)(typescript@6.0.3))
+        version: 2.0.1(stylelint@17.11.0(supports-color@10.2.2)(typescript@6.0.3))
       stylelint-no-unsupported-browser-features:
         specifier: 'catalog:'
         version: 8.1.1(stylelint@17.11.0(supports-color@10.2.2)(typescript@6.0.3))
@@ -5439,9 +5439,6 @@ packages:
   colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
 
-  colorjs.io@0.4.5:
-    resolution: {integrity: sha512-yCtUNCmge7llyfd/Wou19PMAcf5yC3XXhgFoAh6zsO2pGswhUPBaaUh8jzgHnXtXuZyFKzXZNAnyF5i+apICow==}
-
   colorjs.io@0.5.2:
     resolution: {integrity: sha512-twmVoizEW7ylZSN32OgKdXRmo1qg+wT5/6C3xu5b9QsWzSFAhHLn2xd8ro0diCsKfCj1RdaTP/nrcW+vAoQPIw==}
 
@@ -9094,8 +9091,8 @@ packages:
     peerDependencies:
       stylelint: ^17.0.0
 
-  stylelint-gamut@2.0.0:
-    resolution: {integrity: sha512-JlpsCcJj9DYkzRTshw8tBM5xB9GKhCERUiUpi+v2pSVlV+QqLQvx8ykGAw7MSeu0GkK7io5yyLjJmJP7P0bWWQ==}
+  stylelint-gamut@2.0.1:
+    resolution: {integrity: sha512-tsNmkvzm4LbeUBOcLIn8A6aDGBanWwcg+3AlBoljlxz0rxxAC3ZHq/sHKso9YLbNlNvCDIMzw8KVtchStOSO8w==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       stylelint: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -15627,8 +15624,6 @@ snapshots:
 
   colorette@2.0.20: {}
 
-  colorjs.io@0.4.5: {}
-
   colorjs.io@0.5.2: {}
 
   colorjs.io@0.6.1: {}
@@ -19860,9 +19855,9 @@ snapshots:
     dependencies:
       stylelint: 17.11.0(supports-color@10.2.2)(typescript@6.0.3)
 
-  stylelint-gamut@2.0.0(stylelint@17.11.0(supports-color@10.2.2)(typescript@6.0.3)):
+  stylelint-gamut@2.0.1(stylelint@17.11.0(supports-color@10.2.2)(typescript@6.0.3)):
     dependencies:
-      colorjs.io: 0.4.5
+      colorjs.io: 0.6.1
       stylelint: 17.11.0(supports-color@10.2.2)(typescript@6.0.3)
 
   stylelint-no-unsupported-browser-features@8.1.1(stylelint@17.11.0(supports-color@10.2.2)(typescript@6.0.3)):

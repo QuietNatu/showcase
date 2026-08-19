@@ -211,8 +211,8 @@ catalogs:
       specifier: 0.5.2
       version: 0.5.2
     eslint-plugin-security:
-      specifier: 4.0.0
-      version: 4.0.0
+      specifier: 4.0.1
+      version: 4.0.1
     eslint-plugin-simple-import-sort:
       specifier: 13.0.0
       version: 13.0.0
@@ -806,7 +806,7 @@ importers:
         version: 0.5.2(eslint@10.3.0(jiti@2.6.1)(supports-color@10.2.2))
       eslint-plugin-security:
         specifier: 'catalog:'
-        version: 4.0.0
+        version: 4.0.1
       eslint-plugin-simple-import-sort:
         specifier: 'catalog:'
         version: 13.0.0(eslint@10.3.0(jiti@2.6.1)(supports-color@10.2.2))
@@ -6160,8 +6160,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7
 
-  eslint-plugin-security@4.0.0:
-    resolution: {integrity: sha512-tfuQT8K/Li1ZxhFzyD8wPIKtlzZxqBcPr9q0jFMQ77wWAbKBVEhaMPVQRTMTvCMUDhwBe5vPVqQPwAGk/ASfxQ==}
+  eslint-plugin-security@4.0.1:
+    resolution: {integrity: sha512-/lZCkOxPOWaf1jXAqgICrS8St3BMBccIPvhOSUYuV6VCr1o5nFVG998FnTLt6w2Nxb8Uo0nM8fzmnhp+GY/aEg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   eslint-plugin-simple-import-sort@13.0.0:
@@ -16612,7 +16612,7 @@ snapshots:
       string.prototype.matchall: 4.0.12
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-security@4.0.0:
+  eslint-plugin-security@4.0.1:
     dependencies:
       safe-regex: 2.1.1
 

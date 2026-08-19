@@ -277,8 +277,8 @@ catalogs:
       specifier: 1.99.0
       version: 1.99.0
     srvx:
-      specifier: 0.11.15
-      version: 0.11.15
+      specifier: 0.12.5
+      version: 0.12.5
     storybook:
       specifier: 10.3.6
       version: 10.3.6
@@ -614,7 +614,7 @@ importers:
         version: 19.2.8(react@19.2.8)
       srvx:
         specifier: 'catalog:'
-        version: 0.11.15
+        version: 0.12.5
       zod:
         specifier: 'catalog:'
         version: 4.4.3
@@ -8908,6 +8908,11 @@ packages:
 
   srvx@0.11.15:
     resolution: {integrity: sha512-iXsux0UcOjdvs0LCMa2Ws3WwcDUozA3JN3BquNXkaFPP7TpRqgunKdEgoZ/uwb1J6xaYHfxtz9Twlh6yzwM6Tg==}
+    engines: {node: '>=20.16.0'}
+    hasBin: true
+
+  srvx@0.12.5:
+    resolution: {integrity: sha512-IuvtDNQg5EIwv3c6dleyau7u8hCyGQ7D6+V/QM799Aud07z0wCUcurKLTRfyG33C8oUY+UWcVBFkfHMcbtmRLA==}
     engines: {node: '>=20.16.0'}
     hasBin: true
 
@@ -19632,6 +19637,8 @@ snapshots:
       through: 2.3.8
 
   srvx@0.11.15: {}
+
+  srvx@0.12.5: {}
 
   ssri@13.0.1:
     dependencies:

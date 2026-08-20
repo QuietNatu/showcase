@@ -7,14 +7,14 @@ settings:
 catalogs:
   default:
     '@analogjs/storybook-angular':
-      specifier: 2.5.0
-      version: 2.5.0
+      specifier: 2.7.0
+      version: 2.7.0
     '@analogjs/vite-plugin-angular':
-      specifier: 2.5.0
-      version: 2.5.0
+      specifier: 2.7.0
+      version: 2.7.0
     '@analogjs/vitest-angular':
-      specifier: 2.5.0
-      version: 2.5.0
+      specifier: 2.7.0
+      version: 2.7.0
     '@angular-devkit/architect':
       specifier: 0.2201.4
       version: 0.2201.4
@@ -458,13 +458,13 @@ importers:
     devDependencies:
       '@analogjs/storybook-angular':
         specifier: 'catalog:'
-        version: 2.5.0(@analogjs/vite-plugin-angular@2.5.0(2ea80096a2fd9da61ac9863e5f991129))(@storybook/angular@10.3.6(14bbc6246bbdece2f5fde55b64d5b446))(esbuild@0.28.1)(rollup@4.60.2)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.9.6)(react-dom@19.2.8(react@19.2.8))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.97.3)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))(webpack@5.106.2(esbuild@0.28.1)(uglify-js@3.19.3))
+        version: 2.7.0(@analogjs/vite-plugin-angular@2.7.0(2ea80096a2fd9da61ac9863e5f991129))(@storybook/angular@10.3.6(14bbc6246bbdece2f5fde55b64d5b446))(esbuild@0.28.1)(rollup@4.60.2)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.9.6)(react-dom@19.2.8(react@19.2.8))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.97.3)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))(webpack@5.106.2(esbuild@0.28.1)(uglify-js@3.19.3))
       '@analogjs/vite-plugin-angular':
         specifier: 'catalog:'
-        version: 2.5.0(2ea80096a2fd9da61ac9863e5f991129)
+        version: 2.7.0(2ea80096a2fd9da61ac9863e5f991129)
       '@analogjs/vitest-angular':
         specifier: 'catalog:'
-        version: 2.5.0(@analogjs/vite-plugin-angular@2.5.0(2ea80096a2fd9da61ac9863e5f991129))(@angular-devkit/architect@0.2201.4(chokidar@5.0.0))(@angular-devkit/schematics@21.2.21(chokidar@5.0.0))(vitest@4.1.10)
+        version: 2.7.0(@analogjs/vite-plugin-angular@2.7.0(2ea80096a2fd9da61ac9863e5f991129))(@angular-devkit/architect@0.2201.4(chokidar@5.0.0))(@angular-devkit/schematics@21.2.21(chokidar@5.0.0))(vitest@4.1.10)
       '@angular-devkit/architect':
         specifier: 'catalog:'
         version: 0.2201.4(chokidar@5.0.0)
@@ -966,13 +966,13 @@ importers:
     devDependencies:
       '@analogjs/storybook-angular':
         specifier: 'catalog:'
-        version: 2.5.0(@analogjs/vite-plugin-angular@2.5.0(6c6433317f6616dec8180b05104e7456))(@storybook/angular@10.3.6(2533d08d4eefa6f1e185d44b740a4322))(esbuild@0.28.2)(rollup@4.60.2)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.9.6)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))(webpack@5.106.2(esbuild@0.28.2)(uglify-js@3.19.3))
+        version: 2.7.0(@analogjs/vite-plugin-angular@2.7.0(6c6433317f6616dec8180b05104e7456))(@storybook/angular@10.3.6(2533d08d4eefa6f1e185d44b740a4322))(esbuild@0.28.2)(rollup@4.60.2)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.9.6)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))(webpack@5.106.2(esbuild@0.28.2)(uglify-js@3.19.3))
       '@analogjs/vite-plugin-angular':
         specifier: 'catalog:'
-        version: 2.5.0(6c6433317f6616dec8180b05104e7456)
+        version: 2.7.0(6c6433317f6616dec8180b05104e7456)
       '@analogjs/vitest-angular':
         specifier: 'catalog:'
-        version: 2.5.0(@analogjs/vite-plugin-angular@2.5.0(6c6433317f6616dec8180b05104e7456))(@angular-devkit/architect@0.2201.4(chokidar@5.0.0))(@angular-devkit/schematics@21.2.21(chokidar@5.0.0))(vitest@4.1.10)
+        version: 2.7.0(@analogjs/vite-plugin-angular@2.7.0(6c6433317f6616dec8180b05104e7456))(@angular-devkit/architect@0.2201.4(chokidar@5.0.0))(@angular-devkit/schematics@21.2.21(chokidar@5.0.0))(vitest@4.1.10)
       '@angular-devkit/architect':
         specifier: 'catalog:'
         version: 0.2201.4(chokidar@5.0.0)
@@ -1258,20 +1258,20 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@analogjs/storybook-angular@2.5.0':
-    resolution: {integrity: sha512-KhOkkagvw56eo0IXGb2Lb/8VwAMYl87MRl8DOAta59JdmCTu/1jd52FGnid92lOjtIY1bRORK1Ox/N7oM5Z5Xw==}
-    engines: {node: '>=20.0.0'}
+  '@analogjs/storybook-angular@2.7.0':
+    resolution: {integrity: sha512-0B0YUQ+VYEKtkRT6kXQ6D9jHEtL6O5Y2xtXclyXIiJ7gnQqsPYasyyX8pHID19r0HZ6eqEunzSuJUlWuwfW5Hw==}
+    engines: {node: '>=22.22.3'}
     peerDependencies:
       '@analogjs/vite-plugin-angular': '*'
       '@storybook/angular': ^10.0.0
       storybook: ^10.0.0
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
 
-  '@analogjs/vite-plugin-angular@2.5.0':
-    resolution: {integrity: sha512-TPH74k6qZefHX/RNFqS2D9ZPzR5rFZ6gy5sz63MzQP9iwzRjFbutyBmtnNflTOtQMZIfTLI34ktB9HBzCvvn2g==}
+  '@analogjs/vite-plugin-angular@2.7.0':
+    resolution: {integrity: sha512-KhFC9wiIxD4vi0p3Iyd6tPXyvV9J8GF1eLTkANtBcUbuLkdCRFtbqp/U08cDt+Ae+mVOiSZliBO+JSr66YCqFA==}
     peerDependencies:
-      '@angular-devkit/build-angular': ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0
-      '@angular/build': ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0
+      '@angular-devkit/build-angular': ^17.0.0 || ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0 || ^22.0.0
+      '@angular/build': ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0 || ^22.0.0
       vite: ^6.0.0 || ^7.0.0 || ^8.0.0
     peerDependenciesMeta:
       '@angular-devkit/build-angular':
@@ -1281,11 +1281,11 @@ packages:
       vite:
         optional: true
 
-  '@analogjs/vitest-angular@2.5.0':
-    resolution: {integrity: sha512-hOukiUFKu2LiTbYGv8gdpw5UPggidYFuSs/e7+AvZld66eKi0/wSjj43nTLBDEe6oTk6h4CeMyO5QswYwg69Lw==}
+  '@analogjs/vitest-angular@2.7.0':
+    resolution: {integrity: sha512-39qs+o5zGJ0xtzubNpy89t2/kwnYTl03US/z7YD1vss2Tb//R38ymjaLrUtirDW/X9nk5NdFGi8nasbctSDOrw==}
     peerDependencies:
       '@analogjs/vite-plugin-angular': '*'
-      '@angular-devkit/architect': '>=0.1500.0 < 0.2200.0'
+      '@angular-devkit/architect': '>=0.1700.0 < 0.2300.0 || >=0.2200.0 < 0.2300.0'
       '@angular-devkit/schematics': '>=17.0.0'
       vitest: ^1.3.1 || ^2.0.0 || ^3.0.0 || ^4.0.0
       zone.js: '>=0.14.0'
@@ -4722,9 +4722,6 @@ packages:
     resolution: {integrity: sha512-jCxbkyQryQjovIzK5ko683RNq1pZRAKiscJfhtF71yGxneEzFR9IQgzayw/WRjQ5KDD/5UVqTwgtfQ7pJpmIYA==}
     engines: {node: '>=16', pnpm: '>=8.6.0'}
 
-  '@ts-morph/common@0.22.0':
-    resolution: {integrity: sha512-HqNBuV/oIlMKdkLshXd1zKBqNQCsuPEsgQOkfFQ/eUKjRlwndXW1AjN9LVkBEIukm00gGXSRmfkl0Wv5VXLnlw==}
-
   '@ts-morph/common@0.28.1':
     resolution: {integrity: sha512-W74iWf7ILp1ZKNYXY5qbddNaml7e9Sedv5lvU1V8lftlitkc9Pq1A+jlH23ltDgWYeZFFEqGCD1Ies9hqu3O+g==}
 
@@ -5486,9 +5483,6 @@ packages:
   brace-expansion@1.1.14:
     resolution: {integrity: sha512-MWPGfDxnyzKU7rNOW9SP/c50vi3xrmrua/+6hfPbCS2ABNWfx24vPidzvC7krjU/RTo235sV776ymlsMtGKj8g==}
 
-  brace-expansion@2.1.0:
-    resolution: {integrity: sha512-TN1kCZAgdgweJhWWpgKYrQaMNHcDULHkWwQIspdtjV4Y5aurRdZpjAqn6yX3FPqTA9ngHCc4hJxMAMgGfve85w==}
-
   brace-expansion@5.0.5:
     resolution: {integrity: sha512-VZznLgtwhn+Mact9tfiwx64fA9erHH/MCXEUfB/0bX/6Fz6ny5EGTXYltMocqg4xFAQZtnO3DHWWXi8RiuN7cQ==}
     engines: {node: 18 || 20 || >=22}
@@ -5678,9 +5672,6 @@ packages:
   clsx@2.1.1:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
-
-  code-block-writer@12.0.0:
-    resolution: {integrity: sha512-q4dMFMlXtKR3XNBHyMHt/3pwYNA69EDk00lloMOaaUMKPUXBw6lpXtbu3MMVG6/uOihGnRDOlkyqsONEUj60+w==}
 
   code-block-writer@13.0.3:
     resolution: {integrity: sha512-Oofo0pq3IKnsFtuHqSF7TqBfr71aeyZDVJ0HpmqB7FBM2qEigL0iPONSCZSO9pE9dZTAxANe5XHG9Uy0YMv8cg==}
@@ -7864,10 +7855,6 @@ packages:
   minimatch@3.1.5:
     resolution: {integrity: sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w==}
 
-  minimatch@9.0.9:
-    resolution: {integrity: sha512-OBwBN9AL4dqmETlpS2zasx+vTeWclWzkblfZk7KTA5j3jeOONz/tRCnZomUyvNg83wL5Zv9Ss6HMJXAgL8R2Yg==}
-    engines: {node: '>=16 || 14 >=14.17'}
-
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
@@ -7902,11 +7889,6 @@ packages:
   minizlib@3.1.0:
     resolution: {integrity: sha512-KZxYo1BUkWD2TVFLr0MQoM8vUUigWD3LlD83a/75BqC+4qE0Hb1Vo5v1FgcfaNXvfXzr+5EhQ6ing/CaBijTlw==}
     engines: {node: '>= 18'}
-
-  mkdirp@3.0.1:
-    resolution: {integrity: sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg==}
-    engines: {node: '>=10'}
-    hasBin: true
 
   modern-normalize@3.0.1:
     resolution: {integrity: sha512-VqlMdYi59Uch6fnUPxnpijWUQe+TW6zeWCvyr6Mb7JibheHzSuAAoJi2c71ZwIaWKpECpGpYHoaaBp6rBRr+/g==}
@@ -9591,9 +9573,6 @@ packages:
     resolution: {integrity: sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==}
     engines: {node: '>=6.10'}
 
-  ts-morph@21.0.1:
-    resolution: {integrity: sha512-dbDtVdEAncKctzrVZ+Nr7kHpHkv+0JDJb2MjjpBaj8bFeCkePU9rHfMklmhuLFnpeq/EJZk2IhStY6NzqgjOkg==}
-
   ts-morph@27.0.2:
     resolution: {integrity: sha512-fhUhgeljcrdZ+9DZND1De1029PrE+cMkIP7ooqkLRTrRLTqcki2AstsyJm0vRNbTbVCNJ0idGlbBrfqc7/nA8w==}
 
@@ -10394,9 +10373,9 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
 
-  '@analogjs/storybook-angular@2.5.0(@analogjs/vite-plugin-angular@2.5.0(2ea80096a2fd9da61ac9863e5f991129))(@storybook/angular@10.3.6(14bbc6246bbdece2f5fde55b64d5b446))(esbuild@0.28.1)(rollup@4.60.2)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.9.6)(react-dom@19.2.8(react@19.2.8))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.97.3)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))(webpack@5.106.2(esbuild@0.28.1)(uglify-js@3.19.3))':
+  '@analogjs/storybook-angular@2.7.0(@analogjs/vite-plugin-angular@2.7.0(2ea80096a2fd9da61ac9863e5f991129))(@storybook/angular@10.3.6(14bbc6246bbdece2f5fde55b64d5b446))(esbuild@0.28.1)(rollup@4.60.2)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.9.6)(react-dom@19.2.8(react@19.2.8))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.97.3)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))(webpack@5.106.2(esbuild@0.28.1)(uglify-js@3.19.3))':
     dependencies:
-      '@analogjs/vite-plugin-angular': 2.5.0(2ea80096a2fd9da61ac9863e5f991129)
+      '@analogjs/vite-plugin-angular': 2.7.0(2ea80096a2fd9da61ac9863e5f991129)
       '@storybook/angular': 10.3.6(14bbc6246bbdece2f5fde55b64d5b446)
       '@storybook/builder-vite': 10.3.6(esbuild@0.28.1)(rollup@4.60.2)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.9.6)(react-dom@19.2.8(react@19.2.8))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.97.3)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))(webpack@5.106.2(esbuild@0.28.1)(uglify-js@3.19.3))
       storybook: 10.3.6(@testing-library/dom@10.4.1)(prettier@3.9.6)(react-dom@19.2.8(react@19.2.8))(react@19.2.5)
@@ -10406,9 +10385,9 @@ snapshots:
       - rollup
       - webpack
 
-  '@analogjs/storybook-angular@2.5.0(@analogjs/vite-plugin-angular@2.5.0(6c6433317f6616dec8180b05104e7456))(@storybook/angular@10.3.6(2533d08d4eefa6f1e185d44b740a4322))(esbuild@0.28.2)(rollup@4.60.2)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.9.6)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))(webpack@5.106.2(esbuild@0.28.2)(uglify-js@3.19.3))':
+  '@analogjs/storybook-angular@2.7.0(@analogjs/vite-plugin-angular@2.7.0(6c6433317f6616dec8180b05104e7456))(@storybook/angular@10.3.6(2533d08d4eefa6f1e185d44b740a4322))(esbuild@0.28.2)(rollup@4.60.2)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.9.6)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))(webpack@5.106.2(esbuild@0.28.2)(uglify-js@3.19.3))':
     dependencies:
-      '@analogjs/vite-plugin-angular': 2.5.0(6c6433317f6616dec8180b05104e7456)
+      '@analogjs/vite-plugin-angular': 2.7.0(6c6433317f6616dec8180b05104e7456)
       '@storybook/angular': 10.3.6(2533d08d4eefa6f1e185d44b740a4322)
       '@storybook/builder-vite': 10.3.6(esbuild@0.28.2)(rollup@4.60.2)(storybook@10.3.6(@testing-library/dom@10.4.1)(prettier@3.9.6)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))(webpack@5.106.2(esbuild@0.28.2)(uglify-js@3.19.3))
       storybook: 10.3.6(@testing-library/dom@10.4.1)(prettier@3.9.6)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -10418,13 +10397,12 @@ snapshots:
       - rollup
       - webpack
 
-  '@analogjs/vite-plugin-angular@2.5.0(2ea80096a2fd9da61ac9863e5f991129)':
+  '@analogjs/vite-plugin-angular@2.7.0(2ea80096a2fd9da61ac9863e5f991129)':
     dependencies:
       magic-string: 0.30.21
       obug: 2.1.1
       oxc-parser: 0.121.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
       tinyglobby: 0.2.16
-      ts-morph: 21.0.1
     optionalDependencies:
       '@angular-devkit/build-angular': 21.2.21(@angular/compiler-cli@21.2.20(@angular/compiler@21.2.20)(supports-color@10.2.2)(typescript@6.0.3))(@angular/compiler@21.2.20)(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2))(@angular/platform-browser@21.2.20(@angular/animations@21.2.20(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2)))(@angular/common@21.2.20(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2)))(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@24.12.2)(chokidar@5.0.0)(debug@4.4.3(supports-color@10.2.2))(html-webpack-plugin@5.6.7(webpack@5.106.2(esbuild@0.28.1)(uglify-js@3.19.3)))(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.102.0)(supports-color@10.2.2)(tsx@4.23.12)(typescript@6.0.3)(uglify-js@3.19.3)(vitest@4.1.10)(yaml@2.8.4)
       '@angular/build': 21.2.21(@angular/compiler-cli@21.2.20(@angular/compiler@21.2.20)(supports-color@10.2.2)(typescript@6.0.3))(@angular/compiler@21.2.20)(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2))(@angular/platform-browser@21.2.20(@angular/animations@21.2.20(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2)))(@angular/common@21.2.20(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2)))(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@24.12.2)(chokidar@5.0.0)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.32.0)(postcss@8.5.26)(sass-embedded@1.102.0)(supports-color@10.2.2)(terser@5.46.2)(tslib@2.8.1)(tsx@4.23.12)(typescript@6.0.3)(vitest@4.1.10)(yaml@2.8.4)
@@ -10433,13 +10411,12 @@ snapshots:
       - '@emnapi/core'
       - '@emnapi/runtime'
 
-  '@analogjs/vite-plugin-angular@2.5.0(6c6433317f6616dec8180b05104e7456)':
+  '@analogjs/vite-plugin-angular@2.7.0(6c6433317f6616dec8180b05104e7456)':
     dependencies:
       magic-string: 0.30.21
       obug: 2.1.1
       oxc-parser: 0.121.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)
       tinyglobby: 0.2.16
-      ts-morph: 21.0.1
     optionalDependencies:
       '@angular-devkit/build-angular': 21.2.21(@angular/compiler-cli@21.2.20(@angular/compiler@21.2.20)(supports-color@10.2.2)(typescript@6.0.3))(@angular/compiler@21.2.20)(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2))(@angular/platform-browser@21.2.20(@angular/animations@21.2.20(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2)))(@angular/common@21.2.20(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2)))(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@24.12.2)(chokidar@5.0.0)(html-webpack-plugin@5.6.7(webpack@5.106.2(esbuild@0.28.2)(uglify-js@3.19.3)))(jiti@2.6.1)(lightningcss@1.32.0)(sass-embedded@1.102.0)(supports-color@10.2.2)(tsx@4.23.12)(typescript@6.0.3)(uglify-js@3.19.3)(vitest@4.1.10)(yaml@2.8.4)
       '@angular/build': 21.2.21(@angular/compiler-cli@21.2.20(@angular/compiler@21.2.20)(supports-color@10.2.2)(typescript@6.0.3))(@angular/compiler@21.2.20)(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2))(@angular/platform-browser@21.2.20(@angular/animations@21.2.20(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2)))(@angular/common@21.2.20(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@21.2.20(@angular/compiler@21.2.20)(rxjs@7.8.2)))(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@24.12.2)(chokidar@5.0.0)(jiti@2.6.1)(less@4.4.2)(lightningcss@1.32.0)(postcss@8.5.26)(sass-embedded@1.102.0)(supports-color@10.2.2)(terser@5.46.2)(tslib@2.8.1)(tsx@4.23.12)(typescript@6.0.3)(vitest@4.1.10)(yaml@2.8.4)
@@ -10448,16 +10425,16 @@ snapshots:
       - '@emnapi/core'
       - '@emnapi/runtime'
 
-  '@analogjs/vitest-angular@2.5.0(@analogjs/vite-plugin-angular@2.5.0(2ea80096a2fd9da61ac9863e5f991129))(@angular-devkit/architect@0.2201.4(chokidar@5.0.0))(@angular-devkit/schematics@21.2.21(chokidar@5.0.0))(vitest@4.1.10)':
+  '@analogjs/vitest-angular@2.7.0(@analogjs/vite-plugin-angular@2.7.0(2ea80096a2fd9da61ac9863e5f991129))(@angular-devkit/architect@0.2201.4(chokidar@5.0.0))(@angular-devkit/schematics@21.2.21(chokidar@5.0.0))(vitest@4.1.10)':
     dependencies:
-      '@analogjs/vite-plugin-angular': 2.5.0(2ea80096a2fd9da61ac9863e5f991129)
+      '@analogjs/vite-plugin-angular': 2.7.0(2ea80096a2fd9da61ac9863e5f991129)
       '@angular-devkit/architect': 0.2201.4(chokidar@5.0.0)
       '@angular-devkit/schematics': 21.2.21(chokidar@5.0.0)
       vitest: 4.1.10(@types/node@24.12.2)(@vitest/browser-playwright@4.1.10)(@vitest/coverage-v8@4.1.10)(happy-dom@20.11.2)(msw@2.14.3(@types/node@24.12.2)(typescript@6.0.3))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.97.3)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))
 
-  '@analogjs/vitest-angular@2.5.0(@analogjs/vite-plugin-angular@2.5.0(6c6433317f6616dec8180b05104e7456))(@angular-devkit/architect@0.2201.4(chokidar@5.0.0))(@angular-devkit/schematics@21.2.21(chokidar@5.0.0))(vitest@4.1.10)':
+  '@analogjs/vitest-angular@2.7.0(@analogjs/vite-plugin-angular@2.7.0(6c6433317f6616dec8180b05104e7456))(@angular-devkit/architect@0.2201.4(chokidar@5.0.0))(@angular-devkit/schematics@21.2.21(chokidar@5.0.0))(vitest@4.1.10)':
     dependencies:
-      '@analogjs/vite-plugin-angular': 2.5.0(6c6433317f6616dec8180b05104e7456)
+      '@analogjs/vite-plugin-angular': 2.7.0(6c6433317f6616dec8180b05104e7456)
       '@angular-devkit/architect': 0.2201.4(chokidar@5.0.0)
       '@angular-devkit/schematics': 21.2.21(chokidar@5.0.0)
       vitest: 4.1.10(@types/node@24.12.2)(@vitest/browser-playwright@4.1.10)(@vitest/coverage-v8@4.1.10)(happy-dom@20.11.2)(msw@2.14.3(@types/node@24.12.2)(typescript@6.0.3))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))
@@ -13916,7 +13893,7 @@ snapshots:
       detect-libc: 2.1.2
       is-glob: 4.0.3
       node-addon-api: 7.1.1
-      picomatch: 4.0.4
+      picomatch: 4.0.5
     optionalDependencies:
       '@parcel/watcher-android-arm64': 2.5.6
       '@parcel/watcher-darwin-arm64': 2.5.6
@@ -14885,13 +14862,6 @@ snapshots:
       '@thednp/shorty': 2.0.14
 
   '@thednp/shorty@2.0.14': {}
-
-  '@ts-morph/common@0.22.0':
-    dependencies:
-      fast-glob: 3.3.3
-      minimatch: 9.0.9
-      mkdirp: 3.0.1
-      path-browserify: 1.0.1
 
   '@ts-morph/common@0.28.1':
     dependencies:
@@ -15960,10 +15930,6 @@ snapshots:
       balanced-match: 1.0.2
       concat-map: 0.0.1
 
-  brace-expansion@2.1.0:
-    dependencies:
-      balanced-match: 1.0.2
-
   brace-expansion@5.0.5:
     dependencies:
       balanced-match: 4.0.4
@@ -16187,8 +16153,6 @@ snapshots:
       shallow-clone: 3.0.1
 
   clsx@2.1.1: {}
-
-  code-block-writer@12.0.0: {}
 
   code-block-writer@13.0.3: {}
 
@@ -17400,6 +17364,10 @@ snapshots:
   fdir@6.5.0(picomatch@4.0.4):
     optionalDependencies:
       picomatch: 4.0.4
+
+  fdir@6.5.0(picomatch@4.0.5):
+    optionalDependencies:
+      picomatch: 4.0.5
 
   fetchdts@0.1.7: {}
 
@@ -18682,10 +18650,6 @@ snapshots:
     dependencies:
       brace-expansion: 1.1.14
 
-  minimatch@9.0.9:
-    dependencies:
-      brace-expansion: 2.1.0
-
   minimist@1.2.8: {}
 
   minipass-collect@2.0.1:
@@ -18721,8 +18685,6 @@ snapshots:
   minizlib@3.1.0:
     dependencies:
       minipass: 7.1.3
-
-  mkdirp@3.0.1: {}
 
   modern-normalize@3.0.1: {}
 
@@ -20688,8 +20650,8 @@ snapshots:
 
   tinyglobby@0.2.16:
     dependencies:
-      fdir: 6.5.0(picomatch@4.0.4)
-      picomatch: 4.0.4
+      fdir: 6.5.0(picomatch@4.0.5)
+      picomatch: 4.0.5
 
   tinyrainbow@2.0.0: {}
 
@@ -20740,11 +20702,6 @@ snapshots:
       typescript: 6.0.3
 
   ts-dedent@2.2.0: {}
-
-  ts-morph@21.0.1:
-    dependencies:
-      '@ts-morph/common': 0.22.0
-      code-block-writer: 12.0.0
 
   ts-morph@27.0.2:
     dependencies:
@@ -21056,7 +21013,7 @@ snapshots:
   vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4):
     dependencies:
       lightningcss: 1.32.0
-      picomatch: 4.0.4
+      picomatch: 4.0.5
       postcss: 8.5.26
       rolldown: 1.0.0-rc.17
       tinyglobby: 0.2.16
@@ -21075,7 +21032,7 @@ snapshots:
   vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.97.3)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4):
     dependencies:
       lightningcss: 1.32.0
-      picomatch: 4.0.4
+      picomatch: 4.0.5
       postcss: 8.5.26
       rolldown: 1.0.0-rc.17
       tinyglobby: 0.2.16
@@ -21094,7 +21051,7 @@ snapshots:
   vite@8.0.10(@types/node@24.12.2)(esbuild@0.28.2)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4):
     dependencies:
       lightningcss: 1.32.0
-      picomatch: 4.0.4
+      picomatch: 4.0.5
       postcss: 8.5.26
       rolldown: 1.0.0-rc.17
       tinyglobby: 0.2.16

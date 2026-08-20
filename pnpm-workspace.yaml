@@ -65,7 +65,7 @@ catalog:
   axios: 1.19.0
   browserslist-to-esbuild: 2.1.1
   clsx: 2.1.1
-  colorjs.io: 0.6.1
+  colorjs.io: 0.7.1
   cross-env: 10.1.0
   effect: 3.22.1
   eslint: 10.8.1

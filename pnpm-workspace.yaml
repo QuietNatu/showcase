@@ -68,7 +68,7 @@ catalog:
   colorjs.io: 0.6.1
   cross-env: 10.1.0
   effect: 3.21.2
-  eslint: 10.3.0
+  eslint: 10.8.1
   eslint-config-prettier: 10.1.8
   eslint-config-turbo: 2.9.9
   eslint-plugin-functional: 9.0.5

@@ -184,8 +184,8 @@ catalogs:
       specifier: 2.9.9
       version: 2.9.9
     eslint-plugin-functional:
-      specifier: 9.0.4
-      version: 9.0.4
+      specifier: 9.0.5
+      version: 9.0.5
     eslint-plugin-jest-dom:
       specifier: 5.5.0
       version: 5.5.0
@@ -779,7 +779,7 @@ importers:
         version: 2.9.9(eslint@10.3.0(jiti@2.6.1)(supports-color@10.2.2))(turbo@2.9.9)
       eslint-plugin-functional:
         specifier: 'catalog:'
-        version: 9.0.4(eslint@10.3.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
+        version: 9.0.5(eslint@10.3.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       eslint-plugin-jest-dom:
         specifier: 'catalog:'
         version: 5.5.0(@testing-library/dom@10.4.1)(eslint@10.3.0(jiti@2.6.1)(supports-color@10.2.2))
@@ -6099,8 +6099,8 @@ packages:
       eslint: '>6.6.0'
       turbo: '>2.0.0'
 
-  eslint-plugin-functional@9.0.4:
-    resolution: {integrity: sha512-zm4qaoqb2r50V4WXxt0Mj92buXGMECYvMxGQ6sSb+XeJ+Eec6zCHuMY2+AWK1mqiApvUz2tCtp1P3zcEPU0huw==}
+  eslint-plugin-functional@9.0.5:
+    resolution: {integrity: sha512-RYbNpGkGu5mSN7xlezyeE7TE3S9rsliAS5FOorZoxn7126UTslcQnoVOIAOA6fMOlz6dNG3x3cd3tuzrHM6mRA==}
     engines: {node: '>=v18.18.0'}
     peerDependencies:
       eslint: ^9.0.0 || ^10.0.0
@@ -16504,7 +16504,7 @@ snapshots:
       eslint-plugin-turbo: 2.9.9(eslint@10.3.0(jiti@2.6.1)(supports-color@10.2.2))(turbo@2.9.9)
       turbo: 2.9.9
 
-  eslint-plugin-functional@9.0.4(eslint@10.3.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
+  eslint-plugin-functional@9.0.5(eslint@10.3.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3):
     dependencies:
       '@typescript-eslint/utils': 8.59.2(eslint@10.3.0(jiti@2.6.1)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3)
       deepmerge-ts: 7.1.5

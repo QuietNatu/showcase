@@ -12,9 +12,9 @@ allowBuilds:
 catalogMode: strict
 catalogPrune: true
 catalog:
-  '@analogjs/storybook-angular': 2.5.0
-  '@analogjs/vite-plugin-angular': 2.5.0
-  '@analogjs/vitest-angular': 2.5.0
+  '@analogjs/storybook-angular': 2.7.0
+  '@analogjs/vite-plugin-angular': 2.7.0
+  '@analogjs/vitest-angular': 2.7.0
   '@angular-devkit/architect': 0.2201.4
   '@angular-devkit/build-angular': 21.2.21
   '@angular-devkit/core': 21.2.21

@@ -27,6 +27,8 @@ import tanstackRouter from '@tanstack/eslint-plugin-router';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import { buildRestrictedPatterns } from './restricted-imports';
 
+// TODO: check if there are not lint warnings (sonarjs catalog issue and react version)
+
 const defaultIgnores = [
   'node_modules/',
   'dist/',
@@ -151,6 +153,7 @@ const baseConfig = defineConfig({
     'sonarjs/no-nested-functions': 'off',
     'sonarjs/no-selector-parameter': 'off',
     'sonarjs/no-unused-vars': 'off',
+    'sonarjs/no-redundant-optional': 'off',
     'sonarjs/redundant-type-aliases': 'off',
     'sonarjs/todo-tag': 'off',
 

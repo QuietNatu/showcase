@@ -101,7 +101,7 @@ catalog:
   react: 19.2.8
   react-dom: 19.2.8
   rxjs: 7.8.2
-  sass-embedded: 1.99.0
+  sass-embedded: 1.102.0
   srvx: 0.12.5
   storybook: 10.3.6
   style-dictionary: 5.5.1

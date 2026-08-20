@@ -20,7 +20,7 @@ catalog:
   '@angular-devkit/core': 21.2.9
   '@angular/animations': 21.2.20
   '@angular/build': 21.2.9
-  '@angular/cdk': 21.2.9
+  '@angular/cdk': 21.2.14
   '@angular/cli': 21.2.9
   '@angular/common': 21.2.20
   '@angular/compiler': 21.2.20

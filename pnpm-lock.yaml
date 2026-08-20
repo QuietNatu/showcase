@@ -166,8 +166,8 @@ catalogs:
       specifier: 2.1.1
       version: 2.1.1
     colorjs.io:
-      specifier: 0.6.1
-      version: 0.6.1
+      specifier: 0.7.1
+      version: 0.7.1
     cross-env:
       specifier: 10.1.0
       version: 10.1.0
@@ -919,7 +919,7 @@ importers:
         version: 6.0.5(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(less@4.4.2)(sass-embedded@1.102.0)(sass@1.102.0)(terser@5.46.2)(tsx@4.23.12)(yaml@2.8.4))
       colorjs.io:
         specifier: 'catalog:'
-        version: 0.6.1
+        version: 0.7.1
       eslint:
         specifier: 'catalog:'
         version: 10.8.1(jiti@2.6.1)(supports-color@10.2.2)

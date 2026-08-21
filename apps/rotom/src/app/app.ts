@@ -1,6 +1,6 @@
 import { ExampleCounter } from '@natu/ui-angular/components/example-counter';
 
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 
 type Recipe = {
   id: string;
@@ -10,7 +10,6 @@ type Recipe = {
 /** Renders a recipe list. */
 @Component({
   selector: 'app-recipe-list',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @for (recipe of recipes(); track recipe.id) {
       <article>{{ recipe.name }}</article>
@@ -27,7 +26,6 @@ export class RecipeList {
 @Component({
   selector: 'app-root',
   imports: [RecipeList, ExampleCounter],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.html',
 })
 export class App {

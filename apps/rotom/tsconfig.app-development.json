@@ -1,7 +1,5 @@
 {
   "extends": "./tsconfig.app.json",
-  "compilerOptions": {
-    "outDir": "./out-tsc/app-development"
-  },
+  "compilerOptions": {},
   "files": ["src/main.development.ts"]
 }

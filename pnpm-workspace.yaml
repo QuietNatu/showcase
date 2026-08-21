@@ -12,7 +12,6 @@ allowBuilds:
 catalogMode: strict
 catalogPrune: true
 catalog:
-  '@analogjs/storybook-angular': 2.7.0
   '@analogjs/vite-plugin-angular': 2.7.0
   '@analogjs/vitest-angular': 2.7.0
   '@angular-devkit/architect': 0.2201.4
@@ -43,8 +42,7 @@ catalog:
   '@playwright/test': 1.62.1
   '@storybook/addon-a11y': 10.5.10
   '@storybook/addon-docs': 10.5.10
-  '@storybook/angular': 10.5.10
-  '@storybook/builder-vite': 10.5.10
+  '@storybook/angular-vite': ^10.5.10
   '@storybook/react-vite': 10.5.10
   '@tanstack/eslint-plugin-router': 1.162.0
   '@tanstack/react-router': 1.170.29

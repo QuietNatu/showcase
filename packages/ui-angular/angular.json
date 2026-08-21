@@ -24,23 +24,21 @@
           }
         },
         "storybook": {
-          "builder": "@analogjs/storybook-angular:start-storybook",
+          "builder": "@storybook/angular-vite:start-storybook",
           "options": {
             "configDir": ".storybook",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "./.storybook"],
-            "port": 6113,
-            "experimentalZoneless": true
+            "port": 6113
           }
         },
         "build-storybook": {
-          "builder": "@analogjs/storybook-angular:build-storybook",
+          "builder": "@storybook/angular-vite:build-storybook",
           "options": {
             "configDir": ".storybook",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "./.storybook"],
-            "outputDir": "storybook-static",
-            "experimentalZoneless": true
+            "outputDir": "storybook-static"
           }
         }
       }

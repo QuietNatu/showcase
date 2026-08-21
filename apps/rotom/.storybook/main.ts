@@ -1,4 +1,4 @@
-import type { StorybookConfig } from '@analogjs/storybook-angular';
+import type { StorybookConfig } from '@storybook/angular-vite';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -14,7 +14,7 @@ const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [getAbsolutePath('@storybook/addon-a11y'), getAbsolutePath('@storybook/addon-docs')],
   framework: {
-    name: getAbsolutePath('@analogjs/storybook-angular'),
+    name: getAbsolutePath('@storybook/angular-vite'),
     options: {},
   },
 };

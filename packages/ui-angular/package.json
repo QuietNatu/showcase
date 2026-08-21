@@ -33,7 +33,6 @@
     "tslib": "catalog:"
   },
   "devDependencies": {
-    "@analogjs/storybook-angular": "catalog:",
     "@analogjs/vite-plugin-angular": "catalog:",
     "@analogjs/vitest-angular": "catalog:",
     "@angular-devkit/architect": "catalog:",
@@ -61,8 +60,7 @@
     "@playwright/test": "catalog:",
     "@storybook/addon-a11y": "catalog:",
     "@storybook/addon-docs": "catalog:",
-    "@storybook/angular": "catalog:",
-    "@storybook/builder-vite": "catalog:",
+    "@storybook/angular-vite": "catalog:",
     "@types/node": "catalog:",
     "@vitest/browser-playwright": "catalog:",
     "@vitest/coverage-v8": "catalog:",

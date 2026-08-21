@@ -1,7 +1,5 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/out-tsc"
-  },
+  "compilerOptions": {},
   "files": [],
   "references": [
     { "path": "./tsconfig.app-development.json" },

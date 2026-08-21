@@ -29,6 +29,7 @@ import { buildRestrictedPatterns } from './restricted-imports';
 
 // TODO: check if there are not lint warnings (sonarjs catalog issue and react version)
 
+// TODO: global ignores stack
 const defaultIgnores = [
   'node_modules/',
   'dist/',
@@ -53,6 +54,9 @@ const defaultIgnores = [
   'lighthouserc.*js',
   '**/*.gen.ts',
 ];
+
+// TODO: split file into multiple configs
+// TODO: add package json eslint plugin
 
 const baseConfig = defineConfig({
   files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
@@ -189,6 +193,7 @@ const angularConfig = defineConfig(
           style: 'kebab-case',
         },
       ],
+      '@angular-eslint/inject-at-top': 'error',
       '@angular-eslint/prefer-on-push-component-change-detection': 'error',
       '@angular-eslint/prefer-signals': 'error',
       '@angular-eslint/prefer-standalone': 'error',

@@ -17,3 +17,5 @@ const config: StorybookConfig = {
 };
 
 export default config;
+
+// TODO downloadable font: download failed (font-family: "Montserrat" style:normal weight:100..900 stretch:100 src index:0): status=2147746065 source: http://localhost:6013/assets/fonts/Montserrat-VariableFont_wght.ttf

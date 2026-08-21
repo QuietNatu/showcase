@@ -15,7 +15,6 @@ catalog:
   '@analogjs/vite-plugin-angular': 2.7.0
   '@analogjs/vitest-angular': 2.7.0
   '@angular-devkit/architect': 0.2201.5
-  '@angular-devkit/build-angular': 22.1.5
   '@angular-devkit/core': 22.1.5
   '@angular/build': 22.1.5
   '@angular/cdk': 22.1.3

@@ -10,12 +10,17 @@ function getAbsolutePath(value: string): string {
   return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
 }
 
+const storybookDir = dirname(fileURLToPath(import.meta.url));
+
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [getAbsolutePath('@storybook/addon-a11y'), getAbsolutePath('@storybook/addon-docs')],
   framework: {
     name: getAbsolutePath('@storybook/angular-vite'),
-    options: {},
+    options: {
+      compodoc: true,
+      compodocArgs: ['-e', 'json', '-d', storybookDir],
+    },
   },
 };
 

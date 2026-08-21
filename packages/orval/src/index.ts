@@ -15,9 +15,13 @@ export const commonApiOptions = {
     namingConvention: 'kebab-case',
     indexFiles: false,
     mock: {
-      type: 'msw',
-      delay: false,
-      useExamples: false,
+      generators: [
+        {
+          type: 'msw',
+          delay: false,
+          useExamples: false,
+        },
+      ],
     },
     override: {
       components: {

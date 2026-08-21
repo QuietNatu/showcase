@@ -23,23 +23,27 @@ export const Breakpoints: Story = {
 
     return (
       <table className="story-table">
-        <tr>
-          <th>Size</th>
-          <th>Description</th>
-          <th>Value</th>
-          <th>CSS variable</th>
-          <th>SCSS variable</th>
-        </tr>
-
-        {breakpoints.map(({ name, description }) => (
-          <tr key={name}>
-            <td>{name}</td>
-            <td>{description}</td>
-            <td>{style.getPropertyValue(`--natu-breakpoint-${name}`)}</td>
-            <td>--natu-breakpoint-{name}</td>
-            <td>$breakpoint-{name}</td>
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Description</th>
+            <th>Value</th>
+            <th>CSS variable</th>
+            <th>SCSS variable</th>
           </tr>
-        ))}
+        </thead>
+
+        <tbody>
+          {breakpoints.map(({ name, description }) => (
+            <tr key={name}>
+              <td>{name}</td>
+              <td>{description}</td>
+              <td>{style.getPropertyValue(`--natu-breakpoint-${name}`)}</td>
+              <td>--natu-breakpoint-{name}</td>
+              <td>$breakpoint-{name}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     );
   },

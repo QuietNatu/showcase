@@ -12,7 +12,6 @@ allowBuilds:
 catalogMode: strict
 catalogPrune: true
 catalog:
-  '@analogjs/storybook-angular': 2.7.0
   '@analogjs/vite-plugin-angular': 2.7.0
   '@analogjs/vitest-angular': 2.7.0
   '@angular-devkit/architect': 0.2201.4
@@ -41,11 +40,10 @@ catalog:
   '@msw/data': 1.1.7
   '@mswjs/http-middleware': 0.10.3
   '@playwright/test': 1.62.1
-  '@storybook/addon-a11y': 10.3.6
-  '@storybook/addon-docs': 10.3.6
-  '@storybook/angular': 10.3.6
-  '@storybook/builder-vite': 10.3.6
-  '@storybook/react-vite': 10.3.6
+  '@storybook/addon-a11y': 10.5.10
+  '@storybook/addon-docs': 10.5.10
+  '@storybook/angular-vite': ^10.5.10
+  '@storybook/react-vite': 10.5.10
   '@tanstack/eslint-plugin-router': 1.162.0
   '@tanstack/react-router': 1.170.29
   '@tanstack/react-router-devtools': 1.167.1
@@ -83,7 +81,7 @@ catalog:
   eslint-plugin-security: 4.0.1
   eslint-plugin-simple-import-sort: 13.0.0
   eslint-plugin-sonarjs: 4.2.0
-  eslint-plugin-storybook: 10.5.8
+  eslint-plugin-storybook: 10.5.10
   eslint-plugin-unicorn: 64.0.0
   eslint-plugin-unused-imports: 4.4.1
   express: 5.2.1
@@ -103,7 +101,7 @@ catalog:
   rxjs: 7.8.2
   sass-embedded: 1.102.0
   srvx: 0.12.5
-  storybook: 10.3.6
+  storybook: 10.5.10
   style-dictionary: 5.5.1
   stylelint: 17.14.1
   stylelint-config-css-modules: 4.6.0

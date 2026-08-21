@@ -3,9 +3,9 @@ import './styles.scss';
 import { axeRules } from '@natu/axe';
 import { createThemeGlobalType, withTheme } from '@natu/stories';
 
-import { applicationConfig, type Preview } from '@analogjs/storybook-angular';
 import type { A11yParameters } from '@storybook/addon-a11y';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
+import { applicationConfig, type Preview } from '@storybook/angular-vite';
 
 import docJson from './documentation.json';
 

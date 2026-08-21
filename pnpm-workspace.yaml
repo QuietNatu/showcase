@@ -94,7 +94,7 @@ catalog:
   lint-staged: 17.3.0
   modern-normalize: 3.0.1
   msw: 2.15.0
-  orval: 8.9.1
+  orval: 8.24.0
   picocolors: 1.1.1
   playwright: 1.62.1
   prettier: 3.9.6

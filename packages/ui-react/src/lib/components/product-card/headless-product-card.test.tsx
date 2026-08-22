@@ -50,7 +50,8 @@ test('product link is labelled by the product heading', async () => {
   const link = page.getByRole('link', { name: 'Example headline' });
   const heading = page.getByRole('heading', { name: 'Example headline' });
 
-  const headingId = await heading.findElement().then(({ id }) => id);
+  const headingElement = await heading.findElement();
+  const headingId = headingElement.id;
 
   await expect.element(link).toHaveAttribute('aria-labelledby', headingId);
 });

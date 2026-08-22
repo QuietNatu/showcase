@@ -17,7 +17,7 @@ export default mergeConfig(
     ],
 
     test: {
-      globals: true, // TODO: set to false once Analog supports it
+      globals: false,
       css: false,
       restoreMocks: true,
       unstubEnvs: true,

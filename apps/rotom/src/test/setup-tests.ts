@@ -9,7 +9,6 @@ import { afterAll, afterEach, beforeAll } from 'vitest';
 
 import { mockWorker } from '../mocks/api/browser';
 
-// Configure Angular TestBed immediately so it's ready before any test imports
 // eslint-disable-next-line vitest/require-hook -- setup breaks if done inside vitest hooks
 setupTestBed({
   browserMode: true,

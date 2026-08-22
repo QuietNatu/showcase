@@ -24,6 +24,7 @@
     "eslint-plugin-jest-dom": "catalog:",
     "eslint-plugin-jsdoc": "catalog:",
     "eslint-plugin-jsx-a11y": "catalog:",
+    "eslint-plugin-package-json": "catalog:",
     "eslint-plugin-playwright": "catalog:",
     "eslint-plugin-promise": "catalog:",
     "eslint-plugin-react": "catalog:",

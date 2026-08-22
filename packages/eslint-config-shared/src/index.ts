@@ -26,6 +26,7 @@ import promise from 'eslint-plugin-promise';
 import tanstackRouter from '@tanstack/eslint-plugin-router';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import { buildRestrictedPatterns } from './restricted-imports';
+import packageJson from 'eslint-plugin-package-json';
 
 // TODO: check if there are not lint warnings (sonarjs catalog issue and react version)
 
@@ -58,119 +59,130 @@ const defaultIgnores = [
 // TODO: split file into multiple configs
 // TODO: add package json eslint plugin
 
-const baseConfig = defineConfig({
-  files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
-  extends: [
-    js.configs.recommended,
-    tseslint.configs.strictTypeChecked,
-    tseslint.configs.stylisticTypeChecked,
-    turboConfig,
-    functional.configs.recommended,
-    functional.configs.stylistic,
-    jsdoc({ config: 'flat/recommended-typescript' }),
-    comments.recommended,
-    promise.configs['flat/recommended'],
-    security.configs.recommended as Config,
-    sonarjs.configs?.recommended as Config,
-    unicorn.configs.unopinionated,
-  ],
-  plugins: {
-    'simple-import-sort': simpleImportSort,
-    'unused-imports': unusedImports,
+const baseConfig = defineConfig(
+  {
+    files: ['package.json'],
+    extends: [packageJson.configs.recommended, packageJson.configs.stylistic],
+    settings: {
+      packageJson: {
+        enforceForPrivate: false,
+      },
+    },
   },
-  rules: {
-    'no-console': 'warn',
-
-    '@eslint-community/eslint-comments/require-description': [
-      'error',
-      { ignore: ['eslint-enable'] },
+  {
+    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    extends: [
+      js.configs.recommended,
+      tseslint.configs.strictTypeChecked,
+      tseslint.configs.stylisticTypeChecked,
+      turboConfig,
+      functional.configs.recommended,
+      functional.configs.stylistic,
+      jsdoc({ config: 'flat/recommended-typescript' }),
+      comments.recommended,
+      promise.configs['flat/recommended'],
+      security.configs.recommended as Config,
+      sonarjs.configs?.recommended as Config,
+      unicorn.configs.unopinionated,
     ],
+    plugins: {
+      'simple-import-sort': simpleImportSort,
+      'unused-imports': unusedImports,
+    },
+    rules: {
+      'no-console': 'warn',
 
-    '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-    '@typescript-eslint/consistent-type-imports': 'error',
-    '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
-    '@typescript-eslint/no-non-null-assertion': 'warn',
-    '@typescript-eslint/no-unsafe-member-access': 'off',
-    '@typescript-eslint/no-unused-vars': 'off',
-    '@typescript-eslint/prefer-readonly': 'error',
-    '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
-    '@typescript-eslint/switch-exhaustiveness-check': 'error',
+      '@eslint-community/eslint-comments/require-description': [
+        'error',
+        { ignore: ['eslint-enable'] },
+      ],
 
-    'functional/functional-parameters': [
-      'error',
-      { allowRestParameter: true, enforceParameterCount: false },
-    ],
-    'functional/no-expression-statements': 'off',
-    'functional/no-conditional-statements': 'off',
-    'functional/no-return-void': 'off',
-    'functional/no-mixed-types': 'off',
-    'functional/prefer-immutable-types': 'off',
-    'functional/prefer-tacit': 'off',
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
+      '@typescript-eslint/no-non-null-assertion': 'warn',
+      '@typescript-eslint/no-unsafe-member-access': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/prefer-readonly': 'error',
+      '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
+      '@typescript-eslint/switch-exhaustiveness-check': 'error',
 
-    'jsdoc/require-jsdoc': [
-      'error',
-      {
-        publicOnly: true,
-        checkConstructors: false,
-        require: {
-          ArrowFunctionExpression: true,
-          ClassDeclaration: true,
-          ClassExpression: true,
-          FunctionDeclaration: true,
-          FunctionExpression: true,
-          MethodDefinition: false,
+      'functional/functional-parameters': [
+        'error',
+        { allowRestParameter: true, enforceParameterCount: false },
+      ],
+      'functional/no-expression-statements': 'off',
+      'functional/no-conditional-statements': 'off',
+      'functional/no-return-void': 'off',
+      'functional/no-mixed-types': 'off',
+      'functional/prefer-immutable-types': 'off',
+      'functional/prefer-tacit': 'off',
+
+      'jsdoc/require-jsdoc': [
+        'error',
+        {
+          publicOnly: true,
+          checkConstructors: false,
+          require: {
+            ArrowFunctionExpression: true,
+            ClassDeclaration: true,
+            ClassExpression: true,
+            FunctionDeclaration: true,
+            FunctionExpression: true,
+            MethodDefinition: false,
+          },
         },
-      },
-    ],
-    'jsdoc/require-param': 'off',
-    'jsdoc/require-returns': 'off',
+      ],
+      'jsdoc/require-param': 'off',
+      'jsdoc/require-returns': 'off',
 
-    'simple-import-sort/imports': [
-      'error',
-      {
-        groups: [
-          // Side effect imports
-          ['^\\u0000'],
-          // Node.js builtins prefixed with `node:`
-          ['^node:'],
-          // Packages
-          // Internal monorepo packages
-          ['^@natu/'],
-          // Things that start with a letter (or digit or underscore), or `@` followed by a letter
-          ['^@?\\w'],
-          // Absolute imports and other imports such as Vue-style `@/foo`
-          // Anything not matched in another group
-          ['^'],
-          // Relative imports
-          // Anything that starts with a dot
-          ['^\\.'],
-        ],
-      },
-    ],
-    'simple-import-sort/exports': 'error',
+      'simple-import-sort/imports': [
+        'error',
+        {
+          groups: [
+            // Side effect imports
+            ['^\\u0000'],
+            // Node.js builtins prefixed with `node:`
+            ['^node:'],
+            // Packages
+            // Internal monorepo packages
+            ['^@natu/'],
+            // Things that start with a letter (or digit or underscore), or `@` followed by a letter
+            ['^@?\\w'],
+            // Absolute imports and other imports such as Vue-style `@/foo`
+            // Anything not matched in another group
+            ['^'],
+            // Relative imports
+            // Anything that starts with a dot
+            ['^\\.'],
+          ],
+        },
+      ],
+      'simple-import-sort/exports': 'error',
 
-    'sonarjs/deprecation': 'off',
-    'sonarjs/function-return-type': 'off',
-    'sonarjs/prefer-function-type': 'off',
-    'sonarjs/prefer-nullish-coalescing': 'off',
-    'sonarjs/prefer-read-only-props': 'off',
-    'sonarjs/no-nested-functions': 'off',
-    'sonarjs/no-selector-parameter': 'off',
-    'sonarjs/no-unused-vars': 'off',
-    'sonarjs/no-redundant-optional': 'off',
-    'sonarjs/redundant-type-aliases': 'off',
-    'sonarjs/todo-tag': 'off',
+      'sonarjs/deprecation': 'off',
+      'sonarjs/function-return-type': 'off',
+      'sonarjs/prefer-function-type': 'off',
+      'sonarjs/prefer-nullish-coalescing': 'off',
+      'sonarjs/prefer-read-only-props': 'off',
+      'sonarjs/no-nested-functions': 'off',
+      'sonarjs/no-selector-parameter': 'off',
+      'sonarjs/no-unused-vars': 'off',
+      'sonarjs/no-redundant-optional': 'off',
+      'sonarjs/redundant-type-aliases': 'off',
+      'sonarjs/todo-tag': 'off',
 
-    'unicorn/prefer-early-return': ['error', { maximumStatements: 3 }],
-    'unicorn/prefer-top-level-await': 'off',
-    'unicorn/no-useless-undefined': 'off',
+      'unicorn/prefer-early-return': ['error', { maximumStatements: 3 }],
+      'unicorn/prefer-top-level-await': 'off',
+      'unicorn/no-useless-undefined': 'off',
 
-    'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-imports': 'error',
+    },
+    languageOptions: {
+      globals: globals.browser,
+    },
   },
-  languageOptions: {
-    globals: globals.browser,
-  },
-});
+);
 
 const angularConfig = defineConfig(
   {

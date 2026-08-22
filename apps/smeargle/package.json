@@ -1,8 +1,8 @@
 {
   "name": "smeargle",
+  "version": "0.0.0",
   "private": true,
   "license": "MIT",
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "build": "vite build && tsc --noEmit",
@@ -16,9 +16,9 @@
     "storybook:build": "storybook build",
     "storybook:preview": "vite preview --port 6003 --outDir ./storybook-static",
     "test": "vitest run --coverage",
-    "test:watch": "vitest --browser.headless=false",
     "test:integration": "playwright test --config tests/integration/playwright.config.ts",
-    "test:integration:start-mocks": "tsx ./tests/integration/src/server/server.ts"
+    "test:integration:start-mocks": "tsx ./tests/integration/src/server/server.ts",
+    "test:watch": "vitest --browser.headless=false"
   },
   "dependencies": {
     "@base-ui/react": "catalog:",

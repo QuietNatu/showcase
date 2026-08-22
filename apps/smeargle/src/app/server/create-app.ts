@@ -7,7 +7,6 @@ type Options = {
 
 /** Serves pre-built application for production. */
 export async function createServerApp(options: Options) {
-  // eslint-disable-next-line sonarjs/x-powered-by -- TODO: use 'helmet' to address security issues when dealing with hosting (import helmet from 'helmet';)
   const app = express();
 
   const nodeHandler = toNodeHandler(await getFetchHandler());

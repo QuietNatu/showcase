@@ -1,7 +1,6 @@
 import shared from '@natu/eslint-config-shared';
 
 import { defineConfig } from 'eslint/config';
-import { globalIgnores } from 'eslint/config';
 
 const sharedRestrictedPatterns = shared.utils.buildRestrictedPatterns('smeargle');
 
@@ -81,7 +80,6 @@ const routesConfig = defineConfig({
 });
 
 export default defineConfig(
-  globalIgnores(shared.defaultIgnores),
   ...shared.configs.base,
   ...shared.configs.react,
   ...shared.configs.storybook,
@@ -90,7 +88,6 @@ export default defineConfig(
   ...shared.configs.vrt,
   ...restrictedImportsConfig,
   ...routesConfig,
-  ...shared.configs.prettier,
   {
     languageOptions: {
       parserOptions: {

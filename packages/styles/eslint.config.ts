@@ -1,7 +1,6 @@
 import shared from '@natu/eslint-config-shared';
 
 import { defineConfig } from 'eslint/config';
-import { globalIgnores } from 'eslint/config';
 
 const restrictedImportsConfig = defineConfig({
   rules: {
@@ -15,13 +14,11 @@ const restrictedImportsConfig = defineConfig({
 });
 
 export default defineConfig(
-  globalIgnores(shared.defaultIgnores),
   ...shared.configs.base,
   ...shared.configs.react,
   ...shared.configs.storybook,
   ...shared.configs.vitest,
   ...restrictedImportsConfig,
-  ...shared.configs.prettier,
   {
     languageOptions: {
       parserOptions: {

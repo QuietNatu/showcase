@@ -1,36 +1,35 @@
 {
   "name": "@natu/styles",
+  "version": "0.0.0",
   "private": true,
   "license": "MIT",
-  "version": "0.0.0",
-  "type": "module",
   "sideEffects": false,
+  "type": "module",
   "exports": {
-    "./package.json": "./package.json",
     "./assets/*": "./src/assets/*",
-    "./stylesheets/utils": {
-      "sass": "./src/stylesheets/utils/_index.scss"
-    },
     "./stylesheets/styles": {
       "sass": "./dist/stylesheets/styles.scss"
-    },
-    "./stylesheets/tokens/rotom-dark": {
-      "sass": "./dist/tokens/_rotom-dark.scss"
     },
     "./stylesheets/tokens/rotom": {
       "sass": "./dist/tokens/_rotom.scss"
     },
-    "./stylesheets/tokens/smeargle-dark": {
-      "sass": "./dist/tokens/_smeargle-dark.scss"
+    "./stylesheets/tokens/rotom-dark": {
+      "sass": "./dist/tokens/_rotom-dark.scss"
     },
     "./stylesheets/tokens/smeargle": {
       "sass": "./dist/tokens/_smeargle.scss"
+    },
+    "./stylesheets/tokens/smeargle-dark": {
+      "sass": "./dist/tokens/_smeargle-dark.scss"
+    },
+    "./stylesheets/utils": {
+      "sass": "./src/stylesheets/utils/_index.scss"
     }
   },
   "scripts": {
     "build": "pnpm build:tokens && pnpm build:stylesheets",
-    "build:tokens": "tsx ./src/build-tokens.ts",
     "build:stylesheets": "sass --pkg-importer=node ./src/stylesheets/styles.scss ./dist/stylesheets/styles.scss",
+    "build:tokens": "tsx ./src/build-tokens.ts",
     "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "storybook": "storybook dev -p 6900",
     "storybook:build": "storybook build",

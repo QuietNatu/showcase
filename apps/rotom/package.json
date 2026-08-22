@@ -1,8 +1,8 @@
 {
   "name": "rotom",
+  "version": "0.0.0",
   "private": true,
   "license": "MIT",
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "build": "ng build",

@@ -161,6 +161,7 @@ const baseConfig = defineConfig({
     'sonarjs/redundant-type-aliases': 'off',
     'sonarjs/todo-tag': 'off',
 
+    'unicorn/prefer-early-return': ['error', { maximumStatements: 3 }],
     'unicorn/prefer-top-level-await': 'off',
     'unicorn/no-useless-undefined': 'off',
 

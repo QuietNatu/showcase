@@ -43,7 +43,7 @@ describe.each(themes)('$name', (theme) => {
     '"%s" main color meets WCAG minimum contrast of 7:1 with text color',
     (colorName) => {
       const wcagMininumContrast = 7;
-      const style = globalThis.getComputedStyle(document.documentElement);
+      const style = getComputedStyle(document.documentElement);
 
       const textColor = new Color(style.getPropertyValue(`--${theme.textColor}`));
       const backgroundColor = new Color(
@@ -55,10 +55,9 @@ describe.each(themes)('$name', (theme) => {
   );
 
   test('colors are in sRGB gamut', () => {
-    const style = globalThis.getComputedStyle(document.documentElement);
+    const style = getComputedStyle(document.documentElement);
 
-    const result = Array.from({ length: style.length })
-      .map((_, index) => style[index])
+    const result = Array.from({ length: style.length }, (_, index) => style[index])
       .filter((name): name is string => Boolean(name?.startsWith(`--${prefix}-color-`)))
       .map((name) => {
         const color = new Color(style.getPropertyValue(name));

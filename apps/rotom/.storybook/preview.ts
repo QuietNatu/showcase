@@ -10,6 +10,7 @@ import { applicationConfig, type Preview } from '@storybook/angular-vite';
 
 import docJson from './documentation.json';
 
+// eslint-disable-next-line unicorn/no-top-level-side-effects -- this is according to the docs
 setCompodocJson(docJson);
 
 const preview: Preview = {

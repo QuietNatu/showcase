@@ -82,7 +82,7 @@ catalog:
   eslint-plugin-unused-imports: 4.4.1
   express: 5.2.1
   globals: 17.11.0
-  happy-dom: 20.11.2
+  happy-dom: 20.11.6
   husky: 9.1.7
   jest-axe: 11.0.0
   lint-staged: 17.3.0

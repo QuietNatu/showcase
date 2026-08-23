@@ -265,8 +265,8 @@ catalogs:
       specifier: 10.5.10
       version: 10.5.10
     style-dictionary:
-      specifier: 5.5.1
-      version: 5.5.1
+      specifier: 5.5.2
+      version: 5.5.2
     stylelint:
       specifier: 17.14.1
       version: 17.14.1
@@ -907,7 +907,7 @@ importers:
         version: 10.5.10(@types/react@19.2.18)(prettier@3.9.6)(react@19.2.8)
       style-dictionary:
         specifier: 'catalog:'
-        version: 5.5.1
+        version: 5.5.2
       tsx:
         specifier: 'catalog:'
         version: 4.23.12
@@ -7483,8 +7483,8 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
 
-  style-dictionary@5.5.1:
-    resolution: {integrity: sha512-+fwPuRKopBLNolzefOHrAtCQomJqj0HVbH0XWBwXEQR3CV+i2pkNY5yCSPPv0qNHc3ibnbuzF4Qui3tZehexIw==}
+  style-dictionary@5.5.2:
+    resolution: {integrity: sha512-OPXsfLzy+8YZrUmlgOGDmTlykL8xWLvhb70bHUvBKkPCY75eQabQsl+Jd4JO8nC/uuz/6UdikCHxagiBdUugtw==}
     engines: {node: '>=22.0.0'}
     hasBin: true
 
@@ -15150,7 +15150,7 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  style-dictionary@5.5.1:
+  style-dictionary@5.5.2:
     dependencies:
       '@bundled-es-modules/deepmerge': 4.3.2
       '@bundled-es-modules/glob': 13.0.6

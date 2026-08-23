@@ -4,7 +4,7 @@ import { Link } from '@tanstack/react-router';
 export function HomePage() {
   return (
     <>
-      <h1>Showcase</h1>
+      <h1 className="natu-fluid-heading-1">Showcase</h1>
 
       <Link to="/products">Go to products</Link>
     </>

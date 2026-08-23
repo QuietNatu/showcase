@@ -11,7 +11,7 @@ export function ProductListingPage(props: Props) {
 
   return (
     <>
-      <h1>Products</h1>
+      <h1 className="natu-fluid-heading-1">Products</h1>
       <div>Product count: {products.length}</div>
       {/* TODO: add explanation when no products were found */}
       <ProductListingGrid products={products} />

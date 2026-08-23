@@ -6,7 +6,7 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "./assets/*": "./src/assets/*",
+    "./assets/fonts/*": "./dist/assets/fonts/*",
     "./stylesheets/styles": {
       "sass": "./dist/stylesheets/styles.scss"
     },
@@ -27,7 +27,8 @@
     }
   },
   "scripts": {
-    "build": "pnpm build:tokens && pnpm build:stylesheets",
+    "build": "pnpm build:tokens && pnpm build:stylesheets && pnpm build:assets",
+    "build:assets": "shx rm -rf dist/assets && shx cp -r src/assets dist/assets",
     "build:stylesheets": "sass --pkg-importer=node ./src/stylesheets/styles.scss ./dist/stylesheets/styles.scss",
     "build:tokens": "tsx ./src/build-tokens.ts",
     "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
@@ -58,6 +59,7 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "sass-embedded": "catalog:",
+    "shx": "catalog:",
     "storybook": "catalog:",
     "style-dictionary": "catalog:",
     "tsx": "catalog:",

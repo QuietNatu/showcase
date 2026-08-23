@@ -103,6 +103,23 @@ To address this issue, large libraries should avoid exporting all modules throug
 
 ```
 
+### CSS/SCSS imports
+
+Currently the each app is importing CSS/SCSS files in 2 different ways:
+
+- `@use 'pkg:@natu/styles/stylesheets/utils';`
+- `@forward '@natu/styles/stylesheets/tokens/rotom';`
+
+This is because I still did not find a way to have IDE CSS autocomplete working correctly without the `pkg:` prefix.
+In case this is solved, the prefix can be removed.
+
+When using the `pkg:` prefix, the import is first being resolved by SASS. Without it, the import is resolved by the app's bundler. The difference is that assets (like fonts) resolved by SASS will not be properly bundled by the app.
+
+So the current logic is the following:
+
+- When importing stylesheets, do not use the prefix
+- When importing utils use the prefix
+
 ## 💭 Thoughts
 
 ### Component libraries

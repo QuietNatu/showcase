@@ -96,7 +96,7 @@ catalog:
   react-dom: 19.2.8
   rxjs: 7.8.2
   sass-embedded: 1.102.0
-  srvx: 0.12.5
+  srvx: 0.12.7
   storybook: 10.5.10
   style-dictionary: 5.5.1
   stylelint: 17.14.1

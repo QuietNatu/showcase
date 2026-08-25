@@ -7,6 +7,9 @@ export const storybookConfig = defineConfig(
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     extends: [storybook.configs['flat/recommended'] as Config],
+    rules: {
+      'unicorn/no-top-level-side-effects': 'off',
+    },
   },
   {
     files: ['src/**/*.stories.[jt]s?(x)'],

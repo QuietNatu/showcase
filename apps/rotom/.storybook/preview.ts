@@ -10,8 +10,10 @@ import { applicationConfig, type Preview } from '@storybook/angular-vite';
 
 import docJson from './documentation.json';
 
-// eslint-disable-next-line unicorn/no-top-level-side-effects -- this is according to the docs
 setCompodocJson(docJson);
+
+const seed = 84;
+faker.seed(seed);
 
 const preview: Preview = {
   parameters: {
@@ -33,7 +35,7 @@ const preview: Preview = {
     theme: createThemeGlobalType('rotom'),
   },
   beforeEach: () => {
-    faker.seed(84);
+    faker.seed(seed);
   },
   decorators: [applicationConfig({ providers: [] }), withTheme()],
 };

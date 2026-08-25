@@ -7,6 +7,9 @@ import { faker } from '@faker-js/faker';
 import type { A11yParameters } from '@storybook/addon-a11y';
 import type { Preview } from '@storybook/react-vite';
 
+const seed = 84;
+faker.seed(seed);
+
 const preview: Preview = {
   parameters: {
     a11y: { config: { rules: axeRules } } satisfies A11yParameters,
@@ -27,7 +30,7 @@ const preview: Preview = {
     theme: createThemeGlobalType('smeargle'),
   },
   beforeEach: () => {
-    faker.seed(84);
+    faker.seed(seed);
   },
   decorators: [withTheme()],
 };

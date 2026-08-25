@@ -46,6 +46,7 @@
     "@natu/orval": "workspace:^",
     "@natu/stories": "workspace:^",
     "@natu/tsconfig": "workspace:^",
+    "@natu/vrt": "workspace:*",
     "@playwright/test": "catalog:",
     "@storybook/addon-a11y": "catalog:",
     "@storybook/addon-docs": "catalog:",

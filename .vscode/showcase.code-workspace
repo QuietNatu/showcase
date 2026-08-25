@@ -52,6 +52,10 @@
       "name": "📦 ui-react",
       "path": "../packages/ui-react",
     },
+    {
+      "name": "📦 vrt",
+      "path": "../packages/vrt",
+    },
   ],
   "settings": {
     "terminal.integrated.cwd": "${workspaceFolder:🌱 root}",

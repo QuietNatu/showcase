@@ -1,0 +1,7 @@
+{
+  "extends": "@natu/tsconfig/tsconfig.vite-node.json",
+  "compilerOptions": {
+    "types": ["node"]
+  },
+  "include": ["src", "eslint.config.ts"]
+}

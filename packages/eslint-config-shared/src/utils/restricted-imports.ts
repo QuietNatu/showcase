@@ -11,6 +11,7 @@ const internalPackages = [
   '@natu/tsconfig',
   '@natu/ui-angular',
   '@natu/ui-react',
+  '@natu/vrt',
   'rotom',
   'smeargle',
 ] as const;
@@ -41,9 +42,8 @@ const packageLayers: Array<InternalPackage | InternalPackage[]> = [
   '@natu/tsconfig',
   '@natu/eslint-config-shared',
   '@natu/browserslist-config-shared',
-  '@natu/stories',
   // Specialized utils
-  ['@natu/axe', '@natu/orval', '@natu/api-contracts'],
+  ['@natu/stories', '@natu/vrt', '@natu/axe', '@natu/orval', '@natu/api-contracts'],
   // UI utils
   '@natu/styles',
   ['@natu/ui-angular', '@natu/ui-react'],

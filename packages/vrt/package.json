@@ -1,0 +1,26 @@
+{
+  "name": "@natu/vrt",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0"
+  },
+  "devDependencies": {
+    "@natu/eslint-config-shared": "workspace:*",
+    "@natu/tsconfig": "workspace:*",
+    "@playwright/test": "catalog:",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:"
+  },
+  "peerDependencies": {
+    "@playwright/test": "catalog:"
+  }
+}

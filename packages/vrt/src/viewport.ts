@@ -6,6 +6,11 @@ export const vrtViewports = {
     width: 390,
     height: 844,
   },
+  tablet: {
+    name: 'tablet',
+    width: 834,
+    height: 1112,
+  },
   laptop: {
     name: 'laptop',
     width: 1366,

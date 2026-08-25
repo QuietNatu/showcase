@@ -19,6 +19,9 @@
     "test": "vitest run --coverage",
     "test:integration": "playwright test --config tests/integration/playwright.config.ts",
     "test:integration:start-mocks": "tsx ./tests/integration/src/server/server.ts",
+    "test:vrt": "playwright test --config tests/vrt/playwright.config.ts",
+    "test:vrt:report": "playwright show-report vrt/report --port 6004",
+    "test:vrt:update": "pnpm vrt --update-snapshots",
     "test:watch": "vitest --browser.headless=false"
   },
   "dependencies": {

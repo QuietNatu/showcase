@@ -17,7 +17,8 @@
     "preview": "vite preview --outDir ./dist/browser",
     "storybook": "ng run lib:storybook",
     "storybook:build": "ng run lib:build-storybook",
-    "storybook:preview": "vite preview --port 6113 --outDir ./storybook-static",
+    "storybook:build:test": "storybook build --test",
+    "storybook:preview": "http-server -c-1 ./storybook-static --silent",
     "test": "ng test --coverage",
     "test:watch": "cross-env TEST_DEBUG=1 ng test --watch"
   },
@@ -52,6 +53,7 @@
     "@vitest/coverage-v8": "catalog:",
     "cross-env": "catalog:",
     "eslint": "catalog:",
+    "http-server": "catalog:",
     "rxjs": "catalog:",
     "sass-embedded": "catalog:",
     "storybook": "catalog:",

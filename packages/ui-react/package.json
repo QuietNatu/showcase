@@ -19,7 +19,8 @@
     "lint": "tsc --noEmit && eslint . --report-unused-disable-directives --no-warn-ignored --max-warnings 0",
     "storybook": "storybook dev -p 6013",
     "storybook:build": "storybook build",
-    "storybook:preview": "vite preview --port 6013 --outDir ./storybook-static",
+    "storybook:build:test": "storybook build --test",
+    "storybook:preview": "http-server -c-1 ./storybook-static --silent",
     "test": "vitest run --coverage",
     "test:watch": "vitest --browser.headless=false"
   },
@@ -45,6 +46,7 @@
     "cross-env": "catalog:",
     "eslint": "catalog:",
     "globals": "catalog:",
+    "http-server": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "sass-embedded": "catalog:",

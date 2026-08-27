@@ -1,23 +1,15 @@
 import type { Page, TestInfo } from '@playwright/test';
 import { expect } from '@playwright/test';
 
-import type {
-  VrtPlanSpecification,
-  VrtScenario,
-  VrtVariant,
-  VrtVariantOption,
-  VrtViewport,
-} from './types';
+import type { VrtPlanSpecification, VrtScenario, VrtVariantOption, VrtViewport } from './types';
 
-// TODO document props
-type ExpandVrtPlanOptions<TVariant> = {
-  createId: (viewport: VrtViewport, variantCombination: VrtVariantOption<TVariant>[]) => string;
-  createUrl: (viewport: VrtViewport, variantCombination: VrtVariantOption<TVariant>[]) => string;
-  viewports: VrtViewport[];
-  variants?: VrtVariant<TVariant>[];
-  threshold?: number;
-  onMount?: (page: Page) => Promise<void>;
-};
+type ExpandVrtPlanOptions<TVariant> = Required<Pick<VrtScenario<TVariant>, 'viewports'>> &
+  Pick<VrtScenario<TVariant>, 'onMount' | 'threshold' | 'variants'> & {
+    /** Creates a unique ID for the test plan */
+    createId: (viewport: VrtViewport, variantCombination: VrtVariantOption<TVariant>[]) => string;
+    /** Creates the url for the page to be tested */
+    createUrl: (viewport: VrtViewport, variantCombination: VrtVariantOption<TVariant>[]) => string;
+  };
 
 /** A single scenario can have several combinations that will translate into multiple test plans */
 export function expandVrtPlan<TVariant>(

@@ -13,7 +13,9 @@ export const defaultAppVrtVariants: VrtVariant<VariantOption>[] = [
 ];
 
 /**
+ * Creates test plans to visual regression test app components.
  *
+ * Sets default variants.
  */
 export function createAppVrtPlans(options: CreateStorybookVrtPlansOptions<VariantOption>) {
   return createStorybookVrtPlans({

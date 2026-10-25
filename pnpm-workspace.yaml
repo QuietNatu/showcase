@@ -98,7 +98,7 @@ catalog:
   sass-embedded: 1.102.0
   shx: 0.4.0
   srvx: 0.12.7
-  storybook: 10.5.10
+  storybook: 10.6.2
   style-dictionary: 5.5.2
   stylelint: 17.14.1
   stylelint-config-css-modules: 4.6.0

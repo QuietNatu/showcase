@@ -118,4 +118,4 @@ catalog:
   vitest: 4.1.11
   vitest-browser-angular: 0.5.0
   vitest-browser-react: 2.2.0
-  zod: 4.4.3
+  zod: 4.6.6
